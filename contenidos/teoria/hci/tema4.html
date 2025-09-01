@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 4: Diseño Centrado en el Usuario | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #6f42c1;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .process-step {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background: #6f42c1;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .process-step:hover {
+            border-color: #6f42c1;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(111, 66, 193, 0.15);
+        }
+        
+        .method-card {
+            border-top: 4px solid;
+            transition: transform 0.2s;
+        }
+        
+        .method-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .persona-card {
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .persona-card:hover {
+            border-color: #6f42c1;
+            box-shadow: 0 8px 24px rgba(111, 66, 193, 0.1);
+        }
+        
+        .iteration-cycle {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            border: 3px solid #6f42c1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-book me-2"></i>
+                HCI Tema 4: Diseño Centrado en el Usuario
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#filosofia">2. Filosofía UCD</a>
+                                <a class="nav-link" href="#proceso">3. Proceso UCD</a>
+                                <a class="nav-link" href="#investigacion">4. Investigación de Usuarios</a>
+                                <a class="nav-link" href="#personas">5. Personas y Scenarios</a>
+                                <a class="nav-link" href="#journey-maps">6. Journey Maps</a>
+                                <a class="nav-link" href="#design-thinking">7. Design Thinking</a>
+                                <a class="nav-link" href="#metodos">8. Métodos de Investigación</a>
+                                <a class="nav-link" href="#herramientas">9. Herramientas UCD</a>
+                                <a class="nav-link" href="#casos-estudio">10. Casos de Estudio</a>
+                                <a class="nav-link" href="#implementacion">11. Implementación</a>
+                                <a class="nav-link" href="#resumen">12. Resumen</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Diseño Centrado en el Usuario</h1>
+                    <p class="lead">Metodología que pone al usuario en el centro del proceso de diseño</p>
+                </div>
+
+                <!-- 1. Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
+                    <p>El <strong>Diseño Centrado en el Usuario (UCD - User-Centered Design)</strong> es una filosofía y metodología de diseño que sitúa las necesidades, limitaciones y contexto del usuario final en el centro de cada etapa del proceso de diseño.</p>
+                    
+                    <div class="alert alert-primary">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        <strong>Principio Fundamental:</strong> "Conoce a tu usuario, porque tú no eres tu usuario."
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>¿Por qué UCD?</h5>
+                            <ul>
+                                <li><strong>Reduce el riesgo</strong> de fallo del producto</li>
+                                <li><strong>Mejora la satisfacción</strong> del usuario</li>
+                                <li><strong>Optimiza recursos</strong> de desarrollo</li>
+                                <li><strong>Aumenta el ROI</strong> del producto</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h6><i class="bi bi-bullseye me-2"></i>Objetivo UCD</h6>
+                                    <p class="mb-0">Crear productos que sean <strong>útiles, usables y deseables</strong> para los usuarios reales.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Filosofía UCD -->
+                <section id="filosofia" class="content-section">
+                    <h2><i class="bi bi-heart me-2"></i>2. Filosofía UCD</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">Principios Fundamentales</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ol>
+                                        <li><strong>Foco temprano en usuarios y tareas</strong></li>
+                                        <li><strong>Medición empírica</strong> del uso del producto</li>
+                                        <li><strong>Diseño iterativo</strong> basado en feedback</li>
+                                        <li><strong>Equipos multidisciplinarios</strong></li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">Cambio de Mentalidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <div class="col-6">
+                                            <h6 class="text-danger">❌ Diseño Tradicional</h6>
+                                            <ul class="small text-start">
+                                                <li>Centrado en tecnología</li>
+                                                <li>Asunciones sobre usuarios</li>
+                                                <li>Diseño lineal</li>
+                                                <li>Validación al final</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6 class="text-success">✅ Diseño UCD</h6>
+                                            <ul class="small text-start">
+                                                <li>Centrado en usuarios</li>
+                                                <li>Investigación de usuarios</li>
+                                                <li>Diseño iterativo</li>
+                                                <li>Validación continua</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Proceso UCD -->
+                <section id="proceso" class="content-section">
+                    <h2><i class="bi bi-arrow-repeat me-2"></i>3. Proceso UCD</h2>
+                    
+                    <div class="text-center mb-4">
+                        <div class="iteration-cycle">
+                            <div class="text-center">
+                                <i class="bi bi-arrow-repeat display-4 text-primary"></i>
+                                <div class="small"><strong>Iterativo</strong></div>
+                            </div>
+                        </div>
+                        <p class="mt-3 text-muted">El proceso UCD es cíclico y se repite hasta lograr la solución óptima</p>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h5><i class="bi bi-1-circle me-2 text-primary"></i>1. Entender y Especificar el Contexto de Uso</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Objetivo:</strong> Identificar quiénes son los usuarios, qué quieren lograr y bajo qué condiciones usarán el producto.</p>
+                                <ul>
+                                    <li>Identificar usuarios primarios y secundarios</li>
+                                    <li>Definir tareas y objetivos principales</li>
+                                    <li>Analizar el ambiente físico y social</li>
+                                    <li>Considerar limitaciones técnicas y organizacionales</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-people display-6"></i>
+                                        <h6 class="mt-2">Investigación</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h5><i class="bi bi-2-circle me-2 text-success"></i>2. Especificar Requisitos de Usuario</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Objetivo:</strong> Traducir las necesidades del usuario en requisitos específicos y medibles.</p>
+                                <ul>
+                                    <li>Requisitos funcionales (qué debe hacer)</li>
+                                    <li>Requisitos de usabilidad (cómo debe comportarse)</li>
+                                    <li>Requisitos de experiencia (cómo debe sentirse)</li>
+                                    <li>Métricas de éxito (cómo medir el éxito)</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-list-check display-6"></i>
+                                        <h6 class="mt-2">Requisitos</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h5><i class="bi bi-3-circle me-2 text-warning"></i>3. Producir Soluciones de Diseño</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Objetivo:</strong> Crear diseños que satisfagan los requisitos identificados.</p>
+                                <ul>
+                                    <li>Brainstorming y ideación</li>
+                                    <li>Sketching y wireframing</li>
+                                    <li>Prototipado de baja y alta fidelidad</li>
+                                    <li>Iteración basada en feedback</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-warning text-dark">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-palette display-6"></i>
+                                        <h6 class="mt-2">Diseño</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <h5><i class="bi bi-4-circle me-2 text-info"></i>4. Evaluar Diseños contra Requisitos</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p><strong>Objetivo:</strong> Verificar que los diseños cumplan con las necesidades del usuario.</p>
+                                <ul>
+                                    <li>Testing de usabilidad con usuarios reales</li>
+                                    <li>Evaluación heurística por expertos</li>
+                                    <li>Análisis de métricas de usabilidad</li>
+                                    <li>Identificación de áreas de mejora</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body text-center">
+                                        <i class="bi bi-clipboard-check display-6"></i>
+                                        <h6 class="mt-2">Evaluación</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Investigación de Usuarios -->
+                <section id="investigacion" class="content-section">
+                    <h2><i class="bi bi-search me-2"></i>4. Investigación de Usuarios</h2>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="method-card card h-100" style="border-top-color: #dc3545;">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0 text-danger"><i class="bi bi-chat-dots me-2"></i>Métodos Cualitativos</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Entrevistas en Profundidad</h6>
+                                    <p class="small">Conversaciones uno-a-uno para entender motivaciones, frustraciones y contexto.</p>
+                                    
+                                    <h6>Grupos Focales</h6>
+                                    <p class="small">Discusiones grupales moderadas para explorar percepciones y actitudes.</p>
+                                    
+                                    <h6>Observación Etnográfica</h6>
+                                    <p class="small">Observar usuarios en su entorno natural de trabajo.</p>
+                                    
+                                    <h6>Diary Studies</h6>
+                                    <p class="small">Usuarios documentan su experiencia a lo largo del tiempo.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="method-card card h-100" style="border-top-color: #198754;">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0 text-success"><i class="bi bi-graph-up me-2"></i>Métodos Cuantitativos</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Encuestas</h6>
+                                    <p class="small">Recopilación de datos de gran número de usuarios para identificar patrones.</p>
+                                    
+                                    <h6>Analytics</h6>
+                                    <p class="small">Análisis de comportamiento real del usuario en el sistema existente.</p>
+                                    
+                                    <h6>A/B Testing</h6>
+                                    <p class="small">Comparación estadística entre diferentes versiones del diseño.</p>
+                                    
+                                    <h6>Card Sorting</h6>
+                                    <p class="small">Método para entender cómo los usuarios organizan y categorizan información.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Personas y Scenarios -->
+                <section id="personas" class="content-section">
+                    <h2><i class="bi bi-person-badge me-2"></i>5. Personas y Scenarios</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <h5>¿Qué son las Personas?</h5>
+                            <p>Las <strong>personas</strong> son arquetipos de usuarios reales, basados en investigación, que representan las necesidades, objetivos y características de grupos de usuarios.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="persona-card">
+                                <div class="card-header bg-primary text-white text-center">
+                                    <h6 class="mb-0"><i class="bi bi-person-circle me-2"></i>Ejemplo: Persona Primaria</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="text-center mb-3">
+                                        <i class="bi bi-person-fill display-1 text-primary"></i>
+                                        <h5>María González</h5>
+                                        <small class="text-muted">Profesora de secundaria, 35 años</small>
+                                    </div>
+                                    
+                                    <h6>Demografía</h6>
+                                    <ul class="small">
+                                        <li>Edad: 35 años</li>
+                                        <li>Educación: Licenciatura en Educación</li>
+                                        <li>Experiencia tecnológica: Intermedia</li>
+                                        <li>Dispositivos: Laptop, smartphone</li>
+                                    </ul>
+                                    
+                                    <h6>Objetivos</h6>
+                                    <ul class="small">
+                                        <li>Crear quizzes rápidamente para sus clases</li>
+                                        <li>Hacer seguimiento del progreso estudiantil</li>
+                                        <li>Ahorrar tiempo en corrección</li>
+                                    </ul>
+                                    
+                                    <h6>Frustraciones</h6>
+                                    <ul class="small">
+                                        <li>Herramientas muy complejas</li>
+                                        <li>Falta de tiempo para aprender</li>
+                                        <li>Interfaces poco intuitivas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-map me-2"></i>Scenarios de Uso</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Scenario 1: Creación Rápida de Quiz</h6>
+                                    <p class="small bg-light p-2 rounded">
+                                        "María tiene 15 minutos entre clases y quiere crear un quiz de 10 preguntas sobre la Guerra Civil Española para mañana. Necesita que sea rápido y que los estudiantes puedan accederlo desde sus móviles."
+                                    </p>
+                                    
+                                    <h6>Scenario 2: Revisión de Resultados</h6>
+                                    <p class="small bg-light p-2 rounded">
+                                        "Después de que 30 estudiantes completaron el quiz, María quiere ver qué preguntas fueron las más difíciles para ajustar su próxima clase."
+                                    </p>
+                                    
+                                    <h6>Criterios de Éxito</h6>
+                                    <ul class="small">
+                                        <li>Quiz creado en menos de 5 minutos</li>
+                                        <li>Acceso móvil sin problemas</li>
+                                        <li>Reportes claros y accionables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Journey Maps -->
+                <section id="journey-maps" class="content-section">
+                    <h2><i class="bi bi-map me-2"></i>6. Journey Maps</h2>
+                    
+                    <p>Los <strong>Customer Journey Maps</strong> visualizan la experiencia completa del usuario a lo largo del tiempo, identificando puntos de contacto, emociones y oportunidades de mejora.</p>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Etapa</th>
+                                    <th>Acciones</th>
+                                    <th>Pensamientos</th>
+                                    <th>Emociones</th>
+                                    <th>Oportunidades</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Descubrimiento</strong></td>
+                                    <td>Busca herramienta para crear quizzes</td>
+                                    <td>"Necesito algo simple y rápido"</td>
+                                    <td>😰 Ansiedad</td>
+                                    <td>SEO, marketing de contenidos</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Evaluación</strong></td>
+                                    <td>Compara opciones, lee reviews</td>
+                                    <td>"¿Cuál será más fácil de usar?"</td>
+                                    <td>🤔 Indecisión</td>
+                                    <td>Trial gratuito, demos claras</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Registro</strong></td>
+                                    <td>Se registra en la plataforma</td>
+                                    <td>"Espero que no sea complicado"</td>
+                                    <td>😬 Expectativa</td>
+                                    <td>Onboarding simple, progreso claro</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Primer Uso</strong></td>
+                                    <td>Crea su primer quiz</td>
+                                    <td>"¿Por dónde empiezo?"</td>
+                                    <td>😓 Confusión</td>
+                                    <td>Tutorial interactivo, templates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Uso Regular</strong></td>
+                                    <td>Usa la herramienta semanalmente</td>
+                                    <td>"Esto me ahorra mucho tiempo"</td>
+                                    <td>😊 Satisfacción</td>
+                                    <td>Funciones avanzadas, automatización</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Evangelización</strong></td>
+                                    <td>Recomienda a colegas</td>
+                                    <td>"Mis colegas deberían usar esto"</td>
+                                    <td>😍 Entusiasmo</td>
+                                    <td>Programa de referidos, comunidad</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 7. Design Thinking -->
+                <section id="design-thinking" class="content-section">
+                    <h2><i class="bi bi-lightbulb me-2"></i>7. Design Thinking</h2>
+                    
+                    <p><strong>Design Thinking</strong> es un enfoque de innovación centrado en el ser humano que integra las necesidades de las personas, las posibilidades de la tecnología y los requisitos para el éxito empresarial.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-5">
+                            <div class="text-center">
+                                <i class="bi bi-heart-fill display-1 text-danger"></i>
+                                <h5>Empatizar</h5>
+                                <p class="small">Entender profundamente a los usuarios, sus necesidades y problemas.</p>
+                                <ul class="small text-start">
+                                    <li>Entrevistas</li>
+                                    <li>Observación</li>
+                                    <li>Inmersión</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-2 text-center">
+                            <i class="bi bi-arrow-right display-4 text-muted"></i>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="text-center">
+                                <i class="bi bi-bullseye display-1 text-warning"></i>
+                                <h5>Definir</h5>
+                                <p class="small">Sintetizar observaciones en un problema central.</p>
+                                <ul class="small text-start">
+                                    <li>Point of View</li>
+                                    <li>Problem Statement</li>
+                                    <li>How Might We?</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3 mt-3">
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="bi bi-lightbulb-fill display-1 text-primary"></i>
+                                <h5>Idear</h5>
+                                <p class="small">Generar múltiples ideas creativas.</p>
+                                <ul class="small text-start">
+                                    <li>Brainstorming</li>
+                                    <li>Worst Possible Idea</li>
+                                    <li>SCAMPER</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="bi bi-hammer display-1 text-success"></i>
+                                <h5>Prototipar</h5>
+                                <p class="small">Construir versiones simples para explorar ideas.</p>
+                                <ul class="small text-start">
+                                    <li>Paper prototypes</li>
+                                    <li>Digital wireframes</li>
+                                    <li>Interactive prototypes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="bi bi-clipboard-check-fill display-1 text-info"></i>
+                                <h5>Testear</h5>
+                                <p class="small">Probar prototipos con usuarios reales.</p>
+                                <ul class="small text-start">
+                                    <li>Usability testing</li>
+                                    <li>A/B testing</li>
+                                    <li>Feedback sessions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Métodos de Investigación -->
+                <section id="metodos" class="content-section">
+                    <h2><i class="bi bi-tools me-2"></i>8. Métodos de Investigación</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Método</th>
+                                    <th>Cuándo Usar</th>
+                                    <th>Ventajas</th>
+                                    <th>Limitaciones</th>
+                                    <th>Tiempo Típico</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Entrevistas</strong></td>
+                                    <td>Explorar motivaciones profundas</td>
+                                    <td>Insights ricos, flexibles</td>
+                                    <td>No escalable, subjetivo</td>
+                                    <td>1-2 horas por entrevista</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Encuestas</strong></td>
+                                    <td>Validar hipótesis con muchos usuarios</td>
+                                    <td>Escalable, cuantificable</td>
+                                    <td>Respuestas superficiales</td>
+                                    <td>1 semana diseño + recopilación</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Usability Testing</strong></td>
+                                    <td>Evaluar diseños específicos</td>
+                                    <td>Problemas concretos, observación directa</td>
+                                    <td>Artificial, pocos participantes</td>
+                                    <td>2-3 horas preparación + testing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Card Sorting</strong></td>
+                                    <td>Diseñar arquitectura de información</td>
+                                    <td>Estructura mental del usuario</td>
+                                    <td>Solo para organización</td>
+                                    <td>1 hora por sesión</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Analytics</strong></td>
+                                    <td>Entender comportamiento actual</td>
+                                    <td>Datos reales, grandes números</td>
+                                    <td>No explica el "por qué"</td>
+                                    <td>Continuo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- 9. Herramientas UCD -->
+                <section id="herramientas" class="content-section">
+                    <h2><i class="bi bi-gear me-2"></i>9. Herramientas UCD</h2>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="card border-primary h-100">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0">Investigación</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small mb-0">
+                                        <li><strong>Typeform:</strong> Encuestas atractivas</li>
+                                        <li><strong>UserInterviews:</strong> Reclutamiento de participantes</li>
+                                        <li><strong>Dovetail:</strong> Análisis de investigación cualitativa</li>
+                                        <li><strong>Miro/Mural:</strong> Mapeo colaborativo</li>
+                                        <li><strong>OptimalSort:</strong> Card sorting online</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-success h-100">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">Personas & Journey</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small mb-0">
+                                        <li><strong>Xtensio:</strong> Templates de personas</li>
+                                        <li><strong>UXPressia:</strong> Journey maps interactivos</li>
+                                        <li><strong>Smaply:</strong> Customer journey mapping</li>
+                                        <li><strong>Canva:</strong> Personas visuales</li>
+                                        <li><strong>UserForge:</strong> Gestión de personas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-warning h-100">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0">Testing</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small mb-0">
+                                        <li><strong>Zoom:</strong> Remote testing sessions</li>
+                                        <li><strong>Loom:</strong> Screen recording</li>
+                                        <li><strong>Lookback:</strong> Live user research</li>
+                                        <li><strong>UserTesting:</strong> Unmoderated testing</li>
+                                        <li><strong>Maze:</strong> Prototype testing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Casos de Estudio -->
+                <section id="casos-estudio" class="content-section">
+                    <h2><i class="bi bi-file-earmark-text me-2"></i>10. Casos de Estudio</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Éxito: Airbnb</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Problema Inicial</h6>
+                                    <p class="small">Los usuarios no confiaban en hospedarse en casas de extraños.</p>
+                                    
+                                    <h6>Investigación UCD</h6>
+                                    <ul class="small">
+                                        <li>Entrevistas con huéspedes y anfitriones</li>
+                                        <li>Identificación de miedos y motivaciones</li>
+                                        <li>Análisis de journey maps</li>
+                                    </ul>
+                                    
+                                    <h6>Soluciones Implementadas</h6>
+                                    <ul class="small">
+                                        <li><strong>Sistema de reviews bidireccional</strong></li>
+                                        <li><strong>Verificación de identidad</strong></li>
+                                        <li><strong>Fotos profesionales gratuitas</strong></li>
+                                        <li><strong>Seguro de anfitrión</strong></li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-success small p-2">
+                                        <strong>Resultado:</strong> Confianza incrementada, crecimiento exponencial en reservas
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-lightbulb me-2"></i>Caso: Rediseño de GOV.UK</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Desafío</h6>
+                                    <p class="small">Múltiples sitios gubernamentales inconsistentes, navegación confusa, lenguaje técnico complejo.</p>
+                                    
+                                    <h6>Enfoque UCD</h6>
+                                    <ul class="small">
+                                        <li>Investigación extensiva con ciudadanos</li>
+                                        <li>Journey mapping de servicios gubernamentales</li>
+                                        <li>Personas basadas en necesidades reales</li>
+                                        <li>Testing continuo con usuarios reales</li>
+                                    </ul>
+                                    
+                                    <h6>Principios de Diseño</h6>
+                                    <ul class="small">
+                                        <li><strong>"Start with user needs"</strong></li>
+                                        <li><strong>"Do less"</strong> - Solo lo esencial</li>
+                                        <li><strong>"Design with data"</strong></li>
+                                        <li><strong>"Make things open"</strong></li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-primary small p-2">
+                                        <strong>Resultado:</strong> 75% de satisfacción de usuarios, modelo para gobiernos mundiales
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. Implementación -->
+                <section id="implementacion" class="content-section">
+                    <h2><i class="bi bi-gear-fill me-2"></i>11. Implementación</h2>
+                    
+                    <div class="alert alert-warning">
+                        <h6><i class="bi bi-exclamation-triangle me-2"></i>Desafíos Comunes en la Implementación</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Organizacionales</h6>
+                                <ul class="small">
+                                    <li>Resistencia al cambio</li>
+                                    <li>Presión de tiempo y presupuesto</li>
+                                    <li>Falta de cultura UCD</li>
+                                    <li>Silos departamentales</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Técnicos</h6>
+                                <ul class="small">
+                                    <li>Limitaciones de desarrollo</li>
+                                    <li>Legacy systems</li>
+                                    <li>Constraints de rendimiento</li>
+                                    <li>Múltiples plataformas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Estrategias de Éxito</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ol class="small">
+                                        <li><strong>Empezar pequeño:</strong> Proyecto piloto exitoso</li>
+                                        <li><strong>Conseguir champions:</strong> Defensores en la organización</li>
+                                        <li><strong>Mostrar ROI:</strong> Métricas de negocio</li>
+                                        <li><strong>Capacitar equipos:</strong> Training en métodos UCD</li>
+                                        <li><strong>Integrar en procesos:</strong> UCD como parte del workflow</li>
+                                        <li><strong>Celebrar éxitos:</strong> Hacer visible el impacto</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="bi bi-people me-2"></i>Roles en UCD</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li><strong>UX Researcher:</strong> Investigación y análisis</li>
+                                        <li><strong>UX Designer:</strong> Diseño de experiencias</li>
+                                        <li><strong>UI Designer:</strong> Diseño visual de interfaces</li>
+                                        <li><strong>Product Manager:</strong> Visión y strategy</li>
+                                        <li><strong>Developer:</strong> Implementación técnica</li>
+                                        <li><strong>QA:</strong> Testing y validación</li>
+                                        <li><strong>Stakeholders:</strong> Decisiones de negocio</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-light small p-2 mt-2">
+                                        <strong>Importante:</strong> UCD es responsabilidad de todo el equipo, no solo de UX.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. Resumen -->
+                <section id="resumen" class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen</h2>
+                    
+                    <div class="alert alert-success">
+                        <h5><i class="bi bi-lightbulb me-2"></i>Puntos Clave: Diseño Centrado en el Usuario</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Fundamentos</h6>
+                                <ul>
+                                    <li>El usuario es el centro del proceso</li>
+                                    <li>La investigación guía las decisiones</li>
+                                    <li>La iteración es fundamental</li>
+                                    <li>La validación es continua</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Beneficios</h6>
+                                <ul>
+                                    <li>Productos más exitosos</li>
+                                    <li>Menor costo de desarrollo</li>
+                                    <li>Mayor satisfacción del usuario</li>
+                                    <li>Ventaja competitiva sostenible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6><i class="bi bi-arrow-right me-2"></i>Proceso UCD en Resumen</h6>
+                            <div class="row text-center">
+                                <div class="col-3">
+                                    <i class="bi bi-search display-4 text-primary"></i>
+                                    <h6>Investigar</h6>
+                                    <small>Conocer usuarios y contexto</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-lightbulb display-4 text-success"></i>
+                                    <h6>Idear</h6>
+                                    <small>Generar soluciones creativas</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-hammer display-4 text-warning"></i>
+                                    <h6>Prototipar</h6>
+                                    <small>Construir y refinar ideas</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-clipboard-check display-4 text-info"></i>
+                                    <h6>Validar</h6>
+                                    <small>Probar con usuarios reales</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="../../../quiz-spa/index.html?theme=hci4" class="btn btn-success btn-lg">
+                            <i class="bi bi-question-circle me-2"></i>
+                            Realizar Quiz del Tema 4
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <a href="tema3.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 3: Interfaces y Usabilidad
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="tema5.html" class="btn btn-outline-primary">
+                            Tema 5: Prototipado de Interfaces
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci4" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 4">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i>
+                HCI Tema 4: Diseño Centrado en el Usuario
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

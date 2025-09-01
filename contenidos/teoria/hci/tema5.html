@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 5: Prototipado de Interfaces | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #6f42c1;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .prototype-level {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .prototype-level:hover {
+            border-color: #6f42c1;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(111, 66, 193, 0.15);
+        }
+        
+        .fidelity-card {
+            border-top: 4px solid;
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        
+        .fidelity-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .tool-category {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+        }
+        
+        .tool-category:hover {
+            border-color: #6f42c1;
+            box-shadow: 0 8px 24px rgba(111, 66, 193, 0.1);
+        }
+        
+        .methodology-flow {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .prototype-example {
+            border: 2px dashed #6c757d;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: #f8f9fa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-book me-2"></i>
+                HCI Tema 5: Prototipado de Interfaces
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#que-es-prototipado">2. ¿Qué es el Prototipado?</a>
+                                <a class="nav-link" href="#fidelidad">3. Niveles de Fidelidad</a>
+                                <a class="nav-link" href="#baja-fidelidad">4. Prototipos de Baja Fidelidad</a>
+                                <a class="nav-link" href="#alta-fidelidad">5. Prototipos de Alta Fidelidad</a>
+                                <a class="nav-link" href="#interactivos">6. Prototipos Interactivos</a>
+                                <a class="nav-link" href="#herramientas">7. Herramientas de Prototipado</a>
+                                <a class="nav-link" href="#metodologias">8. Metodologías</a>
+                                <a class="nav-link" href="#testing">9. Testing de Prototipos</a>
+                                <a class="nav-link" href="#casos-estudio">10. Casos de Estudio</a>
+                                <a class="nav-link" href="#mejores-practicas">11. Mejores Prácticas</a>
+                                <a class="nav-link" href="#resumen">12. Resumen</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Prototipado de Interfaces</h1>
+                    <p class="lead">Del concepto a la realidad: creando y validando ideas de diseño</p>
+                </div>
+
+                <!-- 1. Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
+                    <p>El <strong>prototipado</strong> es el proceso de crear versiones tempranas y simplificadas de un producto para explorar ideas, comunicar conceptos y validar diseños antes de la implementación final.</p>
+                    
+                    <div class="alert alert-primary">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        <strong>Principio Clave:</strong> "Fallar rápido y barato para tener éxito caro."
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>¿Por qué Prototipar?</h5>
+                            <ul>
+                                <li><strong>Exploración:</strong> Investigar múltiples soluciones</li>
+                                <li><strong>Comunicación:</strong> Alinear equipos y stakeholders</li>
+                                <li><strong>Validación:</strong> Probar con usuarios reales</li>
+                                <li><strong>Reducción de riesgo:</strong> Detectar problemas temprano</li>
+                                <li><strong>Ahorro de costos:</strong> Cambios baratos vs. costosos</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card bg-light">
+                                <div class="card-body">
+                                    <h6><i class="bi bi-graph-down me-2"></i>Costo de Cambios</h6>
+                                    <div class="row text-center small">
+                                        <div class="col-3">
+                                            <div class="text-success">
+                                                <i class="bi bi-pencil display-6"></i>
+                                                <div>Sketch</div>
+                                                <strong>$1</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="text-primary">
+                                                <i class="bi bi-laptop display-6"></i>
+                                                <div>Prototipo</div>
+                                                <strong>$10</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="text-warning">
+                                                <i class="bi bi-code-slash display-6"></i>
+                                                <div>Desarrollo</div>
+                                                <strong>$100</strong>
+                                            </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <div class="text-danger">
+                                                <i class="bi bi-box-seam display-6"></i>
+                                                <div>Producción</div>
+                                                <strong>$1000</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. ¿Qué es el Prototipado? -->
+                <section id="que-es-prototipado" class="content-section">
+                    <h2><i class="bi bi-question-circle me-2"></i>2. ¿Qué es el Prototipado?</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Un <strong>prototipo</strong> es una representación temprana de un producto que permite a diseñadores, desarrolladores y usuarios explorar, evaluar y comunicar ideas de diseño.</p>
+                            
+                            <h5>Características de un Buen Prototipo</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Específico:</strong> Enfocado en aspectos particulares</li>
+                                        <li><strong>Rápido:</strong> Creación ágil y económica</li>
+                                        <li><strong>Desechable:</strong> No es código de producción</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li><strong>Comunicativo:</strong> Facilita la discusión</li>
+                                        <li><strong>Testeable:</strong> Permite validación</li>
+                                        <li><strong>Evolutivo:</strong> Mejora iterativamente</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card bg-primary text-white">
+                                <div class="card-body text-center">
+                                    <i class="bi bi-arrow-clockwise display-1"></i>
+                                    <h6 class="mt-2">Ciclo de Prototipado</h6>
+                                    <small>Diseñar → Construir → Evaluar → Refinar</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Niveles de Fidelidad -->
+                <section id="fidelidad" class="content-section">
+                    <h2><i class="bi bi-layers me-2"></i>3. Niveles de Fidelidad</h2>
+                    
+                    <p>La <strong>fidelidad</strong> se refiere a qué tan cerca está el prototipo del producto final en términos de contenido, interactividad y diseño visual.</p>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="fidelity-card card" style="border-top-color: #28a745;">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-pencil me-2"></i>Baja Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="prototype-example">
+                                        <i class="bi bi-square display-4 text-muted"></i>
+                                        <div class="small">□ Wireframe básico</div>
+                                        <div class="small">Cajas y líneas</div>
+                                    </div>
+                                    
+                                    <h6>Características</h6>
+                                    <ul class="small">
+                                        <li>Sketches en papel</li>
+                                        <li>Wireframes simples</li>
+                                        <li>Sin colores ni imágenes</li>
+                                        <li>Contenido placeholder</li>
+                                    </ul>
+                                    
+                                    <h6>Cuándo Usar</h6>
+                                    <ul class="small">
+                                        <li>Exploración inicial de ideas</li>
+                                        <li>Validación de conceptos</li>
+                                        <li>Comunicación rápida</li>
+                                        <li>Brainstorming con equipos</li>
+                                    </ul>
+                                    
+                                    <div class="badge bg-success">⏱️ Minutos a horas</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="fidelity-card card" style="border-top-color: #ffc107;">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-window me-2"></i>Media Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="prototype-example">
+                                        <i class="bi bi-app display-4 text-primary"></i>
+                                        <div class="small">⚡ Wireframe digital</div>
+                                        <div class="small">Más detalle</div>
+                                    </div>
+                                    
+                                    <h6>Características</h6>
+                                    <ul class="small">
+                                        <li>Wireframes digitales</li>
+                                        <li>Algunos elementos reales</li>
+                                        <li>Tipografía definida</li>
+                                        <li>Navegación básica</li>
+                                    </ul>
+                                    
+                                    <h6>Cuándo Usar</h6>
+                                    <ul class="small">
+                                        <li>Testing de usabilidad</li>
+                                        <li>Validación de flujos</li>
+                                        <li>Presentaciones a stakeholders</li>
+                                        <li>Documentación de requisitos</li>
+                                    </ul>
+                                    
+                                    <div class="badge bg-warning text-dark">⏱️ Horas a días</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="fidelity-card card" style="border-top-color: #dc3545;">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0"><i class="bi bi-palette me-2"></i>Alta Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="prototype-example">
+                                        <i class="bi bi-phone display-4 text-danger"></i>
+                                        <div class="small">🎨 Diseño final</div>
+                                        <div class="small">Pixel perfect</div>
+                                    </div>
+                                    
+                                    <h6>Características</h6>
+                                    <ul class="small">
+                                        <li>Diseño visual completo</li>
+                                        <li>Colores y tipografía final</li>
+                                        <li>Imágenes y contenido real</li>
+                                        <li>Interacciones complejas</li>
+                                    </ul>
+                                    
+                                    <h6>Cuándo Usar</h6>
+                                    <ul class="small">
+                                        <li>Validación final de diseño</li>
+                                        <li>Handoff a desarrollo</li>
+                                        <li>Testing de detalles</li>
+                                        <li>Presentaciones ejecutivas</li>
+                                    </ul>
+                                    
+                                    <div class="badge bg-danger">⏱️ Días a semanas</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Prototipos de Baja Fidelidad -->
+                <section id="baja-fidelidad" class="content-section">
+                    <h2><i class="bi bi-pencil-square me-2"></i>4. Prototipos de Baja Fidelidad</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Paper Prototyping</h5>
+                            <p>Los prototipos en papel son la forma más rápida y económica de explorar ideas de diseño.</p>
+                            
+                            <div class="methodology-flow">
+                                <h6><i class="bi bi-1-circle me-2"></i>Materiales Necesarios</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <ul class="small">
+                                            <li>Papel blanco y de colores</li>
+                                            <li>Rotuladores y lápices</li>
+                                            <li>Post-it notes</li>
+                                            <li>Tijeras y pegamento</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <ul class="small">
+                                            <li>Plantillas de dispositivos</li>
+                                            <li>Elementos UI reutilizables</li>
+                                            <li>Marcadores transparentes</li>
+                                            <li>Cámara para documentar</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="methodology-flow">
+                                <h6><i class="bi bi-2-circle me-2"></i>Proceso de Creación</h6>
+                                <ol class="small">
+                                    <li><strong>Sketch inicial:</strong> Ideas básicas en papel</li>
+                                    <li><strong>Componentes separados:</strong> Elementos móviles (menús, overlays)</li>
+                                    <li><strong>Estados diferentes:</strong> Múltiples versiones de pantallas</li>
+                                    <li><strong>Flujo de navegación:</strong> Conexiones entre pantallas</li>
+                                    <li><strong>Testing informal:</strong> Walkthrough con equipo</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Ventajas</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li>Extremadamente rápido</li>
+                                        <li>Muy económico</li>
+                                        <li>Fácil de modificar</li>
+                                        <li>No requiere habilidades técnicas</li>
+                                        <li>Enfoque en conceptos, no detalles</li>
+                                        <li>Promueve colaboración</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="card border-warning mt-3">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Limitaciones</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li>No muestra interacciones complejas</li>
+                                        <li>Limitado para testing remoto</li>
+                                        <li>Difícil de versionar</li>
+                                        <li>No valida aspectos técnicos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Prototipos de Alta Fidelidad -->
+                <section id="alta-fidelidad" class="content-section">
+                    <h2><i class="bi bi-palette me-2"></i>5. Prototipos de Alta Fidelidad</h2>
+                    
+                    <p>Los prototipos de alta fidelidad representan el diseño final con gran detalle visual e interactivo.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-brush me-2"></i>Elementos Visuales</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Diseño Visual</h6>
+                                    <ul class="small">
+                                        <li><strong>Colores finales:</strong> Paleta de marca definida</li>
+                                        <li><strong>Tipografía real:</strong> Fuentes de producción</li>
+                                        <li><strong>Iconografía:</strong> Icons y elementos gráficos</li>
+                                        <li><strong>Imágenes:</strong> Fotografías o ilustraciones reales</li>
+                                        <li><strong>Espaciado:</strong> Margins y padding precisos</li>
+                                    </ul>
+                                    
+                                    <h6>Contenido</h6>
+                                    <ul class="small">
+                                        <li>Texto real (no Lorem Ipsum)</li>
+                                        <li>Datos representativos</li>
+                                        <li>Estados de error y éxito</li>
+                                        <li>Casos extremos (contenido largo/corto)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="bi bi-mouse me-2"></i>Interactividad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Interacciones</h6>
+                                    <ul class="small">
+                                        <li><strong>Navegación:</strong> Links y botones funcionales</li>
+                                        <li><strong>Formularios:</strong> Validaciones y feedback</li>
+                                        <li><strong>Animaciones:</strong> Transiciones y microinteracciones</li>
+                                        <li><strong>Estados:</strong> Hover, focus, active</li>
+                                        <li><strong>Responsive:</strong> Adaptación a diferentes pantallas</li>
+                                    </ul>
+                                    
+                                    <h6>Datos Dinámicos</h6>
+                                    <ul class="small">
+                                        <li>Simulación de APIs</li>
+                                        <li>Estados de carga</li>
+                                        <li>Manejo de errores</li>
+                                        <li>Flujos de usuario completos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Prototipos Interactivos -->
+                <section id="interactivos" class="content-section">
+                    <h2><i class="bi bi-lightning me-2"></i>6. Prototipos Interactivos</h2>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th>Tipo de Interacción</th>
+                                    <th>Descripción</th>
+                                    <th>Herramientas</th>
+                                    <th>Casos de Uso</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Click-through</strong></td>
+                                    <td>Navegación básica entre pantallas</td>
+                                    <td>InVision, Marvel, Figma</td>
+                                    <td>Flujos de usuario, validación de IA</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Micro-interacciones</strong></td>
+                                    <td>Animaciones y feedback visual</td>
+                                    <td>Principle, Framer, After Effects</td>
+                                    <td>Botones, transiciones, estados</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Simulación de datos</strong></td>
+                                    <td>Contenido dinámico y realista</td>
+                                    <td>Framer, ProtoPie, Axure</td>
+                                    <td>Dashboards, feeds, búsquedas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Prototipo funcional</strong></td>
+                                    <td>Código real simplificado</td>
+                                    <td>HTML/CSS/JS, React, Vue</td>
+                                    <td>Validación técnica, handoff</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <h6><i class="bi bi-lightbulb me-2"></i>Tip: Fidelidad Progresiva</h6>
+                        <p class="mb-0">Comienza con baja fidelidad y aumenta gradualmente el detalle conforme validas y refinas tu diseño.</p>
+                    </div>
+                </section>
+
+                <!-- 7. Herramientas de Prototipado -->
+                <section id="herramientas" class="content-section">
+                    <h2><i class="bi bi-tools me-2"></i>7. Herramientas de Prototipado</h2>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="tool-category">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">Baja Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-pencil me-2"></i>Balsamiq</h6>
+                                        <p class="small text-muted">Wireframes que parecen sketches. Ideal para no distraerse con detalles visuales.</p>
+                                        <span class="badge bg-success">Fácil</span>
+                                        <span class="badge bg-outline-secondary">$9/mes</span>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-vector-pen me-2"></i>POP</h6>
+                                        <p class="small text-muted">Convierte sketches en papel en prototipos interactivos móviles.</p>
+                                        <span class="badge bg-success">Muy fácil</span>
+                                        <span class="badge bg-outline-secondary">Freemium</span>
+                                    </div>
+                                    
+                                    <div>
+                                        <h6><i class="bi bi-phone me-2"></i>Marvel</h6>
+                                        <p class="small text-muted">Prototipado rápido para web y móvil con colaboración en tiempo real.</p>
+                                        <span class="badge bg-success">Fácil</span>
+                                        <span class="badge bg-outline-secondary">Freemium</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="tool-category">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0">Media-Alta Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-vector-pen me-2"></i>Figma</h6>
+                                        <p class="small text-muted">Diseño colaborativo con prototipado integrado. Estándar de la industria.</p>
+                                        <span class="badge bg-warning text-dark">Medio</span>
+                                        <span class="badge bg-outline-secondary">Freemium</span>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-app me-2"></i>Adobe XD</h6>
+                                        <p class="small text-muted">Suite de diseño con prototipado avanzado y voice prototyping.</p>
+                                        <span class="badge bg-warning text-dark">Medio</span>
+                                        <span class="badge bg-outline-secondary">$20/mes</span>
+                                    </div>
+                                    
+                                    <div>
+                                        <h6><i class="bi bi-lightning me-2"></i>InVision</h6>
+                                        <p class="small text-muted">Plataforma de prototipado con herramientas de colaboración robustas.</p>
+                                        <span class="badge bg-warning text-dark">Medio</span>
+                                        <span class="badge bg-outline-secondary">Freemium</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="tool-category">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0">Alta Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-magic me-2"></i>Framer</h6>
+                                        <p class="small text-muted">Prototipado avanzado con código real y animaciones complejas.</p>
+                                        <span class="badge bg-danger">Difícil</span>
+                                        <span class="badge bg-outline-secondary">$20/mes</span>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <h6><i class="bi bi-gear me-2"></i>ProtoPie</h6>
+                                        <p class="small text-muted">Prototipos IoT y mobile con sensores y lógica compleja.</p>
+                                        <span class="badge bg-danger">Difícil</span>
+                                        <span class="badge bg-outline-secondary">$25/mes</span>
+                                    </div>
+                                    
+                                    <div>
+                                        <h6><i class="bi bi-code-slash me-2"></i>HTML/CSS/JS</h6>
+                                        <p class="small text-muted">Código real para máxima fidelidad y validación técnica.</p>
+                                        <span class="badge bg-danger">Muy difícil</span>
+                                        <span class="badge bg-outline-secondary">Gratis</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Metodologías -->
+                <section id="metodologias" class="content-section">
+                    <h2><i class="bi bi-diagram-3 me-2"></i>8. Metodologías de Prototipado</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="prototype-level">
+                                <h5><i class="bi bi-lightning-charge me-2 text-warning"></i>Rapid Prototyping</h5>
+                                <p><strong>Filosofía:</strong> Crear prototipos rápidos para explorar múltiples ideas en poco tiempo.</p>
+                                
+                                <h6>Proceso</h6>
+                                <ol class="small">
+                                    <li><strong>Time-boxing:</strong> Límites estrictos de tiempo</li>
+                                    <li><strong>Crazy 8s:</strong> 8 ideas en 8 minutos</li>
+                                    <li><strong>Build-Measure-Learn:</strong> Ciclos rápidos</li>
+                                    <li><strong>Parallel prototyping:</strong> Múltiples versiones</li>
+                                </ol>
+                                
+                                <div class="alert alert-warning small p-2">
+                                    <strong>Ideal para:</strong> Exploración inicial, brainstorming, design sprints
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="prototype-level">
+                                <h5><i class="bi bi-arrow-repeat me-2 text-primary"></i>Iterative Prototyping</h5>
+                                <p><strong>Filosofía:</strong> Refinar gradualmente un diseño a través de múltiples iteraciones basadas en feedback.</p>
+                                
+                                <h6>Proceso</h6>
+                                <ol class="small">
+                                    <li><strong>Version 1:</strong> Concepto básico</li>
+                                    <li><strong>User testing:</strong> Recopilar feedback</li>
+                                    <li><strong>Análisis:</strong> Identificar problemas</li>
+                                    <li><strong>Refinamiento:</strong> Mejorar el diseño</li>
+                                    <li><strong>Repetir:</strong> Hasta alcanzar objetivos</li>
+                                </ol>
+                                
+                                <div class="alert alert-primary small p-2">
+                                    <strong>Ideal para:</strong> Productos complejos, optimización de UX
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6">
+                            <div class="prototype-level">
+                                <h5><i class="bi bi-people me-2 text-success"></i>Participatory Design</h5>
+                                <p><strong>Filosofía:</strong> Involucrar a usuarios finales en el proceso de creación del prototipo.</p>
+                                
+                                <h6>Técnicas</h6>
+                                <ul class="small">
+                                    <li><strong>Co-design workshops:</strong> Sesiones colaborativas</li>
+                                    <li><strong>User journey co-creation:</strong> Mapeo conjunto</li>
+                                    <li><strong>Prototype testing sessions:</strong> Evaluación participativa</li>
+                                    <li><strong>Feature prioritization:</strong> Decisiones conjuntas</li>
+                                </ul>
+                                
+                                <div class="alert alert-success small p-2">
+                                    <strong>Ideal para:</strong> Productos críticos, comunidades específicas
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="prototype-level">
+                                <h5><i class="bi bi-layers me-2 text-info"></i>Progressive Disclosure</h5>
+                                <p><strong>Filosofía:</strong> Revelar complejidad gradualmente en prototipos, empezando por lo esencial.</p>
+                                
+                                <h6>Niveles</h6>
+                                <ol class="small">
+                                    <li><strong>Core experience:</strong> Flujo principal</li>
+                                    <li><strong>Secondary features:</strong> Funciones adicionales</li>
+                                    <li><strong>Edge cases:</strong> Casos extremos</li>
+                                    <li><strong>Advanced features:</strong> Funcionalidad avanzada</li>
+                                </ol>
+                                
+                                <div class="alert alert-info small p-2">
+                                    <strong>Ideal para:</strong> Productos complejos, MVP development
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. Testing de Prototipos -->
+                <section id="testing" class="content-section">
+                    <h2><i class="bi bi-clipboard-check me-2"></i>9. Testing de Prototipos</h2>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Tipos de Testing por Fidelidad</h5>
+                            
+                            <div class="card mb-3">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0">Testing de Baja Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Qué Evaluar</h6>
+                                            <ul class="small">
+                                                <li>Flujos de navegación</li>
+                                                <li>Arquitectura de información</li>
+                                                <li>Conceptos generales</li>
+                                                <li>Priorización de contenido</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Métodos</h6>
+                                            <ul class="small">
+                                                <li>Paper prototype testing</li>
+                                                <li>Wizard of Oz</li>
+                                                <li>Cognitive walkthroughs</li>
+                                                <li>Card sorting con prototipos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0">Testing de Alta Fidelidad</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6>Qué Evaluar</h6>
+                                            <ul class="small">
+                                                <li>Usabilidad detallada</li>
+                                                <li>Microinteracciones</li>
+                                                <li>Rendimiento percibido</li>
+                                                <li>Satisfacción visual</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6>Métodos</h6>
+                                            <ul class="small">
+                                                <li>Moderated usability testing</li>
+                                                <li>A/B testing</li>
+                                                <li>Eye tracking</li>
+                                                <li>Benchmark testing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-stopwatch me-2"></i>Métricas de Testing</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Cuantitativas</h6>
+                                    <ul class="small">
+                                        <li><strong>Tiempo de tarea:</strong> Eficiencia</li>
+                                        <li><strong>Tasa de éxito:</strong> Efectividad</li>
+                                        <li><strong>Errores:</strong> Cantidad y tipo</li>
+                                        <li><strong>Clicks/taps:</strong> Eficiencia de navegación</li>
+                                    </ul>
+                                    
+                                    <h6>Cualitativas</h6>
+                                    <ul class="small">
+                                        <li><strong>SUS Score:</strong> Satisfacción general</li>
+                                        <li><strong>Feedback verbal:</strong> Comentarios directos</li>
+                                        <li><strong>Observaciones:</strong> Comportamiento no verbal</li>
+                                        <li><strong>Preferencias:</strong> Elección entre opciones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Casos de Estudio -->
+                <section id="casos-estudio" class="content-section">
+                    <h2><i class="bi bi-file-earmark-text me-2"></i>10. Casos de Estudio</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-phone me-2"></i>Instagram Stories</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Desafío</h6>
+                                    <p class="small">¿Cómo competir con Snapchat en contenido efímero?</p>
+                                    
+                                    <h6>Proceso de Prototipado</h6>
+                                    <ol class="small">
+                                        <li><strong>Paper sketches:</strong> Múltiples conceptos de interfaz</li>
+                                        <li><strong>Digital wireframes:</strong> Flujos de creación y consumo</li>
+                                        <li><strong>Interactive prototypes:</strong> Gestos de navegación</li>
+                                        <li><strong>A/B testing:</strong> Diferentes posiciones y comportamientos</li>
+                                        <li><strong>Beta testing:</strong> Lanzamiento gradual</li>
+                                    </ol>
+                                    
+                                    <h6>Innovaciones Clave</h6>
+                                    <ul class="small">
+                                        <li>Tap to advance, hold to pause</li>
+                                        <li>Integración con feed principal</li>
+                                        <li>Ring indicator para nuevas stories</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-primary small p-2">
+                                        <strong>Resultado:</strong> 500M usuarios diarios en el primer año
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-credit-card me-2"></i>Apple Pay</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Desafío</h6>
+                                    <p class="small">Crear un sistema de pagos que sea más rápido y seguro que las tarjetas físicas.</p>
+                                    
+                                    <h6>Prototipado Iterativo</h6>
+                                    <ol class="small">
+                                        <li><strong>Concept sketches:</strong> Diferentes métodos de autenticación</li>
+                                        <li><strong>Functional prototypes:</strong> Touch ID integration</li>
+                                        <li><strong>In-store testing:</strong> Prototipos en tiendas reales</li>
+                                        <li><strong>Animation prototypes:</strong> Feedback visual y háptico</li>
+                                        <li><strong>Security testing:</strong> Validación de tokenización</li>
+                                    </ol>
+                                    
+                                    <h6>Decisiones de Diseño</h6>
+                                    <ul class="small">
+                                        <li>Doble-click para activar (prevenir accidentes)</li>
+                                        <li>Feedback háptico y visual inmediato</li>
+                                        <li>Pantalla de confirmación clara</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-success small p-2">
+                                        <strong>Resultado:</strong> Adoptado por millones, estándar de la industria
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. Mejores Prácticas -->
+                <section id="mejores-practicas" class="content-section">
+                    <h2><i class="bi bi-award me-2"></i>11. Mejores Prácticas</h2>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Do's (Hacer)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li><strong>Empezar con baja fidelidad</strong> para explorar conceptos</li>
+                                        <li><strong>Prototipar el flujo completo</strong>, no solo pantallas aisladas</li>
+                                        <li><strong>Usar datos reales</strong> o representativos</li>
+                                        <li><strong>Incluir estados de error</strong> y casos extremos</li>
+                                        <li><strong>Documentar decisiones</strong> y rationale</li>
+                                        <li><strong>Hacer testing temprano</strong> y frecuente</li>
+                                        <li><strong>Iterar basado en feedback</strong> de usuarios</li>
+                                        <li><strong>Mantener prototipos simples</strong> y enfocados</li>
+                                        <li><strong>Compartir y colaborar</strong> con el equipo</li>
+                                        <li><strong>Versionar prototipos</strong> para comparar evolución</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-danger">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Don'ts (No Hacer)</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li><strong>No hacer pixel perfect</strong> en etapas tempranas</li>
+                                        <li><strong>No enamorarse del prototipo</strong> - es desechable</li>
+                                        <li><strong>No prototipar todo</strong> - ser selectivo</li>
+                                        <li><strong>No confundir prototipo con wireframe</strong></li>
+                                        <li><strong>No usar como documentación final</strong></li>
+                                        <li><strong>No saltarse la validación</strong> con usuarios</li>
+                                        <li><strong>No hacer prototipos demasiado largos</strong></li>
+                                        <li><strong>No ignorar limitaciones técnicas</strong></li>
+                                        <li><strong>No prototipar sin objetivos claros</strong></li>
+                                        <li><strong>No usar herramientas muy complejas</strong> para baja fidelidad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-4">
+                        <h6><i class="bi bi-exclamation-triangle me-2"></i>Errores Comunes en Prototipado</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Prototyping paralysis:</strong> Perfectionar infinitamente</li>
+                                    <li><strong>Feature creep:</strong> Añadir demasiadas funciones</li>
+                                    <li><strong>Wrong fidelity level:</strong> Muy detallado muy pronto</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Solo happy path:</strong> Ignorar casos de error</li>
+                                    <li><strong>Desktop bias:</strong> No considerar móvil</li>
+                                    <li><strong>No user testing:</strong> Asumir que funciona</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. Resumen -->
+                <section id="resumen" class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen</h2>
+                    
+                    <div class="alert alert-success">
+                        <h5><i class="bi bi-lightbulb me-2"></i>Puntos Clave: Prototipado de Interfaces</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Fundamentos</h6>
+                                <ul>
+                                    <li>El prototipado reduce riesgos y costos</li>
+                                    <li>La fidelidad debe progresar gradualmente</li>
+                                    <li>Testing temprano es fundamental</li>
+                                    <li>Los prototipos son herramientas de comunicación</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Proceso Ideal</h6>
+                                <ul>
+                                    <li>Sketch → Wireframe → Prototipo → Testing</li>
+                                    <li>Iterar basado en feedback real</li>
+                                    <li>Involucrar usuarios en el proceso</li>
+                                    <li>Documentar aprendizajes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h6><i class="bi bi-arrow-right me-2"></i>Flujo de Prototipado</h6>
+                            <div class="row text-center">
+                                <div class="col-3">
+                                    <i class="bi bi-pencil display-4 text-success"></i>
+                                    <h6>Sketch</h6>
+                                    <small>Ideas rápidas en papel</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-grid display-4 text-warning"></i>
+                                    <h6>Wireframe</h6>
+                                    <small>Estructura y layout</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-app-indicator display-4 text-primary"></i>
+                                    <h6>Prototipo</h6>
+                                    <small>Interactividad y flujos</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-people display-4 text-info"></i>
+                                    <h6>Testing</h6>
+                                    <small>Validación con usuarios</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="card border-info">
+                                <div class="card-body text-center">
+                                    <h6>💡 Recuerda</h6>
+                                    <p class="small mb-0">"El mejor prototipo es el que responde tu pregunta más importante con el menor esfuerzo posible."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body text-center">
+                                    <h6>🎯 Objetivo Final</h6>
+                                    <p class="small mb-0">Crear experiencias que los usuarios realmente necesiten y disfruten usar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="../../../quiz-spa/index.html?theme=hci5" class="btn btn-success btn-lg">
+                            <i class="bi bi-question-circle me-2"></i>
+                            Realizar Quiz del Tema 5
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <a href="tema4.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 4: Diseño Centrado en el Usuario
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="tema6.html" class="btn btn-outline-primary">
+                            Tema 6: Multimedia en HCI
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci5" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 5">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i>
+                HCI Tema 5: Prototipado de Interfaces
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

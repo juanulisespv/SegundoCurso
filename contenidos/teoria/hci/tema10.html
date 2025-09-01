@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 10: Interfaces para Android e iOS | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #e91e63;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .platform-comparison {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .platform-comparison:hover {
+            border-color: #e91e63;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(233, 30, 99, 0.15);
+        }
+        
+        .device-mockup {
+            border: 3px solid #6c757d;
+            border-radius: 20px;
+            padding: 1rem;
+            background: #ffffff;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .device-mockup::before {
+            content: "●";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 8px;
+            color: #6c757d;
+        }
+        
+        .android-style {
+            border-color: #4CAF50;
+            background: linear-gradient(135deg, #A5D6A7, #C8E6C9);
+        }
+        
+        .ios-style {
+            border-color: #2196F3;
+            background: linear-gradient(135deg, #BBDEFB, #E3F2FD);
+        }
+        
+        .component-demo {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #ffffff;
+        }
+        
+        .hig-principle {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .hig-principle:hover {
+            border-color: #e91e63;
+            background: #f8f9fa;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .design-pattern {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .gesture-demo {
+            border: 2px dashed #6c757d;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+            margin: 0.5rem 0;
+            transition: all 0.2s ease;
+        }
+        
+        .gesture-demo:hover {
+            border-color: #e91e63;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-book me-2"></i>
+                HCI Tema 10: Interfaces para Android e iOS
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido - Parte 1
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#ecosistemas">2. Ecosistemas Móviles</a>
+                                <a class="nav-link" href="#android-design">3. Android Design</a>
+                                <a class="nav-link" href="#ios-design">4. iOS Design</a>
+                                <a class="nav-link" href="#material-design">5. Material Design</a>
+                                <a class="nav-link" href="#hig-apple">6. Human Interface Guidelines</a>
+                                <hr class="my-2">
+                                <a class="nav-link text-primary" href="tema10-parte2.html">
+                                    <i class="bi bi-arrow-right me-1"></i>
+                                    Ir a Parte 2 (Temas 7-12)
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Interfaces para Android e iOS</h1>
+                    <p class="lead">Diseño nativo para plataformas móviles - Parte 1</p>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong>Nota:</strong> Este tema está dividido en 2 partes debido a la extensión del contenido.
+                    </div>
+                </div>
+
+                <!-- 1. Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
+                    
+                    <p>El diseño de <strong>interfaces móviles nativas</strong> para Android e iOS requiere comprensión profunda de las convenciones, patrones y filosofías únicas de cada plataforma. Cada sistema operativo móvil ha desarrollado su propio lenguaje de diseño, principios de interacción y expectativas de usuario.</p>
+                    
+                    <div class="alert alert-primary">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        <strong>Concepto Central:</strong> "Diseñar para la plataforma, no contra ella. Los usuarios esperan que las apps se sientan nativas a su dispositivo."
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-android me-2"></i>Android Philosophy</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Principios Fundamentales</h6>
+                                    <ul class="small">
+                                        <li><strong>Enchant me:</strong> Belleza, simplicidad y poder en harmonía</li>
+                                        <li><strong>Simplify my life:</strong> Interfaces que simplifican tareas complejas</li>
+                                        <li><strong>Make me amazing:</strong> Empoderar usuarios para lograr más</li>
+                                    </ul>
+                                    
+                                    <h6>Características Distintivas</h6>
+                                    <ul class="small">
+                                        <li><strong>Customización:</strong> Usuarios pueden personalizar profundamente</li>
+                                        <li><strong>Diversidad:</strong> Múltiples OEMs, tamaños, especificaciones</li>
+                                        <li><strong>Openness:</strong> Sistema abierto, múltiples entry points</li>
+                                        <li><strong>Integration:</strong> Servicios Google profundamente integrados</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-apple me-2"></i>iOS Philosophy</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Principios Fundamentales</h6>
+                                    <ul class="small">
+                                        <li><strong>Clarity:</strong> Texto legible, iconos precisos, funcionalidad evidente</li>
+                                        <li><strong>Deference:</strong> UI fluido que no compite con contenido</li>
+                                        <li><strong>Depth:</strong> Capas visuales que imitan objetos reales</li>
+                                    </ul>
+                                    
+                                    <h6>Características Distintivas</h6>
+                                    <ul class="small">
+                                        <li><strong>Consistencia:</strong> Experiencia unificada en todos los dispositivos</li>
+                                        <li><strong>Simplicity:</strong> Enfoque en funcionalidad esencial</li>
+                                        <li><strong>Quality:</strong> Estándares altos de fit and finish</li>
+                                        <li><strong>Innovation:</strong> Pionero en gestos y interacciones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <h6><i class="bi bi-exclamation-triangle me-2"></i>Importancia del Diseño Nativo</h6>
+                        <p class="small mb-0">Las aplicaciones que siguen las convenciones de cada plataforma tienen <strong>67% mayor</strong> probabilidad de ser bien valoradas por usuarios y <strong>40% mejor</strong> retención que apps que usan patrones cross-platform genéricos.</p>
+                    </div>
+                </section>
+
+                <!-- 2. Ecosistemas Móviles -->
+                <section id="ecosistemas" class="content-section">
+                    <h2><i class="bi bi-globe me-2"></i>2. Ecosistemas Móviles</h2>
+                    
+                    <p>Comprender los <strong>ecosistemas móviles</strong> es fundamental para diseñar interfaces efectivas. Cada plataforma tiene su propia cultura de usuario, patrones de interacción y expectativas tecnológicas.</p>
+                    
+                    <div class="platform-comparison">
+                        <h5><i class="bi bi-bar-chart me-2 text-primary"></i>Comparación de Ecosistemas 2025</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="android-style device-mockup">
+                                    <h6><i class="bi bi-android me-2"></i>Android Ecosystem</h6>
+                                    <div class="row text-start">
+                                        <div class="col-6">
+                                            <strong>Market Share Global:</strong><br>
+                                            <span class="h4 text-success">70.8%</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Dispositivos Activos:</strong><br>
+                                            <span class="h4 text-success">3B+</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <h6 class="mt-3">Características del Usuario</h6>
+                                    <ul class="small text-start">
+                                        <li><strong>Diversidad económica:</strong> Desde high-end hasta entry-level</li>
+                                        <li><strong>Customización:</strong> Esperan poder personalizar widgets, launchers</li>
+                                        <li><strong>Multitasking:</strong> Uso intensivo de multiple apps simultáneas</li>
+                                        <li><strong>File management:</strong> Acceso directo al sistema de archivos</li>
+                                        <li><strong>Hardware variety:</strong> Múltiples fabricantes, specs variadas</li>
+                                    </ul>
+                                    
+                                    <h6>Patrones de Uso</h6>
+                                    <ul class="small text-start">
+                                        <li>Back button navigation como estándar</li>
+                                        <li>Widgets en home screen para quick actions</li>
+                                        <li>Share intents entre apps muy común</li>
+                                        <li>Notification management más granular</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="ios-style device-mockup">
+                                    <h6><i class="bi bi-apple me-2"></i>iOS Ecosystem</h6>
+                                    <div class="row text-start">
+                                        <div class="col-6">
+                                            <strong>Market Share Global:</strong><br>
+                                            <span class="h4 text-primary">28.4%</span>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Revenue Share:</strong><br>
+                                            <span class="h4 text-primary">66%</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <h6 class="mt-3">Características del Usuario</h6>
+                                    <ul class="small text-start">
+                                        <li><strong>Premium segment:</strong> Mayor poder adquisitivo promedio</li>
+                                        <li><strong>Ecosystem loyalty:</strong> Usan múltiples productos Apple</li>
+                                        <li><strong>Simplicity expectation:</strong> Valoran la facilidad de uso</li>
+                                        <li><strong>Privacy conscious:</strong> Conscientes de privacidad y datos</li>
+                                        <li><strong>Quality focused:</strong> Expectativas altas de polish</li>
+                                    </ul>
+                                    
+                                    <h6>Patrones de Uso</h6>
+                                    <ul class="small text-start">
+                                        <li>Gesture navigation (swipe back) predominante</li>
+                                        <li>Control Center y Notification Center established</li>
+                                        <li>Siri Shortcuts y App Clips integration</li>
+                                        <li>iCloud sync expected entre dispositivos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Factores Diferenciadores Técnicos</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Aspecto</th>
+                                            <th>Android</th>
+                                            <th>iOS</th>
+                                            <th>Implicaciones de Diseño</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Hardware Diversity</strong></td>
+                                            <td>Miles de dispositivos diferentes</td>
+                                            <td>~15 modelos activos</td>
+                                            <td>Android: flexible layouts; iOS: optimización específica</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Screen Sizes</strong></td>
+                                            <td>4" - 7"+ (tablets hasta 12")</td>
+                                            <td>4.7" - 6.7" (iPad hasta 12.9")</td>
+                                            <td>Android: adaptive UI; iOS: size classes</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Performance Range</strong></td>
+                                            <td>Entry-level a flagship</td>
+                                            <td>Uniformemente high-performance</td>
+                                            <td>Android: progressive enhancement; iOS: rich interactions</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>OS Updates</strong></td>
+                                            <td>Fragmentación significativa</td>
+                                            <td>Adopción rápida (~85% latest)</td>
+                                            <td>Android: backward compatibility; iOS: latest features</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Input Methods</strong></td>
+                                            <td>Touch + hardware keys + stylus</td>
+                                            <td>Primarily touch + Apple Pencil</td>
+                                            <td>Android: multiple interaction modes; iOS: touch-optimized</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Android Design -->
+                <section id="android-design" class="content-section">
+                    <h2><i class="bi bi-android me-2"></i>3. Android Design Fundamentals</h2>
+                    
+                    <p>El diseño para Android se basa en <strong>Material Design</strong>, pero también incluye principios únicos de flexibilidad, customización y diversidad de hardware que definen la experiencia Android.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Architecture de App Android</h5>
+                            
+                            <div class="component-demo">
+                                <h6><i class="bi bi-layers me-2 text-success"></i>Estructura Típica de Pantalla Android</h6>
+                                
+                                <div class="device-mockup android-style">
+                                    <div class="bg-success text-white p-2 mb-2 rounded">
+                                        <strong>Status Bar</strong> - Notificaciones, hora, batería
+                                    </div>
+                                    <div class="bg-primary text-white p-2 mb-2 rounded">
+                                        <strong>App Bar / Toolbar</strong> - Título, acciones, navegación
+                                    </div>
+                                    <div class="border p-3 mb-2 bg-light">
+                                        <strong>Content Area</strong><br>
+                                        <small>• Fragments para diferentes secciones</small><br>
+                                        <small>• RecyclerView para listas</small><br>
+                                        <small>• ViewPager para tabs</small><br>
+                                        <small>• FAB para acción principal</small>
+                                    </div>
+                                    <div class="bg-dark text-white p-2 rounded">
+                                        <strong>Navigation Bar</strong> - Back, Home, Recent Apps
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h6>Patrones de Navegación Android</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="design-pattern">
+                                        <h6><i class="bi bi-arrow-left-circle me-2"></i>Back Navigation</h6>
+                                        <ul class="small">
+                                            <li><strong>Hardware back button:</strong> Universal en Android</li>
+                                            <li><strong>Up navigation:</strong> Dentro de la app hierarchy</li>
+                                            <li><strong>Predictive back:</strong> Preview del destino (Android 13+)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="design-pattern">
+                                        <h6><i class="bi bi-list me-2"></i>Navigation Drawer</h6>
+                                        <ul class="small">
+                                            <li><strong>Hamburger menu:</strong> Acceso a secciones principales</li>
+                                            <li><strong>Account switching:</strong> Múltiples cuentas</li>
+                                            <li><strong>Settings access:</strong> Configuración rápida</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-gear me-2"></i>Android Considerations</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Hardware Variations</h6>
+                                    <ul class="small">
+                                        <li><strong>Screen densities:</strong> LDPI a XXXHDPI</li>
+                                        <li><strong>Aspect ratios:</strong> 16:9, 18:9, 19.5:9, 21:9</li>
+                                        <li><strong>Physical controls:</strong> Capacitive vs hardware buttons</li>
+                                        <li><strong>Notches/cutouts:</strong> Variedad de implementaciones</li>
+                                    </ul>
+                                    
+                                    <h6>Performance Considerations</h6>
+                                    <ul class="small">
+                                        <li><strong>Memory management:</strong> Automatic lifecycle</li>
+                                        <li><strong>Battery optimization:</strong> Doze mode, app standby</li>
+                                        <li><strong>Network awareness:</strong> Metered connections</li>
+                                    </ul>
+                                    
+                                    <h6>Accessibility Features</h6>
+                                    <ul class="small">
+                                        <li><strong>TalkBack:</strong> Screen reader integrado</li>
+                                        <li><strong>Switch Access:</strong> Para usuarios con discapacidades motoras</li>
+                                        <li><strong>Magnification:</strong> Zoom gestures</li>
+                                        <li><strong>High contrast:</strong> Mejores para low vision</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. iOS Design -->
+                <section id="ios-design" class="content-section">
+                    <h2><i class="bi bi-apple me-2"></i>4. iOS Design Fundamentals</h2>
+                    
+                    <p>iOS design se centra en <strong>claridad, elegancia y familiaridad</strong>. Apple ha desarrollado un lenguaje de diseño que prioriza la facilidad de uso y la experiencia sensorial directa.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>iOS Interface Architecture</h5>
+                            
+                            <div class="component-demo">
+                                <h6><i class="bi bi-layers me-2 text-primary"></i>Estructura Típica de Pantalla iOS</h6>
+                                
+                                <div class="device-mockup ios-style">
+                                    <div class="bg-dark text-white p-2 mb-2 rounded">
+                                        <strong>Status Bar</strong> - Dynamic Island, time, battery
+                                    </div>
+                                    <div class="bg-primary text-white p-2 mb-2 rounded">
+                                        <strong>Navigation Bar</strong> - Título, back button, action buttons
+                                    </div>
+                                    <div class="border p-3 mb-2 bg-light">
+                                        <strong>Content Area</strong><br>
+                                        <small>• Table Views para contenido estructurado</small><br>
+                                        <small>• Collection Views para grids</small><br>
+                                        <small>• Scroll Views para contenido largo</small><br>
+                                        <small>• Modal presentations para tareas enfocadas</small>
+                                    </div>
+                                    <div class="bg-light border p-2 rounded">
+                                        <strong>Tab Bar</strong> - Navegación principal (máximo 5 tabs)
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h6>Patrones de Navegación iOS</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="design-pattern">
+                                        <h6><i class="bi bi-stack me-2"></i>Hierarchical Navigation</h6>
+                                        <ul class="small">
+                                            <li><strong>Navigation stack:</strong> Push/pop controllers</li>
+                                            <li><strong>Breadcrumb navigation:</strong> Back button con contexto</li>
+                                            <li><strong>Drill-down pattern:</strong> Master-detail relationships</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="design-pattern">
+                                        <h6><i class="bi bi-collection me-2"></i>Modal Presentation</h6>
+                                        <ul class="small">
+                                            <li><strong>Sheets:</strong> Para tareas self-contained</li>
+                                            <li><strong>Full screen modals:</strong> Tareas complejas</li>
+                                            <li><strong>Popovers:</strong> iPad contextual content</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="bi bi-cpu me-2"></i>iOS Device Lineup</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>iPhone Models (2025)</h6>
+                                    <ul class="small">
+                                        <li><strong>iPhone SE:</strong> 4.7" (Compact users)</li>
+                                        <li><strong>iPhone 15:</strong> 6.1" (Mainstream)</li>
+                                        <li><strong>iPhone 15 Plus:</strong> 6.7" (Large screen preference)</li>
+                                        <li><strong>iPhone 15 Pro:</strong> 6.1" (Pro features)</li>
+                                        <li><strong>iPhone 15 Pro Max:</strong> 6.7" (Maximum capability)</li>
+                                    </ul>
+                                    
+                                    <h6>iPad Models</h6>
+                                    <ul class="small">
+                                        <li><strong>iPad mini:</strong> 8.3" (Portable)</li>
+                                        <li><strong>iPad:</strong> 10.9" (General purpose)</li>
+                                        <li><strong>iPad Air:</strong> 11" (Performance)</li>
+                                        <li><strong>iPad Pro:</strong> 11"/12.9" (Professional)</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-info p-2 small">
+                                        <strong>Size Classes:</strong> iOS usa clases de tamaño abstractas (Compact/Regular) en lugar de píxeles específicos
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Material Design -->
+                <section id="material-design" class="content-section">
+                    <h2><i class="bi bi-palette me-2"></i>5. Material Design System</h2>
+                    
+                    <p><strong>Material Design</strong> es el lenguaje de diseño de Google que combina principios clásicos de buen diseño con innovación en tecnología y ciencia. Está fundamentado en la metáfora de materiales físicos.</p>
+                    
+                    <div class="alert alert-success">
+                        <h6><i class="bi bi-lightbulb me-2"></i>Filosofía Material Design</h6>
+                        <p class="small mb-0">"Crear un lenguaje visual que sintetiza principios clásicos de buen diseño con innovación y posibilidad de la tecnología y ciencia."</p>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Principios Fundamentales</h5>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-square me-2 text-success"></i>1. Material as Metaphor</h6>
+                                <p class="small">Las superficies digitales imitan las propiedades físicas de papel y tinta, pero son tecnológicamente avanzadas.</p>
+                                <ul class="small">
+                                    <li><strong>Surfaces:</strong> Tienen thickness (1dp) y cast shadows</li>
+                                    <li><strong>Elevation:</strong> Z-axis para hierarchy y focus</li>
+                                    <li><strong>Motion:</strong> Responde a user input con realistic physics</li>
+                                    <li><strong>Environment:</strong> 3D space con light sources</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-grid me-2 text-primary"></i>2. Bold, Graphic, Intentional</h6>
+                                <p class="small">Elementos de diseño print - typography, grids, space, scale, color, imagery - guían visual treatments.</p>
+                                <ul class="small">
+                                    <li><strong>Color:</strong> Deliberate color choices</li>
+                                    <li><strong>Typography:</strong> Roboto family optimization</li>
+                                    <li><strong>Imagery:</strong> Large, heroic images</li>
+                                    <li><strong>Whitespace:</strong> Creates focus y hierarchy</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-activity me-2 text-warning"></i>3. Motion Provides Meaning</h6>
+                                <p class="small">Motion respeta y refuerza el usuario como primary initiator de acción.</p>
+                                <ul class="small">
+                                    <li><strong>Responsive interaction:</strong> Acknowledges input</li>
+                                    <li><strong>Natural easing:</strong> Realistic acceleration/deceleration</li>
+                                    <li><strong>Choreography:</strong> Coordinated element transitions</li>
+                                    <li><strong>Transformation:</strong> Seamless object morphing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Material Design 3 (Material You)</h5>
+                            
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-palette2 me-2"></i>Dynamic Color System</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="small">Material You introduce personalización automática basada en wallpaper del usuario.</p>
+                                    
+                                    <h6>Color Tokens</h6>
+                                    <ul class="small">
+                                        <li><strong>Primary:</strong> Accent color principal</li>
+                                        <li><strong>Secondary:</strong> Complementary accents</li>
+                                        <li><strong>Tertiary:</strong> Contrasting accents</li>
+                                        <li><strong>Neutral:</strong> Surfaces y outlines</li>
+                                        <li><strong>Neutral Variant:</strong> Medium emphasis</li>
+                                        <li><strong>Error:</strong> Estados de error</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-success p-2 small">
+                                        <strong>Adaptive:</strong> Cada color tiene variants para light/dark themes
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card border-primary mt-3">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-shapes me-2"></i>Shape System</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Shape Categories</h6>
+                                    <ul class="small">
+                                        <li><strong>Small components:</strong> 4dp radius (buttons, chips)</li>
+                                        <li><strong>Medium components:</strong> 8dp radius (cards, text fields)</li>
+                                        <li><strong>Large components:</strong> 16dp radius (sheets, dialogs)</li>
+                                        <li><strong>Extra large:</strong> 28dp radius (key surfaces)</li>
+                                    </ul>
+                                    
+                                    <h6>Shape Tokens</h6>
+                                    <ul class="small">
+                                        <li><strong>Corner family:</strong> Rounded, cut, full-round</li>
+                                        <li><strong>Corner size:</strong> None, extra-small a extra-large</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Material Components Ecosystem</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-success">
+                                        <div class="card-header bg-success text-white">
+                                            <h6 class="mb-0">Navigation Components</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>App bars:</strong> Top y bottom app bars</li>
+                                                <li><strong>Navigation drawer:</strong> Side navigation</li>
+                                                <li><strong>Navigation rail:</strong> Side navigation para large screens</li>
+                                                <li><strong>Tabs:</strong> Fixed y scrollable tabs</li>
+                                                <li><strong>Bottom navigation:</strong> 3-5 top-level destinations</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary text-white">
+                                            <h6 class="mb-0">Action Components</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Buttons:</strong> Text, outlined, filled</li>
+                                                <li><strong>FAB:</strong> Floating Action Button</li>
+                                                <li><strong>Extended FAB:</strong> Con text label</li>
+                                                <li><strong>Icon buttons:</strong> Toggle y standard</li>
+                                                <li><strong>Chips:</strong> Compact elements para actions</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0">Input Components</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Text fields:</strong> Filled y outlined variants</li>
+                                                <li><strong>Checkboxes:</strong> Multi-selection</li>
+                                                <li><strong>Radio buttons:</strong> Single selection</li>
+                                                <li><strong>Switches:</strong> Binary states</li>
+                                                <li><strong>Sliders:</strong> Range selection</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Human Interface Guidelines -->
+                <section id="hig-apple" class="content-section">
+                    <h2><i class="bi bi-apple me-2"></i>6. Human Interface Guidelines (Apple)</h2>
+                    
+                    <p>Las <strong>Human Interface Guidelines (HIG)</strong> de Apple establecen los principios y mejores prácticas para crear experiencias exceptionales en todos los dispositivos Apple.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>iOS Design Principles</h5>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-eye me-2 text-primary"></i>1. Clarity (Claridad)</h6>
+                                <p class="small">Todo el contenido debe ser legible y comprensible en cualquier tamaño.</p>
+                                <ul class="small">
+                                    <li><strong>Text legibility:</strong> SF Pro typeface optimizada</li>
+                                    <li><strong>Icon clarity:</strong> Symbols universalmente reconocibles</li>
+                                    <li><strong>Functionality obviousness:</strong> Elementos activos claramente distinguibles</li>
+                                    <li><strong>Negative space:</strong> Whitespace que mejora comprehension</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-layers me-2 text-success"></i>2. Deference (Deferencia)</h6>
+                                <p class="small">La UI debe ayudar a los usuarios entender e interactuar con contenido, pero nunca competir con él.</p>
+                                <ul class="small">
+                                    <li><strong>Content priority:</strong> UI supports, no overshadows content</li>
+                                    <li><strong>Subtle visual indicators:</strong> Gentle cues para functionality</li>
+                                    <li><strong>Appropriate emphasis:</strong> Important elements stand out</li>
+                                    <li><strong>Minimalism:</strong> Solo elementos necesarios</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="hig-principle">
+                                <h6><i class="bi bi-layers-half me-2 text-warning"></i>3. Depth (Profundidad)</h6>
+                                <p class="small">Layering y motion crean hierarchy, vitality y understanding.</p>
+                                <ul class="small">
+                                    <li><strong>Z-axis layering:</strong> Establece information hierarchy</li>
+                                    <li><strong>Parallax effects:</strong> Depth perception durante scroll</li>
+                                    <li><strong>Blur effects:</strong> Background context preservation</li>
+                                    <li><strong>Shadows y highlights:</strong> Physical material simulation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>iOS Typography System</h5>
+                            
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-type me-2"></i>SF Pro Font Family</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p class="small">San Francisco (SF Pro) está optimizada para legibilidad en pantallas Apple.</p>
+                                    
+                                    <h6>Dynamic Type Sizes</h6>
+                                    <div class="small">
+                                        <div style="font-size: 1.5rem;"><strong>Large Title</strong> - 34pt</div>
+                                        <div style="font-size: 1.3rem;"><strong>Title 1</strong> - 28pt</div>
+                                        <div style="font-size: 1.1rem;"><strong>Title 2</strong> - 22pt</div>
+                                        <div style="font-size: 1.0rem;"><strong>Title 3</strong> - 20pt</div>
+                                        <div style="font-size: 0.95rem;"><strong>Headline</strong> - 17pt</div>
+                                        <div style="font-size: 0.9rem;"><strong>Body</strong> - 17pt</div>
+                                        <div style="font-size: 0.85rem;"><strong>Callout</strong> - 16pt</div>
+                                        <div style="font-size: 0.8rem;"><strong>Subheadline</strong> - 15pt</div>
+                                        <div style="font-size: 0.75rem;"><strong>Footnote</strong> - 13pt</div>
+                                        <div style="font-size: 0.7rem;"><strong>Caption 1</strong> - 12pt</div>
+                                        <div style="font-size: 0.65rem;"><strong>Caption 2</strong> - 11pt</div>
+                                    </div>
+                                    
+                                    <div class="alert alert-primary p-2 small mt-3">
+                                        <strong>Accessibility:</strong> Dynamic Type permite a usuarios escalar text hasta 310% para better readability
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card border-warning mt-3">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-palette me-2"></i>iOS Color System</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>System Colors</h6>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <ul class="small">
+                                                <li><strong>Blue:</strong> Links y selection</li>
+                                                <li><strong>Green:</strong> Success states</li>
+                                                <li><strong>Red:</strong> Destructive actions</li>
+                                                <li><strong>Orange:</strong> Warnings</li>
+                                                <li><strong>Yellow:</strong> Caution</li>
+                                                <li><strong>Purple:</strong> Creative apps</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6">
+                                            <h6>Adaptive Colors</h6>
+                                            <ul class="small">
+                                                <li><strong>Label:</strong> Primary text</li>
+                                                <li><strong>Secondary Label:</strong> Subtitles</li>
+                                                <li><strong>Tertiary Label:</strong> Placeholder text</li>
+                                                <li><strong>System Background:</strong> Main background</li>
+                                                <li><strong>Secondary Background:</strong> Grouped content</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation to Part 2 -->
+                <div class="alert alert-info text-center mt-5">
+                    <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 2</h5>
+                    <p class="mb-3">Los temas restantes (7-12) se encuentran en la segunda parte de este tema.</p>
+                    <a href="tema10-parte2.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-arrow-right me-2"></i>
+                        Ir a Parte 2: Gestos, Patrones y Implementación
+                    </a>
+                </div>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <a href="tema9.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 9: Implementación
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="tema11.html" class="btn btn-outline-primary">
+                            Tema 11: Tendencias
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci10" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 10">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i>
+                HCI Tema 10: Interfaces para Android e iOS - Parte 1
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

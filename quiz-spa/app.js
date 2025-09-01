@@ -1,6 +1,16 @@
 // Quiz SPA - Single Page Application
 // All quiz logic and UI generation in one file
 
+// Utility function to shuffle an array (Fisher-Yates algorithm)
+function shuffleArray(array) {
+  const shuffled = [...array]; // Create a copy
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 class QuizSPA {
   constructor() {
     this.subjects = {
@@ -52,6 +62,38 @@ class QuizSPA {
     QuizDataManager.loadEmbeddedData();
     
     await this.discoverThemes();
+    
+    // Check for URL parameters to auto-start quiz
+    this.checkUrlParams();
+  }
+  
+  checkUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const themeParam = urlParams.get('theme');
+    
+    if (themeParam) {
+      // Parse theme parameter (format: hci10, programacion5, etc.)
+      const match = themeParam.match(/^(hci|programacion)(\d+)$/);
+      
+      if (match) {
+        const subjectKey = match[1];
+        const themeId = parseInt(match[2]);
+        
+        // Verify that the subject and theme exist
+        const subject = this.subjects[subjectKey];
+        if (subject && subject.themes.find(theme => theme.id === themeId)) {
+          console.log(`Auto-starting quiz from URL: ${subjectKey} tema ${themeId}`);
+          this.startQuiz(subjectKey, themeId);
+          return;
+        } else {
+          console.warn(`Invalid theme parameter: ${themeParam}`);
+        }
+      } else {
+        console.warn(`Invalid theme parameter format: ${themeParam}`);
+      }
+    }
+    
+    // Default behavior: show home
     this.showHome();
   }
   
@@ -72,7 +114,7 @@ class QuizSPA {
         const themes = [];
         const promises = [];
         
-        for (let i = 1; i <= 15; i++) {
+        for (let i = 1; i <= 12; i++) {
           const jsonPath = `${subject.basePath}${i}.json`;
           
           promises.push(
@@ -156,10 +198,18 @@ class QuizSPA {
         <div class="col-12 text-center mb-4">
           <h1 class="display-4 mb-3">Test</h1>
           <p class="lead text-muted">Selecciona una materia y tema para comenzar</p>
-          <button class="btn btn-outline-primary btn-sm" onclick="app.refreshThemes()">
-            <i class="bi bi-arrow-clockwise me-2"></i>
-            Actualizar Temas
-          </button>
+          
+          <!-- Access to theory content -->
+          <div class="my-4">
+            <a href="../contenidos/index.html" class="btn btn-outline-primary me-2">
+              <i class="bi bi-book me-2"></i>
+              Contenido Teórico
+            </a>
+            <button class="btn btn-outline-secondary btn-sm" onclick="app.refreshThemes()">
+              <i class="bi bi-arrow-clockwise me-2"></i>
+              Actualizar Temas
+            </button>
+          </div>
         </div>
       </div>
       
@@ -179,11 +229,24 @@ class QuizSPA {
                 <div class="row g-2">
                   ${subject.themes.map(theme => `
                     <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                      <button class="btn theme-btn w-100" 
-                              style="--subject-color: ${subject.color}"
-                              onclick="app.startQuiz('${key}', ${theme.id})">
-                        Tema ${theme.id}
-                      </button>
+                      <div class="card border-0">
+                        <div class="card-body p-2 text-center">
+                          <h6 class="card-title small mb-2">Tema ${theme.id}</h6>
+                          <div class="d-grid gap-1">
+                            <button class="btn btn-sm theme-btn" 
+                                    style="--subject-color: ${subject.color}"
+                                    onclick="app.startQuiz('${key}', ${theme.id})"
+                                    title="Quiz del Tema ${theme.id}">
+                              <i class="bi bi-question-circle me-1"></i>Quiz
+                            </button>
+                            <a href="../contenidos/teoria/${key}/tema${theme.id}.html" 
+                               class="btn btn-sm btn-outline-secondary"
+                               title="Contenido Teórico del Tema ${theme.id}">
+                              <i class="bi bi-book me-1"></i>Teoría
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   `).join('')}
                 </div>
@@ -303,7 +366,10 @@ class QuizSPA {
         throw new Error('No se encontraron preguntas en el archivo JSON');
       }
       
-      console.log(`Cargadas ${this.questions.length} preguntas para ${this.quizData.subject} tema ${this.quizData.theme}`);
+      // Shuffle questions for different order each time
+      this.questions = shuffleArray(this.questions);
+      
+      console.log(`Cargadas ${this.questions.length} preguntas para ${this.quizData.subject} tema ${this.quizData.theme} (orden aleatorio)`);
       
       // Reset quiz state
       this.currentQuestionIndex = 0;
@@ -509,7 +575,8 @@ class QuizSPA {
   repeatFailedQuestions() {
     if (this.failedQuestions.length === 0) return;
     
-    this.questions = [...this.failedQuestions];
+    // Shuffle failed questions for different order
+    this.questions = shuffleArray([...this.failedQuestions]);
     this.currentQuestionIndex = 0;
     this.userAnswers = [];
     this.correctAnswers = 0;
@@ -522,7 +589,8 @@ class QuizSPA {
   }
   
   restartQuiz() {
-    this.questions = [...this.quizData.questions];
+    // Shuffle questions again for different order
+    this.questions = shuffleArray([...this.quizData.questions]);
     this.currentQuestionIndex = 0;
     this.userAnswers = [];
     this.correctAnswers = 0;

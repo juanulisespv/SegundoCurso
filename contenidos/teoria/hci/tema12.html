@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 12: Accesibilidad y Estándares de Calidad - Parte 1 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .accessibility-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .wcag-guideline-card {
+            background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .disability-showcase {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testing-method-card {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .implementation-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            overflow-x: auto;
+            border: 1px solid #444;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .accessibility-principle {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .wcag-level {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin: 0.2rem;
+        }
+        
+        .wcag-a { background: #d4edda; color: #155724; }
+        .wcag-aa { background: #fff3cd; color: #856404; }
+        .wcag-aaa { background: #f8d7da; color: #721c24; }
+        
+        .barrier-example {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .solution-highlight {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-universal-access me-2"></i>
+                HCI Tema 12: Accesibilidad y Estándares - Parte 1
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido - Parte 1
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción a Accesibilidad</a>
+                                <a class="nav-link" href="#tipos-discapacidades">2. Tipos de Discapacidades</a>
+                                <a class="nav-link" href="#wcag-guidelines">3. WCAG Guidelines</a>
+                                <a class="nav-link" href="#principios-design">4. Principios de Diseño</a>
+                                <hr class="my-2">
+                                <a class="nav-link text-success" href="tema12-parte2.html">
+                                    <i class="bi bi-arrow-right me-1"></i>
+                                    Continuar Parte 2
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="accessibility-hero">
+                    <h1 class="display-5">Accesibilidad y Estándares de Calidad</h1>
+                    <p class="lead">Parte 1: Fundamentos, WCAG y Principios de Diseño Inclusivo</p>
+                    <div class="mt-3">
+                        <i class="bi bi-universal-access" style="font-size: 3rem; opacity: 0.7;"></i>
+                    </div>
+                </div>
+
+                <!-- 1. Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2><i class="bi bi-heart me-2"></i>1. Introducción a la Accesibilidad</h2>
+                    
+                    <p><strong>Accesibilidad</strong> es el diseño de productos, devices, services, y environments para personas con discapacidades. En HCI, significa crear interfaces que todos puedan usar effectively, regardless of their abilities.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="accessibility-principle">
+                                <h5><i class="bi bi-people me-2 text-primary"></i>¿Por Qué es Importante?</h5>
+                                
+                                <h6>Impacto Social</h6>
+                                <ul class="small">
+                                    <li><strong>1.3 billones de personas</strong> tienen algún tipo de discapacidad (WHO, 2023)</li>
+                                    <li><strong>15% de la población mundial</strong> necesita tecnología accesible</li>
+                                    <li><strong>Aging population:</strong> Más personas developing age-related disabilities</li>
+                                    <li><strong>Situational disabilities:</strong> Broken arm, bright sunlight, noisy environments</li>
+                                    <li><strong>Digital inclusion:</strong> Equal access to information y services</li>
+                                </ul>
+                                
+                                <h6>Benefits para Todos</h6>
+                                <ul class="small">
+                                    <li><strong>Better UX:</strong> Accessible design improves usability para everyone</li>
+                                    <li><strong>SEO improvements:</strong> Screen reader optimization helps search engines</li>
+                                    <li><strong>Mobile experience:</strong> Voice control y simplified navigation</li>
+                                    <li><strong>Situational use:</strong> Hands-free operation, poor lighting conditions</li>
+                                    <li><strong>Market expansion:</strong> Larger potential user base</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="accessibility-principle">
+                                <h5><i class="bi bi-gavel me-2 text-warning"></i>Legal y Ethical Framework</h5>
+                                
+                                <h6>Legal Requirements</h6>
+                                <ul class="small">
+                                    <li><strong>ADA (Americans with Disabilities Act):</strong> US federal law</li>
+                                    <li><strong>Section 508:</strong> US government website accessibility</li>
+                                    <li><strong>EN 301 549:</strong> European accessibility standard</li>
+                                    <li><strong>AODA:</strong> Accessibility for Ontarians with Disabilities Act</li>
+                                    <li><strong>DDA:</strong> UK Disability Discrimination Act</li>
+                                </ul>
+                                
+                                <h6>Ethical Responsibilities</h6>
+                                <ul class="small">
+                                    <li><strong>Equal access:</strong> Technology should empower, not exclude</li>
+                                    <li><strong>Human dignity:</strong> Respectful y empowering design</li>
+                                    <li><strong>Social justice:</strong> Addressing digital divide</li>
+                                    <li><strong>Inclusive innovation:</strong> Design with, not for, disabled users</li>
+                                    <li><strong>Universal design:</strong> Benefit the broadest range of users</li>
+                                </ul>
+                                
+                                <div class="alert alert-info small">
+                                    <strong>Accessibility is not a feature - it's a fundamental human right.</strong> The UN Convention on the Rights of Persons with Disabilities recognizes access to information y technology as essential para full participation en society.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Tipos de Discapacidades -->
+                <section id="tipos-discapacidades" class="content-section">
+                    <h2><i class="bi bi-person-check me-2"></i>2. Tipos de Discapacidades y Barriers</h2>
+                    
+                    <p>Understanding different types of disabilities helps designers create appropriate accommodations y identify potential barriers en digital interfaces.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="disability-showcase">
+                                <h6><i class="bi bi-eye-slash me-2 text-danger"></i>Visual Disabilities</h6>
+                                
+                                <h6>Types of Visual Impairments</h6>
+                                <ul class="small">
+                                    <li><strong>Blindness:</strong> Complete or near-complete vision loss
+                                        <ul>
+                                            <li>Rely on screen readers y braille</li>
+                                            <li>Navigate using keyboard y voice commands</li>
+                                            <li>Need semantic HTML y proper headings</li>
+                                            <li>Require alt text para images</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Low vision:</strong> Significant vision reduction
+                                        <ul>
+                                            <li>Need high contrast y magnification</li>
+                                            <li>Benefit from customizable font sizes</li>
+                                            <li>Require good color contrast ratios</li>
+                                            <li>May use screen magnifiers</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Color blindness:</strong> Difficulty distinguishing colors
+                                        <ul>
+                                            <li>Affects ~8% of men, ~0.5% of women</li>
+                                            <li>Need color-independent information</li>
+                                            <li>Require patterns, shapes, or text labels</li>
+                                            <li>Benefit from color simulation tools</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="barrier-example">
+                                    <h6><i class="bi bi-exclamation-triangle me-2"></i>Common Barriers</h6>
+                                    <ul class="small mb-0">
+                                        <li>Images without alt text</li>
+                                        <li>Poor color contrast ratios</li>
+                                        <li>Color-only information conveyance</li>
+                                        <li>Complex visual layouts</li>
+                                        <li>Auto-playing media</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="disability-showcase">
+                                <h6><i class="bi bi-volume-mute me-2 text-warning"></i>Auditory Disabilities</h6>
+                                
+                                <h6>Types of Hearing Impairments</h6>
+                                <ul class="small">
+                                    <li><strong>Deafness:</strong> Complete hearing loss
+                                        <ul>
+                                            <li>Rely on visual information completely</li>
+                                            <li>Use sign language as primary communication</li>
+                                            <li>Need captions para all audio content</li>
+                                            <li>Benefit from visual alerts y notifications</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Hard of hearing:</strong> Partial hearing loss
+                                        <ul>
+                                            <li>May use hearing aids or cochlear implants</li>
+                                            <li>Need adjustable audio levels</li>
+                                            <li>Benefit from captions y transcripts</li>
+                                            <li>Require background noise control</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Auditory processing disorders:</strong> Difficulty processing sounds
+                                        <ul>
+                                            <li>Can hear but struggle to understand</li>
+                                            <li>Need clear, slow speech</li>
+                                            <li>Benefit from visual reinforcement</li>
+                                            <li>Require reduced background noise</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="barrier-example">
+                                    <h6><i class="bi bi-exclamation-triangle me-2"></i>Common Barriers</h6>
+                                    <ul class="small mb-0">
+                                        <li>Videos without captions</li>
+                                        <li>Audio-only content</li>
+                                        <li>Auto-playing media with sound</li>
+                                        <li>No visual alerts para audio notifications</li>
+                                        <li>Complex audio interfaces</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="disability-showcase">
+                                <h6><i class="bi bi-hand-index me-2 text-info"></i>Motor Disabilities</h6>
+                                
+                                <h6>Types of Motor Impairments</h6>
+                                <ul class="small">
+                                    <li><strong>Paralysis:</strong> Loss of muscle function
+                                        <ul>
+                                            <li>May use alternative input devices</li>
+                                            <li>Need keyboard-only navigation</li>
+                                            <li>Benefit from voice control</li>
+                                            <li>Require eye tracking interfaces</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Tremors y spasticity:</strong> Uncontrolled movements
+                                        <ul>
+                                            <li>Need larger click targets</li>
+                                            <li>Benefit from click delay settings</li>
+                                            <li>Require sticky keys y modifier holds</li>
+                                            <li>Need error correction assistance</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Amputations:</strong> Missing limbs
+                                        <ul>
+                                            <li>May use prosthetics or adaptive devices</li>
+                                            <li>Need one-handed operation modes</li>
+                                            <li>Benefit from customizable shortcuts</li>
+                                            <li>Require alternative input methods</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="solution-highlight">
+                                    <h6><i class="bi bi-lightbulb me-2"></i>Solutions</h6>
+                                    <ul class="small mb-0">
+                                        <li>Large touch targets (minimum 44px)</li>
+                                        <li>Keyboard shortcuts y navigation</li>
+                                        <li>Voice control integration</li>
+                                        <li>Switch control support</li>
+                                        <li>Gesture alternatives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="disability-showcase">
+                                <h6><i class="bi bi-brain me-2 text-primary"></i>Cognitive Disabilities</h6>
+                                
+                                <h6>Types of Cognitive Impairments</h6>
+                                <ul class="small">
+                                    <li><strong>Learning disabilities:</strong> Dyslexia, ADHD, autism
+                                        <ul>
+                                            <li>Need simplified language y instructions</li>
+                                            <li>Benefit from consistent navigation</li>
+                                            <li>Require predictable interface behavior</li>
+                                            <li>Need focus management y attention aids</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Memory impairments:</strong> Dementia, brain injuries
+                                        <ul>
+                                            <li>Need clear visual cues y reminders</li>
+                                            <li>Benefit from progress saving</li>
+                                            <li>Require simple, linear workflows</li>
+                                            <li>Need error prevention y recovery</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Executive function disorders:</strong> Difficulty with planning y organization
+                                        <ul>
+                                            <li>Need clear task structure</li>
+                                            <li>Benefit from step-by-step guidance</li>
+                                            <li>Require progress indicators</li>
+                                            <li>Need simplified decision-making</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="solution-highlight">
+                                    <h6><i class="bi bi-lightbulb me-2"></i>Solutions</h6>
+                                    <ul class="small mb-0">
+                                        <li>Plain language y clear instructions</li>
+                                        <li>Consistent navigation patterns</li>
+                                        <li>Error prevention y helpful error messages</li>
+                                        <li>Progress indicators y breadcrumbs</li>
+                                        <li>Timeout warnings y extensions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. WCAG Guidelines -->
+                <section id="wcag-guidelines" class="content-section">
+                    <h2><i class="bi bi-award me-2"></i>3. WCAG 2.1/2.2 Guidelines</h2>
+                    
+                    <p>Las <strong>Web Content Accessibility Guidelines (WCAG)</strong> son el international standard para web accessibility, organizadas en 4 principios fundamentales.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="wcag-guideline-card">
+                                <h6><i class="bi bi-eye me-2"></i>1. Perceivable</h6>
+                                <p class="small">Information y UI components must be presentable to users en ways they can perceive.</p>
+                                
+                                <h6>Guidelines:</h6>
+                                <ul class="small">
+                                    <li><strong>1.1 Text Alternatives:</strong> Alt text para non-text content
+                                        <span class="wcag-level wcag-a">A</span>
+                                    </li>
+                                    <li><strong>1.2 Time-based Media:</strong> Captions, transcripts, audio descriptions
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                    <li><strong>1.3 Adaptable:</strong> Content can be presented differently without losing meaning
+                                        <span class="wcag-level wcag-a">A</span>
+                                    </li>
+                                    <li><strong>1.4 Distinguishable:</strong> Make it easier para users to see y hear content
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                        <span class="wcag-level wcag-aaa">AAA</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Perceivable Design - Key Methods
+class PerceivableDesign {
+  // Text alternatives, media captions, contrast checking
+  // Color accessibility, resizable content, semantic structure
+  
+  checkColorContrast(content) {
+    // Ensures WCAG AA standard (4.5:1 ratio)
+    // Auto-improves contrast for better readability
+  }
+  
+  addTextAlternatives(images) {
+    // AI-generated alt text for screen readers
+    // Context-aware image descriptions
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="wcag-guideline-card">
+                                <h6><i class="bi bi-cursor me-2"></i>2. Operable</h6>
+                                <p class="small">UI components y navigation must be operable by all users.</p>
+                                
+                                <h6>Guidelines:</h6>
+                                <ul class="small">
+                                    <li><strong>2.1 Keyboard Accessible:</strong> All functionality available via keyboard
+                                        <span class="wcag-level wcag-a">A</span>
+                                    </li>
+                                    <li><strong>2.2 Enough Time:</strong> Users have enough time to read y use content
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                    <li><strong>2.3 Seizures:</strong> Don't design content that causes seizures
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aaa">AAA</span>
+                                    </li>
+                                    <li><strong>2.4 Navigable:</strong> Help users navigate y find content
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                    <li><strong>2.5 Input Modalities:</strong> Easier to operate functionality through inputs
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Operable Implementation
+class OperableDesign {
+  constructor() {
+    this.keyboardNav = new KeyboardNavigation();
+    this.timingManager = new TimingManager();
+    this.seizureDetector = new SeizureRiskDetector();
+  }
+
+  async ensureOperable(interface) {
+    // 2.1 Keyboard Accessibility
+    await this.implementKeyboardNav(interface);
+    
+    // 2.2 Timing Management
+    await this.manageTimeLimits(interface);
+    
+    // 2.3 Seizure Prevention
+    await this.preventSeizures(interface);
+    
+    // 2.4 Navigation Support
+    await this.enhanceNavigation(interface);
+    
+    // 2.5 Input Modalities
+    await this.supportMultipleInputs(interface);
+  }
+
+  async implementKeyboardNav(interface) {
+    // Ensure all interactive elements are focusable
+    const interactiveElements = interface.querySelectorAll(
+      'button, a, input, select, textarea, [tabindex]'
+    );
+    
+    interactiveElements.forEach(element => {
+      // Add keyboard event listeners
+      element.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (element.tagName !== 'INPUT' && element.tagName !== 'TEXTAREA') {
+            e.preventDefault();
+            element.click();
+          }
+        }
+      });
+      
+      // Ensure visible focus indicators
+      this.addFocusIndicator(element);
+    });
+    
+    // Implement focus management
+    this.manageFocusOrder(interactiveElements);
+  }
+
+  async manageTimeLimits(interface) {
+    const timedElements = interface.querySelectorAll('[data-timeout]');
+    
+    timedElements.forEach(element => {
+      const timeout = parseInt(element.dataset.timeout);
+      
+      // Provide timeout warning
+      this.timingManager.addWarning(element, {
+        warningTime: timeout * 0.8, // Warn at 80% of time
+        extensionOptions: true,
+        cancelOption: true
+      });
+    });
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="wcag-guideline-card">
+                                <h6><i class="bi bi-lightbulb me-2"></i>3. Understandable</h6>
+                                <p class="small">Information y operation of UI must be understandable.</p>
+                                
+                                <h6>Guidelines:</h6>
+                                <ul class="small">
+                                    <li><strong>3.1 Readable:</strong> Make text readable y understandable
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                        <span class="wcag-level wcag-aaa">AAA</span>
+                                    </li>
+                                    <li><strong>3.2 Predictable:</strong> Web pages appear y operate predictably
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                    <li><strong>3.3 Input Assistance:</strong> Help users avoid y correct mistakes
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Understandable Design - Key Methods
+class UnderstandableDesign {
+  // Readability analysis, consistency checking, error prevention
+  // Plain language conversion, predictable navigation
+  // Input assistance and form validation
+  
+  improveReadability(content) {
+    // Checks reading level (target: Grade 8 or below)
+    // Provides simpler language alternatives
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="wcag-guideline-card">
+                                <h6><i class="bi bi-shield-check me-2"></i>4. Robust</h6>
+                                <p class="small">Content must be robust enough to be interpreted by assistive technologies.</p>
+                                
+                                <h6>Guidelines:</h6>
+                                <ul class="small">
+                                    <li><strong>4.1 Compatible:</strong> Maximize compatibility with assistive technologies
+                                        <span class="wcag-level wcag-a">A</span>
+                                        <span class="wcag-level wcag-aa">AA</span>
+                                    </li>
+                                </ul>
+                                
+                                <h6>Key Requirements:</h6>
+                                <ul class="small">
+                                    <li><strong>Valid HTML:</strong> Proper markup syntax</li>
+                                    <li><strong>ARIA labels:</strong> Accessible Rich Internet Applications attributes</li>
+                                    <li><strong>Semantic elements:</strong> Use appropriate HTML5 semantic tags</li>
+                                    <li><strong>Screen reader compatibility:</strong> Test with NVDA, JAWS, VoiceOver</li>
+                                    <li><strong>Browser compatibility:</strong> Work across different browsers y versions</li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Robust Design - Key Methods
+class RobustDesign {
+  // HTML validation, ARIA label management, assistive tech testing
+  
+  ensureCompatibility(doc) {
+    // Validates HTML syntax and structure
+    // Adds missing ARIA labels automatically
+    // Tests with screen readers and other AT
+  }
+  
+  addARIALabels(doc) {
+    // Finds unlabeled interactive elements
+    // Generates appropriate accessible names
+    // Maps custom components to ARIA roles
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Principios de Diseño -->
+                <section id="principios-design" class="content-section">
+                    <h2><i class="bi bi-compass me-2"></i>4. Principios de Diseño Inclusivo</h2>
+                    
+                    <p>Los <strong>principios de diseño inclusivo</strong> guide la creación de interfaces que accommodate the full spectrum of human diversity y capabilities.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Universal Design Principles</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-people-fill me-2 text-success"></i>1. Equitable Use</h6>
+                                        <p class="small">Design is useful y marketable to people with diverse abilities.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Multiple ways to access same functionality</li>
+                                            <li>Avoid segregating users by ability</li>
+                                            <li>Provide equivalent experiences</li>
+                                            <li>Appeal to users with diverse abilities</li>
+                                        </ul>
+                                        
+                                        <div class="small text-muted mt-2">
+                                            <strong>Example:</strong> Captions benefit both deaf users y people watching videos en noisy environments.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-sliders me-2 text-info"></i>2. Flexibility in Use</h6>
+                                        <p class="small">Design accommodates a wide range of preferences y abilities.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Customizable interfaces y settings</li>
+                                            <li>Multiple input methods available</li>
+                                            <li>User-controlled pace y timing</li>
+                                            <li>Adaptable to user preferences</li>
+                                        </ul>
+                                        
+                                        <div class="small text-muted mt-2">
+                                            <strong>Example:</strong> Adjustable font sizes, keyboard shortcuts, y voice control options.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-lightbulb me-2 text-warning"></i>3. Simple & Intuitive</h6>
+                                        <p class="small">Use is easy to understand, regardless of experience or language skills.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Eliminate unnecessary complexity</li>
+                                            <li>Consistent with user expectations</li>
+                                            <li>Accommodate language y literacy levels</li>
+                                            <li>Arrange information by importance</li>
+                                        </ul>
+                                        
+                                        <div class="small text-muted mt-2">
+                                            <strong>Example:</strong> Clear navigation breadcrumbs, consistent button placement, plain language.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-info-circle me-2 text-primary"></i>4. Perceptible Information</h6>
+                                        <p class="small">Design communicates information effectively regardless of conditions.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Multiple formats (text, audio, visual)</li>
+                                            <li>Adequate contrast y color</li>
+                                            <li>Maximize legibility</li>
+                                            <li>Differentiate elements effectively</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-shield-check me-2 text-danger"></i>5. Tolerance for Error</h6>
+                                        <p class="small">Design minimizes hazards of accidental actions.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Arrange elements to minimize errors</li>
+                                            <li>Provide warnings para hazardous actions</li>
+                                            <li>Provide fail-safe features</li>
+                                            <li>Discourage unconscious action</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="accessibility-principle">
+                                        <h6><i class="bi bi-battery me-2 text-success"></i>6. Low Physical Effort</h6>
+                                        <p class="small">Design can be used efficiently with minimum fatigue.</p>
+                                        
+                                        <h6>Implementation:</h6>
+                                        <ul class="small">
+                                            <li>Maintain neutral body position</li>
+                                            <li>Use reasonable operating forces</li>
+                                            <li>Minimize repetitive actions</li>
+                                            <li>Minimize sustained physical effort</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Inclusive Design Implementation</h5>
+                            
+                            <div class="implementation-example">
+// Accessibility Framework - Complete Solution
+class AccessibilityFramework {
+  // 5-phase implementation: Audit → WCAG → Inclusive Design → User Testing → Monitoring
+  
+  implementFullAccessibility(app) {
+    // Comprehensive audit and WCAG compliance
+    // Real user testing with assistive technologies
+    // Continuous monitoring and improvement
+  }
+  
+  auditApplication(app) {
+    // Tests WCAG compliance, user barriers, AT compatibility
+    // Keyboard navigation, color accessibility, readability
+  }
+}
+            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Continue to Part 2 -->
+                <div class="text-center mt-5">
+                    <div class="alert alert-success">
+                        <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 2</h5>
+                        <p>En la siguiente parte cubriremos: Testing Methods, Assistive Technologies, Legal Compliance y Implementation Strategies.</p>
+                        <a href="tema12-parte2.html" class="btn btn-success btn-lg">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            Ir a Parte 2 (Final)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <a href="tema11-parte3.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 11: Tendencias
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="text-muted">Parte 1 de 2</span>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema12-parte2.html" class="btn btn-outline-success">
+                            Parte 2 (Final)
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci12" class="btn btn-success floating-quiz-btn" title="Quiz Tema 12">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-universal-access me-2"></i>
+                HCI Tema 12: Accesibilidad y Estándares - Parte 1
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Accessibility demonstration features
+            setTimeout(() => {
+                // Add focus indicators demonstration
+                const buttons = document.querySelectorAll('button, a');
+                buttons.forEach(button => {
+                    button.addEventListener('focus', function() {
+                        this.style.outline = '3px solid #28a745';
+                        this.style.outlineOffset = '2px';
+                    });
+                    
+                    button.addEventListener('blur', function() {
+                        this.style.outline = '';
+                        this.style.outlineOffset = '';
+                    });
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

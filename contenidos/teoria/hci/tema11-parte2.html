@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 11: Tendencias Avanzadas - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #9c27b0;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .bci-demo-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .iot-showcase {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 15px;
+            padding: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .wearable-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            color: #333;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .accessibility-advanced {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .implementation-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            overflow-x: auto;
+            border: 1px solid #444;
+        }
+        
+        .future-impact-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transform: perspective(1000px) rotateX(0deg);
+            transition: all 0.3s ease;
+        }
+        
+        .future-impact-card:hover {
+            transform: perspective(1000px) rotateX(5deg);
+            box-shadow: 0 10px 25px rgba(156, 39, 176, 0.3);
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .brain-wave-animation {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brain-wave-animation::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: brainWave 3s infinite;
+        }
+        
+        @keyframes brainWave {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .device-ecosystem {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .ethical-consideration {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-stars me-2"></i>
+                HCI Tema 11: Tendencias Avanzadas - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link text-muted" href="tema11.html">
+                                    <i class="bi bi-arrow-left me-1"></i>
+                                    Parte 1: AI, VR/AR
+                                </a>
+                                <hr class="my-2">
+                                <a class="nav-link" href="#brain-computer">5. Brain-Computer Interfaces</a>
+                                <a class="nav-link" href="#iot-ambient">6. IoT y Ambient Computing</a>
+                                <a class="nav-link" href="#wearables">7. Wearables y Ubicuous Computing</a>
+                                <a class="nav-link" href="#accessibility-advanced">8. Accessibility Avanzada</a>
+                                <hr class="my-2">
+                                <a class="nav-link text-success" href="tema11-parte3.html">
+                                    <i class="bi bi-arrow-right me-1"></i>
+                                    Continuar Parte 3
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Tendencias Avanzadas en HCI</h1>
+                    <p class="lead">Parte 2: BCI, IoT, Wearables y Accessibility del Futuro</p>
+                    <div class="alert alert-info">
+                        <i class="bi bi-cpu me-2"></i>
+                        Exploramos las interfaces más avanzadas y el futuro de la accessibility technology.
+                    </div>
+                </div>
+
+                <!-- 5. Brain-Computer Interfaces -->
+                <section id="brain-computer" class="content-section">
+                    <h2><i class="bi bi-cpu me-2"></i>5. Brain-Computer Interfaces (BCI)</h2>
+                    
+                    <p>Los <strong>Brain-Computer Interfaces</strong> representan el próximo salto evolutivo en HCI, permitiendo direct communication between the brain y computing systems sin intermediate physical actions.</p>
+                    
+                    <div class="bci-demo-container brain-wave-animation">
+                        <h5><i class="bi bi-lightning me-2"></i>Neural Interface Technologies</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Types of BCI Systems</h6>
+                                <ul class="small">
+                                    <li><strong>Invasive BCI:</strong> Electrodes implanted directly en brain tissue
+                                        <ul>
+                                            <li>High signal resolution y accuracy</li>
+                                            <li>Direct cortical recordings</li>
+                                            <li>Surgical risks involved</li>
+                                            <li>Used para paralyzed patients</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Semi-invasive BCI:</strong> Electrodes placed beneath skull but outside brain
+                                        <ul>
+                                            <li>Better signal quality than non-invasive</li>
+                                            <li>Lower risk than invasive</li>
+                                            <li>ECoG (Electrocorticography) technique</li>
+                                            <li>Balance between performance y safety</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Non-invasive BCI:</strong> External sensors (EEG, fNIRS)
+                                        <ul>
+                                            <li>No surgical procedure required</li>
+                                            <li>Lower signal resolution</li>
+                                            <li>Consumer-friendly approach</li>
+                                            <li>Widely accessible technology</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h6>Neural Signal Processing</h6>
+                                <div class="implementation-example">
+// BCI Signal Processing Pipeline
+class BCIProcessor {
+  constructor() {
+    this.filters = new SignalFilters();
+    this.featureExtractor = new FeatureExtractor();
+    this.classifier = new NeuralClassifier();
+    this.calibrationData = new CalibrationManager();
+  }
+
+  async processRealTimeSignal(rawEEGData) {
+    // 1. Preprocessing: Remove artifacts
+    const filteredSignal = this.filters.applyBandpassFilter(
+      rawEEGData, 
+      { lowFreq: 8, highFreq: 30 } // Alpha/Beta bands
+    );
+    
+    // 2. Artifact removal (eye blinks, muscle movement)
+    const cleanSignal = await this.filters.removeArtifacts(
+      filteredSignal,
+      { method: 'ICA', components: 64 }
+    );
+    
+    // 3. Feature extraction
+    const features = this.featureExtractor.extract({
+      signal: cleanSignal,
+      windowSize: 1000, // 1 second window
+      overlap: 0.5,
+      methods: ['PSD', 'CSP', 'wavelet']
+    });
+    
+    // 4. Classification
+    const intention = await this.classifier.predict(features);
+    
+    // 5. Apply user-specific calibration
+    const calibratedResult = this.calibrationData
+      .applyCalibratedThresholds(intention);
+    
+    return {
+      rawIntention: intention,
+      calibratedIntention: calibratedResult,
+      confidence: calibratedResult.confidence,
+      timestamp: Date.now(),
+      signalQuality: this.assessSignalQuality(cleanSignal)
+    };
+  }
+
+  // Motor imagery classification
+  async classifyMotorImagery(eegSignal) {
+    const spatialFilters = this.trainCSPFilters(eegSignal);
+    const filteredChannels = this.applyCSP(eegSignal, spatialFilters);
+    
+    return this.classifier.classifyMovement({
+      leftHand: filteredChannels.leftMotorCortex,
+      rightHand: filteredChannels.rightMotorCortex,
+      feet: filteredChannels.motorFeet,
+      tongue: filteredChannels.motorTongue
+    });
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>BCI Applications y User Experience</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-danger">
+                                        <div class="card-header bg-danger text-white">
+                                            <h6 class="mb-0">Medical Applications</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Paralysis restoration:</strong> Control external devices with thought</li>
+                                                <li><strong>Communication aids:</strong> Type with brain signals para ALS patients</li>
+                                                <li><strong>Prosthetic control:</strong> Neural-controlled artificial limbs</li>
+                                                <li><strong>Stroke rehabilitation:</strong> Brain plasticity training</li>
+                                                <li><strong>Depression treatment:</strong> Neurofeedback therapy</li>
+                                            </ul>
+                                            
+                                            <div class="small mt-2 text-muted">
+                                                <strong>Case Study:</strong> Neuralink patient can control computer cursor directly with thought, achieving 8.0 bits per second typing speed.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0">Gaming & Entertainment</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Mental commands:</strong> Control games with concentration</li>
+                                                <li><strong>Emotional feedback:</strong> Games adapt to player mood</li>
+                                                <li><strong>Cognitive training:</strong> Brain fitness applications</li>
+                                                <li><strong>Virtual environments:</strong> Thought-controlled VR navigation</li>
+                                                <li><strong>Social gaming:</strong> Brain-to-brain communication experiments</li>
+                                            </ul>
+                                            
+                                            <div class="small mt-2 text-muted">
+                                                <strong>Example:</strong> NeuroSky headsets enable concentration-based gaming where focus levels control in-game elements.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-success">
+                                        <div class="card-header bg-success text-white">
+                                            <h6 class="mb-0">Productivity & Work</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Mental workload monitoring:</strong> Detect cognitive overload</li>
+                                                <li><strong>Attention tracking:</strong> Focus-aware applications</li>
+                                                <li><strong>Stress detection:</strong> Automatic break recommendations</li>
+                                                <li><strong>Flow state optimization:</strong> Enhance deep work periods</li>
+                                                <li><strong>Fatigue management:</strong> Prevent cognitive exhaustion</li>
+                                            </ul>
+                                            
+                                            <div class="small mt-2 text-muted">
+                                                <strong>Research:</strong> Microsoft studies show BCI can predict task difficulty y automatically adjust interface complexity.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. IoT y Ambient Computing -->
+                <section id="iot-ambient" class="content-section">
+                    <h2><i class="bi bi-house-gear me-2"></i>6. IoT y Ambient Computing</h2>
+                    
+                    <p><strong>Internet of Things (IoT)</strong> y Ambient Computing crean ecosystems of interconnected devices que provide seamless, context-aware experiences sin explicit user commands.</p>
+                    
+                    <div class="iot-showcase">
+                        <h5><i class="bi bi-diagram-3 me-2"></i>Ambient Intelligence Ecosystem</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Context-Aware Computing</h6>
+                                <ul class="small">
+                                    <li><strong>Location awareness:</strong> GPS, beacons, indoor positioning</li>
+                                    <li><strong>Activity recognition:</strong> Machine learning from sensor data</li>
+                                    <li><strong>Social context:</strong> Who's present, meeting status</li>
+                                    <li><strong>Environmental factors:</strong> Light, temperature, noise levels</li>
+                                    <li><strong>Temporal patterns:</strong> Daily routines y preferences</li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Ambient Computing Context Engine
+class AmbientContextEngine {
+  constructor() {
+    this.sensors = new SensorNetwork();
+    this.ml = new MLContextClassifier();
+    this.deviceOrchestrator = new DeviceOrchestrator();
+  }
+
+  async analyzeContext() {
+    // Gather all available context
+    const context = await this.gatherContextData();
+    
+    // Classify current situation
+    const situation = await this.ml.classifySituation(context);
+    
+    // Predict user needs
+    const predictions = await this.predictUserNeeds(situation);
+    
+    // Orchestrate appropriate responses
+    return this.orchestrateResponse(predictions);
+  }
+
+  async gatherContextData() {
+    return {
+      location: await this.sensors.getLocation(),
+      time: {
+        hour: new Date().getHours(),
+        dayOfWeek: new Date().getDay(),
+        season: this.calculateSeason()
+      },
+      environment: {
+        temperature: await this.sensors.getTemperature(),
+        lighting: await this.sensors.getLightLevel(),
+        noise: await this.sensors.getNoiseLevel(),
+        airQuality: await this.sensors.getAirQuality()
+      },
+      devices: {
+        available: await this.sensors.getAvailableDevices(),
+        active: await this.sensors.getActiveDevices(),
+        userProximity: await this.sensors.getUserProximity()
+      },
+      social: {
+        peoplePresent: await this.sensors.detectPeople(),
+        meetingStatus: await this.calendar.getCurrentMeeting(),
+        communicationMode: await this.detectCommunicationContext()
+      },
+      user: {
+        activity: await this.sensors.getActivity(),
+        mood: await this.sensors.estimateMood(),
+        healthMetrics: await this.sensors.getHealthData(),
+        preferences: await this.profile.getCurrentPreferences()
+      }
+    };
+  }
+}
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h6>Proactive System Behavior</h6>
+                                <ul class="small">
+                                    <li><strong>Anticipatory actions:</strong> Prepare before user requests</li>
+                                    <li><strong>Seamless handoffs:</strong> Transfer tasks between devices</li>
+                                    <li><strong>Invisible interfaces:</strong> Actions without explicit UI</li>
+                                    <li><strong>Learning routines:</strong> Adapt to user patterns</li>
+                                    <li><strong>Graceful failures:</strong> Fallback strategies when prediction fails</li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Proactive Action System
+class ProactiveActionSystem {
+  constructor() {
+    this.patternRecognizer = new PatternRecognizer();
+    this.actionPredictor = new ActionPredictor();
+    this.deviceController = new DeviceController();
+  }
+
+  async executeProactiveActions() {
+    // Analyze current situation
+    const currentContext = await this.analyzeCurrentContext();
+    
+    // Predict likely next actions
+    const predictions = await this.actionPredictor
+      .predictNextActions(currentContext);
+    
+    // Execute high-confidence, low-risk actions
+    for (const prediction of predictions) {
+      if (prediction.confidence > 0.8 && prediction.risk < 0.2) {
+        await this.executeSafeAction(prediction);
+      }
+    }
+  }
+
+  async executeSafeAction(prediction) {
+    switch (prediction.type) {
+      case 'prepare_device':
+        // Pre-warm frequently used devices
+        await this.deviceController.prepareDevice(
+          prediction.device,
+          { priority: 'background' }
+        );
+        break;
+        
+      case 'preload_content':
+        // Fetch likely needed data
+        await this.contentManager.preloadContent(
+          prediction.content,
+          { timeout: 30000 }
+        );
+        break;
+        
+      case 'adjust_environment':
+        // Optimize environmental conditions
+        await this.environmentController.optimizeForActivity(
+          prediction.activity
+        );
+        break;
+        
+      case 'prepare_communication':
+        // Setup communication channels
+        await this.communicationManager.prepareChannels(
+          prediction.contacts,
+          prediction.medium
+        );
+        break;
+    }
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Smart Home Ecosystem</h5>
+                            
+                            <div class="device-ecosystem">
+                                <div class="card">
+                                    <div class="card-header bg-info text-white">
+                                        <h6 class="mb-0"><i class="bi bi-lightbulb me-1"></i> Smart Lighting</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small">
+                                            <li>Circadian rhythm adaptation</li>
+                                            <li>Activity-based adjustment</li>
+                                            <li>Mood-responsive coloring</li>
+                                            <li>Energy optimization</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header bg-success text-white">
+                                        <h6 class="mb-0"><i class="bi bi-thermometer me-1"></i> Climate Control</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small">
+                                            <li>Predictive temperature control</li>
+                                            <li>Occupancy-based zones</li>
+                                            <li>Weather integration</li>
+                                            <li>Health condition consideration</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header bg-warning text-dark">
+                                        <h6 class="mb-0"><i class="bi bi-shield-check me-1"></i> Security Systems</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small">
+                                            <li>Behavioral authentication</li>
+                                            <li>Anomaly detection</li>
+                                            <li>Trusted device networks</li>
+                                            <li>Privacy-preserving monitoring</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-header bg-primary text-white">
+                                        <h6 class="mb-0"><i class="bi bi-speaker me-1"></i> Audio Systems</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="small">
+                                            <li>Spatial audio adaptation</li>
+                                            <li>Noise cancellation zones</li>
+                                            <li>Voice isolation technology</li>
+                                            <li>Content-aware mixing</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 7. Wearables y Ubiquitous Computing -->
+                <section id="wearables" class="content-section">
+                    <h2><i class="bi bi-smartwatch me-2"></i>7. Wearables y Ubiquitous Computing</h2>
+                    
+                    <p><strong>Wearable technology</strong> está evolucionando hacia invisible, always-on interfaces que provide continuous health monitoring, seamless notifications, y context-aware assistance.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="wearable-card">
+                                <h6><i class="bi bi-heart-pulse me-2"></i>Next-Generation Wearables</h6>
+                                
+                                <h6>Health Monitoring Evolution</h6>
+                                <ul class="small">
+                                    <li><strong>Continuous biomarkers:</strong> Blood glucose, hydration, stress hormones</li>
+                                    <li><strong>Early disease detection:</strong> Pattern recognition para health anomalies</li>
+                                    <li><strong>Mental health tracking:</strong> Depression, anxiety indicators</li>
+                                    <li><strong>Sleep optimization:</strong> Deep sleep enhancement through feedback</li>
+                                    <li><strong>Nutrition guidance:</strong> Real-time dietary recommendations</li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Advanced Health Wearable Interface
+class HealthWearableInterface {
+  constructor() {
+    this.sensors = new BioSensorArray();
+    this.ai = new HealthAI();
+    this.notifications = new ContextualNotifications();
+    this.privacy = new HealthPrivacyManager();
+  }
+
+  async monitorContinuousHealth() {
+    const healthMetrics = await this.sensors.getMultiMetrics({
+      heartRate: { sampling: 'continuous', accuracy: 'high' },
+      bloodOxygen: { sampling: 'every_5min' },
+      skinTemperature: { sampling: 'continuous' },
+      galvanicSkinResponse: { sampling: 'continuous' },
+      accelerometer: { sampling: '100hz' },
+      gyroscope: { sampling: '100hz' },
+      ambientLight: { sampling: 'every_1min' },
+      environmentalSound: { sampling: 'continuous', privacy: 'local_only' }
+    });
+
+    // AI analysis para health insights
+    const healthInsights = await this.ai.analyzeHealthTrends({
+      current: healthMetrics,
+      historical: await this.getHealthHistory(30), // 30 days
+      demographics: await this.getUserDemographics(),
+      lifestyle: await this.getLifestyleFactors()
+    });
+
+    // Contextual recommendations
+    if (healthInsights.recommendations.length > 0) {
+      await this.deliverContextualGuidance(healthInsights);
+    }
+
+    return healthInsights;
+  }
+
+  async deliverContextualGuidance(insights) {
+    for (const recommendation of insights.recommendations) {
+      // Determine best delivery method
+      const deliveryMethod = await this.determineOptimalDelivery({
+        urgency: recommendation.urgency,
+        userContext: await this.getCurrentUserContext(),
+        deviceAvailability: await this.getAvailableDevices(),
+        privacy: recommendation.privacyLevel
+      });
+
+      await this.notifications.deliver({
+        content: recommendation,
+        method: deliveryMethod,
+        timing: 'optimal'
+      });
+    }
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="wearable-card">
+                                <h6><i class="bi bi-eye me-2"></i>Smart Glasses & Contact Lenses</h6>
+                                
+                                <h6>Augmented Vision Technology</h6>
+                                <ul class="small">
+                                    <li><strong>Heads-up displays:</strong> Information overlay en field of vision</li>
+                                    <li><strong>Object recognition:</strong> Real-time identification y labeling</li>
+                                    <li><strong>Translation overlays:</strong> Live text translation en foreign languages</li>
+                                    <li><strong>Navigation assistance:</strong> AR directions en real world</li>
+                                    <li><strong>Social cues:</strong> Facial recognition y context</li>
+                                </ul>
+                                
+                                <h6>Contact Lens Computing</h6>
+                                <ul class="small">
+                                    <li><strong>Micro displays:</strong> Minimal visual interface</li>
+                                    <li><strong>Health monitoring:</strong> Intraocular pressure, glucose levels</li>
+                                    <li><strong>Gesture control:</strong> Eye movement commands</li>
+                                    <li><strong>Privacy protection:</strong> Invisible computing layer</li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Smart Contact Lens Interface
+class SmartContactLensInterface {
+  constructor() {
+    this.eyeTracker = new EyeMovementTracker();
+    this.microDisplay = new ContactLensMicroDisplay();
+    this.healthSensors = new IntraocularSensors();
+    this.gestureRecognizer = new EyeGestureRecognizer();
+  }
+
+  async initializeLensInterface() {
+    // Calibrate eye tracking
+    await this.eyeTracker.calibrate({
+      duration: 30000, // 30 second calibration
+      points: 9, // 9-point calibration
+      validation: true
+    });
+
+    // Setup gesture recognition
+    this.gestureRecognizer.defineGestures({
+      'double_blink': { action: 'select', threshold: 0.3 },
+      'long_blink': { action: 'back', threshold: 1.0 },
+      'left_glance': { action: 'previous', threshold: 0.5 },
+      'right_glance': { action: 'next', threshold: 0.5 },
+      'up_glance': { action: 'menu', threshold: 0.4 },
+      'circular_motion': { action: 'zoom', threshold: 0.7 }
+    });
+
+    // Start continuous monitoring
+    this.startContinuousMonitoring();
+  }
+
+  async renderMinimalInterface(content) {
+    // Ultra-low power display
+    await this.microDisplay.render({
+      content: content,
+      opacity: this.calculateOptimalOpacity(),
+      position: this.calculateOptimalPosition(),
+      duration: this.calculateOptimalDuration(),
+      brightness: this.adaptToBrightness()
+    });
+  }
+
+  calculateOptimalOpacity() {
+    const ambientLight = this.sensors.getAmbientLight();
+    const userActivity = this.sensors.getCurrentActivity();
+    
+    // Reduce opacity during focused tasks
+    if (userActivity === 'reading' || userActivity === 'driving') {
+      return 0.1;
+    }
+    
+    // Adapt to lighting conditions
+    return Math.max(0.2, Math.min(0.8, ambientLight / 1000));
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Accessibility Avanzada -->
+                <section id="accessibility-advanced" class="content-section">
+                    <h2><i class="bi bi-universal-access me-2"></i>8. Accessibility Avanzada</h2>
+                    
+                    <p>Las <strong>tecnologías de accessibility avanzada</strong> utilizan AI, sensors, y adaptive interfaces para create truly inclusive experiences que accommodate the full spectrum of human capabilities.</p>
+                    
+                    <div class="accessibility-advanced">
+                        <h5><i class="bi bi-person-hearts me-2"></i>Universal Access Technologies</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Cognitive Accessibility</h6>
+                                <ul class="small">
+                                    <li><strong>Adaptive complexity:</strong> Interface simplification based on cognitive load
+                                        <ul>
+                                            <li>Real-time complexity adjustment</li>
+                                            <li>Cognitive load detection through biometrics</li>
+                                            <li>Simplified language generation</li>
+                                            <li>Visual complexity reduction</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Memory assistance:</strong> Context-aware reminders y prompts
+                                        <ul>
+                                            <li>Task continuation prompts</li>
+                                            <li>Progress visualization</li>
+                                            <li>Step-by-step guidance</li>
+                                            <li>Error prevention strategies</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Attention management:</strong> Focus-supporting interface design
+                                        <ul>
+                                            <li>Distraction minimization</li>
+                                            <li>Attention restoration cues</li>
+                                            <li>Priority-based information presentation</li>
+                                            <li>Cognitive break suggestions</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Cognitive Accessibility Engine
+class CognitiveAccessibilityEngine {
+  constructor() {
+    this.cognitiveMonitor = new CognitiveLoadMonitor();
+    this.interfaceAdapter = new InterfaceAdapter();
+    this.memoryAssistant = new MemoryAssistant();
+  }
+
+  async adaptForCognitiveNeeds() {
+    const cognitiveState = await this.cognitiveMonitor
+      .assessCurrentState();
+    
+    if (cognitiveState.overload > 0.7) {
+      // High cognitive load - simplify interface
+      await this.interfaceAdapter.simplify({
+        removeNonEssential: true,
+        increaseWhitespace: true,
+        simplifyLanguage: true,
+        highlightPrimaryActions: true,
+        reduceChoices: true
+      });
+    }
+    
+    if (cognitiveState.attentionSpan < 0.3) {
+      // Low attention - provide focus aids
+      await this.interfaceAdapter.enhanceFocus({
+        minimizeDistractions: true,
+        provideProgressIndicators: true,
+        breakTaskIntoSteps: true,
+        offerBreakReminders: true
+      });
+    }
+    
+    // Memory assistance
+    if (cognitiveState.memoryIssues) {
+      await this.memoryAssistant.provide({
+        contextualReminders: true,
+        visualCues: true,
+        repetitionPrompts: true,
+        progressSaving: true
+      });
+    }
+  }
+}
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h6>Motor y Sensory Accessibility</h6>
+                                <ul class="small">
+                                    <li><strong>Alternative input methods:</strong> 
+                                        <ul>
+                                            <li>Eye tracking para cursor control</li>
+                                            <li>Head movement navigation</li>
+                                            <li>Breath-controlled interfaces</li>
+                                            <li>Single-switch access</li>
+                                            <li>Voice-only operation modes</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Adaptive feedback systems:</strong>
+                                        <ul>
+                                            <li>Haptic feedback alternatives</li>
+                                            <li>Audio description automation</li>
+                                            <li>Visual indicator enhancement</li>
+                                            <li>Multi-sensory redundancy</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Personalized assistance:</strong>
+                                        <ul>
+                                            <li>AI-powered screen readers</li>
+                                            <li>Real-time sign language translation</li>
+                                            <li>Predictive text para motor disabilities</li>
+                                            <li>Cognitive prosthetics</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="implementation-example">
+// Universal Access Controller
+class UniversalAccessController {
+  constructor() {
+    this.capabilityDetector = new UserCapabilityDetector();
+    this.inputAdapters = new InputAdapterRegistry();
+    this.outputAdapters = new OutputAdapterRegistry();
+    this.aiAssistant = new AccessibilityAI();
+  }
+
+  async adaptInterfaceForUser() {
+    // Detect user capabilities
+    const capabilities = await this.capabilityDetector.assess({
+      motor: await this.assessMotorCapabilities(),
+      vision: await this.assessVisionCapabilities(),
+      hearing: await this.assessHearingCapabilities(),
+      cognitive: await this.assessCognitiveCapabilities()
+    });
+
+    // Configure optimal input methods
+    const inputConfig = await this.configureInputMethods(capabilities);
+    
+    // Configure optimal output methods
+    const outputConfig = await this.configureOutputMethods(capabilities);
+    
+    // Apply adaptations
+    await this.applyAdaptations(inputConfig, outputConfig);
+  }
+
+  async configureInputMethods(capabilities) {
+    const methods = [];
+    
+    if (capabilities.motor.handControl < 0.5) {
+      // Limited hand control
+      methods.push('eye_tracking', 'head_movement', 'voice_control');
+    }
+    
+    if (capabilities.motor.fineMotor < 0.3) {
+      // Fine motor difficulties
+      methods.push('large_targets', 'gesture_recognition', 'switch_control');
+    }
+    
+    if (capabilities.vision.lowVision) {
+      // Vision impairment
+      methods.push('high_contrast', 'screen_magnification', 'voice_navigation');
+    }
+    
+    return this.inputAdapters.configure(methods);
+  }
+}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Ethical Considerations en Advanced HCI</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="ethical-consideration">
+                                        <h6><i class="bi bi-shield-exclamation me-2 text-warning"></i>Privacy y Data Protection</h6>
+                                        <ul class="small">
+                                            <li><strong>Biometric data security:</strong> Neural patterns, health data protection</li>
+                                            <li><strong>Behavioral profiling limits:</strong> Consent para deep behavioral analysis</li>
+                                            <li><strong>Data minimization:</strong> Collect only necessary information</li>
+                                            <li><strong>User control:</strong> Granular privacy settings</li>
+                                            <li><strong>Anonymization:</strong> Protect individual identity en datasets</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="ethical-consideration">
+                                        <h6><i class="bi bi-people me-2 text-info"></i>Equity y Inclusion</h6>
+                                        <ul class="small">
+                                            <li><strong>Digital divide:</strong> Ensure advanced technologies don't exclude populations</li>
+                                            <li><strong>Cultural sensitivity:</strong> Adapt interfaces para different cultural contexts</li>
+                                            <li><strong>Economic accessibility:</strong> Affordable versions of advanced technologies</li>
+                                            <li><strong>Age inclusivity:</strong> Design para all age groups</li>
+                                            <li><strong>Diverse representation:</strong> Inclusive AI training data</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="ethical-consideration">
+                                        <h6><i class="bi bi-brain me-2 text-primary"></i>Cognitive Enhancement Ethics</h6>
+                                        <ul class="small">
+                                            <li><strong>Enhancement vs. treatment:</strong> Define ethical boundaries</li>
+                                            <li><strong>Cognitive equality:</strong> Fair access to enhancement technologies</li>
+                                            <li><strong>Dependency risks:</strong> Prevent over-reliance on AI assistance</li>
+                                            <li><strong>Human agency:</strong> Maintain user autonomy y decision-making</li>
+                                            <li><strong>Long-term effects:</strong> Unknown consequences of cognitive modification</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="ethical-consideration">
+                                        <h6><i class="bi bi-robot me-2 text-success"></i>AI Transparency y Control</h6>
+                                        <ul class="small">
+                                            <li><strong>Explainable AI:</strong> Users understand how decisions are made</li>
+                                            <li><strong>Algorithm auditing:</strong> Regular bias y fairness checks</li>
+                                            <li><strong>User override:</strong> Always allow manual control</li>
+                                            <li><strong>Algorithmic accountability:</strong> Clear responsibility chains</li>
+                                            <li><strong>Manipulation prevention:</strong> Protect against persuasive design abuse</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Continue to Part 3 -->
+                <div class="text-center mt-5">
+                    <div class="alert alert-primary">
+                        <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 3</h5>
+                        <p>En la parte final cubriremos: Quantum Interfaces, Sustainability, Future Research Directions y Implementation Strategies.</p>
+                        <a href="tema11-parte3.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            Ir a Parte 3 (Final)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Navigation Between Parts -->
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <a href="tema11.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1: AI & VR/AR
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <span class="text-muted">Parte 2 de 3</span>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema11-parte3.html" class="btn btn-outline-primary">
+                            Parte 3 (Final)
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci11" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 11">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-stars me-2"></i>
+                HCI Tema 11: Tendencias Avanzadas - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 6: Multimedia en HCI - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b35;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .format-showcase {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .format-showcase:hover {
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.15);
+        }
+        
+        .accessibility-demo {
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 1rem;
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+        }
+        
+        .implementation-example {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            overflow-x: auto;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .compression-demo {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .case-study-card {
+            border-top: 4px solid;
+            transition: transform 0.2s;
+            height: 100%;
+        }
+        
+        .case-study-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .best-practice {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid #28a745;
+        }
+        
+        .performance-metric {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dee2e6;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-book me-2"></i>
+                HCI Tema 6: Multimedia en HCI - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link text-muted" href="tema6.html">
+                                    <i class="bi bi-arrow-left me-1"></i>
+                                    Volver a Parte 1
+                                </a>
+                                <hr class="my-2">
+                                <a class="nav-link" href="#formatos-multimedia">7. Formatos Multimedia</a>
+                                <a class="nav-link" href="#accessibility-multimedia">8. Accessibility Multimedia</a>
+                                <a class="nav-link" href="#performance-optimization">9. Performance y Optimización</a>
+                                <a class="nav-link" href="#casos-estudio">10. Casos de Estudio</a>
+                                <a class="nav-link" href="#implementacion-tecnica">11. Implementación Técnica</a>
+                                <a class="nav-link" href="#resumen">12. Resumen</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Multimedia en HCI</h1>
+                    <p class="lead">Parte 2: Formatos, Accessibility e Implementación</p>
+                </div>
+
+                <!-- 7. Formatos Multimedia -->
+                <section id="formatos-multimedia" class="content-section">
+                    <h2><i class="bi bi-file-earmark-play me-2"></i>7. Formatos Multimedia</h2>
+                    
+                    <p>La selección correcta de <strong>formatos multimedia</strong> es crucial para balancear calidad, performance, compatibilidad y accessibility en interfaces web y móviles.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Formatos de Audio</h5>
+                            
+                            <div class="format-showcase">
+                                <h6><i class="bi bi-music-note me-2 text-danger"></i>Compressed Formats</h6>
+                                
+                                <div class="compression-demo">
+                                    <strong>MP3 (MPEG-1 Audio Layer 3)</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> Lossy, 90% size reduction</li>
+                                        <li><strong>Quality:</strong> 128-320 kbps</li>
+                                        <li><strong>Compatibility:</strong> Universal browser support</li>
+                                        <li><strong>Use case:</strong> Music, long-form audio</li>
+                                        <li><strong>Pros:</strong> Small size, universal support</li>
+                                        <li><strong>Cons:</strong> Quality loss, patent issues</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="compression-demo">
+                                    <strong>AAC (Advanced Audio Coding)</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> Better than MP3 at same bitrate</li>
+                                        <li><strong>Quality:</strong> Superior perceptual quality</li>
+                                        <li><strong>Compatibility:</strong> Modern browsers, iOS native</li>
+                                        <li><strong>Use case:</strong> High-quality music, podcasts</li>
+                                        <li><strong>Pros:</strong> Better compression, mobile optimized</li>
+                                        <li><strong>Cons:</strong> Limited older browser support</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="compression-demo">
+                                    <strong>OGG Vorbis</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> Open source, competitive quality</li>
+                                        <li><strong>Quality:</strong> Similar to AAC</li>
+                                        <li><strong>Compatibility:</strong> Firefox, Chrome (no Safari/IE)</li>
+                                        <li><strong>Use case:</strong> Open source projects</li>
+                                        <li><strong>Pros:</strong> Patent-free, good quality</li>
+                                        <li><strong>Cons:</strong> Limited Safari support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Formatos de Video</h5>
+                            
+                            <div class="format-showcase">
+                                <h6><i class="bi bi-camera-video me-2 text-primary"></i>Modern Video Formats</h6>
+                                
+                                <div class="compression-demo">
+                                    <strong>MP4 (H.264/AVC)</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> Excellent quality-to-size ratio</li>
+                                        <li><strong>Compatibility:</strong> Universal support</li>
+                                        <li><strong>Use case:</strong> General purpose video</li>
+                                        <li><strong>Bitrates:</strong> 1-8 Mbps typical</li>
+                                        <li><strong>Pros:</strong> Wide support, good quality</li>
+                                        <li><strong>Cons:</strong> Patent licensing, aging codec</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="compression-demo">
+                                    <strong>WebM (VP9)</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> 50% better than H.264</li>
+                                        <li><strong>Compatibility:</strong> Chrome, Firefox (growing support)</li>
+                                        <li><strong>Use case:</strong> Web-optimized video</li>
+                                        <li><strong>Bitrates:</strong> Lower than MP4 for same quality</li>
+                                        <li><strong>Pros:</strong> Open source, excellent compression</li>
+                                        <li><strong>Cons:</strong> CPU intensive encoding</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="compression-demo">
+                                    <strong>AV1</strong>
+                                    <ul class="small">
+                                        <li><strong>Compression:</strong> 30% better than VP9</li>
+                                        <li><strong>Compatibility:</strong> Modern browsers (Chrome 70+, Firefox 67+)</li>
+                                        <li><strong>Use case:</strong> Future-proof high-quality video</li>
+                                        <li><strong>Pros:</strong> Royalty-free, best compression</li>
+                                        <li><strong>Cons:</strong> Encoding complexity, limited support</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Image Formats para Multimedia</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Format</th>
+                                            <th>Type</th>
+                                            <th>Best Use Case</th>
+                                            <th>Pros</th>
+                                            <th>Cons</th>
+                                            <th>Browser Support</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>JPEG</strong></td>
+                                            <td>Lossy</td>
+                                            <td>Photographs, complex images</td>
+                                            <td>Small file size, universal support</td>
+                                            <td>Quality loss, no transparency</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>PNG</strong></td>
+                                            <td>Lossless</td>
+                                            <td>Graphics with transparency, logos</td>
+                                            <td>No quality loss, transparency support</td>
+                                            <td>Larger file sizes</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>WebP</strong></td>
+                                            <td>Both</td>
+                                            <td>Modern web images</td>
+                                            <td>25-35% smaller than JPEG, transparency</td>
+                                            <td>Limited older browser support</td>
+                                            <td>97%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>AVIF</strong></td>
+                                            <td>Lossy/Lossless</td>
+                                            <td>Next-gen web images</td>
+                                            <td>50% smaller than JPEG, excellent quality</td>
+                                            <td>Encoding complexity, new format</td>
+                                            <td>89%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>SVG</strong></td>
+                                            <td>Vector</td>
+                                            <td>Icons, simple graphics, animations</td>
+                                            <td>Scalable, small file size, interactive</td>
+                                            <td>Not suitable for photographs</td>
+                                            <td>100%</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>GIF</strong></td>
+                                            <td>Lossless</td>
+                                            <td>Simple animations, memes</td>
+                                            <td>Animation support, wide compatibility</td>
+                                            <td>256 color limit, large file sizes</td>
+                                            <td>100%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 8. Accessibility Multimedia -->
+                <section id="accessibility-multimedia" class="content-section">
+                    <h2><i class="bi bi-universal-access me-2"></i>8. Accessibility en Multimedia</h2>
+                    
+                    <p>La <strong>accessibility en multimedia</strong> asegura que contenido audio-visual sea utilizable por personas con diferentes capacidades y en diversos contextos de uso.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>WCAG 2.1 Guidelines para Multimedia</h5>
+                            
+                            <div class="accessibility-demo">
+                                <h6><i class="bi bi-eye-slash me-2 text-primary"></i>Visual Disabilities</h6>
+                                
+                                <h6>Blindness & Low Vision</h6>
+                                <ul class="small">
+                                    <li><strong>Alt text:</strong> Descriptive text para images</li>
+                                    <li><strong>Audio descriptions:</strong> Narration de visual content</li>
+                                    <li><strong>Screen reader compatibility:</strong> Semantic markup</li>
+                                    <li><strong>High contrast modes:</strong> Enhanced visibility</li>
+                                    <li><strong>Text alternatives:</strong> Para visual-only content</li>
+                                </ul>
+                                
+                                <h6>Color Blindness</h6>
+                                <ul class="small">
+                                    <li><strong>Color independence:</strong> Information no solo por color</li>
+                                    <li><strong>Pattern alternatives:</strong> Shapes, textures, icons</li>
+                                    <li><strong>High contrast:</strong> Sufficient color contrast ratios</li>
+                                    <li><strong>Color simulation:</strong> Testing con color blind simulators</li>
+                                </ul>
+                                
+                                <div class="alert alert-primary small p-2">
+                                    <strong>WCAG Standards:</strong> AA level requires 4.5:1 contrast for normal text, 3:1 for large text
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="accessibility-demo">
+                                <h6><i class="bi bi-ear me-2 text-success"></i>Hearing Disabilities</h6>
+                                
+                                <h6>Deafness & Hard of Hearing</h6>
+                                <ul class="small">
+                                    <li><strong>Closed captions:</strong> Accurate transcription + sound description</li>
+                                    <li><strong>Open captions:</strong> Always visible text</li>
+                                    <li><strong>Sign language interpretation:</strong> ASL/BSL video overlays</li>
+                                    <li><strong>Visual alerts:</strong> Flash notifications, color changes</li>
+                                    <li><strong>Transcript access:</strong> Full text versions</li>
+                                </ul>
+                                
+                                <h6>Audio Processing Disorders</h6>
+                                <ul class="small">
+                                    <li><strong>Speed control:</strong> Playback rate adjustment</li>
+                                    <li><strong>Clear speech:</strong> High-quality audio recording</li>
+                                    <li><strong>Background noise reduction:</strong> Clean audio tracks</li>
+                                    <li><strong>Multiple audio tracks:</strong> Dialogue vs effects separation</li>
+                                </ul>
+                                
+                                <div class="alert alert-success small p-2">
+                                    <strong>Best Practice:</strong> Provide multiple ways to access same information
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Motor & Cognitive Disabilities</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0"><i class="bi bi-hand-thumbs-up me-2"></i>Motor Disabilities</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Large touch targets:</strong> Minimum 44x44pt</li>
+                                                <li><strong>Gesture alternatives:</strong> Button equivalents para swipes</li>
+                                                <li><strong>Voice control:</strong> Hands-free operation</li>
+                                                <li><strong>Switch navigation:</strong> Single-switch interfaces</li>
+                                                <li><strong>Pause/play control:</strong> User-controlled timing</li>
+                                                <li><strong>No time limits:</strong> O adjustable time limits</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="card border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h6 class="mb-0"><i class="bi bi-brain me-2"></i>Cognitive Disabilities</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Simple language:</strong> Clear, concise instructions</li>
+                                                <li><strong>Consistent navigation:</strong> Predictable interface patterns</li>
+                                                <li><strong>Error prevention:</strong> Clear labels y validation</li>
+                                                <li><strong>Progress indicators:</strong> Clear task progress</li>
+                                                <li><strong>Chunking:</strong> Break complex tasks into steps</li>
+                                                <li><strong>Memory aids:</strong> Contextual help y reminders</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 9. Performance y Optimización -->
+                <section id="performance-optimization" class="content-section">
+                    <h2><i class="bi bi-speedometer2 me-2"></i>9. Performance y Optimización</h2>
+                    
+                    <p><strong>Performance optimization</strong> para multimedia es crítica para mantener interfaces responsivas y experiencias de usuario smooth, especialmente en dispositivos móviles y conexiones lentas.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Métricas de Performance Multimedia</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="performance-metric">
+                                        <i class="bi bi-clock display-4 text-primary"></i>
+                                        <h6>Loading Time</h6>
+                                        <div class="small">
+                                            <strong>Target:</strong> <2s first byte<br>
+                                            <strong>Critical:</strong> <5s complete load<br>
+                                            <strong>Abandon rate:</strong> 53% after 3s
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="performance-metric">
+                                        <i class="bi bi-play-circle display-4 text-success"></i>
+                                        <h6>Playback Quality</h6>
+                                        <div class="small">
+                                            <strong>Target:</strong> 60fps smooth<br>
+                                            <strong>Minimum:</strong> 30fps acceptable<br>
+                                            <strong>Audio latency:</strong> <150ms
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="performance-metric">
+                                        <i class="bi bi-wifi display-4 text-warning"></i>
+                                        <h6>Bandwidth Usage</h6>
+                                        <div class="small">
+                                            <strong>Mobile target:</strong> <1MB/min<br>
+                                            <strong>WiFi target:</strong> <5MB/min<br>
+                                            <strong>Adaptive:</strong> Auto quality adjust
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="performance-metric">
+                                        <i class="bi bi-battery display-4 text-danger"></i>
+                                        <h6>Battery Impact</h6>
+                                        <div class="small">
+                                            <strong>Video:</strong> High consumption<br>
+                                            <strong>Audio:</strong> Medium consumption<br>
+                                            <strong>Animations:</strong> Variable impact
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Optimization Techniques</h5>
+                            
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Loading Optimization</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Progressive Loading</h6>
+                                    <ul class="small">
+                                        <li><strong>Lazy loading:</strong> Load multimedia cuando entra en viewport</li>
+                                        <li><strong>Preloading strategies:</strong> Critical media first</li>
+                                        <li><strong>Placeholder content:</strong> Skeleton screens mientras carga</li>
+                                        <li><strong>Progressive enhancement:</strong> Basic content first, enhance gradually</li>
+                                    </ul>
+                                    
+                                    <h6>Compression Strategies</h6>
+                                    <ul class="small">
+                                        <li><strong>Multi-format delivery:</strong> Serve best format per browser</li>
+                                        <li><strong>Responsive images:</strong> Different sizes para different devices</li>
+                                        <li><strong>CDN distribution:</strong> Geographically closer content</li>
+                                        <li><strong>Caching policies:</strong> Browser y server-side caching</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-gear me-2"></i>Runtime Optimization</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Memory Management</h6>
+                                    <ul class="small">
+                                        <li><strong>Asset pooling:</strong> Reuse multimedia objects</li>
+                                        <li><strong>Garbage collection:</strong> Clean up unused assets</li>
+                                        <li><strong>Memory monitoring:</strong> Track memory usage</li>
+                                        <li><strong>Asset streaming:</strong> Load/unload based on need</li>
+                                    </ul>
+                                    
+                                    <h6>Rendering Optimization</h6>
+                                    <ul class="small">
+                                        <li><strong>Hardware acceleration:</strong> GPU para video y animations</li>
+                                        <li><strong>Frame rate limiting:</strong> Match display refresh rate</li>
+                                        <li><strong>Efficient redraws:</strong> Minimize repaints</li>
+                                        <li><strong>Composite layers:</strong> Isolate animated elements</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 10. Casos de Estudio -->
+                <section id="casos-estudio" class="content-section">
+                    <h2><i class="bi bi-file-earmark-text me-2"></i>10. Casos de Estudio</h2>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="case-study-card card" style="border-top-color: #dc3545;">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0"><i class="bi bi-youtube me-2"></i>YouTube: Adaptive Video Delivery</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Desafío</h6>
+                                    <p class="small">Entregar video de alta calidad a billions de usuarios con conexiones y dispositivos muy variables.</p>
+                                    
+                                    <h6>Innovations Técnicas</h6>
+                                    <ul class="small">
+                                        <li><strong>Adaptive Bitrate Streaming:</strong> DASH para auto-adjusting quality</li>
+                                        <li><strong>VP9 Codec:</strong> 50% bandwidth reduction vs H.264</li>
+                                        <li><strong>Smart caching:</strong> Predictive preloading based on user behavior</li>
+                                        <li><strong>Edge delivery:</strong> Global CDN con 1000+ nodes</li>
+                                        <li><strong>Mobile optimization:</strong> AV1 codec para data savings</li>
+                                    </ul>
+                                    
+                                    <h6>UX Innovations</h6>
+                                    <ul class="small">
+                                        <li><strong>Progressive enhancement:</strong> Basic player → rich features</li>
+                                        <li><strong>Accessibility features:</strong> Auto-captions, voice search</li>
+                                        <li><strong>Interaction patterns:</strong> Double-tap to skip, gesture controls</li>
+                                        <li><strong>Context awareness:</strong> Picture-in-picture, background play</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-danger small p-2">
+                                        <strong>Resultado:</strong> 2B+ hours watched daily, 95% of global internet population reached
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="case-study-card card" style="border-top-color: #1db954;">
+                                <div class="card-header text-white" style="background-color: #1db954;">
+                                    <h6 class="mb-0"><i class="bi bi-spotify me-2"></i>Spotify: Audio UX Innovation</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Desafío</h6>
+                                    <p class="small">Crear interface que hace music discovery intuitivo y enjoyable mientras optimiza audio quality y performance.</p>
+                                    
+                                    <h6>Audio Innovation</h6>
+                                    <ul class="small">
+                                        <li><strong>Ogg Vorbis streaming:</strong> Better quality than MP3 at lower bitrates</li>
+                                        <li><strong>Adaptive streaming:</strong> Auto-adjust based on connection</li>
+                                        <li><strong>Crossfade technology:</strong> Seamless transitions entre tracks</li>
+                                        <li><strong>Audio normalization:</strong> Consistent volume levels</li>
+                                        <li><strong>Offline sync:</strong> Download para offline listening</li>
+                                    </ul>
+                                    
+                                    <h6>Interactive Features</h6>
+                                    <ul class="small">
+                                        <li><strong>Visual audio representation:</strong> Waveforms, spectrum analyzer</li>
+                                        <li><strong>Gesture controls:</strong> Swipe to skip, long-press for options</li>
+                                        <li><strong>Voice search:</strong> "Play something I like"</li>
+                                        <li><strong>Social integration:</strong> Share listening activity</li>
+                                        <li><strong>Personalized playlists:</strong> AI-curated content</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-success small p-2">
+                                        <strong>Resultado:</strong> 456M active users, industry leader en audio streaming UX
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="case-study-card card" style="border-top-color: #ff6b35;">
+                                <div class="card-header text-white" style="background-color: #ff6b35;">
+                                    <h6 class="mb-0"><i class="bi bi-instagram me-2"></i>Instagram: Visual Storytelling Platform</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <h6>Image Processing Innovation</h6>
+                                            <ul class="small">
+                                                <li><strong>Smart cropping:</strong> AI-powered crop suggestions</li>
+                                                <li><strong>Filter algorithms:</strong> Real-time image processing</li>
+                                                <li><strong>Compression optimization:</strong> Quality vs bandwidth balance</li>
+                                                <li><strong>Multiple aspect ratios:</strong> Square, portrait, landscape support</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>Video Features</h6>
+                                            <ul class="small">
+                                                <li><strong>Stories format:</strong> Vertical video optimization</li>
+                                                <li><strong>Reels algorithm:</strong> Short-form video discovery</li>
+                                                <li><strong>Live streaming:</strong> Real-time video con interactions</li>
+                                                <li><strong>IGTV integration:</strong> Long-form content</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6>Interactive Elements</h6>
+                                            <ul class="small">
+                                                <li><strong>Story interactions:</strong> Polls, questions, quizzes</li>
+                                                <li><strong>AR filters:</strong> Face-tracking augmented reality</li>
+                                                <li><strong>Shopping tags:</strong> Interactive product placement</li>
+                                                <li><strong>Music integration:</strong> Audio tracks con visual sync</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-warning small p-2">
+                                        <strong>Resultado:</strong> 2B+ monthly active users, redefined visual communication patterns globally
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 11. Implementación Técnica -->
+                <section id="implementacion-tecnica" class="content-section">
+                    <h2><i class="bi bi-code-slash me-2"></i>11. Implementación Técnica</h2>
+                    
+                    <p>La <strong>implementación técnica</strong> de multimedia en interfaces web requiere conocimiento de APIs modernas, optimization techniques y cross-browser compatibility.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>HTML5 Media APIs</h5>
+                            
+                            <div class="implementation-example">
+// HTML5 Video con accessibility
+&lt;video id="myVideo" controls crossorigin="anonymous"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  &lt;track kind="captions" src="captions.vtt" 
+         srclang="es" label="Español"&gt;
+  &lt;track kind="descriptions" src="descriptions.vtt" 
+         srclang="es" label="Audio Descriptions"&gt;
+  Tu browser no soporta video HTML5.
+&lt;/video&gt;
+
+// JavaScript control
+const video = document.getElementById('myVideo');
+
+// Performance monitoring
+video.addEventListener('loadstart', () =&gt; {
+  console.log('Started loading');
+});
+
+video.addEventListener('canplay', () =&gt; {
+  console.log('Can start playing');
+});
+
+video.addEventListener('stalled', () =&gt; {
+  console.log('Network stalled');
+});
+            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Web Audio API</h5>
+                            
+                            <div class="implementation-example">
+// Audio context setup
+const audioContext = new AudioContext();
+
+// Load y decode audio
+async function loadAudio(url) {
+  const response = await fetch(url);
+  const arrayBuffer = await response.arrayBuffer();
+  const audioBuffer = await audioContext
+    .decodeAudioData(arrayBuffer);
+  return audioBuffer;
+}
+
+// Play with effects
+function playWithEffects(audioBuffer) {
+  const source = audioContext.createBufferSource();
+  const gainNode = audioContext.createGain();
+  const filterNode = audioContext.createBiquadFilter();
+  
+  // Connect audio graph
+  source.buffer = audioBuffer;
+  source.connect(filterNode);
+  filterNode.connect(gainNode);
+  gainNode.connect(audioContext.destination);
+  
+  // Configure effects
+  filterNode.frequency.value = 1000;
+  gainNode.gain.value = 0.8;
+  
+  source.start(0);
+}
+            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h5>Modern Web APIs para Multimedia</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card border-primary">
+                                        <div class="card-header bg-primary text-white">
+                                            <h6 class="mb-0">Media APIs</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>MediaStream API:</strong> Camera y microphone access</li>
+                                                <li><strong>WebRTC:</strong> Real-time communication</li>
+                                                <li><strong>MediaRecorder API:</strong> Recording capabilities</li>
+                                                <li><strong>Picture-in-Picture API:</strong> Floating video</li>
+                                                <li><strong>Fullscreen API:</strong> Immersive media viewing</li>
+                                                <li><strong>Screen Capture API:</strong> Screen sharing</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-success">
+                                        <div class="card-header bg-success text-white">
+                                            <h6 class="mb-0">Graphics APIs</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>Canvas API:</strong> 2D drawing y manipulation</li>
+                                                <li><strong>WebGL:</strong> 3D graphics acceleration</li>
+                                                <li><strong>WebGPU:</strong> Next-gen graphics API</li>
+                                                <li><strong>OffscreenCanvas:</strong> Web Worker graphics</li>
+                                                <li><strong>ImageBitmap:</strong> Efficient image handling</li>
+                                                <li><strong>Web Animations API:</strong> Programmatic animations</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="card border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0">Device APIs</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <ul class="small">
+                                                <li><strong>DeviceMotion API:</strong> Accelerometer y gyroscope</li>
+                                                <li><strong>Vibration API:</strong> Haptic feedback</li>
+                                                <li><strong>Ambient Light API:</strong> Screen brightness adaptation</li>
+                                                <li><strong>Geolocation API:</strong> Location-based multimedia</li>
+                                                <li><strong>Battery API:</strong> Power-aware multimedia</li>
+                                                <li><strong>Network Information API:</strong> Connection-aware delivery</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 12. Resumen -->
+                <section id="resumen" class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen</h2>
+                    
+                    <div class="alert alert-success">
+                        <h5><i class="bi bi-lightbulb me-2"></i>Puntos Clave: Multimedia en HCI</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Principios de Diseño</h6>
+                                <ul>
+                                    <li>Multimedia debe servir un propósito funcional</li>
+                                    <li>Consider cognitive load y user context</li>
+                                    <li>Provide accessibility alternatives siempre</li>
+                                    <li>Optimize para performance desde el inicio</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Implementación</h6>
+                                <ul>
+                                    <li>Use modern formats con fallbacks</li>
+                                    <li>Implement progressive loading strategies</li>
+                                    <li>Monitor performance metrics continuously</li>
+                                    <li>Test en real devices y network conditions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Best Practices Framework</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="best-practice">
+                                        <h6><i class="bi bi-person-check me-2 text-success"></i>User-Centered</h6>
+                                        <ul class="small">
+                                            <li>User control sobre multimedia</li>
+                                            <li>Respect user preferences</li>
+                                            <li>Provide clear value</li>
+                                            <li>Consider usage context</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="best-practice">
+                                        <h6><i class="bi bi-universal-access me-2 text-primary"></i>Accessible</h6>
+                                        <ul class="small">
+                                            <li>Multiple access methods</li>
+                                            <li>Screen reader compatibility</li>
+                                            <li>Keyboard navigation</li>
+                                            <li>Alternative formats</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="best-practice">
+                                        <h6><i class="bi bi-speedometer me-2 text-warning"></i>Performant</h6>
+                                        <ul class="small">
+                                            <li>Optimize file sizes</li>
+                                            <li>Lazy loading</li>
+                                            <li>Adaptive delivery</li>
+                                            <li>Efficient caching</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                    <div class="best-practice">
+                                        <h6><i class="bi bi-shield-check me-2 text-info"></i>Robust</h6>
+                                        <ul class="small">
+                                            <li>Format fallbacks</li>
+                                            <li>Error handling</li>
+                                            <li>Cross-browser testing</li>
+                                            <li>Progressive enhancement</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light mt-4">
+                        <div class="card-body">
+                            <h6><i class="bi bi-arrow-right me-2"></i>Flujo de Desarrollo Multimedia</h6>
+                            <div class="row text-center">
+                                <div class="col-3">
+                                    <i class="bi bi-lightbulb display-4 text-success"></i>
+                                    <h6>1. Purpose</h6>
+                                    <small>Define why multimedia adds value</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-people display-4 text-primary"></i>
+                                    <h6>2. Audience</h6>
+                                    <small>Understand user capabilities y context</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-gear display-4 text-warning"></i>
+                                    <h6>3. Optimize</h6>
+                                    <small>Balance quality, performance, accessibility</small>
+                                </div>
+                                <div class="col-3">
+                                    <i class="bi bi-check-circle display-4 text-info"></i>
+                                    <h6>4. Test</h6>
+                                    <small>Validate en real conditions</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4">
+                            <div class="card border-primary">
+                                <div class="card-body text-center">
+                                    <h6>🎯 Purpose-Driven</h6>
+                                    <p class="small mb-0">"Cada elemento multimedia debe tener un propósito claro y measurable en la experiencia de usuario."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-success">
+                                <div class="card-body text-center">
+                                    <h6>♿ Inclusive Design</h6>
+                                    <p class="small mb-0">"Multimedia accessible beneficia a todos: captions ayudan en ambientes ruidosos, controles benefician a power users."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-warning">
+                                <div class="card-body text-center">
+                                    <h6>⚡ Performance Matters</h6>
+                                    <p class="small mb-0">"Multimedia rica no debe sacrificar performance. Optimization es parte integral del diseño."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <a href="../../../quiz-spa/index.html?theme=hci6" class="btn btn-success btn-lg">
+                            <i class="bi bi-question-circle me-2"></i>
+                            Realizar Quiz del Tema 6
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-4">
+                        <a href="tema6.html" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <a href="tema5.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 5: Prototipado
+                        </a>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema7.html" class="btn btn-outline-primary">
+                            Tema 7: Estructura y Navegación
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci6" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 6">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i>
+                HCI Tema 6: Multimedia en HCI - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

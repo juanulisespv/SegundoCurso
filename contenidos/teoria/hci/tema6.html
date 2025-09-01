@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI Tema 6: Multimedia en HCI - Parte 1 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b35;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .multimedia-demo {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .multimedia-demo:hover {
+            border-color: #ff6b35;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(255, 107, 53, 0.15);
+        }
+        
+        .media-type-card {
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1rem;
+            background: #ffffff;
+            text-align: center;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .media-type-card:hover {
+            border-color: #ff6b35;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
+        }
+        
+        .audio-visual {
+            border-color: #dc3545;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+        }
+        
+        .video-visual {
+            border-color: #007bff;
+            background: linear-gradient(135deg, #cce7ff, #b8daff);
+        }
+        
+        .interactive-visual {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .cognitive-load {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            transition: all 0.2s ease;
+        }
+        
+        .cognitive-load:hover {
+            border-color: #ff6b35;
+            background: #f8f9fa;
+        }
+        
+        .accessibility-feature {
+            background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border: 1px solid #dee2e6;
+        }
+        
+        .media-player {
+            background: #1e1e1e;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-family: monospace;
+        }
+        
+        .format-comparison {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin: 0.25rem 0;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-arrow-left me-2"></i>
+                Quiz App
+            </a>
+            
+            <span class="navbar-text">
+                <i class="bi bi-book me-2"></i>
+                HCI Tema 6: Multimedia en HCI - Parte 1
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
+                    <i class="bi bi-list me-1"></i>
+                    Índice
+                </a>
+                <button class="btn btn-outline-light" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>
+                                Contenido - Parte 1
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#tipos-multimedia">2. Tipos de Multimedia</a>
+                                <a class="nav-link" href="#percepcion-cognitiva">3. Percepción Cognitiva</a>
+                                <a class="nav-link" href="#audio-interfaces">4. Audio en Interfaces</a>
+                                <a class="nav-link" href="#video-motion">5. Video y Motion Graphics</a>
+                                <a class="nav-link" href="#interactividad">6. Interactividad Multimedia</a>
+                                <hr class="my-2">
+                                <a class="nav-link text-primary" href="tema6-parte2.html">
+                                    <i class="bi bi-arrow-right me-1"></i>
+                                    Ir a Parte 2 (Temas 7-12)
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-9">
+                <!-- Header -->
+                <div class="text-center mb-5">
+                    <h1 class="display-5 text-primary">Multimedia en HCI</h1>
+                    <p class="lead">Integración de medios digitales en interfaces de usuario - Parte 1</p>
+                    <div class="alert alert-info">
+                        <i class="bi bi-info-circle me-2"></i>
+                        <strong>Nota:</strong> Este tema está dividido en 2 partes debido a la extensión del contenido multimedia.
+                    </div>
+                </div>
+
+                <!-- 1. Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
+                    
+                    <p>La <strong>multimedia en HCI</strong> se refiere a la integración de múltiples formas de contenido digital (texto, audio, video, animaciones, gráficos interactivos) en interfaces de usuario para crear experiencias más ricas, efectivas y engaging.</p>
+                    
+                    <div class="alert alert-primary">
+                        <i class="bi bi-lightbulb me-2"></i>
+                        <strong>Concepto Central:</strong> "La multimedia bien diseñada amplifica la comunicación humano-computadora, pero mal implementada puede sobrecargar cognitivamente al usuario."
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Evolución de la Multimedia en Interfaces</h5>
+                            
+                            <div class="timeline">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="card border-secondary">
+                                            <div class="card-header bg-secondary text-white text-center">
+                                                <h6>1980s</h6>
+                                            </div>
+                                            <div class="card-body small">
+                                                <strong>Text-Based UIs</strong><br>
+                                                • Interfaces de línea de comandos<br>
+                                                • Texto monocromático<br>
+                                                • Feedback auditivo básico (beeps)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-primary">
+                                            <div class="card-header bg-primary text-white text-center">
+                                                <h6>1990s</h6>
+                                            </div>
+                                            <div class="card-body small">
+                                                <strong>GUI Revolution</strong><br>
+                                                • Iconos y gráficos<br>
+                                                • Primeros sonidos de sistema<br>
+                                                • CD-ROM multimedia
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-success">
+                                            <div class="card-header bg-success text-white text-center">
+                                                <h6>2000s</h6>
+                                            </div>
+                                            <div class="card-body small">
+                                                <strong>Web Multimedia</strong><br>
+                                                • Flash animations<br>
+                                                • Streaming de audio/video<br>
+                                                • Rich Internet Applications
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="card border-warning">
+                                            <div class="card-header bg-warning text-dark text-center">
+                                                <h6>2010s+</h6>
+                                            </div>
+                                            <div class="card-body small">
+                                                <strong>Mobile & Touch</strong><br>
+                                                • Gestos y haptics<br>
+                                                • AR/VR interfaces<br>
+                                                • AI-powered media
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-warning">
+                                <div class="card-header bg-warning text-dark">
+                                    <h6 class="mb-0"><i class="bi bi-exclamation-triangle me-2"></i>Desafíos Multimedia</h6>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="small">
+                                        <li><strong>Cognitive overload:</strong> Demasiada información simultánea</li>
+                                        <li><strong>Bandwidth limitations:</strong> Usuarios con conexiones lentas</li>
+                                        <li><strong>Accessibility barriers:</strong> Usuarios con discapacidades</li>
+                                        <li><strong>Device diversity:</strong> Capacidades hardware variables</li>
+                                        <li><strong>Cultural differences:</strong> Interpretación de símbolos</li>
+                                        <li><strong>Battery consumption:</strong> Multimedia consume más energía</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-success mt-3">
+                        <h6><i class="bi bi-check-circle me-2"></i>Beneficios de Multimedia Bien Implementada</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Enhanced comprehension:</strong> Multiple learning channels</li>
+                                    <li><strong>Improved retention:</strong> Visual + auditory memory</li>
+                                    <li><strong>Emotional engagement:</strong> Conexión emocional más fuerte</li>
+                                    <li><strong>Accessibility options:</strong> Alternativas para diferentes capacidades</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Faster communication:</strong> "Una imagen vale más que mil palabras"</li>
+                                    <li><strong>Universal language:</strong> Iconos trascienden barreras lingüísticas</li>
+                                    <li><strong>Context awareness:</strong> Media adapta el contexto</li>
+                                    <li><strong>Interactive feedback:</strong> Respuestas más naturales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 2. Tipos de Multimedia -->
+                <section id="tipos-multimedia" class="content-section">
+                    <h2><i class="bi bi-collection me-2"></i>2. Tipos de Multimedia</h2>
+                    
+                    <p>La multimedia en interfaces abarca diversos tipos de contenido digital, cada uno con características, ventajas y consideraciones de implementación específicas.</p>
+                    
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <div class="media-type-card audio-visual">
+                                <i class="bi bi-volume-up display-1 text-danger"></i>
+                                <h5>Audio</h5>
+                                <h6>Características</h6>
+                                <ul class="small text-start">
+                                    <li><strong>No visual space:</strong> No ocupa pantalla</li>
+                                    <li><strong>Temporal:</strong> Secuencial en el tiempo</li>
+                                    <li><strong>Ambient:</strong> Puede ser background</li>
+                                    <li><strong>Emotional:</strong> Impacto emocional directo</li>
+                                </ul>
+                                
+                                <h6>Subtipos en HCI</h6>
+                                <ul class="small text-start">
+                                    <li><strong>System sounds:</strong> Clicks, notifications, alerts</li>
+                                    <li><strong>Ambient audio:</strong> Background music, soundscapes</li>
+                                    <li><strong>Spoken content:</strong> Voice commands, text-to-speech</li>
+                                    <li><strong>Audio feedback:</strong> Confirmation sounds, error beeps</li>
+                                    <li><strong>Spatial audio:</strong> 3D positioning, directional cues</li>
+                                </ul>
+                                
+                                <h6>Consideraciones Técnicas</h6>
+                                <ul class="small text-start">
+                                    <li>Formatos: MP3, AAC, OGG, WebM</li>
+                                    <li>Bitrates: 128kbps (mínimo) a 320kbps</li>
+                                    <li>Latency: <50ms para interactividad</li>
+                                    <li>Codec support: Browser compatibility</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="media-type-card video-visual">
+                                <i class="bi bi-camera-video display-1 text-primary"></i>
+                                <h5>Video</h5>
+                                <h6>Características</h6>
+                                <ul class="small text-start">
+                                    <li><strong>High bandwidth:</strong> Requiere mucho ancho de banda</li>
+                                    <li><strong>Attention demanding:</strong> Captura atención completa</li>
+                                    <li><strong>Narrative:</strong> Excelente para storytelling</li>
+                                    <li><strong>Demonstrative:</strong> Ideal para tutorials</li>
+                                </ul>
+                                
+                                <h6>Subtipos en HCI</h6>
+                                <ul class="small text-start">
+                                    <li><strong>Background video:</strong> Hero sections, ambiance</li>
+                                    <li><strong>Instructional video:</strong> Tutorials, onboarding</li>
+                                    <li><strong>Product demos:</strong> Feature explanations</li>
+                                    <li><strong>User-generated:</strong> Reviews, testimonials</li>
+                                    <li><strong>Live streaming:</strong> Real-time content</li>
+                                </ul>
+                                
+                                <h6>Consideraciones Técnicas</h6>
+                                <ul class="small text-start">
+                                    <li>Formatos: MP4, WebM, AV1</li>
+                                    <li>Resolutions: 480p, 720p, 1080p, 4K</li>
+                                    <li>Adaptive streaming: HLS, DASH</li>
+                                    <li>Compression: H.264, H.265, VP9</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="media-type-card interactive-visual">
+                                <i class="bi bi-cursor-fill display-1 text-success"></i>
+                                <h5>Elementos Interactivos</h5>
+                                <h6>Características</h6>
+                                <ul class="small text-start">
+                                    <li><strong>User-driven:</strong> Requiere input del usuario</li>
+                                    <li><strong>Responsive:</strong> Feedback inmediato</li>
+                                    <li><strong>Engaging:</strong> Mantiene atención activa</li>
+                                    <li><strong>Personalized:</strong> Adapta según user behavior</li>
+                                </ul>
+                                
+                                <h6>Subtipos en HCI</h6>
+                                <ul class="small text-start">
+                                    <li><strong>Animations:</strong> Micro-interactions, transitions</li>
+                                    <li><strong>Data visualizations:</strong> Charts, graphs, dashboards</li>
+                                    <li><strong>3D models:</strong> Product viewers, CAD interfaces</li>
+                                    <li><strong>Game elements:</strong> Gamification, progress</li>
+                                    <li><strong>AR/VR content:</strong> Immersive experiences</li>
+                                </ul>
+                                
+                                <h6>Consideraciones Técnicas</h6>
+                                <ul class="small text-start">
+                                    <li>Performance: 60fps smooth animations</li>
+                                    <li>Memory usage: Efficient asset loading</li>
+                                    <li>Input lag: <16ms response time</li>
+                                    <li>Progressive enhancement: Graceful degradation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 3. Percepción Cognitiva -->
+                <section id="percepcion-cognitiva" class="content-section">
+                    <h2><i class="bi bi-brain me-2"></i>3. Percepción Cognitiva y Multimedia</h2>
+                    
+                    <p>La <strong>percepción cognitiva</strong> estudia cómo los humanos procesamos información multimedia. Entender estos principios es crucial para diseñar interfaces que no sobrecarguen al usuario.</p>
+                    
+                    <div class="multimedia-demo">
+                        <h5><i class="bi bi-diagram-3 me-2 text-primary"></i>Teoría de Carga Cognitiva (Cognitive Load Theory)</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="cognitive-load">
+                                    <h6><i class="bi bi-cpu me-2 text-primary"></i>Intrinsic Load</h6>
+                                    <p class="small">Carga inherente al material que se está aprendiendo.</p>
+                                    <ul class="small">
+                                        <li><strong>Element complexity:</strong> Número de elementos que interactúan</li>
+                                        <li><strong>Task difficulty:</strong> Complejidad intrínseca de la tarea</li>
+                                        <li><strong>Prior knowledge:</strong> Conocimiento previo del usuario</li>
+                                    </ul>
+                                    <div class="alert alert-info small p-2">
+                                        <strong>HCI Application:</strong> Simplificar interfaces complejas, progressive disclosure
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="cognitive-load">
+                                    <h6><i class="bi bi-gear me-2 text-warning"></i>Extraneous Load</h6>
+                                    <p class="small">Carga generada por el diseño de la instrucción/interface.</p>
+                                    <ul class="small">
+                                        <li><strong>Poor design:</strong> Layouts confusos, navegación ilógica</li>
+                                        <li><strong>Irrelevant multimedia:</strong> Decoración que distrae</li>
+                                        <li><strong>Cognitive conflicts:</strong> Información contradictoria</li>
+                                    </ul>
+                                    <div class="alert alert-warning small p-2">
+                                        <strong>HCI Application:</strong> Minimizar elementos decorativos, consistent navigation
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="cognitive-load">
+                                    <h6><i class="bi bi-lightbulb me-2 text-success"></i>Germane Load</h6>
+                                    <p class="small">Carga dedicada a procesar, construir y automatizar schemas.</p>
+                                    <ul class="small">
+                                        <li><strong>Schema construction:</strong> Building mental models</li>
+                                        <li><strong>Pattern recognition:</strong> Learning interface patterns</li>
+                                        <li><strong>Automation:</strong> Converting conscious to automatic</li>
+                                    </ul>
+                                    <div class="alert alert-success small p-2">
+                                        <strong>HCI Application:</strong> Consistent patterns, progressive proficiency
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Dual Coding Theory (Paivio)</h5>
+                            <div class="card border-info">
+                                <div class="card-body">
+                                    <p class="small">Los humanos procesan información a través de dos canales independientes pero interconectados:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-6 text-center">
+                                            <i class="bi bi-eye display-4 text-info"></i>
+                                            <h6>Visual Channel</h6>
+                                            <ul class="small text-start">
+                                                <li>Procesa imágenes</li>
+                                                <li>Información espacial</li>
+                                                <li>Patrones visuales</li>
+                                                <li>Colores y formas</li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                            <i class="bi bi-volume-up display-4 text-success"></i>
+                                            <h6>Verbal Channel</h6>
+                                            <ul class="small text-start">
+                                                <li>Procesa texto</li>
+                                                <li>Información verbal</li>
+                                                <li>Secuencias lógicas</li>
+                                                <li>Audio y speech</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert alert-info small p-2">
+                                        <strong>Implicación HCI:</strong> Combinar visual + verbal puede mejorar comprensión, pero sobrecargar un canal degrada performance
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Principles of Multimedia Learning (Mayer)</h5>
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h6>12 Principios Clave</h6>
+                                    <ol class="small">
+                                        <li><strong>Coherence:</strong> Exclude irrelevant material</li>
+                                        <li><strong>Signaling:</strong> Highlight essential material</li>
+                                        <li><strong>Redundancy:</strong> Don't present identical visual and verbal</li>
+                                        <li><strong>Spatial contiguity:</strong> Present related visual and verbal elements near each other</li>
+                                        <li><strong>Temporal contiguity:</strong> Present related visual and verbal elements simultaneously</li>
+                                        <li><strong>Segmenting:</strong> Break continuous presentation into user-controlled segments</li>
+                                        <li><strong>Pre-training:</strong> Provide pre-training on key concepts</li>
+                                        <li><strong>Modality:</strong> Present verbal material as speech rather than text</li>
+                                        <li><strong>Multimedia:</strong> Present words and pictures rather than words alone</li>
+                                        <li><strong>Personalization:</strong> Use conversational style rather than formal</li>
+                                        <li><strong>Voice:</strong> Use human voice rather than machine voice</li>
+                                        <li><strong>Image:</strong> Don't require learners to look at speaker's image</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. Audio en Interfaces -->
+                <section id="audio-interfaces" class="content-section">
+                    <h2><i class="bi bi-volume-up me-2"></i>4. Audio en Interfaces</h2>
+                    
+                    <p>El <strong>audio en interfaces</strong> puede mejorar significativamente la experiencia de usuario cuando se implementa correctamente, proporcionando feedback inmediato, creando atmósfera y siendo crucial para accessibility.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h5>Categorías de Audio en UX</h5>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>1. Functional Audio</h6>
+                                    <div class="format-comparison">
+                                        <strong>System Sounds</strong>
+                                        <ul class="small">
+                                            <li><strong>Button clicks:</strong> Confirmation táctil</li>
+                                            <li><strong>Notification sounds:</strong> Attention grabbing</li>
+                                            <li><strong>Error alerts:</strong> Problem indication</li>
+                                            <li><strong>Success chimes:</strong> Task completion</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="format-comparison">
+                                        <strong>Voice Interface</strong>
+                                        <ul class="small">
+                                            <li><strong>Voice commands:</strong> "Hey Google", "Hey Siri"</li>
+                                            <li><strong>Voice feedback:</strong> System responses</li>
+                                            <li><strong>Text-to-speech:</strong> Content accessibility</li>
+                                            <li><strong>Voice navigation:</strong> Hands-free control</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <h6>2. Atmospheric Audio</h6>
+                                    <div class="format-comparison">
+                                        <strong>Background Audio</strong>
+                                        <ul class="small">
+                                            <li><strong>Ambient music:</strong> Mood setting</li>
+                                            <li><strong>Environmental sounds:</strong> Context creation</li>
+                                            <li><strong>Brand audio:</strong> Sonic branding</li>
+                                            <li><strong>Transition sounds:</strong> Navigation smoothness</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="format-comparison">
+                                        <strong>Interactive Audio</strong>
+                                        <ul class="small">
+                                            <li><strong>Hover sounds:</strong> Rollover feedback</li>
+                                            <li><strong>Drag audio:</strong> Manipulation feedback</li>
+                                            <li><strong>Proximity audio:</strong> Spatial awareness</li>
+                                            <li><strong>Progress audio:</strong> Process indication</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card border-danger">
+                                <div class="card-header bg-danger text-white">
+                                    <h6 class="mb-0"><i class="bi bi-volume-mute me-2"></i>Audio Accessibility</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Usuarios con Discapacidad Auditiva</h6>
+                                    <ul class="small">
+                                        <li><strong>Visual alternatives:</strong> Iconos, colores, animations</li>
+                                        <li><strong>Haptic feedback:</strong> Vibration patterns</li>
+                                        <li><strong>Closed captions:</strong> Para contenido hablado</li>
+                                        <li><strong>Transcripts:</strong> Text versions de audio content</li>
+                                    </ul>
+                                    
+                                    <h6>Control de Usuario</h6>
+                                    <ul class="small">
+                                        <li><strong>Volume control:</strong> Individual por tipo de sonido</li>
+                                        <li><strong>Mute options:</strong> Global y selective muting</li>
+                                        <li><strong>Audio preferences:</strong> User customization</li>
+                                        <li><strong>Reduce motion:</strong> Disable audio-triggered animations</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-danger small p-2">
+                                        <strong>Nunca:</strong> Audio que se reproduce automáticamente sin control del usuario
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card bg-light mt-4">
+                        <div class="card-body">
+                            <h6><i class="bi bi-gear me-2"></i>Implementación Técnica de Audio</h6>
+                            
+                            <div class="media-player">
+                                <h6>HTML5 Audio Implementation</h6>
+                                <code>&lt;audio controls preload="metadata"&gt;<br>
+                                &nbsp;&nbsp;&lt;source src="audio.mp3" type="audio/mpeg"&gt;<br>
+                                &nbsp;&nbsp;&lt;source src="audio.ogg" type="audio/ogg"&gt;<br>
+                                &nbsp;&nbsp;Your browser does not support audio.<br>
+                                &lt;/audio&gt;</code>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Web Audio API Features</h6>
+                                    <ul class="small">
+                                        <li><strong>AudioContext:</strong> Audio processing graph</li>
+                                        <li><strong>Gain nodes:</strong> Volume control</li>
+                                        <li><strong>Filter nodes:</strong> EQ y effects</li>
+                                        <li><strong>Spatial audio:</strong> 3D positioning</li>
+                                        <li><strong>Real-time analysis:</strong> Frequency data</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h6>Audio Performance Optimization</h6>
+                                    <ul class="small">
+                                        <li><strong>Lazy loading:</strong> Load on demand</li>
+                                        <li><strong>Compression:</strong> Optimize file sizes</li>
+                                        <li><strong>Caching:</strong> Store frequently used sounds</li>
+                                        <li><strong>Fallbacks:</strong> Multiple format support</li>
+                                        <li><strong>Preloading:</strong> Critical sounds ready</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 5. Video y Motion Graphics -->
+                <section id="video-motion" class="content-section">
+                    <h2><i class="bi bi-camera-video me-2"></i>5. Video y Motion Graphics</h2>
+                    
+                    <p><strong>Video y motion graphics</strong> son herramientas poderosas para comunicar información compleja, demostrar procesos y crear engagement emocional en interfaces digitales.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Video en UX Design</h5>
+                            
+                            <div class="card border-primary">
+                                <div class="card-header bg-primary text-white">
+                                    <h6 class="mb-0"><i class="bi bi-play-btn me-2"></i>Casos de Uso Efectivos</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Hero Videos</h6>
+                                    <ul class="small">
+                                        <li><strong>Brand storytelling:</strong> Comunicar valores y misión</li>
+                                        <li><strong>Product showcases:</strong> Demostrar funcionalidad</li>
+                                        <li><strong>Emotional connection:</strong> Crear engagement inicial</li>
+                                        <li><strong>Context setting:</strong> Establecer ambiente</li>
+                                    </ul>
+                                    
+                                    <h6>Instructional Videos</h6>
+                                    <ul class="small">
+                                        <li><strong>Onboarding tutorials:</strong> First-time user guidance</li>
+                                        <li><strong>Feature walkthroughs:</strong> New functionality introduction</li>
+                                        <li><strong>Process demonstrations:</strong> Step-by-step procedures</li>
+                                        <li><strong>Troubleshooting guides:</strong> Problem resolution</li>
+                                    </ul>
+                                    
+                                    <h6>User-Generated Content</h6>
+                                    <ul class="small">
+                                        <li><strong>Product reviews:</strong> Peer testimonials</li>
+                                        <li><strong>Community content:</strong> Social proof</li>
+                                        <li><strong>Live streaming:</strong> Real-time interaction</li>
+                                        <li><strong>Video responses:</strong> Enhanced feedback</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Motion Graphics y Micro-Interactions</h5>
+                            
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    <h6 class="mb-0"><i class="bi bi-arrows-move me-2"></i>Tipos de Motion Design</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Functional Animations</h6>
+                                    <ul class="small">
+                                        <li><strong>State transitions:</strong> Loading → loaded</li>
+                                        <li><strong>Navigation transitions:</strong> Page changes</li>
+                                        <li><strong>Feedback animations:</strong> Button presses, form validation</li>
+                                        <li><strong>Progress indicators:</strong> Task completion status</li>
+                                    </ul>
+                                    
+                                    <h6>Delightful Animations</h6>
+                                    <ul class="small">
+                                        <li><strong>Hover effects:</strong> Interactive feedback</li>
+                                        <li><strong>Easter eggs:</strong> Hidden delightful moments</li>
+                                        <li><strong>Brand personality:</strong> Character expression</li>
+                                        <li><strong>Gamification:</strong> Achievement celebrations</li>
+                                    </ul>
+                                    
+                                    <h6>Informational Animations</h6>
+                                    <ul class="small">
+                                        <li><strong>Data visualization:</strong> Animated charts</li>
+                                        <li><strong>Process illustration:</strong> How things work</li>
+                                        <li><strong>Spatial relationships:</strong> 3D object manipulation</li>
+                                        <li><strong>Temporal changes:</strong> Time-based data</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-3">
+                        <h6><i class="bi bi-exclamation-triangle me-2"></i>Video Performance Considerations</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Optimization Strategies</h6>
+                                <ul class="small">
+                                    <li><strong>Adaptive bitrate:</strong> Adjust quality to connection</li>
+                                    <li><strong>Progressive loading:</strong> Start playback before full download</li>
+                                    <li><strong>Compression optimization:</strong> Balance quality vs. file size</li>
+                                    <li><strong>Format fallbacks:</strong> Multiple codecs support</li>
+                                    <li><strong>Lazy loading:</strong> Load only when needed</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>User Control</h6>
+                                <ul class="small">
+                                    <li><strong>Autoplay policies:</strong> Respect browser limitations</li>
+                                    <li><strong>Playback controls:</strong> Play, pause, seek, volume</li>
+                                    <li><strong>Quality selection:</strong> User-controlled resolution</li>
+                                    <li><strong>Captions/subtitles:</strong> Accessibility options</li>
+                                    <li><strong>Speed control:</strong> Playback rate adjustment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 6. Interactividad Multimedia -->
+                <section id="interactividad" class="content-section">
+                    <h2><i class="bi bi-cursor-fill me-2"></i>6. Interactividad Multimedia</h2>
+                    
+                    <p>La <strong>interactividad multimedia</strong> permite a los usuarios no solo consumir contenido pasivamente, sino participar activamente en la experiencia, manipulando y explorando información de manera dinámica.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5>Niveles de Interactividad</h5>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr>
+                                            <th>Nivel</th>
+                                            <th>Descripción</th>
+                                            <th>Ejemplos en HCI</th>
+                                            <th>Complejidad Técnica</th>
+                                            <th>Cognitive Load</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Nivel 0: Pasivo</strong></td>
+                                            <td>Usuario solo consume contenido sin interactuar</td>
+                                            <td>Videos background, images estáticas, text content</td>
+                                            <td>Baja</td>
+                                            <td>Baja</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nivel 1: Reactivo</strong></td>
+                                            <td>Sistema responde a acciones básicas del usuario</td>
+                                            <td>Hover effects, click responses, simple animations</td>
+                                            <td>Baja-Media</td>
+                                            <td>Baja</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nivel 2: Selectivo</strong></td>
+                                            <td>Usuario puede elegir path o contenido</td>
+                                            <td>Menús navegables, choose-your-own-adventure, filters</td>
+                                            <td>Media</td>
+                                            <td>Media</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nivel 3: Manipulativo</strong></td>
+                                            <td>Usuario puede modificar y controlar elementos</td>
+                                            <td>Drag & drop, sliders, drawing tools, media editors</td>
+                                            <td>Media-Alta</td>
+                                            <td>Media-Alta</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Nivel 4: Constructivo</strong></td>
+                                            <td>Usuario puede crear nuevo contenido</td>
+                                            <td>Content creation tools, collaborative documents, 3D modeling</td>
+                                            <td>Alta</td>
+                                            <td>Alta</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Micro-Interactions en Multimedia</h5>
+                            
+                            <div class="accessibility-feature">
+                                <h6><i class="bi bi-hand-index me-2 text-primary"></i>Triggers (Disparadores)</h6>
+                                <ul class="small">
+                                    <li><strong>Manual triggers:</strong> User-initiated (clicks, taps, swipes)</li>
+                                    <li><strong>System triggers:</strong> Automatic (time-based, data changes)</li>
+                                    <li><strong>Environmental triggers:</strong> Device sensors (accelerometer, proximity)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="accessibility-feature">
+                                <h6><i class="bi bi-activity me-2 text-success"></i>Rules (Reglas)</h6>
+                                <ul class="small">
+                                    <li><strong>Conditional logic:</strong> If-then scenarios</li>
+                                    <li><strong>State management:</strong> Track interaction states</li>
+                                    <li><strong>Validation rules:</strong> Input checking y error handling</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="accessibility-feature">
+                                <h6><i class="bi bi-eye me-2 text-warning"></i>Feedback (Retroalimentación)</h6>
+                                <ul class="small">
+                                    <li><strong>Visual feedback:</strong> Color changes, animations, icons</li>
+                                    <li><strong>Audio feedback:</strong> Sounds, voice responses</li>
+                                    <li><strong>Haptic feedback:</strong> Vibration patterns</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="accessibility-feature">
+                                <h6><i class="bi bi-arrow-repeat me-2 text-info"></i>Loops (Bucles)</h6>
+                                <ul class="small">
+                                    <li><strong>Mode changes:</strong> State transitions</li>
+                                    <li><strong>Continuous interactions:</strong> Drag operations</li>
+                                    <li><strong>Repetitive patterns:</strong> Consistent behavior</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <h5>Interactive Media Formats</h5>
+                            
+                            <div class="card border-info">
+                                <div class="card-header bg-info text-white">
+                                    <h6 class="mb-0"><i class="bi bi-collection-play me-2"></i>Modern Interactive Formats</h6>
+                                </div>
+                                <div class="card-body">
+                                    <h6>Web-Based Formats</h6>
+                                    <ul class="small">
+                                        <li><strong>SVG Animations:</strong> Scalable vector interactions</li>
+                                        <li><strong>CSS Animations:</strong> Performance-optimized transitions</li>
+                                        <li><strong>Canvas-based:</strong> Custom drawing y manipulation</li>
+                                        <li><strong>WebGL:</strong> 3D graphics y complex visualizations</li>
+                                        <li><strong>Web Components:</strong> Reusable interactive elements</li>
+                                    </ul>
+                                    
+                                    <h6>Rich Media Formats</h6>
+                                    <ul class="small">
+                                        <li><strong>Interactive videos:</strong> Clickable hotspots, branching</li>
+                                        <li><strong>360° content:</strong> Panoramic y VR experiences</li>
+                                        <li><strong>AR overlays:</strong> Augmented reality layers</li>
+                                        <li><strong>Progressive Web Apps:</strong> Native-like multimedia experiences</li>
+                                    </ul>
+                                    
+                                    <div class="alert alert-info small p-2">
+                                        <strong>Tendencia 2025:</strong> WebAssembly permite performance near-native para multimedia complex
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation to Part 2 -->
+                <div class="alert alert-info text-center mt-5">
+                    <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 2</h5>
+                    <p class="mb-3">Los temas restantes (7-12) incluyen formatos multimedia, accessibility, casos de estudio y implementación técnica.</p>
+                    <a href="tema6-parte2.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-arrow-right me-2"></i>
+                        Ir a Parte 2: Formatos, Accessibility y Implementación
+                    </a>
+                </div>
+
+                <!-- Navigation Between Topics -->
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <a href="tema5.html" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 5: Prototipado de Interfaces
+                        </a>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="tema6-parte2.html" class="btn btn-outline-primary">
+                            Tema 6 - Parte 2
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=hci6" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 6">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-mortarboard me-2"></i>
+                HCI Tema 6: Multimedia en HCI - Parte 1
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Highlight current section in sidebar
+            const observerOptions = {
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
