@@ -5150,6 +5150,474 @@ const QUIZ_DATA = {
           "answer": "B"
         }
       ]
+    },
+    "12": {
+      "subject": "hci",
+      "theme": 11,
+      "source": "contenidos/HCItests/11.txt",
+      "count": 20,
+      "questions": [
+        {
+          "number": 1,
+          "question": "¿El futuro de HCI podría incluir?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo interfaces gráficas tradicionales.»"
+            },
+            {
+              "key": "B",
+              "text": "«Interacciones basadas en gestos, voz, y hasta interfaces neuronales.»"
+            },
+            {
+              "key": "C",
+              "text": "«No hay cambios esperados.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de entretenimiento.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 2,
+          "question": "¿La interfaz cerebro-computadora (BCI) permite?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo la entrada de datos a través de teclado.»"
+            },
+            {
+              "key": "B",
+              "text": "«No tiene aplicaciones en HCI.»"
+            },
+            {
+              "key": "C",
+              "text": "«Interacción directa entre cerebro y dispositivos.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones médicas.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 3,
+          "question": "¿Las interacciones gestuales facilitan?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo la entrada de texto.»"
+            },
+            {
+              "key": "B",
+              "text": "«Interacciones más naturales y sin contacto.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tienen aplicaciones prácticas.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de entretenimiento.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 4,
+          "question": "¿Unity y Unreal Engine son usados principalmente para?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo diseño gráfico estático.»"
+            },
+            {
+              "key": "B",
+              "text": "«Desarrollo de aplicaciones VR y AR.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tienen aplicaciones en realidad virtual.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo para aplicaciones web.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 5,
+          "question": "¿Las interfaces conversacionales incluyen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo gráficos estáticos.»"
+            },
+            {
+              "key": "B",
+              "text": "«Chatbots y asistentes de voz para interacciones naturales.»"
+            },
+            {
+              "key": "C",
+              "text": "«No son relevantes en HCI.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo para aplicaciones de negocios.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 6,
+          "question": "¿La inteligencia artificial en interfaces se aplica para?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo en servidores backend.»"
+            },
+            {
+              "key": "B",
+              "text": "«Interfaces que se adaptan y aprenden del usuario.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tiene lugar en HCI.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de juegos.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 7,
+          "question": "¿Los desafíos de la AR incluyen?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo la precisión de los gráficos.»"
+            },
+            {
+              "key": "B",
+              "text": "«Rendimiento en tiempo real y precisión del reconocimiento de entorno.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tiene desafíos.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo el costo de implementación.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 8,
+          "question": "¿La realidad aumentada (AR) se define como?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Un entorno completamente digital.»"
+            },
+            {
+              "key": "B",
+              "text": "«Información digital superpuesta al mundo real.»"
+            },
+            {
+              "key": "C",
+              "text": "«Solo para juegos.»"
+            },
+            {
+              "key": "D",
+              "text": "«Sin aplicaciones prácticas.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 9,
+          "question": "¿El desafío principal de la VR es?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo el costo de los dispositivos.»"
+            },
+            {
+              "key": "B",
+              "text": "«No tiene desafíos significativos.»"
+            },
+            {
+              "key": "C",
+              "text": "«Evitar el mareo (motion sickness).»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo la falta de contenido.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 10,
+          "question": "¿La inmersión en VR depende de?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Calidad de gráficos, sonido y retroalimentación háptica.»"
+            },
+            {
+              "key": "B",
+              "text": "«Solo de la calidad gráfica.»"
+            },
+            {
+              "key": "C",
+              "text": "«No es un factor en VR.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo la velocidad de procesamiento.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 11,
+          "question": "¿Las interfaces conversacionales mejoran?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«La accesibilidad y la naturalidad de la interacción.»"
+            },
+            {
+              "key": "B",
+              "text": "«Solo la velocidad de procesamiento.»"
+            },
+            {
+              "key": "C",
+              "text": "«No son relevantes en diseño moderno.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de negocios.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 12,
+          "question": "¿La retroalimentación háptica en interfaces VR?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«No es necesaria.»"
+            },
+            {
+              "key": "B",
+              "text": "«Añade una dimensión táctil a la experiencia.»"
+            },
+            {
+              "key": "C",
+              "text": "«Solo está en prototipos.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo para usuarios avanzados.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 13,
+          "question": "¿La inteligencia artificial en interfaces puede?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo mostrar datos.»"
+            },
+            {
+              "key": "B",
+              "text": "«No afecta la interacción.»"
+            },
+            {
+              "key": "C",
+              "text": "«Personalizar la experiencia del usuario en tiempo real.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de juegos.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 14,
+          "question": "¿ARKit y ARCore son?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo para desarrollo web.»"
+            },
+            {
+              "key": "B",
+              "text": "«Frameworks para desarrollar aplicaciones AR en iOS y Android.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tienen relación con AR.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo para hardware.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 15,
+          "question": "¿Las interacciones gestuales en HCI se refieren a?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo interacción con teclado y ratón.»"
+            },
+            {
+              "key": "B",
+              "text": "«No son parte del diseño moderno.»"
+            },
+            {
+              "key": "C",
+              "text": "«Control de dispositivos mediante gestos.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de entretenimiento.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 16,
+          "question": "¿La AR mejora la navegación al?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Proveer información contextual sobre el entorno físico.»"
+            },
+            {
+              "key": "B",
+              "text": "«Eliminar la necesidad de mapas.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tiene aplicaciones en navegación.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones de juegos.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 17,
+          "question": "¿El Oculus Rift es un ejemplo de?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Un headset de VR.»"
+            },
+            {
+              "key": "B",
+              "text": "«Un dispositivo AR.»"
+            },
+            {
+              "key": "C",
+              "text": "«No es un dispositivo de realidad virtual.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo para juegos de computadora.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 18,
+          "question": "¿La realidad virtual (VR) crea?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Mejoras en el mundo real.»"
+            },
+            {
+              "key": "B",
+              "text": "«Solo aplicaciones para móviles.»"
+            },
+            {
+              "key": "C",
+              "text": "«Un entorno digitalmente inmersivo.»"
+            },
+            {
+              "key": "D",
+              "text": "«No es inmersiva.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 19,
+          "question": "¿La retroalimentación háptica mejora?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo la visualización.»"
+            },
+            {
+              "key": "B",
+              "text": "«La inmersión mediante sensaciones táctiles.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tiene impacto en la experiencia de usuario.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en dispositivos de escritorio.»"
+            }
+          ],
+          "answer": "B"
+        },
+        {
+          "number": 20,
+          "question": "¿El uso de BCI en HCI puede revolucionar?",
+          "options": [
+            {
+              "key": "A",
+              "text": "«Solo el diseño gráfico.»"
+            },
+            {
+              "key": "B",
+              "text": "«La accesibilidad y la manera en que interactuamos con la tecnología.»"
+            },
+            {
+              "key": "C",
+              "text": "«No tiene impacto en HCI.»"
+            },
+            {
+              "key": "D",
+              "text": "«Solo en aplicaciones médicas.»"
+            }
+          ],
+          "answer": "B"
+        }
+      ]
     }
   },
   "programacion": {
@@ -9834,6 +10302,474 @@ const QUIZ_DATA = {
       ]
     },
     "11": {
+      "subject": "programacion",
+      "theme": 11,
+      "source": "contenidos/programaciontests/11.txt",
+      "count": 20,
+      "questions": [
+        {
+          "number": 1,
+          "question": "¿Qué es la accesibilidad en diseño UI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Considerar a usuarios con discapacidades para que usen el sistema efectivamente."
+            },
+            {
+              "key": "B",
+              "text": "Usar una paleta de colores exclusiva de la marca."
+            },
+            {
+              "key": "C",
+              "text": "Incrementar la complejidad visual para mostrar modernidad."
+            },
+            {
+              "key": "D",
+              "text": "Limitar la interfaz a resoluciones específicas."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 2,
+          "question": "¿Qué herramienta automatiza pruebas en múltiples dispositivos reales?",
+          "options": [
+            {
+              "key": "A",
+              "text": "BrowserStack"
+            },
+            {
+              "key": "B",
+              "text": "GIMP"
+            },
+            {
+              "key": "C",
+              "text": "SQLite"
+            },
+            {
+              "key": "D",
+              "text": "Notepad"
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 3,
+          "question": "¿Qué es un diseño responsive?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Que la aplicación se adapte automáticamente a distintos tamaños de pantalla."
+            },
+            {
+              "key": "B",
+              "text": "Crear versiones distintas por cada navegador sin compartir código."
+            },
+            {
+              "key": "C",
+              "text": "Usar únicamente imágenes para todo el contenido."
+            },
+            {
+              "key": "D",
+              "text": "Evitar CSS moderno."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 4,
+          "question": "¿Qué permite Media Queries?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Definir estilos específicos según el ancho del dispositivo."
+            },
+            {
+              "key": "B",
+              "text": "Ejecutar código Python en el navegador."
+            },
+            {
+              "key": "C",
+              "text": "Reemplazar JavaScript para interacción."
+            },
+            {
+              "key": "D",
+              "text": "Almacenar datos del usuario localmente."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 5,
+          "question": "¿Cuál es una ventaja de usar emuladores en pruebas móviles?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Probar múltiples dispositivos sin hardware físico."
+            },
+            {
+              "key": "B",
+              "text": "Reproducir exacto consumo de batería real."
+            },
+            {
+              "key": "C",
+              "text": "Evitar pruebas en dispositivos reales siempre."
+            },
+            {
+              "key": "D",
+              "text": "Sustituir monitoreo en producción."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 6,
+          "question": "¿Qué es Appium?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Herramienta compatible con Android e iOS para automatización de pruebas móviles."
+            },
+            {
+              "key": "B",
+              "text": "Un gestor de bases de datos NoSQL."
+            },
+            {
+              "key": "C",
+              "text": "Un framework de UI para Python."
+            },
+            {
+              "key": "D",
+              "text": "Un linter de código."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 7,
+          "question": "¿Qué aspecto es clave en validación multiplataforma?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Probar en distintos navegadores, OS y tamaños de pantalla."
+            },
+            {
+              "key": "B",
+              "text": "Optimizar solo para la última versión de un navegador."
+            },
+            {
+              "key": "C",
+              "text": "Evitar pruebas en dispositivos móviles."
+            },
+            {
+              "key": "D",
+              "text": "Reducir el número de pruebas por costo."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 8,
+          "question": "¿Cuál es la principal ventaja del desarrollo nativo?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mejor rendimiento y acceso total a funcionalidades del dispositivo."
+            },
+            {
+              "key": "B",
+              "text": "Menos esfuerzo para soportar múltiples plataformas."
+            },
+            {
+              "key": "C",
+              "text": "Menor costo de mantenimiento siempre."
+            },
+            {
+              "key": "D",
+              "text": "No requiere pruebas en dispositivos reales."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 9,
+          "question": "¿Qué es Buildozer?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Herramienta para empaquetar apps Kivy en APK."
+            },
+            {
+              "key": "B",
+              "text": "Servicio de hosting web."
+            },
+            {
+              "key": "C",
+              "text": "Un linter de Python."
+            },
+            {
+              "key": "D",
+              "text": "Un sistema de base de datos."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 10,
+          "question": "¿Qué principio busca la simplicidad en UI?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Eliminar elementos innecesarios y priorizar lo que aporta valor."
+            },
+            {
+              "key": "B",
+              "text": "Incluir la mayor cantidad de elementos posibles."
+            },
+            {
+              "key": "C",
+              "text": "Diseñar con tipografías múltiples sin criterio."
+            },
+            {
+              "key": "D",
+              "text": "Aumentar los pasos para realizar tareas simples."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 11,
+          "question": "¿Qué herramienta ayuda a evaluar accesibilidad en sitios web?",
+          "options": [
+            {
+              "key": "A",
+              "text": "WAVE"
+            },
+            {
+              "key": "B",
+              "text": "Photoshop"
+            },
+            {
+              "key": "C",
+              "text": "Notepad"
+            },
+            {
+              "key": "D",
+              "text": "Excel"
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 12,
+          "question": "¿Por qué es importante la comunicación diseñador-desarrollador?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Para garantizar que las intenciones visuales y funcionales se traduzcan correctamente en el producto final."
+            },
+            {
+              "key": "B",
+              "text": "Para que los diseñadores hagan todo el código."
+            },
+            {
+              "key": "C",
+              "text": "Para eliminar pruebas de usabilidad."
+            },
+            {
+              "key": "D",
+              "text": "Para reducir la documentación de diseño."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 13,
+          "question": "¿Qué ventaja aporta usar Material Design o Bootstrap?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Ofrecen componentes y patrones que aceleran el desarrollo y mejoran la consistencia."
+            },
+            {
+              "key": "B",
+              "text": "Obligan a usar un diseño anticuado."
+            },
+            {
+              "key": "C",
+              "text": "Eliminan la necesidad de tests de compatibilidad."
+            },
+            {
+              "key": "D",
+              "text": "Siempre solucionan problemas de accesibilidad por sí solos."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 14,
+          "question": "¿Qué es un sistema de grillas en Bootstrap?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Un mecanismo que facilita layouts adaptativos mediante columnas y filas."
+            },
+            {
+              "key": "B",
+              "text": "Una base de datos integrada en el framework."
+            },
+            {
+              "key": "C",
+              "text": "Un sistema de autenticación."
+            },
+            {
+              "key": "D",
+              "text": "Un conjunto de pruebas automatizadas."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 15,
+          "question": "¿Qué herramienta permite probar apps en múltiples navegadores y dispositivos?",
+          "options": [
+            {
+              "key": "A",
+              "text": "BrowserStack"
+            },
+            {
+              "key": "B",
+              "text": "Word"
+            },
+            {
+              "key": "C",
+              "text": "Excel"
+            },
+            {
+              "key": "D",
+              "text": "Paint"
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 16,
+          "question": "¿Cuál es una buena práctica para accesibilidad visual?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Usar contrastes adecuados entre texto y fondo."
+            },
+            {
+              "key": "B",
+              "text": "Reducir el tamaño de fuente al máximo."
+            },
+            {
+              "key": "C",
+              "text": "Usar colores similares para elementos clave."
+            },
+            {
+              "key": "D",
+              "text": "Eliminar etiquetas alternativas en imágenes."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 17,
+          "question": "¿Qué aporta la validación multiplataforma al usuario final?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Experiencias coherentes y funcionales en diferentes dispositivos."
+            },
+            {
+              "key": "B",
+              "text": "Mayor consumo de batería sin beneficio."
+            },
+            {
+              "key": "C",
+              "text": "Interfaz exclusiva para un solo dispositivo."
+            },
+            {
+              "key": "D",
+              "text": "Eliminar pruebas de compatibilidad."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 18,
+          "question": "¿Qué práctica ayuda a reducir problemas de compatibilidad en web?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Diseño responsive y pruebas en distintos navegadores."
+            },
+            {
+              "key": "B",
+              "text": "Optimizar solo para un navegador moderno."
+            },
+            {
+              "key": "C",
+              "text": "Evitar el uso de frameworks CSS."
+            },
+            {
+              "key": "D",
+              "text": "Usar tablas HTML para todo el layout."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 19,
+          "question": "¿Qué ventaja ofrecen emuladores?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Permiten pruebas rápidas en múltiples configuraciones sin hardware físico."
+            },
+            {
+              "key": "B",
+              "text": "Simulan exactamente el comportamiento de hardware real en todos los aspectos."
+            },
+            {
+              "key": "C",
+              "text": "Reemplazan por completo la necesidad de pruebas en dispositivos reales."
+            },
+            {
+              "key": "D",
+              "text": "Reducen la necesidad de testeo de rendimiento."
+            }
+          ],
+          "answer": "A"
+        },
+        {
+          "number": 20,
+          "question": "¿Qué debe priorizarse en una UI accesible?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Claridad, contraste, navegación sencilla y soporte para lectores de pantalla."
+            },
+            {
+              "key": "B",
+              "text": "Uso exclusivo de iconografía sin texto."
+            },
+            {
+              "key": "C",
+              "text": "Complejidad visual para impresionar al usuario."
+            },
+            {
+              "key": "D",
+              "text": "Reducir la estructura semántica HTML."
+            }
+          ],
+          "answer": "A"
+        }
+      ]
+    },
+    "12": {
       "subject": "programacion",
       "theme": 11,
       "source": "contenidos/programaciontests/11.txt",

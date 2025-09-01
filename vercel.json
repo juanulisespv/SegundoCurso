@@ -4,18 +4,30 @@
   "public": true,
   "builds": [
     {
-      "src": "quiz-spa/**",
+      "src": "**",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/contenidos/(.*)",
+      "dest": "/contenidos/$1"
+    },
+    {
+      "src": "/quiz-spa/(.*)",
       "dest": "/quiz-spa/$1"
+    },
+    {
+      "src": "/scripts/(.*)",
+      "dest": "/scripts/$1"
     },
     {
       "src": "/",
       "dest": "/quiz-spa/index.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/quiz-spa/$1"
     }
   ]
 }
