@@ -1,0 +1,347 @@
+
+
+Resultados de aprendizaje previstos
+A - Analizar, diseñar, desarrollar y mantener aplicaciones de forma robusta, segura y eficiente, eligiendo el paradigma y los lenguajes de programación más adecuados.
+1.
+¿Cuál es una de las principales responsabilidades del gestor de proyectos en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Escribir y depurar el código fuente.
+B.
+
+Coordinar equipos y gestionar recursos y plazos.
+C.
+
+Diseñar diagramas de clases y relaciones.
+D.
+
+Ejecutar pruebas unitarias y automatizadas.
+2.
+¿Qué método de testing utiliza herramientas y scripts para ejecutar pruebas repetitivas de manera eficiente?
+-
+
+No lo sé.
+A.
+
+Pruebas manuales
+B.
+
+Pruebas exploratorias
+C.
+
+Pruebas de aceptación
+D.
+
+Pruebas automatizadas
+3.
+¿Qué herramienta es ideal para gestionar proyectos ágiles mediante tareas y seguimiento del progreso?
+-
+
+No lo sé.
+A.
+
+Jira
+B.
+
+Trello
+C.
+
+MS Project
+D.
+
+GitHub
+4.
+¿Cuál de los siguientes frameworks es una biblioteca estándar de Python para pruebas automatizadas?
+-
+
+No lo sé.
+A.
+
+pytest
+B.
+
+Selenium
+C.
+
+JUnit
+D.
+
+unittest
+5.
+¿Cuál es una característica clave del modelo en espiral?
+-
+
+No lo sé.
+A.
+
+Su rigidez para avanzar secuencialmente entre etapas.
+B.
+
+Su énfasis en la gestión de riesgos en cada iteración.
+C.
+
+Su enfoque en completar el proyecto sin prototipos intermedios.
+D.
+
+Su bajo costo y facilidad de implementación.
+6.
+¿Qué tipo de prueba verifica el funcionamiento de las unidades más pequeñas del código, como funciones o métodos?
+-
+
+No lo sé.
+A.
+
+Pruebas de aceptación
+B.
+
+Pruebas de integración
+C.
+
+Pruebas unitarias
+D.
+
+Pruebas de rendimiento
+7.
+¿Qué elemento es clave para evitar malentendidos y garantizar el éxito en un proyecto de desarrollo de software?
+-
+
+No lo sé.
+A.
+
+La comunicación efectiva entre roles.
+B.
+
+La automatización de pruebas.
+C.
+
+El uso de bases de datos relacionales.
+D.
+
+La documentación extensa
+8.
+¿Cuál es una de las responsabilidades principales del analista en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Diseñar y escribir el código fuente del sistema.
+B.
+
+Realizar pruebas unitarias del software.
+C.
+
+Recopilar y documentar los requisitos del cliente.
+D.
+
+Configurar los servidores para el entorno de producción.
+9.
+¿Qué herramienta se utiliza comúnmente para empaquetar software con sus dependencias en contenedores ligeros?
+-
+
+No lo sé.
+A.
+
+Docker
+B.
+
+Jenkins
+C.
+
+GitHub Actions
+D.
+
+Kubernetes
+10.
+¿Qué herramienta permite gestionar y rastrear cambios en el código fuente durante la implementación?
+-
+
+No lo sé.
+A.
+
+Git
+B.
+
+PyCharm
+C.
+
+Visual Studio Code
+D.
+
+IntelliJ
+11.
+¿Cuál es un beneficio clave de organizar el desarrollo de software en fases bien definidas?
+-
+
+No lo sé.
+A.
+
+Garantizar que todos los desarrolladores utilicen el mismo lenguaje de programación.
+B.
+
+Reducir los costos y errores identificando problemas en cada etapa.
+C.
+
+Asegurar que el software sea compatible con todos los sistemas operativos.
+D.
+
+Eliminar la necesidad de realizar pruebas de calidad en el producto final.
+12.
+¿Cuál de las siguientes opciones describe un requisito no funcional en el análisis de software?
+-
+
+No lo sé.
+A.
+
+El sistema debe responder en menos de dos segundos a cada solicitud del usuario.
+B.
+
+El sistema debe permitir a los usuarios registrarse y autenticar su cuenta.
+C.
+
+El sistema debe generar un informe mensual de ventas.
+D.
+
+El sistema debe enviar notificaciones a los usuarios cuando se completen sus tareas.
+13.
+¿Cuál de los siguientes es un principio clave del desarrollo ágil?
+-
+
+No lo sé.
+A.
+
+Entregar todo el producto al final del proyecto sin iteraciones intermedias.
+B.
+
+Minimizar la interacción entre el equipo de desarrollo y el cliente.
+C.
+
+Responder rápidamente a cambios en los requisitos en cualquier etapa.
+D.
+
+Rechazar modificaciones en los objetivos una vez definidos.
+14.
+¿Qué elemento de un diagrama de clases en UML representa una relación general entre dos clases?
+-
+
+No lo sé.
+A.
+
+Herencia
+B.
+
+Asociación
+C.
+
+Composición
+D.
+
+Agregación
+15.
+¿Qué herramienta se utiliza comúnmente para el control de versiones en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Docker
+B.
+
+Git
+C.
+
+Jenkins
+D.
+
+Kubernetes
+16.
+¿Cuál de las siguientes bases de datos es más adecuada para datos estructurados y relaciones complejas?
+-
+
+No lo sé.
+A.
+
+MySQL
+B.
+
+MongoDB
+C.
+
+Firebase
+D.
+
+Elasticsearch
+17.
+¿Cuál es una ventaja principal del modelo incremental?
+-
+
+No lo sé.
+A.
+
+Permite entregar funcionalidades utilizables de manera progresiva.
+B.
+
+Proporciona una visión global completa del proyecto desde el inicio.
+C.
+
+Evita la necesidad de retroalimentación del cliente durante el desarrollo.
+D.
+
+Elimina por completo los problemas de integración entre módulos.
+18.
+¿Cuál es el rol en Scrum encargado de priorizar las tareas del backlog y representar los intereses del cliente?
+-
+
+No lo sé.
+A.
+
+Scrum Master
+B.
+
+Equipo de desarrollo
+C.
+
+Product Owner
+D.
+
+Project Manager
+19.
+¿En qué tipo de proyectos es más adecuado utilizar metodologías ágiles?
+-
+
+No lo sé.
+A.
+
+Proyectos con requisitos completamente definidos y estables.
+B.
+
+Desarrollo de sistemas críticos como los de defensa o aeronáutica.
+C.
+
+Proyectos que requieren documentación exhaustiva antes de comenzar el desarrollo.
+D.
+
+Proyectos dinámicos como aplicaciones móviles o plataformas web.
+20.
+¿Cuál es una desventaja principal del modelo en cascada?
+-
+
+No lo sé.
+A.
+
+Dificultad para comprender las etapas del desarrollo.
+B.
+
+Excesiva flexibilidad para realizar cambios durante el desarrollo.
+C.
+
+Poca flexibilidad para adaptar el proyecto a cambios en los requisitos.
+D.
+
+Falta de claridad en la documentación de los requisitos.
+ 
+Euniv Universidad Europea    Copyright 2025 © © Universitas Europaea IMF
+Plataforma eLearning eLysa LCMS

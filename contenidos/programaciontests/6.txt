@@ -1,0 +1,341 @@
+1.
+¿Cómo contribuyen las vistas arquitectónicas a la escalabilidad del software?
+-
+
+No lo sé.
+A.
+
+Eliminando la necesidad de documentar la arquitectura del sistema.
+B.
+
+Permitiendo que todas las funcionalidades del software se desarrollen en un único módulo.
+C.
+
+Organizando el sistema en diferentes perspectivas que facilitan su mantenimiento y crecimiento.
+D.
+
+Evitando la separación de responsabilidades entre los diferentes componentes del sistema.
+2.
+¿Cuál es una de las principales ventajas de la herencia en la programación orientada a objetos?
+-
+
+No lo sé.
+A.
+
+Evita la necesidad de definir nuevas clases en un sistema.
+B.
+
+Permite reutilizar código y estructurar jerárquicamente las clases.
+C.
+
+Garantiza que todas las clases tengan los mismos métodos sin excepciones.
+D.
+
+Elimina la necesidad de utilizar encapsulamiento en las clases.
+3.
+¿Cuál es una ventaja de utilizar jerarquías de clases en un sistema de gestión de empleados?
+-
+
+No lo sé.
+A.
+
+Permite evitar la reutilización de código en las subclases.
+B.
+
+Facilita la administración de empleados al definir atributos y métodos comunes en una superclase.
+C.
+
+Obliga a que todas las clases hereden de una única clase padre sin posibilidad de modificaciones.
+D.
+
+Impide la personalización del comportamiento de los empleados según su rol.
+4.
+¿Qué representa la vista funcional en una arquitectura de software?
+-
+
+No lo sé.
+A.
+
+La interacción y flujo de datos entre los distintos componentes del sistema.
+B.
+
+La organización de los módulos en una jerarquía estructural.
+C.
+
+La representación de los servidores donde se ejecuta el software.
+D.
+
+La seguridad y autenticación del sistema.
+5.
+¿Cuál es una de las principales ventajas de utilizar una arquitectura en capas en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Facilita el mantenimiento y la evolución del sistema al separar responsabilidades.
+B.
+
+Obliga a que todas las funcionalidades del sistema estén en una sola capa.
+C.
+
+Impide la reutilización de código entre distintos módulos del sistema.
+D.
+
+Hace que la integración de nuevas funcionalidades sea más complicada.
+6.
+¿Cuál es una de las principales ventajas del uso de patrones de diseño en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Eliminan la necesidad de escribir código nuevo en los proyectos.
+B.
+
+Proveen soluciones reutilizables para problemas comunes, mejorando la mantenibilidad del código.
+C.
+
+Obligan a los desarrolladores a seguir una única estructura rígida en sus aplicaciones.
+D.
+
+Sustituyen completamente la necesidad de modelado conceptual en el diseño de software.
+7.
+¿Cuál es una ventaja clave del uso de composición en el diseño de software?
+-
+
+No lo sé.
+A.
+
+Permite que una clase herede todos los métodos y atributos de otra sin restricciones.
+B.
+
+Obliga a que todas las clases compartan una misma jerarquía de herencia.
+C.
+
+Limita la reutilización de código, ya que cada clase debe implementarse desde cero.
+D.
+
+Facilita la modularidad y el mantenimiento del código al establecer relaciones "tiene un" en lugar de "es un".
+8.
+¿En qué caso es preferible usar composición en lugar de herencia?
+-
+
+No lo sé.
+A.
+
+Cuando todas las clases comparten exactamente los mismos métodos y atributos.
+B.
+
+Si la relación entre clases es del tipo "es un" (ejemplo: un Perro es un Animal).
+C.
+
+Cuando una clase debe contener otra como atributo en lugar de heredar de ella (ejemplo: un Coche tiene un Motor).
+D.
+
+Si se necesita sobrescribir todos los métodos de la clase padre en la subclase.
+9.
+¿Cuál es una de las principales ventajas del modelado conceptual avanzado en el diseño de software?
+-
+
+No lo sé.
+A.
+
+Facilita la reutilización de código y la escalabilidad del sistema.
+B.
+
+Elimina la necesidad de documentar la arquitectura del software.
+C.
+
+Sustituye completamente la programación orientada a objetos.
+D.
+
+Solo es útil en proyectos pequeños y de corta duración.
+10.
+¿Qué representa un diagrama de componentes en UML?
+-
+
+No lo sé.
+A.
+
+La interacción entre los usuarios y el sistema.
+B.
+
+El flujo de ejecución de una aplicación.
+C.
+
+La estructura jerárquica de las clases en un programa.
+D.
+
+La organización de los módulos y sus relaciones en un sistema.
+11.
+¿Cómo contribuye el modelado conceptual avanzado a la escalabilidad de un sistema?
+-
+
+No lo sé.
+A.
+
+Eliminando la necesidad de modificar el código en futuras expansiones.
+B.
+
+Haciendo que el sistema dependa exclusivamente de la herencia para crecer.
+C.
+
+Evitando el uso de nuevos componentes al agregar funcionalidades.
+D.
+
+Permitiendo agregar nuevas características sin afectar la estructura principal del sistema.
+12.
+¿En qué situación es más recomendable utilizar herencia en lugar de composición?
+-
+
+No lo sé.
+A.
+
+Cuando una subclase necesita compartir atributos y métodos comunes con una clase padre en una relación "es un".
+B.
+
+Cuando se busca evitar la reutilización de código en diferentes clases.
+C.
+
+Cuando una clase debe contener otra como atributo en lugar de heredar de ella.
+D.
+
+Cuando se quiere reducir la dependencia entre clases y facilitar la escalabilidad del sistema.
+13.
+¿Cuál es la principal característica de la sobreescritura de métodos en programación orientada a objetos?
+-
+
+No lo sé.
+A.
+
+Permite que una subclase redefina un método heredado de la clase padre con un comportamiento específico.
+B.
+
+Consiste en definir múltiples métodos con el mismo nombre pero con diferentes parámetros en una misma clase.
+C.
+
+Se utiliza para crear múltiples instancias de una clase sin modificar su estructura.
+D.
+
+Implica el uso exclusivo de métodos estáticos dentro de una jerarquía de clases.
+14.
+¿En qué situación es más recomendable usar composición en lugar de herencia?
+-
+
+No lo sé.
+A.
+
+Cuando una subclase necesita sobrescribir los métodos de la clase padre.
+B.
+
+Cuando una clase debe contener otra como parte de su estructura, en lugar de heredar de ella.
+C.
+
+Cuando todas las clases de un sistema comparten exactamente los mismos métodos.
+D.
+
+Cuando se quiere evitar la reutilización de código entre clases.
+15.
+¿Cuál es la principal ventaja del patrón Factory en la creación de objetos?
+-
+
+No lo sé.
+A.
+
+Permite crear objetos sin depender directamente de sus clases concretas.
+B.
+
+Requiere que todas las clases hereden de una misma clase base obligatoriamente.
+C.
+
+Evita la necesidad de definir métodos en las clases creadas.
+D.
+
+Permite que cada objeto se cree con una instancia única en todo el sistema.
+16.
+¿En qué caso es más recomendable utilizar el patrón Factory en lugar de Singleton?
+-
+
+No lo sé.
+A.
+
+Cuando se necesita garantizar que solo exista una única instancia de una clase en todo el sistema.
+B.
+
+Para restringir la creación de múltiples objetos y asegurar un punto de acceso global.
+C.
+
+Cuando se requiere crear múltiples instancias de diferentes clases sin depender de implementaciones concretas.
+D.
+
+Para evitar la creación de nuevas instancias de una clase en tiempo de ejecución.
+17.
+¿Cuál es la función principal de la capa de lógica de negocio en una arquitectura en capas?
+-
+
+No lo sé.
+A.
+
+Gestionar directamente la interfaz gráfica del usuario.
+B.
+
+Almacenar datos en una base de datos sin procesamiento previo.
+C.
+
+Contener la lógica principal del sistema, como validaciones y procesamiento de datos.
+D.
+
+Definir exclusivamente la seguridad del sistema sin relacionarse con otras capas.
+18.
+¿En el ejemplo trabajado, cuál es una ventaja clave del uso del patrón Factory en una API de productos?
+-
+
+No lo sé.
+A.
+
+Permite que cada producto tenga una implementación única sin reutilización de código.
+B.
+
+Obliga a definir manualmente cada instancia de producto dentro del código.
+C.
+
+Limita la posibilidad de agregar nuevos tipos de productos al sistema.
+D.
+
+Facilita la creación de diferentes tipos de productos sin modificar el código base.
+19.
+¿Cuál es el principal propósito del patrón Singleton?
+-
+
+No lo sé.
+A.
+
+Permitir la creación de múltiples instancias de una clase en el sistema.
+B.
+
+Facilitar la sobrecarga de métodos en una jerarquía de clases.
+C.
+
+Evitar el uso de herencia y promover la composición.
+D.
+
+Garantizar que una clase tenga una única instancia en toda la aplicación.
+20.
+¿Qué permite el polimorfismo en la programación orientada a objetos?
+-
+
+No lo sé.
+A.
+
+Garantizar que todas las clases tengan exactamente los mismos métodos.
+B.
+
+Evitar el uso de herencia en los programas.
+C.
+
+Definir un método en una clase padre y permitir que las clases hijas lo sobrescriban con su propio comportamiento.
+D.
+
+Usar solo un tipo de dato en todas las clases del sistema.
+ 

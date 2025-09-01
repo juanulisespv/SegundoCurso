@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 7,
+  "source": "contenidos/HCItests/7.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "El scroll infinito es útil cuando:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Se quiere limitar el contenido."
+        },
+        {
+          "key": "B",
+          "text": "Se trata de cargar más contenido automáticamente."
+        },
+        {
+          "key": "C",
+          "text": "Se desea evitar la navegación."
+        },
+        {
+          "key": "D",
+          "text": "Solo para blogs."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "El análisis de uso en la navegación se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo ver cuántos usuarios hay."
+        },
+        {
+          "key": "B",
+          "text": "Evaluar cómo los usuarios interactúan con la navegación."
+        },
+        {
+          "key": "C",
+          "text": "Ignorar las opiniones de los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "Mejorar el SEO."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "Los wireframes y prototipos se usan para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo el diseño visual final."
+        },
+        {
+          "key": "B",
+          "text": "Probar y refinar la navegación antes del desarrollo."
+        },
+        {
+          "key": "C",
+          "text": "Evitar la interacción del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Añadir más texto en la página."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "La accesibilidad en la navegación asegura:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo un diseño atractivo."
+        },
+        {
+          "key": "B",
+          "text": "Que todos los usuarios puedan navegar sin barreras."
+        },
+        {
+          "key": "C",
+          "text": "Que el sitio sea solo para usuarios avanzados."
+        },
+        {
+          "key": "D",
+          "text": "Menores tiempos de carga."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "La arquitectura de información influye en la navegación al:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No tener impacto."
+        },
+        {
+          "key": "B",
+          "text": "Solo referirse a la apariencia."
+        },
+        {
+          "key": "C",
+          "text": "Determinar cómo se organiza y etiqueta el contenido."
+        },
+        {
+          "key": "D",
+          "text": "Añadir más imágenes."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "La simplicidad en la navegación implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Tener muchos menús desplegables."
+        },
+        {
+          "key": "B",
+          "text": "Usar fuentes pequeñas para ahorrar espacio."
+        },
+        {
+          "key": "C",
+          "text": "Minimizar los clics necesarios para llegar a información."
+        },
+        {
+          "key": "D",
+          "text": "Agregar más páginas al sitio."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "Un menú principal debe:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ser difícil de encontrar."
+        },
+        {
+          "key": "B",
+          "text": "No cambiar nunca de posición."
+        },
+        {
+          "key": "C",
+          "text": "Incluir solo enlaces externos."
+        },
+        {
+          "key": "D",
+          "text": "Proveer acceso a las secciones principales del sitio."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "Los enlaces contextuales ayudan a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Confundir al usuario."
+        },
+        {
+          "key": "B",
+          "text": "Proporcionar caminos alternativos de navegación."
+        },
+        {
+          "key": "C",
+          "text": "Solo para decoración."
+        },
+        {
+          "key": "D",
+          "text": "Aumentar el tiempo de carga."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "¿Qué es la navegación en una interfaz web?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo el diseño gráfico."
+        },
+        {
+          "key": "B",
+          "text": "La manera en que los usuarios se mueven por el contenido."
+        },
+        {
+          "key": "C",
+          "text": "La velocidad de carga de la página."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de imágenes en la página."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "Una buena navegación debe ser:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Complicada para retener al usuario."
+        },
+        {
+          "key": "B",
+          "text": "Clara, intuitiva y accesible."
+        },
+        {
+          "key": "C",
+          "text": "Solo para usuarios expertos."
+        },
+        {
+          "key": "D",
+          "text": "Oculta para hacer el diseño más limpio."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "Los menús secundarios o dropdowns son útiles para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ocultar información importante."
+        },
+        {
+          "key": "B",
+          "text": "Organizar subcategorías bajo menús principales."
+        },
+        {
+          "key": "C",
+          "text": "Reducir el rendimiento del sitio."
+        },
+        {
+          "key": "D",
+          "text": "Solo en sitios muy grandes."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿Qué significa “relevancia” en la navegación web?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Que todas las opciones de menú sean necesarias."
+        },
+        {
+          "key": "B",
+          "text": "Usar imágenes atractivas."
+        },
+        {
+          "key": "C",
+          "text": "Tener muchas páginas."
+        },
+        {
+          "key": "D",
+          "text": "La navegación debe ser complicada."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "La paginación en una interfaz web sirve para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Añadir más contenido en una sola página."
+        },
+        {
+          "key": "B",
+          "text": "Eliminar la necesidad de scroll."
+        },
+        {
+          "key": "C",
+          "text": "Dividir el contenido en páginas manejables."
+        },
+        {
+          "key": "D",
+          "text": "Solo en sitios de comercio electrónico."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "Un mapa de sitio visualiza:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo el contenido de la página de inicio."
+        },
+        {
+          "key": "B",
+          "text": "La navegación en dispositivos móviles."
+        },
+        {
+          "key": "C",
+          "text": "La estética del diseño."
+        },
+        {
+          "key": "D",
+          "text": "La estructura jerárquica del sitio."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "La “claridad” en la navegación se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La calidad de la resolución de la pantalla."
+        },
+        {
+          "key": "B",
+          "text": "Etiquetas y menús fáciles de entender."
+        },
+        {
+          "key": "C",
+          "text": "Usar colores brillantes."
+        },
+        {
+          "key": "D",
+          "text": "La longitud de los textos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "Una herramienta de búsqueda interna mejora la navegación al:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Permitir acceso directo a contenido específico."
+        },
+        {
+          "key": "B",
+          "text": "Solo ser decorativa."
+        },
+        {
+          "key": "C",
+          "text": "Añadir complejidad."
+        },
+        {
+          "key": "D",
+          "text": "Reducir la velocidad de carga."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "La navegación lateral (sidebar) es ideal para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Navegación continua sin interrumpir el contenido principal."
+        },
+        {
+          "key": "B",
+          "text": "Poner publicidad."
+        },
+        {
+          "key": "C",
+          "text": "Solo en sitios de noticias."
+        },
+        {
+          "key": "D",
+          "text": "Reducir la cantidad de contenido visible."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "Las migas de pan (breadcrumbs) permiten:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Navegar más rápido hacia adelante."
+        },
+        {
+          "key": "B",
+          "text": "Ver y regresar a pasos anteriores en la navegación."
+        },
+        {
+          "key": "C",
+          "text": "Solo estar en la página de inicio."
+        },
+        {
+          "key": "D",
+          "text": "Añadir más enlaces internos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "El feedback en la navegación ayuda a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ocultar información."
+        },
+        {
+          "key": "B",
+          "text": "Cargar más rápido la página."
+        },
+        {
+          "key": "C",
+          "text": "Mostrar la ubicación del usuario en el sitio."
+        },
+        {
+          "key": "D",
+          "text": "Aumentar el número de enlaces."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "El menú de hamburguesa es común en:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Sitios web de escritorio."
+        },
+        {
+          "key": "B",
+          "text": "Aplicaciones y sitios móviles."
+        },
+        {
+          "key": "C",
+          "text": "Solo en juegos."
+        },
+        {
+          "key": "D",
+          "text": "Páginas con mucho contenido."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 3,
+  "source": "contenidos/HCItests/3.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "La accesibilidad en el diseño de interfaces implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la capacidad de ser usado por cualquier dispositivo."
+        },
+        {
+          "key": "B",
+          "text": "Diseñar para que personas con discapacidades puedan usar la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "Que la interfaz sea accesible solo desde una ubicación específica."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de usuarios que pueden acceder al sistema simultáneamente."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "El feedback en una interfaz de usuario es importante porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hace que la interfaz sea más colorida."
+        },
+        {
+          "key": "B",
+          "text": "Informa al usuario sobre el estado de sus acciones o del sistema."
+        },
+        {
+          "key": "C",
+          "text": "Solo es necesario en aplicaciones de juegos."
+        },
+        {
+          "key": "D",
+          "text": "Consume menos recursos del sistema."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "Un diseño de interfaz que considera la accesibilidad podría incluir:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo colores brillantes."
+        },
+        {
+          "key": "B",
+          "text": "Texto de tamaño ajustable, contrastes adecuados y navegación por teclado."
+        },
+        {
+          "key": "C",
+          "text": "Menús ocultos para que el diseño sea más limpio."
+        },
+        {
+          "key": "D",
+          "text": "Interfaces solo en inglés."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "La flexibilidad en una interfaz de usuario se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad de doblar la pantalla del dispositivo."
+        },
+        {
+          "key": "B",
+          "text": "Solo a la velocidad de respuesta del sistema."
+        },
+        {
+          "key": "C",
+          "text": "Permitir a los usuarios personalizar la interfaz según sus preferencias."
+        },
+        {
+          "key": "D",
+          "text": "La rigidez de los elementos de la interfaz."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "Las “affordances” en diseño de interfaces se refieren a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Las capacidades de hardware de una computadora."
+        },
+        {
+          "key": "B",
+          "text": "Las propiedades de un objeto que sugieren cómo puede ser usado."
+        },
+        {
+          "key": "C",
+          "text": "Las limitaciones de software."
+        },
+        {
+          "key": "D",
+          "text": "La velocidad de respuesta de una aplicación."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "Un elemento de diseño para la usabilidad es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La velocidad de la red."
+        },
+        {
+          "key": "B",
+          "text": "La coherencia en el uso de colores, tipografía y estilos."
+        },
+        {
+          "key": "C",
+          "text": "La capacidad de procesamiento del hardware."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de usuarios simultáneos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "Las migas de pan (breadcrumbs) en una interfaz de usuario son útiles para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Recordar a los usuarios que deben comer."
+        },
+        {
+          "key": "B",
+          "text": "Mostrar la ruta de navegación y permitir un retroceso fácil."
+        },
+        {
+          "key": "C",
+          "text": "Complicar la navegación."
+        },
+        {
+          "key": "D",
+          "text": "Solo en aplicaciones de mapas."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "Para mejorar la usabilidad, un diseño debe tener:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La mayor cantidad de botones y opciones posibles."
+        },
+        {
+          "key": "B",
+          "text": "Solo opciones avanzadas para usuarios expertos."
+        },
+        {
+          "key": "C",
+          "text": "Un equilibrio entre funcionalidad y simplicidad."
+        },
+        {
+          "key": "D",
+          "text": "Sin opciones de personalización."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "El espacio en blanco (whitespace) en diseño de interfaces:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Es un desperdicio de espacio."
+        },
+        {
+          "key": "B",
+          "text": "Ayuda a organizar la información y reduce el desorden visual."
+        },
+        {
+          "key": "C",
+          "text": "Debe ser evitado para maximizar el contenido mostrado."
+        },
+        {
+          "key": "D",
+          "text": "Solo es importante en documentos impresos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "La “eficiencia” en el manejo de una interfaz se mide por:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La cantidad de tiempo que un usuario pasa aprendiendo a usarla."
+        },
+        {
+          "key": "B",
+          "text": "Cuánto tiempo toma a un usuario completar una tarea una vez familiarizado con la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "El número de colores utilizados en el diseño."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de memoria RAM que utiliza el software."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "¿Cuál de estos NO es un elemento básico de una interfaz de usuario?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Navegación."
+        },
+        {
+          "key": "B",
+          "text": "Velocidad de internet."
+        },
+        {
+          "key": "C",
+          "text": "Feedback."
+        },
+        {
+          "key": "D",
+          "text": "Consistencia."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "En términos de usabilidad, “satisfacción” implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo que el usuario esté feliz con la velocidad del sistema."
+        },
+        {
+          "key": "B",
+          "text": "Que el software tenga muchas funciones."
+        },
+        {
+          "key": "C",
+          "text": "Que la experiencia de usar la interfaz sea agradable y cumpla con las expectativas del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Que el usuario no necesite ayuda."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "Un principio de usabilidad es la “facilidad de aprendizaje”. Esto significa que:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Los usuarios deben ser educados formalmente para usar el sistema."
+        },
+        {
+          "key": "B",
+          "text": "La interfaz debe ser intuitiva para que los nuevos usuarios la puedan usar rápidamente."
+        },
+        {
+          "key": "C",
+          "text": "Requiere que los usuarios lean un manual extenso."
+        },
+        {
+          "key": "D",
+          "text": "La interfaz debe ser complicada para desafiar a los usuarios."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "La visibilidad en una interfaz de usuario significa:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Que todo lo importante debe ser visible para el usuario sin necesidad de buscarlo."
+        },
+        {
+          "key": "B",
+          "text": "Que el usuario debe ser visible a través de la cámara."
+        },
+        {
+          "key": "C",
+          "text": "Que la interfaz debe cambiar de color constantemente."
+        },
+        {
+          "key": "D",
+          "text": "Que solo los elementos decorativos deben ser visibles."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "La usabilidad de una interfaz se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la apariencia visual."
+        },
+        {
+          "key": "B",
+          "text": "La facilidad con que los usuarios pueden aprender a usar y operar una interfaz para alcanzar sus objetivos."
+        },
+        {
+          "key": "C",
+          "text": "La velocidad de procesamiento del hardware."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de funciones que tiene un software."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "La navegación en una interfaz debe ser:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Complicada para mantener al usuario interesado."
+        },
+        {
+          "key": "B",
+          "text": "Oculta para que los usuarios exploren por sí mismos."
+        },
+        {
+          "key": "C",
+          "text": "Clara, lógica y accesible."
+        },
+        {
+          "key": "D",
+          "text": "Exclusivamente basada en comandos de texto."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "La “memorabilidad” en el diseño de interfaces implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Que la interfaz sea memorable visualmente."
+        },
+        {
+          "key": "B",
+          "text": "Que los usuarios puedan recordar cómo usar la interfaz después de un periodo sin usarla."
+        },
+        {
+          "key": "C",
+          "text": "Que la interfaz almacene la memoria de los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "Que los usuarios necesiten memorizar comandos complejos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "El término “eficiencia” en usabilidad se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad del software para ejecutar múltiples tareas simultáneamente."
+        },
+        {
+          "key": "B",
+          "text": "La cantidad de memoria que necesita una aplicación."
+        },
+        {
+          "key": "C",
+          "text": "La estética de la interfaz."
+        },
+        {
+          "key": "D",
+          "text": "La rapidez con la que los usuarios pueden realizar tareas una vez que han aprendido a usar el sistema."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "El término “feedback” en usabilidad incluye:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Respuestas visuales, auditivas, o hápticas que informan al usuario sobre sus acciones."
+        },
+        {
+          "key": "B",
+          "text": "Solo respuestas visuales."
+        },
+        {
+          "key": "C",
+          "text": "Solo el sonido que hace el dispositivo al encenderse."
+        },
+        {
+          "key": "D",
+          "text": "La retroalimentación de los usuarios al desarrollador."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "La consistencia en una interfaz de usuario:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No es importante."
+        },
+        {
+          "key": "B",
+          "text": "Solo se aplica al color de fondo."
+        },
+        {
+          "key": "C",
+          "text": "Ayuda a reducir la curva de aprendizaje y mejora la usabilidad."
+        },
+        {
+          "key": "D",
+          "text": "Solo debe aplicarse a los iconos."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

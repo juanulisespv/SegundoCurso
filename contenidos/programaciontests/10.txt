@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+
+1.
+¿Cuál es el propósito principal de un plan de pruebas en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Definir los objetivos, alcance y recursos necesarios para la ejecución de las pruebas.
+B.
+
+Asegurar que el software no requerirá mantenimiento después de su lanzamiento.
+C.
+
+Reemplazar la necesidad de pruebas manuales con pruebas automatizadas.
+D.
+
+Detectar errores en producción sin necesidad de probar antes del despliegue.
+2.
+¿Cuál es una de las principales ventajas de utilizar PyTest en pruebas unitarias en Python?
+-
+
+No lo sé.
+A.
+
+Solo permite ejecutar pruebas en aplicaciones web y no en código Python estándar.
+B.
+
+Permite escribir pruebas con menos código y soporta parametrización de pruebas.
+C.
+
+Requiere configuraciones complejas antes de ejecutar cualquier prueba.
+D.
+
+No es compatible con otros frameworks como Django o Flask.
+3.
+¿Cuál es el objetivo principal de las pruebas unitarias en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Verificar el correcto funcionamiento de componentes individuales, como funciones o módulos, de forma aislada.
+B.
+
+Evaluar la interacción entre diferentes módulos del sistema para asegurar su integración.
+C.
+
+Probar el software completo en un entorno real antes de su lanzamiento.
+D.
+
+Determinar si el software satisface las necesidades del usuario final y los requisitos del negocio.
+4.
+¿Cuál es uno de los principales beneficios de integrar pruebas automatizadas en un pipeline CI/CD?
+-
+
+No lo sé.
+A.
+
+Evita la necesidad de realizar pruebas en el software antes de su despliegue.
+B.
+
+Detecta errores en cada cambio de código antes de ser desplegado en producción.
+C.
+
+Permite que los desarrolladores suban cambios sin necesidad de validación.
+D.
+
+Reduce la cantidad de código necesario para desarrollar nuevas funcionalidades.
+5.
+¿Cuál es la principal función de Postman en las pruebas de integración?
+-
+
+No lo sé.
+A.
+
+Automatizar interacciones con interfaces gráficas de usuario en aplicaciones web.
+B.
+
+Simular acciones de usuarios en navegadores web como hacer clic o completar formularios.
+C.
+
+Ejecutar pruebas de rendimiento en servidores web bajo alta carga.
+D.
+
+Enviar solicitudes HTTP y validar respuestas para probar la comunicación de APIs REST.
+6.
+¿Cómo se relaciona el testing con la calidad del software?
+-
+
+No lo sé.
+A.
+
+El testing solo se enfoca en encontrar errores en el código, sin impactar la calidad.
+B.
+
+Garantiza que el software nunca tenga fallos después de su lanzamiento.
+C.
+
+Evalúa la funcionalidad, rendimiento, seguridad y usabilidad del software para mejorar su calidad.
+D.
+
+Solo es útil en entornos de desarrollo y no influye en la experiencia del usuario final.
+7.
+¿Cuándo es recomendable utilizar pruebas exploratorias?
+-
+
+No lo sé.
+A.
+
+Cuando se requiere validar que una funcionalidad cumple con los requisitos especificados.
+B.
+
+En sistemas con documentación completa y detallada sobre los casos de prueba.
+C.
+
+Cuando se necesita encontrar errores inesperados sin seguir un guion predefinido.
+D.
+
+Para realizar pruebas de regresión automatizadas en cada actualización del software.
+8.
+¿Qué elemento es fundamental en el diseño de un caso de prueba?
+-
+
+No lo sé.
+A.
+
+La opinión del desarrollador sobre el funcionamiento del sistema.
+B.
+
+Un análisis general de la arquitectura del software sin pruebas específicas.
+C.
+
+La identificación de entradas, acciones y resultados esperados.
+D.
+
+La cantidad de líneas de código escritas en el módulo a probar.
+9.
+¿Cuál es una estrategia clave para implementar pruebas automatizadas de manera efectiva?
+-
+
+No lo sé.
+A.
+
+Ejecutar todas las pruebas de manera manual antes de automatizarlas.
+B.
+
+Automatizar solo las pruebas que se ejecutan una única vez en el desarrollo.
+C.
+
+Priorizar pruebas repetitivas y de regresión para optimizar el tiempo y recursos.
+D.
+
+Evitar la integración de pruebas automatizadas en pipelines de CI/CD.
+10.
+¿Cuál es una característica principal de las pruebas de caja blanca?
+-
+
+No lo sé.
+A.
+
+No requieren acceso al código fuente y se centran en la funcionalidad del sistema.
+B.
+
+Analizan la estructura interna del código y verifican el flujo lógico de ejecución.
+C.
+
+Se utilizan para evaluar la experiencia del usuario final sin conocimientos de programación.
+D.
+
+Permiten realizar pruebas sin importar cómo está implementado el software internamente.
+11.
+¿En qué situación es más recomendable realizar pruebas manuales en lugar de pruebas automatizadas?
+-
+
+No lo sé.
+A.
+
+Cuando se necesita validar la ejecución repetitiva de cientos de casos de prueba en poco tiempo.
+B.
+
+Para detectar fallos en pruebas de regresión en cada nueva actualización del software.
+C.
+
+Cuando se requiere validar el correcto funcionamiento de APIs en un pipeline de CI/CD.
+D.
+
+Para evaluar la experiencia del usuario y la usabilidad de la aplicación.
+12.
+¿Cuál es una de las principales ventajas de las pruebas automatizadas en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Eliminan completamente la necesidad de pruebas manuales en cualquier escenario.
+B.
+
+Permiten ejecutar pruebas repetitivas de forma rápida y consistente sin intervención humana.
+C.
+
+Son más adecuadas para evaluar la usabilidad y la experiencia del usuario.
+D.
+
+No requieren inversión inicial en herramientas o scripts de automatización.
+13.
+¿Cuál es una de las tendencias futuras en el testing de software?
+-
+
+No lo sé.
+A.
+
+Eliminar las pruebas manuales y depender completamente de la automatización.
+B.
+
+Reducir la importancia del testing en entornos DevOps para acelerar los despliegues.
+C.
+
+Evitar el uso de pruebas en la nube y realizar todas las validaciones en entornos locales.
+D.
+
+Utilizar Inteligencia Artificial para generar casos de prueba automáticamente y detectar patrones de fallos.
+14.
+¿Cuál es el propósito principal de OWASP ZAP en las pruebas de seguridad?
+-
+
+No lo sé.
+A.
+
+Identificar vulnerabilidades en aplicaciones web, como inyección SQL y XSS.
+B.
+
+Realizar pruebas de carga y estrés para evaluar el rendimiento del sistema.
+C.
+
+Interceptar solicitudes en APIs para modificar datos antes de enviarlos al servidor.
+D.
+
+Medir el tiempo de respuesta de una aplicación bajo alta concurrencia de usuarios.
+15.
+¿Cuál es una de las principales ventajas de realizar pruebas desde las primeras etapas del desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Permite retrasar la entrega del software para agregar más funcionalidades.
+B.
+
+Detectar errores tempranos y reducir costos de corrección en fases posteriores.
+C.
+
+Asegurar que el software no necesitará actualizaciones después del lanzamiento.
+D.
+
+Eliminar completamente la necesidad de pruebas en la fase de producción.
+16.
+¿Cuál de las siguientes diferencias entre verificación y validación es correcta?
+-
+
+No lo sé.
+A.
+
+La validación se realiza antes de la verificación para reducir los costos del desarrollo.
+B.
+
+La verificación evalúa la experiencia del usuario final, mientras que la validación se enfoca en revisar el código fuente.
+C.
+
+La verificación solo se aplica en la fase de pruebas del software y la validación en la fase de desarrollo.
+D.
+
+La verificación se realiza durante el desarrollo del software y la validación después, asegurando que el producto cumple con las necesidades del usuario.
+17.
+¿Cuál es el objetivo principal de las pruebas basadas en requisitos?
+-
+
+No lo sé.
+A.
+
+Verificar que el software cumple con las especificaciones y requisitos definidos en la fase de análisis.
+B.
+
+Explorar la aplicación sin un plan estructurado para identificar fallos inesperados.
+C.
+
+Priorizar las pruebas en las áreas del software con mayor riesgo de fallos.
+D.
+
+Evaluar el rendimiento del sistema bajo alta carga de usuarios.
+18.
+¿Cuál de las siguientes afirmaciones describe mejor el propósito de la verificación en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Asegurar que el software cumple con las especificaciones y requisitos definidos en la fase de diseño.
+B.
+
+Confirmar que el software satisface las necesidades del usuario final en un entorno real.
+C.
+
+Ejecutar pruebas dinámicas para validar la funcionalidad del software.
+D.
+
+Simular escenarios de producción para evaluar el comportamiento del sistema.
+19.
+¿Cuándo se recomienda utilizar pruebas de caja gris?
+-
+
+No lo sé.
+A.
+
+Cuando el tester no tiene acceso a ningún detalle sobre la estructura del software.
+B.
+
+Para verificar exclusivamente el diseño de la interfaz de usuario sin considerar su funcionamiento interno.
+C.
+
+Cuando se requiere validar únicamente los requisitos funcionales del sistema.
+D.
+
+Cuando se necesita evaluar la interacción entre módulos internos y externos, combinando pruebas de caja negra y caja blanca.
+20.
+¿Cuál es el objetivo principal de las pruebas de usabilidad en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Evaluar la resistencia del sistema frente a ataques cibernéticos.
+B.
+
+Medir el tiempo de respuesta del sistema bajo alta carga de usuarios concurrentes.
+C.
+
+Analizar la facilidad de uso y la experiencia del usuario en la aplicación.
+D.
+
+Verificar que la aplicación funcione correctamente en distintos dispositivos y navegadores.
+ 

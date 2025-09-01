@@ -1,0 +1,345 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+
+1.
+Una consideración clave al usar multimedia es:
+-
+
+No lo sé.
+A.
+
+Asegurar que el multimedia sea el protagonista absoluto.
+B.
+
+Usar la mayor cantidad de efectos posibles.
+C.
+
+Ignorar las necesidades del usuario.
+D.
+
+Balancear el contenido multimedia con la funcionalidad y la usabilidad.
+2.
+Para la accesibilidad, los elementos multimedia deben:
+-
+
+No lo sé.
+A.
+
+No ser usados para no complicar la interfaz.
+B.
+
+Proveer alternativas como subtítulos para videos y transcripciones para el audio.
+C.
+
+Solo depender de la vista.
+D.
+
+Ser exclusivamente interactivos.
+3.
+El feedback sonoro en interfaces es útil para:
+-
+
+No lo sé.
+A.
+
+Solo usuarios con discapacidad visual.
+B.
+
+Solo en entornos de producción musical.
+C.
+
+Aumentar el ruido ambiental.
+D.
+
+Confirmar acciones, alertar sobre errores o notificaciones, mejorando la accesibilidad.
+4.
+El uso de audio en interfaces debe considerar:
+-
+
+No lo sé.
+A.
+
+Solo la calidad del sonido.
+B.
+
+La accesibilidad, el rendimiento y la experiencia del usuario.
+C.
+
+Que todos los usuarios prefieren el sonido alto.
+D.
+
+Ignorar los requisitos de hardware.
+5.
+La optimización de elementos multimedia en interfaces implica:
+-
+
+No lo sé.
+A.
+
+Solo enfocarse en la estética.
+B.
+
+Asegurar que no afecten negativamente la velocidad y respuesta de la interfaz.
+C.
+
+Ignorar el rendimiento del sistema.
+D.
+
+Usar la mayor cantidad de multimedia posible.
+6.
+Los videos en interfaces son útiles para:
+-
+
+No lo sé.
+A.
+
+Solo fines publicitarios.
+B.
+
+Reducir la interactividad.
+C.
+
+Mostrar cómo usar una aplicación, explicar conceptos o contenido informativo/educativo.
+D.
+
+Solo en plataformas de streaming.
+7.
+La relevancia de los elementos multimedia implica:
+-
+
+No lo sé.
+A.
+
+Usar multimedia sin un propósito específico.
+B.
+
+Asegurar que cada elemento multimedia sirva a un propósito claro en la experiencia del usuario.
+C.
+
+Incluir todos los tipos de multimedia disponibles.
+D.
+
+Evitar el uso de multimedia.
+8.
+La narración o voz en interfaces se utiliza para:
+-
+
+No lo sé.
+A.
+
+Solo en aplicaciones educativas.
+B.
+
+Tutoriales, asistencia por voz o leer contenido en voz alta, mejorando la usabilidad y accesibilidad.
+C.
+
+Aumentar el uso de datos.
+D.
+
+Sustituir completamente el texto escrito.
+9.
+La iconografía en una interfaz de usuario se utiliza para:
+-
+
+No lo sé.
+A.
+
+Complicar la navegación.
+B.
+
+Simplificar la comunicación de conceptos complejos.
+C.
+
+Solo fines decorativos.
+D.
+
+Ocupar espacio en la pantalla.
+10.
+Las imágenes en las interfaces sirven para:
+-
+
+No lo sé.
+A.
+
+Solo ilustrar el contenido.
+B.
+
+Incrementar la carga de trabajo del servidor.
+C.
+
+Ilustrar contenido, crear conexión emocional y hacer la interfaz más atractiva.
+D.
+
+Evitar la necesidad de texto.
+11.
+El uso de multimedia en HCI mejora:
+-
+
+No lo sé.
+A.
+
+Solo la velocidad de procesamiento.
+B.
+
+La experiencia del usuario haciéndola más intuitiva, atractiva y efectiva.
+C.
+
+La durabilidad del hardware.
+D.
+
+La seguridad del sistema.
+12.
+El uso de ambiente y música en aplicaciones:
+-
+
+No lo sé.
+A.
+
+No tiene impacto en la experiencia del usuario.
+B.
+
+Puede crear un ambiente, afectar el estado de ánimo o aumentar la inmersión.
+C.
+
+Solo es para aplicaciones de entretenimiento.
+D.
+
+Es innecesario en interfaces de usuario.
+13.
+El uso de multimedia en HCI puede ser inefectivo si:
+-
+
+No lo sé.
+A.
+
+Está bien integrado con la experiencia del usuario.
+B.
+
+No se optimiza para el rendimiento, accesibilidad o relevancia.
+C.
+
+Todos los usuarios tienen conexiones rápidas.
+D.
+
+Solo se usan imágenes estáticas.
+14.
+La integración de video en una interfaz requiere:
+-
+
+No lo sé.
+A.
+
+Evitar subtítulos para mantener el diseño limpio.
+B.
+
+Que todos los videos sean en alta definición.
+C.
+
+Considerar la compatibilidad, accesibilidad y el rendimiento.
+D.
+
+Solo para usuarios con conexiones de alta velocidad.
+15.
+El diseño de interacción con elementos multimedia debe ser:
+-
+
+No lo sé.
+A.
+
+Complicado para desafiar al usuario.
+B.
+
+Intuitivo y mejorar la usabilidad.
+C.
+
+Solo automático.
+D.
+
+Exclusivamente táctil.
+16.
+La consistencia en el estilo de los elementos multimedia:
+-
+
+No lo sé.
+A.
+
+Debe ser coherente con el diseño general de la interfaz para una experiencia unificada.
+B.
+
+No es importante.
+C.
+
+Solo se aplica al color.
+D.
+
+Es solo para profesionales del diseño.
+17.
+La animación en interfaces debe:
+-
+
+No lo sé.
+A.
+
+Ser constante para mantener la atención del usuario.
+B.
+
+Ser utilizada de manera estratégica para guiar y proporcionar feedback.
+C.
+
+Evitarse porque distrae.
+D.
+
+Solo ser usada en juegos.
+18.
+Gráficos de datos como gráficos y diagramas ayudan a:
+-
+
+No lo sé.
+A.
+
+Ocultar información importante.
+B.
+
+Visualizar información compleja de manera comprensible.
+C.
+
+Solo para usuarios avanzados.
+D.
+
+Desviar la atención del usuario.
+19.
+Para interfaces móviles, los elementos multimedia deben ser:
+-
+
+No lo sé.
+A.
+
+Iguales que en la versión de escritorio sin ajustes.
+B.
+
+Optimizados para pantallas pequeñas y conexiones variadas, asegurando rendimiento y accesibilidad.
+C.
+
+Totalmente eliminados para mejorar la velocidad.
+D.
+
+Solo en aplicaciones de entretenimiento.
+20.
+Las animaciones en una interfaz de usuario pueden:
+-
+
+No lo sé.
+A.
+
+Confundir al usuario.
+B.
+
+Guía al usuario a través de la interfaz, indicar cambios de estado o proporcionar feedback visual.
+C.
+
+No tienen ningún propósito.
+D.
+
+Solo se usan en juegos.
+ 

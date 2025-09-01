@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 8,
+  "source": "contenidos/HCItests/8.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "¿El desempeño y velocidad en diseño responsivo se refieren a?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el aspecto visual.»"
+        },
+        {
+          "key": "B",
+          "text": "«Que la interfaz cargue rápidamente en cualquier dispositivo.»"
+        },
+        {
+          "key": "C",
+          "text": "«Aumentar el número de elementos gráficos.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en computadoras de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "¿Las imágenes flexibles en diseño responsivo?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Deben tener un tamaño fijo.»"
+        },
+        {
+          "key": "B",
+          "text": "«Se adaptan en tamaño sin distorsionarse.»"
+        },
+        {
+          "key": "C",
+          "text": "«No son necesarias.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo se usan en móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "¿Las variables CSS en diseño responsivo son útiles para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo colores.»"
+        },
+        {
+          "key": "B",
+          "text": "«Mantener consistencia y facilitar el mantenimiento del diseño.»"
+        },
+        {
+          "key": "C",
+          "text": "«Evitar el uso de media queries.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en navegadores antiguos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "¿El contenido primero en el diseño responsivo implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Priorizar el diseño sobre el contenido.»"
+        },
+        {
+          "key": "B",
+          "text": "«Ignorar el contenido en dispositivos móviles.»"
+        },
+        {
+          "key": "C",
+          "text": "«No hacer cambios en el contenido.»"
+        },
+        {
+          "key": "D",
+          "text": "«Que el diseño se adapte al contenido, no al revés.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "¿Los puntos de interrupción (breakpoints) son?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo para diseño gráfico.»"
+        },
+        {
+          "key": "B",
+          "text": "«Momentos en los que el diseño cambia para adaptarse al tamaño de la pantalla.»"
+        },
+        {
+          "key": "C",
+          "text": "«Puntos donde el sitio deja de funcionar.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "¿La colaboración en equipos ágiles incluye?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo trabajar de forma aislada.»"
+        },
+        {
+          "key": "B",
+          "text": "«Equipos multifuncionales que trabajan juntos.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar las ideas de otros.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo programadores.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "¿Priorizar en metodologías ágiles es?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Hacer todo al mismo tiempo.»"
+        },
+        {
+          "key": "B",
+          "text": "«Enfocarse en las características más valiosas.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar las necesidades del usuario.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para programadores.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "¿El feedback continuo en diseño ágil ayuda a?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«No hacer ajustes al producto.»"
+        },
+        {
+          "key": "B",
+          "text": "«Mejorar el producto basándose en la experiencia del usuario.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo al finalizar el proyecto.»"
+        },
+        {
+          "key": "D",
+          "text": "«Aumentar el costo del desarrollo.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "¿Integrar desarrollo en el diseño ágil implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Separar completamente diseño y desarrollo.»"
+        },
+        {
+          "key": "B",
+          "text": "«Trabajar en paralelo para asegurar factibilidad y implementación.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo centrarse en el diseño.»"
+        },
+        {
+          "key": "D",
+          "text": "«Evitar iteraciones.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "¿La flexibilidad en diseño ágil significa?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«No cambiar el diseño una vez propuesto.»"
+        },
+        {
+          "key": "B",
+          "text": "«Usar solo un tipo de tecnología.»"
+        },
+        {
+          "key": "C",
+          "text": "«Adaptarse a cambios en requisitos o usuario.»"
+        },
+        {
+          "key": "D",
+          "text": "«Evitar la colaboración.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "¿Las grillas flexibles permiten?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Fijar el diseño en una resolución específica.»"
+        },
+        {
+          "key": "B",
+          "text": "«Adaptar el contenido a diferentes anchos de pantalla.»"
+        },
+        {
+          "key": "C",
+          "text": "«No usar imágenes.»"
+        },
+        {
+          "key": "D",
+          "text": "«Eliminar la navegación.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿El diseño responsivo garantiza?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Una buena experiencia de usuario en múltiples dispositivos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo la estética en dispositivos móviles.»"
+        },
+        {
+          "key": "C",
+          "text": "«Que el sitio web sea lento.»"
+        },
+        {
+          "key": "D",
+          "text": "«Que no haya cambios en el diseño.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "¿El prototipado rápido en diseño ágil se utiliza para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Aplazar la validación del diseño.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo diseños estáticos.»"
+        },
+        {
+          "key": "C",
+          "text": "«Validar el diseño en múltiples dispositivos rápidamente.»"
+        },
+        {
+          "key": "D",
+          "text": "«Evitar el feedback del usuario.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "¿La iteración rápida en metodologías ágiles implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Refinar el diseño continuamente con feedback.»"
+        },
+        {
+          "key": "B",
+          "text": "«Desarrollar todo de una vez.»"
+        },
+        {
+          "key": "C",
+          "text": "«No hacer cambios una vez iniciado el proyecto.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo diseño visual.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "¿Las media queries en CSS se utilizan para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Colorir el texto.»"
+        },
+        {
+          "key": "B",
+          "text": "«Hacer el sitio más estático.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ajustar estilos según las características del dispositivo.»"
+        },
+        {
+          "key": "D",
+          "text": "«Aumentar el peso del sitio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿Evaluar dispositivos en diseño responsivo significa?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Comprender la diversidad de dispositivos y contextos de uso.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo considerar computadoras de escritorio.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar tablets y móviles.»"
+        },
+        {
+          "key": "D",
+          "text": "«Usar la misma interfaz para todos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "¿Las herramientas de diseño responsivo como Bootstrap son útiles para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo diseño de impresos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Crear diseños que se adapten fácilmente a diferentes dispositivos.»"
+        },
+        {
+          "key": "C",
+          "text": "«Reducir la interactividad.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "¿Las pruebas de usabilidad en diseño responsivo y ágil sirven para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo evaluar el aspecto visual.»"
+        },
+        {
+          "key": "B",
+          "text": "«Asegurar que la interfaz sea usable en todas las plataformas.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar la experiencia del usuario.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en la fase final del desarrollo.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "¿El uso de CSS Grid y Flexbox mejora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo la estética.»"
+        },
+        {
+          "key": "B",
+          "text": "«La complejidad del código.»"
+        },
+        {
+          "key": "C",
+          "text": "«La adaptabilidad y disposición de elementos en diferentes pantallas.»"
+        },
+        {
+          "key": "D",
+          "text": "«La velocidad de desarrollo sin cambios.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "¿Los sprints de diseño son?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Períodos largos sin cambios.»"
+        },
+        {
+          "key": "B",
+          "text": "«Cortos periodos de trabajo intensivo para diseño.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo para desarrollo de software.»"
+        },
+        {
+          "key": "D",
+          "text": "«Sin evaluación.»"
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

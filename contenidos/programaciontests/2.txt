@@ -1,0 +1,341 @@
+1.
+¿Cuál es el objetivo principal de la fase de pruebas en el modelo Waterfall?
+-
+
+No lo sé.
+A.
+
+Crear una documentación extensa para el cliente.
+B.
+
+Verificar y garantizar la calidad del sistema.
+C.
+
+Traducir el diseño conceptual en código funcional.
+D.
+
+Proporcionar capacitación al usuario final.
+2.
+¿Cuál es uno de los principales objetivos de la validación en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Reducir la necesidad de realizar pruebas unitarias.
+B.
+
+Asegurar que el software cumpla con los requisitos definidos.
+C.
+
+Eliminar la etapa de diseño detallado del proyecto.
+D.
+
+Garantizar que el código sea compatible con cualquier lenguaje de programación.
+3.
+¿En qué tipo de proyectos es más comúnmente aplicado el modelo Waterfall?
+-
+
+No lo sé.
+A.
+
+Proyectos con requisitos bien definidos y estables, como sistemas críticos.
+B.
+
+Proyectos con requisitos dinámicos y en constante cambio.
+C.
+
+Proyectos ágiles con entregas frecuentes e iteraciones cortas.
+D.
+
+Proyectos donde no se requiere documentación detallada.
+4.
+¿Cuál es una de las consecuencias de no detectar errores en las etapas iniciales del desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Reducción de los costos de desarrollo.
+B.
+
+Incremento de los costos de corrección en fases avanzadas.
+C.
+
+Mayor satisfacción inmediata del cliente.
+D.
+
+Simplificación del proceso de validación.
+5.
+¿Cuál es una ventaja principal de las metodologías ágiles en comparación con los modelos tradicionales como el cascada?
+-
+
+No lo sé.
+A.
+
+Documentación extensa y detallada.
+B.
+
+Flexibilidad para adaptarse a cambios en los requisitos durante el desarrollo.
+C.
+
+Proceso estricto y secuencial de desarrollo.
+D.
+
+Menor necesidad de colaboración entre el equipo y los stakeholders.
+6.
+¿Qué característica principal distingue a las metodologías ágiles de los modelos tradicionales?
+-
+
+No lo sé.
+A.
+
+Dividen el trabajo en ciclos cortos e iterativos llamados sprints
+B.
+
+. Siguen una secuencia rígida de etapas.
+C.
+
+Priorizan la documentación sobre la interacción entre individuos.
+D.
+
+Garantizan que los requisitos permanezcan inmutables durante el proyecto.
+7.
+¿Cuál es la principal responsabilidad del Product Owner (PO) en Scrum?
+-
+
+No lo sé.
+A.
+
+Escribir todo el código del proyecto.
+B.
+
+Facilitar las ceremonias de Scrum.
+C.
+
+Gestionar y priorizar el backlog del producto.
+D.
+
+Realizar pruebas de calidad del producto final.
+8.
+¿Cuál es una de las principales ventajas del modelo Waterfall?
+-
+
+No lo sé.
+A.
+
+Claridad en las fases y procesos.
+B.
+
+Alta flexibilidad para adaptarse a cambios en los requisitos.
+C.
+
+Bajo riesgo de malinterpretar los requisitos iniciales.
+D.
+
+Costos reducidos en proyectos con cambios frecuentes.
+9.
+¿Qué ceremonia de Scrum se centra en mejorar los procesos y prácticas del equipo para futuros sprints?
+-
+
+No lo sé.
+A.
+
+Sprint Review
+B.
+
+Daily Stand-up
+C.
+
+Retrospectiva
+D.
+
+Sprint Planning
+10.
+¿Cómo se relacionan las buenas prácticas con la validación en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Las buenas prácticas eliminan la necesidad de realizar validación en el software.
+B.
+
+Las buenas prácticas mejoran la calidad del código, facilitando la detección de errores durante la validación.
+C.
+
+Las buenas prácticas aseguran que el software sea compatible con cualquier hardware.
+D.
+
+Las buenas prácticas reemplazan la necesidad de aplicar metodologías de desarrollo.
+11.
+¿Qué actividad se realiza durante la etapa de mantenimiento en el modelo Waterfall?
+-
+
+No lo sé.
+A.
+
+Identificar y documentar requisitos.
+B.
+
+Definir el diseño conceptual del sistema.
+C.
+
+Resolver errores y realizar actualizaciones posteriores a la entrega.
+D.
+
+Implementar las funcionalidades del sistema en código.
+12.
+¿Qué limitación tienen las metodologías ágiles en proyectos muy grandes?
+-
+
+No lo sé.
+A.
+
+Demasiada documentación técnica.
+B.
+
+Difícil adaptabilidad a cambios en los requisitos.
+C.
+
+Falta de entregas parciales durante el desarrollo.
+D.
+
+Escalabilidad complicada y mayor dificultad de coordinación en equipos dispersos.
+13.
+¿Cuál es un beneficio clave de la validación temprana?
+-
+
+No lo sé.
+A.
+
+Incrementar los costos de corrección de errores.
+B.
+
+Reducir la necesidad de realizar pruebas automatizadas.
+C.
+
+Permitir que los problemas se identifiquen en etapas avanzadas.
+D.
+
+Detectar y solucionar problemas antes de que progresen a fases posteriores.
+14.
+¿Qué es la validación temprana en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+El proceso de verificar y evaluar el sistema desde las etapas iniciales.
+B.
+
+La creación de documentación para las pruebas finales.
+C.
+
+La corrección de errores durante la fase de despliegue.
+D.
+
+La implementación de cambios en el entorno de producción.
+15.
+¿Cuál de los siguientes principios fundamentales de Scrum fomenta la evaluación constante del progreso del proyecto?
+-
+
+No lo sé.
+A.
+
+Adaptación
+B.
+
+Transparencia
+C.
+
+Inspección
+D.
+
+Autoorganización
+16.
+¿Cuál es el objetivo principal de la reunión de Sprint Planning en Scrum?
+-
+
+No lo sé.
+A.
+
+Definir qué trabajo se completará durante el sprint y cómo se logrará
+B.
+
+Resolver problemas técnicos identificados durante el sprint anterior.
+C.
+
+Evaluar el desempeño individual de los miembros del equipo.
+D.
+
+Identificar bloqueos diarios para el progreso del equipo.
+17.
+¿Qué sistema de integración continua permite ejecutar automáticamente herramientas como pylint o flake8 al subir cambios al repositorio?
+-
+
+No lo sé.
+A.
+
+Visual Studio Code
+B.
+
+PyCharm
+C.
+
+GitHub Actions
+D.
+
+Docker
+18.
+¿Qué herramienta de validación de código en Python asigna una puntuación a la calidad general del código?
+-
+
+No lo sé.
+A.
+
+flake8
+B.
+
+Black
+C.
+
+MyPy
+D.
+
+pylint
+19.
+¿Qué documento se genera en la etapa de recolección de requisitos en el modelo Waterfall?
+-
+
+No lo sé.
+A.
+
+Plan de pruebas del sistema.
+B.
+
+Manual de usuario.
+C.
+
+Esquema de diseño detallado.
+D.
+
+Especificación de requisitos.
+20.
+¿Qué rol en Scrum es responsable de eliminar obstáculos y garantizar que el equipo siga las prácticas de Scrum?
+-
+
+No lo sé.
+A.
+
+Product Owner
+B.
+
+Gestor de proyectos
+C.
+
+Equipo de desarrollo
+D.
+
+Scrum Master
+ 

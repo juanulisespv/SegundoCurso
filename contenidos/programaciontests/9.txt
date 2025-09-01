@@ -1,0 +1,369 @@
+Bachelor en Informática (2025-2026 E)
+Programación II e Ingenierí...
+01/09/2025
+09:21
+Europe/Andorra
+Índice
+Actividades
+Foro
+Tutorías
+Expediente
+Recursos
+Avisos
+Alumnado
+Llamadas
+Agenda
+7
+Eventos
+Campus
+Juan Ulises PÉREZ
+Juan Ulises PÉREZ
+Índice > Test de comprensión - Unidad 9
+Test de comprensión
+Elige la respuesta correcta en el test
+Elige la respuesta correcta:
+RECUERDA
+Este test se considerará superado si el número de aciertos es igual o superior al 80%
+
+Resultados de aprendizaje previstos
+D - Integrar soluciones de Tecnologías de la Información y las Comunicaciones y procesos empresariales para satisfacer las necesidades de información de las organizaciones, permitiendo alcanzar sus objetivos de forma efectiva y eficiente, otorgándoles así ventajas competitivas.
+1.
+¿Cuál de los siguientes API Managers es más adecuado para una arquitectura basada en microservicios y Kubernetes?
+-
+
+No lo sé.
+A.
+
+Kong API Gateway
+B.
+
+AWS API Gateway
+C.
+
+Apigee
+D.
+
+Tyk
+2.
+¿Cuál es el propósito principal de un API Manager en una empresa?
+-
+
+No lo sé.
+A.
+
+Facilitar la gestión, monitoreo y seguridad de las APIs en un entorno centralizado.
+B.
+
+Sustituir completamente la necesidad de desarrollar APIs en los sistemas.
+C.
+
+Eliminar la necesidad de autenticación y seguridad en las APIs.
+D.
+
+Permitir que cualquier usuario acceda libremente a los servicios internos sin restricciones.
+3.
+¿Cuál es una característica clave de OAuth2 en la autenticación de terceros?
+-
+
+No lo sé.
+A.
+
+Requiere que los usuarios compartan sus credenciales directamente con las aplicaciones.
+B.
+
+No permite definir permisos específicos para cada aplicación que solicita acceso.
+C.
+
+Permite que una aplicación obtenga acceso a los datos del usuario sin compartir sus credenciales mediante tokens de acceso.
+D.
+
+No se puede utilizar con servicios populares como Google o Facebook.
+4.
+¿Cuál es una buena práctica al integrar la autenticación con Google OAuth o Auth0?
+-
+
+No lo sé.
+A.
+
+Solicitar acceso completo a toda la información del usuario sin restricciones.
+B.
+
+Almacenar los tokens de acceso sin cifrado en la base de datos.
+C.
+
+Definir permisos específicos (scopes) para limitar el acceso a los datos del usuario.
+D.
+
+Evitar la autenticación con OAuth2 y utilizar solo usuarios y contraseñas en la API.
+5.
+¿Cuál es uno de los principales beneficios de integrar APIs de terceros en una aplicación?
+-
+
+No lo sé.
+A.
+
+Evitar la autenticación de usuarios para mejorar la accesibilidad.
+B.
+
+Reducir el tiempo de desarrollo al aprovechar funcionalidades ya creadas.
+C.
+
+Eliminar la necesidad de manejar la seguridad en la aplicación.
+D.
+
+Asegurar que la aplicación siempre funcione sin interrupciones.
+6.
+¿Qué herramienta permite documentar y visualizar APIs de forma interactiva basada en OpenAPI?
+-
+
+No lo sé.
+A.
+
+Postman
+B.
+
+Swagger
+C.
+
+Prometheus
+D.
+
+Terraform
+7.
+¿Cuál es una característica clave de Kong API Gateway en comparación con AWS API Gateway?
+-
+
+No lo sé.
+A.
+
+Es exclusivo para entornos en la nube y no se puede instalar on-premise.
+B.
+
+No permite personalizar la autenticación mediante plugins.
+C.
+
+Tiene una arquitectura basada en NGINX y permite alta extensibilidad mediante plugins.
+D.
+
+No ofrece soporte para autenticación mediante OAuth2 o JWT.
+8.
+¿Qué práctica es recomendada para manejar errores en la integración con APIs externas?
+-
+
+No lo sé.
+A.
+
+Ignorar los errores de la API y seguir procesando la solicitud.
+B.
+
+Deshabilitar la API externa cuando ocurra un error sin notificar al usuario.
+C.
+
+Permitir que los errores sean visibles en la interfaz de usuario sin restricciones.
+D.
+
+Implementar mecanismos de fallback, como respuestas predeterminadas o almacenamiento temporal de datos.
+9.
+¿Cuál es una de las ventajas de utilizar conectores en AWS API Gateway?
+-
+
+No lo sé.
+A.
+
+Permiten integrar la API con servicios como AWS Lambda sin necesidad de gestionar servidores.
+B.
+
+Obligan a los clientes a conectarse directamente a la base de datos de AWS.
+C.
+
+Eliminan la necesidad de autenticación en los endpoints de la API.
+D.
+
+Solo pueden utilizarse con servicios fuera del ecosistema de AWS.
+10.
+¿Cuál es una de las principales ventajas de utilizar Google Maps API en una aplicación?
+-
+
+No lo sé.
+A.
+
+Permite integrar mapas, geolocalización y direcciones sin necesidad de desarrollar una infraestructura propia.
+B.
+
+Obliga a los usuarios a registrar manualmente su ubicación en la aplicación.
+C.
+
+No requiere claves de API para funcionar en producción.
+D.
+
+Solo se puede utilizar en aplicaciones móviles y no en aplicaciones web.
+11.
+¿Cuál es una de las mejores estrategias para prevenir ataques de inyección SQL en una API?
+-
+
+No lo sé.
+A.
+
+Permitir que los usuarios ingresen consultas SQL directamente en la API.
+B.
+
+Evitar el uso de bases de datos en las aplicaciones web.
+C.
+
+Usar consultas parametrizadas y ORMs para gestionar la interacción con la base de datos.
+D.
+
+Guardar las credenciales de la base de datos dentro del código fuente sin cifrado.
+12.
+¿Qué beneficio aporta el uso de un API Manager en la gestión de políticas de acceso?
+-
+
+No lo sé.
+A.
+
+Permite eliminar completamente la necesidad de autenticación en la API.
+B.
+
+Reemplaza la función de los administradores de seguridad en una empresa.
+C.
+
+Obliga a que todas las solicitudes pasen por un único servidor sin distribuir la carga.
+D.
+
+Facilita la implementación de autenticación, control de accesos y monitoreo de uso en la API.
+13.
+¿Cuál es una de las principales ventajas de utilizar JWT (JSON Web Tokens) en la autenticación de APIs?
+-
+
+No lo sé.
+A.
+
+Permite la autenticación sin necesidad de almacenar sesiones en el servidor.
+B.
+
+Obliga a que todas las solicitudes incluyan usuario y contraseña en el cuerpo de la petición.
+C.
+
+No requiere ningún tipo de firma o cifrado para validar la autenticidad del token.
+D.
+
+Solo puede utilizarse en aplicaciones móviles.
+14.
+¿Cuál de las siguientes estrategias de versionado de APIs utiliza la versión en la URL del endpoint?
+-
+
+No lo sé.
+A.
+
+Incluir la versión en los encabezados HTTP de la solicitud.
+B.
+
+Usar un parámetro en la URL con la versión especificada.
+C.
+
+Incorporar la versión directamente en la ruta del endpoint (ejemplo: /v1/usuarios).
+D.
+
+No usar versionado y hacer cambios directamente en los endpoints existentes.
+15.
+¿Cómo ayuda un API Manager a mejorar la seguridad de las APIs?
+-
+
+No lo sé.
+A.
+
+Permitiendo que cualquier usuario acceda a los servicios sin autenticación.
+B.
+
+Implementando mecanismos de autenticación como OAuth2 y JWT.
+C.
+
+Eliminando la necesidad de cifrar la comunicación entre clientes y servidores.
+D.
+
+Deshabilitando los registros y logs de uso de las APIs.
+16.
+¿Cuál es la principal diferencia entre autenticación y autorización en una API?
+-
+
+No lo sé.
+A.
+
+La autenticación define qué acciones puede realizar un usuario, mientras que la autorización verifica su identidad.
+B.
+
+La autenticación verifica quién es el usuario, mientras que la autorización define qué permisos tiene dentro del sistema.
+C.
+
+La autenticación es solo para aplicaciones, mientras que la autorización solo aplica a usuarios humanos.
+D.
+
+No existe diferencia entre autenticación y autorización en una API.
+17.
+¿Cuál de las siguientes características es clave en un API Manager?
+-
+
+No lo sé.
+A.
+
+Reemplaza todas las bases de datos utilizadas en los sistemas empresariales.
+B.
+
+Permite definir la estructura de las API sin necesidad de documentarlas.
+C.
+
+Elimina la necesidad de realizar pruebas de carga en las APIs.
+D.
+
+Implementa autenticación, monitoreo y control de acceso a los endpoints.
+18.
+¿Cuál es un beneficio clave del uso de webhooks en una API?
+-
+
+No lo sé.
+A.
+
+Permiten que los clientes realicen llamadas constantes a la API para obtener actualizaciones.
+B.
+
+Reemplazan completamente la autenticación y seguridad en los endpoints.
+C.
+
+Solo pueden usarse para enviar datos a aplicaciones de mensajería como Slack o Discord.
+D.
+
+Permiten enviar notificaciones en tiempo real cuando ocurre un evento sin necesidad de consultas repetitivas a la API.
+19.
+¿Cuál es una de las funciones clave del monitoreo en el ciclo de vida de una API?
+-
+
+No lo sé.
+A.
+
+Evitar la necesidad de versionado en las APIs.
+B.
+
+Eliminar la autenticación para mejorar el rendimiento.
+C.
+
+Modificar la estructura de la API sin previo aviso.
+D.
+
+Analizar métricas de uso, rendimiento y tasas de error para optimizar la API.
+20.
+¿Cómo se puede proteger una API contra ataques DDoS?
+-
+
+No lo sé.
+A.
+
+Implementando un sistema de Rate Limiting que limite la cantidad de solicitudes permitidas en un periodo de tiempo.
+B.
+
+Eliminando la autenticación para permitir el acceso sin restricciones.
+C.
+
+Deshabilitando los logs de acceso para reducir el consumo de recursos.
+D.
+
+Permitiendo que cualquier dirección IP realice solicitudes ilimitadas a la API.

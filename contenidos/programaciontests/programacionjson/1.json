@@ -1,0 +1,228 @@
+{
+  "subject": "programacion",
+  "theme": 1,
+  "source": "contenidos/programaciontests/1_clean.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "¿Cuál es una de las principales responsabilidades del gestor de proyectos en el desarrollo de software?",
+      "options": [
+        { "key": "A", "text": "Escribir y depurar el código fuente." },
+        { "key": "B", "text": "Coordinar equipos y gestionar recursos y plazos." },
+        { "key": "C", "text": "Diseñar diagramas de clases y relaciones." },
+        { "key": "D", "text": "Ejecutar pruebas unitarias y automatizadas." }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "¿Qué método de testing utiliza herramientas y scripts para ejecutar pruebas repetitivas de manera eficiente?",
+      "options": [
+        { "key": "A", "text": "Pruebas manuales" },
+        { "key": "B", "text": "Pruebas exploratorias" },
+        { "key": "C", "text": "Pruebas de aceptación" },
+        { "key": "D", "text": "Pruebas automatizadas" }
+      ],
+      "answer": "D"
+    },
+    {
+      "number": 3,
+      "question": "¿Qué herramienta es ideal para gestionar proyectos ágiles mediante tareas y seguimiento del progreso?",
+      "options": [
+        { "key": "A", "text": "Jira" },
+        { "key": "B", "text": "Trello" },
+        { "key": "C", "text": "MS Project" },
+        { "key": "D", "text": "GitHub" }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 4,
+      "question": "¿Cuál de los siguientes frameworks es una biblioteca estándar de Python para pruebas automatizadas?",
+      "options": [
+        { "key": "A", "text": "pytest" },
+        { "key": "B", "text": "Selenium" },
+        { "key": "C", "text": "JUnit" },
+        { "key": "D", "text": "unittest" }
+      ],
+      "answer": "D"
+    },
+    {
+      "number": 5,
+      "question": "¿Cuál es una característica clave del modelo en espiral?",
+      "options": [
+        { "key": "A", "text": "Su rigidez para avanzar secuencialmente entre etapas." },
+        { "key": "B", "text": "Su énfasis en la gestión de riesgos en cada iteración." },
+        { "key": "C", "text": "Su enfoque en completar el proyecto sin prototipos intermedios." },
+        { "key": "D", "text": "Su bajo costo y facilidad de implementación." }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "¿Qué tipo de prueba verifica el funcionamiento de las unidades más pequeñas del código, como funciones o métodos?",
+      "options": [
+        { "key": "A", "text": "Pruebas de aceptación" },
+        { "key": "B", "text": "Pruebas de integración" },
+        { "key": "C", "text": "Pruebas unitarias" },
+        { "key": "D", "text": "Pruebas de rendimiento" }
+      ],
+      "answer": "C"
+    },
+    {
+      "number": 7,
+      "question": "¿Qué elemento es clave para evitar malentendidos y garantizar el éxito en un proyecto de desarrollo de software?",
+      "options": [
+        { "key": "A", "text": "La comunicación efectiva entre roles." },
+        { "key": "B", "text": "La automatización de pruebas." },
+        { "key": "C", "text": "El uso de bases de datos relacionales." },
+        { "key": "D", "text": "La documentación extensa" }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 8,
+      "question": "¿Cuál es una de las responsabilidades principales del analista en el desarrollo de software?",
+      "options": [
+        { "key": "A", "text": "Diseñar y escribir el código fuente del sistema." },
+        { "key": "B", "text": "Realizar pruebas unitarias del software." },
+        { "key": "C", "text": "Recopilar y documentar los requisitos del cliente." },
+        { "key": "D", "text": "Configurar los servidores para el entorno de producción." }
+      ],
+      "answer": "C"
+    },
+    {
+      "number": 9,
+      "question": "¿Qué herramienta se utiliza comúnmente para empaquetar software con sus dependencias en contenedores ligeros?",
+      "options": [
+        { "key": "A", "text": "Docker" },
+        { "key": "B", "text": "Jenkins" },
+        { "key": "C", "text": "GitHub Actions" },
+        { "key": "D", "text": "Kubernetes" }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 10,
+      "question": "¿Qué herramienta permite gestionar y rastrear cambios en el código fuente durante la implementacif3n?",
+      "options": [
+        { "key": "A", "text": "Git" },
+        { "key": "B", "text": "PyCharm" },
+        { "key": "C", "text": "Visual Studio Code" },
+        { "key": "D", "text": "IntelliJ" }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 11,
+      "question": "¿Cuál es un beneficio clave de organizar el desarrollo de software en fases bien definidas?",
+      "options": [
+        { "key": "A", "text": "Garantizar que todos los desarrolladores utilicen el mismo lenguaje de programación." },
+        { "key": "B", "text": "Reducir los costos y errores identificando problemas en cada etapa." },
+        { "key": "C", "text": "Asegurar que el software sea compatible con todos los sistemas operativos." },
+        { "key": "D", "text": "Eliminar la necesidad de realizar pruebas de calidad en el producto final." }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿Cuál de las siguientes opciones describe un requisito no funcional en el análisis de software?",
+      "options": [
+        { "key": "A", "text": "El sistema debe responder en menos de dos segundos a cada solicitud del usuario." },
+        { "key": "B", "text": "El sistema debe permitir a los usuarios registrarse y autenticar su cuenta." },
+        { "key": "C", "text": "El sistema debe generar un informe mensual de ventas." },
+        { "key": "D", "text": "El sistema debe enviar notificaciones a los usuarios cuando se completen sus tareas." }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 13,
+      "question": "¿Cuál de los siguientes es un principio clave del desarrollo ágil?",
+      "options": [
+        { "key": "A", "text": "Entregar todo el producto al final del proyecto sin iteraciones intermedias." },
+        { "key": "B", "text": "Minimizar la interacción entre el equipo de desarrollo y el cliente." },
+        { "key": "C", "text": "Responder rápidamente a cambios en los requisitos en cualquier etapa." },
+        { "key": "D", "text": "Rechazar modificaciones en los objetivos una vez definidos." }
+      ],
+      "answer": "C"
+    },
+    {
+      "number": 14,
+      "question": "¿Qué elemento de un diagrama de clases en UML representa una relación general entre dos clases?",
+      "options": [
+        { "key": "A", "text": "Herencia" },
+        { "key": "B", "text": "Asociación" },
+        { "key": "C", "text": "Composición" },
+        { "key": "D", "text": "Agregación" }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "¿Qué herramienta se utiliza comúnmente para el control de versiones en el desarrollo de software?",
+      "options": [
+        { "key": "A", "text": "Docker" },
+        { "key": "B", "text": "Git" },
+        { "key": "C", "text": "Jenkins" },
+        { "key": "D", "text": "Kubernetes" }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿Cuál de las siguientes bases de datos es más adecuada para datos estructurados y relaciones complejas?",
+      "options": [
+        { "key": "A", "text": "MySQL" },
+        { "key": "B", "text": "MongoDB" },
+        { "key": "C", "text": "Firebase" },
+        { "key": "D", "text": "Elasticsearch" }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 17,
+      "question": "¿Cuál es una ventaja principal del modelo incremental?",
+      "options": [
+        { "key": "A", "text": "Permite entregar funcionalidades utilizables de manera progresiva." },
+        { "key": "B", "text": "Proporciona una visión global completa del proyecto desde el inicio." },
+        { "key": "C", "text": "Evita la necesidad de retroalimentación del cliente durante el desarrollo." },
+        { "key": "D", "text": "Elimina por completo los problemas de integración entre módulos." }
+      ],
+      "answer": "A"
+    },
+    {
+      "number": 18,
+      "question": "¿Cuál es el rol en Scrum encargado de priorizar las tareas del backlog y representar los intereses del cliente?",
+      "options": [
+        { "key": "A", "text": "Scrum Master" },
+        { "key": "B", "text": "Equipo de desarrollo" },
+        { "key": "C", "text": "Product Owner" },
+        { "key": "D", "text": "Project Manager" }
+      ],
+      "answer": "C"
+    },
+    {
+      "number": 19,
+      "question": "¿En qué tipo de proyectos es más adecuado utilizar metodologías ágiles?",
+      "options": [
+        { "key": "A", "text": "Proyectos con requisitos completamente definidos y estables." },
+        { "key": "B", "text": "Desarrollo de sistemas críticos como los de defensa o aeronáutica." },
+        { "key": "C", "text": "Proyectos que requieren documentación exhaustiva antes de comenzar el desarrollo." },
+        { "key": "D", "text": "Proyectos dinámicos como aplicaciones móviles o plataformas web." }
+      ],
+      "answer": "D"
+    },
+    {
+      "number": 20,
+      "question": "¿Cuál es una desventaja principal del modelo en cascada?",
+      "options": [
+        { "key": "A", "text": "Dificultad para comprender las etapas del desarrollo." },
+        { "key": "B", "text": "Excesiva flexibilidad para realizar cambios durante el desarrollo." },
+        { "key": "C", "text": "Poca flexibilidad para adaptar el proyecto a cambios en los requisitos." },
+        { "key": "D", "text": "Falta de claridad en la documentación de los requisitos." }
+      ],
+      "answer": "C"
+    }
+  ]
+}

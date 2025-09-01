@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 5,
+  "source": "contenidos/HCItests/5.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "Miro se utiliza en el prototipado para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo crear diagramas de flujo."
+        },
+        {
+          "key": "B",
+          "text": "Sesiones de ideación y colaboración remota en diseño."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollo de aplicaciones móviles."
+        },
+        {
+          "key": "D",
+          "text": "Análisis de datos financieros."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Un boceto (sketch) en el proceso de prototipado es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "El producto final."
+        },
+        {
+          "key": "B",
+          "text": "Un dibujo a mano alzada para explorar ideas de diseño."
+        },
+        {
+          "key": "C",
+          "text": "Un documento legal de propiedad."
+        },
+        {
+          "key": "D",
+          "text": "Irrelevante en el diseño moderno."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "Un prototipo funcional es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Un diseño que solo considera la apariencia."
+        },
+        {
+          "key": "B",
+          "text": "Un documento legal."
+        },
+        {
+          "key": "C",
+          "text": "Un concepto teórico sin aplicación práctica."
+        },
+        {
+          "key": "D",
+          "text": "Una versión del producto que permite probar interacciones y funcionalidades."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "Sketch, Figma y Adobe XD son herramientas que:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo se utilizan para diseño gráfico no interactivo."
+        },
+        {
+          "key": "B",
+          "text": "Permiten tanto wireframes como prototipos interactivos."
+        },
+        {
+          "key": "C",
+          "text": "No están diseñadas para el diseño de interfaces."
+        },
+        {
+          "key": "D",
+          "text": "Solo funcionan en sistemas Windows."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "La fidelidad de un prototipo se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La lealtad del usuario hacia el producto."
+        },
+        {
+          "key": "B",
+          "text": "Cuán cerca está el prototipo en apariencia y funcionalidad al producto final."
+        },
+        {
+          "key": "C",
+          "text": "La durabilidad del material de impresión."
+        },
+        {
+          "key": "D",
+          "text": "La velocidad con la que se puede crear."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "Un prototipo de baja fidelidad es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Un producto completamente terminado."
+        },
+        {
+          "key": "B",
+          "text": "Una representación simple y básica, enfocada en la estructura más que en el diseño final."
+        },
+        {
+          "key": "C",
+          "text": "Solo útil para productos físicos."
+        },
+        {
+          "key": "D",
+          "text": "Un prototipo interactivo con todas las funcionalidades."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "Un mockup es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Un prototipo interactivo."
+        },
+        {
+          "key": "B",
+          "text": "Una representación estática de alta fidelidad que muestra el diseño visual de la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "Solo para propósitos de documentación."
+        },
+        {
+          "key": "D",
+          "text": "Un software de animación."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "Los prototipos interactivos permiten:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo ver cómo se verá la interfaz."
+        },
+        {
+          "key": "B",
+          "text": "Simular la interacción del usuario con la interfaz antes de la implementación final."
+        },
+        {
+          "key": "C",
+          "text": "Ignorar la retroalimentación del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Evitar el desarrollo de código."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "Principle es una herramienta especializada en:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Animaciones y microinteracciones."
+        },
+        {
+          "key": "B",
+          "text": "Desarrollo de aplicaciones de realidad aumentada."
+        },
+        {
+          "key": "C",
+          "text": "Gestión de proyectos."
+        },
+        {
+          "key": "D",
+          "text": "Análisis de datos de usuario."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "La “prueba de usabilidad” en el contexto de prototipado:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No tiene valor hasta que el producto esté terminado."
+        },
+        {
+          "key": "B",
+          "text": "Ayuda a identificar problemas de diseño a través de la interacción con usuarios reales."
+        },
+        {
+          "key": "C",
+          "text": "Solo se refiere a la estética."
+        },
+        {
+          "key": "D",
+          "text": "Es solo para el equipo de desarrollo."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "La herramienta Balsamiq Mockups es particularmente útil para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Wireframes de baja fidelidad con un aspecto “a mano alzada”."
+        },
+        {
+          "key": "B",
+          "text": "Crear prototipos de alta fidelidad."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollo de aplicaciones móviles nativas."
+        },
+        {
+          "key": "D",
+          "text": "Edición de video."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿Por qué es importante probar prototipos con usuarios reales?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Porque las percepciones del equipo de diseño pueden diferir de la experiencia del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Para cumplir con normas legales."
+        },
+        {
+          "key": "C",
+          "text": "Solo para justificar el tiempo de desarrollo."
+        },
+        {
+          "key": "D",
+          "text": "Para aumentar el costo del proyecto."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "Los wireframes son:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Esquemas que detallan la estructura y disposición de elementos de una interfaz sin detalles gráficos."
+        },
+        {
+          "key": "B",
+          "text": "La versión final de la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "Solo para diseño de hardware."
+        },
+        {
+          "key": "D",
+          "text": "Un tipo de marketing digital."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "La iteración en el prototipado implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Refinar continuamente el diseño basándose en el feedback."
+        },
+        {
+          "key": "B",
+          "text": "Hacer el prototipo una sola vez y no modificarlo."
+        },
+        {
+          "key": "C",
+          "text": "Solo ajustar los colores y tipografías."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar las opiniones de los usuarios."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "La selección de la herramienta de prototipado depende de:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo el presupuesto disponible."
+        },
+        {
+          "key": "B",
+          "text": "Las necesidades del proyecto, el nivel de fidelidad requerido y las capacidades del equipo."
+        },
+        {
+          "key": "C",
+          "text": "La popularidad de la herramienta en el mercado."
+        },
+        {
+          "key": "D",
+          "text": "Si la herramienta es gratuita o no."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "InVision es conocida por:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ser una herramienta exclusiva de desarrollo de software."
+        },
+        {
+          "key": "B",
+          "text": "Ser una plataforma de juegos en línea."
+        },
+        {
+          "key": "C",
+          "text": "Convertir diseños estáticos en prototipos interactivos."
+        },
+        {
+          "key": "D",
+          "text": "Solo para diseño de impresión."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "Crear prototipos con HTML/CSS/JS es beneficioso porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No permite feedback del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Es la única manera de diseñar interfaces."
+        },
+        {
+          "key": "C",
+          "text": "Ofrece una prueba muy cercana a la experiencia final del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Evita la necesidad de diseño gráfico."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "El término “prototipado” en diseño de interfaces se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La fase final de desarrollo."
+        },
+        {
+          "key": "B",
+          "text": "Crear versiones preliminares de una interfaz para testear y refinar conceptos."
+        },
+        {
+          "key": "C",
+          "text": "Solo a la apariencia visual del producto."
+        },
+        {
+          "key": "D",
+          "text": "La promoción del producto terminado."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "Axure RP es ideal para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo para diseño de interfaz de usuario visual."
+        },
+        {
+          "key": "B",
+          "text": "Prototipos de alta fidelidad que requieren interacciones complejas."
+        },
+        {
+          "key": "C",
+          "text": "Crear arte conceptual."
+        },
+        {
+          "key": "D",
+          "text": "Administrar proyectos de construcción."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "El objetivo principal de prototipar es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo cumplir con requisitos técnicos."
+        },
+        {
+          "key": "B",
+          "text": "Validar conceptos de diseño y mejorar la usabilidad antes de la implementación final."
+        },
+        {
+          "key": "C",
+          "text": "Crear algo que se vea bien sin importar su funcionalidad."
+        },
+        {
+          "key": "D",
+          "text": "Acelerar el tiempo de producción."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

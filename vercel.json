@@ -1,0 +1,21 @@
+{
+  "name": "quiz-educativo",
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "quiz-spa/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/quiz-spa/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/quiz-spa/index.html"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+1.
+El scroll infinito es útil cuando:
+-
+
+No lo sé.
+A.
+
+Se quiere limitar el contenido.
+B.
+
+Se trata de cargar más contenido automáticamente.
+C.
+
+Se desea evitar la navegación.
+D.
+
+Solo para blogs.
+2.
+El análisis de uso en la navegación se refiere a:
+-
+
+No lo sé.
+A.
+
+Solo ver cuántos usuarios hay.
+B.
+
+Evaluar cómo los usuarios interactúan con la navegación.
+C.
+
+Ignorar las opiniones de los usuarios.
+D.
+
+Mejorar el SEO.
+3.
+Los wireframes y prototipos se usan para:
+-
+
+No lo sé.
+A.
+
+Solo el diseño visual final.
+B.
+
+Probar y refinar la navegación antes del desarrollo.
+C.
+
+Evitar la interacción del usuario.
+D.
+
+Añadir más texto en la página.
+4.
+La accesibilidad en la navegación asegura:
+-
+
+No lo sé.
+A.
+
+Solo un diseño atractivo.
+B.
+
+Que todos los usuarios puedan navegar sin barreras.
+C.
+
+Que el sitio sea solo para usuarios avanzados.
+D.
+
+Menores tiempos de carga.
+5.
+La arquitectura de información influye en la navegación al:
+-
+
+No lo sé.
+A.
+
+No tener impacto.
+B.
+
+Solo referirse a la apariencia.
+C.
+
+Determinar cómo se organiza y etiqueta el contenido.
+D.
+
+Añadir más imágenes.
+6.
+La simplicidad en la navegación implica:
+-
+
+No lo sé.
+A.
+
+Tener muchos menús desplegables.
+B.
+
+Usar fuentes pequeñas para ahorrar espacio.
+C.
+
+Minimizar los clics necesarios para llegar a información.
+D.
+
+Agregar más páginas al sitio.
+7.
+Un menú principal debe:
+-
+
+No lo sé.
+A.
+
+Ser difícil de encontrar.
+B.
+
+No cambiar nunca de posición.
+C.
+
+Incluir solo enlaces externos.
+D.
+
+Proveer acceso a las secciones principales del sitio.
+8.
+Los enlaces contextuales ayudan a:
+-
+
+No lo sé.
+A.
+
+Confundir al usuario.
+B.
+
+Proporcionar caminos alternativos de navegación.
+C.
+
+Solo para decoración.
+D.
+
+Aumentar el tiempo de carga.
+9.
+¿Qué es la navegación en una interfaz web?
+-
+
+No lo sé.
+A.
+
+Solo el diseño gráfico.
+B.
+
+La manera en que los usuarios se mueven por el contenido.
+C.
+
+La velocidad de carga de la página.
+D.
+
+La cantidad de imágenes en la página.
+10.
+Una buena navegación debe ser:
+-
+
+No lo sé.
+A.
+
+Complicada para retener al usuario.
+B.
+
+Clara, intuitiva y accesible.
+C.
+
+Solo para usuarios expertos.
+D.
+
+Oculta para hacer el diseño más limpio.
+11.
+Los menús secundarios o dropdowns son útiles para:
+-
+
+No lo sé.
+A.
+
+Ocultar información importante.
+B.
+
+Organizar subcategorías bajo menús principales.
+C.
+
+Reducir el rendimiento del sitio.
+D.
+
+Solo en sitios muy grandes.
+12.
+¿Qué significa “relevancia” en la navegación web?
+-
+
+No lo sé.
+A.
+
+Que todas las opciones de menú sean necesarias.
+B.
+
+Usar imágenes atractivas.
+C.
+
+Tener muchas páginas.
+D.
+
+La navegación debe ser complicada.
+13.
+La paginación en una interfaz web sirve para:
+-
+
+No lo sé.
+A.
+
+Añadir más contenido en una sola página.
+B.
+
+Eliminar la necesidad de scroll.
+C.
+
+Dividir el contenido en páginas manejables.
+D.
+
+Solo en sitios de comercio electrónico.
+14.
+Un mapa de sitio visualiza:
+-
+
+No lo sé.
+A.
+
+Solo el contenido de la página de inicio.
+B.
+
+La navegación en dispositivos móviles.
+C.
+
+La estética del diseño.
+D.
+
+La estructura jerárquica del sitio.
+15.
+La “claridad” en la navegación se refiere a:
+-
+
+No lo sé.
+A.
+
+La calidad de la resolución de la pantalla.
+B.
+
+Etiquetas y menús fáciles de entender.
+C.
+
+Usar colores brillantes.
+D.
+
+La longitud de los textos.
+16.
+Una herramienta de búsqueda interna mejora la navegación al:
+-
+
+No lo sé.
+A.
+
+Permitir acceso directo a contenido específico.
+B.
+
+Solo ser decorativa.
+C.
+
+Añadir complejidad.
+D.
+
+Reducir la velocidad de carga.
+17.
+La navegación lateral (sidebar) es ideal para:
+-
+
+No lo sé.
+A.
+
+Navegación continua sin interrumpir el contenido principal.
+B.
+
+Poner publicidad.
+C.
+
+Solo en sitios de noticias.
+D.
+
+Reducir la cantidad de contenido visible.
+18.
+Las migas de pan (breadcrumbs) permiten:
+-
+
+No lo sé.
+A.
+
+Navegar más rápido hacia adelante.
+B.
+
+Ver y regresar a pasos anteriores en la navegación.
+C.
+
+Solo estar en la página de inicio.
+D.
+
+Añadir más enlaces internos.
+19.
+El feedback en la navegación ayuda a:
+-
+
+No lo sé.
+A.
+
+Ocultar información.
+B.
+
+Cargar más rápido la página.
+C.
+
+Mostrar la ubicación del usuario en el sitio.
+D.
+
+Aumentar el número de enlaces.
+20.
+El menú de hamburguesa es común en:
+-
+
+No lo sé.
+A.
+
+Sitios web de escritorio.
+B.
+
+Aplicaciones y sitios móviles.
+C.
+
+Solo en juegos.
+D.
+
+Páginas con mucho contenido.

@@ -1,0 +1,339 @@
+
+1.
+¿Cuál es el primer paso en la gestión de cambios en los requisitos?
+-
+
+No lo sé.
+A.
+
+Identificación del cambio
+B.
+
+Implementación del cambio
+C.
+
+Evaluación del impacto
+D.
+
+Aprobación por los stakeholders
+2.
+¿Qué herramienta utiliza tableros y tarjetas para organizar tareas de manera visual y sencilla?
+-
+
+No lo sé.
+A.
+
+DOORS
+B.
+
+Trello
+C.
+
+Jira
+D.
+
+ReqView
+3.
+¿Cuál es uno de los objetivos principales de la ingeniería de requisitos?
+-
+
+No lo sé.
+A.
+
+Diseñar la arquitectura del sistema.
+B.
+
+Identificar y resolver conflictos entre los requisitos y las expectativas.
+C.
+
+Implementar directamente las funcionalidades del software.
+D.
+
+Realizar pruebas de rendimiento del sistema.
+4.
+¿Cuál de los siguientes es un ejemplo de un requisito de seguridad?
+-
+
+No lo sé.
+A.
+
+El sistema debe permitir a los usuarios registrarse.
+B.
+
+La página principal debe cargarse en menos de 2 segundos.
+C.
+
+Los datos sensibles deben encriptarse con un estándar AES de 256 bits.
+D.
+
+El sistema debe soportar 10,000 usuarios concurrentes.
+5.
+¿Qué técnica de priorización clasifica los requisitos en categorías como "Must", "Should", "Could" y "Won't"?
+-
+
+No lo sé.
+A.
+
+Análisis de valor
+B.
+
+Priorización por ranking
+C.
+
+Método ABC
+D.
+
+MoSCoW
+6.
+¿Qué describe un requisito funcional en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Las funcionalidades específicas que el sistema debe realizar.
+B.
+
+Las características de rendimiento del sistema.
+C.
+
+Las restricciones legales y normativas del proyecto.
+D.
+
+Los estándares de calidad del software.
+7.
+¿Qué norma regula la seguridad en la gestión de pagos y transacciones financieras?
+-
+
+No lo sé.
+A.
+
+RGPD.
+B.
+
+WCAG.
+C.
+
+HIPAA.
+D.
+
+PCI-DSS.
+8.
+¿Cuál es el objetivo principal de la ingeniería de requisitos?
+-
+
+No lo sé.
+A.
+
+Diseñar la arquitectura del sistema.
+B.
+
+Implementar las funcionalidades del software.
+C.
+
+Realizar pruebas de aceptación del producto final.
+D.
+
+Garantizar que el software cumpla con las necesidades y expectativas de los stakeholders.
+9.
+¿Qué técnica visual representa cómo los usuarios interactúan con el sistema para alcanzar objetivos específicos?
+-
+
+No lo sé.
+A.
+
+Mapas mentales
+B.
+
+Diagrama de secuencia
+C.
+
+Diagrama de casos de uso
+D.
+
+Diagrama de clases
+10.
+¿Qué describe un requisito no funcional en un sistema de software?
+-
+
+No lo sé.
+A.
+
+Cómo debe comportarse el sistema bajo ciertas condiciones.
+B.
+
+Las funcionalidades principales que debe realizar el sistema.
+C.
+
+Los actores que interactúan con el sistema.
+D.
+
+Los pasos necesarios para completar un caso de uso.
+11.
+¿Cuál de los siguientes es un ejemplo de una especificación técnica del sistema?
+-
+
+No lo sé.
+A.
+
+El sistema debe permitir a los usuarios registrarse y autenticarse.
+B.
+
+La interfaz debe cargarse en menos de 2 segundos en redes de alta velocidad.
+C.
+
+El servidor debe contar con 16 GB de RAM y 8 núcleos de procesador.
+D.
+
+Los datos sensibles deben encriptarse con un estándar AES de 256 bits.
+12.
+¿Qué stakeholder está principalmente interesado en que el software se alinee con los procesos de negocio y las expectativas operativas?
+-
+
+No lo sé.
+A.
+
+Patrocinador
+B.
+
+Usuario directo
+C.
+
+Director funcional
+D.
+
+Equipo técnico
+13.
+¿Qué normativa en Europa regula la protección de datos personales en los sistemas de software?
+-
+
+No lo sé.
+A.
+
+RGPD (Reglamento General de Protección de Datos).
+B.
+
+ADA (Americans with Disabilities Act).
+C.
+
+HIPAA (Health Insurance Portability and Accountability Act).
+D.
+
+PCI-DSS (Payment Card Industry Data Security Standard).
+14.
+¿Qué componente es clave en un caso de uso para identificar requisitos funcionales?
+-
+
+No lo sé.
+A.
+
+Los algoritmos de procesamiento interno.
+B.
+
+Las especificaciones técnicas del sistema.
+C.
+
+El flujo principal que describe los pasos para lograr un objetivo.
+D.
+
+El diseño arquitectónico de la base de datos.
+15.
+¿Qué técnica permite crear una representación interactiva y simplificada del sistema para probar funcionalidades básicas?
+-
+
+No lo sé.
+A.
+
+Diagramas UML
+B.
+
+Mapas mentales
+C.
+
+Maquetas estáticas
+D.
+
+Prototipos funcionales
+16.
+¿Qué estándar es comúnmente utilizado para guiar la creación de un Documento de Especificación de Requisitos de Software (SRS)?
+-
+
+No lo sé.
+A.
+
+ISO 9001
+B.
+
+WCAG 2.1
+C.
+
+IEEE 830
+D.
+
+PCI-DSS
+17.
+¿Cuál de los siguientes métodos permite a los usuarios visualizar cómo se implementarán los requisitos para identificar mejoras o problemas?
+-
+
+No lo sé.
+A.
+
+Revisiones de código
+B.
+
+Prototipos
+C.
+
+Análisis de trazabilidad
+D.
+
+Casos de prueba
+18.
+¿Qué describe una dependencia tecnológica en los requisitos técnicos?
+-
+
+No lo sé.
+A.
+
+Las funcionalidades principales que debe realizar el sistema.
+B.
+
+Las plataformas, herramientas y tecnologías necesarias para implementar el sistema.
+C.
+
+Los pasos necesarios para validar los requisitos funcionales.
+D.
+
+Las normas legales aplicables al desarrollo del software.
+19.
+¿Qué puede ocurrir si se priorizan exclusivamente los requisitos funcionales en un proyecto de software?
+-
+
+No lo sé.
+A.
+
+El sistema será más seguro pero menos funcional.
+B.
+
+El sistema cumplirá con las funcionalidades esperadas pero podría ser ineficiente o difícil de usar.
+C.
+
+El sistema será altamente optimizado pero carecerá de características básicas.
+D.
+
+El sistema cumplirá con todos los estándares de rendimiento pero sin satisfacer las necesidades del usuario.
+20.
+¿Qué técnica de recolección de requisitos se basa en recopilar datos de un gran número de personas de manera estructurada?
+-
+
+No lo sé.
+A.
+
+Entrevistas
+B.
+
+Encuestas
+C.
+
+Talleres
+D.

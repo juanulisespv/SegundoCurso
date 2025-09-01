@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 9,
+  "source": "contenidos/HCItests/9.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "¿La accesibilidad en desarrollo implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo diseñar para usuarios sin discapacidades.»"
+        },
+        {
+          "key": "B",
+          "text": "«Usar ARIA roles y atributos para mejorar la experiencia.»"
+        },
+        {
+          "key": "C",
+          "text": "«No afecta al diseño.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "¿La integración entre cliente y servidor en aplicaciones web implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el diseño del cliente.»"
+        },
+        {
+          "key": "B",
+          "text": "«Comunicación efectiva para experiencias dinámicas.»"
+        },
+        {
+          "key": "C",
+          "text": "«No es necesario en aplicaciones modernas.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "¿Ionic se destaca para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo para aplicaciones de escritorio.»"
+        },
+        {
+          "key": "B",
+          "text": "«Ignorar el diseño responsivo.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo juegos.»"
+        },
+        {
+          "key": "D",
+          "text": "«Crear aplicaciones híbridas usando tecnologías web.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "¿El uso de AJAX mejora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«La carga asincrónica de datos sin recargar la página.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo la estética de la página.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene impacto en la experiencia de usuario.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de correo electrónico.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "¿React Native permite?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Desarrollar aplicaciones solo para iOS.»"
+        },
+        {
+          "key": "B",
+          "text": "«Escribir código una vez para múltiples plataformas móviles.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene aplicaciones en desarrollo móvil.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones web.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "¿La seguridad en desarrollo web incluye?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el diseño visual.»"
+        },
+        {
+          "key": "B",
+          "text": "«Buenas prácticas para proteger al usuario y la aplicación.»"
+        },
+        {
+          "key": "C",
+          "text": "«No es relevante en aplicaciones web.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "¿Las variables CSS son útiles para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo en diseño de impresos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Mantener consistencia y facilitar el mantenimiento del diseño.»"
+        },
+        {
+          "key": "C",
+          "text": "«Evitar el uso de JavaScript.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "¿Los prototipos de código se utilizan para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo ver cómo se verá la interfaz.»"
+        },
+        {
+          "key": "B",
+          "text": "«Evitar pruebas de usabilidad.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo diseños no interactivos.»"
+        },
+        {
+          "key": "D",
+          "text": "«Probar interacciones y rendimiento en interfaces reales.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "¿React es conocido por?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo ser un framework de CSS.»"
+        },
+        {
+          "key": "B",
+          "text": "«No ser útil en aplicaciones web.»"
+        },
+        {
+          "key": "C",
+          "text": "«Componentes y manejo eficiente del estado.»"
+        },
+        {
+          "key": "D",
+          "text": "«Ser exclusivo para móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "¿El uso de Flexbox y Grid en CSS3 mejora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo la velocidad de carga.»"
+        },
+        {
+          "key": "B",
+          "text": "«La disposición y alineación de elementos en interfaces responsivas.»"
+        },
+        {
+          "key": "C",
+          "text": "«No son necesarios en diseño moderno.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para diseños estáticos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "¿Vue.js destaca por?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Su curva de aprendizaje suave y flexibilidad.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo para aplicaciones de escritorio.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tener enfoque en el usuario.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones complejas.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿Angular se utiliza para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo páginas estáticas.»"
+        },
+        {
+          "key": "B",
+          "text": "«Aplicaciones web de gran escala.»"
+        },
+        {
+          "key": "C",
+          "text": "«Evitar JavaScript.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en dispositivos móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "¿El uso de frameworks de JavaScript mejora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el aspecto visual.»"
+        },
+        {
+          "key": "B",
+          "text": "«La estructura, mantenibilidad y escalabilidad del código.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene impacto en el rendimiento.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones sin interacción.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "¿Usar Bootstrap facilita?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el diseño de aplicaciones de escritorio.»"
+        },
+        {
+          "key": "B",
+          "text": "«Crear interfaces responsivas rápidamente.»"
+        },
+        {
+          "key": "C",
+          "text": "«Aumentar el tiempo de desarrollo.»"
+        },
+        {
+          "key": "D",
+          "text": "«Ignorar la accesibilidad.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "¿Las pruebas en múltiples navegadores son importantes para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo en desarrollo de software de escritorio.»"
+        },
+        {
+          "key": "B",
+          "text": "«No afectan al usuario.»"
+        },
+        {
+          "key": "C",
+          "text": "«Asegurar compatibilidad y experiencia consistente.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿JavaScript es esencial para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo mostrar contenido estático.»"
+        },
+        {
+          "key": "B",
+          "text": "«Interactividad y manipulación del DOM.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene aplicaciones prácticas.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en servidores.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "¿HTML5 mejora la web con?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo texto.»"
+        },
+        {
+          "key": "B",
+          "text": "«Elementos semánticos y multimedia sin plugins.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene mejoras significativas.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones móviles.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "¿CSS3 permite?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo colores básicos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Evitar el uso de HTML.»"
+        },
+        {
+          "key": "C",
+          "text": "«Sombras, gradientes y animaciones.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en navegadores antiguos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "¿El desarrollo de interfaces móviles requiere?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Considerar la ergonomía y la interacción táctil.»"
+        },
+        {
+          "key": "B",
+          "text": "«Ignorar el diseño responsivo.»"
+        },
+        {
+          "key": "C",
+          "text": "«No pensar en diferentes tamaños de pantalla.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de juegos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "¿El rendimiento en interfaces web y móviles depende de?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo la estética.»"
+        },
+        {
+          "key": "B",
+          "text": "«Optimización del código y recursos.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar el tiempo de carga.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en dispositivos de alta gama.»"
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

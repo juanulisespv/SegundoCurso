@@ -1,0 +1,228 @@
+/* Quiz App - Consolidated Styles */
+
+:root {
+  --primary-color: #007bff;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+  --hci-color: #6f42c1;
+  --programacion-color: #28a745;
+}
+
+[data-bs-theme="dark"] {
+  --bs-body-bg: #1a1a1a;
+  --bs-body-color: #e9ecef;
+  --bs-card-bg: #2d3748;
+  --bs-border-color: #495057;
+}
+
+/* Subject-specific colors */
+.subject-hci {
+  --subject-color: #6f42c1;
+}
+
+.subject-hci .card-header {
+  background: linear-gradient(135deg, #6f42c1, #8b5cf6) !important;
+  border-bottom: none;
+}
+
+.subject-programacion {
+  --subject-color: #28a745;
+}
+
+.subject-programacion .card-header {
+  background: linear-gradient(135deg, #28a745, #34ce57) !important;
+  border-bottom: none;
+}
+
+.subject-card .card-body {
+  background: #f8f9fa !important;
+}
+
+[data-bs-theme="dark"] .subject-card .card-body {
+  background: #2d3748 !important;
+}
+
+/* Custom styling */
+.timer-display {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.quiz-card {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subject-card {
+  background: linear-gradient(135deg, var(--subject-color), rgba(var(--subject-color), 0.8));
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.theme-btn {
+  border: 2px solid var(--subject-color);
+  color: var(--subject-color);
+  background: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+}
+
+.theme-btn:hover {
+  background: var(--subject-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-bs-theme="dark"] .theme-btn {
+  background: var(--bs-dark);
+  color: var(--subject-color);
+  border-color: var(--subject-color);
+}
+
+[data-bs-theme="dark"] .theme-btn:hover {
+  background: var(--subject-color);
+  color: white;
+}
+
+.option-btn {
+  background: var(--bs-light);
+  border: 2px solid var(--bs-border-color);
+  color: var(--bs-dark);
+  margin-bottom: 0.75rem;
+  padding: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.option-btn:hover {
+  border-color: var(--primary-color);
+  transform: translateX(5px);
+}
+
+.option-btn.correct {
+  background: var(--success-color);
+  border-color: var(--success-color);
+  color: white;
+  animation: correctPulse 0.6s ease;
+}
+
+.option-btn.incorrect {
+  background: var(--danger-color);
+  border-color: var(--danger-color);
+  color: white;
+  animation: incorrectShake 0.6s ease;
+}
+
+.option-btn:disabled {
+  opacity: 0.8;
+}
+
+.question-card {
+  animation: slideIn 0.5s ease;
+}
+
+.score-display {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.score-badge {
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes correctPulse {
+  0%, 50%, 100% { transform: scale(1); }
+  25%, 75% { transform: scale(1.05); }
+}
+
+@keyframes incorrectShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* Dark mode specific adjustments */
+[data-bs-theme="dark"] .option-btn {
+  background: var(--bs-dark);
+  color: var(--bs-light);
+  border-color: var(--bs-secondary);
+}
+
+[data-bs-theme="dark"] .quiz-card {
+  background: var(--bs-card-bg);
+  border-color: var(--bs-border-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .score-display {
+    font-size: 2rem;
+  }
+  
+  .option-btn {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .question-card {
+    margin: 0.5rem;
+  }
+}
+
+/* Progress bar animation */
+.progress-bar {
+  transition: width 0.3s ease;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  border: 0.25rem solid currentcolor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

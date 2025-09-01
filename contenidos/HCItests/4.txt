@@ -1,0 +1,344 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+1.
+La flexibilidad en el diseño centrado en el usuario se refiere a:
+-
+
+No lo sé.
+A.
+
+La capacidad de cambiar el hardware constantemente.
+B.
+
+Adaptarse a cambios en los requisitos o en el entendimiento del usuario.
+C.
+
+Fijarse en una idea sin posibilidad de alteración.
+D.
+
+Ignorar las nuevas tecnologías.
+2.
+La integración de métodos ágiles en UCD permite:
+-
+
+No lo sé.
+A.
+
+Ignorar las necesidades del usuario.
+B.
+
+Ajustar rápidamente el diseño según el feedback del usuario.
+C.
+
+Desarrollar productos sin iteraciones.
+D.
+
+Reducir la comunicación entre el equipo de diseño.
+3.
+El proceso de ideación en Design Thinking implica:
+-
+
+No lo sé.
+A.
+
+Solo la implementación de ideas.
+B.
+
+Generar una amplia gama de ideas posibles para resolver problemas.
+C.
+
+Escoger la primera idea que surge.
+D.
+
+Ignorar las ideas de los usuarios.
+4.
+Los “sprints” en metodologías ágiles son:
+-
+
+No lo sé.
+A.
+
+Cortos periodos de trabajo intensivo donde se desarrollan, prueban y refinan características.
+B.
+
+Periodos largos de desarrollo sin cambios.
+C.
+
+Solo para la fase de producción.
+D.
+
+Inútiles en el diseño de interfaces.
+5.
+La metodología de Diseño Centrado en el Usuario (UCD) incluye:
+-
+
+No lo sé.
+A.
+
+Solo el diseño visual.
+B.
+
+Análisis de requisitos, diseño conceptual, diseño y desarrollo, y evaluación.
+C.
+
+Desarrollo sin feedback del usuario.
+D.
+
+Lanzamiento del producto sin pruebas.
+6.
+El diseño centrado en el usuario (UCD) se centra principalmente en:
+-
+
+No lo sé.
+A.
+
+Las capacidades técnicas del hardware.
+B.
+
+Las necesidades, deseos y limitaciones de los usuarios.
+C.
+
+La eficiencia del desarrollador.
+D.
+
+La velocidad de desarrollo del software.
+7.
+Un MVP (Mínimo Producto Viable) en Lean UX se utiliza para:
+-
+
+No lo sé.
+A.
+
+Evitar el feedback del usuario.
+B.
+
+Crear el producto más complejo posible.
+C.
+
+Validar hipótesis con el mínimo esfuerzo y recursos.
+D.
+
+Asegurar que el producto se vea terminado.
+8.
+Los “sprints de diseño” en un enfoque ágil son:
+-
+
+No lo sé.
+A.
+
+Solo para el diseño de hardware.
+B.
+
+Sesiones intensivas de diseño colaborativo que culminan en prototipos listos para ser testeados.
+C.
+
+Períodos sin trabajo creativo.
+D.
+
+Exclusivamente para la fase de producción.
+9.
+El análisis de requisitos en UCD implica:
+-
+
+No lo sé.
+A.
+
+Decidir unilateralmente qué es lo que los usuarios necesitan.
+B.
+
+Ignorar las opiniones de los usuarios.
+C.
+
+Focalizarse únicamente en la tecnología disponible.
+D.
+
+Identificar y documentar las necesidades del usuario a través de investigaciones.
+10.
+El Lean UX se basa en:
+-
+
+No lo sé.
+A.
+
+Mantener el diseño en secreto hasta el final.
+B.
+
+Iteraciones rápidas y pruebas continuas basadas en hipótesis y MVPs.
+C.
+
+Desarrollar el producto completo antes de mostrar a los usuarios.
+D.
+
+Eliminar la fase de pruebas.
+11.
+En UCD, el prototipado sirve para:
+-
+
+No lo sé.
+A.
+
+Finalizar el producto sin más cambios.
+B.
+
+Visualizar y probar conceptos de diseño con usuarios reales.
+C.
+
+Mantener el diseño en secreto hasta el lanzamiento.
+D.
+
+Asegurar que el producto sea caro.
+12.
+En la metodología ágil, la colaboración significa:
+-
+
+No lo sé.
+A.
+
+Trabajar en aislamiento para mejorar la eficiencia.
+B.
+
+Equipos multifuncionales trabajando juntos para alinear el diseño con las necesidades del usuario.
+C.
+
+Solo programadores tomando decisiones.
+D.
+
+Evitar cualquier tipo de interacción entre los miembros del equipo.
+13.
+Priorizar en metodologías ágiles implica:
+-
+
+No lo sé.
+A.
+
+Hacer todo al mismo tiempo.
+B.
+
+Ignorar las necesidades del usuario para cumplir plazos.
+C.
+
+Identificar y enfocarse en las características más valiosas para los usuarios.
+D.
+
+No tener un plan de acción.
+14.
+El feedback continuo es importante en UCD porque:
+-
+
+No lo sé.
+A.
+
+Permite ajustar el diseño basado en la experiencia real de los usuarios.
+B.
+
+No tiene impacto en el producto final.
+C.
+
+Solo se necesita al final del proceso.
+D.
+
+Es un requisito legal.
+15.
+Una fase esencial del Design Thinking es:
+-
+
+No lo sé.
+A.
+
+Empatizar con los usuarios.
+B.
+
+Maximizar el beneficio económico.
+C.
+
+Asegurar que el hardware sea de última generación.
+D.
+
+Reducir el tiempo de producción.
+16.
+Una de las diferencias clave entre Design Thinking y UCD es:
+-
+
+No lo sé.
+A.
+
+Design Thinking es más lineal mientras que UCD es iterativo.
+B.
+
+UCD no se preocupa por la empatía.
+C.
+
+Design Thinking es iterativo y no lineal, mientras que UCD sigue un proceso más estructurado.
+D.
+
+No hay diferencias significativas entre ambos.
+17.
+En Design Thinking, la fase de “definir” implica:
+-
+
+No lo sé.
+A.
+
+Solo definir visualmente el producto.
+B.
+
+Sintetizar la información recogida para definir claramente el problema o reto de diseño.
+C.
+
+Decidir qué tecnología se va a usar.
+D.
+
+Finalizar el diseño sin necesidad de más input.
+18.
+La “empatía” en el contexto de Design Thinking es:
+-
+
+No lo sé.
+A.
+
+Solo una palabra de moda sin aplicación práctica.
+B.
+
+Comprender profundamente a los usuarios para diseñar soluciones que realmente les sirvan.
+C.
+
+Empatizar solo con usuarios de alto poder adquisitivo.
+D.
+
+Ignorar las emociones y motivaciones de los usuarios.
+19.
+Las “hipótesis” en Lean UX son:
+-
+
+No lo sé.
+A.
+
+Adivinanzas sin fundamento.
+B.
+
+Suposiciones sobre qué podría funcionar, basadas en la comprensión del usuario.
+C.
+
+Declaraciones de hechos.
+D.
+
+Irrelevantes para el proceso de diseño.
+20.
+La fase de “testear” en Design Thinking es crucial porque:
+-
+
+No lo sé.
+A.
+
+Permite validar las soluciones con usuarios reales.
+B.
+
+Es la última oportunidad para cambiar el diseño.
+C.
+
+Solo se trata de ver si el producto se ve bien.
+D.
+
+No tiene importancia en el proceso de diseño.
+ 

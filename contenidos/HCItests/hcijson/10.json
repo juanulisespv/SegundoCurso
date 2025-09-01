@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 10,
+  "source": "contenidos/HCItests/10.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "¿La usabilidad móvil incluye?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Ignorar la ergonomía del dispositivo.»"
+        },
+        {
+          "key": "B",
+          "text": "«Diseñar para interacciones táctiles y uso con una sola mano.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo centrarse en la estética.»"
+        },
+        {
+          "key": "D",
+          "text": "«No considerar la velocidad de respuesta.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "¿ConstraintLayout en Android es útil para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo diseño de íconos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Crear diseños flexibles y adaptativos.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene aplicaciones prácticas.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones web.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "¿Android Studio es?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo una herramienta de diseño gráfico.»"
+        },
+        {
+          "key": "B",
+          "text": "«No utilizado en el desarrollo de apps.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo para desarrollo web.»"
+        },
+        {
+          "key": "D",
+          "text": "«El IDE oficial para desarrollar aplicaciones Android.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "¿iOS utiliza las siguientes directrices de diseño?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Material Design.»"
+        },
+        {
+          "key": "B",
+          "text": "«Human Interface Guidelines de Apple.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene directrices propias.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de juegos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "¿Kotlin es un lenguaje de programación para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Android, con sintaxis moderna.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo iOS.»"
+        },
+        {
+          "key": "C",
+          "text": "«No se usa en desarrollo móvil.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones web.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "¿Auto Layout en iOS sirve para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo ajustar el color de fondo.»"
+        },
+        {
+          "key": "B",
+          "text": "«No es necesario en desarrollo iOS.»"
+        },
+        {
+          "key": "C",
+          "text": "«Asegurar que la interfaz se adapte dinámicamente a diferentes pantallas.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de música.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "¿El uso de animaciones y transiciones en iOS mejora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo el aspecto visual sin función.»"
+        },
+        {
+          "key": "B",
+          "text": "«La experiencia del usuario con movimientos fluidos y naturales.»"
+        },
+        {
+          "key": "C",
+          "text": "«No se usan en iOS.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de entretenimiento.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "¿La flexibilidad de dispositivos en Android implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Diseñar solo para una resolución.»"
+        },
+        {
+          "key": "B",
+          "text": "«Adaptar el diseño a una variedad de tamaños y densidades de pantalla.»"
+        },
+        {
+          "key": "C",
+          "text": "«Ignorar dispositivos de bajo costo.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo diseño para tabletas.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "¿Flutter es conocido por?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo ser para iOS.»"
+        },
+        {
+          "key": "B",
+          "text": "«No ser útil en desarrollo móvil.»"
+        },
+        {
+          "key": "C",
+          "text": "«Desarrollar aplicaciones nativas con un solo código base usando Dart.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "¿En iOS, VoiceOver es?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Un sistema de notificaciones.»"
+        },
+        {
+          "key": "B",
+          "text": "«Una herramienta de accesibilidad para usuarios con discapacidad visual.»"
+        },
+        {
+          "key": "C",
+          "text": "«No existe en iOS.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para desarrolladores.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "¿Los componentes de Material Design en Android son?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo decorativos.»"
+        },
+        {
+          "key": "B",
+          "text": "«Herramientas para crear una interfaz coherente y funcional.»"
+        },
+        {
+          "key": "C",
+          "text": "«No existen en Android.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de juegos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿La optimización y rendimiento en aplicaciones móviles?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«No es relevante.»"
+        },
+        {
+          "key": "B",
+          "text": "«Es crucial para una experiencia de usuario fluida.»"
+        },
+        {
+          "key": "C",
+          "text": "«Solo afecta a dispositivos de gama alta.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de juegos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "¿Las pruebas de usabilidad en desarrollo móvil son importantes para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Validar la interfaz y el flujo de usuario en dispositivos reales.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo ver cómo se ve la aplicación.»"
+        },
+        {
+          "key": "C",
+          "text": "«No se necesitan en desarrollo móvil.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "¿Xcode es utilizado para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Desarrollar aplicaciones solo para Android.»"
+        },
+        {
+          "key": "B",
+          "text": "«Desarrollar aplicaciones para iOS, incluyendo diseño en Interface Builder.»"
+        },
+        {
+          "key": "C",
+          "text": "«No se usa en desarrollo de aplicaciones móviles.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de escritorio.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "¿React Native permite?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Desarrollar solo para una plataforma.»"
+        },
+        {
+          "key": "B",
+          "text": "«Compartir código entre Android e iOS.»"
+        },
+        {
+          "key": "C",
+          "text": "«No tiene aplicaciones en desarrollo móvil.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones de juegos.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿El diseño responsivo en iOS debe considerar?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Diferentes modelos de iPhone y iPad, incluyendo muescas y bordes.»"
+        },
+        {
+          "key": "B",
+          "text": "«Solo un tipo de iPhone.»"
+        },
+        {
+          "key": "C",
+          "text": "«No aplica para iOS.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo aplicaciones de entretenimiento.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "¿La accesibilidad en Android incluye?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo colores brillantes.»"
+        },
+        {
+          "key": "B",
+          "text": "«Opciones como contrastes de color, navegación por voz y tamaño de texto ajustable.»"
+        },
+        {
+          "key": "C",
+          "text": "«No se aplica a Android.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para usuarios avanzados.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "¿Swift es utilizado principalmente para?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Desarrollo Android.»"
+        },
+        {
+          "key": "B",
+          "text": "«Desarrollo de aplicaciones iOS.»"
+        },
+        {
+          "key": "C",
+          "text": "«No es un lenguaje de programación.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo en servidores.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "¿El diseño de interfaces para Android se guía por?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo las preferencias personales del diseñador.»"
+        },
+        {
+          "key": "B",
+          "text": "«No tiene guías específicas.»"
+        },
+        {
+          "key": "C",
+          "text": "«Material Design de Google.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para dispositivos grandes.»"
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "¿La localización en aplicaciones móviles implica?",
+      "options": [
+        {
+          "key": "A",
+          "text": "«Solo cambiar el idioma del texto.»"
+        },
+        {
+          "key": "B",
+          "text": "«No es necesaria.»"
+        },
+        {
+          "key": "C",
+          "text": "«Adaptar la aplicación para diferentes idiomas y culturas, incluyendo dirección de lectura.»"
+        },
+        {
+          "key": "D",
+          "text": "«Solo para aplicaciones de viajes.»"
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

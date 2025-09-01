@@ -1,0 +1,345 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+I - Diseñar interfaces útiles y usables según normas actuales de calidad.
+1.
+¿La usabilidad móvil incluye?
+-
+
+No lo sé.
+A.
+
+«Ignorar la ergonomía del dispositivo.»
+B.
+
+«Diseñar para interacciones táctiles y uso con una sola mano.»
+C.
+
+«Solo centrarse en la estética.»
+D.
+
+«No considerar la velocidad de respuesta.»
+2.
+¿ConstraintLayout en Android es útil para?
+-
+
+No lo sé.
+A.
+
+«Solo diseño de íconos.»
+B.
+
+«Crear diseños flexibles y adaptativos.»
+C.
+
+«No tiene aplicaciones prácticas.»
+D.
+
+«Solo en aplicaciones web.»
+3.
+¿Android Studio es?
+-
+
+No lo sé.
+A.
+
+«Solo una herramienta de diseño gráfico.»
+B.
+
+«No utilizado en el desarrollo de apps.»
+C.
+
+«Solo para desarrollo web.»
+D.
+
+«El IDE oficial para desarrollar aplicaciones Android.»
+4.
+¿iOS utiliza las siguientes directrices de diseño?
+-
+
+No lo sé.
+A.
+
+«Material Design.»
+B.
+
+«Human Interface Guidelines de Apple.»
+C.
+
+«No tiene directrices propias.»
+D.
+
+«Solo para aplicaciones de juegos.»
+5.
+¿Kotlin es un lenguaje de programación para?
+-
+
+No lo sé.
+A.
+
+«Android, con sintaxis moderna.»
+B.
+
+«Solo iOS.»
+C.
+
+«No se usa en desarrollo móvil.»
+D.
+
+«Solo aplicaciones web.»
+6.
+¿Auto Layout en iOS sirve para?
+-
+
+No lo sé.
+A.
+
+«Solo ajustar el color de fondo.»
+B.
+
+«No es necesario en desarrollo iOS.»
+C.
+
+«Asegurar que la interfaz se adapte dinámicamente a diferentes pantallas.»
+D.
+
+«Solo para aplicaciones de música.»
+7.
+¿El uso de animaciones y transiciones en iOS mejora?
+-
+
+No lo sé.
+A.
+
+«Solo el aspecto visual sin función.»
+B.
+
+«La experiencia del usuario con movimientos fluidos y naturales.»
+C.
+
+«No se usan en iOS.»
+D.
+
+«Solo en aplicaciones de entretenimiento.»
+8.
+¿La flexibilidad de dispositivos en Android implica?
+-
+
+No lo sé.
+A.
+
+«Diseñar solo para una resolución.»
+B.
+
+«Adaptar el diseño a una variedad de tamaños y densidades de pantalla.»
+C.
+
+«Ignorar dispositivos de bajo costo.»
+D.
+
+«Solo diseño para tabletas.»
+9.
+¿Flutter es conocido por?
+-
+
+No lo sé.
+A.
+
+«Solo ser para iOS.»
+B.
+
+«No ser útil en desarrollo móvil.»
+C.
+
+«Desarrollar aplicaciones nativas con un solo código base usando Dart.»
+D.
+
+«Solo aplicaciones de escritorio.»
+10.
+¿En iOS, VoiceOver es?
+-
+
+No lo sé.
+A.
+
+«Un sistema de notificaciones.»
+B.
+
+«Una herramienta de accesibilidad para usuarios con discapacidad visual.»
+C.
+
+«No existe en iOS.»
+D.
+
+«Solo para desarrolladores.»
+11.
+¿Los componentes de Material Design en Android son?
+-
+
+No lo sé.
+A.
+
+«Solo decorativos.»
+B.
+
+«Herramientas para crear una interfaz coherente y funcional.»
+C.
+
+«No existen en Android.»
+D.
+
+«Solo para aplicaciones de juegos.»
+12.
+¿La optimización y rendimiento en aplicaciones móviles?
+-
+
+No lo sé.
+A.
+
+«No es relevante.»
+B.
+
+«Es crucial para una experiencia de usuario fluida.»
+C.
+
+«Solo afecta a dispositivos de gama alta.»
+D.
+
+«Solo en aplicaciones de juegos.»
+13.
+¿Las pruebas de usabilidad en desarrollo móvil son importantes para?
+-
+
+No lo sé.
+A.
+
+«Validar la interfaz y el flujo de usuario en dispositivos reales.»
+B.
+
+«Solo ver cómo se ve la aplicación.»
+C.
+
+«No se necesitan en desarrollo móvil.»
+D.
+
+«Solo en aplicaciones de escritorio.»
+14.
+¿Xcode es utilizado para?
+-
+
+No lo sé.
+A.
+
+«Desarrollar aplicaciones solo para Android.»
+B.
+
+«Desarrollar aplicaciones para iOS, incluyendo diseño en Interface Builder.»
+C.
+
+«No se usa en desarrollo de aplicaciones móviles.»
+D.
+
+«Solo para aplicaciones de escritorio.»
+15.
+¿React Native permite?
+-
+
+No lo sé.
+A.
+
+«Desarrollar solo para una plataforma.»
+B.
+
+«Compartir código entre Android e iOS.»
+C.
+
+«No tiene aplicaciones en desarrollo móvil.»
+D.
+
+«Solo aplicaciones de juegos.»
+16.
+¿El diseño responsivo en iOS debe considerar?
+-
+
+No lo sé.
+A.
+
+«Diferentes modelos de iPhone y iPad, incluyendo muescas y bordes.»
+B.
+
+«Solo un tipo de iPhone.»
+C.
+
+«No aplica para iOS.»
+D.
+
+«Solo aplicaciones de entretenimiento.»
+17.
+¿La accesibilidad en Android incluye?
+-
+
+No lo sé.
+A.
+
+«Solo colores brillantes.»
+B.
+
+«Opciones como contrastes de color, navegación por voz y tamaño de texto ajustable.»
+C.
+
+«No se aplica a Android.»
+D.
+
+«Solo para usuarios avanzados.»
+18.
+¿Swift es utilizado principalmente para?
+-
+
+No lo sé.
+A.
+
+«Desarrollo Android.»
+B.
+
+«Desarrollo de aplicaciones iOS.»
+C.
+
+«No es un lenguaje de programación.»
+D.
+
+«Solo en servidores.»
+19.
+¿El diseño de interfaces para Android se guía por?
+-
+
+No lo sé.
+A.
+
+«Solo las preferencias personales del diseñador.»
+B.
+
+«No tiene guías específicas.»
+C.
+
+«Material Design de Google.»
+D.
+
+«Solo para dispositivos grandes.»
+20.
+¿La localización en aplicaciones móviles implica?
+-
+
+No lo sé.
+A.
+
+«Solo cambiar el idioma del texto.»
+B.
+
+«No es necesaria.»
+C.
+
+«Adaptar la aplicación para diferentes idiomas y culturas, incluyendo dirección de lectura.»
+D.
+
+«Solo para aplicaciones de viajes.»
+ 

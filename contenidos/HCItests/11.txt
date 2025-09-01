@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+1.
+¿El futuro de HCI podría incluir?
+-
+
+No lo sé.
+A.
+
+«Solo interfaces gráficas tradicionales.»
+B.
+
+«Interacciones basadas en gestos, voz, y hasta interfaces neuronales.»
+C.
+
+«No hay cambios esperados.»
+D.
+
+«Solo en aplicaciones de entretenimiento.»
+2.
+¿La interfaz cerebro-computadora (BCI) permite?
+-
+
+No lo sé.
+A.
+
+«Solo la entrada de datos a través de teclado.»
+B.
+
+«No tiene aplicaciones en HCI.»
+C.
+
+«Interacción directa entre cerebro y dispositivos.»
+D.
+
+«Solo en aplicaciones médicas.»
+3.
+¿Las interacciones gestuales facilitan?
+-
+
+No lo sé.
+A.
+
+«Solo la entrada de texto.»
+B.
+
+«Interacciones más naturales y sin contacto.»
+C.
+
+«No tienen aplicaciones prácticas.»
+D.
+
+«Solo en aplicaciones de entretenimiento.»
+4.
+¿Unity y Unreal Engine son usados principalmente para?
+-
+
+No lo sé.
+A.
+
+«Solo diseño gráfico estático.»
+B.
+
+«Desarrollo de aplicaciones VR y AR.»
+C.
+
+«No tienen aplicaciones en realidad virtual.»
+D.
+
+«Solo para aplicaciones web.»
+5.
+¿Las interfaces conversacionales incluyen?
+-
+
+No lo sé.
+A.
+
+«Solo gráficos estáticos.»
+B.
+
+«Chatbots y asistentes de voz para interacciones naturales.»
+C.
+
+«No son relevantes en HCI.»
+D.
+
+«Solo para aplicaciones de negocios.»
+6.
+¿La inteligencia artificial en interfaces se aplica para?
+-
+
+No lo sé.
+A.
+
+«Solo en servidores backend.»
+B.
+
+«Interfaces que se adaptan y aprenden del usuario.»
+C.
+
+«No tiene lugar en HCI.»
+D.
+
+«Solo en aplicaciones de juegos.»
+7.
+¿Los desafíos de la AR incluyen?
+-
+
+No lo sé.
+A.
+
+«Solo la precisión de los gráficos.»
+B.
+
+«Rendimiento en tiempo real y precisión del reconocimiento de entorno.»
+C.
+
+«No tiene desafíos.»
+D.
+
+«Solo el costo de implementación.»
+8.
+¿La realidad aumentada (AR) se define como?
+-
+
+No lo sé.
+A.
+
+«Un entorno completamente digital.»
+B.
+
+«Información digital superpuesta al mundo real.»
+C.
+
+«Solo para juegos.»
+D.
+
+«Sin aplicaciones prácticas.»
+9.
+¿El desafío principal de la VR es?
+-
+
+No lo sé.
+A.
+
+«Solo el costo de los dispositivos.»
+B.
+
+«No tiene desafíos significativos.»
+C.
+
+«Evitar el mareo (motion sickness).»
+D.
+
+«Solo la falta de contenido.»
+10.
+¿La inmersión en VR depende de?
+-
+
+No lo sé.
+A.
+
+«Calidad de gráficos, sonido y retroalimentación háptica.»
+B.
+
+«Solo de la calidad gráfica.»
+C.
+
+«No es un factor en VR.»
+D.
+
+«Solo la velocidad de procesamiento.»
+11.
+¿Las interfaces conversacionales mejoran?
+-
+
+No lo sé.
+A.
+
+«La accesibilidad y la naturalidad de la interacción.»
+B.
+
+«Solo la velocidad de procesamiento.»
+C.
+
+«No son relevantes en diseño moderno.»
+D.
+
+«Solo en aplicaciones de negocios.»
+12.
+¿La retroalimentación háptica en interfaces VR?
+-
+
+No lo sé.
+A.
+
+«No es necesaria.»
+B.
+
+«Añade una dimensión táctil a la experiencia.»
+C.
+
+«Solo está en prototipos.»
+D.
+
+«Solo para usuarios avanzados.»
+13.
+¿La inteligencia artificial en interfaces puede?
+-
+
+No lo sé.
+A.
+
+«Solo mostrar datos.»
+B.
+
+«No afecta la interacción.»
+C.
+
+«Personalizar la experiencia del usuario en tiempo real.»
+D.
+
+«Solo en aplicaciones de juegos.»
+14.
+¿ARKit y ARCore son?
+-
+
+No lo sé.
+A.
+
+«Solo para desarrollo web.»
+B.
+
+«Frameworks para desarrollar aplicaciones AR en iOS y Android.»
+C.
+
+«No tienen relación con AR.»
+D.
+
+«Solo para hardware.»
+15.
+¿Las interacciones gestuales en HCI se refieren a?
+-
+
+No lo sé.
+A.
+
+«Solo interacción con teclado y ratón.»
+B.
+
+«No son parte del diseño moderno.»
+C.
+
+«Control de dispositivos mediante gestos.»
+D.
+
+«Solo en aplicaciones de entretenimiento.»
+16.
+¿La AR mejora la navegación al?
+-
+
+No lo sé.
+A.
+
+«Proveer información contextual sobre el entorno físico.»
+B.
+
+«Eliminar la necesidad de mapas.»
+C.
+
+«No tiene aplicaciones en navegación.»
+D.
+
+«Solo en aplicaciones de juegos.»
+17.
+¿El Oculus Rift es un ejemplo de?
+-
+
+No lo sé.
+A.
+
+«Un headset de VR.»
+B.
+
+«Un dispositivo AR.»
+C.
+
+«No es un dispositivo de realidad virtual.»
+D.
+
+«Solo para juegos de computadora.»
+18.
+¿La realidad virtual (VR) crea?
+-
+
+No lo sé.
+A.
+
+«Mejoras en el mundo real.»
+B.
+
+«Solo aplicaciones para móviles.»
+C.
+
+«Un entorno digitalmente inmersivo.»
+D.
+
+«No es inmersiva.»
+19.
+¿La retroalimentación háptica mejora?
+-
+
+No lo sé.
+A.
+
+«Solo la visualización.»
+B.
+
+«La inmersión mediante sensaciones táctiles.»
+C.
+
+«No tiene impacto en la experiencia de usuario.»
+D.
+
+«Solo en dispositivos de escritorio.»
+20.
+¿El uso de BCI en HCI puede revolucionar?
+-
+
+No lo sé.
+A.
+
+«Solo el diseño gráfico.»
+B.
+
+«La accesibilidad y la manera en que interactuamos con la tecnología.»
+C.
+
+«No tiene impacto en HCI.»
+D.
+
+«Solo en aplicaciones médicas.»
+ 

@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 1,
+  "source": "contenidos/HCItests/1.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "La accesibilidad en HCI está principalmente relacionada con:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hacer que las interfaces sean más atractivas."
+        },
+        {
+          "key": "B",
+          "text": "Asegurar que la tecnología sea utilizable por personas con diversas discapacidades."
+        },
+        {
+          "key": "C",
+          "text": "Reducir el costo de la tecnología."
+        },
+        {
+          "key": "D",
+          "text": "Mejorar la velocidad de respuesta de los sistemas."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "El diseño centrado en el usuario (UCD) se enfoca en:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Las necesidades del desarrollador."
+        },
+        {
+          "key": "B",
+          "text": "Las capacidades técnicas del hardware."
+        },
+        {
+          "key": "C",
+          "text": "Las necesidades, capacidades y limitaciones de los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "La optimización algorítmica."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "La visibilidad en HCI se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad de ver la pantalla desde cualquier ángulo."
+        },
+        {
+          "key": "B",
+          "text": "Que los elementos de control sean claramente visibles para el usuario."
+        },
+        {
+          "key": "C",
+          "text": "La resolución de la pantalla."
+        },
+        {
+          "key": "D",
+          "text": "La cantidad de datos que puede procesar una computadora."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "¿Cuál de los siguientes no es un ejemplo de interacción humano-computadora?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Usar un mouse para seleccionar un archivo."
+        },
+        {
+          "key": "B",
+          "text": "Leer un libro impreso."
+        },
+        {
+          "key": "C",
+          "text": "Hablar con un asistente de voz."
+        },
+        {
+          "key": "D",
+          "text": "Navegar por páginas web."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "El término “usabilidad” en HCI se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La apariencia visual de una interfaz."
+        },
+        {
+          "key": "B",
+          "text": "La facilidad con la que los usuarios pueden utilizar una interfaz para alcanzar un objetivo específico."
+        },
+        {
+          "key": "C",
+          "text": "La velocidad de procesamiento de un ordenador."
+        },
+        {
+          "key": "D",
+          "text": "La capacidad de una computadora para ejecutar programas complejos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "La “satisfacción del usuario” en HCI incluye:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la rapidez en la ejecución de tareas."
+        },
+        {
+          "key": "B",
+          "text": "La comodidad, placer y adecuación al usuario de la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "La cantidad de características de un programa."
+        },
+        {
+          "key": "D",
+          "text": "La robustez del hardware."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "¿Cuál de estos conceptos describió Donald Norman en “The Design of Everyday Things”?",
+      "options": [
+        {
+          "key": "A",
+          "text": "La ley de Moore."
+        },
+        {
+          "key": "B",
+          "text": "Las affordances."
+        },
+        {
+          "key": "C",
+          "text": "La teoría de la relatividad."
+        },
+        {
+          "key": "D",
+          "text": "El principio de incertidumbre."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "¿Qué se entiende por “interfaz gráfica de usuario” (GUI)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Un interfaz basado en comandos de texto."
+        },
+        {
+          "key": "B",
+          "text": "Un sistema que utiliza imágenes, iconos y ventanas para interactuar con el usuario."
+        },
+        {
+          "key": "C",
+          "text": "La parte del software que no se ve."
+        },
+        {
+          "key": "D",
+          "text": "La conexión física entre dispositivos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "¿Cuál de los siguientes NO es un principio de usabilidad según Nielsen?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eficiencia del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Estética y diseño minimalista."
+        },
+        {
+          "key": "C",
+          "text": "Velocidad de internet."
+        },
+        {
+          "key": "D",
+          "text": "Prevención de errores."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "Un modelo mental es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Un diagrama de flujo de una aplicación."
+        },
+        {
+          "key": "B",
+          "text": "La representación interna que una persona tiene de cómo funciona algo."
+        },
+        {
+          "key": "C",
+          "text": "Una base de datos."
+        },
+        {
+          "key": "D",
+          "text": "Un esquema de colores para la interfaz."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "El principio de “no me hagas pensar” de Steve Krug enfatiza:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La simplicidad y claridad de la interfaz."
+        },
+        {
+          "key": "B",
+          "text": "La complejidad para desafiar a los usuarios."
+        },
+        {
+          "key": "C",
+          "text": "La necesidad de manuales de usuario detallados."
+        },
+        {
+          "key": "D",
+          "text": "La autonomía del diseñador."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "¿Qué significa “mapeo natural” en el contexto de HCI?",
+      "options": [
+        {
+          "key": "A",
+          "text": "La conexión de dispositivos a internet."
+        },
+        {
+          "key": "B",
+          "text": "La relación intuitiva entre los controles y las acciones que producen."
+        },
+        {
+          "key": "C",
+          "text": "La creación de mapas digitales."
+        },
+        {
+          "key": "D",
+          "text": "La exploración de nuevos entornos virtuales."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "¿Qué es la Interacción Humano-Computadora (HCI)?",
+      "options": [
+        {
+          "key": "A",
+          "text": "El estudio de las interacciones entre humanos y animales."
+        },
+        {
+          "key": "B",
+          "text": "El campo que estudia cómo los usuarios interactúan con la tecnología."
+        },
+        {
+          "key": "C",
+          "text": "Un tipo de hardware de computadora."
+        },
+        {
+          "key": "D",
+          "text": "Un lenguaje de programación."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "Una interfaz de usuario (UI) es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la parte visual de un software."
+        },
+        {
+          "key": "B",
+          "text": "El puente entre el usuario y el sistema, incluyendo visual, táctil y auditivo."
+        },
+        {
+          "key": "C",
+          "text": "Un tipo de hardware."
+        },
+        {
+          "key": "D",
+          "text": "Un protocolo de red."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "En HCI, la “consistencia” implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mantener la misma marca en todos los productos."
+        },
+        {
+          "key": "B",
+          "text": "Que las interfaces sean similares en apariencia y comportamiento."
+        },
+        {
+          "key": "C",
+          "text": "Que todos los usuarios tengan la misma experiencia."
+        },
+        {
+          "key": "D",
+          "text": "Utilizar siempre el mismo tipo de hardware."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿Qué es una “affordance”?",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad de una computadora para ejecutar múltiples tareas."
+        },
+        {
+          "key": "B",
+          "text": "Las propiedades de un objeto que sugieren cómo puede ser usado."
+        },
+        {
+          "key": "C",
+          "text": "Un error en el software."
+        },
+        {
+          "key": "D",
+          "text": "Una herramienta de diseño gráfico."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "¿Por qué es importante el principio de “facilidad de aprendizaje” en HCI?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Porque facilita la adopción y uso inicial del sistema por parte de los usuarios."
+        },
+        {
+          "key": "B",
+          "text": "Para que los usuarios puedan enseñar a otros."
+        },
+        {
+          "key": "C",
+          "text": "Para mejorar la velocidad de desarrollo."
+        },
+        {
+          "key": "D",
+          "text": "Porque reduce los costos de soporte técnico."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "¿Qué entiende por “feedback” en el contexto de la interacción usuario-interfaz?",
+      "options": [
+        {
+          "key": "A",
+          "text": "La retroalimentación de un sistema sobre las acciones del usuario."
+        },
+        {
+          "key": "B",
+          "text": "La velocidad del procesador."
+        },
+        {
+          "key": "C",
+          "text": "El sonido de inicio de la computadora."
+        },
+        {
+          "key": "D",
+          "text": "La pantalla de bienvenida de un software."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "En HCI, la “memorabilidad” se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad de recordar la marca del software."
+        },
+        {
+          "key": "B",
+          "text": "La capacidad de memoria de un ordenador."
+        },
+        {
+          "key": "C",
+          "text": "La facilidad con la que los usuarios recuerdan cómo usar una interfaz después de un tiempo sin usarla."
+        },
+        {
+          "key": "D",
+          "text": "La durabilidad del hardware."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "¿Cuál es el objetivo principal del diseño centrado en el usuario?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Maximizar el beneficio económico."
+        },
+        {
+          "key": "B",
+          "text": "Crear interfaces estéticamente agradables."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollar productos que satisfagan las necesidades del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Aumentar la velocidad de desarrollo."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

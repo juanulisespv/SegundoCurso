@@ -1,0 +1,345 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+
+1.
+¿El desempeño y velocidad en diseño responsivo se refieren a?
+-
+
+No lo sé.
+A.
+
+«Solo el aspecto visual.»
+B.
+
+«Que la interfaz cargue rápidamente en cualquier dispositivo.»
+C.
+
+«Aumentar el número de elementos gráficos.»
+D.
+
+«Solo en computadoras de escritorio.»
+2.
+¿Las imágenes flexibles en diseño responsivo?
+-
+
+No lo sé.
+A.
+
+«Deben tener un tamaño fijo.»
+B.
+
+«Se adaptan en tamaño sin distorsionarse.»
+C.
+
+«No son necesarias.»
+D.
+
+«Solo se usan en móviles.»
+3.
+¿Las variables CSS en diseño responsivo son útiles para?
+-
+
+No lo sé.
+A.
+
+«Solo colores.»
+B.
+
+«Mantener consistencia y facilitar el mantenimiento del diseño.»
+C.
+
+«Evitar el uso de media queries.»
+D.
+
+«Solo en navegadores antiguos.»
+4.
+¿El contenido primero en el diseño responsivo implica?
+-
+
+No lo sé.
+A.
+
+«Priorizar el diseño sobre el contenido.»
+B.
+
+«Ignorar el contenido en dispositivos móviles.»
+C.
+
+«No hacer cambios en el contenido.»
+D.
+
+«Que el diseño se adapte al contenido, no al revés.»
+5.
+¿Los puntos de interrupción (breakpoints) son?
+-
+
+No lo sé.
+A.
+
+«Solo para diseño gráfico.»
+B.
+
+«Momentos en los que el diseño cambia para adaptarse al tamaño de la pantalla.»
+C.
+
+«Puntos donde el sitio deja de funcionar.»
+D.
+
+«Solo en aplicaciones móviles.»
+6.
+¿La colaboración en equipos ágiles incluye?
+-
+
+No lo sé.
+A.
+
+«Solo trabajar de forma aislada.»
+B.
+
+«Equipos multifuncionales que trabajan juntos.»
+C.
+
+«Ignorar las ideas de otros.»
+D.
+
+«Solo programadores.»
+7.
+¿Priorizar en metodologías ágiles es?
+-
+
+No lo sé.
+A.
+
+«Hacer todo al mismo tiempo.»
+B.
+
+«Enfocarse en las características más valiosas.»
+C.
+
+«Ignorar las necesidades del usuario.»
+D.
+
+«Solo para programadores.»
+8.
+¿El feedback continuo en diseño ágil ayuda a?
+-
+
+No lo sé.
+A.
+
+«No hacer ajustes al producto.»
+B.
+
+«Mejorar el producto basándose en la experiencia del usuario.»
+C.
+
+«Solo al finalizar el proyecto.»
+D.
+
+«Aumentar el costo del desarrollo.»
+9.
+¿Integrar desarrollo en el diseño ágil implica?
+-
+
+No lo sé.
+A.
+
+«Separar completamente diseño y desarrollo.»
+B.
+
+«Trabajar en paralelo para asegurar factibilidad y implementación.»
+C.
+
+«Solo centrarse en el diseño.»
+D.
+
+«Evitar iteraciones.»
+10.
+¿La flexibilidad en diseño ágil significa?
+-
+
+No lo sé.
+A.
+
+«No cambiar el diseño una vez propuesto.»
+B.
+
+«Usar solo un tipo de tecnología.»
+C.
+
+«Adaptarse a cambios en requisitos o usuario.»
+D.
+
+«Evitar la colaboración.»
+11.
+¿Las grillas flexibles permiten?
+-
+
+No lo sé.
+A.
+
+«Fijar el diseño en una resolución específica.»
+B.
+
+«Adaptar el contenido a diferentes anchos de pantalla.»
+C.
+
+«No usar imágenes.»
+D.
+
+«Eliminar la navegación.»
+12.
+¿El diseño responsivo garantiza?
+-
+
+No lo sé.
+A.
+
+«Una buena experiencia de usuario en múltiples dispositivos.»
+B.
+
+«Solo la estética en dispositivos móviles.»
+C.
+
+«Que el sitio web sea lento.»
+D.
+
+«Que no haya cambios en el diseño.»
+13.
+¿El prototipado rápido en diseño ágil se utiliza para?
+-
+
+No lo sé.
+A.
+
+«Aplazar la validación del diseño.»
+B.
+
+«Solo diseños estáticos.»
+C.
+
+«Validar el diseño en múltiples dispositivos rápidamente.»
+D.
+
+«Evitar el feedback del usuario.»
+14.
+¿La iteración rápida en metodologías ágiles implica?
+-
+
+No lo sé.
+A.
+
+«Refinar el diseño continuamente con feedback.»
+B.
+
+«Desarrollar todo de una vez.»
+C.
+
+«No hacer cambios una vez iniciado el proyecto.»
+D.
+
+«Solo diseño visual.»
+15.
+¿Las media queries en CSS se utilizan para?
+-
+
+No lo sé.
+A.
+
+«Colorir el texto.»
+B.
+
+«Hacer el sitio más estático.»
+C.
+
+«Ajustar estilos según las características del dispositivo.»
+D.
+
+«Aumentar el peso del sitio.»
+16.
+¿Evaluar dispositivos en diseño responsivo significa?
+-
+
+No lo sé.
+A.
+
+«Comprender la diversidad de dispositivos y contextos de uso.»
+B.
+
+«Solo considerar computadoras de escritorio.»
+C.
+
+«Ignorar tablets y móviles.»
+D.
+
+«Usar la misma interfaz para todos.»
+17.
+¿Las herramientas de diseño responsivo como Bootstrap son útiles para?
+-
+
+No lo sé.
+A.
+
+«Solo diseño de impresos.»
+B.
+
+«Crear diseños que se adapten fácilmente a diferentes dispositivos.»
+C.
+
+«Reducir la interactividad.»
+D.
+
+«Solo aplicaciones de escritorio.»
+18.
+¿Las pruebas de usabilidad en diseño responsivo y ágil sirven para?
+-
+
+No lo sé.
+A.
+
+«Solo evaluar el aspecto visual.»
+B.
+
+«Asegurar que la interfaz sea usable en todas las plataformas.»
+C.
+
+«Ignorar la experiencia del usuario.»
+D.
+
+«Solo en la fase final del desarrollo.»
+19.
+¿El uso de CSS Grid y Flexbox mejora?
+-
+
+No lo sé.
+A.
+
+«Solo la estética.»
+B.
+
+«La complejidad del código.»
+C.
+
+«La adaptabilidad y disposición de elementos en diferentes pantallas.»
+D.
+
+«La velocidad de desarrollo sin cambios.»
+20.
+¿Los sprints de diseño son?
+-
+
+No lo sé.
+A.
+
+«Períodos largos sin cambios.»
+B.
+
+«Cortos periodos de trabajo intensivo para diseño.»
+C.
+
+«Solo para desarrollo de software.»
+D.
+
+«Sin evaluación.»
+ 

@@ -1,0 +1,341 @@
+
+1.
+¿Cómo se utiliza un DTO en una arquitectura MVC en Python?
+-
+
+No lo sé.
+A.
+
+Pasando los datos directamente desde la base de datos a la vista sin procesamiento.
+B.
+
+Usando el DTO para eliminar la necesidad de un modelo en la aplicación.
+C.
+
+Transformando los datos de los modelos en una estructura específica antes de enviarlos al controlador o la vista.
+D.
+
+Implementando el DTO como una capa adicional que reemplaza completamente el modelo de datos.
+2.
+¿Cuál es una diferencia clave entre el patrón MVC y el diseño en capas?
+-
+
+No lo sé.
+A.
+
+MVC se enfoca en la interacción con el usuario, mientras que el diseño en capas separa la lógica del negocio en diferentes niveles.
+B.
+
+En MVC, todas las funciones del sistema están en un único archivo de código.
+C.
+
+El diseño en capas no permite la separación de responsabilidades.
+D.
+
+MVC obliga a que todas las capas se comuniquen de manera secuencial.
+3.
+¿En qué situación es más recomendable utilizar Django en lugar de Flask?
+-
+
+No lo sé.
+A.
+
+Cuando se necesita desarrollar una API REST sencilla sin muchas configuraciones.
+B.
+
+Para proyectos pequeños donde la flexibilidad es más importante que la estructura.
+C.
+
+En aplicaciones donde no es necesario un sistema de gestión de usuarios ni una base de datos integrada.
+D.
+
+Cuando se requiere un framework robusto con herramientas integradas para bases de datos, autenticación y seguridad.
+4.
+¿Cuál es la principal función del Modelo en el patrón MVC?
+-
+
+No lo sé.
+A.
+
+Renderizar la interfaz de usuario y presentar la información.
+B.
+
+Gestionar los datos y la lógica de negocio, interactuando con la base de datos.
+C.
+
+Controlar la navegación y responder a las acciones del usuario.
+D.
+
+Gestionar los eventos de la interfaz gráfica directamente.
+5.
+¿Cuál es uno de los principales beneficios de la separación de responsabilidades en MVC?
+-
+
+No lo sé.
+A.
+
+Permite escribir código más rápido sin necesidad de estructurar el proyecto.
+B.
+
+Reduce el número de archivos necesarios en la aplicación.
+C.
+
+Facilita la fusión del código de la interfaz con la lógica de negocio en un solo componente.
+D.
+
+Mejora el mantenimiento y escalabilidad del sistema al permitir modificaciones en una capa sin afectar a las demás.
+6.
+¿Cuál es el rol del Controlador en una aplicación basada en el patrón MVC?
+-
+
+No lo sé.
+A.
+
+Almacenar los datos y definir la estructura de la base de datos.
+B.
+
+Renderizar los elementos gráficos de la aplicación.
+C.
+
+Actuar como intermediario entre el Modelo y la Vista, procesando las solicitudes del usuario.
+D.
+
+Encapsular exclusivamente la validación de datos sin interactuar con la Vista.
+7.
+¿Cuál es una ventaja del patrón MVC sobre una arquitectura monolítica sin separación clara?
+-
+
+No lo sé.
+A.
+
+Aumenta la complejidad del código al mezclar lógica y presentación.
+B.
+
+Obliga a escribir todo el código en una única clase.
+C.
+
+Permite una mejor organización del código y facilita el mantenimiento del sistema.
+D.
+
+Impide la reutilización de componentes en diferentes partes de la aplicación.
+8.
+¿Cómo contribuye el patrón Repository en el diseño MVC?
+-
+
+No lo sé.
+A.
+
+Permitiendo que la lógica de negocio dependa directamente de la base de datos.
+B.
+
+Actuando como una capa intermedia que gestiona las entidades y evita la dependencia directa del código con la fuente de datos.
+C.
+
+Reemplazando completamente el uso del modelo en la arquitectura MVC.
+D.
+
+Eliminando la necesidad de validaciones en la capa del modelo.
+9.
+¿Cómo se usa el patrón Repository en Django?
+-
+
+No lo sé.
+A.
+
+Permitiendo que las consultas SQL se realicen dentro de la vista.
+B.
+
+Eliminando la necesidad de definir modelos en la aplicación.
+C.
+
+Reemplazando completamente el ORM de Django con consultas SQL manuales.
+D.
+
+Creando una capa intermedia que encapsula las consultas a la base de datos mediante métodos estáticos en una clase específica.
+10.
+¿Cómo se define un DTO en Python?
+-
+
+No lo sé.
+A.
+
+Creando una clase independiente con solo los atributos necesarios para la transferencia de datos.
+B.
+
+Agregando más atributos a la clase del modelo para que sirva como DTO.
+C.
+
+Pasando el objeto del modelo directamente a la vista sin modificarlo.
+D.
+
+Implementando métodos save() y delete() dentro del DTO para modificar la base de datos.
+11.
+¿Cuál es una diferencia clave entre la implementación de DAO en Flask y Django?
+-
+
+No lo sé.
+A.
+
+En Django, el ORM facilita la implementación de DAO, mientras que en Flask se suele usar SQL directamente o librerías externas.
+B.
+
+Flask no permite implementar el patrón DAO, solo se puede hacer en Django.
+C.
+
+Django requiere escribir manualmente todas las consultas SQL en los modelos.
+D.
+
+En Flask, los controladores deben manejar la lógica de acceso a datos sin posibilidad de usar DAO.
+12.
+¿Cuál es una diferencia clave entre DAO y Repository?
+-
+
+No lo sé.
+A.
+
+DAO interactúa directamente con la base de datos, mientras que Repository proporciona una capa intermedia entre la lógica de negocio y los datos.
+B.
+
+Repository solo se usa en aplicaciones pequeñas, mientras que DAO es exclusivo de aplicaciones grandes.
+C.
+
+DAO encapsula la lógica de negocio y no necesita interactuar con la base de datos.
+D.
+
+Repository actúa como una base de datos independiente dentro de la aplicación.
+13.
+¿Cómo ayuda el patrón DAO a mejorar la seguridad de una aplicación?
+-
+
+No lo sé.
+A.
+
+Permite ejecutar cualquier consulta SQL sin restricciones.
+B.
+
+Obliga a escribir todas las consultas en archivos separados sin validaciones.
+C.
+
+Centraliza el acceso a datos y facilita el uso de consultas parametrizadas para prevenir SQL Injection.
+D.
+
+Evita el uso de bases de datos en la arquitectura de la aplicación.
+14.
+¿Cuál es una de las principales ventajas de Flask como framework para MVC en Python?
+-
+
+No lo sé.
+A.
+
+Impone una estructura rígida que facilita el desarrollo de aplicaciones complejas.
+B.
+
+Es un framework ligero y flexible, ideal para aplicaciones pequeñas y medianas.
+C.
+
+Incluye herramientas avanzadas de autenticación y administración de bases de datos por defecto.
+D.
+
+Requiere que todos los componentes del sistema se definan explícitamente en archivos separados.
+15.
+¿Cuál es una de las principales ventajas del uso del patrón Repository en una arquitectura MVC?
+-
+
+No lo sé.
+A.
+
+Permite que la lógica de negocio interactúe directamente con la base de datos.
+B.
+
+Separa la lógica de negocio del acceso a datos, proporcionando una abstracción de la base de datos.
+C.
+
+Requiere que todas las consultas SQL sean escritas directamente en los controladores.
+D.
+
+Hace innecesario el uso de modelos en la aplicación.
+16.
+¿Cuál es la principal ventaja de utilizar el patrón DAO en una aplicación MVC?
+-
+
+No lo sé.
+A.
+
+Permite mezclar la lógica de negocio con la lógica de acceso a datos.
+B.
+
+Requiere que todas las consultas SQL sean escritas directamente en los controladores.
+C.
+
+Facilita la interacción entre la vista y la base de datos sin intermediarios.
+D.
+
+Separa la lógica de acceso a datos de la lógica de negocio, facilitando el mantenimiento del código.
+17.
+¿Cuál es una de las principales razones para usar un DTO en lugar de pasar objetos de base de datos directamente?
+-
+
+No lo sé.
+A.
+
+Aumenta la dependencia entre la base de datos y la vista.
+B.
+
+Permite modificar la estructura de la base de datos sin afectar el código.
+C.
+
+Hace que los datos sean inmutables en toda la aplicación.
+D.
+
+Evita la exposición innecesaria de datos sensibles y mejora la seguridad.
+18.
+¿Cuál es la función del patrón DAO (Data Access Object) en la arquitectura MVC?
+-
+
+No lo sé.
+A.
+
+Gestionar la presentación de los datos en la interfaz gráfica.
+B.
+
+Encapsular la lógica de negocio dentro de la vista.
+C.
+
+Separar la lógica de acceso a datos del resto de la aplicación.
+D.
+
+Definir el formato de los datos para su visualización en la capa de presentación.
+19.
+¿Cuál es uno de los principales beneficios de utilizar Core Patterns en la arquitectura MVC?
+-
+
+No lo sé.
+A.
+
+Permiten mejorar la modularidad y la reutilización del código.
+B.
+
+Obligan a que el modelo interactúe directamente con la vista.
+C.
+
+Evitan la separación de responsabilidades en el software.
+D.
+
+Requieren que toda la lógica de negocio se implemente en el controlador.
+20.
+¿Cuál es la principal característica del patrón MVC?
+-
+
+No lo sé.
+A.
+
+Separa la aplicación en tres componentes: Modelo, Vista y Controlador.
+B.
+
+Obliga a escribir todo el código en un único archivo para facilitar su ejecución.
+C.
+
+No permite la reutilización de código entre diferentes vistas.
+D.
+
+Hace que el diseño y la lógica de negocio estén en el mismo módulo.

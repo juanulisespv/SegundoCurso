@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 4,
+  "source": "contenidos/HCItests/4.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "La flexibilidad en el diseño centrado en el usuario se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La capacidad de cambiar el hardware constantemente."
+        },
+        {
+          "key": "B",
+          "text": "Adaptarse a cambios en los requisitos o en el entendimiento del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Fijarse en una idea sin posibilidad de alteración."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar las nuevas tecnologías."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "La integración de métodos ágiles en UCD permite:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ignorar las necesidades del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Ajustar rápidamente el diseño según el feedback del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollar productos sin iteraciones."
+        },
+        {
+          "key": "D",
+          "text": "Reducir la comunicación entre el equipo de diseño."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "El proceso de ideación en Design Thinking implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la implementación de ideas."
+        },
+        {
+          "key": "B",
+          "text": "Generar una amplia gama de ideas posibles para resolver problemas."
+        },
+        {
+          "key": "C",
+          "text": "Escoger la primera idea que surge."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar las ideas de los usuarios."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "Los “sprints” en metodologías ágiles son:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Cortos periodos de trabajo intensivo donde se desarrollan, prueban y refinan características."
+        },
+        {
+          "key": "B",
+          "text": "Periodos largos de desarrollo sin cambios."
+        },
+        {
+          "key": "C",
+          "text": "Solo para la fase de producción."
+        },
+        {
+          "key": "D",
+          "text": "Inútiles en el diseño de interfaces."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "La metodología de Diseño Centrado en el Usuario (UCD) incluye:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo el diseño visual."
+        },
+        {
+          "key": "B",
+          "text": "Análisis de requisitos, diseño conceptual, diseño y desarrollo, y evaluación."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollo sin feedback del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Lanzamiento del producto sin pruebas."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "El diseño centrado en el usuario (UCD) se centra principalmente en:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Las capacidades técnicas del hardware."
+        },
+        {
+          "key": "B",
+          "text": "Las necesidades, deseos y limitaciones de los usuarios."
+        },
+        {
+          "key": "C",
+          "text": "La eficiencia del desarrollador."
+        },
+        {
+          "key": "D",
+          "text": "La velocidad de desarrollo del software."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "Un MVP (Mínimo Producto Viable) en Lean UX se utiliza para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Evitar el feedback del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Crear el producto más complejo posible."
+        },
+        {
+          "key": "C",
+          "text": "Validar hipótesis con el mínimo esfuerzo y recursos."
+        },
+        {
+          "key": "D",
+          "text": "Asegurar que el producto se vea terminado."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "Los “sprints de diseño” en un enfoque ágil son:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo para el diseño de hardware."
+        },
+        {
+          "key": "B",
+          "text": "Sesiones intensivas de diseño colaborativo que culminan en prototipos listos para ser testeados."
+        },
+        {
+          "key": "C",
+          "text": "Períodos sin trabajo creativo."
+        },
+        {
+          "key": "D",
+          "text": "Exclusivamente para la fase de producción."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "El análisis de requisitos en UCD implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Decidir unilateralmente qué es lo que los usuarios necesitan."
+        },
+        {
+          "key": "B",
+          "text": "Ignorar las opiniones de los usuarios."
+        },
+        {
+          "key": "C",
+          "text": "Focalizarse únicamente en la tecnología disponible."
+        },
+        {
+          "key": "D",
+          "text": "Identificar y documentar las necesidades del usuario a través de investigaciones."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "El Lean UX se basa en:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Mantener el diseño en secreto hasta el final."
+        },
+        {
+          "key": "B",
+          "text": "Iteraciones rápidas y pruebas continuas basadas en hipótesis y MVPs."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollar el producto completo antes de mostrar a los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "Eliminar la fase de pruebas."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "En UCD, el prototipado sirve para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Finalizar el producto sin más cambios."
+        },
+        {
+          "key": "B",
+          "text": "Visualizar y probar conceptos de diseño con usuarios reales."
+        },
+        {
+          "key": "C",
+          "text": "Mantener el diseño en secreto hasta el lanzamiento."
+        },
+        {
+          "key": "D",
+          "text": "Asegurar que el producto sea caro."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "En la metodología ágil, la colaboración significa:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Trabajar en aislamiento para mejorar la eficiencia."
+        },
+        {
+          "key": "B",
+          "text": "Equipos multifuncionales trabajando juntos para alinear el diseño con las necesidades del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Solo programadores tomando decisiones."
+        },
+        {
+          "key": "D",
+          "text": "Evitar cualquier tipo de interacción entre los miembros del equipo."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "Priorizar en metodologías ágiles implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Hacer todo al mismo tiempo."
+        },
+        {
+          "key": "B",
+          "text": "Ignorar las necesidades del usuario para cumplir plazos."
+        },
+        {
+          "key": "C",
+          "text": "Identificar y enfocarse en las características más valiosas para los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "No tener un plan de acción."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "El feedback continuo es importante en UCD porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Permite ajustar el diseño basado en la experiencia real de los usuarios."
+        },
+        {
+          "key": "B",
+          "text": "No tiene impacto en el producto final."
+        },
+        {
+          "key": "C",
+          "text": "Solo se necesita al final del proceso."
+        },
+        {
+          "key": "D",
+          "text": "Es un requisito legal."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "Una fase esencial del Design Thinking es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Empatizar con los usuarios."
+        },
+        {
+          "key": "B",
+          "text": "Maximizar el beneficio económico."
+        },
+        {
+          "key": "C",
+          "text": "Asegurar que el hardware sea de última generación."
+        },
+        {
+          "key": "D",
+          "text": "Reducir el tiempo de producción."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "Una de las diferencias clave entre Design Thinking y UCD es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Design Thinking es más lineal mientras que UCD es iterativo."
+        },
+        {
+          "key": "B",
+          "text": "UCD no se preocupa por la empatía."
+        },
+        {
+          "key": "C",
+          "text": "Design Thinking es iterativo y no lineal, mientras que UCD sigue un proceso más estructurado."
+        },
+        {
+          "key": "D",
+          "text": "No hay diferencias significativas entre ambos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "En Design Thinking, la fase de “definir” implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo definir visualmente el producto."
+        },
+        {
+          "key": "B",
+          "text": "Sintetizar la información recogida para definir claramente el problema o reto de diseño."
+        },
+        {
+          "key": "C",
+          "text": "Decidir qué tecnología se va a usar."
+        },
+        {
+          "key": "D",
+          "text": "Finalizar el diseño sin necesidad de más input."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "La “empatía” en el contexto de Design Thinking es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo una palabra de moda sin aplicación práctica."
+        },
+        {
+          "key": "B",
+          "text": "Comprender profundamente a los usuarios para diseñar soluciones que realmente les sirvan."
+        },
+        {
+          "key": "C",
+          "text": "Empatizar solo con usuarios de alto poder adquisitivo."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar las emociones y motivaciones de los usuarios."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "Las “hipótesis” en Lean UX son:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Adivinanzas sin fundamento."
+        },
+        {
+          "key": "B",
+          "text": "Suposiciones sobre qué podría funcionar, basadas en la comprensión del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Declaraciones de hechos."
+        },
+        {
+          "key": "D",
+          "text": "Irrelevantes para el proceso de diseño."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "La fase de “testear” en Design Thinking es crucial porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Permite validar las soluciones con usuarios reales."
+        },
+        {
+          "key": "B",
+          "text": "Es la última oportunidad para cambiar el diseño."
+        },
+        {
+          "key": "C",
+          "text": "Solo se trata de ver si el producto se ve bien."
+        },
+        {
+          "key": "D",
+          "text": "No tiene importancia en el proceso de diseño."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

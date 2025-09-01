@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 2,
+  "source": "contenidos/HCItests/2.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "La World Wide Web influyó en HCI al:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Introducir los primeros comandos de línea."
+        },
+        {
+          "key": "B",
+          "text": "Facilitar la navegación mediante hipervínculos y páginas web."
+        },
+        {
+          "key": "C",
+          "text": "Desarrollar los primeros sistemas operativos."
+        },
+        {
+          "key": "D",
+          "text": "Proveer hardware para computadoras personales."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Sketchpad de Ivan Sutherland fue innovador porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Introdujo el concepto de Internet."
+        },
+        {
+          "key": "B",
+          "text": "Utilizaba comandos de voz."
+        },
+        {
+          "key": "C",
+          "text": "Fue uno de los primeros programas gráficos interactivos."
+        },
+        {
+          "key": "D",
+          "text": "Permitió jugar videojuegos en línea."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "La evolución de HCI hacia la interacción gestual y haptics se refiere a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Interacción a través de gestos y retroalimentación táctil."
+        },
+        {
+          "key": "B",
+          "text": "El retorno a las interfaces de texto."
+        },
+        {
+          "key": "C",
+          "text": "La exclusividad de la interacción por voz."
+        },
+        {
+          "key": "D",
+          "text": "La limitación a interfaces 2D."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "Los asistentes de voz como Alexa de Amazon han contribuido a HCI por:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Eliminar las interfaces visuales."
+        },
+        {
+          "key": "B",
+          "text": "Reducir la necesidad de hardware avanzado."
+        },
+        {
+          "key": "C",
+          "text": "Volver a las interfaces de línea de comandos."
+        },
+        {
+          "key": "D",
+          "text": "Facilitar la interacción natural a través del habla."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "¿Qué evento significó un gran avance para la popularización de las GUIs?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Lanzamiento del primer navegador web."
+        },
+        {
+          "key": "B",
+          "text": "Introducción del Apple Macintosh en 1984."
+        },
+        {
+          "key": "C",
+          "text": "Inicio de la era de los mainframes."
+        },
+        {
+          "key": "D",
+          "text": "Desarrollo del sistema operativo UNIX."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "La realidad virtual y aumentada en HCI han permitido:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo mejorar la velocidad de procesamiento."
+        },
+        {
+          "key": "B",
+          "text": "Crear entornos inmersivos y aumentar la interacción con el entorno real."
+        },
+        {
+          "key": "C",
+          "text": "Eliminar la necesidad de interfaces gráficas."
+        },
+        {
+          "key": "D",
+          "text": "Restringir la interacción a comandos de texto."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "El término “What You See Is What You Get” (WYSIWYG) se asocia principalmente con:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La edición de texto y diseño en interfaces gráficas."
+        },
+        {
+          "key": "B",
+          "text": "La impresión en impresoras de matriz de puntos."
+        },
+        {
+          "key": "C",
+          "text": "Programación en lenguaje ensamblador."
+        },
+        {
+          "key": "D",
+          "text": "Juegos de consola de la década de 1980."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "La transición de las interfaces basadas en texto a las gráficas se considera:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Una regresión en la usabilidad."
+        },
+        {
+          "key": "B",
+          "text": "Un avance que hizo la computación más accesible."
+        },
+        {
+          "key": "C",
+          "text": "Inútil para la mayoría de los usuarios."
+        },
+        {
+          "key": "D",
+          "text": "Exclusivamente para juegos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "El primer sistema comercial con una interfaz gráfica de usuario (GUI) fue:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Apple Macintosh."
+        },
+        {
+          "key": "B",
+          "text": "Xerox Star."
+        },
+        {
+          "key": "C",
+          "text": "Windows 1.0."
+        },
+        {
+          "key": "D",
+          "text": "Commodore 64."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "¿Qué contribución hizo UNIX a la HCI en sus inicios?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Introdujo la programación gráfica."
+        },
+        {
+          "key": "B",
+          "text": "Desarrolló una interfaz de línea de comandos poderosa y flexible."
+        },
+        {
+          "key": "C",
+          "text": "Fue el primer sistema con realidad aumentada."
+        },
+        {
+          "key": "D",
+          "text": "Implementó el primer navegador web."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "El iPad introdujo en la HCI:",
+      "options": [
+        {
+          "key": "A",
+          "text": "El concepto de computación en la nube."
+        },
+        {
+          "key": "B",
+          "text": "Interfaces multitáctiles en dispositivos de mayor tamaño."
+        },
+        {
+          "key": "C",
+          "text": "Los primeros sistemas operativos."
+        },
+        {
+          "key": "D",
+          "text": "La programación orientada a objetos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "El iPhone de 2007 revolucionó la HCI mediante:",
+      "options": [
+        {
+          "key": "A",
+          "text": "La introducción de la interfaz multitáctil."
+        },
+        {
+          "key": "B",
+          "text": "El uso de tarjetas perforadas."
+        },
+        {
+          "key": "C",
+          "text": "La implementación de las primeras interfaces gráficas."
+        },
+        {
+          "key": "D",
+          "text": "La comercialización de la realidad virtual."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "El Oculus Rift es significativo en HCI porque:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Fue el primer ordenador portátil."
+        },
+        {
+          "key": "B",
+          "text": "Introdujo la realidad virtual a una audiencia masiva."
+        },
+        {
+          "key": "C",
+          "text": "Mejoró las interfaces de línea de comandos."
+        },
+        {
+          "key": "D",
+          "text": "Desarrolló el primer software de edición de texto."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "El libro “The Design of Everyday Things” de Donald Norman:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Introdujo conceptos como affordances y diseño centrado en el usuario."
+        },
+        {
+          "key": "B",
+          "text": "Explicó la teoría de la relatividad aplicada a la computación."
+        },
+        {
+          "key": "C",
+          "text": "Discutió la historia de las interfaces de comando."
+        },
+        {
+          "key": "D",
+          "text": "Se centró en la programación de computadoras."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "¿Qué sistema introdujo la idea de la interacción por voz en el ámbito de la HCI?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Siri de Apple."
+        },
+        {
+          "key": "B",
+          "text": "MS-DOS."
+        },
+        {
+          "key": "C",
+          "text": "Windows 95."
+        },
+        {
+          "key": "D",
+          "text": "Google Glass."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "¿Quién es considerado un precursor de la HCI con su concepto de “Memex”?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Bill Gates."
+        },
+        {
+          "key": "B",
+          "text": "Vannevar Bush."
+        },
+        {
+          "key": "C",
+          "text": "Alan Turing."
+        },
+        {
+          "key": "D",
+          "text": "Tim Berners-Lee."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "¿Qué caracterizó a la interfaz de líneas de comandos (CLI) en los años 70?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Uso de ratón para la navegación."
+        },
+        {
+          "key": "B",
+          "text": "Interacción a través de comandos de texto."
+        },
+        {
+          "key": "C",
+          "text": "Interfaces gráficas de alta resolución."
+        },
+        {
+          "key": "D",
+          "text": "Audio como medio principal de interacción."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "En el futuro de la HCI, se prevé que:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Las interfaces de línea de comandos sean predominantes nuevamente."
+        },
+        {
+          "key": "B",
+          "text": "La interacción basada en gestos, voz, y hasta interfaces neuronales se vuelvan más comunes."
+        },
+        {
+          "key": "C",
+          "text": "La tecnología regrese a los sistemas de tarjetas perforadas."
+        },
+        {
+          "key": "D",
+          "text": "La interacción humana-computadora se estanque."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "¿Qué impacto tuvo la miniaturización de dispositivos en la HCI?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Disminuyó la necesidad de interfaces."
+        },
+        {
+          "key": "B",
+          "text": "Amplió el rango de interacciones posibles, haciendo la tecnología más accesible."
+        },
+        {
+          "key": "C",
+          "text": "Redujo la usabilidad debido al tamaño."
+        },
+        {
+          "key": "D",
+          "text": "Eliminó la necesidad de GUIs."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "¿Qué caracterizó a las interfaces de usuario en la década de 1990?",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo comandos de texto."
+        },
+        {
+          "key": "B",
+          "text": "La expansión de las GUIs y la llegada de la web."
+        },
+        {
+          "key": "C",
+          "text": "La eliminación de las interfaces gráficas."
+        },
+        {
+          "key": "D",
+          "text": "La exclusividad de las interfaces táctiles."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}

@@ -1,0 +1,344 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+1.
+La World Wide Web influyó en HCI al:
+-
+
+No lo sé.
+A.
+
+Introducir los primeros comandos de línea.
+B.
+
+Facilitar la navegación mediante hipervínculos y páginas web.
+C.
+
+Desarrollar los primeros sistemas operativos.
+D.
+
+Proveer hardware para computadoras personales.
+2.
+Sketchpad de Ivan Sutherland fue innovador porque:
+-
+
+No lo sé.
+A.
+
+Introdujo el concepto de Internet.
+B.
+
+Utilizaba comandos de voz.
+C.
+
+Fue uno de los primeros programas gráficos interactivos.
+D.
+
+Permitió jugar videojuegos en línea.
+3.
+La evolución de HCI hacia la interacción gestual y haptics se refiere a:
+-
+
+No lo sé.
+A.
+
+Interacción a través de gestos y retroalimentación táctil.
+B.
+
+El retorno a las interfaces de texto.
+C.
+
+La exclusividad de la interacción por voz.
+D.
+
+La limitación a interfaces 2D.
+4.
+Los asistentes de voz como Alexa de Amazon han contribuido a HCI por:
+-
+
+No lo sé.
+A.
+
+Eliminar las interfaces visuales.
+B.
+
+Reducir la necesidad de hardware avanzado.
+C.
+
+Volver a las interfaces de línea de comandos.
+D.
+
+Facilitar la interacción natural a través del habla.
+5.
+¿Qué evento significó un gran avance para la popularización de las GUIs?
+-
+
+No lo sé.
+A.
+
+Lanzamiento del primer navegador web.
+B.
+
+Introducción del Apple Macintosh en 1984.
+C.
+
+Inicio de la era de los mainframes.
+D.
+
+Desarrollo del sistema operativo UNIX.
+6.
+La realidad virtual y aumentada en HCI han permitido:
+-
+
+No lo sé.
+A.
+
+Solo mejorar la velocidad de procesamiento.
+B.
+
+Crear entornos inmersivos y aumentar la interacción con el entorno real.
+C.
+
+Eliminar la necesidad de interfaces gráficas.
+D.
+
+Restringir la interacción a comandos de texto.
+7.
+El término “What You See Is What You Get” (WYSIWYG) se asocia principalmente con:
+-
+
+No lo sé.
+A.
+
+La edición de texto y diseño en interfaces gráficas.
+B.
+
+La impresión en impresoras de matriz de puntos.
+C.
+
+Programación en lenguaje ensamblador.
+D.
+
+Juegos de consola de la década de 1980.
+8.
+La transición de las interfaces basadas en texto a las gráficas se considera:
+-
+
+No lo sé.
+A.
+
+Una regresión en la usabilidad.
+B.
+
+Un avance que hizo la computación más accesible.
+C.
+
+Inútil para la mayoría de los usuarios.
+D.
+
+Exclusivamente para juegos.
+9.
+El primer sistema comercial con una interfaz gráfica de usuario (GUI) fue:
+-
+
+No lo sé.
+A.
+
+Apple Macintosh.
+B.
+
+Xerox Star.
+C.
+
+Windows 1.0.
+D.
+
+Commodore 64.
+10.
+¿Qué contribución hizo UNIX a la HCI en sus inicios?
+-
+
+No lo sé.
+A.
+
+Introdujo la programación gráfica.
+B.
+
+Desarrolló una interfaz de línea de comandos poderosa y flexible.
+C.
+
+Fue el primer sistema con realidad aumentada.
+D.
+
+Implementó el primer navegador web.
+11.
+El iPad introdujo en la HCI:
+-
+
+No lo sé.
+A.
+
+El concepto de computación en la nube.
+B.
+
+Interfaces multitáctiles en dispositivos de mayor tamaño.
+C.
+
+Los primeros sistemas operativos.
+D.
+
+La programación orientada a objetos.
+12.
+El iPhone de 2007 revolucionó la HCI mediante:
+-
+
+No lo sé.
+A.
+
+La introducción de la interfaz multitáctil.
+B.
+
+El uso de tarjetas perforadas.
+C.
+
+La implementación de las primeras interfaces gráficas.
+D.
+
+La comercialización de la realidad virtual.
+13.
+El Oculus Rift es significativo en HCI porque:
+-
+
+No lo sé.
+A.
+
+Fue el primer ordenador portátil.
+B.
+
+Introdujo la realidad virtual a una audiencia masiva.
+C.
+
+Mejoró las interfaces de línea de comandos.
+D.
+
+Desarrolló el primer software de edición de texto.
+14.
+El libro “The Design of Everyday Things” de Donald Norman:
+-
+
+No lo sé.
+A.
+
+Introdujo conceptos como affordances y diseño centrado en el usuario.
+B.
+
+Explicó la teoría de la relatividad aplicada a la computación.
+C.
+
+Discutió la historia de las interfaces de comando.
+D.
+
+Se centró en la programación de computadoras.
+15.
+¿Qué sistema introdujo la idea de la interacción por voz en el ámbito de la HCI?
+-
+
+No lo sé.
+A.
+
+Siri de Apple.
+B.
+
+MS-DOS.
+C.
+
+Windows 95.
+D.
+
+Google Glass.
+16.
+¿Quién es considerado un precursor de la HCI con su concepto de “Memex”?
+-
+
+No lo sé.
+A.
+
+Bill Gates.
+B.
+
+Vannevar Bush.
+C.
+
+Alan Turing.
+D.
+
+Tim Berners-Lee.
+17.
+¿Qué caracterizó a la interfaz de líneas de comandos (CLI) en los años 70?
+-
+
+No lo sé.
+A.
+
+Uso de ratón para la navegación.
+B.
+
+Interacción a través de comandos de texto.
+C.
+
+Interfaces gráficas de alta resolución.
+D.
+
+Audio como medio principal de interacción.
+18.
+En el futuro de la HCI, se prevé que:
+-
+
+No lo sé.
+A.
+
+Las interfaces de línea de comandos sean predominantes nuevamente.
+B.
+
+La interacción basada en gestos, voz, y hasta interfaces neuronales se vuelvan más comunes.
+C.
+
+La tecnología regrese a los sistemas de tarjetas perforadas.
+D.
+
+La interacción humana-computadora se estanque.
+19.
+¿Qué impacto tuvo la miniaturización de dispositivos en la HCI?
+-
+
+No lo sé.
+A.
+
+Disminuyó la necesidad de interfaces.
+B.
+
+Amplió el rango de interacciones posibles, haciendo la tecnología más accesible.
+C.
+
+Redujo la usabilidad debido al tamaño.
+D.
+
+Eliminó la necesidad de GUIs.
+20.
+¿Qué caracterizó a las interfaces de usuario en la década de 1990?
+-
+
+No lo sé.
+A.
+
+Solo comandos de texto.
+B.
+
+La expansión de las GUIs y la llegada de la web.
+C.
+
+La eliminación de las interfaces gráficas.
+D.
+
+La exclusividad de las interfaces táctiles.
+ 

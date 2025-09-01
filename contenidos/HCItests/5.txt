@@ -1,0 +1,344 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+1.
+Miro se utiliza en el prototipado para:
+-
+
+No lo sé.
+A.
+
+Solo crear diagramas de flujo.
+B.
+
+Sesiones de ideación y colaboración remota en diseño.
+C.
+
+Desarrollo de aplicaciones móviles.
+D.
+
+Análisis de datos financieros.
+2.
+Un boceto (sketch) en el proceso de prototipado es:
+-
+
+No lo sé.
+A.
+
+El producto final.
+B.
+
+Un dibujo a mano alzada para explorar ideas de diseño.
+C.
+
+Un documento legal de propiedad.
+D.
+
+Irrelevante en el diseño moderno.
+3.
+Un prototipo funcional es:
+-
+
+No lo sé.
+A.
+
+Un diseño que solo considera la apariencia.
+B.
+
+Un documento legal.
+C.
+
+Un concepto teórico sin aplicación práctica.
+D.
+
+Una versión del producto que permite probar interacciones y funcionalidades.
+4.
+Sketch, Figma y Adobe XD son herramientas que:
+-
+
+No lo sé.
+A.
+
+Solo se utilizan para diseño gráfico no interactivo.
+B.
+
+Permiten tanto wireframes como prototipos interactivos.
+C.
+
+No están diseñadas para el diseño de interfaces.
+D.
+
+Solo funcionan en sistemas Windows.
+5.
+La fidelidad de un prototipo se refiere a:
+-
+
+No lo sé.
+A.
+
+La lealtad del usuario hacia el producto.
+B.
+
+Cuán cerca está el prototipo en apariencia y funcionalidad al producto final.
+C.
+
+La durabilidad del material de impresión.
+D.
+
+La velocidad con la que se puede crear.
+6.
+Un prototipo de baja fidelidad es:
+-
+
+No lo sé.
+A.
+
+Un producto completamente terminado.
+B.
+
+Una representación simple y básica, enfocada en la estructura más que en el diseño final.
+C.
+
+Solo útil para productos físicos.
+D.
+
+Un prototipo interactivo con todas las funcionalidades.
+7.
+Un mockup es:
+-
+
+No lo sé.
+A.
+
+Un prototipo interactivo.
+B.
+
+Una representación estática de alta fidelidad que muestra el diseño visual de la interfaz.
+C.
+
+Solo para propósitos de documentación.
+D.
+
+Un software de animación.
+8.
+Los prototipos interactivos permiten:
+-
+
+No lo sé.
+A.
+
+Solo ver cómo se verá la interfaz.
+B.
+
+Simular la interacción del usuario con la interfaz antes de la implementación final.
+C.
+
+Ignorar la retroalimentación del usuario.
+D.
+
+Evitar el desarrollo de código.
+9.
+Principle es una herramienta especializada en:
+-
+
+No lo sé.
+A.
+
+Animaciones y microinteracciones.
+B.
+
+Desarrollo de aplicaciones de realidad aumentada.
+C.
+
+Gestión de proyectos.
+D.
+
+Análisis de datos de usuario.
+10.
+La “prueba de usabilidad” en el contexto de prototipado:
+-
+
+No lo sé.
+A.
+
+No tiene valor hasta que el producto esté terminado.
+B.
+
+Ayuda a identificar problemas de diseño a través de la interacción con usuarios reales.
+C.
+
+Solo se refiere a la estética.
+D.
+
+Es solo para el equipo de desarrollo.
+11.
+La herramienta Balsamiq Mockups es particularmente útil para:
+-
+
+No lo sé.
+A.
+
+Wireframes de baja fidelidad con un aspecto “a mano alzada”.
+B.
+
+Crear prototipos de alta fidelidad.
+C.
+
+Desarrollo de aplicaciones móviles nativas.
+D.
+
+Edición de video.
+12.
+¿Por qué es importante probar prototipos con usuarios reales?
+-
+
+No lo sé.
+A.
+
+Porque las percepciones del equipo de diseño pueden diferir de la experiencia del usuario.
+B.
+
+Para cumplir con normas legales.
+C.
+
+Solo para justificar el tiempo de desarrollo.
+D.
+
+Para aumentar el costo del proyecto.
+13.
+Los wireframes son:
+-
+
+No lo sé.
+A.
+
+Esquemas que detallan la estructura y disposición de elementos de una interfaz sin detalles gráficos.
+B.
+
+La versión final de la interfaz.
+C.
+
+Solo para diseño de hardware.
+D.
+
+Un tipo de marketing digital.
+14.
+La iteración en el prototipado implica:
+-
+
+No lo sé.
+A.
+
+Refinar continuamente el diseño basándose en el feedback.
+B.
+
+Hacer el prototipo una sola vez y no modificarlo.
+C.
+
+Solo ajustar los colores y tipografías.
+D.
+
+Ignorar las opiniones de los usuarios.
+15.
+La selección de la herramienta de prototipado depende de:
+-
+
+No lo sé.
+A.
+
+Solo el presupuesto disponible.
+B.
+
+Las necesidades del proyecto, el nivel de fidelidad requerido y las capacidades del equipo.
+C.
+
+La popularidad de la herramienta en el mercado.
+D.
+
+Si la herramienta es gratuita o no.
+16.
+InVision es conocida por:
+-
+
+No lo sé.
+A.
+
+Ser una herramienta exclusiva de desarrollo de software.
+B.
+
+Ser una plataforma de juegos en línea.
+C.
+
+Convertir diseños estáticos en prototipos interactivos.
+D.
+
+Solo para diseño de impresión.
+17.
+Crear prototipos con HTML/CSS/JS es beneficioso porque:
+-
+
+No lo sé.
+A.
+
+No permite feedback del usuario.
+B.
+
+Es la única manera de diseñar interfaces.
+C.
+
+Ofrece una prueba muy cercana a la experiencia final del usuario.
+D.
+
+Evita la necesidad de diseño gráfico.
+18.
+El término “prototipado” en diseño de interfaces se refiere a:
+-
+
+No lo sé.
+A.
+
+La fase final de desarrollo.
+B.
+
+Crear versiones preliminares de una interfaz para testear y refinar conceptos.
+C.
+
+Solo a la apariencia visual del producto.
+D.
+
+La promoción del producto terminado.
+19.
+Axure RP es ideal para:
+-
+
+No lo sé.
+A.
+
+Solo para diseño de interfaz de usuario visual.
+B.
+
+Prototipos de alta fidelidad que requieren interacciones complejas.
+C.
+
+Crear arte conceptual.
+D.
+
+Administrar proyectos de construcción.
+20.
+El objetivo principal de prototipar es:
+-
+
+No lo sé.
+A.
+
+Solo cumplir con requisitos técnicos.
+B.
+
+Validar conceptos de diseño y mejorar la usabilidad antes de la implementación final.
+C.
+
+Crear algo que se vea bien sin importar su funcionalidad.
+D.
+
+Acelerar el tiempo de producción.
+ 

@@ -1,0 +1,344 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+
+1.
+La accesibilidad en HCI está principalmente relacionada con:
+-
+
+No lo sé.
+A.
+
+Hacer que las interfaces sean más atractivas.
+B.
+
+Asegurar que la tecnología sea utilizable por personas con diversas discapacidades.
+C.
+
+Reducir el costo de la tecnología.
+D.
+
+Mejorar la velocidad de respuesta de los sistemas.
+2.
+El diseño centrado en el usuario (UCD) se enfoca en:
+-
+
+No lo sé.
+A.
+
+Las necesidades del desarrollador.
+B.
+
+Las capacidades técnicas del hardware.
+C.
+
+Las necesidades, capacidades y limitaciones de los usuarios.
+D.
+
+La optimización algorítmica.
+3.
+La visibilidad en HCI se refiere a:
+-
+
+No lo sé.
+A.
+
+La capacidad de ver la pantalla desde cualquier ángulo.
+B.
+
+Que los elementos de control sean claramente visibles para el usuario.
+C.
+
+La resolución de la pantalla.
+D.
+
+La cantidad de datos que puede procesar una computadora.
+4.
+¿Cuál de los siguientes no es un ejemplo de interacción humano-computadora?
+-
+
+No lo sé.
+A.
+
+Usar un mouse para seleccionar un archivo.
+B.
+
+Leer un libro impreso.
+C.
+
+Hablar con un asistente de voz.
+D.
+
+Navegar por páginas web.
+5.
+El término “usabilidad” en HCI se refiere a:
+-
+
+No lo sé.
+A.
+
+La apariencia visual de una interfaz.
+B.
+
+La facilidad con la que los usuarios pueden utilizar una interfaz para alcanzar un objetivo específico.
+C.
+
+La velocidad de procesamiento de un ordenador.
+D.
+
+La capacidad de una computadora para ejecutar programas complejos.
+6.
+La “satisfacción del usuario” en HCI incluye:
+-
+
+No lo sé.
+A.
+
+Solo la rapidez en la ejecución de tareas.
+B.
+
+La comodidad, placer y adecuación al usuario de la interfaz.
+C.
+
+La cantidad de características de un programa.
+D.
+
+La robustez del hardware.
+7.
+¿Cuál de estos conceptos describió Donald Norman en “The Design of Everyday Things”?
+-
+
+No lo sé.
+A.
+
+La ley de Moore.
+B.
+
+Las affordances.
+C.
+
+La teoría de la relatividad.
+D.
+
+El principio de incertidumbre.
+8.
+¿Qué se entiende por “interfaz gráfica de usuario” (GUI)?
+-
+
+No lo sé.
+A.
+
+Un interfaz basado en comandos de texto.
+B.
+
+Un sistema que utiliza imágenes, iconos y ventanas para interactuar con el usuario.
+C.
+
+La parte del software que no se ve.
+D.
+
+La conexión física entre dispositivos.
+9.
+¿Cuál de los siguientes NO es un principio de usabilidad según Nielsen?
+-
+
+No lo sé.
+A.
+
+Eficiencia del usuario.
+B.
+
+Estética y diseño minimalista.
+C.
+
+Velocidad de internet.
+D.
+
+Prevención de errores.
+10.
+Un modelo mental es:
+-
+
+No lo sé.
+A.
+
+Un diagrama de flujo de una aplicación.
+B.
+
+La representación interna que una persona tiene de cómo funciona algo.
+C.
+
+Una base de datos.
+D.
+
+Un esquema de colores para la interfaz.
+11.
+El principio de “no me hagas pensar” de Steve Krug enfatiza:
+-
+
+No lo sé.
+A.
+
+La simplicidad y claridad de la interfaz.
+B.
+
+La complejidad para desafiar a los usuarios.
+C.
+
+La necesidad de manuales de usuario detallados.
+D.
+
+La autonomía del diseñador.
+12.
+¿Qué significa “mapeo natural” en el contexto de HCI?
+-
+
+No lo sé.
+A.
+
+La conexión de dispositivos a internet.
+B.
+
+La relación intuitiva entre los controles y las acciones que producen.
+C.
+
+La creación de mapas digitales.
+D.
+
+La exploración de nuevos entornos virtuales.
+13.
+¿Qué es la Interacción Humano-Computadora (HCI)?
+-
+
+No lo sé.
+A.
+
+El estudio de las interacciones entre humanos y animales.
+B.
+
+El campo que estudia cómo los usuarios interactúan con la tecnología.
+C.
+
+Un tipo de hardware de computadora.
+D.
+
+Un lenguaje de programación.
+14.
+Una interfaz de usuario (UI) es:
+-
+
+No lo sé.
+A.
+
+Solo la parte visual de un software.
+B.
+
+El puente entre el usuario y el sistema, incluyendo visual, táctil y auditivo.
+C.
+
+Un tipo de hardware.
+D.
+
+Un protocolo de red.
+15.
+En HCI, la “consistencia” implica:
+-
+
+No lo sé.
+A.
+
+Mantener la misma marca en todos los productos.
+B.
+
+Que las interfaces sean similares en apariencia y comportamiento.
+C.
+
+Que todos los usuarios tengan la misma experiencia.
+D.
+
+Utilizar siempre el mismo tipo de hardware.
+16.
+¿Qué es una “affordance”?
+-
+
+No lo sé.
+A.
+
+La capacidad de una computadora para ejecutar múltiples tareas.
+B.
+
+Las propiedades de un objeto que sugieren cómo puede ser usado.
+C.
+
+Un error en el software.
+D.
+
+Una herramienta de diseño gráfico.
+17.
+¿Por qué es importante el principio de “facilidad de aprendizaje” en HCI?
+-
+
+No lo sé.
+A.
+
+Porque facilita la adopción y uso inicial del sistema por parte de los usuarios.
+B.
+
+Para que los usuarios puedan enseñar a otros.
+C.
+
+Para mejorar la velocidad de desarrollo.
+D.
+
+Porque reduce los costos de soporte técnico.
+18.
+¿Qué entiende por “feedback” en el contexto de la interacción usuario-interfaz?
+-
+
+No lo sé.
+A.
+
+La retroalimentación de un sistema sobre las acciones del usuario.
+B.
+
+La velocidad del procesador.
+C.
+
+El sonido de inicio de la computadora.
+D.
+
+La pantalla de bienvenida de un software.
+19.
+En HCI, la “memorabilidad” se refiere a:
+-
+
+No lo sé.
+A.
+
+La capacidad de recordar la marca del software.
+B.
+
+La capacidad de memoria de un ordenador.
+C.
+
+La facilidad con la que los usuarios recuerdan cómo usar una interfaz después de un tiempo sin usarla.
+D.
+
+La durabilidad del hardware.
+20.
+¿Cuál es el objetivo principal del diseño centrado en el usuario?
+-
+
+No lo sé.
+A.
+
+Maximizar el beneficio económico.
+B.
+
+Crear interfaces estéticamente agradables.
+C.
+
+Desarrollar productos que satisfagan las necesidades del usuario.
+D.
+
+Aumentar la velocidad de desarrollo.
+ 

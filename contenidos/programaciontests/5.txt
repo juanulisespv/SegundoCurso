@@ -1,0 +1,342 @@
+
+1.
+¿Qué es un mockup en el diseño de software?
+-
+
+No lo sé.
+A.
+
+Una representación visual detallada de la interfaz que muestra colores, tipografía y diseño gráfico.
+B.
+
+Un modelo interactivo que permite probar la funcionalidad del sistema.
+C.
+
+Un boceto básico que solo incluye la estructura y el flujo de información.
+D.
+
+Un esquema de código que define la arquitectura del sistema.
+2.
+¿Cuál es una ventaja de usar mockups en el diseño de software?
+-
+
+No lo sé.
+A.
+
+Permiten programar directamente la funcionalidad del sistema.
+B.
+
+Proporcionan una visión clara del diseño final antes de la implementación.
+C.
+
+Incluyen elementos interactivos para probar las funcionalidades.
+D.
+
+Sustituyen completamente los wireframes y prototipos.
+3.
+¿Cuál es una ventaja de usar Python para desarrollar interfaces gráficas de usuario (GUIs)?
+-
+
+No lo sé.
+A.
+
+Requiere conocimientos avanzados para proyectos simples.
+B.
+
+No cuenta con bibliotecas especializadas para GUIs.
+C.
+
+Es limitado a un único sistema operativo.
+D.
+
+Ofrece bibliotecas como Tkinter y PyQt para crear GUIs robustas y flexibles.
+4.
+¿Cuál es una buena práctica al elegir colores para un mockup?
+-
+
+No lo sé.
+A.
+
+Utilizar una amplia gama de colores para cada elemento.
+B.
+
+Emplear una paleta limitada y usar contrastes para destacar elementos interactivos.
+C.
+
+Usar exclusivamente tonos grises para garantizar la funcionalidad.
+D.
+
+Elegir colores aleatorios para mantener la variedad visual.
+5.
+¿Qué técnica asegura que los elementos importantes sean más prominentes en un mockup?
+-
+
+No lo sé.
+A.
+
+Uso exclusivo de colores vibrantes.
+B.
+
+Distribución uniforme de todos los elementos.
+C.
+
+Aplicar una jerarquía visual destacando elementos clave.
+D.
+
+Diseñar todos los textos con el mismo tamaño.
+6.
+¿Qué widget de Tkinter se utiliza para permitir al usuario ingresar texto?
+-
+
+No lo sé.
+A.
+
+Label
+B.
+
+Button
+C.
+
+Entry
+D.
+
+Canvas
+7.
+¿Qué aspecto es fundamental para garantizar la consistencia funcional en el diseño UI?
+-
+
+No lo sé.
+A.
+
+El uso de colores uniformes en todas las pantallas.
+B.
+
+Que los elementos interactivos como botones tengan la misma funcionalidad en todas las partes del sistema.
+C.
+
+Diseñar menús con diferentes estilos visuales en cada pantalla.
+D.
+
+Crear diferentes esquemas de interacción según el usuario.
+8.
+¿Cuál es una de las formas en que los mockups guían el desarrollo de GUIs?
+-
+
+No lo sé.
+A.
+
+Muestran cómo optimizar el rendimiento del backend.
+B.
+
+Definen directamente el lenguaje de programación a utilizar.
+C.
+
+Proporcionan el código fuente para los desarrolladores.
+D.
+
+Establecen la disposición, los colores y el estilo general de la interfaz.
+9.
+¿Qué se debe hacer después de recopilar la retroalimentación de los usuarios durante las pruebas de usabilidad?
+-
+
+No lo sé.
+A.
+
+Implementar inmediatamente todas las ideas de los usuarios sin evaluación.
+B.
+
+Realizar ajustes y mejoras iterativas basadas en los resultados obtenidos.
+C.
+
+Concluir el proceso de diseño sin realizar más pruebas.
+D.
+
+Cambiar la plataforma de desarrollo del sistema.
+10.
+¿Qué ventaja proporciona el uso de control de versiones para GUIs en Python?
+-
+
+No lo sé.
+A.
+
+Permite diseñar directamente interfaces gráficas sin escribir código.
+B.
+
+Reemplaza completamente las tareas de diseño en Figma.
+C.
+
+Facilita la colaboración únicamente entre diseñadores.
+D.
+
+Gestiona cambios en el código, permite revisión de implementaciones y asegura trazabilidad.
+11.
+¿Cuál es una de las principales características de Figma que lo hace ideal para equipos de diseño?
+-
+
+No lo sé.
+A.
+
+Requiere instalación en dispositivos locales para su uso.
+B.
+
+Solo permite trabajar con archivos individuales sin compartir recursos.
+C.
+
+Está diseñado exclusivamente para el desarrollo de código backend.
+D.
+
+Permite la colaboración en tiempo real entre múltiples usuarios en un mismo proyecto.
+12.
+¿Qué es la Interfaz de Usuario (UI) en un sistema?
+-
+
+No lo sé.
+A.
+
+El punto de interacción entre el usuario y el sistema, incluyendo elementos visuales e interactivos.
+B.
+
+El conjunto de emociones y percepciones que un usuario experimenta al usar un sistema.
+C.
+
+Un componente exclusivo de la experiencia del usuario (UX).
+D.
+
+El código de programación que define la funcionalidad interna del sistema.
+13.
+¿Cuál de los siguientes aspectos está directamente relacionado con la accesibilidad en el diseño UI?
+-
+
+No lo sé.
+A.
+
+El uso de colores para reflejar la identidad de la marca.
+B.
+
+La organización de los menús para maximizar la eficiencia.
+C.
+
+La selección de tipografías atractivas.
+D.
+
+La consideración de usuarios con discapacidades para que puedan usar el sistema de manera efectiva.
+14.
+¿Qué biblioteca es más adecuada para crear GUIs profesionales y robustas con widgets avanzados como tablas y gráficos?
+-
+
+No lo sé.
+A.
+
+Tkinter
+B.
+
+PyQt
+C.
+
+Matplotlib
+D.
+
+PyGame
+15.
+¿Qué funcionalidad de Figma ayuda a los desarrolladores a implementar GUIs fieles al diseño original?
+-
+
+No lo sé.
+A.
+
+Exportación de especificaciones como dimensiones, colores y estilos CSS.
+B.
+
+Creación de ramas para experimentación con el diseño.
+C.
+
+Generación automática de código Python para GUIs.
+D.
+
+Control de versiones integrado directamente en la herramienta.
+16.
+¿Cuál es el objetivo principal de las pruebas de usabilidad en la validación de interfaces?
+-
+
+No lo sé.
+A.
+
+Identificar problemas de rendimiento del backend.
+B.
+
+Confirmar que la interfaz cumple con los estándares de diseño corporativo.
+C.
+
+Detectar problemas de navegación y elementos confusos para los usuarios.
+D.
+
+Eliminar la necesidad de realizar iteraciones en el diseño.
+17.
+¿Cuál es una de las principales características de Balsamiq?
+-
+
+No lo sé.
+A.
+
+Permite crear wireframes con un estilo que imita bocetos a mano.
+B.
+
+Ofrece diseños visuales avanzados con animaciones interactivas.
+C.
+
+Es exclusivamente una herramienta para prototipos funcionales.
+D.
+
+Solo permite exportar archivos en formato HTML.
+18.
+¿Por qué es importante la comunicación entre diseñadores y desarrolladores en la transición de mockups al código?
+-
+
+No lo sé.
+A.
+
+Para garantizar que las intenciones visuales y funcionales se traduzcan correctamente en el producto final.
+B.
+
+Para que los diseñadores aprendan a codificar la interfaz.
+C.
+
+Para eliminar la necesidad de realizar iteraciones.
+D.
+
+Para reducir el tiempo de diseño inicial.
+19.
+¿Qué se busca al aplicar el principio de simplicidad en el diseño UI?
+-
+
+No lo sé.
+A.
+
+Incluir la mayor cantidad de elementos visuales posibles para llamar la atención.
+B.
+
+Hacer que los usuarios realicen múltiples pasos para completar una tarea.
+C.
+
+Eliminar elementos innecesarios y priorizar los que aporten valor al usuario.
+D.
+
+Reforzar el uso exclusivo de colores y tipografías complejas.
+20.
+¿Qué característica principal hace que PyQt sea ideal para aplicaciones empresariales avanzadas?
+-
+
+No lo sé.
+A.
+
+Ofrece widgets avanzados como tablas, gráficos y menús.
+B.
+
+Solo permite desarrollar aplicaciones para sistemas operativos Linux.
+C.
+
+Tiene una curva de aprendizaje baja, similar a Tkinter.
+D.
+
+No requiere instalación adicional en Python.
+ 

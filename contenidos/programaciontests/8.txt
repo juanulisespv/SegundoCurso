@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+
+1.
+¿Qué método se utiliza para filtrar un DataFrame en pandas con una condición específica?
+-
+
+No lo sé.
+A.
+
+df.filter_rows()
+B.
+
+df.query("columna > valor")
+C.
+
+df.select_where("columna > valor")
+D.
+
+df[df["columna"] > valor]
+2.
+¿Cuál es el método correcto para leer un archivo CSV en pandas?
+-
+
+No lo sé.
+A.
+
+pd.read_csv("archivo.csv")
+B.
+
+pd.load_csv("archivo.csv")
+C.
+
+pd.import_csv("archivo.csv")
+D.
+
+pd.open_csv("archivo.csv")
+3.
+¿Cuál es una de las principales ventajas de las APIs en el desarrollo de software?
+-
+
+No lo sé.
+A.
+
+Facilitan la integración entre aplicaciones y la reutilización de funcionalidades.
+B.
+
+Eliminan la necesidad de autenticación en los servicios web.
+C.
+
+Permiten que los sistemas se comuniquen sin necesidad de definir reglas de acceso.
+D.
+
+Requieren que todas las aplicaciones usen el mismo lenguaje de programación.
+4.
+¿Cuál es una de las principales ventajas de usar un ORM como SQLAlchemy en Flask?
+-
+
+No lo sé.
+A.
+
+Permite interactuar con la base de datos utilizando objetos en Python en lugar de consultas SQL directas.
+B.
+
+Requiere escribir manualmente todas las consultas SQL para manipular los datos.
+C.
+
+Hace que el código dependa exclusivamente de un único motor de base de datos.
+D.
+
+Solo se puede utilizar con bases de datos NoSQL como MongoDB.
+5.
+¿Cuál es una de las principales ventajas de utilizar pandas en la manipulación de datos?
+-
+
+No lo sé.
+A.
+
+Solo permite trabajar con datos almacenados en bases de datos SQL.
+B.
+
+Requiere escribir consultas SQL para manipular cualquier conjunto de datos.
+C.
+
+Proporciona estructuras de datos como DataFrames y Series, que facilitan la manipulación y análisis de datos tabulares.
+D.
+
+Solo se puede utilizar en combinación con Jupyter Notebook y no en otros entornos de Python.
+6.
+¿Qué método de pandas permite convertir un DataFrame en un formato JSON para exportarlo desde una API?
+-
+
+No lo sé.
+A.
+
+df.to_csv()
+B.
+
+df.to_excel()
+C.
+
+df.export_json()
+D.
+
+df.to_dict(orient="records")
+7.
+¿Cómo se define una relación uno a muchos en SQLAlchemy?
+-
+
+No lo sé.
+A.
+
+Usando solo claves primarias en ambas tablas sin referencias.
+B.
+
+Creando un campo en la tabla padre que almacene una lista de identificadores de la tabla hija.
+C.
+
+Usando db.ForeignKey en la tabla hija y db.relationship en la tabla padre para establecer la relación.
+D.
+
+Solo mediante un archivo de configuración externo en SQLAlchemy.
+8.
+¿Cómo se convierte un conjunto de datos en formato JSON en un DataFrame de pandas?
+-
+
+No lo sé.
+A.
+
+df = pd.convert_json(datos_json)
+B.
+
+df = pd.load_json(datos_json)
+C.
+
+df = pd.DataFrame(datos_json)
+D.
+
+df = pd.import_json(datos_json)
+9.
+¿Qué método de pandas permite obtener un resumen estadístico de un DataFrame?
+-
+
+No lo sé.
+A.
+
+df.summary()
+B.
+
+df.describe()
+C.
+
+df.statistics()
+D.
+
+df.info_summary()
+10.
+¿Cómo contribuyen las APIs a la escalabilidad de una aplicación que maneja bases de datos?
+-
+
+No lo sé.
+A.
+
+Obligan a los clientes a conectarse directamente a la base de datos sin pasar por un servidor.
+B.
+
+Eliminan la necesidad de autenticación y control de acceso a los datos.
+C.
+
+Permiten distribuir la carga entre múltiples servidores, optimizar consultas y aplicar paginación para mejorar el rendimiento.
+D.
+
+Evitan la integración con nuevas bases de datos y dificultan la interoperabilidad entre sistemas.
+11.
+¿Cuál es el propósito principal de utilizar Flask en la creación de una API REST?
+-
+
+No lo sé.
+A.
+
+Permitir el desarrollo de APIs de manera rápida y flexible con un framework ligero.
+B.
+
+Obligar a usar una base de datos específica para almacenar la información.
+C.
+
+Reemplazar la necesidad de definir rutas en una aplicación web.
+D.
+
+Limitar la API a responder únicamente en formato XML.
+12.
+¿Para qué se utilizan las migraciones en Django ORM?
+-
+
+No lo sé.
+A.
+
+Para eliminar automáticamente todos los registros de la base de datos.
+B.
+
+Para generar consultas SQL sin necesidad de definir modelos.
+C.
+
+Para reemplazar la necesidad de usar bases de datos en aplicaciones Django.
+D.
+
+Para sincronizar los cambios en los modelos con la base de datos de forma estructurada.
+13.
+¿Cuál es una de las principales funciones de una API en la gestión de datos?
+-
+
+No lo sé.
+A.
+
+Permitir que las aplicaciones accedan directamente a la base de datos sin restricciones.
+B.
+
+Actuar como intermediario entre el cliente y la base de datos, gestionando las solicitudes de acceso a los datos.
+C.
+
+Eliminar la necesidad de una base de datos en la aplicación.
+D.
+
+Convertir automáticamente los datos en archivos estáticos sin procesarlos.
+14.
+¿Cuál es una de las principales ventajas de usar Swagger en la documentación de APIs REST?
+-
+
+No lo sé.
+A.
+
+Permite ejecutar pruebas de endpoints sin necesidad de definir rutas en la API.
+B.
+
+Genera documentación en formato OpenAPI y proporciona una interfaz interactiva para probar los endpoints.
+C.
+
+Reemplaza completamente la necesidad de usar Postman para probar APIs.
+D.
+
+Solo funciona con APIs desarrolladas en Flask, sin soporte para otros frameworks.
+15.
+¿En qué situación es más recomendable usar una base de datos NoSQL en una API?
+-
+
+No lo sé.
+A.
+
+Cuando se necesita manejar relaciones complejas entre tablas y garantizar la integridad referencial.
+B.
+
+Para realizar consultas estructuradas que requieren múltiples JOINs entre tablas.
+C.
+
+En aplicaciones donde los datos tienen una estructura fija y bien definida.
+D.
+
+Cuando se manejan grandes volúmenes de datos no estructurados y se necesita escalabilidad horizontal.
+16.
+¿Cuál es una de las principales ventajas de utilizar pandas en controladores de Flask o Django?
+-
+
+No lo sé.
+A.
+
+Permite transformar y procesar datos antes de enviarlos a la vista o al cliente.
+B.
+
+Reemplaza completamente la base de datos en una aplicación web.
+C.
+
+Obliga a trabajar únicamente con archivos CSV y Excel.
+D.
+
+Solo se puede usar para análisis de datos, pero no para transformar información en una API.
+17.
+¿Cuál es una forma correcta de eliminar filas con valores nulos en un DataFrame de pandas?
+-
+
+No lo sé.
+A.
+
+df.remove_na()
+B.
+
+df.dropna()
+C.
+
+df.delete_na()
+D.
+
+df.clear_na()
+18.
+¿Cuál es una buena práctica en la gestión de errores en una API REST con Flask?
+-
+
+No lo sé.
+A.
+
+Devolver siempre una respuesta genérica sin detalles sobre el error.
+B.
+
+Permitir que los errores se muestren en la consola del usuario sin restricciones.
+C.
+
+Usar @app.errorhandler para definir respuestas personalizadas en caso de errores como 404 o 500.
+D.
+
+Evitar el manejo de errores para reducir el código de la aplicación.
+19.
+¿Cuál es la principal ventaja de utilizar el ORM de Django en la gestión de bases de datos?
+-
+
+No lo sé.
+A.
+
+Obliga a los desarrolladores a escribir consultas SQL manualmente.
+B.
+
+Permite interactuar con la base de datos utilizando clases y métodos de Python en lugar de SQL.
+C.
+
+No requiere definir modelos para almacenar datos en la base de datos.
+D.
+
+Solo funciona con bases de datos NoSQL como MongoDB.
+20.
+¿Cuál es una característica clave de GraphQL en comparación con REST?
+-
+
+No lo sé.
+A.
+
+Utiliza exclusivamente XML para estructurar sus respuestas.
+B.
+
+No permite a los clientes definir qué datos desean recibir.
+C.
+
+Es más pesado y lento en comparación con SOAP debido a su estructura.
+D.
+
+Permite a los clientes solicitar solo los datos que necesitan, optimizando el rendimiento.
+ 

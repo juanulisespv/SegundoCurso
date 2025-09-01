@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+HCI: Desarrollo web y móvil
+1.
+La accesibilidad en el diseño de interfaces implica:
+-
+
+No lo sé.
+A.
+
+Solo la capacidad de ser usado por cualquier dispositivo.
+B.
+
+Diseñar para que personas con discapacidades puedan usar la interfaz.
+C.
+
+Que la interfaz sea accesible solo desde una ubicación específica.
+D.
+
+La cantidad de usuarios que pueden acceder al sistema simultáneamente.
+2.
+El feedback en una interfaz de usuario es importante porque:
+-
+
+No lo sé.
+A.
+
+Hace que la interfaz sea más colorida.
+B.
+
+Informa al usuario sobre el estado de sus acciones o del sistema.
+C.
+
+Solo es necesario en aplicaciones de juegos.
+D.
+
+Consume menos recursos del sistema.
+3.
+Un diseño de interfaz que considera la accesibilidad podría incluir:
+-
+
+No lo sé.
+A.
+
+Solo colores brillantes.
+B.
+
+Texto de tamaño ajustable, contrastes adecuados y navegación por teclado.
+C.
+
+Menús ocultos para que el diseño sea más limpio.
+D.
+
+Interfaces solo en inglés.
+4.
+La flexibilidad en una interfaz de usuario se refiere a:
+-
+
+No lo sé.
+A.
+
+La capacidad de doblar la pantalla del dispositivo.
+B.
+
+Solo a la velocidad de respuesta del sistema.
+C.
+
+Permitir a los usuarios personalizar la interfaz según sus preferencias.
+D.
+
+La rigidez de los elementos de la interfaz.
+5.
+Las “affordances” en diseño de interfaces se refieren a:
+-
+
+No lo sé.
+A.
+
+Las capacidades de hardware de una computadora.
+B.
+
+Las propiedades de un objeto que sugieren cómo puede ser usado.
+C.
+
+Las limitaciones de software.
+D.
+
+La velocidad de respuesta de una aplicación.
+6.
+Un elemento de diseño para la usabilidad es:
+-
+
+No lo sé.
+A.
+
+La velocidad de la red.
+B.
+
+La coherencia en el uso de colores, tipografía y estilos.
+C.
+
+La capacidad de procesamiento del hardware.
+D.
+
+La cantidad de usuarios simultáneos.
+7.
+Las migas de pan (breadcrumbs) en una interfaz de usuario son útiles para:
+-
+
+No lo sé.
+A.
+
+Recordar a los usuarios que deben comer.
+B.
+
+Mostrar la ruta de navegación y permitir un retroceso fácil.
+C.
+
+Complicar la navegación.
+D.
+
+Solo en aplicaciones de mapas.
+8.
+Para mejorar la usabilidad, un diseño debe tener:
+-
+
+No lo sé.
+A.
+
+La mayor cantidad de botones y opciones posibles.
+B.
+
+Solo opciones avanzadas para usuarios expertos.
+C.
+
+Un equilibrio entre funcionalidad y simplicidad.
+D.
+
+Sin opciones de personalización.
+9.
+El espacio en blanco (whitespace) en diseño de interfaces:
+-
+
+No lo sé.
+A.
+
+Es un desperdicio de espacio.
+B.
+
+Ayuda a organizar la información y reduce el desorden visual.
+C.
+
+Debe ser evitado para maximizar el contenido mostrado.
+D.
+
+Solo es importante en documentos impresos.
+10.
+La “eficiencia” en el manejo de una interfaz se mide por:
+-
+
+No lo sé.
+A.
+
+La cantidad de tiempo que un usuario pasa aprendiendo a usarla.
+B.
+
+Cuánto tiempo toma a un usuario completar una tarea una vez familiarizado con la interfaz.
+C.
+
+El número de colores utilizados en el diseño.
+D.
+
+La cantidad de memoria RAM que utiliza el software.
+11.
+¿Cuál de estos NO es un elemento básico de una interfaz de usuario?
+-
+
+No lo sé.
+A.
+
+Navegación.
+B.
+
+Velocidad de internet.
+C.
+
+Feedback.
+D.
+
+Consistencia.
+12.
+En términos de usabilidad, “satisfacción” implica:
+-
+
+No lo sé.
+A.
+
+Solo que el usuario esté feliz con la velocidad del sistema.
+B.
+
+Que el software tenga muchas funciones.
+C.
+
+Que la experiencia de usar la interfaz sea agradable y cumpla con las expectativas del usuario.
+D.
+
+Que el usuario no necesite ayuda.
+13.
+Un principio de usabilidad es la “facilidad de aprendizaje”. Esto significa que:
+-
+
+No lo sé.
+A.
+
+Los usuarios deben ser educados formalmente para usar el sistema.
+B.
+
+La interfaz debe ser intuitiva para que los nuevos usuarios la puedan usar rápidamente.
+C.
+
+Requiere que los usuarios lean un manual extenso.
+D.
+
+La interfaz debe ser complicada para desafiar a los usuarios.
+14.
+La visibilidad en una interfaz de usuario significa:
+-
+
+No lo sé.
+A.
+
+Que todo lo importante debe ser visible para el usuario sin necesidad de buscarlo.
+B.
+
+Que el usuario debe ser visible a través de la cámara.
+C.
+
+Que la interfaz debe cambiar de color constantemente.
+D.
+
+Que solo los elementos decorativos deben ser visibles.
+15.
+La usabilidad de una interfaz se refiere a:
+-
+
+No lo sé.
+A.
+
+Solo la apariencia visual.
+B.
+
+La facilidad con que los usuarios pueden aprender a usar y operar una interfaz para alcanzar sus objetivos.
+C.
+
+La velocidad de procesamiento del hardware.
+D.
+
+La cantidad de funciones que tiene un software.
+16.
+La navegación en una interfaz debe ser:
+-
+
+No lo sé.
+A.
+
+Complicada para mantener al usuario interesado.
+B.
+
+Oculta para que los usuarios exploren por sí mismos.
+C.
+
+Clara, lógica y accesible.
+D.
+
+Exclusivamente basada en comandos de texto.
+17.
+La “memorabilidad” en el diseño de interfaces implica:
+-
+
+No lo sé.
+A.
+
+Que la interfaz sea memorable visualmente.
+B.
+
+Que los usuarios puedan recordar cómo usar la interfaz después de un periodo sin usarla.
+C.
+
+Que la interfaz almacene la memoria de los usuarios.
+D.
+
+Que los usuarios necesiten memorizar comandos complejos.
+18.
+El término “eficiencia” en usabilidad se refiere a:
+-
+
+No lo sé.
+A.
+
+La capacidad del software para ejecutar múltiples tareas simultáneamente.
+B.
+
+La cantidad de memoria que necesita una aplicación.
+C.
+
+La estética de la interfaz.
+D.
+
+La rapidez con la que los usuarios pueden realizar tareas una vez que han aprendido a usar el sistema.
+19.
+El término “feedback” en usabilidad incluye:
+-
+
+No lo sé.
+A.
+
+Respuestas visuales, auditivas, o hápticas que informan al usuario sobre sus acciones.
+B.
+
+Solo respuestas visuales.
+C.
+
+Solo el sonido que hace el dispositivo al encenderse.
+D.
+
+La retroalimentación de los usuarios al desarrollador.
+20.
+La consistencia en una interfaz de usuario:
+-
+
+No lo sé.
+A.
+
+No es importante.
+B.
+
+Solo se aplica al color de fondo.
+C.
+
+Ayuda a reducir la curva de aprendizaje y mejora la usabilidad.
+D.
+
+Solo debe aplicarse a los iconos.
+ 

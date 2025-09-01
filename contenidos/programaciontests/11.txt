@@ -1,0 +1,343 @@
+Bachelor en Informática (2025-2026 E)
+
+1.
+¿Cuál es una de las principales ventajas de usar Kivy en el desarrollo de aplicaciones móviles?
+-
+
+No lo sé.
+A.
+
+Está basado en JavaScript y es el framework más utilizado en aplicaciones comerciales.
+B.
+
+Solo permite el desarrollo de aplicaciones para Android y iOS.
+C.
+
+No ofrece soporte para el desarrollo de interfaces gráficas avanzadas.
+D.
+
+Permite desarrollar aplicaciones multiplataforma en Python con integración a bibliotecas científicas.
+2.
+¿Qué herramienta se utiliza para evaluar la accesibilidad de un sitio web y detectar problemas relacionados con la usabilidad?
+-
+
+No lo sé.
+A.
+
+Chrome DevTools
+B.
+
+Responsinator
+C.
+
+LambdaTest
+D.
+
+WAVE
+3.
+¿Cuál de los siguientes métodos se utiliza para la autenticación de usuarios en aplicaciones web mediante tokens en formato JSON?
+-
+
+No lo sé.
+A.
+
+OAuth1
+B.
+
+API Key
+C.
+
+JWT (JSON Web Token)
+D.
+
+SOAP
+4.
+¿Cuál de las siguientes herramientas se usa para la automatización de pruebas en aplicaciones web mediante simulación de interacciones de usuario?
+-
+
+No lo sé.
+A.
+
+OWASP ZAP
+B.
+
+Selenium
+C.
+
+JMeter
+D.
+
+BrowserStack
+5.
+¿Cuál es una ventaja principal de usar emuladores en pruebas móviles?
+-
+
+No lo sé.
+A.
+
+Permiten probar aplicaciones en múltiples dispositivos y versiones de sistema sin necesidad de hardware físico.
+B.
+
+Reflejan de manera exacta el comportamiento de un dispositivo real en términos de consumo de batería.
+C.
+
+No requieren configuración adicional y funcionan sin necesidad de instalar software adicional.
+D.
+
+Son más rápidos que los dispositivos físicos para evaluar el rendimiento en condiciones reales.
+6.
+¿Cuál de las siguientes herramientas permite probar aplicaciones web en múltiples dispositivos reales sin necesidad de tenerlos físicamente?
+-
+
+No lo sé.
+A.
+
+Google Lighthouse
+B.
+
+BrowserStack
+C.
+
+UXCam
+D.
+
+Android Studio
+7.
+¿Cuál es el objetivo principal de las pruebas de compatibilidad en distintos navegadores?
+-
+
+No lo sé.
+A.
+
+Garantizar que la aplicación web funcione correctamente en diferentes navegadores y dispositivos.
+B.
+
+Reducir el número de navegadores en los que se ejecutará la aplicación.
+C.
+
+Asegurar que la aplicación solo funcione en Google Chrome.
+D.
+
+Permitir que los usuarios personalicen la apariencia de la web según su navegador.
+8.
+¿Qué tecnología de CSS permite definir estilos específicos según el ancho del dispositivo?
+-
+
+No lo sé.
+A.
+
+Flexbox
+B.
+
+Grid Layout
+C.
+
+Media Queries
+D.
+
+Bootstrap
+9.
+¿Qué estrategia ayuda a mitigar problemas de compatibilidad en entornos web, móvil y escritorio?
+-
+
+No lo sé.
+A.
+
+Usar solo un navegador o dispositivo para realizar pruebas y ahorrar tiempo.
+B.
+
+Optimizar el software solo para la última versión de cada sistema operativo.
+C.
+
+Implementar diseño responsivo con frameworks como Bootstrap o Material Design.
+D.
+
+Evitar la automatización de pruebas para que los testers puedan detectar errores manualmente.
+10.
+¿Cuál de las siguientes opciones describe correctamente la estructura básica de una aplicación en Kivy?
+-
+
+No lo sé.
+A.
+
+Se compone exclusivamente de archivos en formato JSON para definir la interfaz gráfica.
+B.
+
+Utiliza exclusivamente código en C++ para desarrollar la lógica de la aplicación.
+C.
+
+Se basa en una combinación de código Python para la lógica y archivos KV opcionales para la interfaz gráfica.
+D.
+
+Solo permite el uso de bases de datos locales sin posibilidad de conexión a APIs REST.
+11.
+¿Cuál es uno de los principales desafíos en la validación de software en entornos móviles?
+-
+
+No lo sé.
+A.
+
+La falta de compatibilidad con sistemas operativos de escritorio.
+B.
+
+La adaptación a distintos tamaños de pantalla, resoluciones y consumo de batería.
+C.
+
+La necesidad de escribir código completamente diferente para cada plataforma.
+D.
+
+La imposibilidad de realizar pruebas automatizadas en dispositivos físicos.
+12.
+¿Por qué es útil Appium en la automatización de pruebas móviles?
+-
+
+No lo sé.
+A.
+
+Solo permite realizar pruebas en aplicaciones nativas de Android.
+B.
+
+Es exclusivo para pruebas manuales en dispositivos físicos.
+C.
+
+Funciona únicamente en aplicaciones web y no en móviles.
+D.
+
+Es compatible con Android e iOS, permite escribir pruebas en varios lenguajes y simula interacciones del usuario.
+13.
+¿Cuál es una de las principales ventajas de la arquitectura de microservicios en comparación con la monolítica?
+-
+
+No lo sé.
+A.
+
+Es más sencilla de desarrollar y desplegar en proyectos pequeños.
+B.
+
+Reduce la necesidad de comunicación entre servicios al estar todo en un solo código fuente.
+C.
+
+Facilita el mantenimiento, pero dificulta la escalabilidad de la aplicación.
+D.
+
+Permite escalabilidad y mantenimiento modular al dividir la aplicación en servicios independientes.
+14.
+¿Qué diferencia a Material Design de Bootstrap?
+-
+
+No lo sé.
+A.
+
+Bootstrap se centra en el uso de animaciones y efectos visuales avanzados, mientras que Material Design no.
+B.
+
+Material Design es menos estructurado y ofrece mayor flexibilidad en la personalización.
+C.
+
+Material Design sigue un enfoque basado en tarjetas, animaciones y jerarquía visual definidos por Google.
+D.
+
+Bootstrap no permite la creación de interfaces adaptativas y responsivas.
+15.
+¿Por qué es importante la validación multiplataforma en el desarrollo de software moderno?
+-
+
+No lo sé.
+A.
+
+Garantiza que el software funcione correctamente en diferentes dispositivos y sistemas operativos.
+B.
+
+Permite eliminar la necesidad de realizar pruebas de compatibilidad antes del lanzamiento.
+C.
+
+Reduce el tiempo de desarrollo eliminando la adaptación a distintas plataformas.
+D.
+
+Solo es relevante para aplicaciones móviles y no para aplicaciones web.
+16.
+¿Cuál es el principal objetivo del diseño responsive en el desarrollo web?
+-
+
+No lo sé.
+A.
+
+Garantizar que una aplicación se adapte automáticamente a diferentes tamaños de pantalla y dispositivos.
+B.
+
+Diseñar una versión separada del sitio web para cada tipo de dispositivo.
+C.
+
+Evitar el uso de CSS y utilizar solo HTML para definir la estructura del sitio.
+D.
+
+Crear sitios web estáticos que solo funcionen en resoluciones específicas.
+17.
+¿Cuál es una de las principales características de Bootstrap en el diseño responsive?
+-
+
+No lo sé.
+A.
+
+Utiliza un sistema de grillas flexible que facilita la adaptación a diferentes tamaños de pantalla.
+B.
+
+Está diseñado exclusivamente para aplicaciones móviles y no para sitios web.
+C.
+
+No permite la personalización de estilos mediante CSS y Sass.
+D.
+
+Se basa en principios de diseño de Google con énfasis en animaciones y realismo digital.
+18.
+¿Cuál es la principal ventaja del desarrollo nativo en comparación con los enfoques híbridos y multiplataforma?
+-
+
+No lo sé.
+A.
+
+Ofrece mejor rendimiento y acceso total a las funcionalidades del dispositivo.
+B.
+
+Requiere menos esfuerzo porque permite escribir una sola base de código para todas las plataformas.
+C.
+
+Utiliza tecnologías web como HTML, CSS y JavaScript para ejecutar la aplicación dentro de un contenedor nativo.
+D.
+
+Es más rápido de desarrollar en comparación con los frameworks multiplataforma.
+19.
+¿Qué herramienta se utiliza para empaquetar aplicaciones Kivy en archivos APK para Android?
+-
+
+No lo sé.
+A.
+
+Xcode
+B.
+
+Buildozer
+C.
+
+Selenium
+D.
+
+Firebase
+20.
+¿Cuál es uno de los principales retos en la validación multiplataforma?
+-
+
+No lo sé.
+A.
+
+Facilitar la ejecución del software en un solo entorno sin necesidad de adaptaciones.
+B.
+
+Garantizar que las aplicaciones móviles no necesiten ajustes para cada sistema operativo.
+C.
+
+Asegurar que las pruebas se ejecuten solo en dispositivos de última generación.
+D.
+
+Manejar diferencias en navegadores, sistemas operativos y consumo de recursos en distintos dispositivos.
+ 

@@ -1,0 +1,468 @@
+{
+  "subject": "hci",
+  "theme": 6,
+  "source": "contenidos/HCItests/6.txt",
+  "count": 20,
+  "questions": [
+    {
+      "number": 1,
+      "question": "Una consideración clave al usar multimedia es:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Asegurar que el multimedia sea el protagonista absoluto."
+        },
+        {
+          "key": "B",
+          "text": "Usar la mayor cantidad de efectos posibles."
+        },
+        {
+          "key": "C",
+          "text": "Ignorar las necesidades del usuario."
+        },
+        {
+          "key": "D",
+          "text": "Balancear el contenido multimedia con la funcionalidad y la usabilidad."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 2,
+      "question": "Para la accesibilidad, los elementos multimedia deben:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No ser usados para no complicar la interfaz."
+        },
+        {
+          "key": "B",
+          "text": "Proveer alternativas como subtítulos para videos y transcripciones para el audio."
+        },
+        {
+          "key": "C",
+          "text": "Solo depender de la vista."
+        },
+        {
+          "key": "D",
+          "text": "Ser exclusivamente interactivos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 3,
+      "question": "El feedback sonoro en interfaces es útil para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo usuarios con discapacidad visual."
+        },
+        {
+          "key": "B",
+          "text": "Solo en entornos de producción musical."
+        },
+        {
+          "key": "C",
+          "text": "Aumentar el ruido ambiental."
+        },
+        {
+          "key": "D",
+          "text": "Confirmar acciones, alertar sobre errores o notificaciones, mejorando la accesibilidad."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 4,
+      "question": "El uso de audio en interfaces debe considerar:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la calidad del sonido."
+        },
+        {
+          "key": "B",
+          "text": "La accesibilidad, el rendimiento y la experiencia del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Que todos los usuarios prefieren el sonido alto."
+        },
+        {
+          "key": "D",
+          "text": "Ignorar los requisitos de hardware."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 5,
+      "question": "La optimización de elementos multimedia en interfaces implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo enfocarse en la estética."
+        },
+        {
+          "key": "B",
+          "text": "Asegurar que no afecten negativamente la velocidad y respuesta de la interfaz."
+        },
+        {
+          "key": "C",
+          "text": "Ignorar el rendimiento del sistema."
+        },
+        {
+          "key": "D",
+          "text": "Usar la mayor cantidad de multimedia posible."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 6,
+      "question": "Los videos en interfaces son útiles para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo fines publicitarios."
+        },
+        {
+          "key": "B",
+          "text": "Reducir la interactividad."
+        },
+        {
+          "key": "C",
+          "text": "Mostrar cómo usar una aplicación, explicar conceptos o contenido informativo/educativo."
+        },
+        {
+          "key": "D",
+          "text": "Solo en plataformas de streaming."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 7,
+      "question": "La relevancia de los elementos multimedia implica:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Usar multimedia sin un propósito específico."
+        },
+        {
+          "key": "B",
+          "text": "Asegurar que cada elemento multimedia sirva a un propósito claro en la experiencia del usuario."
+        },
+        {
+          "key": "C",
+          "text": "Incluir todos los tipos de multimedia disponibles."
+        },
+        {
+          "key": "D",
+          "text": "Evitar el uso de multimedia."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 8,
+      "question": "La narración o voz en interfaces se utiliza para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo en aplicaciones educativas."
+        },
+        {
+          "key": "B",
+          "text": "Tutoriales, asistencia por voz o leer contenido en voz alta, mejorando la usabilidad y accesibilidad."
+        },
+        {
+          "key": "C",
+          "text": "Aumentar el uso de datos."
+        },
+        {
+          "key": "D",
+          "text": "Sustituir completamente el texto escrito."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 9,
+      "question": "La iconografía en una interfaz de usuario se utiliza para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Complicar la navegación."
+        },
+        {
+          "key": "B",
+          "text": "Simplificar la comunicación de conceptos complejos."
+        },
+        {
+          "key": "C",
+          "text": "Solo fines decorativos."
+        },
+        {
+          "key": "D",
+          "text": "Ocupar espacio en la pantalla."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 10,
+      "question": "Las imágenes en las interfaces sirven para:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo ilustrar el contenido."
+        },
+        {
+          "key": "B",
+          "text": "Incrementar la carga de trabajo del servidor."
+        },
+        {
+          "key": "C",
+          "text": "Ilustrar contenido, crear conexión emocional y hacer la interfaz más atractiva."
+        },
+        {
+          "key": "D",
+          "text": "Evitar la necesidad de texto."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 11,
+      "question": "El uso de multimedia en HCI mejora:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Solo la velocidad de procesamiento."
+        },
+        {
+          "key": "B",
+          "text": "La experiencia del usuario haciéndola más intuitiva, atractiva y efectiva."
+        },
+        {
+          "key": "C",
+          "text": "La durabilidad del hardware."
+        },
+        {
+          "key": "D",
+          "text": "La seguridad del sistema."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 12,
+      "question": "El uso de ambiente y música en aplicaciones:",
+      "options": [
+        {
+          "key": "A",
+          "text": "No tiene impacto en la experiencia del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Puede crear un ambiente, afectar el estado de ánimo o aumentar la inmersión."
+        },
+        {
+          "key": "C",
+          "text": "Solo es para aplicaciones de entretenimiento."
+        },
+        {
+          "key": "D",
+          "text": "Es innecesario en interfaces de usuario."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 13,
+      "question": "El uso de multimedia en HCI puede ser inefectivo si:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Está bien integrado con la experiencia del usuario."
+        },
+        {
+          "key": "B",
+          "text": "No se optimiza para el rendimiento, accesibilidad o relevancia."
+        },
+        {
+          "key": "C",
+          "text": "Todos los usuarios tienen conexiones rápidas."
+        },
+        {
+          "key": "D",
+          "text": "Solo se usan imágenes estáticas."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 14,
+      "question": "La integración de video en una interfaz requiere:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Evitar subtítulos para mantener el diseño limpio."
+        },
+        {
+          "key": "B",
+          "text": "Que todos los videos sean en alta definición."
+        },
+        {
+          "key": "C",
+          "text": "Considerar la compatibilidad, accesibilidad y el rendimiento."
+        },
+        {
+          "key": "D",
+          "text": "Solo para usuarios con conexiones de alta velocidad."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 15,
+      "question": "El diseño de interacción con elementos multimedia debe ser:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Complicado para desafiar al usuario."
+        },
+        {
+          "key": "B",
+          "text": "Intuitivo y mejorar la usabilidad."
+        },
+        {
+          "key": "C",
+          "text": "Solo automático."
+        },
+        {
+          "key": "D",
+          "text": "Exclusivamente táctil."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 16,
+      "question": "La consistencia en el estilo de los elementos multimedia:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Debe ser coherente con el diseño general de la interfaz para una experiencia unificada."
+        },
+        {
+          "key": "B",
+          "text": "No es importante."
+        },
+        {
+          "key": "C",
+          "text": "Solo se aplica al color."
+        },
+        {
+          "key": "D",
+          "text": "Es solo para profesionales del diseño."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 17,
+      "question": "La animación en interfaces debe:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ser constante para mantener la atención del usuario."
+        },
+        {
+          "key": "B",
+          "text": "Ser utilizada de manera estratégica para guiar y proporcionar feedback."
+        },
+        {
+          "key": "C",
+          "text": "Evitarse porque distrae."
+        },
+        {
+          "key": "D",
+          "text": "Solo ser usada en juegos."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 18,
+      "question": "Gráficos de datos como gráficos y diagramas ayudan a:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Ocultar información importante."
+        },
+        {
+          "key": "B",
+          "text": "Visualizar información compleja de manera comprensible."
+        },
+        {
+          "key": "C",
+          "text": "Solo para usuarios avanzados."
+        },
+        {
+          "key": "D",
+          "text": "Desviar la atención del usuario."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 19,
+      "question": "Para interfaces móviles, los elementos multimedia deben ser:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Iguales que en la versión de escritorio sin ajustes."
+        },
+        {
+          "key": "B",
+          "text": "Optimizados para pantallas pequeñas y conexiones variadas, asegurando rendimiento y accesibilidad."
+        },
+        {
+          "key": "C",
+          "text": "Totalmente eliminados para mejorar la velocidad."
+        },
+        {
+          "key": "D",
+          "text": "Solo en aplicaciones de entretenimiento."
+        }
+      ],
+      "answer": "B"
+    },
+    {
+      "number": 20,
+      "question": "Las animaciones en una interfaz de usuario pueden:",
+      "options": [
+        {
+          "key": "A",
+          "text": "Confundir al usuario."
+        },
+        {
+          "key": "B",
+          "text": "Guía al usuario a través de la interfaz, indicar cambios de estado o proporcionar feedback visual."
+        },
+        {
+          "key": "C",
+          "text": "No tienen ningún propósito."
+        },
+        {
+          "key": "D",
+          "text": "Solo se usan en juegos."
+        }
+      ],
+      "answer": "B"
+    }
+  ]
+}
