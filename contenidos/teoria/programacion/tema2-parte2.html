@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Tema 2: Metodologías y Principios de Desarrollo - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .programming-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .scrum-role {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .kanban-column {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem;
+            text-align: center;
+        }
+        
+        .devops-practice {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+            border: 1px solid #28a745;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación
+            </a>
+            
+            <span class="navbar-text">
+                Tema 2: Metodologías y Principios - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-light me-2" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <span class="navbar-text timer-display" id="timer-display">Teoría</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid">
+        <div class="programming-hero">
+            <div class="container">
+                <h1 class="display-4 mb-3">
+                    <i class="bi bi-diagram-3 me-3"></i>
+                    Metodologías Específicas
+                </h1>
+                <p class="lead mb-4">Parte 2: Scrum • Kanban • DevOps • Metodologías Híbridas</p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-book me-1"></i>Tema 2 - Parte 2
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-clock me-1"></i>35 min lectura
+                        </span>
+                        <span class="badge bg-light text-dark fs-6">
+                            <i class="bi bi-gear-wide-connected me-1"></i>Frameworks
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#scrum">Scrum Framework</a>
+                                <a class="nav-link" href="#scrum-eventos">Eventos Scrum</a>
+                                <a class="nav-link" href="#kanban">Kanban</a>
+                                <a class="nav-link" href="#devops">DevOps</a>
+                                <a class="nav-link" href="#metodologias-hibridas">Metodologías Híbridas</a>
+                                <a class="nav-link" href="#eleccion">Elegir Metodología</a>
+                                <a class="nav-link" href="#conclusion">Conclusión</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Scrum Framework -->
+                <section id="scrum" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Scrum Framework
+                    </h2>
+                    
+                    <p class="lead">Scrum es el <strong>framework ágil más popular</strong>, que organiza el trabajo en ciclos cortos llamados Sprints con roles, eventos y artefactos bien definidos.</p>
+                    
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-diagram-3 me-2"></i>Los 3 Roles de Scrum</h4>
+                        <p class="mb-0">Cada rol tiene responsabilidades específicas y complementarias</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-person-badge me-2 text-primary"></i>Product Owner</h5>
+                                <p><strong>El "qué" del producto</strong></p>
+                                <ul class="mb-0">
+                                    <li>Define el Product Backlog</li>
+                                    <li>Prioriza funcionalidades</li>
+                                    <li>Acepta o rechaza entregables</li>
+                                    <li>Representa la voz del cliente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-people me-2 text-success"></i>Development Team</h5>
+                                <p><strong>El "cómo" del producto</strong></p>
+                                <ul class="mb-0">
+                                    <li>Auto-organizado (3-9 personas)</li>
+                                    <li>Cross-funcional</li>
+                                    <li>Entrega software funcionando</li>
+                                    <li>Estima y planifica su trabajo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-person-gear me-2 text-info"></i>Scrum Master</h5>
+                                <p><strong>El facilitador del proceso</strong></p>
+                                <ul class="mb-0">
+                                    <li>Facilita eventos Scrum</li>
+                                    <li>Elimina impedimentos</li>
+                                    <li>Protege al equipo</li>
+                                    <li>Enseña prácticas ágiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-clock me-2"></i>Sprint: El Corazón de Scrum</h4>
+                        <p class="mb-0">Un <strong>Sprint</strong> es un período de tiempo fijo (1-4 semanas) donde el equipo crea un incremento de producto potencialmente liberable.</p>
+                    </div>
+                </section>
+
+                <!-- Eventos Scrum -->
+                <section id="scrum-eventos" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-calendar-event me-2"></i>
+                        Eventos Scrum
+                    </h2>
+
+                    <p>Scrum define <strong>5 eventos principales</strong> que proporcionan estructura y oportunidades de inspección y adaptación.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-calendar-plus me-2"></i>Sprint Planning</h5>
+                                <p><strong>Duración:</strong> 8h para Sprint de 4 semanas</p>
+                                <ul class="mb-0">
+                                    <li>¿Qué se puede entregar?</li>
+                                    <li>¿Cómo se hará el trabajo?</li>
+                                    <li>Crear Sprint Backlog</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-chat-dots me-2"></i>Daily Scrum</h5>
+                                <p><strong>Duración:</strong> 15 minutos máximo</p>
+                                <ul class="mb-0">
+                                    <li>¿Qué hice ayer?</li>
+                                    <li>¿Qué haré hoy?</li>
+                                    <li>¿Qué impedimentos tengo?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-eye me-2"></i>Sprint Review</h5>
+                                <p><strong>Duración:</strong> 4h para Sprint de 4 semanas</p>
+                                <ul class="mb-0">
+                                    <li>Demostrar trabajo completado</li>
+                                    <li>Obtener feedback del Product Owner</li>
+                                    <li>Adaptar Product Backlog</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-arrow-clockwise me-2"></i>Sprint Retrospective</h5>
+                                <p><strong>Duración:</strong> 3h para Sprint de 4 semanas</p>
+                                <ul class="mb-0">
+                                    <li>¿Qué salió bien?</li>
+                                    <li>¿Qué se puede mejorar?</li>
+                                    <li>Plan de mejora para el próximo Sprint</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-calendar-week me-2"></i>Ejemplo de cronograma Sprint de 2 semanas:</h6>
+                        <pre>Lunes Semana 1: Sprint Planning (4h)
+Lunes-Viernes: Daily Scrum (15min diarios)
+Viernes Semana 2: Sprint Review (2h) + Retrospective (1.5h)</pre>
+                    </div>
+                </section>
+
+                <!-- Kanban -->
+                <section id="kanban" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-kanban me-2"></i>
+                        Metodología Kanban
+                    </h2>
+
+                    <p>Kanban se centra en la <strong>visualización del flujo de trabajo</strong> y la mejora continua, sin prescribir roles o eventos específicos.</p>
+
+                    <h3>Principios Fundamentales de Kanban</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-eye me-2"></i>Visualizar el Trabajo</h5>
+                                <p>Hacer visible todo el trabajo y su estado</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-speedometer2 me-2"></i>Limitar WIP</h5>
+                                <p>Work In Progress limitado mejora el flujo</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-graph-up me-2"></i>Gestionar el Flujo</h5>
+                                <p>Optimizar la velocidad de entrega</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-arrow-clockwise me-2"></i>Mejora Continua</h5>
+                                <p>Experimentar y evolucionar constantemente</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="mt-4">Tablero Kanban Típico</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="kanban-column">
+                                <h6><i class="bi bi-inbox me-2"></i>Backlog</h6>
+                                <p class="mb-0">Ideas y tareas pendientes</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="kanban-column">
+                                <h6><i class="bi bi-play me-2"></i>En Progreso</h6>
+                                <p class="mb-0">Trabajo activo (WIP: 3)</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="kanban-column">
+                                <h6><i class="bi bi-eye me-2"></i>En Revisión</h6>
+                                <p class="mb-0">Esperando feedback</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="kanban-column">
+                                <h6><i class="bi bi-check-circle me-2"></i>Completado</h6>
+                                <p class="mb-0">Tareas terminadas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Ventaja de Kanban</h4>
+                        <p class="mb-0">Kanban es más <strong>flexible</strong> que Scrum y se puede implementar gradualmente sobre procesos existentes.</p>
+                    </div>
+                </section>
+
+                <!-- DevOps -->
+                <section id="devops" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-infinity me-2"></i>
+                        DevOps: Desarrollo + Operaciones
+                    </h2>
+
+                    <p>DevOps es una <strong>cultura y conjunto de prácticas</strong> que une el desarrollo de software (Dev) con las operaciones de TI (Ops).</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-target me-2"></i>Objetivos de DevOps</h4>
+                        <ul class="mb-0">
+                            <li><strong>Acelerar</strong> la entrega de software</li>
+                            <li><strong>Mejorar</strong> la calidad y confiabilidad</li>
+                            <li><strong>Automatizar</strong> procesos repetitivos</li>
+                            <li><strong>Fomentar</strong> la colaboración entre equipos</li>
+                        </ul>
+                    </div>
+
+                    <h3>Prácticas Clave de DevOps</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="devops-practice">
+                                <h5><i class="bi bi-git me-2"></i>Integración Continua (CI)</h5>
+                                <p>Mergear código frecuentemente con <strong>testing automático</strong></p>
+                                <div class="code-example">
+                                    <small>git push → tests automáticos → merge si todo pasa</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="devops-practice">
+                                <h5><i class="bi bi-rocket me-2"></i>Despliegue Continuo (CD)</h5>
+                                <p><strong>Automatizar</strong> el despliegue a producción</p>
+                                <div class="code-example">
+                                    <small>código aprobado → deploy automático → monitoreo</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="devops-practice">
+                                <h5><i class="bi bi-code-square me-2"></i>Infrastructure as Code</h5>
+                                <p>Gestionar infraestructura mediante <strong>código versionado</strong></p>
+                                <div class="code-example">
+                                    <small>Terraform, Docker, Kubernetes para configurar servidores</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="devops-practice">
+                                <h5><i class="bi bi-graph-up me-2"></i>Monitoring y Observabilidad</h5>
+                                <p><strong>Monitorear</strong> aplicaciones en tiempo real</p>
+                                <div class="code-example">
+                                    <small>Logs, métricas, alertas para detectar problemas rápidamente</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Metodologías Híbridas -->
+                <section id="metodologias-hibridas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-puzzle me-2"></i>
+                        Metodologías Híbridas
+                    </h2>
+
+                    <p>Las organizaciones modernas combinan elementos de diferentes metodologías para crear <strong>enfoques personalizados</strong> que se adapten a sus necesidades específicas.</p>
+
+                    <h3>Ejemplos de Combinaciones Populares</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="methodology-comparison border-success">
+                                <h5><i class="bi bi-puzzle-fill me-2 text-success"></i>Scrum + Kanban (Scrumban)</h5>
+                                <ul>
+                                    <li><strong>Sprints</strong> de Scrum para ritmo</li>
+                                    <li><strong>Tablero visual</strong> de Kanban</li>
+                                    <li><strong>Límites WIP</strong> para optimizar flujo</li>
+                                    <li><strong>Retrospectivas</strong> para mejora continua</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="methodology-comparison border-info">
+                                <h5><i class="bi bi-diagram-2 me-2 text-info"></i>Agile + Waterfall</h5>
+                                <ul>
+                                    <li><strong>Requisitos</strong> definidos inicialmente</li>
+                                    <li><strong>Desarrollo iterativo</strong> dentro de fases</li>
+                                    <li><strong>Testing continuo</strong> durante desarrollo</li>
+                                    <li><strong>Entrega incremental</strong> de funcionalidades</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="methodology-comparison border-warning">
+                                <h5><i class="bi bi-infinity me-2 text-warning"></i>DevOps + Scrum</h5>
+                                <ul>
+                                    <li><strong>Sprints</strong> para organizar desarrollo</li>
+                                    <li><strong>CI/CD pipeline</strong> para automatización</li>
+                                    <li><strong>Monitoring</strong> integrado en Definition of Done</li>
+                                    <li><strong>Colaboración</strong> Dev-Ops en el equipo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="methodology-comparison border-danger">
+                                <h5><i class="bi bi-gear-wide-connected me-2 text-danger"></i>SAFe (Scaled Agile)</h5>
+                                <ul>
+                                    <li><strong>Múltiples equipos</strong> Scrum coordinados</li>
+                                    <li><strong>Program Increment</strong> (8-12 semanas)</li>
+                                    <li><strong>Arquitectura</strong> y planning a gran escala</li>
+                                    <li><strong>Value Streams</strong> end-to-end</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Elección de Metodología -->
+                <section id="eleccion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-question-circle me-2"></i>
+                        ¿Cómo Elegir la Metodología Correcta?
+                    </h2>
+
+                    <p>La elección depende de múltiples factores del proyecto, equipo y organización. <strong>No existe una metodología perfecta</strong> para todos los casos.</p>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-success">
+                                <tr>
+                                    <th><i class="bi bi-list me-2"></i>Factor</th>
+                                    <th><i class="bi bi-building me-2"></i>Waterfall</th>
+                                    <th><i class="bi bi-people me-2"></i>Scrum</th>
+                                    <th><i class="bi bi-kanban me-2"></i>Kanban</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Tamaño del Equipo</strong></td>
+                                    <td>Grande (10+ personas)</td>
+                                    <td>Mediano (3-9 personas)</td>
+                                    <td>Cualquier tamaño</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Estabilidad de Requisitos</strong></td>
+                                    <td>Muy estables</td>
+                                    <td>Moderadamente cambiantes</td>
+                                    <td>Altamente cambiantes</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Complejidad del Proyecto</strong></td>
+                                    <td>Baja-Media</td>
+                                    <td>Media-Alta</td>
+                                    <td>Media</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Experiencia del Equipo</strong></td>
+                                    <td>Baja en agilidad</td>
+                                    <td>Media-Alta en colaboración</td>
+                                    <td>Alta en auto-gestión</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Frecuencia de Entrega</strong></td>
+                                    <td>Una gran entrega</td>
+                                    <td>Cada 1-4 semanas</td>
+                                    <td>Continua cuando esté listo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-compass me-2"></i>Guía de Decisión</h4>
+                        <ul class="mb-0">
+                            <li><strong>Waterfall:</strong> Proyectos con requisitos fijos y regulaciones estrictas</li>
+                            <li><strong>Scrum:</strong> Productos nuevos con equipos colaborativos</li>
+                            <li><strong>Kanban:</strong> Mantenimiento o mejoras continuas</li>
+                            <li><strong>Híbrida:</strong> Organizaciones grandes con múltiples restricciones</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Conclusión -->
+                <section id="conclusion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-check-circle me-2"></i>
+                        Conclusión del Tema 2
+                    </h2>
+
+                    <p class="lead">Las metodologías de desarrollo son <strong>herramientas al servicio del equipo</strong>, no reglas absolutas que limiten la creatividad.</p>
+
+                    <div class="success-box">
+                        <h4><i class="bi bi-trophy me-2"></i>Puntos Clave del Tema</h4>
+                        <ul>
+                            <li><strong>Waterfall</strong> funciona bien con requisitos estables y proyectos predecibles</li>
+                            <li><strong>Agile</strong> es superior para productos innovadores y equipos colaborativos</li>
+                            <li><strong>Scrum</strong> proporciona estructura con flexibilidad</li>
+                            <li><strong>Kanban</strong> optimiza el flujo de trabajo continuo</li>
+                            <li><strong>DevOps</strong> integra desarrollo con operaciones</li>
+                            <li><strong>Enfoques híbridos</strong> combinan lo mejor de cada metodología</li>
+                        </ul>
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-arrow-right me-2"></i>Próximo Tema</h5>
+                                <p class="mb-0">En el <strong>Tema 3</strong> exploraremos la Ingeniería de Requisitos en profundidad.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-role">
+                                <h5><i class="bi bi-question-circle me-2"></i>Evaluación</h5>
+                                <p class="mb-0">El quiz incluye preguntas sobre todas las metodologías cubiertas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema2.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 2 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema3.html" class="btn btn-outline-success">
+                            Tema 3: Requisitos
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion2" class="btn btn-success floating-quiz-btn" title="Quiz Tema 2">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 2: Metodologías y Principios - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

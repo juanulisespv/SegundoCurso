@@ -1,0 +1,1879 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 10: Validación y Verificación (Testing) - Programación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 0;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+            height: 2px;
+            margin: 3rem 0;
+        }
+        .concept-card {
+            border-left: 4px solid #667eea;
+            background-color: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .highlight-box {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #2196f3;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .nav-buttons .btn {
+            margin: 5px;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .quiz-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+        }
+        .quiz-button:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+            color: white;
+        }
+        .back-button {
+            background: linear-gradient(45deg, #3742fa, #2f3542);
+            color: white;
+            border: none;
+        }
+        .back-button:hover {
+            background: linear-gradient(45deg, #2f3542, #3742fa);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(47, 53, 66, 0.4);
+            color: white;
+        }
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .methodology-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .methodology-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .icon-large {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e83e8c;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .alert-custom {
+            border-radius: 10px;
+            border: none;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .alert-info-custom {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            color: #0d47a1;
+        }
+        .alert-warning-custom {
+            background: linear-gradient(45deg, #fff3e0, #f3e5f5);
+            color: #e65100;
+        }
+        .topic-navigation {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        .breadcrumb-custom {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-custom .breadcrumb-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .breadcrumb-custom .breadcrumb-item.active {
+            color: #f8f9fa;
+        }
+        .testing-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .testing-type-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 6px solid #28a745;
+            transition: all 0.3s ease;
+        }
+        .testing-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .testing-type-card h4 {
+            color: #28a745;
+            margin-bottom: 1rem;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #6c757d;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .tool-card h5 {
+            color: #495057;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item active" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-bug me-3"></i>
+                        Validación y Verificación (Testing)
+                    </h1>
+                    <p class="lead mb-4">
+                        Domina las metodologías y técnicas esenciales para garantizar la calidad del software mediante pruebas efectivas, automatización y estrategias de testing en entornos CI/CD.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-check-circle me-2"></i>Validación vs Verificación
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-cogs me-2"></i>Pruebas Automatizadas
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-shield-alt me-2"></i>Testing de Seguridad
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-rocket me-2"></i>CI/CD Integration
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-vial display-1 text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-list-ul me-2"></i>
+                                Índice del Tema
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#conceptos-basicos">Conceptos Básicos</a>
+                                <a class="nav-link" href="#tipos-pruebas">Tipos de Pruebas</a>
+                                <a class="nav-link" href="#automatizacion">Automatización</a>
+                                <a class="nav-link" href="#herramientas">Herramientas</a>
+                                <a class="nav-link" href="#metodologias">Metodologías</a>
+                                <a class="nav-link" href="#ejercicios">Ejercicios</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+        
+        <!-- Introducción -->
+        <section id="introduccion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-play-circle me-3"></i>
+                Introducción a la Validación y Verificación
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h5><i class="fas fa-lightbulb me-2"></i>Conceptos Fundamentales</h5>
+                <p class="mb-0">La <strong>validación y verificación</strong> son procesos críticos en el desarrollo de software que garantizan que el sistema cumple con los requisitos especificados y satisface las necesidades del usuario final.</p>
+            </div>
+
+            <!-- Definición y Diferencias -->
+            <div class="row mt-4">
+                <div class="col-lg-6">
+                    <div class="concept-card p-4 h-100">
+                        <h4><i class="fas fa-clipboard-check text-success me-2"></i>Verificación</h4>
+                        <p><strong>¿Estamos construyendo el producto correctamente?</strong></p>
+                        <p>Proceso de evaluación para determinar si el software cumple con las especificaciones y requisitos técnicos definidos durante el análisis y diseño.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Revisión de código</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Inspecciones técnicas</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Análisis estático</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Cumplimiento de estándares</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="concept-card p-4 h-100">
+                        <h4><i class="fas fa-user-check text-primary me-2"></i>Validación</h4>
+                        <p><strong>¿Estamos construyendo el producto correcto?</strong></p>
+                        <p>Proceso de evaluación para confirmar que el software satisface las necesidades y expectativas del usuario final en el entorno real de uso.</p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-primary me-2"></i>Pruebas de usuario</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Pruebas de aceptación</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Validación de requisitos</li>
+                            <li><i class="fas fa-check text-primary me-2"></i>Experiencia de usuario</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Importancia del Testing -->
+            <div class="highlight-box mt-4">
+                <h4><i class="fas fa-star me-2"></i>Importancia del Testing en el Ciclo de Vida del Software</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Beneficios de la Detección Temprana</h5>
+                        <ul>
+                            <li><strong>Reducción de costos:</strong> Corregir errores en fases tempranas es significativamente más económico</li>
+                            <li><strong>Mayor calidad:</strong> Prevención de defectos críticos en producción</li>
+                            <li><strong>Mejor rendimiento:</strong> Optimización desde el desarrollo inicial</li>
+                            <li><strong>Satisfacción del usuario:</strong> Entrega de software más confiable</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Costos de Errores por Fase</h5>
+                        <div class="alert alert-warning-custom">
+                            <ul class="mb-0">
+                                <li><strong>Fase de Diseño:</strong> 1x costo base</li>
+                                <li><strong>Fase de Desarrollo:</strong> 5x costo base</li>
+                                <li><strong>Fase de Pruebas:</strong> 10x costo base</li>
+                                <li><strong>Fase de Producción:</strong> 50x-100x costo base</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Tipos de Pruebas -->
+        <section id="tipos-pruebas" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-list-alt me-3"></i>
+                Tipos de Pruebas
+            </h2>
+
+            <!-- Pruebas Funcionales -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-cog me-2"></i>
+                    Pruebas Funcionales
+                </h3>
+                <p class="lead">Las pruebas funcionales verifican que el software realice las funciones especificadas en los requisitos.</p>
+
+                <div class="testing-types-grid">
+                    <!-- Pruebas Unitarias -->
+                    <div class="testing-type-card">
+                        <h4><i class="fas fa-puzzle-piece text-info me-2"></i>Pruebas Unitarias</h4>
+                        <p><strong>Objetivo:</strong> Validar el funcionamiento de módulos individuales o componentes aislados del sistema.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li>Se ejecutan de forma aislada</li>
+                            <li>Rápidas y automatizables</li>
+                            <li>Detectan errores en lógica específica</li>
+                            <li>Base para pruebas de regresión</li>
+                        </ul>
+
+                        <h5>Ejemplo Práctico:</h5>
+                        <pre><code># Función a probar
+def calcular_descuento(precio, porcentaje):
+    if precio <= 0 or porcentaje < 0:
+        return 0
+    return precio * (porcentaje / 100)
+
+# Prueba unitaria con PyTest
+def test_calcular_descuento():
+    assert calcular_descuento(100, 10) == 10
+    assert calcular_descuento(0, 10) == 0
+    assert calcular_descuento(100, -5) == 0</code></pre>
+                    </div>
+
+                    <!-- Pruebas de Integración -->
+                    <div class="testing-type-card">
+                        <h4><i class="fas fa-link text-warning me-2"></i>Pruebas de Integración</h4>
+                        <p><strong>Objetivo:</strong> Verificar la correcta interacción entre diferentes módulos o componentes del sistema.</p>
+                        
+                        <h5>Tipos de Integración:</h5>
+                        <ul>
+                            <li><strong>Big Bang:</strong> Integración de todos los módulos simultáneamente</li>
+                            <li><strong>Incremental:</strong> Integración gradual por módulos</li>
+                            <li><strong>Top-Down:</strong> De módulos superiores a inferiores</li>
+                            <li><strong>Bottom-Up:</strong> De módulos inferiores a superiores</li>
+                        </ul>
+
+                        <h5>Ejemplo:</h5>
+                        <p>Probar la comunicación entre el módulo de autenticación y la base de datos de usuarios, verificando que el login funcione correctamente.</p>
+                    </div>
+
+                    <!-- Pruebas de Sistema -->
+                    <div class="testing-type-card">
+                        <h4><i class="fas fa-desktop text-danger me-2"></i>Pruebas de Sistema</h4>
+                        <p><strong>Objetivo:</strong> Evaluar el sistema completo e integrado para verificar que cumple con los requisitos especificados.</p>
+                        
+                        <h5>Aspectos Evaluados:</h5>
+                        <ul>
+                            <li>Funcionalidad completa del sistema</li>
+                            <li>Integración con sistemas externos</li>
+                            <li>Comportamiento bajo condiciones normales</li>
+                            <li>Cumplimiento de requisitos no funcionales</li>
+                        </ul>
+
+                        <div class="alert alert-info-custom">
+                            <strong>Nota:</strong> Estas pruebas se realizan en un entorno que simula el entorno de producción.
+                        </div>
+                    </div>
+
+                    <!-- Pruebas de Aceptación -->
+                    <div class="testing-type-card">
+                        <h4><i class="fas fa-thumbs-up text-success me-2"></i>Pruebas de Aceptación</h4>
+                        <p><strong>Objetivo:</strong> Confirmar que el software satisface las necesidades del negocio y está listo para ser entregado al usuario final.</p>
+                        
+                        <h5>Tipos:</h5>
+                        <ul>
+                            <li><strong>UAT (User Acceptance Testing):</strong> Realizadas por usuarios finales</li>
+                            <li><strong>BAT (Business Acceptance Testing):</strong> Validación de reglas de negocio</li>
+                            <li><strong>Alpha Testing:</strong> Pruebas internas antes del lanzamiento</li>
+                            <li><strong>Beta Testing:</strong> Pruebas con usuarios reales en entorno controlado</li>
+                        </ul>
+
+                        <div class="alert alert-warning-custom">
+                            <strong>Criterio de Aceptación:</strong> Conjunto de condiciones que debe cumplir el software para ser considerado aceptable.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pruebas No Funcionales -->
+            <div class="mb-5">
+                <h3 class="text-danger mb-4">
+                    <i class="fas fa-tachometer-alt me-2"></i>
+                    Pruebas No Funcionales
+                </h3>
+                <p class="lead">Las pruebas no funcionales evalúan aspectos como rendimiento, seguridad, usabilidad y compatibilidad del software.</p>
+
+                <div class="testing-types-grid">
+                    <!-- Pruebas de Rendimiento -->
+                    <div class="testing-type-card" style="border-left-color: #dc3545;">
+                        <h4><i class="fas fa-stopwatch text-danger me-2"></i>Pruebas de Rendimiento</h4>
+                        <p><strong>Objetivo:</strong> Evaluar la capacidad del sistema para manejar carga de trabajo y medir tiempos de respuesta.</p>
+                        
+                        <h5>Tipos de Pruebas de Carga:</h5>
+                        <ul>
+                            <li><strong>Carga Normal:</strong> Comportamiento bajo condiciones esperadas</li>
+                            <li><strong>Carga Pico:</strong> Máximo número de usuarios simultáneos</li>
+                            <li><strong>Estrés:</strong> Condiciones extremas para encontrar límites</li>
+                            <li><strong>Volumen:</strong> Grandes cantidades de datos</li>
+                        </ul>
+
+                        <h5>Métricas Clave:</h5>
+                        <ul>
+                            <li>Tiempo de respuesta promedio</li>
+                            <li>Throughput (transacciones por segundo)</li>
+                            <li>Uso de recursos (CPU, memoria, red)</li>
+                            <li>Tasa de errores bajo carga</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pruebas de Seguridad -->
+                    <div class="testing-type-card" style="border-left-color: #6f42c1;">
+                        <h4><i class="fas fa-shield-alt text-purple me-2"></i>Pruebas de Seguridad</h4>
+                        <p><strong>Objetivo:</strong> Identificar vulnerabilidades y asegurar que el sistema protege los datos y mantiene la funcionalidad como se diseñó.</p>
+                        
+                        <h5>Vulnerabilidades Comunes:</h5>
+                        <ul>
+                            <li><strong>Inyección SQL:</strong> Manipulación de consultas de base de datos</li>
+                            <li><strong>XSS (Cross-Site Scripting):</strong> Inyección de scripts maliciosos</li>
+                            <li><strong>Autenticación débil:</strong> Sistemas de login vulnerables</li>
+                            <li><strong>Exposición de datos:</strong> Información sensible accesible</li>
+                        </ul>
+
+                        <h5>Herramientas Especializadas:</h5>
+                        <ul>
+                            <li>OWASP ZAP - Análisis de vulnerabilidades web</li>
+                            <li>Burp Suite - Pentesting de APIs</li>
+                            <li>Nessus - Escaneo de vulnerabilidades</li>
+                        </ul>
+                    </div>
+
+                    <!-- Pruebas de Usabilidad -->
+                    <div class="testing-type-card" style="border-left-color: #20c997;">
+                        <h4><i class="fas fa-user-friends text-info me-2"></i>Pruebas de Usabilidad</h4>
+                        <p><strong>Objetivo:</strong> Evaluar la facilidad de uso, intuitividad y experiencia general del usuario con el software.</p>
+                        
+                        <h5>Aspectos Evaluados:</h5>
+                        <ul>
+                            <li><strong>Facilidad de aprendizaje:</strong> Tiempo para dominar el sistema</li>
+                            <li><strong>Eficiencia de uso:</strong> Rapidez para completar tareas</li>
+                            <li><strong>Memorabilidad:</strong> Facilidad para recordar el uso</li>
+                            <li><strong>Prevención de errores:</strong> Diseño que evita equivocaciones</li>
+                            <li><strong>Satisfacción:</strong> Experiencia agradable del usuario</li>
+                        </ul>
+
+                        <div class="alert alert-info-custom">
+                            <strong>Métodos:</strong> Pruebas con usuarios reales, análisis heurístico, eye-tracking, A/B testing.
+                        </div>
+                    </div>
+
+                    <!-- Pruebas de Compatibilidad -->
+                    <div class="testing-type-card" style="border-left-color: #fd7e14;">
+                        <h4><i class="fas fa-globe text-warning me-2"></i>Pruebas de Compatibilidad</h4>
+                        <p><strong>Objetivo:</strong> Verificar que el software funciona correctamente en diferentes entornos, navegadores, sistemas operativos y dispositivos.</p>
+                        
+                        <h5>Tipos de Compatibilidad:</h5>
+                        <ul>
+                            <li><strong>Navegadores:</strong> Chrome, Firefox, Safari, Edge</li>
+                            <li><strong>Sistemas Operativos:</strong> Windows, macOS, Linux</li>
+                            <li><strong>Dispositivos:</strong> Desktop, tablet, móvil</li>
+                            <li><strong>Versiones:</strong> Compatibilidad hacia atrás y adelante</li>
+                        </ul>
+
+                        <h5>Estándares de Accesibilidad:</h5>
+                        <ul>
+                            <li><strong>WCAG 2.1:</strong> Web Content Accessibility Guidelines</li>
+                            <li><strong>Section 508:</strong> Estándar estadounidense</li>
+                            <li><strong>EN 301 549:</strong> Estándar europeo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Metodologías de Testing -->
+        <section id="metodologias" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-sitemap me-3"></i>
+                Metodologías y Estrategias de Testing
+            </h2>
+
+            <!-- Pruebas Automatizadas vs Manuales -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-robot me-2"></i>
+                    Pruebas Automatizadas vs Manuales
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="methodology-card">
+                            <h4><i class="fas fa-cogs text-primary me-2"></i>Pruebas Automatizadas</h4>
+                            
+                            <h5>Características:</h5>
+                            <ul>
+                                <li><strong>Rapidez:</strong> Ejecución en segundos o minutos</li>
+                                <li><strong>Consistencia:</strong> Mismos pasos en cada ejecución</li>
+                                <li><strong>Eficiencia:</strong> Pueden ejecutarse 24/7</li>
+                                <li><strong>Regresión:</strong> Ideales para validar cambios</li>
+                                <li><strong>CI/CD:</strong> Integración en pipelines automáticos</li>
+                            </ul>
+
+                            <h5>Ventajas:</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Reduce tiempo de testing</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Elimina errores humanos</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Permite pruebas paralelas</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Documentación automática</li>
+                            </ul>
+
+                            <div class="alert alert-info-custom">
+                                <strong>Cuándo usar:</strong> Pruebas repetitivas, regresión, validación de APIs, pruebas de carga.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="methodology-card">
+                            <h4><i class="fas fa-user text-warning me-2"></i>Pruebas Manuales</h4>
+                            
+                            <h5>Características:</h5>
+                            <ul>
+                                <li><strong>Exploración:</strong> Descubrimiento de problemas inesperados</li>
+                                <li><strong>Usabilidad:</strong> Evaluación de experiencia de usuario</li>
+                                <li><strong>Flexibilidad:</strong> Adaptación durante la ejecución</li>
+                                <li><strong>Intuición:</strong> Detección de problemas sutiles</li>
+                                <li><strong>Casos únicos:</strong> Escenarios no automatizables</li>
+                            </ul>
+
+                            <h5>Ventajas:</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-warning me-2"></i>Detección de problemas de UX</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Flexibilidad en la ejecución</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Validación de aspectos subjetivos</li>
+                                <li><i class="fas fa-check text-warning me-2"></i>Menor inversión inicial</li>
+                            </ul>
+
+                            <div class="alert alert-warning-custom">
+                                <strong>Cuándo usar:</strong> Pruebas exploratorias, usabilidad, casos únicos, validación inicial.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Técnicas de Testing -->
+        <section id="tecnicas" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-microscope me-3"></i>
+                Técnicas de Testing
+            </h2>
+
+            <!-- Estrategias de Testing -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-chess me-2"></i>
+                    Estrategias de Testing
+                </h3>
+
+                <div class="methodology-grid">
+                    <!-- Testing Basado en Requisitos -->
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h4 class="text-center">Testing Basado en Requisitos</h4>
+                        <p><strong>Enfoque:</strong> Verificación sistemática del cumplimiento de especificaciones funcionales y no funcionales.</p>
+                        
+                        <h5>Proceso:</h5>
+                        <ol>
+                            <li>Análisis de requisitos funcionales</li>
+                            <li>Identificación de criterios de aceptación</li>
+                            <li>Diseño de casos de prueba específicos</li>
+                            <li>Validación de cumplimiento</li>
+                        </ol>
+
+                        <div class="alert alert-info-custom">
+                            <strong>Beneficio:</strong> Garantiza que todas las funcionalidades requeridas están implementadas correctamente.
+                        </div>
+                    </div>
+
+                    <!-- Testing Basado en Riesgos -->
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4 class="text-center">Testing Basado en Riesgos</h4>
+                        <p><strong>Enfoque:</strong> Priorización de pruebas según la probabilidad e impacto de fallos críticos en el sistema.</p>
+                        
+                        <h5>Proceso de Análisis:</h5>
+                        <ol>
+                            <li>Identificación de áreas de alto riesgo</li>
+                            <li>Evaluación de probabilidad de fallo</li>
+                            <li>Análisis del impacto en el negocio</li>
+                            <li>Priorización de esfuerzos de testing</li>
+                        </ol>
+
+                        <div class="alert alert-warning-custom">
+                            <strong>Ventaja:</strong> Optimiza recursos focalizándose en componentes críticos del sistema.
+                        </div>
+                    </div>
+
+                    <!-- Testing Exploratorio -->
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="text-center">Testing Exploratorio</h4>
+                        <p><strong>Enfoque:</strong> Investigación libre y heurística del software para descubrir problemas no previstos en casos de prueba formales.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li>Simultaneidad de aprendizaje, diseño y ejecución</li>
+                            <li>Adaptación en tiempo real</li>
+                            <li>Enfoque en el descubrimiento</li>
+                            <li>Documentación de hallazgos</li>
+                        </ul>
+
+                        <div class="alert alert-info-custom">
+                            <strong>Ideal para:</strong> Detectar problemas de usabilidad, comportamientos inesperados y casos límite.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Técnicas de Caja Negra, Blanca y Gris -->
+            <div class="mb-5">
+                <h3 class="text-dark mb-4">
+                    <i class="fas fa-cube me-2"></i>
+                    Técnicas de Caja Negra, Blanca y Gris
+                </h3>
+                <p class="lead">Estas técnicas evalúan el software desde diferentes perspectivas, combinando análisis de funcionalidad y estructura interna.</p>
+
+                <div class="testing-types-grid">
+                    <!-- Caja Negra -->
+                    <div class="testing-type-card" style="border-left-color: #343a40;">
+                        <h4><i class="fas fa-square text-dark me-2"></i>Pruebas de Caja Negra</h4>
+                        <p><strong>Enfoque:</strong> Evalúa la funcionalidad sin conocer la estructura interna del código, centrándose en entradas y salidas.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li>Basadas en requisitos funcionales</li>
+                            <li>No requiere acceso al código fuente</li>
+                            <li>Perspectiva del usuario final</li>
+                            <li>Independiente de la implementación</li>
+                        </ul>
+
+                        <h5>Ejemplo Práctico:</h5>
+                        <div class="bg-light p-3 rounded">
+                            <p><strong>Caso:</strong> Login con credenciales incorrectas</p>
+                            <p><strong>Entrada:</strong> Usuario: "test@example.com", Contraseña: "12345"</p>
+                            <p><strong>Acción:</strong> Presionar "Iniciar sesión"</p>
+                            <p><strong>Resultado esperado:</strong> Mensaje "Credenciales incorrectas"</p>
+                        </div>
+
+                        <h5>Ventajas:</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Aplicable en cualquier fase</li>
+                            <li><i class="fas fa-check text-success me-2"></i>No requiere conocimientos de programación</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Valida experiencia de usuario</li>
+                        </ul>
+                    </div>
+
+                    <!-- Caja Blanca -->
+                    <div class="testing-type-card" style="border-left-color: #f8f9fa; border-left-width: 6px;">
+                        <h4><i class="fas fa-square-full text-light me-2" style="color: #6c757d !important;"></i>Pruebas de Caja Blanca</h4>
+                        <p><strong>Enfoque:</strong> Analiza la estructura interna del código, verificando flujo lógico y ejecución de cada instrucción.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li>Requiere acceso al código fuente</li>
+                            <li>Conocimientos de programación necesarios</li>
+                            <li>Evalúa cobertura de código</li>
+                            <li>Analiza estructuras de control</li>
+                        </ul>
+
+                        <h5>Ejemplo Práctico:</h5>
+                        <div class="bg-light p-3 rounded">
+                            <p><strong>Caso:</strong> Validar estructura if-else</p>
+                            <pre><code>if (edad >= 18):
+    return "Mayor de edad"
+else:
+    return "Menor de edad"</code></pre>
+                            <p><strong>Prueba:</strong> Verificar que ambas ramas se ejecuten con valores 17 y 18</p>
+                        </div>
+
+                        <h5>Ventajas:</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Detecta fallos en la lógica</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Mayor cobertura de código</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Optimización del rendimiento</li>
+                        </ul>
+                    </div>
+
+                    <!-- Caja Gris -->
+                    <div class="testing-type-card" style="border-left-color: #6c757d;">
+                        <h4><i class="fas fa-adjust text-secondary me-2"></i>Pruebas de Caja Gris</h4>
+                        <p><strong>Enfoque:</strong> Combina elementos de caja negra y blanca, con acceso parcial a información interna del sistema.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li>Acceso limitado a código interno</li>
+                            <li>Evalúa interacción entre módulos</li>
+                            <li>Útil para pruebas de integración</li>
+                            <li>Identifica vulnerabilidades ocultas</li>
+                        </ul>
+
+                        <h5>Ejemplo Práctico:</h5>
+                        <div class="bg-light p-3 rounded">
+                            <p><strong>Caso:</strong> Validar almacenamiento en base de datos</p>
+                            <p><strong>Acción:</strong> Registrar usuario en interfaz web</p>
+                            <p><strong>Verificación:</strong> Consultar base de datos para confirmar que los datos se almacenaron correctamente</p>
+                        </div>
+
+                        <h5>Ventajas:</h5>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Combina lo mejor de ambas técnicas</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Ideal para pruebas de seguridad</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Detecta fallos de interacción</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Planificación y Ejecución -->
+        <section id="planificacion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-project-diagram me-3"></i>
+                Planificación y Ejecución de Pruebas
+            </h2>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb me-2"></i>Importancia de la Planificación</h4>
+                <p>Un proceso de testing bien estructurado permite <strong>detectar fallos a tiempo, optimizar el rendimiento y mejorar la experiencia del usuario</strong>. La planificación adecuada reduce riesgos, optimiza tiempos y facilita la detección de problemas antes del despliegue.</p>
+            </div>
+
+            <!-- Plan de Pruebas -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-map me-2"></i>
+                    Plan de Pruebas: Objetivos, Alcance y Recursos
+                </h3>
+                
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-bullseye text-primary me-2"></i>Objetivos</h4>
+                            <p>Determinar qué aspectos del software serán evaluados y qué se espera lograr con las pruebas.</p>
+                            <ul>
+                                <li>Validar funcionalidad de APIs</li>
+                                <li>Medir rendimiento bajo alta carga</li>
+                                <li>Verificar seguridad de datos</li>
+                                <li>Confirmar usabilidad de interfaces</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-crosshairs text-success me-2"></i>Alcance</h4>
+                            <p>Especificar qué módulos, funcionalidades y plataformas serán probados.</p>
+                            <ul>
+                                <li>Módulos a probar (autenticación, pagos, etc.)</li>
+                                <li>Tipos de pruebas (unitarias, integración, sistema)</li>
+                                <li>Plataformas objetivo (web, móvil, desktop)</li>
+                                <li>Entornos de testing (desarrollo, staging, producción)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-users text-warning me-2"></i>Recursos</h4>
+                            <p>Identificar el equipo, herramientas y entorno necesarios para la ejecución de pruebas.</p>
+                            <ul>
+                                <li><strong>Equipo:</strong> Testers, desarrolladores, usuarios</li>
+                                <li><strong>Herramientas:</strong> Postman, Selenium, JMeter</li>
+                                <li><strong>Entorno:</strong> Servidores, bases de datos, dispositivos</li>
+                                <li><strong>Tiempo:</strong> Cronograma y milestones</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Diseño de Casos de Prueba -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-edit me-2"></i>
+                    Diseño de Casos de Prueba
+                </h3>
+                
+                <p class="lead">El <strong>caso de prueba</strong> es un conjunto de condiciones que se ejecutan para evaluar una funcionalidad específica del software.</p>
+
+                <div class="highlight-box">
+                    <h4>Estructura de un Caso de Prueba</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ol>
+                                <li><strong>Identificación del módulo</strong> o funcionalidad a probar</li>
+                                <li><strong>Entradas esperadas</strong> (datos de prueba)</li>
+                                <li><strong>Acción a realizar</strong> (clic, envío, consulta API)</li>
+                                <li><strong>Resultado esperado</strong> (mensaje, respuesta JSON, pantalla)</li>
+                            </ol>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-light p-3 rounded">
+                                <h5>Ejemplo Completo:</h5>
+                                <p><strong>Caso de prueba:</strong> Validar inicio de sesión con credenciales incorrectas</p>
+                                <p><strong>Entrada:</strong> Usuario: "test@example.com", Contraseña: "12345"</p>
+                                <p><strong>Acción:</strong> Ingresar credenciales y presionar "Iniciar sesión"</p>
+                                <p><strong>Resultado esperado:</strong> Mostrar mensaje "Credenciales incorrectas"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registro y Reporte de Defectos -->
+            <div class="mb-5">
+                <h3 class="text-danger mb-4">
+                    <i class="fas fa-bug me-2"></i>
+                    Registro y Reporte de Defectos
+                </h3>
+                
+                <div class="row">
+                    <div class="col-lg-8">
+                        <p class="lead">Cuando se detecta un fallo, debe documentarse correctamente para que el equipo de desarrollo pueda corregirlo eficientemente.</p>
+
+                        <h4>Elementos de un Buen Reporte de Defectos:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Descripción clara del error</strong></li>
+                                    <li><strong>Pasos detallados para reproducirlo</strong></li>
+                                    <li><strong>Entorno donde ocurrió</strong> (navegador, SO, versión)</li>
+                                    <li><strong>Prioridad y severidad</strong> del error</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Capturas de pantalla</strong> o videos</li>
+                                    <li><strong>Logs del sistema</strong> relevantes</li>
+                                    <li><strong>Comportamiento esperado</strong> vs actual</li>
+                                    <li><strong>Impacto en el usuario</strong> final</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="alert alert-warning-custom">
+                            <h5><i class="fas fa-tools me-2"></i>Herramientas de Gestión</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li><i class="fas fa-check me-2"></i><strong>JIRA</strong> - Gestión completa de incidencias</li>
+                                <li><i class="fas fa-check me-2"></i><strong>Bugzilla</strong> - Sistema de tracking open source</li>
+                                <li><i class="fas fa-check me-2"></i><strong>Trello</strong> - Gestión visual de errores</li>
+                                <li><i class="fas fa-check me-2"></i><strong>Azure DevOps</strong> - Integración con desarrollo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Herramientas y Frameworks -->
+        <section id="herramientas" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-toolbox me-3"></i>
+                Herramientas y Frameworks para Testing
+            </h2>
+
+            <!-- Pruebas Unitarias -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-atom me-2"></i>
+                    Herramientas para Pruebas Unitarias
+                </h3>
+                <p class="lead">Las pruebas unitarias son esenciales para verificar que los módulos individuales funcionan correctamente.</p>
+
+                <div class="tools-grid">
+                    <!-- PyTest -->
+                    <div class="tool-card">
+                        <h5><i class="fab fa-python text-primary me-2"></i>PyTest para Python</h5>
+                        <p>Una de las herramientas más utilizadas para pruebas unitarias en Python debido a su <strong>simplicidad y flexibilidad</strong>.</p>
+                        
+                        <h6>Características:</h6>
+                        <ul>
+                            <li>Menos código que unittest</li>
+                            <li>Parametrización de pruebas</li>
+                            <li>Integración con Django y Flask</li>
+                            <li>Fixtures avanzadas</li>
+                        </ul>
+
+                        <h6>Ejemplo:</h6>
+                        <pre><code>import pytest
+
+def test_suma():
+    assert suma(2, 3) == 5
+    assert suma(-1, 1) == 0
+
+@pytest.mark.parametrize("a,b,esperado", [
+    (2, 3, 5),
+    (0, 0, 0),
+    (-1, 1, 0)
+])
+def test_suma_parametrizada(a, b, esperado):
+    assert suma(a, b) == esperado</code></pre>
+                    </div>
+
+                    <!-- JUnit -->
+                    <div class="tool-card">
+                        <h5><i class="fab fa-java text-danger me-2"></i>JUnit para Java</h5>
+                        <p>Herramienta estándar para pruebas unitarias en <strong>Java</strong>, utilizada en entornos empresariales y proyectos open source.</p>
+                        
+                        <h6>Características:</h6>
+                        <ul>
+                            <li>Anotaciones (@Test, @Before, @After)</li>
+                            <li>Integración con Maven y Gradle</li>
+                            <li>Ejecución aislada o en grupos</li>
+                            <li>Assertions robustas</li>
+                        </ul>
+
+                        <h6>Ejemplo:</h6>
+                        <pre><code>@Test
+public void testCalcularDescuento() {
+    double resultado = Calculadora.calcularDescuento(100, 10);
+    assertEquals(10.0, resultado, 0.01);
+}
+
+@Test(expected = IllegalArgumentException.class)
+public void testDescuentoNegativo() {
+    Calculadora.calcularDescuento(100, -10);
+}</code></pre>
+                    </div>
+
+                    <!-- NUnit -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-code text-info me-2"></i>NUnit para .NET</h5>
+                        <p>Framework popular para pruebas unitarias en <strong>.NET</strong> con soporte completo para .NET Core y Framework.</p>
+                        
+                        <h6>Características:</h6>
+                        <ul>
+                            <li>Aserciones y ejecución paralela</li>
+                            <li>Compatible con .NET Core y Framework</li>
+                            <li>Integración con Visual Studio</li>
+                            <li>Soporte para Azure DevOps</li>
+                        </ul>
+
+                        <h6>Ejemplo:</h6>
+                        <pre><code>[Test]
+public void TestCalcularImpuesto()
+{
+    var resultado = Calculadora.CalcularImpuesto(100, 0.21);
+    Assert.AreEqual(21.0, resultado, 0.01);
+}
+
+[TestCase(100, 0.21, 21.0)]
+[TestCase(0, 0.21, 0)]
+public void TestCalcularImpuestoParametrizado(double monto, double tasa, double esperado)
+{
+    Assert.AreEqual(esperado, Calculadora.CalcularImpuesto(monto, tasa), 0.01);
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pruebas de Integración y E2E -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-network-wired me-2"></i>
+                    Herramientas para Pruebas de Integración y End-to-End (E2E)
+                </h3>
+                <p class="lead">Garantizan que los diferentes componentes del sistema funcionen correctamente juntos.</p>
+
+                <div class="tools-grid">
+                    <!-- Selenium -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-globe text-success me-2"></i>Selenium</h5>
+                        <p>Herramienta popular para <strong>automatizar pruebas en interfaces gráficas</strong>, simulando interacciones reales de usuario.</p>
+                        
+                        <h6>Capacidades:</h6>
+                        <ul>
+                            <li>Múltiples navegadores (Chrome, Firefox, Safari)</li>
+                            <li>Múltiples lenguajes (Python, Java, C#, JavaScript)</li>
+                            <li>Simulación de acciones de usuario</li>
+                            <li>Capturas de pantalla automáticas</li>
+                        </ul>
+
+                        <h6>Ejemplo Python:</h6>
+                        <pre><code>from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver = webdriver.Chrome()
+driver.get("https://ejemplo.com/login")
+
+# Ingresar credenciales
+driver.find_element(By.ID, "email").send_keys("test@example.com")
+driver.find_element(By.ID, "password").send_keys("password123")
+driver.find_element(By.ID, "login-btn").click()
+
+# Verificar resultado
+assert "Dashboard" in driver.title
+driver.quit()</code></pre>
+                    </div>
+
+                    <!-- Cypress -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-tree text-primary me-2"></i>Cypress</h5>
+                        <p>Diseñado específicamente para <strong>pruebas en aplicaciones web modernas</strong>, ejecutando pruebas directamente en el navegador.</p>
+                        
+                        <h6>Ventajas:</h6>
+                        <ul>
+                            <li>Ejecución en tiempo real</li>
+                            <li>Debug visual avanzado</li>
+                            <li>Ideal para React, Angular, Vue.js</li>
+                            <li>Manejo automático de waits</li>
+                        </ul>
+
+                        <h6>Ejemplo JavaScript:</h6>
+                        <pre><code>describe('Login Tests', () => {
+  it('should login with valid credentials', () => {
+    cy.visit('/login')
+    cy.get('#email').type('test@example.com')
+    cy.get('#password').type('password123')
+    cy.get('#login-btn').click()
+    
+    cy.url().should('include', '/dashboard')
+    cy.contains('Bienvenido').should('be.visible')
+  })
+})</code></pre>
+                    </div>
+
+                    <!-- Postman -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-paper-plane text-warning me-2"></i>Postman</h5>
+                        <p>Herramienta clave para <strong>pruebas de APIs REST</strong>, permitiendo enviar solicitudes HTTP y validar respuestas.</p>
+                        
+                        <h6>Funcionalidades:</h6>
+                        <ul>
+                            <li>Envío de requests (GET, POST, PUT, DELETE)</li>
+                            <li>Validación de respuestas JSON/XML</li>
+                            <li>Automatización con scripts</li>
+                            <li>Colecciones y entornos</li>
+                        </ul>
+
+                        <div class="bg-light p-3 rounded">
+                            <h6>Ejemplo de Test Script:</h6>
+                            <pre><code>// Validar código de estado
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+// Validar estructura JSON
+pm.test("Response has user data", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property('user');
+    pm.expect(jsonData.user).to.have.property('email');
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Herramientas de Seguridad y Rendimiento -->
+        <section id="seguridad-rendimiento" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-shield-alt me-3"></i>
+                Herramientas para Pruebas de Seguridad y Rendimiento
+            </h2>
+            <p class="lead">Las pruebas de seguridad y rendimiento garantizan la <strong>protección de datos y eficiencia del software</strong> bajo diferentes condiciones de uso.</p>
+
+            <div class="tools-grid">
+                <!-- OWASP ZAP -->
+                <div class="tool-card">
+                    <h5><i class="fas fa-bug text-danger me-2"></i>OWASP ZAP</h5>
+                    <p><strong>Zed Attack Proxy</strong> - Herramienta para análisis de vulnerabilidades en aplicaciones web.</p>
+                    
+                    <h6>Funcionalidades:</h6>
+                    <ul>
+                        <li>Detección de inyección SQL</li>
+                        <li>Identificación de XSS</li>
+                        <li>Análisis de configuración de seguridad</li>
+                        <li>Pruebas de penetración automatizadas</li>
+                    </ul>
+
+                    <div class="alert alert-danger" style="background-color: #f8d7da; border-color: #f5c6cb;">
+                        <strong>Riesgos Detectados:</strong> Inyección SQL, XSS, configuración incorrecta de seguridad, exposición de datos sensibles.
+                    </div>
+                </div>
+
+                <!-- JMeter -->
+                <div class="tool-card">
+                    <h5><i class="fas fa-tachometer-alt text-warning me-2"></i>JMeter</h5>
+                    <p>Herramienta para <strong>pruebas de carga y estrés</strong>, evaluando el comportamiento del sistema bajo alta concurrencia.</p>
+                    
+                    <h6>Capacidades:</h6>
+                    <ul>
+                        <li>Simulación de múltiples usuarios concurrentes</li>
+                        <li>Medición de tiempos de respuesta</li>
+                        <li>Detección de cuellos de botella</li>
+                        <li>Pruebas de APIs y servicios web</li>
+                    </ul>
+
+                    <div class="bg-light p-3 rounded">
+                        <h6>Métricas de Rendimiento:</h6>
+                        <ul class="mb-0">
+                            <li><strong>Throughput:</strong> Requests por segundo</li>
+                            <li><strong>Latencia:</strong> Tiempo de respuesta promedio</li>
+                            <li><strong>Error Rate:</strong> Porcentaje de fallos</li>
+                            <li><strong>Recursos:</strong> CPU, memoria, red</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Burp Suite -->
+                <div class="tool-card">
+                    <h5><i class="fas fa-user-secret text-dark me-2"></i>Burp Suite</h5>
+                    <p>Herramienta avanzada de <strong>pentesting para APIs</strong>, diseñada para encontrar debilidades en la comunicación cliente-servidor.</p>
+                    
+                    <h6>Funcionalidades:</h6>
+                    <ul>
+                        <li>Interceptación de solicitudes HTTP/HTTPS</li>
+                        <li>Manipulación de datos en tránsito</li>
+                        <li>Análisis de protocolos de seguridad</li>
+                        <li>Auditorías de seguridad completas</li>
+                    </ul>
+
+                    <div class="alert alert-warning-custom">
+                        <strong>Uso:</strong> Esencial en auditorías de seguridad y análisis de vulnerabilidades en APIs REST y servicios web.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Automatización y CI/CD -->
+        <section id="automatizacion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-robot me-3"></i>
+                Automatización del Testing y CI/CD
+            </h2>
+
+            <!-- Introducción a la Automatización -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-magic me-2"></i>
+                    Introducción a la Automatización de Pruebas
+                </h3>
+                
+                <div class="highlight-box">
+                    <h4>¿Qué es la Automatización de Pruebas?</h4>
+                    <p>La <strong>automatización de pruebas</strong> permite ejecutar pruebas de software de manera repetitiva y eficiente mediante herramientas especializadas, mejorando la calidad del software y reduciendo errores humanos.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4">
+                            <h4><i class="fas fa-thumbs-up text-success me-2"></i>Beneficios</h4>
+                            <ul>
+                                <li><strong>Mayor rapidez y eficiencia:</strong> Ejecución sin intervención manual</li>
+                                <li><strong>Reducción de costos:</strong> A largo plazo, evita repetición manual</li>
+                                <li><strong>Mejor cobertura:</strong> Múltiples casos en distintos entornos</li>
+                                <li><strong>Consistencia:</strong> Mismos resultados en cada ejecución</li>
+                                <li><strong>Disponibilidad 24/7:</strong> Ejecución continua</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4">
+                            <h4><i class="fas fa-exclamation-triangle text-warning me-2"></i>Desafíos</h4>
+                            <ul>
+                                <li><strong>Inversión inicial:</strong> Tiempo y recursos para crear scripts</li>
+                                <li><strong>Mantenimiento constante:</strong> Actualización con cambios del software</li>
+                                <li><strong>Curva de aprendizaje:</strong> Conocimiento de herramientas</li>
+                                <li><strong>Casos complejos:</strong> Algunas pruebas difíciles de automatizar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="alert alert-info-custom mt-4">
+                    <h5><i class="fas fa-lightbulb me-2"></i>Estrategias para Implementar Automatización:</h5>
+                    <ol>
+                        <li><strong>Priorizar pruebas repetitivas</strong> y de regresión</li>
+                        <li><strong>Utilizar herramientas adecuadas</strong> según el tipo de prueba (Selenium, PyTest, JUnit)</li>
+                        <li><strong>Integrar en pipelines CI/CD</strong> para validaciones automáticas</li>
+                        <li><strong>Mantener scripts actualizados</strong> con cambios del software</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- CI/CD Integration -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-sync-alt me-2"></i>
+                    Testing en Integración y Despliegue Continuo (CI/CD)
+                </h3>
+                
+                <div class="highlight-box">
+                    <h4>Concepto de CI/CD y su Relación con Testing</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-code-branch text-info me-2"></i>Integración Continua (CI)</h5>
+                            <p>Práctica de integrar cambios de código en un repositorio central varias veces al día, ejecutando <strong>pruebas automáticas</strong> para detectar errores rápidamente.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-rocket text-success me-2"></i>Despliegue Continuo (CD)</h5>
+                            <p>Automatiza la entrega del software a entornos de prueba o producción después de <strong>validar que pasó todas las pruebas</strong> definidas en el pipeline.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Implementación en Pipelines -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-tasks me-2"></i>Implementación de Pruebas Automatizadas en Pipelines</h4>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <ol>
+                                <li><strong>Ejecutar pruebas unitarias</strong> en cada commit para detectar errores en funciones individuales</li>
+                                <li><strong>Ejecutar pruebas de integración</strong> para validar comunicación entre módulos</li>
+                                <li><strong>Realizar pruebas E2E</strong> que simulen interacciones reales de usuarios</li>
+                                <li><strong>Ejecutar pruebas de rendimiento y seguridad</strong> en fases avanzadas del pipeline</li>
+                                <li><strong>Automatizar el despliegue</strong> solo si todas las pruebas son exitosas</li>
+                            </ol>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                                <h6><i class="fas fa-check-circle me-2"></i>Resultado</h6>
+                                <p class="mb-0">Solo se despliegan <strong>versiones estables y sin errores</strong>, garantizando calidad en producción.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Herramientas CI/CD -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-tools me-2"></i>Herramientas para CI/CD</h4>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-cog text-primary me-2"></i>Jenkins</h5>
+                            <p>Herramienta popular para CI/CD que permite crear <strong>pipelines personalizados</strong> para automatizar pruebas y despliegues.</p>
+                            <ul>
+                                <li>Plugins extensivos</li>
+                                <li>Integración con múltiples herramientas</li>
+                                <li>Pipelines como código (Jenkinsfile)</li>
+                                <li>Ejecución distribuida</li>
+                            </ul>
+                        </div>
+
+                        <div class="tool-card">
+                            <h5><i class="fab fa-github text-dark me-2"></i>GitHub Actions</h5>
+                            <p>Integrado en GitHub, facilita la <strong>automatización de pruebas</strong> en cada commit o pull request.</p>
+                            <ul>
+                                <li>Workflows basados en YAML</li>
+                                <li>Integración nativa con repositorios</li>
+                                <li>Marketplace de acciones</li>
+                                <li>Ejecución en múltiples entornos</li>
+                            </ul>
+                        </div>
+
+                        <div class="tool-card">
+                            <h5><i class="fab fa-gitlab text-warning me-2"></i>GitLab CI</h5>
+                            <p>Permite definir <strong>pipelines dentro de repositorios GitLab</strong> con soporte para múltiples entornos.</p>
+                            <ul>
+                                <li>CI/CD integrado</li>
+                                <li>Pipelines multi-stage</li>
+                                <li>Despliegue automático</li>
+                                <li>Monitoreo integrado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Buenas Prácticas -->
+        <section id="buenas-practicas" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-star me-3"></i>
+                Buenas Prácticas en Testing
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h4><i class="fas fa-lightbulb me-2"></i>Importancia de las Buenas Prácticas</h4>
+                <p class="mb-0">Implementar buenas prácticas permite <strong>detectar errores tempranamente, optimizar procesos de validación y reducir costos</strong> en la corrección de defectos. La combinación adecuada de estrategias garantiza software de calidad, seguro y eficiente.</p>
+            </div>
+
+            <!-- Resumen de Mejores Prácticas -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-list-check me-2"></i>
+                    Resumen de las Mejores Prácticas
+                </h3>
+
+                <div class="methodology-grid">
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h4 class="text-center">1. Definir Estrategia de Pruebas</h4>
+                        <p>Es crucial establecer un plan de testing que incluya pruebas unitarias, de integración, de sistema y de aceptación.</p>
+                        <ul>
+                            <li>Plan estructurado y documentado</li>
+                            <li>Objetivos claros por tipo de prueba</li>
+                            <li>Criterios de entrada y salida</li>
+                            <li>Asignación de recursos y responsabilidades</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-center">2. Automatizar Pruebas Repetitivas</h4>
+                        <p>La automatización de pruebas de regresión e integración agiliza el desarrollo y previene errores en nuevas versiones.</p>
+                        <ul>
+                            <li>Pruebas de regresión automatizadas</li>
+                            <li>Validación de APIs con scripts</li>
+                            <li>Pruebas de humo (smoke tests)</li>
+                            <li>Integración en pipelines CI/CD</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-arrow-left"></i>
+                        </div>
+                        <h4 class="text-center">3. Shift-Left Testing</h4>
+                        <p>Ejecutar pruebas desde etapas tempranas permite detectar problemas en fases iniciales, reduciendo costos de corrección.</p>
+                        <ul>
+                            <li>Pruebas durante el desarrollo</li>
+                            <li>Revisiones de código tempranas</li>
+                            <li>Validación de requisitos</li>
+                            <li>Pruebas de diseño y arquitectura</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4 class="text-center">4. Datos de Prueba Realistas</h4>
+                        <p>Emplear escenarios que reflejen condiciones reales de uso mejora la fiabilidad de los resultados.</p>
+                        <ul>
+                            <li>Datos de producción anonimizados</li>
+                            <li>Casos extremos y límite</li>
+                            <li>Volúmenes representativos</li>
+                            <li>Escenarios de usuario reales</li>
+                        </ul>
+                    </div>
+
+                    <div class="methodology-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-center">5. Monitoreo y Métricas</h4>
+                        <p>Evaluar cobertura de pruebas, tasa de fallos y tiempos de respuesta para mejorar el desempeño del software.</p>
+                        <ul>
+                            <li>Cobertura de código y funcionalidades</li>
+                            <li>Métricas de calidad (defectos por módulo)</li>
+                            <li>Tiempos de ejecución de pruebas</li>
+                            <li>Tendencias de calidad a lo largo del tiempo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recomendaciones para Calidad -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-award me-2"></i>
+                    Recomendaciones para Garantizar la Calidad del Software
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-balance-scale text-primary me-2"></i>Combinar Testing Manual y Automatizado</h4>
+                            <p>La automatización mejora la eficiencia, pero las pruebas manuales siguen siendo clave en validaciones de usabilidad y experiencia de usuario.</p>
+                            <ul>
+                                <li><strong>Automatizar:</strong> Regresión, APIs, carga</li>
+                                <li><strong>Manual:</strong> Usabilidad, exploración, casos únicos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-sync text-success me-2"></i>Implementar Pruebas Continuas</h4>
+                            <p>Integrar pruebas en pipelines CI/CD garantiza que cada cambio de código sea validado automáticamente.</p>
+                            <ul>
+                                <li><strong>Trigger:</strong> Cada commit o pull request</li>
+                                <li><strong>Stages:</strong> Unit → Integration → E2E → Deploy</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-shield-alt text-danger me-2"></i>Incluir Seguridad y Rendimiento</h4>
+                            <p>Evaluar la resistencia del software frente a ataques y pruebas de carga asegura estabilidad bajo diferentes condiciones.</p>
+                            <ul>
+                                <li><strong>Seguridad:</strong> OWASP ZAP, Burp Suite</li>
+                                <li><strong>Rendimiento:</strong> JMeter, LoadRunner</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-refresh text-info me-2"></i>Revisiones Periódicas</h4>
+                            <p>Asegurar que los casos de prueba evolucionen conforme cambian los requisitos del software.</p>
+                            <ul>
+                                <li><strong>Actualización:</strong> Casos de prueba obsoletos</li>
+                                <li><strong>Optimización:</strong> Tiempos de ejecución</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tendencias Futuras -->
+            <div class="mb-5">
+                <h3 class="text-purple mb-4" style="color: #6f42c1;">
+                    <i class="fas fa-crystal-ball me-2"></i>
+                    Tendencias Futuras en Testing de Software
+                </h3>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h5><i class="fas fa-brain text-primary me-2"></i>Inteligencia Artificial en Testing</h5>
+                        <p>Desarrollo de herramientas basadas en IA para detectar patrones de fallos y generar casos de prueba automáticamente.</p>
+                        <ul>
+                            <li>Generación automática de casos de prueba</li>
+                            <li>Detección de patrones de fallos</li>
+                            <li>Predicción de áreas propensas a errores</li>
+                            <li>Optimización de estrategias de testing</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <h5><i class="fas fa-infinity text-success me-2"></i>Testing en Entornos DevOps</h5>
+                        <p>Las pruebas continuas son cada vez más relevantes en entornos ágiles y DevOps.</p>
+                        <ul>
+                            <li>Integración nativa en pipelines</li>
+                            <li>Feedback loops más rápidos</li>
+                            <li>Testing como código (Infrastructure as Code)</li>
+                            <li>Monitoreo continuo en producción</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <h5><i class="fas fa-cloud text-info me-2"></i>Pruebas en la Nube</h5>
+                        <p>Simulación de entornos de prueba en la nube permite escalar y ejecutar pruebas en múltiples configuraciones.</p>
+                        <ul>
+                            <li>Escalabilidad bajo demanda</li>
+                            <li>Múltiples configuraciones simultáneas</li>
+                            <li>Reducción de infraestructura física</li>
+                            <li>Testing distribuido globalmente</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Ejercicios Prácticos -->
+        <section id="ejercicios" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-laptop-code me-3"></i>
+                Actividades Prácticas
+            </h2>
+
+            <!-- Ejercicio 1: Comercio Electrónico -->
+            <div class="mb-5">
+                <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                    <h3><i class="fas fa-shopping-cart me-2"></i>Ejercicio 19: Estrategia de Testing para Plataforma de Comercio Electrónico</h3>
+                </div>
+                
+                <div class="concept-card p-4">
+                    <h4>Contexto del Proyecto</h4>
+                    <p>Una empresa de comercio electrónico está desarrollando una nueva versión de su plataforma web con las siguientes funcionalidades clave:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-users text-primary me-2"></i>Gestión de Usuarios</h5>
+                            <ul>
+                                <li>Registro de nuevos usuarios</li>
+                                <li>Inicio de sesión y autenticación</li>
+                                <li>Recuperación de contraseñas</li>
+                                <li>Perfiles de usuario</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-box text-success me-2"></i>Catálogo de Productos</h5>
+                            <ul>
+                                <li>Visualización de productos</li>
+                                <li>Filtrado por categorías</li>
+                                <li>Búsqueda avanzada</li>
+                                <li>Detalles y especificaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-shopping-basket text-warning me-2"></i>Carrito y Pagos</h5>
+                            <ul>
+                                <li>Agregar productos al carrito</li>
+                                <li>Procesamiento de pagos con Stripe</li>
+                                <li>Integración con PayPal</li>
+                                <li>Gestión de descuentos</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-truck text-info me-2"></i>Sistema de Pedidos</h5>
+                            <ul>
+                                <li>Seguimiento de envíos</li>
+                                <li>Notificaciones automáticas</li>
+                                <li>Historial de pedidos</li>
+                                <li>Gestión de devoluciones</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning-custom mt-4">
+                        <h4><i class="fas fa-tasks me-2"></i>Tareas a Resolver:</h4>
+                        <ol>
+                            <li><strong>Definir los tipos de pruebas necesarias</strong> (unitarias, integración, sistema, aceptación)</li>
+                            <li><strong>Planificar pruebas no funcionales</strong> (rendimiento, seguridad, usabilidad)</li>
+                            <li><strong>Seleccionar herramientas adecuadas</strong> para pruebas automatizadas y manuales</li>
+                            <li><strong>Establecer proceso de reporte</strong> y seguimiento de errores</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2: Reservas de Hoteles -->
+            <div class="mb-5">
+                <div class="alert alert-info" style="background-color: #d1ecf1; border-color: #bee5eb;">
+                    <h3><i class="fas fa-hotel me-2"></i>Ejercicio 20: Estrategia de Testing para Aplicación de Reservas de Hoteles</h3>
+                </div>
+                
+                <div class="concept-card p-4">
+                    <h4>Contexto del Proyecto</h4>
+                    <p>Una empresa de turismo ha desarrollado una aplicación web y móvil para gestionar reservas de hoteles donde los usuarios pueden:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-search text-primary me-2"></i>Búsqueda de Hoteles</h5>
+                            <ul>
+                                <li>Buscar según ubicación</li>
+                                <li>Filtrar por disponibilidad</li>
+                                <li>Ordenar por precio</li>
+                                <li>Comparar características</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-bed text-success me-2"></i>Reservas y Pagos</h5>
+                            <ul>
+                                <li>Reservar habitaciones</li>
+                                <li>Pago con tarjetas de crédito</li>
+                                <li>Integración con PayPal</li>
+                                <li>Confirmaciones automáticas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-edit text-warning me-2"></i>Gestión de Reservas</h5>
+                            <ul>
+                                <li>Cancelaciones de reservas</li>
+                                <li>Modificaciones de fechas</li>
+                                <li>Cambios de habitación</li>
+                                <li>Políticas de cancelación</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-bell text-info me-2"></i>Notificaciones</h5>
+                            <ul>
+                                <li>Confirmaciones de reserva</li>
+                                <li>Recordatorios de check-in</li>
+                                <li>Actualizaciones de estado</li>
+                                <li>Promociones y ofertas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning-custom mt-4">
+                        <h4><i class="fas fa-tasks me-2"></i>Tareas a Resolver:</h4>
+                        <ol>
+                            <li><strong>Definir los tipos de pruebas necesarias</strong> (unitarias, integración, sistema, aceptación)</li>
+                            <li><strong>Planificar pruebas no funcionales</strong> (rendimiento, seguridad, compatibilidad)</li>
+                            <li><strong>Seleccionar herramientas adecuadas</strong> para pruebas automatizadas y manuales</li>
+                            <li><strong>Establecer proceso de reporte</strong> y seguimiento de errores</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Recursos y Referencias -->
+        <section id="recursos" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-book me-3"></i>
+                Recursos y Referencias
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="text-success mb-3">
+                        <i class="fas fa-books me-2"></i>
+                        Bibliografía Recomendada
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-book text-primary me-2"></i>
+                            <strong>Martínez, J. (2021).</strong> <em>Testing de software: Metodologías y técnicas para la garantía de calidad.</em> Ediciones Ra-Ma.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-success me-2"></i>
+                            <strong>González, A. & Pérez, M. (2020).</strong> <em>Automatización de pruebas de software: Estrategias y herramientas.</em> Alfaomega.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-warning me-2"></i>
+                            <strong>Soler, C. (2019).</strong> <em>Pruebas de software y aseguramiento de la calidad.</em> Marcombo.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-info me-2"></i>
+                            <strong>García, F. (2022).</strong> <em>Metodologías de Testing y control de calidad en el desarrollo de software.</em> Anaya Multimedia.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h3 class="text-info mb-3">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Recursos Online
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-certificate text-primary me-2"></i>
+                            <strong>ISTQB</strong> (International Software Testing Qualifications Board)<br>
+                            <a href="https://www.istqb.org/" target="_blank" class="text-decoration-none">https://www.istqb.org/</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-shield-alt text-danger me-2"></i>
+                            <strong>OWASP</strong> (Open Web Application Security Project)<br>
+                            <a href="https://owasp.org/" target="_blank" class="text-decoration-none">https://owasp.org/</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-flag text-success me-2"></i>
+                            <strong>Ministerio de Asuntos Económicos y Transformación Digital de España</strong><br>
+                            Guía de Calidad del Software<br>
+                            <a href="https://www.incibe.es/protege-tu-empresa/guia-calidad-software" target="_blank" class="text-decoration-none">https://www.incibe.es/protege-tu-empresa/guia-calidad-software</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box mt-4">
+                <h4><i class="fas fa-graduation-cap me-2"></i>Conclusión del Tema</h4>
+                <p>El testing es fundamental para garantizar la <strong>calidad, estabilidad y seguridad</strong> de las aplicaciones. La combinación de pruebas automatizadas, estrategias de validación en CI/CD y nuevas tendencias tecnológicas permite entregar software confiable que satisface las necesidades del usuario y cumple con los estándares de calidad empresarial.</p>
+            </div>
+        </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema9.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 9
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 10 de 12</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema11.html" class="btn btn-outline-success">
+                            Tema 11
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', savedTheme);
+            updateThemeToggleIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

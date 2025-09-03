@@ -1,0 +1,1177 @@
+Accesibilidad y estándares de calidad
+© Universitas Europaea IMF
+Indice
+Accesibilidad y estándares de calidad
+3
+Texto claves
+3
+1. Normas y Estándares de Accesibilidad
+3
+1.1 WCAG (Web Content Accessibility Guidelines)
+3
+Principios de WCAG 2.1
+4
+Niveles de conformidad
+4
+Ejemplo de aplicación de WCAG 2.1
+4
+1.2 ARIA (Accessible Rich Internet Applications)
+4
+Usos principales de ARIA
+4
+Ejemplo de ARIA en HTML
+4
+Cuándo usar ARIA
+5
+1.3 Legislaciones y Estándares Internacionales
+5
+1.3.1 Sección 508 de la Ley de Rehabilitación (EE.UU.)
+5
+Requisitos clave:
+5
+1.3.2 EN 301 549 (Unión Europea)
+5
+1.3.3 ISO/IEC 40500
+5
+Beneficios de cumplir con ISO/IEC 40500
+5
+1.4 Beneficios de Cumplir con las Normas de Accesibilidad
+6
+Principales ventajas
+6
+Conclusión
+6
+2. Principios y Prácticas para el Diseño Accesible
+6
+2.1 Percepción: Garantizar que el contenido sea visible y comprensible para todos los usuarios
+6
+Buenas prácticas para mejorar la percepción
+7
+2.2 Operabilidad: Asegurar que todos los usuarios puedan interactuar con la interfaz
+7
+Buenas prácticas para mejorar la operabilidad
+7
+2.3 Comprensibilidad: Hacer que la interfaz sea clara y fácil de entender
+8
+Buenas prácticas para mejorar la comprensibilidad
+8
+2.4 Robustez: Garantizar compatibilidad con tecnologías asistivas y futuras actualizaciones
+9
+Buenas prácticas para mejorar la robustez
+9
+Conclusión
+10
+3. Pautas Específicas:
+10
+3.1 Contraste de Color: Garantizar la legibilidad del contenido
+10
+Buenas prácticas para mejorar el contraste
+10
+3.2 Texto Alternativo para Imágenes: Hacer contenido visual accesible
+11
+Buenas prácticas para el uso de alt en imágenes
+11
+3.3 Navegación por Teclado: Acceso sin necesidad de ratón
+11
+Buenas prácticas para una navegación accesible
+11
+3.4 Controles de Formulario: Etiquetas y validaciones claras
+12
+Buenas prácticas en formularios accesibles
+12
+3.5 Respuesta a Eventos: Permitir múltiples formas de interacción
+12
+Buenas prácticas para eventos accesibles
+12
+3.6 Animaciones y Movimiento: Minimizar efectos adversos en usuarios sensibles
+13
+Buenas prácticas para animaciones accesibles
+13
+Conclusión
+14
+Actividades prácticas
+15
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/15
+Accesibilidad y estándares de calidad
+Texto claves
+La accesibilidad en el diseño de interfaces digitales es un aspecto fundamental para garantizar que 
+todas las
+personas
+, independientemente de sus habilidades o discapacidades, puedan acceder a la información y
+utilizar la tecnología sin barreras. En un mundo digitalizado, donde el acceso a servicios esenciales,
+educación y empleo se realiza cada vez más a través de plataformas en línea, la accesibilidad se ha
+convertido en una 
+necesidad ética, legal y técnica
+.
+El desarrollo accesible no solo beneficia a personas con 
+discapacidades visuales, auditivas, motoras o
+cognitivas
+, sino que también mejora la experiencia de usuario en general. Un diseño accesible es 
+más
+usable, más intuitivo y adaptable
+ a diferentes dispositivos y contextos de uso. Además, garantiza el
+cumplimiento de normativas y estándares internacionales, evitando sanciones legales y promoviendo la
+inclusión digital.
+Entre las normativas más relevantes se encuentran las 
+WCAG (Web Content Accessibility Guidelines)
+, que
+establecen principios y criterios para garantizar la accesibilidad web; 
+ARIA (Accessible Rich Internet
+Applications)
+, que mejora la interacción de contenido dinámico con tecnologías asistivas; y regulaciones
+específicas como la 
+Sección 508 en EE.UU.
+ y la 
+EN 301 549 en Europa
+.
+1. Normas y Estándares de Accesibilidad
+La accesibilidad en la web y en interfaces digitales es un principio fundamental para garantizar que todas las
+personas, independientemente de sus capacidades físicas, sensoriales o cognitivas, puedan acceder y utilizar
+tecnologías de manera efectiva. Para asegurar la accesibilidad, existen 
+normas y estándares
+internacionales
+ que establecen requisitos técnicos y mejores prácticas para el diseño de interfaces
+inclusivas.
+Estas normativas no solo buscan 
+cumplir con requisitos legales
+, sino que también mejoran la experiencia
+del usuario, optimizan la usabilidad y amplían el alcance de los productos digitales a un mayor número de
+personas. En este apartado, exploraremos los principales estándares de accesibilidad utilizados a nivel
+mundial.
+1.1 WCAG (Web Content Accessibility Guidelines)
+Las 
+Pautas de Accesibilidad para el Contenido Web (WCAG)
+, desarrolladas por el 
+World Wide Web
+Consortium (W3C)
+, son el estándar global más reconocido para garantizar la accesibilidad web.
+En esta unidad, exploraremos las principales 
+normas y estándares de accesibilidad
+, los
+principios fundamentales del 
+diseño accesible
+ y pautas específicas para garantizar
+interfaces inclusivas y eficientes.
+Aquí se detallan las normas y estándares clave y cómo se aplican para diseñar interfaces
+accesibles:
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Principios de WCAG 2.1
+Las WCAG se basan en cuatro principios fundamentales:
+1
+. 
+Perceptible
+: La información y los componentes de la interfaz deben ser presentados de manera que
+todos los usuarios puedan percibirlos sin problemas. Esto incluye proporcionar 
+alternativas textuales
+para imágenes y videos, y asegurar suficiente 
+contraste de color
+.
+2
+. 
+Operable
+: Los usuarios deben poder interactuar con todos los elementos de la interfaz sin
+restricciones. Esto implica garantizar que la navegación sea accesible mediante 
+teclado y
+tecnologías asistivas
+, y evitar contenido que cause molestias (como parpadeos excesivos).
+3
+. 
+Comprensible
+: La información y la navegación deben ser claras y predecibles. Se debe utilizar
+lenguaje simple
+, estructuras de navegación coherentes y proporcionar ayudas para completar
+formularios.
+4
+. 
+Robusto
+: El contenido debe ser interpretable por 
+diferentes dispositivos y tecnologías asistivas
+,
+asegurando compatibilidad con 
+lectores de pantalla y navegadores
+.
+Niveles de conformidad
+Las WCAG establecen tres niveles de accesibilidad:
+Nivel A
+: Contiene los requisitos mínimos de accesibilidad.
+Nivel AA
+: Requerido en muchas legislaciones y recomendado para la mayoría de los sitios web.
+Nivel AAA
+: Proporciona la mejor accesibilidad posible, pero puede ser difícil de implementar en ciertos
+contextos.
+Ejemplo de aplicación de WCAG 2.1
+Para cumplir con la pauta de 
+contraste de color
+, se debe garantizar una proporción mínima de:
+4.5:1
+ para texto normal (Nivel AA).
+7:1
+ para texto grande (Nivel AAA).
+Herramientas recomendadas para verificar el cumplimiento de WCAG:
+WAVE (Web Accessibility Evaluation Tool)
+Lighthouse (Google Chrome DevTools)
+Contrast Checker (WebAIM)
+1.2 ARIA (Accessible Rich Internet Applications)
+ARIA es un conjunto de atributos que pueden añadirse a HTML para mejorar la accesibilidad en 
+aplicaciones
+web dinámicas
+. Su objetivo es ayudar a las 
+tecnologías asistivas
+, como los lectores de pantalla, a
+interpretar correctamente los elementos interactivos.
+Usos principales de ARIA
+Roles (
+role
+)
+: Indican la función de un elemento en la página.
+Estados (
+aria-live
+)
+: Informan a los lectores de pantalla sobre actualizaciones en tiempo real.
+Etiquetas (
+aria-label
+)
+: Proporcionan descripciones accesibles a los elementos interactivos.
+Ejemplo de ARIA en HTML
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+html
+<
+button
+ 
+aria-label
+=
+"Abrir menú de navegación"
+>
+<
+span
+ 
+class
+=
+"icon-menu"
+>
+</
+span
+>
+</
+button
+>
+Este código permite que los lectores de pantalla describan correctamente la funcionalidad del botón.
+Cuándo usar ARIA
+En menús desplegables (
+aria-expanded
+).
+En notificaciones en tiempo real (
+aria-live
+).
+En controles personalizados (
+role="button"
+ en 
+<div>
+ que se comporta como botón).
+1.3 Legislaciones y Estándares Internacionales
+Además de las WCAG, varios países han desarrollado normativas específicas para garantizar la accesibilidad
+en productos digitales. Estas regulaciones suelen basarse en las WCAG pero pueden incluir requisitos
+adicionales.
+1.3.1 Sección 508 de la Ley de Rehabilitación (EE.UU.)
+La 
+Sección 508
+ es una regulación estadounidense que exige que todas las tecnologías de la información
+utilizadas por el 
+gobierno federal
+ sean accesibles para personas con discapacidades. Esto incluye sitios
+web, software y documentos electrónicos.
+Requisitos clave:
+Garantizar la accesibilidad de 
+formularios electrónicos y documentos PDF
+.
+Proporcionar subtítulos y descripciones de audio en videos.
+Permitir la navegación completa a través del 
+teclado
+.
+1.3.2 EN 301 549 (Unión Europea)
+El estándar 
+EN 301 549
+ establece requisitos de accesibilidad para 
+productos y servicios de Tecnologías
+de la Información y la Comunicación (TIC)
+ dentro de la 
+Unión Europea
+.
+Este estándar:
+Se aplica a 
+sitios web, aplicaciones móviles, software y hardware
+.
+Está alineado con las 
+WCAG 2.1 en nivel AA
+.
+Es obligatorio para entidades gubernamentales y servicios públicos.
+1.3.3 ISO/IEC 40500
+Esta norma es la adopción internacional de 
+WCAG 2.0
+ como estándar oficial de accesibilidad web. Asegura
+que los criterios de accesibilidad sean aplicados de manera 
+consistente en múltiples países
+.
+Beneficios de cumplir con ISO/IEC 40500
+Facilita la certificación internacional de productos accesibles.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Proporciona un marco global para el desarrollo inclusivo.
+Mejora la compatibilidad con dispositivos y tecnologías asistivas.
+1.4 Beneficios de Cumplir con las Normas de Accesibilidad
+Cumplir con los estándares de accesibilidad no solo garantiza el 
+cumplimiento legal
+, sino que también
+mejora la experiencia de usuario y proporciona beneficios significativos para las organizaciones.
+Principales ventajas
+1
+. 
+Mayor alcance de usuarios
+: Facilita el acceso a millones de personas con discapacidades.
+2
+. 
+Mejora del SEO
+: Google favorece sitios accesibles, mejorando su posicionamiento.
+3
+. 
+Cumplimiento legal
+: Evita sanciones y demandas por incumplimiento de normativas.
+4
+. 
+Mejora la reputación de la marca
+: Demuestra un compromiso con la inclusión y la responsabilidad
+social.
+5
+. 
+Optimización de la usabilidad
+: Un diseño accesible beneficia a todos los usuarios, no solo a aquellos
+con discapacidades.
+Conclusión
+Los 
+estándares de accesibilidad
+ como 
+WCAG, ARIA, Sección 508, EN 301 549 e ISO/IEC 40500
+proporcionan un marco esencial para el desarrollo de tecnologías inclusivas. Aplicar estas normativas no solo
+cumple con requerimientos legales, sino que también mejora la experiencia de usuario, aumenta el alcance
+del contenido digital y optimiza el rendimiento de las plataformas.
+Siguiendo estas normas, las empresas y desarrolladores pueden construir productos 
+más inclusivos,
+eficientes y usables
+, asegurando que la tecnología sea accesible para 
+todas las personas
+.
+2. Principios y Prácticas para el Diseño Accesible
+El diseño accesible busca garantizar que todas las personas, independientemente de sus capacidades físicas,
+cognitivas o sensoriales, puedan utilizar productos digitales sin barreras. Para lograr esto, se han establecido
+principios que facilitan la creación de interfaces más inclusivas y usables.
+Los estándares internacionales, como 
+WCAG (Web Content Accessibility Guidelines)
+, establecen cuatro
+principios fundamentales para la accesibilidad: 
+Percepción, Operabilidad, Comprensibilidad y Robustez
+.
+Estos principios guían el desarrollo de interfaces accesibles para personas con discapacidades visuales,
+auditivas, motrices y cognitivas.
+A continuación, se presentan estos principios junto con sus mejores prácticas y ejemplos de implementación.
+2.1 Percepción: Garantizar que el contenido sea visible y
+comprensible para todos los usuarios
+El principio de 
+percepción
+ establece que la información y los elementos de la interfaz deben presentarse de
+manera que todos los usuarios puedan percibirlos de manera efectiva. Esto incluye garantizar que el
+contenido visual, auditivo y textual sea accesible para personas con diferentes tipos de discapacidades.
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Buenas prácticas para mejorar la percepción
+1
+. 
+Alternativas textuales para contenido visual
+Todas las imágenes deben incluir una descripción en el atributo alt:
+html
+<
+img
+ 
+src
+=
+"producto.jpg"
+ 
+alt
+=
+"Camiseta azul de manga larga con estampado blanco"
+>
+Los videos deben incluir subtítulos y transcripciones para personas con discapacidad auditiva.
+2
+. 
+Contraste adecuado entre texto y fondo
+Se recomienda una relación de contraste de al menos 
+4.5:1 para texto normal
+ y 
+3:1 para texto
+grande
+.
+Ejemplo de contraste accesible en CSS:
+css
+body
+ {
+color
+: 
+#000000
+;
+background-color
+: 
+#FFFFFF
+;
+}
+3
+. 
+Evitar el uso exclusivo de color para transmitir información
+En formularios, no se debe usar solo color para indicar errores:
+html
+<
+label
+ 
+for
+=
+"email"
+>
+Correo electrónico:
+</
+label
+>
+<
+input
+ 
+type
+=
+"email"
+ 
+id
+=
+"email"
+>
+<
+span
+ 
+class
+=
+"error"
+ >
+¡Campo obligatorio!
+</
+span
+>
+4
+. 
+Proporcionar opciones para ajustar el tamaño del texto
+Permitir que los usuarios aumenten el tamaño del texto sin afectar el diseño.
+2.2 Operabilidad: Asegurar que todos los usuarios puedan
+interactuar con la interfaz
+El principio de 
+operabilidad
+ garantiza que todos los elementos interactivos de la interfaz sean utilizables
+mediante diferentes métodos de entrada, como 
+teclado, ratón, pantalla táctil o tecnologías asistivas
+.
+Buenas prácticas para mejorar la operabilidad
+1
+. 
+Navegación por teclado
+Todos los elementos interactivos deben ser accesibles mediante la tecla Tab.
+Ejemplo de estructura de navegación accesible:
+html
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+<
+a
+ 
+href
+=
+"inicio.html"
+ 
+tabindex
+=
+"1"
+>
+Inicio
+</
+a
+>
+<
+a
+ 
+href
+=
+"contacto.html"
+ 
+tabindex
+=
+"2"
+>
+Contacto
+</
+a
+>
+El atributo tabindex define el orden de navegación con el teclado.
+2
+. 
+Evitar contenido con movimiento que no se pueda detener
+Las animaciones deben ofrecer la opción de pausa para personas con sensibilidad al movimiento.
+Ejemplo de botón para detener animaciones:
+html
+<
+button
+ 
+onclick
+=
+"pausarAnimacion()"
+>
+Detener Animación
+</
+button
+>
+3
+. 
+Proporcionar tiempo suficiente para completar tareas
+Los formularios deben permitir ampliar el tiempo límite si el usuario lo necesita.
+Implementación de mensaje de advertencia de tiempo:
+javascript
+setTimeout
+(
+function
+(
+) {
+alert
+(
+"Su sesión expirará en 1 minuto. ¿Desea extender el tiempo?"
+);
+}, 
+600000
+); 
+// 10 minutos
+4
+. 
+Evitar elementos que puedan provocar ataques epilépticos
+No usar parpadeos rápidos en contenido visual.
+Se recomienda una frecuencia inferior a 
+3 destellos por segundo
+.
+2.3 Comprensibilidad: Hacer que la interfaz sea clara y fácil de
+entender
+El principio de 
+comprensibilidad
+ establece que el contenido y la navegación deben ser predecibles y fáciles
+de entender para todos los usuarios, incluyendo aquellos con discapacidades cognitivas o dificultades de
+aprendizaje.
+Buenas prácticas para mejorar la comprensibilidad
+1
+. 
+Uso de lenguaje claro y simple
+Evitar jergas técnicas o frases complejas.
+Ejemplo:
+  
+Incorrecto:
+ "Ingrese sus credenciales para proceder con la autenticación."
+  
+Correcto:
+ "Ingrese su usuario y contraseña para iniciar sesión."
+2
+. 
+Navegación consistente y predecible
+La estructura de la página debe ser coherente en todas las secciones.
+Los menús deben ubicarse en el mismo lugar en todas las páginas.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3
+. 
+Proporcionar ayuda para la entrada de datos
+Los formularios deben incluir instrucciones claras sobre cómo completarlos.
+Ejemplo de etiqueta accesible en un formulario:
+html
+<label 
+for
+=
+"telefono"
+>Número de 
+Tel
+éfono (
+Formato
+: 
+123
+-
+456
+-
+7890
+)
+:</label>
+<input type=
+"tel"
+ id=
+"telefono"
+ pattern=
+"[0-9]{3}-[0-9]{3}-[0-9]{4}"
+ required>
+4
+. 
+Confirmaciones y mensajes de error comprensibles
+Los mensajes de error deben ser específicos y ofrecer soluciones.
+Ejemplo:
+  
+Incorrecto:
+ "Error en el formulario."
+  
+Correcto:
+ "El campo 'Correo Electrónico' está vacío. Por favor, ingrese un email válido."
+2.4 Robustez: Garantizar compatibilidad con tecnologías asistivas
+y futuras actualizaciones
+El principio de 
+robustez
+ asegura que el contenido y las funcionalidades sean interpretados correctamente por
+diferentes navegadores, dispositivos y tecnologías asistivas.
+Buenas prácticas para mejorar la robustez
+1
+. 
+Usar código HTML bien estructurado
+Evitar etiquetas obsoletas y garantizar un marcado semántico adecuado.
+Ejemplo:
+html
+<
+nav
+>
+<
+ul
+>
+<
+li
+>
+<
+a
+ 
+href
+=
+"index.html"
+>
+Inicio
+</
+a
+>
+</
+li
+>
+<
+li
+>
+<
+a
+ 
+href
+=
+"contacto.html"
+>
+Contacto
+</
+a
+>
+</
+li
+>
+</
+ul
+>
+</
+nav
+>
+2
+. 
+Garantizar compatibilidad con lectores de pantalla
+Utilizar role y atributos ARIA cuando sea necesario.
+Ejemplo:
+html
+<
+button
+ 
+role
+=
+"button"
+ 
+aria-label
+=
+"Enviar formulario"
+>
+Enviar
+</
+button
+>
+3
+. 
+Realizar pruebas de accesibilidad con herramientas especializadas
+Google Lighthouse
+: Evalúa accesibilidad y rendimiento web.
+NVDA (NonVisual Desktop Access)
+: Lector de pantalla gratuito.
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+WAVE (Web Accessibility Evaluation Tool)
+: Herramienta de análisis de accesibilidad.
+Conclusión
+Garantizar la accesibilidad en el diseño digital requiere aplicar 
+buenas prácticas en percepción,
+operabilidad, comprensibilidad y robustez
+. Seguir estos principios permite que todas las personas,
+incluidas aquellas con discapacidades, puedan acceder y utilizar interfaces de manera equitativa.
+Aplicar estas estrategias no solo 
+cumple con regulaciones internacionales como WCAG y ARIA
+, sino que
+también mejora la experiencia general del usuario, haciéndola más intuitiva y eficiente.
+3. Pautas Específicas:
+Las pautas específicas para el diseño accesible son prácticas concretas que facilitan la aplicación de los
+principios de 
+Percepción, Operabilidad, Comprensibilidad y Robustez
+ definidos en las 
+WCAG (Web
+Content Accessibility Guidelines)
+. Estas pautas aseguran que las interfaces digitales sean accesibles para
+usuarios con discapacidades visuales, auditivas, motrices y cognitivas.
+A continuación, se detallan las principales pautas junto con ejemplos prácticos de implementación.
+3.1 Contraste de Color: Garantizar la legibilidad del contenido
+El 
+contraste de color
+ es esencial para personas con baja visión o daltonismo. La WCAG 2.1 recomienda una
+relación de contraste mínima de 
+4.5:1
+ para texto normal y 
+3:1
+ para texto grande (≥ 18px o 14px en negrita).
+Buenas prácticas para mejorar el contraste
+1
+. 
+Usar combinaciones de colores accesibles
+Ejemplo de texto accesible:
+css
+body
+ {
+color
+: 
+#000000
+; 
+/* Texto negro */
+background-color
+: 
+#FFFFFF
+; 
+/* Fondo blanco */
+}
+  Incorrecto: Texto gris claro sobre fondo blanco.
+  Correcto: Texto negro sobre fondo amarillo claro.
+2
+. 
+Evitar usar solo color para transmitir información
+  Incorrecto:
+html
+<
+p
+ >
+Error: Este campo es obligatorio.
+</
+p
+>
+  Correcto (incluyendo un icono y texto descriptivo):
+html
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+<
+p
+>
+<
+span
+ 
+aria-hidden
+=
+"true"
+>
+ 
+</
+span
+>
+ Error: Este campo es obligatorio.
+</
+p
+>
+3
+. 
+Probar la accesibilidad del contraste con herramientas especializadas
+Contrast Checker (WebAIM)
+Color Contrast Analyzer (TPGi)
+3.2 Texto Alternativo para Imágenes: Hacer contenido visual
+accesible
+Las personas con discapacidad visual dependen de 
+lectores de pantalla
+ para interpretar imágenes. Usar un
+texto alternativo (
+alt
+)
+ adecuado es esencial para que el contenido visual sea comprensible.
+Buenas prácticas para el uso de alt en imágenes
+Proporcionar descripciones significativas
+html
+<
+img
+ 
+src
+=
+"gráfico-ventas.jpg"
+ 
+alt
+=
+"Gráfico de barras mostrando el crecimiento de ventas del 2023"
+>
+1
+. 
+Evitar descripciones genéricas como "imagen1.jpg"
+2
+. 
+No repetir información redundante si ya está en el texto cercano
+Usar 
+aria-hidden="true"
+ para imágenes decorativas
+html
+<
+img
+ 
+src
+=
+"borde.png"
+ 
+aria-hidden
+=
+"true"
+>
+3.3 Navegación por Teclado: Acceso sin necesidad de ratón
+Las personas con discapacidades motoras utilizan 
+teclados o tecnologías asistivas
+ como pulsadores o
+comandos de voz para navegar.
+Buenas prácticas para una navegación accesible
+1
+. 
+Asegurar que todos los elementos interactivos sean accesibles con Tab
+2
+. 
+Evitar el uso de 
+tabindex="-1"
+ en elementos importantes
+Proporcionar un enlace de "Saltar al contenido" para omitir menús repetitivos
+html
+<
+a
+ 
+href
+=
+"#contenido-principal"
+ 
+class
+=
+"skip-link"
+>
+Saltar al contenido
+</
+a
+>
+3
+. 
+Evitar atajos de teclado que interfieran con tecnologías asistivas
+Si se usan atajos, permitir su personalización.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3.4 Controles de Formulario: Etiquetas y validaciones claras
+Los formularios deben ser fáciles de completar y comprender. Las personas con 
+discapacidades cognitivas
+o visuales
+ necesitan instrucciones claras y etiquetas bien definidas.
+Buenas prácticas en formularios accesibles
+Usar etiquetas (
+label
+) correctamente asociadas
+html
+<label 
+for
+=
+"email"
+>Correo Electrónico:</label>
+<input 
+type
+=
+"email"
+ 
+id
+=
+"email"
+ required>
+Incluir instrucciones claras y mensajes de error comprensibles
+html
+<input 
+type
+=
+"password"
+ 
+id
+=
+"clave"
+>
+<small>Debe contener al menos 8 caracteres.</small>
+1
+. 
+Evitar placeholder como única indicación
+  Incorrecto:
+html
+<
+input
+ 
+type
+=
+"text"
+ placeholder=
+"Escriba su nombre"
+>
+  Correcto:
+html
+<label 
+for
+=
+"nombre"
+>
+Nombre
+:</label>
+<input type=
+"text"
+ id=
+"nombre"
+>
+Proporcionar validaciones accesibles
+javascript
+document
+.
+getElementById
+(
+"email"
+).
+addEventListener
+(
+"input"
+, 
+function
+(
+) {
+if
+ (!
+this
+.
+value
+.
+includes
+(
+"@"
+)) {
+this
+.
+setCustomValidity
+(
+"Ingrese un correo válido."
+);
+} 
+else
+ {
+this
+.
+setCustomValidity
+(
+""
+);
+}
+});
+3.5 Respuesta a Eventos: Permitir múltiples formas de interacción
+Para garantizar accesibilidad, los eventos de interacción deben funcionar con diferentes dispositivos de
+entrada, como 
+ratón, teclado y pantallas táctiles
+.
+Buenas prácticas para eventos accesibles
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+No depender solo del evento 
+click
+javascript
+document
+.
+getElementById
+(
+"boton"
+).
+addEventListener
+(
+"keydown"
+, 
+function
+(
+event
+) {
+if
+ (event.
+key
+ === 
+"Enter"
+) {
+alert
+(
+"Botón activado con teclado."
+);
+}
+});
+Usar 
+role="button"
+ en elementos no estándar
+html
+<
+div
+ 
+role
+=
+"button"
+ 
+tabindex
+=
+"0"
+ 
+onclick
+=
+"accion()"
+ 
+onkeypress
+=
+"accion()"
+>
+Hacer clic
+</
+div
+>
+1
+. 
+Permitir comandos de voz
+Algunas aplicaciones pueden integrar 
+Web Speech API
+ para facilitar la navegación por voz.
+3.6 Animaciones y Movimiento: Minimizar efectos adversos en
+usuarios sensibles
+Las animaciones pueden causar molestias a personas con 
+trastornos vestibulares o epilepsia
+fotosensible
+. Es importante permitir que los usuarios 
+desactiven efectos visuales innecesarios
+.
+Buenas prácticas para animaciones accesibles
+Respetar las preferencias de los usuarios (
+prefers-reduced-motion
+)
+css
+@media
+ (
+prefers-reduced-motion
+: reduce) {
+* {
+animation
+: none;
+transition
+: none;
+}
+}
+1
+. 
+Evitar parpadeos y destellos rápidos
+Nunca usar más de 
+tres destellos por segundo
+ en animaciones.
+Proporcionar opciones para desactivar efectos visuales
+html
+<
+button
+ 
+onclick
+=
+"desactivarAnimaciones()"
+>
+Desactivar animaciones
+</
+button
+>
+2
+. 
+Evitar desplazamiento automático de contenido
+No utilizar carruseles que avancen sin control del usuario.
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Conclusión
+Implementar pautas específicas de accesibilidad garantiza que las interfaces sean utilizables por 
+todas las
+personas
+, incluyendo aquellas con discapacidades visuales, motoras, auditivas y cognitivas.
+El diseño accesible no solo 
+cumple con estándares legales y técnicos
+, sino que también mejora la
+experiencia de usuario para todos. Adoptar prácticas como 
+uso correcto del color, navegación por teclado,
+formularios accesibles, múltiples métodos de interacción y control de animaciones
+ permite desarrollar
+plataformas 
+más inclusivas, eficientes y usables
+.
+Siguiendo estas recomendaciones, se puede garantizar que la tecnología sea verdaderamente accesible para
+todas las personas
+.
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Caso Práctico 23
+Estás rediseñando un sitio web de noticias para mejorar su accesibilidad. El sitio tiene problemas con el
+contraste de colores, la navegación solo por ratón y la falta de alternativas textuales para contenido
+multimedia. Describe cómo abordarías estos problemas siguiendo las WCAG 2.1.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Caso Práctico 24
+Una aplicación móvil de salud necesita ser accesible para todas las personas, incluyendo aquellas con
+discapacidades visuales y auditivas. Describe cómo diseñarías esta aplicación para cumplir con los
+estándares de accesibilidad.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+¿Qué pasos tomarías para hacer que el sitio web de noticias sea más accesible según las
+WCAG 2.1?
+1.
+¿Qué estrategias de diseño y desarrollo usarías para asegurar que la aplicación de salud sea
+accesible?
+1.
+Documento solo para uso personal. Prohibido copiar o distribuir
+15/15
+Accesibilidad y estándares de calidad
+idalumno:906687|unidad:12|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

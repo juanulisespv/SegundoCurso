@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1: Introducción al Proceso de Desarrollo de Software | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            transition: all 0.3s ease;
+        }
+        
+        .methodology-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .benefit-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .process-flow {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .stage {
+            background: #f8f9fa;
+            border: 2px solid #198754;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 300px;
+        }
+        
+        .arrow {
+            margin: 0.5rem 0;
+        }
+        
+        .comparison-table {
+            margin: 2rem 0;
+        }
+        
+        .pros-card {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+        
+        .cons-card {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+        
+        .agile-principle {
+            background: #e7f3ff;
+            border: 1px solid #339af0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .role-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .spiral-phase {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .activity-card {
+            background: #f5f5f5;
+            border: 1px solid #999;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+            border: 1px solid #198754;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .icon-large {
+            font-size: 3rem;
+            color: #198754;
+            margin-bottom: 1rem;
+        }
+        
+        .process-flow {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .stage {
+            background: #f8f9fa;
+            border: 2px solid #198754;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 300px;
+        }
+        
+        .arrow {
+            margin: 0.5rem 0;
+        }
+        
+        .comparison-table {
+            margin: 2rem 0;
+        }
+        
+        .pros-card {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+        
+        .cons-card {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 1rem;
+            height: 100%;
+        }
+        
+        .agile-principle {
+            background: #e7f3ff;
+            border: 1px solid #339af0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .role-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .alert-custom {
+            border-radius: 10px;
+            border: none;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .alert-info-custom {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            color: #0d47a1;
+        }
+        .alert-warning-custom {
+            background: linear-gradient(45deg, #fff3e0, #f3e5f5);
+            color: #e65100;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e83e8c;
+            font-family: 'Courier New', monospace;
+        }
+        .lifecycle-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: #dee2e6;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-rocket-takeoff me-3"></i>
+                        Introducción al Proceso de Desarrollo de Software
+                    </h1>
+                    <p class="lead mb-4">Ciclo de Vida • Metodologías Ágiles • Actividades Clave • Roles y Colaboración</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="d-flex justify-content-center flex-wrap gap-3">
+                                <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                    <i class="bi bi-diagram-3 me-1"></i>Ciclo de Vida
+                                </span>
+                                <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                    <i class="bi bi-lightning me-1"></i>Metodologías Ágiles
+                                </span>
+                                <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                                    <i class="bi bi-people me-1"></i>Roles y Colaboración
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-list-ul me-2"></i>
+                                Índice del Tema
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#ciclo-vida">Ciclo de Vida del Software</a>
+                                <a class="nav-link" href="#modelos-clasicos">Modelos Clásicos</a>
+                                <a class="nav-link" href="#metodologias-agiles">Metodologías Ágiles</a>
+                                <a class="nav-link" href="#actividades-clave">Actividades Clave</a>
+                                <a class="nav-link" href="#roles-desarrollo">Roles en el Desarrollo</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+        
+        <!-- Introducción -->
+        <section id="introduccion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-play-circle me-3"></i>
+                ¿Qué es el Desarrollo de Software?
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h5><i class="fas fa-lightbulb me-2"></i>Definición Fundamental</h5>
+                <p class="mb-0">El <strong>desarrollo de software</strong> es un proceso sistemático y disciplinado que involucra la <strong>planificación, análisis, diseño, implementación, pruebas y mantenimiento</strong> de sistemas informáticos para resolver problemas específicos o satisfacer necesidades particulares de usuarios y organizaciones.</p>
+            </div>
+
+            <div class="methodology-grid">
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4 class="text-center">Concepción</h4>
+                    <p>Identificación de necesidades, definición del problema y conceptualización de la solución.</p>
+                    <ul>
+                        <li><strong>Análisis del problema</strong></li>
+                        <li><strong>Estudio de factibilidad</strong></li>
+                        <li><strong>Definición de objetivos</strong></li>
+                        <li><strong>Identificación de stakeholders</strong></li>
+                    </ul>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h4 class="text-center">Planificación</h4>
+                    <p>Definición de estrategias, recursos, cronogramas y metodologías para el desarrollo.</p>
+                    <ul>
+                        <li><strong>Estimación de recursos</strong></li>
+                        <li><strong>Cronograma de actividades</strong></li>
+                        <li><strong>Gestión de riesgos</strong></li>
+                        <li><strong>Selección de tecnologías</strong></li>
+                    </ul>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="text-center">Implementación</h4>
+                    <p>Desarrollo del código, integración de componentes y construcción del sistema.</p>
+                    <ul>
+                        <li><strong>Codificación</strong></li>
+                        <li><strong>Revisión de código</strong></li>
+                        <li><strong>Integración continua</strong></li>
+                        <li><strong>Control de versiones</strong></li>
+                    </ul>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <h4 class="text-center">Validación</h4>
+                    <p>Verificación del correcto funcionamiento mediante pruebas sistemáticas.</p>
+                    <ul>
+                        <li><strong>Pruebas unitarias</strong></li>
+                        <li><strong>Pruebas de integración</strong></li>
+                        <li><strong>Pruebas de sistema</strong></li>
+                        <li><strong>Pruebas de aceptación</strong></li>
+                    </ul>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h4 class="text-center">Despliegue</h4>
+                    <p>Puesta en producción del sistema y su disponibilización para los usuarios finales.</p>
+                    <ul>
+                        <li><strong>Configuración del entorno</strong></li>
+                        <li><strong>Migración de datos</strong></li>
+                        <li><strong>Capacitación de usuarios</strong></li>
+                        <li><strong>Go-live del sistema</strong></li>
+                    </ul>
+                </div>
+
+                <div class="methodology-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h4 class="text-center">Mantenimiento</h4>
+                    <p>Soporte continuo, corrección de errores y evolución del sistema.</p>
+                    <ul>
+                        <li><strong>Corrección de bugs</strong></li>
+                        <li><strong>Actualizaciones</strong></li>
+                        <li><strong>Optimización</strong></li>
+                        <li><strong>Soporte técnico</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Ciclo de Vida del Software -->
+        <section id="ciclo-vida" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-sync me-3"></i>
+                Ciclo de Vida del Software
+            </h2>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-info-circle me-2"></i>Concepto Fundamental</h4>
+                <p>El <strong>ciclo de vida del software</strong> describe las etapas por las que pasa un sistema desde su concepción hasta su retiro. Proporciona un marco estructurado para organizar, planificar y controlar el proceso de desarrollo.</p>
+            </div>
+
+            <div class="lifecycle-timeline">
+                <div class="timeline-item">
+                    <h4><i class="fas fa-search text-primary me-2"></i>1. Análisis de Requisitos</h4>
+                    <p><strong>Objetivo:</strong> Comprender y documentar qué debe hacer el sistema.</p>
+                    <ul>
+                        <li>Recopilación de requisitos funcionales y no funcionales</li>
+                        <li>Análisis de stakeholders y usuarios</li>
+                        <li>Documentación de casos de uso</li>
+                        <li>Validación de requisitos con el cliente</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><i class="fas fa-pencil-ruler text-success me-2"></i>2. Diseño del Sistema</h4>
+                    <p><strong>Objetivo:</strong> Definir la arquitectura y estructura del sistema.</p>
+                    <ul>
+                        <li>Diseño de arquitectura del sistema</li>
+                        <li>Diseño de interfaces de usuario</li>
+                        <li>Diseño de base de datos</li>
+                        <li>Especificación de componentes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><i class="fas fa-code text-warning me-2"></i>3. Implementación</h4>
+                    <p><strong>Objetivo:</strong> Convertir el diseño en código funcional.</p>
+                    <ul>
+                        <li>Codificación de módulos y componentes</li>
+                        <li>Implementación de lógica de negocio</li>
+                        <li>Desarrollo de interfaces</li>
+                        <li>Integración de componentes</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><i class="fas fa-bug text-danger me-2"></i>4. Pruebas</h4>
+                    <p><strong>Objetivo:</strong> Verificar que el sistema funcione correctamente.</p>
+                    <ul>
+                        <li>Pruebas unitarias de componentes</li>
+                        <li>Pruebas de integración</li>
+                        <li>Pruebas de sistema completo</li>
+                        <li>Pruebas de aceptación del usuario</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><i class="fas fa-shipping-fast text-info me-2"></i>5. Despliegue</h4>
+                    <p><strong>Objetivo:</strong> Poner el sistema en producción.</p>
+                    <ul>
+                        <li>Configuración del entorno de producción</li>
+                        <li>Instalación y configuración</li>
+                        <li>Migración de datos</li>
+                        <li>Capacitación de usuarios</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <h4><i class="fas fa-tools text-secondary me-2"></i>6. Mantenimiento</h4>
+                    <p><strong>Objetivo:</strong> Mantener y evolucionar el sistema.</p>
+                    <ul>
+                        <li>Corrección de errores</li>
+                        <li>Mejoras y nuevas funcionalidades</li>
+                        <li>Optimización de rendimiento</li>
+                        <li>Actualización de tecnologías</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Importancia del Proceso Estructurado -->
+        <section id="importancia" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-star me-3"></i>
+                Importancia del Proceso Estructurado
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="concept-card p-4 h-100">
+                        <h4><i class="fas fa-shield-alt text-success me-2"></i>Control de Calidad</h4>
+                        <p>Un proceso estructurado garantiza:</p>
+                        <ul>
+                            <li><strong>Menor número de errores</strong> en el producto final</li>
+                            <li><strong>Consistencia</strong> en la documentación y código</li>
+                            <li><strong>Cumplimiento de estándares</strong> de la industria</li>
+                            <li><strong>Trazabilidad</strong> de requisitos y cambios</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="concept-card p-4 h-100">
+                        <h4><i class="fas fa-clock text-warning me-2"></i>Gestión Eficiente</h4>
+                        <p>Facilita la gestión mediante:</p>
+                        <ul>
+                            <li><strong>Planificación precisa</strong> de tiempos y recursos</li>
+                            <li><strong>Control de avance</strong> del proyecto</li>
+                            <li><strong>Identificación temprana</strong> de problemas</li>
+                            <li><strong>Comunicación efectiva</strong> entre equipos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-warning-custom mt-4">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i>Consecuencias de la Falta de Proceso</h5>
+                <p class="mb-0">La ausencia de un proceso estructurado puede llevar a: <strong>sobrecostos</strong>, <strong>retrasos en la entrega</strong>, <strong>productos de baja calidad</strong>, <strong>insatisfacción del cliente</strong>, y <strong>dificultades de mantenimiento</strong>. Es fundamental establecer y seguir metodologías probadas.</p>
+            </div>
+        </section>
+
+                <!-- Modelos Clásicos -->
+                <section id="modelos-clasicos" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-diagram-2 me-2"></i>
+                        Modelos Clásicos de Ciclo de Vida
+                    </h2>
+
+                    <h3>Modelo en Cascada</h3>
+                    <p>El modelo en cascada es uno de los enfoques más <strong>tradicionales</strong> para el desarrollo de software. Organiza el proceso en una serie de etapas secuenciales.</p>
+
+                    <div class="process-flow">
+                        <div class="stage">
+                            <h5><i class="bi bi-search me-2"></i>Análisis</h5>
+                            <p>Se recopilan y documentan los requisitos del sistema de manera exhaustiva.</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="stage">
+                            <h5><i class="bi bi-pencil me-2"></i>Diseño</h5>
+                            <p>Se establece la arquitectura y los detalles técnicos del software.</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="stage">
+                            <h5><i class="bi bi-code me-2"></i>Implementación</h5>
+                            <p>Se escribe el código fuente basado en el diseño establecido.</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="stage">
+                            <h5><i class="bi bi-bug me-2"></i>Pruebas</h5>
+                            <p>Se verifica que el software funcione correctamente y cumpla con los requisitos.</p>
+                        </div>
+                        <div class="arrow">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="stage">
+                            <h5><i class="bi bi-cloud-upload me-2"></i>Despliegue</h5>
+                            <p>El software se entrega e implementa en el entorno de producción.</p>
+                        </div>
+                    </div>
+
+                    <div class="comparison-table">
+                        <h4><i class="bi bi-balance me-2"></i>Ventajas y Desventajas del Modelo en Cascada</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="pros-card">
+                                    <h5><i class="bi bi-check-circle text-success me-2"></i>Ventajas</h5>
+                                    <ul>
+                                        <li>Visión clara y estructurada del desarrollo</li>
+                                        <li>Facilita planificación y seguimiento</li>
+                                        <li>Etapas bien definidas</li>
+                                        <li>Ideal para requisitos estables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="cons-card">
+                                    <h5><i class="bi bi-x-circle text-danger me-2"></i>Desventajas</h5>
+                                    <ul>
+                                        <li>Carácter rígido ante cambios</li>
+                                        <li>Difícil introducir modificaciones tardías</li>
+                                        <li>Puede generar retrasos y costos adicionales</li>
+                                        <li>Menos efectivo en proyectos dinámicos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Metodologías Ágiles -->
+                <section id="metodologias-agiles" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-lightning me-2"></i>
+                        Metodologías Ágiles
+                    </h2>
+
+                    <p class="lead">Las metodologías ágiles son un enfoque moderno que se centra en la <strong>flexibilidad, colaboración y entrega continua</strong> de valor.</p>
+
+                    <p>A diferencia de los modelos tradicionales, las metodologías ágiles priorizan la adaptabilidad a cambios en los requisitos y la participación activa del cliente durante todo el proceso.</p>
+
+                    <h3>Principios Básicos de Desarrollo Ágil</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="agile-principle">
+                                <h5><i class="bi bi-people me-2"></i>Colaboración Activa</h5>
+                                <p>Colaboración eficiente entre todos los involucrados: clientes, desarrolladores y otros roles clave.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="agile-principle">
+                                <h5><i class="bi bi-arrows-move me-2"></i>Flexibilidad</h5>
+                                <p>Responder rápidamente a cambios en requisitos, incluso en etapas avanzadas del desarrollo.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="agile-principle">
+                                <h5><i class="bi bi-clock me-2"></i>Entregas Frecuentes</h5>
+                                <p>Proporcionar valor de manera constante a través de iteraciones cortas.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="agile-principle">
+                                <h5><i class="bi bi-arrow-clockwise me-2"></i>Mejora Continua</h5>
+                                <p>Evaluación constante y retroalimentación para mejorar el proceso y producto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Actividades Clave -->
+                <section id="actividades-clave" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-gear me-2"></i>
+                        Actividades Clave en el Desarrollo
+                    </h2>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="activity-card">
+                                <h5><i class="bi bi-search me-2"></i>Análisis de Requisitos</h5>
+                                <p>Identificación y documentación de qué debe hacer el sistema.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="activity-card">
+                                <h5><i class="bi bi-pencil me-2"></i>Diseño del Sistema</h5>
+                                <p>Definición de la arquitectura y estructura del software.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="activity-card">
+                                <h5><i class="bi bi-code me-2"></i>Implementación</h5>
+                                <p>Conversión del diseño en código funcional.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="activity-card">
+                                <h5><i class="bi bi-bug me-2"></i>Pruebas</h5>
+                                <p>Verificación de que el sistema funcione correctamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Roles en el Desarrollo -->
+                <section id="roles-desarrollo" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-people me-2"></i>
+                        Roles en el Desarrollo de Software
+                    </h2>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <h5><i class="bi bi-person-badge me-2"></i>Analista de Sistemas</h5>
+                                <p>Identifica requisitos y necesidades del negocio, actúa como puente entre usuarios técnicos y no técnicos.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <h5><i class="bi bi-person-gear me-2"></i>Desarrollador</h5>
+                                <p>Implementa soluciones técnicas, escribe y mantiene el código del sistema.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <h5><i class="bi bi-person-check me-2"></i>Tester/QA</h5>
+                                <p>Garantiza la calidad del software mediante pruebas sistemáticas y detección de errores.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="role-card">
+                                <h5><i class="bi bi-person-workspace me-2"></i>Gestor de Proyectos</h5>
+                                <p>Coordina recursos, plazos y comunicación entre todos los actores del proyecto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+        <!-- Resumen Final -->
+        <section id="resumen" class="mb-5">
+            <div class="highlight-box">
+                <h3><i class="fas fa-graduation-cap me-3"></i>Resumen del Tema</h3>
+                <p>El <strong>desarrollo de software</strong> es un proceso complejo que requiere <strong>planificación, metodología y disciplina</strong>. El <strong>ciclo de vida del software</strong> proporciona un marco estructurado que incluye <strong>análisis, diseño, implementación, pruebas, despliegue y mantenimiento</strong>. Seguir un <strong>proceso estructurado</strong> es fundamental para garantizar la <strong>calidad, eficiencia y éxito</strong> de los proyectos de desarrollo de software.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-cogs text-primary me-2"></i>Proceso</h5>
+                        <p>Metodología sistemática y disciplinada</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-sync text-success me-2"></i>Ciclo de Vida</h5>
+                        <p>Etapas organizadas y secuenciales</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-shield-alt text-warning me-2"></i>Calidad</h5>
+                        <p>Control y aseguramiento continuo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="../../../index.html" class="btn btn-outline-success">
+                            <i class="bi bi-house me-2"></i>
+                            Inicio
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 1 de 12</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema2.html" class="btn btn-outline-success">
+                            Tema 2
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', savedTheme);
+            updateThemeToggleIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

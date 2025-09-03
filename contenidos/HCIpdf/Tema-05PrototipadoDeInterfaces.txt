@@ -1,0 +1,561 @@
+Prototipado de interfaces
+© Universitas Europaea IMF
+Indice
+Prototipado de interfaces
+4
+1. Técnicas de Prototipado
+5
+1.1. Bocetos (Sketching):
+5
+Ventajas del bocetado:
+5
+Uso en proyectos reales:
+5
+1.2. Wireframes:
+5
+Características de los wireframes:
+6
+Ventajas:
+6
+Herramientas para crear wireframes:
+6
+1.3. Mockups:
+6
+Propósito principal:
+6
+Ventajas:
+6
+Herramientas comunes:
+6
+1.4. Prototipos Interactivos:
+7
+Características de los prototipos interactivos:
+7
+Ventajas:
+7
+Herramientas para prototipos interactivos:
+7
+Ejemplo práctico:
+7
+1.5. Prototipos de Código:
+7
+Características de los prototipos de código:
+8
+Ventajas:
+8
+Desventajas:
+8
+Herramientas y tecnologías comunes:
+8
+Ejemplo práctico:
+8
+2. Herramientas de Prototipado
+8
+2.1. Papel y Lápiz:
+8
+Ventajas de Papel y Lápiz:
+8
+Usos comunes:
+9
+Limitaciones:
+9
+2.2. Balsamiq Mockups:
+9
+Características principales:
+9
+Ventajas de Balsamiq:
+9
+Casos de uso:
+9
+2.3. Sketch, Figma y Adobe XD:
+9
+Sketch
+10
+Figma
+10
+Adobe XD
+10
+Ventajas comunes:
+10
+2.4. InVision:
+10
+Características principales:
+10
+Ventajas de InVision:
+11
+Casos de uso:
+11
+2.5. Axure RP:
+11
+Características principales:
+11
+Ventajas de Axure RP:
+11
+Limitaciones:
+11
+Casos de uso:
+11
+2.6. Miro:
+11
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/14
+Características principales:
+12
+Ventajas de Miro:
+12
+Casos de uso:
+12
+2.7. Principle:
+12
+Características principales:
+12
+Ventajas de Principle:
+12
+Casos de uso:
+12
+2.8. Prototipos con HTML/CSS/JS:
+13
+Características principales:
+13
+Ventajas:
+13
+Limitaciones:
+13
+Casos de uso:
+13
+Actividades prácticas
+14
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/14
+Prototipado de interfaces
+1
+El prototipado es una de las fases más importantes en el proceso de diseño de interfaces de usuario (UI) y
+experiencia de usuario (UX). Se trata de una herramienta que permite a los diseñadores materializar sus
+ideas de manera tangible, explorar soluciones y probar conceptos antes de llegar al desarrollo final. A
+través de prototipos, se pueden identificar problemas, recibir feedback temprano de los usuarios y tomar
+decisiones fundamentadas que reduzcan riesgos y optimicen recursos.
+Un prototipo puede variar en su nivel de fidelidad, desde bocetos simples hechos a mano hasta
+representaciones interactivas de alta fidelidad. Cada nivel de prototipo tiene un propósito específico en
+diferentes etapas del diseño. Los bocetos y wireframes son ideales para fases tempranas, ya que permiten
+a los equipos explorar múltiples conceptos sin gastar tiempo ni recursos en detalles visuales. Por otro lado,
+los mockups y prototipos interactivos son esenciales en etapas más avanzadas, donde es necesario
+evaluar cómo los usuarios interactuarán con el sistema.
+2
+El principal beneficio del prototipado es su capacidad para validar ideas antes de invertir en desarrollo.
+Esto permite iterar rápidamente y ajustar el diseño en función de las necesidades reales del usuario. Por
+ejemplo, un prototipo interactivo puede ser probado con un grupo de usuarios, revelando problemas en la
+navegación o en la disposición de los elementos. Estas observaciones pueden ser incorporadas en el
+diseño antes de que se destinen recursos al desarrollo de código.
+Además, el prototipado fomenta la colaboración dentro de los equipos multidisciplinarios. Diseñadores,
+desarrolladores y stakeholders pueden visualizar y discutir ideas utilizando prototipos tangibles, lo que
+facilita una comunicación clara y una alineación de objetivos. En este sentido, las herramientas modernas
+como Figma y Adobe XD, que permiten la colaboración en tiempo real, han transformado cómo los equipos
+trabajan en conjunto, incluso en entornos remotos.
+3
+El prototipado no solo beneficia a los diseñadores, sino también a los clientes y usuarios finales. Al
+interactuar con un prototipo, los stakeholders pueden comprender mejor cómo funcionará el producto final,
+lo que les permite ofrecer feedback más útil y evitar malentendidos. Para los usuarios, los prototipos les
+brindan una experiencia práctica que refleja cómo interactuarán con el producto, permitiéndoles expresar
+sus expectativas y necesidades con mayor precisión.
+Por otro lado, el uso de herramientas adecuadas es clave para un prototipado exitoso. Desde soluciones
+tradicionales como papel y lápiz, que fomentan la creatividad en las etapas iniciales, hasta herramientas
+avanzadas como Axure RP para prototipos de alta fidelidad, cada técnica tiene su lugar en el flujo de
+trabajo del diseño. Incluso los desarrolladores pueden beneficiarse del prototipado utilizando lenguajes
+como HTML, CSS y JavaScript para crear prototipos funcionales que prueben interacciones complejas y
+rendimiento.
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+En resumen, el prototipado es una práctica esencial en el diseño de interfaces modernas. Proporciona un
+puente entre las ideas abstractas y los productos finales, mejorando la calidad del diseño, minimizando los
+riesgos y asegurando que las soluciones sean efectivas y centradas en el usuario. Al dominar las técnicas y
+herramientas de prototipado, los diseñadores pueden enfrentar desafíos complejos con confianza,
+garantizando una experiencia de usuario óptima y alineada con las expectativas del mercado.
+1. Técnicas de Prototipado
+1.1. Bocetos (Sketching):
+El bocetado es la técnica más básica y accesible para el prototipado. Consiste en plasmar ideas iniciales en
+papel o en herramientas digitales simples para explorar conceptos de manera rápida y sin restricciones. Es
+ideal para las primeras etapas del diseño, cuando los equipos están evaluando múltiples ideas y necesitan
+iterar rápidamente.
+Un boceto puede variar en detalle, desde formas simples que representan la estructura básica de una interfaz
+hasta dibujos más elaborados que incluyen elementos clave como botones, menús o iconos. Lo importante es
+que los bocetos no buscan precisión, sino claridad en la comunicación de ideas.
+Ventajas del bocetado:
+Rapidez
+: Permite generar múltiples conceptos en cuestión de minutos.
+Bajo costo
+: Solo se necesita papel y lápiz, lo que elimina la necesidad de herramientas costosas o
+conocimientos técnicos avanzados.
+Colaboración
+: Facilita la comunicación entre miembros del equipo, ya que es una forma visual y
+universal de compartir ideas.
+Uso en proyectos reales:
+En un proyecto de rediseño de un sitio web, los bocetos pueden ayudar a visualizar cómo reorganizar el
+contenido y los elementos visuales.
+A pesar de su simplicidad, los bocetos tienen limitaciones. No son adecuados para pruebas con usuarios
+finales, ya que no permiten interactuar con ellos. Sin embargo, como herramienta de ideación y discusión en
+etapas tempranas, son insustituibles.
+1.2. Wireframes:
+Los wireframes son representaciones estructurales de una interfaz que muestran la disposición y organización
+de los elementos clave, como menús, botones, texto e imágenes, pero sin incluir detalles gráficos como
+colores o tipografía. Su propósito principal es definir la arquitectura de información y el flujo de usuario de
+manera clara y funcional.
+Por ejemplo, un diseñador podría bocetar una nueva estructura para la página de inicio
+antes de crear wireframes más detallados.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Características de los wireframes:
+Enfocados en la funcionalidad
+: Se centran en cómo los elementos interactúan entre sí y cómo los
+usuarios navegan por la interfaz.
+Nivel de detalle medio
+: Incluyen etiquetas, ubicaciones precisas y jerarquías, pero no buscan
+representar el diseño visual final.
+Ventajas:
+Claridad
+: Ayudan a los equipos a entender la estructura básica antes de pasar a detalles visuales.
+Flexibilidad
+: Son fáciles de modificar en caso de que el diseño requiera cambios durante el proceso.
+Comunicación efectiva
+: Sirven como una herramienta para alinear a diseñadores, desarrolladores y
+stakeholders en una visión común.
+Herramientas para crear wireframes:
+Herramientas como Balsamiq Mockups o Figma son ideales para este propósito. Balsamiq, por ejemplo,
+ofrece un estilo de "boceto digital" que mantiene la atención en la funcionalidad, mientras que Figma permite
+agregar interactividad básica.
+En un caso práctico, un equipo que desarrolla una aplicación de comercio electrónico podría usar wireframes
+para definir el flujo del proceso de compra, asegurándose de que los usuarios puedan navegar fácilmente
+desde la página de producto hasta el carrito y la confirmación de pago.
+1.3. Mockups:
+Los mockups son representaciones visuales de alta fidelidad de una interfaz. A diferencia de los wireframes,
+los mockups incluyen detalles gráficos como colores, tipografías, imágenes y estilos visuales que reflejan el
+diseño final. Sin embargo, los mockups son estáticos y no permiten interacción.
+Propósito principal:
+Comunicar cómo se verá la interfaz una vez completada, asegurando que todos los elementos visuales estén
+alineados con la identidad de marca y las expectativas del cliente.
+Ventajas:
+Visualización precisa
+: Muestran exactamente cómo lucirá la interfaz.
+Comunicación clara
+: Ayudan a los stakeholders a comprender el diseño visual sin necesidad de
+explicaciones adicionales.
+Facilidad de iteración
+: Aunque más detallados que los wireframes, los mockups aún son fáciles de
+ajustar en herramientas de diseño.
+Herramientas comunes:
+Herramientas como Adobe XD, Sketch o Figma son ideales para crear mockups. Estas plataformas ofrecen
+plantillas predefinidas, bibliotecas de componentes y opciones de personalización que agilizan el proceso de
+diseño.
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1.4. Prototipos Interactivos:
+Los prototipos interactivos son versiones funcionales que simulan la interacción del usuario con una interfaz. A
+diferencia de los mockups estáticos, los prototipos interactivos permiten explorar la navegación, flujos de
+trabajo y funcionalidades clave, proporcionando una experiencia más cercana al producto final. Estos
+prototipos pueden ser de baja fidelidad (wireframes interactivos) o alta fidelidad (muy similares al producto
+final en apariencia y funcionalidad).
+Características de los prototipos interactivos:
+Interacción simulada
+: Permiten al usuario hacer clic en botones, navegar entre pantallas y
+experimentar flujos de usuario.
+Validación de flujos
+: Ayudan a evaluar si la navegación es intuitiva y si el diseño cumple con las
+expectativas del usuario.
+Flexibilidad en fidelidad
+: Pueden ser simples wireframes enlazados o prototipos de alta fidelidad que
+incluyen transiciones y animaciones.
+Ventajas:
+Proporcionan una forma realista de probar conceptos con usuarios, stakeholders y equipos.
+Ayudan a identificar problemas de navegación o interacción antes de invertir en desarrollo.
+Fomentan la comunicación efectiva entre diseñadores y desarrolladores.
+Herramientas para prototipos interactivos:
+Figma, Adobe XD e InVision son herramientas populares que permiten enlazar pantallas diseñadas y simular
+interacciones. Estas plataformas también facilitan la colaboración y el feedback en tiempo real.
+Ejemplo práctico:
+En un proyecto para diseñar una aplicación bancaria, un prototipo interactivo puede simular el flujo de
+transferencia de dinero, permitiendo probar la facilidad de uso y la claridad de las instrucciones antes del
+desarrollo final.
+1.5. Prototipos de Código:
+Los prototipos de código son representaciones funcionales creadas directamente con tecnologías de
+desarrollo, como HTML, CSS y JavaScript. Estos prototipos son altamente interactivos y ofrecen una
+experiencia muy similar al producto final, lo que los convierte en una opción ideal para probar interacciones
+complejas, rendimiento y accesibilidad.
+Por ejemplo, en el diseño de una plataforma de aprendizaje en línea, los mockups pueden
+usarse para presentar al cliente el diseño visual de la página de inicio, destacando
+elementos clave como botones de registro, banners y tarjetas de cursos.
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Características de los prototipos de código:
+Completamente funcionales
+: Simulan no solo la interacción, sino también el comportamiento
+dinámico de la interfaz.
+Flexibilidad total
+: Permiten implementar cualquier diseño o interacción que sea técnicamente posible.
+Pruebas en entorno real
+: Los prototipos pueden ser ejecutados en navegadores y dispositivos reales,
+proporcionando datos precisos sobre su rendimiento.
+Ventajas:
+Ofrecen una representación fiel de cómo será la experiencia del usuario.
+Permiten probar elementos que otras técnicas no pueden, como animaciones avanzadas, tiempos de
+carga o integraciones con sistemas externos.
+Facilitan la transición al desarrollo, ya que parte del código del prototipo puede reutilizarse en el
+producto final.
+Desventajas:
+Requieren conocimientos técnicos avanzados.
+Consumen más tiempo y recursos en comparación con otras técnicas.
+Herramientas y tecnologías comunes:
+Frameworks como Bootstrap, Tailwind CSS y bibliotecas JavaScript (React, Vue) son útiles para desarrollar
+prototipos de código. También se pueden usar editores de código en línea como CodePen o JSFiddle para
+compartir y probar rápidamente los prototipos.
+Ejemplo práctico:
+En el diseño de una página de comercio electrónico, un prototipo en código puede incluir funcionalidades
+como la búsqueda de productos en tiempo real, filtros dinámicos y un carrito interactivo, permitiendo pruebas
+exhaustivas de usabilidad antes de la implementación completa.
+2. Herramientas de Prototipado
+2.1. Papel y Lápiz:
+El papel y lápiz es la herramienta más básica y accesible para el prototipado. Aunque pueda parecer
+rudimentaria, esta técnica sigue siendo ampliamente utilizada por su simplicidad, rapidez y bajo costo. Ideal
+para las etapas iniciales del diseño, permite a los diseñadores y equipos plasmar ideas de manera inmediata
+sin depender de tecnología avanzada.
+Ventajas de Papel y Lápiz:
+Velocidad y flexibilidad
+: Los bocetos rápidos en papel permiten explorar múltiples conceptos en
+minutos, iterando fácilmente según las necesidades.
+Accesibilidad universal
+: No se requieren conocimientos técnicos ni herramientas digitales para
+comenzar.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Creatividad sin restricciones
+: Facilita el enfoque en las ideas generales y la estructura de la interfaz,
+sin preocuparse por los detalles visuales.
+Usos comunes:
+Generar conceptos iniciales para interfaces, como la disposición de elementos en una página.
+Comunicarse rápidamente con otros miembros del equipo.
+Realizar lluvias de ideas en sesiones de diseño colaborativo.
+Limitaciones:
+No permite probar la interacción de los usuarios con la interfaz.
+Carece de capacidad para simular comportamiento o navegación.
+En proyectos reales, el papel y lápiz puede usarse para planificar la arquitectura de una aplicación móvil,
+definiendo la ubicación de botones, menús y elementos clave antes de pasar a herramientas digitales. Esta
+técnica también se combina a menudo con pizarras blancas para sesiones de ideación grupal.
+2.2. Balsamiq Mockups:
+Balsamiq Mockups es una herramienta de diseño digital diseñada específicamente para la creación de
+wireframes de baja fidelidad. Su estilo gráfico imita bocetos a mano, lo que ayuda a centrar la atención en la
+funcionalidad y la estructura en lugar de los detalles visuales.
+Características principales:
+Biblioteca de componentes
+: Ofrece una amplia variedad de elementos predefinidos, como botones,
+menús y campos de entrada, que se pueden arrastrar y soltar fácilmente.
+Simplicidad
+: Su interfaz es intuitiva y accesible incluso para personas sin experiencia en diseño.
+Colaboración
+: Facilita la revisión y los comentarios de los equipos y stakeholders, permitiendo
+iteraciones rápidas.
+Ventajas de Balsamiq:
+Rapidez
+: Los wireframes pueden crearse en cuestión de minutos, ahorrando tiempo en las primeras
+etapas del diseño.
+Foco en la funcionalidad
+: Al evitar elementos de alta fidelidad, se asegura que los usuarios y equipos
+se concentren en el flujo y la estructura.
+Compatibilidad
+: Los diseños pueden exportarse en varios formatos, como imágenes o PDF, para
+compartirlos fácilmente.
+Casos de uso:
+En un proyecto para diseñar un sitio web, Balsamiq Mockups puede usarse para crear un wireframe de la
+página principal, definiendo elementos clave como menús de navegación, secciones de contenido y llamados
+a la acción.
+2.3. 
+Sketch, Figma y Adobe XD:
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Estas tres herramientas son estándares en el diseño de interfaces, utilizadas tanto para la creación de
+wireframes como para mockups y prototipos interactivos. Cada una tiene características únicas que las hacen
+adecuadas para diferentes contextos, pero todas comparten un enfoque en el diseño eficiente y la
+colaboración.
+Sketch
+Es conocido por su robustez en el diseño de interfaces para macOS.
+Ofrece una extensa biblioteca de complementos que extienden sus funcionalidades, como la
+generación de prototipos o la exportación optimizada para desarrollo.
+Es ideal para diseñadores que buscan una herramienta enfocada exclusivamente en diseño UI/UX.
+Figma
+Destaca por su capacidad de colaboración en tiempo real, lo que permite que múltiples personas
+trabajen en el mismo archivo simultáneamente.
+Basada en la web, lo que la hace accesible desde cualquier dispositivo con conexión a internet.
+Incluye herramientas de prototipado integrado, facilitando la transición entre diseño y prueba.
+Adobe XD
+Parte del ecosistema Adobe, lo que facilita la integración con Photoshop e Illustrator.
+Incluye funciones avanzadas como animaciones automáticas (Auto-Animate) para prototipos más
+dinámicos.
+Ofrece un modelo híbrido que combina diseño, prototipado y colaboración.
+Ventajas comunes:
+Herramientas intuitivas para crear elementos visuales de alta fidelidad.
+Capacidades de prototipado interactivo que permiten simular la experiencia del usuario.
+Compatibilidad con sistemas de diseño, lo que facilita la reutilización de componentes.
+Estas herramientas son ampliamente utilizadas en proyectos de diseño digital, desde aplicaciones móviles
+hasta sitios web, ofreciendo soluciones versátiles para todo tipo de equipos.
+2.4. InVision:
+InVision es una plataforma de diseño colaborativo que permite convertir diseños estáticos en prototipos
+interactivos. Aunque no es una herramienta de diseño gráfico como Sketch o Figma, InVision complementa
+estas herramientas al enfocarse en la interacción y la presentación.
+Características principales:
+Prototipos interactivos
+: Permite enlazar pantallas diseñadas en otras herramientas para simular
+flujos de usuario.
+Comentarios en tiempo real
+: Los equipos pueden revisar prototipos y dejar feedback directamente en
+cada pantalla.
+Presentaciones y tableros
+: Ofrece opciones para crear presentaciones visuales y colaborar en ideas
+a través de tableros digitales.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Ventajas de InVision:
+Facilita las pruebas de usuario al permitir que los prototipos se compartan fácilmente mediante un
+enlace.
+Compatible con herramientas como Sketch y Figma, lo que agiliza la integración en flujos de trabajo
+existentes.
+Su enfoque en la interacción lo hace ideal para validar flujos complejos antes de pasar al desarrollo.
+Casos de uso:
+Un equipo que trabaja en el diseño de una plataforma de comercio electrónico puede usar InVision para crear
+un prototipo interactivo del proceso de compra. Esto les permite identificar problemas en la navegación o en la
+experiencia del usuario antes de iniciar el desarrollo.
+2.5. Axure RP:
+Axure RP es una herramienta de prototipado de alta fidelidad que destaca por su capacidad para crear
+prototipos interactivos avanzados con lógica compleja. Es ideal para diseñar y probar sistemas que requieren
+flujos dinámicos y detallados.
+Características principales:
+Interacciones avanzadas
+: Permite añadir condiciones lógicas, variables y funciones interactivas que
+simulan comportamientos reales de una interfaz.
+Prototipos responsivos
+: Facilita la creación de diseños que se adaptan a diferentes tamaños de
+pantalla.
+Documentación integrada
+: Genera automáticamente especificaciones detalladas para
+desarrolladores, lo que reduce la brecha entre diseño y desarrollo.
+Ventajas de Axure RP:
+Adecuado para proyectos complejos, como aplicaciones empresariales o paneles de control.
+Compatible con pruebas de usabilidad al permitir compartir prototipos interactivos mediante enlaces.
+Combina prototipado y documentación en una sola plataforma.
+Limitaciones:
+Tiene una curva de aprendizaje pronunciada, especialmente para usuarios sin experiencia en lógica
+condicional.
+Requiere más tiempo para construir prototipos complejos en comparación con otras herramientas.
+Casos de uso:
+En el diseño de una herramienta de gestión de proyectos, Axure RP puede ser utilizado para simular
+interacciones como la creación de tareas, filtros avanzados y notificaciones en tiempo real.
+2.6. Miro:
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Miro es una plataforma de pizarra digital colaborativa que se utiliza ampliamente para sesiones de ideación,
+planificación y prototipado de baja fidelidad. Aunque no está diseñada exclusivamente para prototipado, su
+flexibilidad la convierte en una herramienta útil en las etapas iniciales del diseño.
+Características principales:
+Colaboración en tiempo real
+: Permite a equipos remotos trabajar simultáneamente en el mismo
+tablero.
+Plantillas predefinidas
+: Incluye modelos para wireframes, mapas de flujo de usuario y diagramas de
+experiencia.
+Integraciones
+: Compatible con herramientas como Figma, Jira y Slack, lo que facilita su integración
+en flujos de trabajo.
+Ventajas de Miro:
+Ideal para sesiones de lluvia de ideas y prototipado rápido.
+Fomenta la participación de todos los miembros del equipo, independientemente de su ubicación.
+Visualmente atractivo y fácil de usar, incluso para principiantes.
+Casos de uso:
+Un equipo de diseño puede usar Miro para crear wireframes básicos y mapas de experiencia del usuario
+durante una sesión de ideación grupal para un proyecto de rediseño de un sitio web.
+2.7. Principle:
+Principle es una herramienta especializada en la creación de animaciones y microinteracciones para
+prototipos. Es ideal para diseñadores que buscan simular cómo se sentirá y se verá una interfaz en uso.
+Características principales:
+Animaciones avanzadas
+: Permite crear transiciones suaves entre pantallas, microinteracciones como
+botones animados y efectos de desplazamiento.
+Integración con Sketch y Figma
+: Importa directamente diseños desde estas herramientas para
+añadirles animaciones.
+Vista previa interactiva
+: Ofrece la posibilidad de probar las animaciones en tiempo real y en
+dispositivos móviles.
+Ventajas de Principle:
+Ayuda a visualizar cómo funcionará la interfaz en situaciones del mundo real.
+Ideal para proyectos que priorizan la experiencia visual y las transiciones fluidas.
+Herramienta intuitiva para diseñadores con experiencia en interfaces gráficas.
+Casos de uso:
+En el diseño de una aplicación móvil de redes sociales, Principle puede usarse para mostrar cómo se
+expanden las tarjetas de publicación o cómo se comportan los menús flotantes al deslizar.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+2.8. Prototipos con HTML/CSS/JS:
+Los prototipos desarrollados directamente con HTML, CSS y JavaScript son una opción poderosa para
+simular interfaces que se acercan mucho al producto final. Son especialmente útiles para probar interacciones
+complejas, rendimiento y accesibilidad en un entorno real.
+Características principales:
+Flexibilidad total
+: No hay límites en las capacidades del prototipo; cualquier interacción o diseño que
+pueda programarse puede ser probado.
+Prototipos funcionales
+: Permiten simular flujos completos, validar animaciones y verificar
+compatibilidad en diferentes navegadores y dispositivos.
+Control completo del diseño
+: Los desarrolladores tienen total libertad para personalizar el aspecto y
+el comportamiento.
+Ventajas:
+Muy cercano a la experiencia final del usuario.
+Permite integrar datos reales o simulados para pruebas más precisas.
+Compatible con pruebas de accesibilidad utilizando herramientas como lectores de pantalla.
+Limitaciones:
+Requiere conocimientos técnicos avanzados en desarrollo web.
+Es más costoso en tiempo y recursos en comparación con otras herramientas de prototipado.
+Casos de uso:
+En un proyecto de diseño de un sistema de reservas, un prototipo en HTML/CSS/JS puede simular la
+interacción del usuario con formularios, calendarios y confirmaciones en tiempo real, lo que permite detectar
+problemas de usabilidad antes del lanzamiento.
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Caso práctico 9
+Estás encargado de diseñar una nueva aplicación de fitness que permita a los usuarios registrar sus
+ejercicios, seguir sus progresos y unirse a desafíos con amigos.
+Describe cómo utilizarías diferentes técnicas de prototipado para desarrollar esta aplicación.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Caso práctico 10
+Tu equipo está trabajando en una plataforma de e-learning que necesita ser accesible en múltiples
+dispositivos.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+¿Qué técnicas de prototipado (bocetos, wireframes, mockups, prototipos interactivos) usarías y
+en qué etapa del proceso de diseño?
+1.
+¿Cómo abordarías el prototipado para asegurar una experiencia uniforme y usable en
+desktops, tablets y smartphones?
+¿Cuáles son las herramientas y métodos que utilizarías para crear un prototipo que responda
+bien a distintos tamaños de pantalla?
+1.
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/14
+Prototipado de interfaces
+idalumno:906687|unidad:5|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

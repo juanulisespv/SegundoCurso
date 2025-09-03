@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 3: Ingeniería de Requisitos | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .requirements-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .phase-card {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .tool-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .challenge-card {
+            background: #ffe6e6;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+        
+        .nav-link.active {
+            background-color: var(--bs-success) !important;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link {
+            color: var(--bs-body-color);
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--bs-success);
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .requirements-card,
+        [data-bs-theme="dark"] .phase-card,
+        [data-bs-theme="dark"] .tool-card,
+        [data-bs-theme="dark"] .challenge-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-bs-theme="dark"] .code-snippet {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item active" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="theme-toggle">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Ingeniería de Requisitos</h1>
+                    <p class="lead mb-4">
+                        Proceso sistemático para identificar, analizar, documentar y gestionar las necesidades del cliente y las restricciones del sistema, garantizando que el producto final cumpla con las expectativas definidas.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-list-check"></i> Recolección de Requisitos
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-search"></i> Análisis y Priorización
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-file-text"></i> Especificación
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-check-circle"></i> Validación
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-diagram-3 text-light" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold text-success mb-3">
+                                <i class="bi bi-list"></i> Contenido
+                            </h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#tipos-requisitos">2. Tipos de Requisitos</a>
+                                <a class="nav-link" href="#fases">3. Fases del Proceso</a>
+                                <a class="nav-link" href="#herramientas">4. Herramientas y Técnicas</a>
+                                <a class="nav-link" href="#desafios">5. Desafíos y Soluciones</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-play-circle"></i> 1. Introducción
+                    </h2>
+                    
+                    <div class="requirements-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-info-circle"></i> Definición</h4>
+                        <p>
+                            La <strong>ingeniería de requisitos</strong> es el proceso sistemático y estructurado de identificar, 
+                            analizar, documentar, verificar y gestionar las necesidades y expectativas de los stakeholders 
+                            respecto a un sistema o producto.
+                        </p>
+                        <p class="mb-0">
+                            Su objetivo es garantizar que el software desarrollado cumpla con los requisitos funcionales 
+                            (qué debe hacer el sistema) y no funcionales (cómo debe comportarse), así como con las 
+                            restricciones técnicas y normativas.
+                        </p>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">Importancia en el Ciclo de Vida</h4>
+                    <p>
+                        Los requisitos son el <strong>pilar fundamental</strong> en el ciclo de vida del software, ya que 
+                        establecen qué necesita y espera el cliente del sistema. Una definición clara y precisa asegura 
+                        que todas las etapas posteriores se realicen alineadas con los objetivos del proyecto.
+                    </p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success">
+                                        <i class="bi bi-check-circle"></i> Beneficios
+                                    </h6>
+                                    <ul class="list-unstyled mb-0">
+                                        <li><i class="bi bi-arrow-right text-success"></i> Minimiza riesgos y malentendidos</li>
+                                        <li><i class="bi bi-arrow-right text-success"></i> Optimiza recursos y tiempo</li>
+                                        <li><i class="bi bi-arrow-right text-success"></i> Mejora calidad del producto</li>
+                                        <li><i class="bi bi-arrow-right text-success"></i> Facilita validación y pruebas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-warning">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning">
+                                        <i class="bi bi-exclamation-triangle"></i> Riesgos de Falta Claridad
+                                    </h6>
+                                    <ul class="list-unstyled mb-0">
+                                        <li><i class="bi bi-x text-warning"></i> Errores costosos en etapas avanzadas</li>
+                                        <li><i class="bi bi-x text-warning"></i> Retrasos en la entrega</li>
+                                        <li><i class="bi bi-x text-warning"></i> Productos que no satisfacen al cliente</li>
+                                        <li><i class="bi bi-x text-warning"></i> Conflictos entre stakeholders</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">Objetivos y Alcance</h4>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-people text-success" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Definir Necesidades</h6>
+                                <small>Garantizar que todos los stakeholders comprendan los objetivos</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-exclamation-triangle text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Resolver Conflictos</h6>
+                                <small>Detectar inconsistencias entre requisitos y expectativas</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-foundation text-info" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Base Sólida</h6>
+                                <small>Marco que guíe diseño, implementación y pruebas</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-arrow-repeat text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Gestionar Cambios</h6>
+                                <small>Adaptarse sin comprometer calidad ni plazos</small>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tipos de Requisitos -->
+                <section id="tipos-requisitos" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-collection"></i> 2. Tipos de Requisitos
+                    </h2>
+                    
+                    <p class="lead">
+                        Los requisitos se clasifican en funcionales, no funcionales, técnicos y legales, abarcando 
+                        desde las funcionalidades del software hasta las características de rendimiento y normativas.
+                    </p>
+
+                    <!-- Requisitos Funcionales -->
+                    <div class="requirements-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-gear"></i> 2.1. Requisitos Funcionales
+                        </h4>
+                        <p>
+                            Describen las <strong>funcionalidades específicas</strong> que un sistema debe realizar 
+                            para cumplir con las necesidades del usuario. Definen <em>qué debe hacer el software</em>.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Ejemplos Prácticos:</h5>
+                        <ol>
+                            <li>El sistema debe permitir a los usuarios registrarse y autenticar su cuenta</li>
+                            <li>Los usuarios podrán buscar productos por categoría y añadirlos a un carrito</li>
+                            <li>El software debe generar reportes mensuales de ventas en formato PDF</li>
+                            <li>El sistema debe enviar notificaciones por correo electrónico</li>
+                        </ol>
+
+                        <h5 class="fw-bold mt-3">Casos de Uso:</h5>
+                        <div class="code-snippet">
+<strong>Caso de Uso:</strong> Iniciar Sesión
+<strong>Actor:</strong> Usuario registrado
+<strong>Flujo Principal:</strong>
+1. Usuario ingresa credenciales
+2. Sistema valida autenticación
+3. Usuario accede a su perfil
+<strong>Excepciones:</strong>
+- Credenciales incorrectas
+- Cuenta bloqueada
+                        </div>
+                    </div>
+
+                    <!-- Requisitos No Funcionales -->
+                    <div class="requirements-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-speedometer2"></i> 2.2. Requisitos No Funcionales
+                        </h4>
+                        <p>
+                            Describen las <strong>características de calidad</strong> que debe cumplir el sistema. 
+                            Definen <em>cómo debe comportarse</em> y bajo qué condiciones debe operar.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-lightning"></i> Rendimiento
+                                </h6>
+                                <p class="small">
+                                    "El sistema debe procesar 100 transacciones por segundo con tiempo de respuesta inferior a 2 segundos"
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-shield-check"></i> Seguridad
+                                </h6>
+                                <p class="small">
+                                    "Los datos sensibles deben encriptarse con estándar AES de 256 bits"
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-person-check"></i> Usabilidad
+                                </h6>
+                                <p class="small">
+                                    "Debe ser accesible desde móviles y cumplir normas WCAG 2.1"
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-arrow-up-right"></i> Escalabilidad
+                                </h6>
+                                <p class="small">
+                                    "Debe soportar hasta 10,000 usuarios concurrentes sin degradar rendimiento"
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Requisitos Técnicos -->
+                    <div class="requirements-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-cpu"></i> 2.3. Requisitos Técnicos
+                        </h4>
+                        <p>
+                            Especifican las <strong>condiciones tecnológicas</strong> necesarias para que el software 
+                            funcione correctamente, estableciendo el marco técnico de desarrollo y operación.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Dependencias Tecnológicas:</h6>
+                                <ul class="small">
+                                    <li><strong>Lenguaje:</strong> Python 3.10 o superior</li>
+                                    <li><strong>Base de datos:</strong> PostgreSQL</li>
+                                    <li><strong>Servidor:</strong> AWS EC2</li>
+                                    <li><strong>Integración:</strong> API Stripe para pagos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Especificaciones del Sistema:</h6>
+                                <ul class="small">
+                                    <li><strong>Hardware:</strong> 16 GB RAM, 8 núcleos</li>
+                                    <li><strong>SO:</strong> Linux Ubuntu 22.04</li>
+                                    <li><strong>Red:</strong> Mínimo 10 Mbps</li>
+                                    <li><strong>Navegadores:</strong> Chrome, Firefox, Safari</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Requisitos Legales -->
+                    <div class="requirements-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-shield-exclamation"></i> 2.4. Requisitos Legales y Normativos
+                        </h4>
+                        <p>
+                            Garantizan que el sistema cumpla con <strong>leyes, regulaciones y estándares</strong> 
+                            aplicables. Su incumplimiento puede resultar en sanciones legales y pérdida de confianza.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-shield-lock text-primary" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">RGPD</h6>
+                                    <small>Protección de datos personales en Europa</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-universal-access text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">WCAG/ADA</h6>
+                                    <small>Accesibilidad para personas con discapacidades</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-credit-card text-success" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">PCI-DSS</h6>
+                                    <small>Seguridad para transacciones financieras</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fases de la Ingeniería de Requisitos -->
+                <section id="fases" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-arrow-right-circle"></i> 3. Fases de la Ingeniería de Requisitos
+                    </h2>
+                    
+                    <p class="lead">
+                        Proceso estructurado que incluye recolección, análisis, especificación y validación para 
+                        minimizar riesgos y garantizar alineación con objetivos del proyecto.
+                    </p>
+
+                    <!-- Recolección -->
+                    <div class="phase-card">
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-collection"></i> 3.1. Recolección
+                        </h4>
+                        <p>
+                            Primera fase que identifica y captura las necesidades, expectativas y restricciones 
+                            de los stakeholders. Una recolección incompleta puede llevar a malentendidos durante el desarrollo.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Técnicas de Recopilación:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-chat-dots text-primary" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Entrevistas</h6>
+                                    <small>Reuniones individuales/grupales estructuradas o abiertas</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-bar-chart text-info" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Encuestas</h6>
+                                    <small>Recopilar datos de gran número de personas</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-people text-success" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Talleres</h6>
+                                    <small>Sesiones colaborativas para alineación</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Herramientas de Gestión:</h5>
+                        <ul>
+                            <li><strong>User Stories:</strong> "Como estudiante, quiero acceder a mis calificaciones para conocer mi progreso"</li>
+                            <li><strong>Prototipos:</strong> Maquetas que permiten visualizar funcionamiento</li>
+                            <li><strong>Mapas Mentales:</strong> Organizan ideas y muestran relaciones entre conceptos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Análisis -->
+                    <div class="phase-card">
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-search"></i> 3.2. Análisis
+                        </h4>
+                        <p>
+                            Examina la información recopilada para identificar inconsistencias, conflictos o redundancias 
+                            y priorizar los requisitos según las necesidades del proyecto y stakeholders.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Identificación de Conflictos:</h5>
+                        <p>
+                            Resolver discrepancias entre stakeholders. <em>Ejemplo:</em> Un usuario solicita simplicidad 
+                            mientras otro exige funcionalidades avanzadas que complican el diseño.
+                        </p>
+
+                        <h5 class="fw-bold mt-3">Técnicas de Priorización:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">MoSCoW</h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Must:</strong> Imprescindible</li>
+                                            <li><strong>Should:</strong> Importante</li>
+                                            <li><strong>Could:</strong> Deseable</li>
+                                            <li><strong>Won't:</strong> No incluir</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Análisis de Valor</h6>
+                                        <p class="small mb-0">
+                                            Evalúa impacto vs costo de implementación de cada requisito
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">Ranking</h6>
+                                        <p class="small mb-0">
+                                            Stakeholders asignan nivel de prioridad en escala definida
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Especificación -->
+                    <div class="phase-card">
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-file-text"></i> 3.3. Especificación
+                        </h4>
+                        <p>
+                            Documentar de manera clara, precisa y estructurada las necesidades y características 
+                            del sistema. Sirve como referencia para equipo técnico y stakeholders.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Estándares y Plantillas:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">IEEE 830</h6>
+                                        <p class="small">
+                                            Estándar para Documento de Especificación de Requisitos de Software (SRS)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">Plantillas Personalizadas</h6>
+                                        <p class="small">
+                                            Adaptadas a necesidades específicas del proyecto o cliente
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Estructura del Documento:</h5>
+                        <ol>
+                            <li><strong>Introducción:</strong> Objetivos, alcance y definiciones clave</li>
+                            <li><strong>Descripción general:</strong> Contexto, actores y dependencias</li>
+                            <li><strong>Requisitos funcionales:</strong> Funcionalidades detalladas</li>
+                            <li><strong>Requisitos no funcionales:</strong> Características de calidad</li>
+                            <li><strong>Restricciones:</strong> Normativas aplicables</li>
+                        </ol>
+                    </div>
+
+                    <!-- Validación -->
+                    <div class="phase-card">
+                        <h4 class="fw-bold mb-3">
+                            <i class="bi bi-check-circle"></i> 3.4. Validación
+                        </h4>
+                        <p>
+                            Asegura que las necesidades y expectativas estén correctamente representadas y documentadas. 
+                            Verifica que los requisitos sean claros, consistentes, completos y alcanzables.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Métodos de Verificación:</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-people-fill text-primary" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Revisiones</h6>
+                                    <small>Reuniones con stakeholders</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-easel text-info" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Prototipos</h6>
+                                    <small>Modelos preliminares</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-bug text-warning" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Casos de Prueba</h6>
+                                    <small>Verificación específica</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-diagram-3 text-success" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Trazabilidad</h6>
+                                    <small>Vinculación a objetivos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Herramientas y Técnicas -->
+                <section id="herramientas" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-tools"></i> 4. Herramientas y Técnicas
+                    </h2>
+
+                    <!-- Herramientas Digitales -->
+                    <div class="tool-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-laptop"></i> 4.1. Herramientas Digitales
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-kanban text-primary"></i> Jira
+                                        </h5>
+                                        <p class="small">
+                                            Gestión de proyectos ágiles. Organiza requisitos como tickets/historias de usuario, 
+                                            asignación a equipos y seguimiento con tableros Kanban/Scrum.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">
+                                            <i class="bi bi-trello text-info"></i> Trello
+                                        </h5>
+                                        <p class="small">
+                                            Herramienta visual con tableros y tarjetas. Ideal para proyectos pequeños 
+                                            que buscan solución simple para organizar y priorizar tareas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Herramientas Especializadas:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">DOORS</h6>
+                                        <p class="small mb-0">
+                                            Para proyectos complejos (ingeniería, automoción). Documentar, 
+                                            rastrear y gestionar requisitos detallados.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">ReqView</h6>
+                                        <p class="small mb-0">
+                                            Centrada en trazabilidad. Mantiene relación clara entre 
+                                            requisitos y entregables del proyecto.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Técnicas Visuales -->
+                    <div class="tool-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-eye"></i> 4.2. Técnicas Visuales
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-diagram-2"></i> Casos de Uso
+                                </h6>
+                                <p class="small">
+                                    Muestran cómo usuarios (actores) interactúan con el sistema. 
+                                    Incluyen actores, casos de uso y relaciones.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-diagram-3"></i> Diagramas UML
+                                </h6>
+                                <p class="small">
+                                    Clases, secuencia, actividades. Representan diferentes aspectos 
+                                    del sistema y sus interacciones.
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-share"></i> Mapas Mentales
+                                </h6>
+                                <p class="small">
+                                    Organizan ideas jerárquicamente mostrando módulos, 
+                                    funcionalidades y dependencias.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prototipado -->
+                    <div class="tool-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-easel"></i> 4.3. Prototipado
+                        </h4>
+                        <p>
+                            Crear representaciones preliminares del sistema para clarificar requisitos ofreciendo 
+                            visión tangible del producto final.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-image"></i> Maquetas
+                                        </h6>
+                                        <p class="small">
+                                            Representaciones estáticas de estructura y diseño. 
+                                            Herramientas: Figma, Adobe XD.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-play-circle"></i> Prototipos Funcionales
+                                        </h6>
+                                        <p class="small">
+                                            Versiones interactivas simplificadas. 
+                                            Herramientas: Axure, desarrollo rápido.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-3">
+                            <h6 class="fw-bold">
+                                <i class="bi bi-star"></i> Ventajas del Prototipado:
+                            </h6>
+                            <ul class="mb-0">
+                                <li>Detecta y corrige errores en primeras etapas</li>
+                                <li>Facilita retroalimentación de stakeholders</li>
+                                <li>Reduce riesgos y costos de cambios tardíos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Desafíos y Soluciones -->
+                <section id="desafios" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-exclamation-triangle"></i> 5. Desafíos y Soluciones
+                    </h2>
+
+                    <!-- Gestión de Cambios -->
+                    <div class="challenge-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-arrow-repeat"></i> 5.1. Gestión de Cambios
+                        </h4>
+                        <p>
+                            Proceso crítico que asegura que las modificaciones durante el desarrollo sean evaluadas, 
+                            aprobadas y documentadas adecuadamente.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Pasos de Gestión:</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-primary rounded-circle p-2 mb-2">1</div>
+                                    <h6>Identificación</h6>
+                                    <small>Documentar el cambio propuesto y sus razones</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-info rounded-circle p-2 mb-2">2</div>
+                                    <h6>Evaluación</h6>
+                                    <small>Analizar impacto en alcance, costo, tiempo</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-warning rounded-circle p-2 mb-2">3</div>
+                                    <h6>Aprobación</h6>
+                                    <small>Revisión por comité o stakeholders</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-success rounded-circle p-2 mb-2">4</div>
+                                    <h6>Implementación</h6>
+                                    <small>Incorporar y actualizar documentos</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comunicación con Stakeholders -->
+                    <div class="challenge-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-people"></i> 5.2. Comunicación con Stakeholders
+                        </h4>
+                        <p>
+                            La comunicación efectiva garantiza que todas las partes comprendan y acuerden las 
+                            necesidades del sistema, adaptando el enfoque según roles y perspectivas.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-person-badge"></i> Patrocinador
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Enfoque:</strong> Objetivos estratégicos, ROI, plazos<br>
+                                            <strong>Comunicación:</strong> Resultados generales y avances
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-briefcase"></i> Director Funcional
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Enfoque:</strong> Procesos de negocio, expectativas operativas<br>
+                                            <strong>Comunicación:</strong> Alineación con negocio
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-person"></i> Usuario Directo
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Enfoque:</strong> Funcionalidad, accesibilidad, usabilidad<br>
+                                            <strong>Comunicación:</strong> Demostraciones y prototipos
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Equilibrio Funcional vs No Funcional -->
+                    <div class="challenge-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-balance"></i> 5.3. Equilibrio entre Requisitos
+                        </h4>
+                        <p>
+                            Lograr equilibrio entre requisitos funcionales (qué debe hacer) y no funcionales 
+                            (cómo debe comportarse) es fundamental para el éxito del proyecto.
+                        </p>
+                        
+                        <div class="alert alert-warning">
+                            <h6 class="fw-bold">
+                                <i class="bi bi-exclamation-triangle"></i> Importancia del Equilibrio:
+                            </h6>
+                            <p class="mb-2">
+                                <strong>Solo funcionales:</strong> Sistema que funciona pero no es eficiente, seguro o usable
+                            </p>
+                            <p class="mb-0">
+                                <strong>Solo no funcionales:</strong> Sistema optimizado pero carece de características fundamentales
+                            </p>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Estrategias:</h5>
+                        <ol>
+                            <li><strong>Priorización conjunta:</strong> Usar MoSCoW para ambos tipos</li>
+                            <li><strong>Evaluación iterativa:</strong> Revisar cómo se afectan mutuamente</li>
+                            <li><strong>Validación temprana:</strong> Pruebas que aseguren rendimiento</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-lightbulb"></i> Casos Prácticos
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-hospital"></i> Sistema de Citas Médicas
+                                    </h5>
+                                    <h6 class="fw-bold">Requisitos Funcionales:</h6>
+                                    <ul class="small">
+                                        <li>Registro y autenticación de pacientes</li>
+                                        <li>Selección de médico y reserva de cita</li>
+                                        <li>Notificaciones por email</li>
+                                        <li>Consulta historial de citas</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Requisitos No Funcionales:</h6>
+                                    <ul class="small mb-0">
+                                        <li>500 solicitudes/segundo</li>
+                                        <li>Cumplimiento RGPD</li>
+                                        <li>Accesibilidad WCAG 2.1</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-cart"></i> Tienda Online
+                                    </h5>
+                                    <h6 class="fw-bold">Requisitos Funcionales:</h6>
+                                    <ul class="small">
+                                        <li>Registro y acceso de clientes</li>
+                                        <li>Navegación por categorías</li>
+                                        <li>Pagos seguros con pasarela</li>
+                                        <li>Confirmación por email</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Requisitos No Funcionales:</h6>
+                                    <ul class="small mb-0">
+                                        <li>1000 pedidos simultáneos</li>
+                                        <li>Carga página < 2 segundos</li>
+                                        <li>Cumplimiento RGPD</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="tema2.html" class="btn btn-outline-success">
+                        <i class="bi bi-arrow-left"></i> Tema 2: Metodologías
+                    </a>
+                    <a href="../../../quiz-spa/index.html" class="btn btn-success">
+                        <i class="bi bi-trophy"></i> Realizar Quiz
+                    </a>
+                    <a href="tema4.html" class="btn btn-outline-success">
+                        Tema 4: Modelado <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold text-success">Ingeniería de Requisitos</h6>
+                    <p class="text-muted small mb-0">
+                        Proceso sistemático para garantizar que el software cumpla con las expectativas 
+                        y objetivos definidos, minimizando riesgos durante el desarrollo.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        <i class="bi bi-book"></i> Material de Estudio - EUniv<br>
+                        <i class="bi bi-clock"></i> Programación - Tema 3
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon';
+            } else {
+                icon.className = 'bi bi-sun';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll position
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.sidebar .nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

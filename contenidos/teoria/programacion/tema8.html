@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 8: Implementación - APIs y Gestión de Datos | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .api-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .rest-card {
+            background: #e7f3ff;
+            border: 1px solid #0066cc;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .database-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .pandas-card {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .nav-link.active {
+            background-color: var(--bs-success) !important;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link {
+            color: var(--bs-body-color);
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--bs-success);
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .api-card,
+        [data-bs-theme="dark"] .rest-card,
+        [data-bs-theme="dark"] .database-card,
+        [data-bs-theme="dark"] .pandas-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-bs-theme="dark"] .code-snippet {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item active" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="theme-toggle">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Implementación - APIs y Gestión de Datos</h1>
+                    <p class="lead mb-4">
+                        Conjuntos de reglas y protocolos que permiten la comunicación entre diferentes sistemas o aplicaciones. 
+                        Actúan como intermediarios facilitando la interacción entre software de manera estructurada y segura.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-cloud-arrow-up"></i> APIs REST
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-database"></i> Bases de Datos
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-graph-up"></i> Pandas
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-gear-wide-connected"></i> Flask/Django
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-cloud-arrow-up-down text-light" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold text-success mb-3">
+                                <i class="bi bi-list"></i> Contenido
+                            </h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion-apis">1. Introducción a APIs</a>
+                                <a class="nav-link" href="#apis-rest">2. Diseño e Implementación REST</a>
+                                <a class="nav-link" href="#bases-datos">3. Bases de Datos y Python</a>
+                                <a class="nav-link" href="#pandas">4. Manipulación con Pandas</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción a APIs -->
+                <section id="introduccion-apis" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-cloud-arrow-up"></i> 1. Introducción a APIs y Gestión de Datos
+                    </h2>
+                    
+                    <div class="api-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> ¿Qué es una API y cuál es su importancia?</h4>
+                        <p>
+                            Las <strong>APIs (Application Programming Interfaces)</strong> son conjuntos de reglas y protocolos 
+                            que permiten la comunicación entre diferentes sistemas o aplicaciones. Actúan como intermediarios 
+                            que facilitan la interacción entre software.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Propósito Principal:</h5>
+                        <p>
+                            Proporcionar un <strong>método estructurado y seguro</strong> para que las aplicaciones 
+                            intercambien datos y servicios.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Funciones Principales:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-link-45deg"></i> Facilitar Integración
+                                        </h6>
+                                        <p class="small">
+                                            Permiten que diferentes aplicaciones se comuniquen sin importar 
+                                            su lenguaje de programación o plataforma.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-arrow-repeat"></i> Reutilización
+                                        </h6>
+                                        <p class="small">
+                                            Un servicio puede exponer una API para que otros desarrolladores 
+                                            la usen sin replicar su lógica.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">
+                                            <i class="bi bi-gear"></i> Automatización
+                                        </h6>
+                                        <p class="small">
+                                            Muchas tareas pueden ser gestionadas automáticamente mediante 
+                                            llamadas a APIs, como actualización de datos en tiempo real.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-graph-up-arrow"></i> Escalabilidad
+                                        </h6>
+                                        <p class="small">
+                                            Permiten que las aplicaciones crezcan de manera modular, 
+                                            conectando nuevos servicios conforme se necesiten.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipos de APIs -->
+                    <div class="api-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-layers"></i> Tipos de APIs: REST, SOAP y GraphQL</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-cloud"></i> REST
+                                        </h5>
+                                        <p class="small">
+                                            <strong>Representational State Transfer</strong> - El estándar más utilizado 
+                                            por su simplicidad y eficiencia.
+                                        </p>
+                                        <h6 class="fw-bold">Principios:</h6>
+                                        <ul class="small">
+                                            <li><strong>GET:</strong> Obtener datos</li>
+                                            <li><strong>POST:</strong> Crear nuevo recurso</li>
+                                            <li><strong>PUT/PATCH:</strong> Actualizar existente</li>
+                                            <li><strong>DELETE:</strong> Eliminar recurso</li>
+                                        </ul>
+                                        <div class="code-snippet">
+GET https://api.tienda.com/productos
+{
+  "id": 1,
+  "nombre": "Laptop",
+  "precio": 1200
+}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-shield-lock"></i> SOAP
+                                        </h5>
+                                        <p class="small">
+                                            <strong>Simple Object Access Protocol</strong> - Protocolo estructurado 
+                                            y seguro para entornos empresariales.
+                                        </p>
+                                        <h6 class="fw-bold">Características:</h6>
+                                        <ul class="small">
+                                            <li><strong>Formato XML:</strong> Más complejo pero robusto</li>
+                                            <li><strong>WS-Security:</strong> Estándares de seguridad</li>
+                                            <li><strong>Basado en mensajes:</strong> Sobre XML</li>
+                                        </ul>
+                                        <div class="code-snippet">
+&lt;soap:Envelope&gt;
+  &lt;soap:Body&gt;
+    &lt;GetProducto&gt;
+      &lt;id&gt;1&lt;/id&gt;
+    &lt;/GetProducto&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-info">
+                                            <i class="bi bi-graph-down"></i> GraphQL
+                                        </h5>
+                                        <p class="small">
+                                            Estándar moderno que permite solicitar exactamente los datos necesarios, 
+                                            reduciendo el uso de ancho de banda.
+                                        </p>
+                                        <h6 class="fw-bold">Ventajas:</h6>
+                                        <ul class="small">
+                                            <li><strong>Flexibilidad:</strong> Clientes definen campos</li>
+                                            <li><strong>Eficiencia:</strong> Evita múltiples llamadas</li>
+                                            <li><strong>JSON:</strong> Fácil integración</li>
+                                        </ul>
+                                        <div class="code-snippet">
+{
+  producto(id: 1) {
+    nombre
+    precio
+  }
+}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Relación APIs y Gestión de Datos -->
+                    <div class="api-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-database-gear"></i> Relación entre APIs y Gestión de Datos</h4>
+                        <p>
+                            Las APIs desempeñan un papel fundamental en la gestión de datos al permitir la comunicación 
+                            entre aplicaciones y bases de datos, facilitando el acceso, manipulación y almacenamiento 
+                            de datos en tiempo real.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Proceso de Interacción:</h5>
+                        <div class="row text-center">
+                            <div class="col">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <i class="bi bi-person text-primary" style="font-size: 2rem;"></i>
+                                        <h6 class="mt-2">Cliente</h6>
+                                        <small>Envía solicitud HTTP</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-arrow-right text-muted"></i>
+                            </div>
+                            <div class="col">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <i class="bi bi-cloud text-success" style="font-size: 2rem;"></i>
+                                        <h6 class="mt-2">API</h6>
+                                        <small>Recibe y valida</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-1 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-arrow-right text-muted"></i>
+                            </div>
+                            <div class="col">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <i class="bi bi-database text-info" style="font-size: 2rem;"></i>
+                                        <h6 class="mt-2">Base de Datos</h6>
+                                        <small>Consulta y procesa</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Beneficios para Escalabilidad:</h5>
+                        <ul>
+                            <li><strong>Separación de responsabilidades:</strong> Múltiples clientes (web, móvil, IoT) acceden a la misma base de datos</li>
+                            <li><strong>Escalabilidad horizontal:</strong> Distribuir carga entre múltiples servidores</li>
+                            <li><strong>Manejo eficiente:</strong> Consultas optimizadas y paginación para grandes volúmenes</li>
+                            <li><strong>Seguridad:</strong> Tokens JWT y OAuth para control de acceso</li>
+                            <li><strong>Interoperabilidad:</strong> Facilita migración entre diferentes bases de datos</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Diseño e Implementación APIs REST -->
+                <section id="apis-rest" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-gear-wide-connected"></i> 2. Diseño e Implementación de APIs REST
+                    </h2>
+
+                    <!-- Fundamentos REST -->
+                    <div class="rest-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-foundation"></i> 2.1. Fundamentos de una API REST
+                        </h4>
+                        <p>
+                            REST se basa en principios que aseguran simplicidad y eficiencia en la comunicación 
+                            entre sistemas, utilizando métodos HTTP estándar y formato JSON.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Principios REST:</h6>
+                                <ul class="small">
+                                    <li><strong>Métodos HTTP:</strong> GET, POST, PUT/PATCH, DELETE</li>
+                                    <li><strong>Formato común:</strong> JSON para intercambio</li>
+                                    <li><strong>Sin estado:</strong> Cada solicitud es independiente</li>
+                                    <li><strong>Recursos:</strong> URLs identifican entidades</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Ventajas:</h6>
+                                <ul class="small">
+                                    <li><strong>Simplicidad:</strong> Fácil de entender e implementar</li>
+                                    <li><strong>Escalabilidad:</strong> Arquitectura distribuida</li>
+                                    <li><strong>Flexibilidad:</strong> Independencia cliente-servidor</li>
+                                    <li><strong>Compatibilidad:</strong> Estándar web universal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Implementación en Flask -->
+                    <div class="rest-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-code-slash"></i> 2.2. Implementación de API REST en Flask
+                        </h4>
+                        <p>
+                            Flask es un framework ligero en Python ideal para desarrollar APIs REST de manera 
+                            rápida y eficiente, facilitando la gestión de rutas, controladores y respuestas JSON.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Estructura Básica:</h5>
+                        <ul>
+                            <li><strong>app.py:</strong> Código principal de la API</li>
+                            <li><strong>routes.py:</strong> Define rutas y controladores</li>
+                            <li><strong>models.py:</strong> Estructura de datos</li>
+                        </ul>
+
+                        <h5 class="fw-bold mt-3">Ejemplo API REST con Flask:</h5>
+                        <div class="code-snippet">
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+# Datos de ejemplo
+productos = [
+    {"id": 1, "nombre": "Laptop", "precio": 1200},
+    {"id": 2, "nombre": "Teléfono", "precio": 800}
+]
+
+@app.route('/')
+def home():
+    return jsonify({"mensaje": "Bienvenido a la API REST con Flask"})
+
+@app.route('/productos', methods=['GET'])
+def obtener_productos():
+    return jsonify(productos)
+
+@app.route('/productos/&lt;int:id&gt;', methods=['GET'])
+def obtener_producto(id):
+    producto = next((p for p in productos if p["id"] == id), None)
+    if producto:
+        return jsonify(producto)
+    return jsonify({"error": "Producto no encontrado"}), 404
+
+if __name__ == '__main__':
+    app.run(debug=True)
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Gestión de Errores:</h5>
+                        <div class="code-snippet">
+@app.errorhandler(404)
+def recurso_no_encontrado(error):
+    return jsonify({"error": "Recurso no encontrado"}), 404
+
+@app.errorhandler(500)
+def error_interno(error):
+    return jsonify({"error": "Error interno del servidor"}), 500
+                        </div>
+                    </div>
+
+                    <!-- Pruebas y Documentación -->
+                    <div class="rest-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-check2-square"></i> 2.3. Pruebas y Documentación de APIs
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-postcard"></i> Postman
+                                        </h5>
+                                        <p class="small">
+                                            Herramienta para probar APIs REST realizando solicitudes HTTP 
+                                            y verificando respuestas de endpoints.
+                                        </p>
+                                        <h6 class="fw-bold">Beneficios:</h6>
+                                        <ul class="small">
+                                            <li>Pruebas GET, POST, PUT, DELETE sin código</li>
+                                            <li>Envío datos JSON, XML, formulario</li>
+                                            <li>Colecciones guardables y compartibles</li>
+                                            <li>Scripts JavaScript para automatización</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-file-text"></i> Swagger
+                                        </h5>
+                                        <p class="small">
+                                            Documentar APIs REST y generar interfaces interactivas 
+                                            para probar endpoints.
+                                        </p>
+                                        <h6 class="fw-bold">Ventajas:</h6>
+                                        <ul class="small">
+                                            <li>Documentación formato OpenAPI</li>
+                                            <li>Pruebas desde interfaz web</li>
+                                            <li>Mejora comunicación entre equipos</li>
+                                            <li>Generación automática</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Configuración Swagger en Flask:</h5>
+                        <div class="code-snippet">
+from flask import Flask
+from flasgger import Swagger
+
+app = Flask(__name__)
+Swagger(app)
+
+@app.route('/productos', methods=['GET'])
+def obtener_productos():
+    """Lista todos los productos disponibles
+    ---
+    responses:
+      200:
+        description: Lista de productos en formato JSON
+    """
+    return {"productos": ["Laptop", "Teléfono", "Tablet"]}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bases de Datos y Python -->
+                <section id="bases-datos" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-database"></i> 3. Bases de Datos y Python
+                    </h2>
+
+                    <!-- Tipos de Bases de Datos -->
+                    <div class="database-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-diagram-3"></i> 3.1. Bases de Datos Relacionales vs No Relacionales
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-table"></i> SQL (Relacionales)
+                                        </h5>
+                                        <ul class="small">
+                                            <li><strong>Estructura:</strong> Tablas con filas y columnas</li>
+                                            <li><strong>Lenguaje:</strong> Structured Query Language (SQL)</li>
+                                            <li><strong>Relaciones:</strong> Claves primarias y foráneas</li>
+                                            <li><strong>Ejemplos:</strong> MySQL, PostgreSQL, SQLite</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-success mt-2">Cuándo usar SQL:</h6>
+                                        <ul class="small">
+                                            <li>Integridad y consistencia datos</li>
+                                            <li>Relaciones complejas entre entidades</li>
+                                            <li>Consultas estructuradas con JOINs</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-file-earmark-code"></i> NoSQL (No Relacionales)
+                                        </h5>
+                                        <ul class="small">
+                                            <li><strong>Estructura:</strong> Documentos, clave-valor, grafos</li>
+                                            <li><strong>Flexibilidad:</strong> Sin esquemas estrictos</li>
+                                            <li><strong>Escalabilidad:</strong> Alta velocidad acceso</li>
+                                            <li><strong>Ejemplos:</strong> MongoDB, Firebase, Redis</li>
+                                        </ul>
+                                        
+                                        <h6 class="fw-bold text-warning mt-2">Cuándo usar NoSQL:</h6>
+                                        <ul class="small">
+                                            <li>Escalabilidad horizontal y velocidad</li>
+                                            <li>Datos no estructurados/semiestructurados</li>
+                                            <li>Grandes volúmenes tiempo real</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ORM con SQLAlchemy -->
+                    <div class="database-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-diagram-2"></i> 3.2. ORM con SQLAlchemy
+                        </h4>
+                        <p>
+                            <strong>Object-Relational Mapping (ORM)</strong> permite interactuar con bases de datos 
+                            utilizando objetos en lugar de consultas SQL directas. SQLAlchemy es la biblioteca ORM 
+                            más utilizada en Python.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">¿Por qué usar un ORM?</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Evita SQL manual:</strong> Métodos y clases Python</li>
+                                    <li><strong>Migración fácil:</strong> Independencia del motor</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Seguridad:</strong> Previene inyecciones SQL</li>
+                                    <li><strong>Mantenibilidad:</strong> Código más legible</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Configuración SQLAlchemy:</h5>
+                        <div class="code-snippet">
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Definición de Modelos:</h5>
+                        <div class="code-snippet">
+class Usuario(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    
+    def __repr__(self):
+        return f"&lt;Usuario {self.nombre}&gt;"
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String(200), nullable=False)
+    usuario_id = db.Column(db.Integer, db.ForeignKey('usuario.id'), nullable=False)
+    usuario = db.relationship('Usuario', backref='posts')
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Operaciones CRUD:</h5>
+                        <div class="code-snippet">
+# Crear
+nuevo_usuario = Usuario(nombre="Juan", email="juan@example.com")
+db.session.add(nuevo_usuario)
+db.session.commit()
+
+# Leer
+usuarios = Usuario.query.all()
+
+# Actualizar
+usuario = Usuario.query.get(1)
+usuario.nombre = "Juan Pérez"
+db.session.commit()
+
+# Eliminar
+usuario = Usuario.query.get(1)
+db.session.delete(usuario)
+db.session.commit()
+                        </div>
+                    </div>
+
+                    <!-- Django ORM -->
+                    <div class="database-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-diagram-3"></i> 3.3. Django ORM y Gestión de Bases de Datos
+                        </h4>
+                        <p>
+                            Django ORM facilita la interacción con bases de datos relacionales mediante código Python, 
+                            proporcionando herramientas para crear, manipular y consultar bases de datos de forma segura.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Definición de Modelos:</h5>
+                        <div class="code-snippet">
+from django.db import models
+
+class Usuario(models.Model):
+    nombre = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    fecha_registro = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.nombre
+
+class Pedido(models.Model):
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    total = models.DecimalField(max_digits=10, decimal_places=2)
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Migraciones:</h5>
+                        <div class="code-snippet">
+# Generar migraciones
+python manage.py makemigrations
+
+# Aplicar migraciones
+python manage.py migrate
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Consultas Avanzadas:</h5>
+                        <div class="code-snippet">
+# Consultas básicas
+usuarios = Usuario.objects.all()
+usuario = Usuario.objects.filter(email="usuario@example.com").first()
+
+# Consultas avanzadas
+usuarios_ordenados = Usuario.objects.order_by('-fecha_registro')
+total_usuarios = Usuario.objects.count()
+pedidos = Pedido.objects.filter(usuario=usuario)
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Manipulación de Datos con Pandas -->
+                <section id="pandas" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-graph-up"></i> 4. Manipulación de Datos con Pandas
+                    </h2>
+
+                    <!-- Introducción a Pandas -->
+                    <div class="pandas-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-table"></i> 4.1. Utilización de Pandas
+                        </h4>
+                        <p>
+                            <strong>pandas</strong> es una biblioteca de Python diseñada para manipulación y análisis 
+                            de datos de manera eficiente y estructurada. Ampliamente utilizada en ciencia de datos, 
+                            aprendizaje automático y desarrollo de aplicaciones.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Características Principales:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>DataFrames y Series:</strong> Estructuras datos eficientes</li>
+                                    <li><strong>Múltiples formatos:</strong> CSV, JSON, Excel, SQL</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="small">
+                                    <li><strong>Operaciones avanzadas:</strong> Filtrado, agrupamiento, agregación</li>
+                                    <li><strong>Integración:</strong> NumPy, Matplotlib, scikit-learn</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Instalación y Configuración:</h5>
+                        <div class="code-snippet">
+# Instalación
+pip install pandas
+
+# Importación
+import pandas as pd
+
+# Verificar versión
+print(pd.__version__)
+
+# Para Jupyter Notebook
+pip install jupyter pandas
+                        </div>
+                    </div>
+
+                    <!-- Operaciones Básicas -->
+                    <div class="pandas-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-file-earmark-spreadsheet"></i> 4.2. Operaciones Básicas con Pandas
+                        </h4>
+                        
+                        <h5 class="fw-bold mt-3">Carga y Lectura de Datos:</h5>
+                        <div class="code-snippet">
+import pandas as pd
+from sqlalchemy import create_engine
+
+# Leer desde CSV
+df = pd.read_csv("datos.csv")
+print(df.head())  # Primeras filas
+
+# Leer desde JSON
+df_json = pd.read_json("datos.json")
+
+# Cargar desde base de datos SQL
+engine = create_engine('sqlite:///datos.db')
+df_sql = pd.read_sql("SELECT * FROM usuarios", con=engine)
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Transformación y Limpieza:</h5>
+                        <div class="code-snippet">
+# Eliminar valores nulos
+df = df.dropna()
+
+# Rellenar valores faltantes
+df["edad"].fillna(df["edad"].mean(), inplace=True)
+
+# Renombrar columnas
+df.rename(columns={"nombre": "Nombre_Completo"}, inplace=True)
+
+# Convertir tipos de datos
+df["fecha"] = pd.to_datetime(df["fecha"])
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Selección y Filtrado:</h5>
+                        <div class="code-snippet">
+# Seleccionar columnas específicas
+df_seleccion = df[["Nombre_Completo", "edad"]]
+
+# Filtrar con condición
+df_filtrado = df[df["edad"] > 30]
+
+# Múltiples condiciones
+df_filtrado = df[(df["edad"] > 30) & (df["ciudad"] == "Madrid")]
+
+# Ordenar datos
+df_ordenado = df.sort_values(by="edad", ascending=False)
+                        </div>
+                    </div>
+
+                    <!-- Análisis de Datos en API -->
+                    <div class="pandas-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-cloud-download"></i> 4.3. Análisis de Datos en una API
+                        </h4>
+                        <p>
+                            El análisis de datos en APIs es común cuando se necesita procesar información de fuentes externas. 
+                            pandas facilita la conversión de JSON a DataFrames para procesamiento y generación de reportes.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Procesamiento de Datos de API:</h5>
+                        <div class="code-snippet">
+import requests
+import pandas as pd
+
+# Obtener datos desde API
+url = "https://api.example.com/datos"
+respuesta = requests.get(url)
+
+if respuesta.status_code == 200:
+    datos_json = respuesta.json()
+    
+    # Convertir a DataFrame
+    df = pd.DataFrame(datos_json)
+    print(df.head())
+    
+    # Para estructuras anidadas
+    from pandas import json_normalize
+    df = json_normalize(datos_json, "registros", ["id", "fecha"])
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Generación de Estadísticas:</h5>
+                        <div class="code-snippet">
+# Resumen estadístico
+print(df.describe())
+
+# Conteo valores únicos
+print(df["categoria"].value_counts())
+
+# Filtrado análisis específico
+df_filtrado = df[df["valor"] > 100]
+
+# Exportar reporte
+df.to_csv("reporte.csv", index=False)
+                        </div>
+                    </div>
+
+                    <!-- Integración con Flask y Django -->
+                    <div class="pandas-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-puzzle"></i> 4.4. Integración de Pandas con Flask y Django
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-flask"></i> Integración Flask
+                                        </h5>
+                                        <div class="code-snippet small">
+from flask import Flask, jsonify
+import pandas as pd
+
+app = Flask(__name__)
+
+@app.route('/datos')
+def procesar_datos():
+    datos = [{"id": 1, "nombre": "Juan", "edad": 25},
+             {"id": 2, "nombre": "María", "edad": 30}]
+    
+    # Convertir y procesar
+    df = pd.DataFrame(datos)
+    df["grupo_edad"] = df["edad"].apply(
+        lambda x: "Joven" if x < 30 else "Adulto"
+    )
+    
+    return jsonify(df.to_dict(orient="records"))
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-download"></i> Exportación Django
+                                        </h5>
+                                        <div class="code-snippet small">
+import pandas as pd
+from django.http import HttpResponse, JsonResponse
+from .models import Usuario
+
+def exportar_csv(request):
+    usuarios = Usuario.objects.all().values()
+    df = pd.DataFrame(list(usuarios))
+    
+    response = HttpResponse(content_type="text/csv")
+    response["Content-Disposition"] = "attachment; filename=usuarios.csv"
+    df.to_csv(path_or_buf=response, index=False)
+    
+    return response
+
+def exportar_json(request):
+    usuarios = Usuario.objects.all().values()
+    df = pd.DataFrame(list(usuarios))
+    
+    return JsonResponse(df.to_dict(orient="records"), safe=False)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-lightbulb"></i> Casos Prácticos
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-building"></i> Sistema Reservas Hoteles
+                                    </h5>
+                                    <h6 class="fw-bold">Recursos Principales:</h6>
+                                    <ul class="small">
+                                        <li>Habitaciones con disponibilidad</li>
+                                        <li>Reservas con fechas y clientes</li>
+                                        <li>Clientes con información personal</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Implementación:</h6>
+                                    <ul class="small">
+                                        <li>API REST con Flask/Django</li>
+                                        <li>Base de datos SQL para relaciones</li>
+                                        <li>Pandas para análisis ocupación</li>
+                                        <li>Exportación reportes CSV/JSON</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-boxes"></i> Gestión Inventarios Almacén
+                                    </h5>
+                                    <h6 class="fw-bold">Recursos Principales:</h6>
+                                    <ul class="small">
+                                        <li>Productos con stock múltiples almacenes</li>
+                                        <li>Almacenes con ubicaciones</li>
+                                        <li>Movimientos entrada/salida stock</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Implementación:</h6>
+                                    <ul class="small">
+                                        <li>Endpoints CRUD para productos/almacenes</li>
+                                        <li>ORM para relaciones complejas</li>
+                                        <li>Pandas para métricas inventario</li>
+                                        <li>Seguridad JWT y validación datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="tema7.html" class="btn btn-outline-success">
+                        <i class="bi bi-arrow-left"></i> Tema 7: Diseño MVC
+                    </a>
+                    <a href="../../../quiz-spa/index.html" class="btn btn-success">
+                        <i class="bi bi-trophy"></i> Realizar Quiz
+                    </a>
+                    <a href="tema9.html" class="btn btn-outline-success">
+                        Tema 9: Gestión de APIs <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold text-success">Implementación - APIs y Gestión de Datos</h6>
+                    <p class="text-muted small mb-0">
+                        Desarrollo de APIs REST con Flask/Django, gestión de bases de datos con ORMs, 
+                        y manipulación de datos con pandas para análisis y exportación.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        <i class="bi bi-book"></i> Material de Estudio - EUniv<br>
+                        <i class="bi bi-clock"></i> Programación - Tema 8
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon';
+            } else {
+                icon.className = 'bi bi-sun';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll position
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.sidebar .nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

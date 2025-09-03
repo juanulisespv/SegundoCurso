@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 6 - Parte 2: Modelado Arquitectónico | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .hierarchy-pattern {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .advanced-concept {
+            background: #f8f9fa;
+            border: 1px solid #6c757d;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .architecture-diagram {
+            background: #ffffff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+        
+        .layer-architecture .layer {
+            text-align: center;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .layer-presentation { background: #e3f2fd; border: 1px solid #2196f3; }
+        .layer-business { background: #f3e5f5; border: 1px solid #9c27b0; }
+        .layer-data { background: #e8f5e8; border: 1px solid #4caf50; }
+        .layer-arrow { text-align: center; font-size: 1.5rem; color: #666; }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            color: #198754;
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #198754;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item active" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-building me-3"></i>
+                        Modelado Arquitectónico
+                    </h1>
+                    <p class="lead mb-4">Parte 2: Vistas Arquitectónicas • Sistemas Empresariales • Aplicaciones Prácticas</p>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-book me-1"></i>Tema 6 - Parte 2
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-clock me-1"></i>30 min lectura
+                            </span>
+                            <span class="badge bg-light text-dark fs-6">
+                                <i class="bi bi-cloud me-1"></i>Arquitectura
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#modelado-arquitectonico">Modelado Arquitectónico</a>
+                                <a class="nav-link" href="#vistas-arquitectonicas">Vistas Arquitectónicas</a>
+                                <a class="nav-link" href="#aplicaciones-practicas">Aplicaciones Prácticas</a>
+                                <a class="nav-link" href="#patrones-aplicados">Patrones Aplicados</a>
+                                <a class="nav-link" href="#sistema-completo">Sistema Completo</a>
+                                <a class="nav-link" href="#herramientas-modernas">Herramientas</a>
+                                <a class="nav-link" href="#hacia-futuro">Hacia el Futuro</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Modelado Arquitectónico -->
+                <section id="modelado-arquitectonico" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-building me-2"></i>
+                        Modelado Arquitectónico de Sistemas
+                    </h2>
+                    
+                    <p class="lead">El modelado arquitectónico define la <strong>estructura general del sistema</strong> y cómo sus componentes interactúan para cumplir los requisitos.</p>
+                    
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-diagram-3 me-2"></i>¿Qué es la Arquitectura de Software?</h4>
+                        <p>Estructura organizacional del sistema que define <strong>componentes, relaciones y principios</strong> de diseño e implementación.</p>
+                        <ul class="mb-0">
+                            <li><strong>Componentes:</strong> Elementos funcionales del sistema</li>
+                            <li><strong>Conectores:</strong> Relaciones e interacciones entre componentes</li>
+                            <li><strong>Configuración:</strong> Topología de componentes y conectores</li>
+                        </ul>
+                    </div>
+
+                    <h3>Importancia del Modelado Arquitectónico</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-shield-check me-2"></i>Calidad del Software</h5>
+                                <p><strong>Atributos de calidad definidos</strong></p>
+                                <ul class="mb-0">
+                                    <li>Rendimiento y escalabilidad</li>
+                                    <li>Seguridad y disponibilidad</li>
+                                    <li>Mantenibilidad y modificabilidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-people me-2"></i>Comunicación Efectiva</h5>
+                                <p><strong>Lenguaje común del equipo</strong></p>
+                                <ul class="mb-0">
+                                    <li>Stakeholders entienden estructura</li>
+                                    <li>Decisiones arquitectónicas documentadas</li>
+                                    <li>Reducción de malentendidos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Vistas Arquitectónicas -->
+                <section id="vistas-arquitectonicas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-grid-3x3 me-2"></i>
+                        Vistas Arquitectónicas
+                    </h2>
+
+                    <p>Las vistas arquitectónicas representan diferentes <strong>perspectivas del sistema</strong> para stakeholders específicos.</p>
+
+                    <h3>Modelo 4+1 de Kruchten</h3>
+                    <div class="architecture-diagram">
+                        <pre>     Vista Lógica          Vista de Desarrollo
+    (Funcionalidad)         (Organización)
+          ↓                       ↓
+         📋 ESCENARIOS 📋
+      (Casos de Uso)
+          ↑                       ↑
+     Vista de Proceso      Vista Física
+    (Concurrencia)         (Despliegue)</pre>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-diagram-2 me-2"></i>Vista Lógica</h5>
+                                <p><strong>Qué hace el sistema</strong></p>
+                                <ul class="mb-0">
+                                    <li>Servicios principales</li>
+                                    <li>Abstracciones del dominio</li>
+                                    <li>Relaciones funcionales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-folder2-open me-2"></i>Vista de Desarrollo</h5>
+                                <p><strong>Cómo está organizado</strong></p>
+                                <ul class="mb-0">
+                                    <li>Estructura de directorios</li>
+                                    <li>Módulos y librerías</li>
+                                    <li>Dependencias entre componentes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Aplicaciones Prácticas -->
+                <section id="aplicaciones-practicas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-tools me-2"></i>
+                        Aplicaciones Prácticas: Sistema Empresarial
+                    </h2>
+
+                    <p>Ejemplo completo aplicando <strong>todos los conceptos</strong>: herencia, polimorfismo, composición y arquitectura.</p>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Sistema de gestión de empleados:</h6>
+                        <pre>from abc import ABC, abstractmethod
+from datetime import datetime
+
+class Empleado(ABC):
+    def __init__(self, nombre: str, email: str):
+        self.nombre = nombre
+        self.email = email
+        self.fecha_ingreso = datetime.now()
+    
+    @abstractmethod
+    def calcular_salario(self) -> float:
+        pass
+
+class EmpleadoTiempoCompleto(Empleado):
+    def __init__(self, nombre: str, email: str, salario_base: float):
+        super().__init__(nombre, email)
+        self.salario_base = salario_base
+        self.beneficios = BeneficiosCompletos()  # Composición
+    
+    def calcular_salario(self) -> float:
+        return self.salario_base + self.beneficios.calcular()
+
+class Gerente(EmpleadoTiempoCompleto):
+    def __init__(self, nombre: str, email: str, salario_base: float, subordinados: int):
+        super().__init__(nombre, email, salario_base)
+        self.subordinados = subordinados
+    
+    def calcular_salario(self) -> float:
+        base = super().calcular_salario()
+        return base + (self.subordinados * 100)  # Bonus por subordinado</pre>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-star me-2"></i>Conceptos Aplicados</h4>
+                        <ul class="mb-0">
+                            <li><strong>Herencia:</strong> EmpleadoTiempoCompleto → Gerente</li>
+                            <li><strong>Polimorfismo:</strong> calcular_salario() específico por tipo</li>
+                            <li><strong>Composición:</strong> Empleados contienen BeneficiosCompletos</li>
+                            <li><strong>Abstracción:</strong> Clase base Empleado define interfaz común</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Patrones Aplicados -->
+                <section id="patrones-aplicados" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Patrones de Diseño Aplicados
+                    </h2>
+
+                    <h3>Factory Method para Empleados</h3>
+                    <div class="code-example">
+                        <h6><i class="bi bi-gear me-2"></i>Creación flexible:</h6>
+                        <pre>class EmpleadoFactory:
+    @staticmethod
+    def crear_empleado(tipo: str, datos: dict) -> Empleado:
+        if tipo == "tiempo_completo":
+            return EmpleadoTiempoCompleto(
+                datos["nombre"], datos["email"], datos["salario"]
+            )
+        elif tipo == "gerente":
+            return Gerente(
+                datos["nombre"], datos["email"], 
+                datos["salario"], datos["subordinados"]
+            )
+        else:
+            raise ValueError(f"Tipo no válido: {tipo}")
+
+# Uso del Factory
+empleado = EmpleadoFactory.crear_empleado("gerente", {
+    "nombre": "Ana García", 
+    "email": "ana@corp.com",
+    "salario": 8000,
+    "subordinados": 5
+})</pre>
+                    </div>
+
+                    <h3>Singleton para Configuración</h3>
+                    <div class="code-example">
+                        <h6><i class="bi bi-record-circle me-2"></i>Configuración global:</h6>
+                        <pre>class ConfiguracionEmpresa:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.politicas = {
+                "vacaciones_anuales": 21,
+                "bonus_antiguedad": 0.05
+            }
+        return cls._instance
+    
+    def get_politica(self, nombre: str):
+        return self.politicas.get(nombre)
+
+# Uso global
+config = ConfiguracionEmpresa()
+vacaciones = config.get_politica("vacaciones_anuales")</pre>
+                    </div>
+                </section>
+
+                <!-- Sistema Completo -->
+                <section id="sistema-completo" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-building me-2"></i>
+                        Sistema Integrado
+                    </h2>
+
+                    <p>Demostración de <strong>todos los conceptos trabajando juntos</strong> en un sistema empresarial.</p>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Sistema de RRHH completo:</h6>
+                        <pre>class SistemaGestionRRHH:
+    def __init__(self):
+        self.empleado_factory = EmpleadoFactory()
+        self.config = ConfiguracionEmpresa()  # Singleton
+        self.departamentos = []
+    
+    def contratar_empleado(self, tipo: str, datos: dict) -> Empleado:
+        # Factory crea empleado apropiado
+        empleado = self.empleado_factory.crear_empleado(tipo, datos)
+        return empleado
+    
+    def procesar_nomina(self, empleados: list) -> float:
+        total = 0.0
+        for empleado in empleados:
+            # Polimorfismo: cada tipo calcula salario diferente
+            salario = empleado.calcular_salario()
+            total += salario
+            print(f"{empleado.nombre}: ${salario:.2f}")
+        return total
+
+# Uso del sistema integrado
+sistema = SistemaGestionRRHH()
+empleados = [
+    sistema.contratar_empleado("tiempo_completo", {
+        "nombre": "Juan", "email": "juan@corp.com", "salario": 5000
+    }),
+    sistema.contratar_empleado("gerente", {
+        "nombre": "María", "email": "maria@corp.com", 
+        "salario": 8000, "subordinados": 3
+    })
+]
+
+nomina_total = sistema.procesar_nomina(empleados)
+print(f"Nómina total: ${nomina_total:.2f}")</pre>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-all me-2"></i>Integración Completa</h4>
+                        <ul class="mb-0">
+                            <li><strong>Herencia:</strong> Especialización progresiva de empleados</li>
+                            <li><strong>Polimorfismo:</strong> Procesamiento uniforme por tipo</li>
+                            <li><strong>Composición:</strong> Beneficios como componentes reutilizables</li>
+                            <li><strong>Patrones:</strong> Factory y Singleton trabajando en conjunto</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Herramientas Modernas -->
+                <section id="herramientas-modernas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-tools me-2"></i>
+                        Herramientas de Modelado
+                    </h2>
+
+                    <h3>Herramientas de Diseño</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-diagram-3 me-2"></i>UML Tradicional</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Enterprise Architect:</strong> Modelado profesional</li>
+                                    <li><strong>Visual Paradigm:</strong> Diagramas completos</li>
+                                    <li><strong>Lucidchart:</strong> Colaborativo online</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-code-slash me-2"></i>Diagramas como Código</h5>
+                                <ul class="mb-0">
+                                    <li><strong>PlantUML:</strong> Texto a diagramas</li>
+                                    <li><strong>Mermaid:</strong> Integrado en GitHub</li>
+                                    <li><strong>Draw.io:</strong> Gratuito y versátil</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-file-code me-2"></i>PlantUML ejemplo:</h6>
+                        <pre>@startuml
+class Empleado {
+  - nombre: String
+  + calcularSalario(): double
+}
+
+class EmpleadoTiempoCompleto {
+  - salarioBase: double
+}
+
+class Gerente {
+  - subordinados: int
+  + calcularBonus(): double
+}
+
+Empleado <|-- EmpleadoTiempoCompleto
+EmpleadoTiempoCompleto <|-- Gerente
+Departamento o-- Empleado : agregación
+@enduml</pre>
+                    </div>
+                </section>
+
+                <!-- Hacia el Futuro -->
+                <section id="hacia-futuro" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-rocket me-2"></i>
+                        Preparación para Temas Avanzados
+                    </h2>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-trophy me-2"></i>Conceptos Dominados</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Herencia y jerarquías complejas</li>
+                                    <li>Polimorfismo y dynamic dispatch</li>
+                                    <li>Composición vs agregación</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Patrones creacionales (Factory, Singleton)</li>
+                                    <li>Arquitectura en capas</li>
+                                    <li>Vistas arquitectónicas múltiples</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Próximos Pasos</h4>
+                        <p>Con <strong>modelado avanzado y patrones</strong> dominados, estás preparado para:</p>
+                        <ul class="mb-0">
+                            <li><strong>Tema 7:</strong> Patrón MVC y separación de responsabilidades</li>
+                            <li><strong>Tema 8:</strong> APIs y gestión de datos</li>
+                            <li><strong>Sistemas web escalables:</strong> Aplicar conceptos en desarrollo real</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema6.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 6 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema7.html" class="btn btn-outline-success">
+                            Tema 7
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion6" class="btn btn-success floating-quiz-btn" title="Quiz Tema 6">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 6: Modelado Arquitectónico - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

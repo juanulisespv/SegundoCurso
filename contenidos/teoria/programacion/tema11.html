@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 11: Validación Multiplataforma - Programación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 0;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+            height: 2px;
+            margin: 3rem 0;
+        }
+        .concept-card {
+            border-left: 4px solid #667eea;
+            background-color: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .highlight-box {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #2196f3;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .nav-buttons .btn {
+            margin: 5px;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .quiz-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+        }
+        .quiz-button:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+            color: white;
+        }
+        .back-button {
+            background: linear-gradient(45deg, #3742fa, #2f3542);
+            color: white;
+            border: none;
+        }
+        .back-button:hover {
+            background: linear-gradient(45deg, #2f3542, #3742fa);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(47, 53, 66, 0.4);
+            color: white;
+        }
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .platform-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .icon-large {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e83e8c;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .alert-custom {
+            border-radius: 10px;
+            border: none;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .alert-info-custom {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            color: #0d47a1;
+        }
+        .alert-warning-custom {
+            background: linear-gradient(45deg, #fff3e0, #f3e5f5);
+            color: #e65100;
+        }
+        .breadcrumb-custom {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-custom .breadcrumb-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .breadcrumb-custom .breadcrumb-item.active {
+            color: #f8f9fa;
+        }
+        .framework-comparison {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #6c757d;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item active" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-mobile-alt me-3"></i>
+                        Validación Multiplataforma
+                    </h1>
+                    <p class="lead mb-4">
+                        Aprende a validar aplicaciones en múltiples entornos, desde diseño responsive hasta desarrollo móvil con frameworks modernos, garantizando compatibilidad y rendimiento óptimo.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-desktop me-2"></i>Diseño Responsive
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-mobile me-2"></i>Desarrollo Móvil
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-globe me-2"></i>Compatibilidad Cross-Browser
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fab fa-python me-2"></i>Kivy Framework
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-devices display-1 text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-list-ul me-2"></i>
+                                Índice del Tema
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#conceptos-multiplataforma">Conceptos Multiplataforma</a>
+                                <a class="nav-link" href="#plataformas-objetivo">Plataformas Objetivo</a>
+                                <a class="nav-link" href="#herramientas-validacion">Herramientas</a>
+                                <a class="nav-link" href="#estrategias-testing">Estrategias</a>
+                                <a class="nav-link" href="#ejercicios">Ejercicios</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+        
+        <!-- Introducción -->
+        <section id="introduccion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-play-circle me-3"></i>
+                Introducción a la Validación Multiplataforma
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h5><i class="fas fa-lightbulb me-2"></i>Definición y Objetivos</h5>
+                <p class="mb-0">En un mundo donde los usuarios acceden a aplicaciones desde una <strong>variedad de dispositivos y sistemas operativos</strong>, la validación multiplataforma es fundamental para garantizar que el software funcione correctamente en distintos entornos, siendo <strong>compatible y eficiente</strong> en navegadores web, sistemas de escritorio y plataformas móviles.</p>
+            </div>
+
+            <!-- Importancia en el Desarrollo Moderno -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-star me-2"></i>
+                    Importancia en el Desarrollo de Software Moderno
+                </h3>
+                
+                <div class="highlight-box">
+                    <p class="lead">El ecosistema tecnológico actual está compuesto por una amplia gama de dispositivos con diferentes características de hardware y software. Un usuario puede acceder desde un <strong>ordenador con Windows, un smartphone con Android o un iPad con iOS</strong>, lo que hace esencial garantizar experiencia coherente en todos los entornos.</p>
+                </div>
+
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h4 class="text-center">Mejora la Accesibilidad</h4>
+                        <p>Garantiza que todos los usuarios, independientemente del dispositivo o sistema operativo, puedan utilizar la aplicación sin restricciones.</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4 class="text-center">Optimiza el Rendimiento</h4>
+                        <p>Permite identificar y corregir fallos de compatibilidad en distintos dispositivos, asegurando tiempos de carga óptimos y navegación fluida.</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h4 class="text-center">Reduce Costos de Mantenimiento</h4>
+                        <p>Detectar errores de compatibilidad antes del lanzamiento evita correcciones costosas en producción.</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="text-center">Incrementa Satisfacción del Usuario</h4>
+                        <p>Una experiencia uniforme en todas las plataformas mejora la usabilidad y retención de clientes.</p>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h4 class="text-center">Facilita la Escalabilidad</h4>
+                        <p>Asegura que el software pueda adaptarse a nuevos dispositivos y sistemas en el futuro.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Retos en la Validación -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    Retos de la Validación en Entornos Multiplataforma
+                </h3>
+
+                <div class="alert alert-warning-custom">
+                    <h5><i class="fas fa-info-circle me-2"></i>Desafíos Principales</h5>
+                    <p class="mb-0">La validación multiplataforma presenta desafíos significativos debido a la gran variedad de dispositivos, sistemas operativos y navegadores. Para garantizar funcionamiento correcto, es fundamental comprender las <strong>diferencias entre plataformas, problemas comunes de compatibilidad y estrategias para mitigar errores</strong>.</p>
+                </div>
+
+                <!-- Diferencias entre Entornos -->
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-globe text-info me-2"></i>Entornos Web</h4>
+                            <p>Dependen de navegadores como Chrome, Firefox o Safari, que interpretan el código de manera diferente.</p>
+                            <ul>
+                                <li><strong>Compatibilidad HTML5 y CSS3</strong></li>
+                                <li><strong>Rendimiento de JavaScript</strong></li>
+                                <li><strong>Soporte para nuevas APIs</strong></li>
+                                <li><strong>Diferencias en renderizado</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-mobile-alt text-success me-2"></i>Entornos Móviles</h4>
+                            <p>Deben adaptarse a distintos tamaños de pantalla, resoluciones y sistemas operativos (Android, iOS).</p>
+                            <ul>
+                                <li><strong>Gestión de batería y memoria</strong></li>
+                                <li><strong>Diferentes resoluciones</strong></li>
+                                <li><strong>Interacción táctil</strong></li>
+                                <li><strong>Sensores del dispositivo</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-desktop text-warning me-2"></i>Aplicaciones de Escritorio</h4>
+                            <p>Se ejecutan en sistemas como Windows, macOS y Linux, cada uno con configuraciones distintas.</p>
+                            <ul>
+                                <li><strong>Consumo de CPU variable</strong></li>
+                                <li><strong>Acceso a archivos del sistema</strong></li>
+                                <li><strong>Gestión de actualizaciones</strong></li>
+                                <li><strong>Configuraciones de hardware</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Problemas Comunes -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-bug me-2"></i>Problemas Comunes en Compatibilidad y Rendimiento</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><strong>Diferencias en interpretación de código:</strong> Funcionalidades que funcionan en un navegador pero fallan en otro</li>
+                                <li><strong>Interfaces responsivas deficientes:</strong> Diseños mal adaptados que afectan usabilidad en pantallas pequeñas</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><strong>Rendimiento deficiente en móviles:</strong> Aplicaciones que consumen demasiados recursos y afectan la batería</li>
+                                <li><strong>Incompatibilidad de hardware:</strong> Aplicaciones que no se ejecutan en procesadores o arquitecturas diferentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soluciones -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-lightbulb me-2"></i>Soluciones para Mitigar Errores</h4>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-vial text-primary me-2"></i>Pruebas Múltiples</h5>
+                            <p>Realizar pruebas en múltiples dispositivos y entornos usando <strong>BrowserStack o LambdaTest</strong> para evaluar compatibilidad.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-rocket text-success me-2"></i>Optimización de Rendimiento</h5>
+                            <p>Minimizar scripts pesados y optimizar imágenes para reducir consumo de memoria y batería en móviles.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-mobile text-info me-2"></i>Diseño Responsivo</h5>
+                            <p>Utilizar frameworks como <strong>Bootstrap o Material Design</strong> para garantizar interfaces adaptables.</p>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-cogs text-warning me-2"></i>Automatización</h5>
+                            <p>Usar herramientas como <strong>Selenium</strong> para validar funcionamiento en distintas plataformas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Diseño Responsive -->
+        <section id="diseno-responsive" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-expand-arrows-alt me-3"></i>
+                Diseño Responsive: Principios y Frameworks
+            </h2>
+
+            <!-- Principios Básicos -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-ruler-combined me-2"></i>
+                    Principios Básicos del Diseño Responsive
+                </h3>
+                
+                <div class="highlight-box">
+                    <h4>¿Qué es el Diseño Responsive?</h4>
+                    <p>Técnica fundamental en el desarrollo web moderno que permite que las aplicaciones se <strong>adapten automáticamente a distintos dispositivos y resoluciones</strong> de pantalla. Su objetivo es garantizar que la experiencia del usuario sea óptima sin importar si accede desde ordenador, tablet o smartphone.</p>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-expand text-primary me-2"></i>Adaptabilidad</h4>
+                            <p><strong>Objetivo:</strong> Ajustar contenido y estructura para diferentes tamaños de pantalla.</p>
+                            <ul>
+                                <li>Pantallas grandes (monitores de escritorio)</li>
+                                <li>Pantallas medianas (tablets)</li>
+                                <li>Pantallas pequeñas (smartphones)</li>
+                                <li>Mantener proporción de imágenes y fuentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-code text-success me-2"></i>Media Queries</h4>
+                            <p><strong>Funcionalidad:</strong> Reglas CSS que aplican estilos específicos según el ancho del dispositivo.</p>
+                            <pre><code>@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}</code></pre>
+                            <p>Permiten definir configuraciones específicas para cada tipo de pantalla.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-th text-warning me-2"></i>Layouts Flexibles</h4>
+                            <p><strong>Tecnologías:</strong> Flexbox y CSS Grid para distribuir elementos dinámicamente.</p>
+                            <ul>
+                                <li><strong>Flexbox:</strong> Distribución unidimensional</li>
+                                <li><strong>CSS Grid:</strong> Layouts bidimensionales</li>
+                                <li><strong>Grillas adaptables</strong> sin estructuras fijas</li>
+                                <li><strong>Contenedores flexibles</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiencia de Usuario y Accesibilidad -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-users me-2"></i>Experiencia de Usuario y Accesibilidad</h4>
+                    <p>El diseño responsive no solo se enfoca en la apariencia, sino también en mejorar la <strong>experiencia del usuario (UX) y la accesibilidad</strong>:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-mouse-pointer fa-2x text-primary mb-3"></i>
+                                <h5>Navegación Intuitiva</h5>
+                                <p>Menús y botones accesibles en pantallas táctiles y fáciles de usar en cualquier dispositivo.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-font fa-2x text-success mb-3"></i>
+                                <h5>Tipografías Legibles</h5>
+                                <p>Tamaño de textos que se ajusta dinámicamente para evitar problemas de lectura.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-eye fa-2x text-info mb-3"></i>
+                                <h5>Tecnologías de Asistencia</h5>
+                                <p>Interfaces accesibles para personas con discapacidades, compatibles con lectores de pantalla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Frameworks para Diseño Responsive -->
+        <section id="frameworks" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-puzzle-piece me-3"></i>
+                Frameworks para Diseño Responsive
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h5><i class="fas fa-info-circle me-2"></i>Frameworks de Diseño</h5>
+                <p class="mb-0">El uso de <strong>frameworks de diseño responsive</strong> facilita la creación de interfaces adaptables sin necesidad de desarrollar estilos desde cero. Entre los más utilizados se encuentran <strong>Bootstrap y Material Design</strong>, que ofrecen soluciones predefinidas para mejorar la experiencia del usuario.</p>
+            </div>
+
+            <!-- Bootstrap vs Material Design -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-code-branch me-2"></i>
+                    Bootstrap vs Material Design
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="platform-card">
+                            <div class="icon-large text-center">
+                                <i class="fab fa-bootstrap"></i>
+                            </div>
+                            <h4 class="text-center">Bootstrap</h4>
+                            <p><strong>Framework CSS más popular</strong> para diseño responsive. Proporciona sistema de rejillas flexible, componentes predefinidos y estilos personalizables.</p>
+                            
+                            <h5>Principales Características:</h5>
+                            <ul>
+                                <li><strong>Sistema de grillas (Grid System):</strong> Organiza elementos en filas y columnas, facilitando adaptación a distintos tamaños</li>
+                                <li><strong>Componentes reutilizables:</strong> Botones, formularios, menús de navegación y modales preconfigurados</li>
+                                <li><strong>Mobile-First:</strong> Prioriza diseño para pantallas pequeñas y luego adapta a más grandes</li>
+                                <li><strong>Personalización:</strong> Modificación fácil mediante CSS y variables Sass</li>
+                            </ul>
+
+                            <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                                <strong>Ideal para:</strong> Desarrolladores que buscan rapidez y flexibilidad en interfaces empresariales y sitios web generales.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="platform-card">
+                            <div class="icon-large text-center">
+                                <i class="fab fa-google"></i>
+                            </div>
+                            <h4 class="text-center">Material Design</h4>
+                            <p><strong>Sistema de diseño desarrollado por Google</strong>, basado en principios de realismo digital, movimiento y jerarquía visual para interfaces modernas e intuitivas.</p>
+                            
+                            <h5>Características Clave:</h5>
+                            <ul>
+                                <li><strong>Diseño basado en tarjetas:</strong> Organiza contenido en bloques modulares con efectos de elevación y sombras</li>
+                                <li><strong>Animaciones fluidas:</strong> Mejora experiencia con efectos visuales dinámicos y transiciones</li>
+                                <li><strong>Paleta de colores vibrante:</strong> Guía predefinida para garantizar interfaz atractiva y accesible</li>
+                                <li><strong>Componentes táctiles:</strong> Optimizados para smartphones y tablets</li>
+                            </ul>
+
+                            <div class="alert alert-info" style="background-color: #d1ecf1; border-color: #bee5eb;">
+                                <strong>Ideal para:</strong> Aplicaciones móviles y web apps modernas que siguen directrices visuales de Google.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla Comparativa -->
+                <div class="framework-comparison mt-4">
+                    <h4><i class="fas fa-balance-scale me-2"></i>Comparación Detallada</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Aspecto</th>
+                                    <th>Bootstrap</th>
+                                    <th>Material Design</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Enfoque</strong></td>
+                                    <td>Diseño flexible y rápido para cualquier tipo de web</td>
+                                    <td>Principios de diseño de Google con animaciones y efectos visuales</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Personalización</strong></td>
+                                    <td>Alta personalización con CSS y Sass</td>
+                                    <td>Estilo más estructurado con guías de diseño definidas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Usabilidad</strong></td>
+                                    <td>Ideal para interfaces empresariales y sitios web generales</td>
+                                    <td>Más utilizado en aplicaciones móviles y web apps modernas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Curva de Aprendizaje</strong></td>
+                                    <td>Más fácil de aprender y implementar</td>
+                                    <td>Requiere comprensión de principios de diseño específicos</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validación del Diseño Responsive -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-check-double me-2"></i>
+                    Validación del Diseño Responsive
+                </h3>
+
+                <p class="lead">La validación del diseño responsive es esencial para garantizar que un sitio web se visualice y funcione correctamente en distintos dispositivos y resoluciones.</p>
+
+                <div class="tools-grid">
+                    <!-- Herramientas para Pruebas -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-globe text-primary me-2"></i>BrowserStack</h5>
+                        <p>Permite probar aplicaciones web en gran variedad de <strong>navegadores y dispositivos reales</strong> sin necesidad de tenerlos físicamente.</p>
+                        <ul>
+                            <li>Pruebas en tiempo real</li>
+                            <li>Múltiples sistemas operativos</li>
+                            <li>Dispositivos móviles y desktop</li>
+                            <li>Screenshots automáticos</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <h5><i class="fas fa-cloud text-success me-2"></i>LambdaTest</h5>
+                        <p>Plataforma que ofrece <strong>pruebas en la nube</strong> para verificar compatibilidad en diferentes sistemas operativos y navegadores.</p>
+                        <ul>
+                            <li>Testing en paralelo</li>
+                            <li>Integración con CI/CD</li>
+                            <li>Pruebas automatizadas</li>
+                            <li>Debugging visual</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <h5><i class="fas fa-mobile-alt text-info me-2"></i>Responsinator</h5>
+                        <p>Herramienta simple que muestra cómo se adapta un sitio web en <strong>distintas resoluciones</strong> de pantalla.</p>
+                        <ul>
+                            <li>Vista previa inmediata</li>
+                            <li>Múltiples dispositivos</li>
+                            <li>Interfaz intuitiva</li>
+                            <li>Gratuita y rápida</li>
+                        </ul>
+                    </div>
+
+                    <!-- Emuladores y Simuladores -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-desktop text-warning me-2"></i>Emuladores de Navegador</h5>
+                        <p><strong>Chrome y Firefox</strong> incluyen herramientas para simular vista móvil de sitios web.</p>
+                        <ul>
+                            <li>DevTools integradas</li>
+                            <li>Simulación táctil</li>
+                            <li>Throttling de red</li>
+                            <li>Orientación de pantalla</li>
+                        </ul>
+                    </div>
+
+                    <div class="tool-card">
+                        <h5><i class="fas fa-cogs text-secondary me-2"></i>Android Studio & Xcode</h5>
+                        <p>Simuladores de sistemas operativos que replican comportamiento real de <strong>dispositivos móviles</strong>.</p>
+                        <ul>
+                            <li>Entornos virtualizados</li>
+                            <li>Múltiples versiones de OS</li>
+                            <li>Pruebas de rendimiento</li>
+                            <li>Debugging avanzado</li>
+                        </ul>
+                    </div>
+
+                    <!-- Herramientas de Accesibilidad -->
+                    <div class="tool-card">
+                        <h5><i class="fas fa-lighthouse text-danger me-2"></i>Google Lighthouse</h5>
+                        <p>Analiza <strong>accesibilidad, rendimiento y buenas prácticas</strong> en aplicaciones web.</p>
+                        <ul>
+                            <li>Auditorías automatizadas</li>
+                            <li>Métricas de rendimiento</li>
+                            <li>Recomendaciones SEO</li>
+                            <li>Accesibilidad web</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Integración Frontend y Backend -->
+        <section id="integracion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-link me-3"></i>
+                Integración de Frontends y Backends en Aplicaciones Web
+            </h2>
+
+            <!-- Arquitectura de Aplicaciones Web -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-sitemap me-2"></i>
+                    Arquitectura de Aplicaciones Web Complejas
+                </h3>
+
+                <div class="alert alert-info-custom">
+                    <h5><i class="fas fa-building me-2"></i>Arquitecturas Modernas</h5>
+                    <p class="mb-0">El desarrollo de aplicaciones web modernas requiere arquitecturas robustas que permitan <strong>escalabilidad, seguridad y eficiencia</strong> en la gestión de datos. Es fundamental comprender el modelo cliente-servidor, diferencias entre arquitecturas monolíticas y microservicios, y mecanismos de gestión de sesiones.</p>
+                </div>
+
+                <!-- Modelo Cliente-Servidor -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-exchange-alt me-2"></i>Modelo Cliente-Servidor y API REST</h4>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <p>Las aplicaciones web siguen el <strong>modelo cliente-servidor</strong>:</p>
+                            <ul>
+                                <li><strong>El cliente</strong> (navegador o aplicación móvil) solicita datos o servicios</li>
+                                <li><strong>El servidor</strong> procesa la solicitud y devuelve la respuesta al cliente</li>
+                            </ul>
+                            
+                            <p>Para la comunicación se utilizan <strong>API REST (Representational State Transfer)</strong> mediante métodos HTTP:</p>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="bg-light p-3 rounded">
+                                <h6>Métodos HTTP</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>GET:</strong> Obtener información</li>
+                                    <li><strong>POST:</strong> Enviar datos</li>
+                                    <li><strong>PUT:</strong> Actualizar registros</li>
+                                    <li><strong>DELETE:</strong> Eliminar recursos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monolitos vs Microservicios -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-cubes me-2"></i>Diferencias entre Monolitos y Microservicios</h4>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="platform-card">
+                                <h5><i class="fas fa-cube text-warning me-2"></i>Arquitectura Monolítica</h5>
+                                <p><strong>Características:</strong></p>
+                                <ul>
+                                    <li>Toda la aplicación como unidad indivisible</li>
+                                    <li>Fácil de desarrollar y desplegar</li>
+                                    <li>Difícil de escalar componentes individuales</li>
+                                    <li>Un fallo puede afectar toda la aplicación</li>
+                                </ul>
+                                
+                                <div class="alert alert-warning" style="background-color: #fff3cd; border-color: #ffecb5;">
+                                    <strong>Ejemplo:</strong> Tienda en línea donde catálogo, pagos y gestión de usuarios están en un solo código fuente.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <div class="platform-card">
+                                <h5><i class="fas fa-cubes text-success me-2"></i>Arquitectura de Microservicios</h5>
+                                <p><strong>Características:</strong></p>
+                                <ul>
+                                    <li>Aplicación dividida en servicios independientes</li>
+                                    <li>Servicios se comunican entre sí</li>
+                                    <li>Escalabilidad y mantenimiento modular</li>
+                                    <li>Mayor complejidad de despliegue</li>
+                                </ul>
+                                
+                                <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                                    <strong>Ejemplo:</strong> Sistema donde servicio de pagos es independiente del inventario.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-info-custom mt-3">
+                        <strong>Recomendación:</strong> Los <strong>microservicios</strong> son ideales para aplicaciones de gran escala, mientras que los <strong>monolitos</strong> son más simples para proyectos pequeños y medianos.
+                    </div>
+                </div>
+
+                <!-- Gestión de Sesiones -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-user-shield me-2"></i>Gestión de Sesiones y Autenticación</h4>
+                    <p>Para mantener seguridad y personalización del usuario en aplicaciones web:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-clock fa-2x text-primary mb-3"></i>
+                                <h5>Sesiones</h5>
+                                <p>Almacenan datos temporales en servidor o cliente para recordar información del usuario.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-key fa-2x text-success mb-3"></i>
+                                <h5>Autenticación</h5>
+                                <p>Validan credenciales con métodos como <strong>OAuth2, JWT</strong> o cookies de sesión.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3">
+                                <i class="fas fa-user-check fa-2x text-info mb-3"></i>
+                                <h5>Autorización</h5>
+                                <p>Define qué acciones puede realizar un usuario según su rol en el sistema.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pruebas en Aplicaciones Web -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-flask me-2"></i>
+                    Pruebas en Aplicaciones Web Multiplataforma
+                </h3>
+
+                <p class="lead">Las aplicaciones web deben garantizar experiencia consistente en <strong>diferentes dispositivos y navegadores</strong>, asegurando que diseño, funcionalidad y seguridad sean óptimos en cualquier entorno.</p>
+
+                <div class="platform-grid">
+                    <!-- Testing de Compatibilidad -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-browser"></i>
+                        </div>
+                        <h4 class="text-center">Testing de Compatibilidad</h4>
+                        <p>Cada navegador interpreta código de manera diferente, generando inconsistencias en apariencia y funcionalidad.</p>
+                        
+                        <h5>Factores a Evaluar:</h5>
+                        <ul>
+                            <li>Renderización de HTML, CSS y JavaScript</li>
+                            <li>Compatibilidad con funciones avanzadas</li>
+                            <li>Correcto ajuste del diseño responsivo</li>
+                        </ul>
+                        
+                        <div class="alert alert-info" style="background-color: #d1ecf1; border-color: #bee5eb;">
+                            <strong>Navegadores:</strong> Chrome, Firefox, Safari, Edge, Opera
+                        </div>
+                    </div>
+
+                    <!-- Pruebas Automatizadas -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-center">Pruebas Automatizadas</h4>
+                        <p>Verifican funcionalidad de forma repetitiva y eficiente sin intervención manual.</p>
+                        
+                        <h5>Herramientas Principales:</h5>
+                        <ul>
+                            <li><strong>Selenium:</strong> Simula interacción del usuario en distintos navegadores</li>
+                            <li><strong>Cypress:</strong> Pruebas end-to-end (E2E) rápidas y sencillas</li>
+                        </ul>
+                        
+                        <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                            <strong>Ventajas:</strong> Reduce tiempo, detecta errores antes del despliegue, permite CI/CD
+                        </div>
+                    </div>
+
+                    <!-- Seguridad y Validación -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="text-center">Seguridad y Validación</h4>
+                        <p>Garantizar seguridad y validación de datos es esencial para evitar vulnerabilidades y ataques.</p>
+                        
+                        <h5>Pruebas de Seguridad:</h5>
+                        <ul>
+                            <li>Protección contra <strong>inyección SQL y XSS</strong></li>
+                            <li>Verificación de autenticación con <strong>OAuth2 o JWT</strong></li>
+                            <li>Encriptación de datos con <strong>HTTPS y TLS</strong></li>
+                        </ul>
+                        
+                        <div class="alert alert-warning" style="background-color: #fff3cd; border-color: #ffecb5;">
+                            <strong>Herramientas:</strong> OWASP ZAP, Burp Suite para detectar vulnerabilidades
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Desarrollo Móvil -->
+        <section id="desarrollo-movil" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-mobile-alt me-3"></i>
+                Desarrollo Móvil y Validación en Dispositivos
+            </h2>
+
+            <!-- Frameworks para Desarrollo Móvil -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-layer-group me-2"></i>
+                    Introducción a Frameworks para Desarrollo Móvil
+                </h3>
+
+                <div class="alert alert-info-custom">
+                    <h5><i class="fas fa-lightbulb me-2"></i>Enfoques de Desarrollo</h5>
+                    <p class="mb-0">El desarrollo de aplicaciones móviles ha evolucionado con diferentes enfoques que buscan <strong>maximizar la eficiencia y compatibilidad</strong> en distintos dispositivos. Existen tres métodos principales: <strong>nativo, híbrido y multiplataforma</strong>.</p>
+                </div>
+
+                <!-- Enfoques de Desarrollo -->
+                <div class="platform-grid">
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <h4 class="text-center">Desarrollo Nativo</h4>
+                        <p>Se crean aplicaciones específicas para cada sistema operativo utilizando sus lenguajes y herramientas oficiales.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li><strong>iOS:</strong> Swift, Objective-C</li>
+                            <li><strong>Android:</strong> Kotlin, Java</li>
+                            <li><strong>Mejor rendimiento</strong> y acceso total a funciones</li>
+                            <li><strong>Desventaja:</strong> Dos aplicaciones separadas</li>
+                        </ul>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4 class="text-center">Desarrollo Híbrido</h4>
+                        <p>Usan tecnologías web (HTML, CSS, JavaScript) ejecutadas dentro de un contenedor nativo.</p>
+                        
+                        <h5>Frameworks:</h5>
+                        <ul>
+                            <li><strong>Ionic:</strong> Basado en Angular</li>
+                            <li><strong>Apache Cordova:</strong> Acceso a APIs nativas</li>
+                            <li><strong>Una sola base de código</strong></li>
+                            <li><strong>Desventaja:</strong> Menor rendimiento</li>
+                        </ul>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="text-center">Desarrollo Multiplataforma</h4>
+                        <p>Permite crear aplicaciones que funcionan en iOS y Android con una única base de código.</p>
+                        
+                        <h5>Frameworks Populares:</h5>
+                        <ul>
+                            <li><strong>React Native:</strong> JavaScript</li>
+                            <li><strong>Flutter:</strong> Dart</li>
+                            <li><strong>Kivy:</strong> Python</li>
+                            <li><strong>Rendimiento</strong> cercano al nativo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Comparación de Frameworks -->
+                <div class="framework-comparison mt-4">
+                    <h4><i class="fas fa-balance-scale me-2"></i>Comparación entre Frameworks Móviles</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Framework</th>
+                                    <th>Lenguaje</th>
+                                    <th>Ventajas</th>
+                                    <th>Usos Comunes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>React Native</strong></td>
+                                    <td>JavaScript</td>
+                                    <td>Código reutilizable, gran comunidad</td>
+                                    <td>Aplicaciones empresariales y comerciales</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Flutter</strong></td>
+                                    <td>Dart</td>
+                                    <td>Alto rendimiento, UI rica y personalizable</td>
+                                    <td>Apps con interfaces avanzadas y animaciones</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kivy</strong></td>
+                                    <td>Python</td>
+                                    <td>Flexibilidad, integración con bibliotecas Python</td>
+                                    <td>Aplicaciones científicas y educativas</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                        <strong>Recomendación:</strong> React Native y Flutter son más populares en desarrollo comercial, mientras que <strong>Kivy</strong> es excelente para quienes desean usar <strong>Python</strong> en desarrollo móvil.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementación con Kivy -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fab fa-python me-2"></i>
+                    Implementación de Aplicaciones Móviles con Kivy
+                </h3>
+
+                <div class="highlight-box">
+                    <h4>¿Qué es Kivy?</h4>
+                    <p><strong>Kivy</strong> es un framework de código abierto que permite desarrollar aplicaciones móviles con <strong>Python</strong>. Su principal ventaja es la capacidad de crear <strong>interfaces gráficas intuitivas</strong> con diseño adaptable, compatible con Android, iOS, Windows, Linux y macOS.</p>
+                </div>
+
+                <!-- Estructura de Aplicación Kivy -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-sitemap me-2"></i>Estructura de una Aplicación en Kivy</h4>
+                    
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <p>Una aplicación en <strong>Kivy</strong> consta de dos partes principales:</p>
+                            <ol>
+                                <li><strong>Código en Python:</strong> Define la lógica de la aplicación e interacción entre componentes</li>
+                                <li><strong>Archivos KV (opcional):</strong> Lenguaje específico de Kivy para diseñar la interfaz gráfica de manera declarativa</li>
+                            </ol>
+
+                            <h5>Componentes Principales:</h5>
+                            <ul>
+                                <li><strong>App:</strong> Clase principal que gestiona el ciclo de vida</li>
+                                <li><strong>Widget:</strong> Elementos gráficos (botones, etiquetas, campos)</li>
+                                <li><strong>Layout:</strong> Organización de interfaz (GridLayout, BoxLayout, etc.)</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="bg-light p-3 rounded">
+                                <h6>Ejemplo Básico</h6>
+                                <pre><code>from kivy.app import App
+from kivy.uix.label import Label
+
+class MyApp(App):
+    def build(self):
+        return Label(text="¡Hola, Kivy!")
+
+MyApp().run()</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integración con Bases de Datos y APIs -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-database me-2"></i>Integración con Bases de Datos y APIs REST</h4>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Bases de Datos</h5>
+                            <p>Para almacenar y recuperar datos, Kivy se integra con:</p>
+                            <ul>
+                                <li><strong>SQLite:</strong> Base de datos local</li>
+                                <li><strong>PostgreSQL:</strong> Base de datos robusta</li>
+                                <li><strong>Firebase:</strong> Base de datos en la nube</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>APIs REST</h5>
+                            <p>Consume APIs mediante bibliotecas <code>requests</code> o <code>httpx</code>:</p>
+                            <pre><code>import requests
+
+response = requests.get("https://api.example.com/data")
+print(response.json())</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Despliegue -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-rocket me-2"></i>Despliegue de Aplicaciones Móviles</h4>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5>Herramientas de Empaquetado</h5>
+                            <ul>
+                                <li><strong>Buildozer:</strong> Empaqueta aplicaciones en Android y otros sistemas</li>
+                                <li><strong>Pyjnius y Plyer:</strong> Interacción con funcionalidades del dispositivo</li>
+                                <li><strong>Xcode:</strong> Necesario para compilar aplicaciones en iOS</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5>Proceso de Despliegue</h5>
+                            <ol>
+                                <li>Configurar <code>buildozer.spec</code> para permisos y dependencias</li>
+                                <li>Compilar la aplicación: <code>buildozer -v android debug</code></li>
+                                <li>Firmar y distribuir en Google Play Store o App Store</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pruebas de Compatibilidad -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-flask me-2"></i>
+                    Pruebas de Compatibilidad en Dispositivos Reales y Simuladores
+                </h3>
+
+                <p class="lead">Las pruebas de compatibilidad en aplicaciones móviles son esenciales para garantizar funcionamiento correcto en <strong>diferentes dispositivos, sistemas operativos y resoluciones</strong>.</p>
+
+                <div class="platform-grid">
+                    <!-- Emuladores vs Dispositivos Físicos -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h4 class="text-center">Emuladores</h4>
+                        <p>Simulan comportamiento de aplicación en distintos dispositivos sin necesidad de hardware real.</p>
+                        
+                        <h5>Herramientas:</h5>
+                        <ul>
+                            <li><strong>Android Studio Emulator:</strong> Diversos modelos y tamaños de pantalla</li>
+                            <li><strong>Xcode Simulator:</strong> Validación en dispositivos iOS</li>
+                        </ul>
+                        
+                        <div class="alert alert-info" style="background-color: #d1ecf1; border-color: #bee5eb;">
+                            <strong>Uso:</strong> Verificar interfaz, interacciones y funcionalidad básica
+                        </div>
+                    </div>
+
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h4 class="text-center">Dispositivos Físicos</h4>
+                        <p>Los emuladores no siempre reflejan comportamiento real, por lo que también se usan dispositivos físicos.</p>
+                        
+                        <h5>Aspectos a Evaluar:</h5>
+                        <ul>
+                            <li><strong>Rendimiento real</strong> en velocidad y batería</li>
+                            <li><strong>Sensores:</strong> GPS, cámara, acelerómetro</li>
+                            <li><strong>Gestos táctiles</strong> y respuesta del hardware</li>
+                        </ul>
+                        
+                        <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                            <strong>Ventaja:</strong> Pruebas en condiciones reales de uso
+                        </div>
+                    </div>
+
+                    <!-- Validación de Rendimiento -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4 class="text-center">Validación de Rendimiento</h4>
+                        <p>Las pruebas de rendimiento evalúan <strong>eficiencia del sistema y consumo de recursos</strong>.</p>
+                        
+                        <h5>Métricas Clave:</h5>
+                        <ul>
+                            <li><strong>Tiempo de carga:</strong> Cuánto tarda en iniciarse y responder</li>
+                            <li><strong>Uso de memoria y CPU:</strong> Evitar consumo excesivo de recursos</li>
+                            <li><strong>Duración de batería:</strong> Optimizar consumo de energía</li>
+                        </ul>
+                        
+                        <div class="alert alert-warning" style="background-color: #fff3cd; border-color: #ffecb5;">
+                            <strong>Herramientas:</strong> Firebase Test Lab, Android Studio Profiler
+                        </div>
+                    </div>
+
+                    <!-- Testing Automatizado con Appium -->
+                    <div class="platform-card">
+                        <div class="icon-large text-center">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-center">Testing Automatizado con Appium</h4>
+                        <p><strong>Appium</strong> es una de las herramientas más utilizadas para automatización de pruebas en aplicaciones móviles.</p>
+                        
+                        <h5>Características:</h5>
+                        <ul>
+                            <li><strong>Compatible</strong> con Android e iOS</li>
+                            <li><strong>Múltiples lenguajes:</strong> Python, Java, JavaScript</li>
+                            <li><strong>Simula interacciones</strong> como gestos táctiles, texto y clics</li>
+                        </ul>
+                        
+                        <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                            <strong>Beneficio:</strong> Facilita detección temprana de errores y reduce tiempo de pruebas
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Ejercicios Prácticos -->
+        <section id="ejercicios" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-laptop-code me-3"></i>
+                Actividades Prácticas
+            </h2>
+
+            <!-- Ejercicio 1: Reservas de Viajes -->
+            <div class="mb-5">
+                <div class="alert alert-success" style="background-color: #d4edda; border-color: #c3e6cb;">
+                    <h3><i class="fas fa-plane me-2"></i>Ejercicio 21: Validación de Aplicación Multiplataforma para Reservas de Viajes</h3>
+                </div>
+                
+                <div class="concept-card p-4">
+                    <h4>Contexto del Proyecto</h4>
+                    <p>Una agencia de viajes ha desarrollado una aplicación multiplataforma que permite a los usuarios:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-search text-primary me-2"></i>Búsqueda y Reservas</h5>
+                            <ul>
+                                <li>Buscar y reservar vuelos</li>
+                                <li>Reservar hoteles</li>
+                                <li>Acceso desde dispositivos móviles (Android/iOS)</li>
+                                <li>Acceso desde navegadores web</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-credit-card text-success me-2"></i>Pagos y Notificaciones</h5>
+                            <ul>
+                                <li>Pagos con tarjetas de crédito</li>
+                                <li>Integración con PayPal</li>
+                                <li>Notificaciones sobre cambios en reservas</li>
+                                <li>Acceso a itinerarios sin conexión</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning-custom mt-4">
+                        <h4><i class="fas fa-tasks me-2"></i>Tareas a Resolver:</h4>
+                        <ol>
+                            <li><strong>Definir pruebas de compatibilidad</strong> necesarias en web y dispositivos móviles</li>
+                            <li><strong>Planificar uso de emuladores</strong> y pruebas en dispositivos reales</li>
+                            <li><strong>Determinar herramientas y metodologías</strong> para evaluar rendimiento y consumo de recursos</li>
+                            <li><strong>Implementar pruebas automatizadas</strong> con Appium o Selenium</li>
+                            <li><strong>Garantizar seguridad</strong> en transacciones y almacenamiento de datos</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2: Comercio Electrónico -->
+            <div class="mb-5">
+                <div class="alert alert-info" style="background-color: #d1ecf1; border-color: #bee5eb;">
+                    <h3><i class="fas fa-shopping-cart me-2"></i>Ejercicio 22: Validación Multiplataforma de Aplicación de Comercio Electrónico</h3>
+                </div>
+                
+                <div class="concept-card p-4">
+                    <h4>Contexto del Proyecto</h4>
+                    <p>Una empresa de comercio electrónico ha desarrollado una aplicación web y móvil para que los usuarios puedan:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-store text-primary me-2"></i>Catálogo y Compras</h5>
+                            <ul>
+                                <li>Explorar y comprar productos desde cualquier dispositivo</li>
+                                <li>Filtrado y búsqueda avanzada</li>
+                                <li>Carrito de compras sincronizado</li>
+                                <li>Comparación de productos</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-bell text-success me-2"></i>Gestión y Notificaciones</h5>
+                            <ul>
+                                <li>Pagos con PayPal, tarjetas y Google Pay</li>
+                                <li>Historial de compras y devoluciones</li>
+                                <li>Notificaciones sobre ofertas en tiempo real</li>
+                                <li>Sistema de recomendaciones personalizado</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-warning-custom mt-4">
+                        <h4><i class="fas fa-tasks me-2"></i>Tareas a Resolver:</h4>
+                        <ol>
+                            <li><strong>Definir pruebas de compatibilidad</strong> en navegadores y sistemas operativos móviles</li>
+                            <li><strong>Establecer estrategia</strong> para evaluar rendimiento y usabilidad en distintos dispositivos</li>
+                            <li><strong>Seleccionar herramientas</strong> para pruebas automatizadas en web y móvil</li>
+                            <li><strong>Implementar pruebas de carga</strong> para períodos de alta demanda</li>
+                            <li><strong>Validar experiencia de usuario</strong> en diferentes tamaños de pantalla</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Recursos y Referencias -->
+        <section id="recursos" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-book me-3"></i>
+                Recursos y Referencias
+            </h2>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3 class="text-success mb-3">
+                        <i class="fas fa-books me-2"></i>
+                        Bibliografía Recomendada
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fas fa-book text-primary me-2"></i>
+                            <strong>Gómez, A. (2021).</strong> <em>Diseño web responsive: Principios y técnicas para interfaces adaptativas.</em> Ediciones Anaya.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-success me-2"></i>
+                            <strong>Pérez, J. (2020).</strong> <em>Desarrollo de aplicaciones web con Flask y Django.</em> Alfaomega.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-warning me-2"></i>
+                            <strong>Martínez, R. (2019).</strong> <em>Desarrollo móvil multiplataforma con Python y Kivy.</em> Marcombo.
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-book text-info me-2"></i>
+                            <strong>López, C. (2022).</strong> <em>Pruebas de compatibilidad y accesibilidad en aplicaciones móviles y web.</em> Ra-Ma.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h3 class="text-info mb-3">
+                        <i class="fas fa-external-link-alt me-2"></i>
+                        Recursos Online
+                    </h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fab fa-firefox text-primary me-2"></i>
+                            <strong>Mozilla Developer Network (MDN) - Responsive Design</strong><br>
+                            <a href="https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" class="text-decoration-none">https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-code text-success me-2"></i>
+                            <strong>Django Oficial - Guía de Desarrollo Web</strong><br>
+                            <a href="https://docs.djangoproject.com/es/" target="_blank" class="text-decoration-none">https://docs.djangoproject.com/es/</a>
+                        </li>
+                        <li class="mb-2">
+                            <i class="fab fa-google text-info me-2"></i>
+                            <strong>Google Developers - Material Design</strong><br>
+                            <a href="https://material.io/design" target="_blank" class="text-decoration-none">https://material.io/design</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box mt-4">
+                <h4><i class="fas fa-graduation-cap me-2"></i>Conclusión del Tema</h4>
+                <p>La validación multiplataforma es fundamental en el desarrollo moderno de software. Combinar <strong>diseño responsive, frameworks adecuados, pruebas automatizadas y desarrollo móvil</strong> garantiza aplicaciones que funcionan óptimamente en cualquier dispositivo, mejorando la experiencia del usuario y maximizando el alcance del software desarrollado.</p>
+            </div>
+        </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema10.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 10
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 11 de 12</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema12.html" class="btn btn-outline-success">
+                            Tema 12
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', savedTheme);
+            updateThemeToggleIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

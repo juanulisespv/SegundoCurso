@@ -1,0 +1,739 @@
+Introducción al proceso de desarrollo
+de software
+© Universitas Europaea IMF
+Indice
+Introducción al proceso de desarrollo de software
+3
+1. Introducción
+3
+2. Ciclo de vida del software
+3
+2.1. Definición y propósito del ciclo de vida del software
+3
+2.2. Modelos clásicos de ciclo de vida del software
+4
+2.2.1. Modelo en cascada
+4
+2.2.2. Modelo en espiral
+4
+2.2.3. Modelo incremental
+5
+2.3. Metodologías ágiles
+5
+2.3.1. Principios básicos de desarrollo ágil
+6
+2.3.2. Scrum como ejemplo práctico
+6
+2.3.3. Comparación entre modelos clásicos y ágiles
+7
+3. Actividades clave del desarrollo de software
+7
+3.1. Análisis
+7
+3.2. Diseño
+8
+3.2.1. Diseño conceptual
+8
+3.2.2. Diseño detallado
+8
+3.3. Implementación
+9
+3.4. Pruebas
+10
+3.4.1. Tipos de pruebas
+10
+3.4.2. Automatización del testing
+10
+3.5. Despliegue
+11
+3.6. Mantenimiento 1t
+11
+4. Roles en el desarrollo de software
+12
+4.1. Analista
+12
+4.2. Desarrollador
+12
+4.3. Tester
+13
+4.4. Gestor de proyectos
+13
+4.5. Interacción y colaboración entre roles 1t
+13
+Bibliografía y lecturas recomendadas:
+14
+Actividades prácticas
+15
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/15
+Introducción al proceso de desarrollo de software
+1. Introducción
+El desarrollo de software juega un papel fundamental en el mundo moderno, dado que vivimos en una era
+altamente dependiente de la tecnología. Desde las aplicaciones móviles que usamos a diario hasta los
+complejos sistemas que gestionan operaciones empresariales críticas, el software impulsa prácticamente
+todos los aspectos de nuestra vida. Las empresas, los gobiernos y las instituciones educativas confían en
+soluciones digitales para mejorar la eficiencia, tomar decisiones basadas en datos y ofrecer servicios
+innovadores. Este contexto refuerza la importancia de contar con procesos robustos y bien definidos para la
+creación de software de calidad, que sea fiable, seguro y sostenible.
+Un elemento esencial para garantizar el éxito en el desarrollo de software es comprender su ciclo de vida.
+Este ciclo abarca desde la identificación de las necesidades iniciales hasta el mantenimiento continuo de las
+soluciones implementadas. En cada fase, se realizan actividades clave como el análisis de requisitos, el
+diseño del sistema, la implementación, las pruebas y el despliegue. Estas actividades no solo aseguran que el
+software cumpla con las expectativas de los usuarios, sino que también ayudan a gestionar riesgos y
+optimizar recursos.
+Además, el desarrollo de software requiere una colaboración eficiente entre distintos roles, como analistas,
+desarrolladores, testers y gestores de proyectos. Cada uno desempeña una función vital para garantizar que
+el software sea funcional, escalable y mantenible. Python, como lenguaje de programación versátil y
+ampliamente adoptado, ha demostrado ser una herramienta clave en proyectos de desarrollo modernos. Su
+sintaxis sencilla, su vasta biblioteca de recursos y su adaptabilidad a múltiples dominios lo convierten en un
+aliado indispensable en disciplinas como el desarrollo web, la ciencia de datos y la automatización.
+Comprender estos conceptos es esencial para abordar con éxito los desafíos del desarrollo de software en el
+siglo XXI.
+2. Ciclo de vida del software
+2.1. Definición y propósito del ciclo de vida del software
+El ciclo de vida del software se refiere al conjunto de fases bien definidas que estructuran el proceso de
+desarrollo de un sistema o aplicación. Estas etapas, que suelen incluir el análisis, diseño, implementación,
+pruebas, despliegue y mantenimiento, permiten organizar el trabajo de forma metódica y eficiente. Tener un
+ciclo de vida claro es esencial para garantizar que los proyectos de software se desarrollen dentro de los
+plazos, el presupuesto y las expectativas de calidad acordadas.
+Organizar el desarrollo en fases bien definidas aporta numerosos beneficios. En primer lugar, proporciona
+claridad tanto para los equipos de trabajo como para los clientes, asegurando que todos comprendan el
+alcance del proyecto y las metas de cada etapa. Esto facilita la planificación y reduce la ambigüedad en los
+requisitos y entregables.
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Además, un ciclo de vida estructurado permite implementar controles de calidad en cada fase,
+identificando errores y áreas de mejora antes de avanzar al siguiente paso. Esto no solo mejora la calidad
+del producto final, sino que también reduce los costos asociados con la corrección de problemas en etapas
+posteriores.
+Por último, la gestión de riesgos es otro beneficio clave. Al dividir el desarrollo en fases, es posible
+anticipar desafíos, evaluar posibles impactos y tomar medidas preventivas para minimizar los riesgos,
+garantizando un desarrollo más seguro y controlado.
+2.2. Modelos clásicos de ciclo de vida del software
+2.2.1. Modelo en cascada
+El modelo en cascada es uno de los enfoques más tradicionales para el desarrollo de software. Este modelo
+organiza el proceso en una serie de etapas secuenciales, donde cada una depende de la finalización de la
+anterior. Las etapas típicas incluyen:
+Análisis:
+ Se recopilan y documentan los requisitos del sistema de manera exhaustiva.
+Diseño:
+ Se establece la arquitectura y los detalles técnicos del software.
+Implementación:
+ Se escribe el código fuente basado en el diseño establecido.
+Pruebas:
+ Se verifica que el software funcione correctamente y cumpla con los requisitos.
+Despliegue:
+ El software se entrega y se implementa en el entorno de producción.
+Mantenimiento: 
+Interpretando que en esta fase corresponde al Mantenimiento correctivo, y en algún
+caso adaptativo incluyendo evolutivos menores.
+Este enfoque ofrece una visión clara y estructurada del desarrollo, lo que facilita la planificación y el
+seguimiento. Las etapas bien definidas ayudan a los equipos y a los clientes a entender en qué punto se
+encuentra el proyecto en todo momento. Esta claridad es especialmente útil en proyectos con requisitos muy
+específicos y bien documentados desde el inicio.
+Sin embargo, el modelo en cascada tiene importantes desventajas, especialmente en entornos donde los
+requisitos pueden cambiar durante el desarrollo. Su carácter rígido hace que sea difícil introducir
+modificaciones una vez que se ha completado una etapa. Por ejemplo, si un cambio en los requisitos se
+descubre durante la etapa de pruebas, el proyecto puede requerir un esfuerzo significativo para adaptarse, ya
+que las etapas previas (análisis y diseño) no se revisan de forma iterativa. Esto puede llevar a retrasos y
+costos adicionales.
+El modelo en cascada es más adecuado para proyectos bien definidos y con requisitos estables, pero su falta
+de flexibilidad lo hace menos efectivo en proyectos dinámicos o innovadores. A pesar de estas limitaciones,
+sigue siendo un enfoque útil en determinados contextos, como el desarrollo de sistemas críticos o proyectos
+con regulaciones estrictas.
+2.2.2. Modelo en espiral
+El modelo en espiral es un enfoque iterativo para el desarrollo de software que combina elementos de los
+modelos en cascada e incremental, con un énfasis especial en la gestión de riesgos. Este modelo se
+estructura en ciclos o iteraciones, cada uno de los cuales pasa por cuatro fases principales:
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Identificación de objetivos:
+ En esta etapa se definen los requisitos y los objetivos del proyecto.
+Análisis de riesgos:
+ Se identifican y evalúan los posibles riesgos asociados al desarrollo,
+proponiendo estrategias para mitigarlos.
+Desarrollo y pruebas:
+ Se desarrolla un prototipo o componente del sistema, que se prueba y evalúa.
+Planificación:
+ Se planifica la siguiente iteración en función de los resultados obtenidos.
+El proceso se repite en forma de espiral hasta que se completa el proyecto. Cada ciclo amplía el alcance y la
+funcionalidad del software, lo que permite abordar problemas de manera incremental y reducir riesgos antes
+de que se conviertan en problemas mayores.
+El modelo en espiral es especialmente adecuado para proyectos grandes y complejos, donde los requisitos
+iniciales pueden ser inciertos o cambiar con el tiempo. Su enfoque iterativo permite realizar ajustes continuos y
+garantizar que los riesgos estén bajo control. Además, facilita la integración de retroalimentación constante de
+los clientes o usuarios finales.
+Sin embargo, este modelo también tiene desventajas. Su implementación puede resultar costosa debido al
+tiempo y los recursos necesarios para analizar y gestionar riesgos en cada iteración. Además, su éxito
+depende en gran medida de la experiencia y habilidades del equipo gestor, lo que puede limitar su
+aplicabilidad en equipos con menos experiencia. En resumen, el modelo en espiral es una poderosa
+herramienta para proyectos complejos, pero requiere una inversión significativa y un equipo altamente
+calificado para maximizar sus beneficios.
+2.2.3. Modelo incremental
+El modelo incremental es una metodología de desarrollo de software que se basa en la entrega progresiva de
+partes funcionales del sistema. En lugar de construir el software completo de una sola vez, se desarrolla en
+módulos o incrementos, cada uno de los cuales agrega una funcionalidad específica. Cada incremento pasa
+por las etapas de análisis, diseño, implementación y pruebas, y una vez completado, se integra con los
+incrementos anteriores para formar un sistema más completo.
+Este modelo es particularmente útil en proyectos donde los requisitos no están completamente definidos
+desde el inicio o pueden cambiar durante el desarrollo. Su enfoque permite que los usuarios o clientes
+interactúen con partes del sistema antes de que esté terminado, proporcionando retroalimentación temprana
+que puede ser utilizada para mejorar los siguientes incrementos.
+Entre las ventajas del modelo incremental destaca la capacidad de ofrecer resultados más rápidos, ya que
+cada incremento proporciona funcionalidades utilizables que pueden entregarse a los clientes. Además, este
+enfoque es altamente adaptable a cambios en los requisitos, ya que permite ajustar los próximos incrementos
+en función de nuevas necesidades o prioridades.
+Sin embargo, también presenta algunas desventajas. Una de las principales es el riesgo de tener una visión
+global limitada del proyecto en las etapas iniciales. Este enfoque puede llevar a problemas de integración o
+inconsistencias entre los incrementos si no se realiza una planificación adecuada. Además, si los primeros
+incrementos no están bien diseñados, pueden dificultar el desarrollo de las funcionalidades posteriores.
+El modelo incremental ofrece flexibilidad y resultados tangibles a corto plazo, pero requiere una gestión
+cuidadosa para garantizar la coherencia del sistema completo. Es una opción adecuada para proyectos donde
+la interacción temprana con el cliente y la capacidad de adaptarse al cambio son fundamentales.
+2.3. Metodologías ágiles
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Las metodologías ágiles son un enfoque moderno para el desarrollo de software que se centra en la
+flexibilidad, la colaboración y la entrega continua de valor. A diferencia de los modelos tradicionales, las
+metodologías ágiles priorizan la adaptabilidad a cambios en los requisitos y la participación activa del cliente
+durante todo el proceso. Basadas en el 
+Manifiesto Ágil
+, sus principios fundamentales incluyen la
+comunicación constante, la simplicidad y la mejora continua. Ejemplos destacados de metodologías ágiles
+son 
+Scrum
+ y 
+Kanban
+, las cuales estructuran el trabajo en ciclos cortos o iteraciones para garantizar entregas
+rápidas y resultados efectivos.
+2.3.1. Principios básicos de desarrollo ágil
+El desarrollo ágil se fundamenta en una serie de principios diseñados para abordar los desafíos del desarrollo
+de software en entornos cambiantes. Basados en el 
+Manifiesto Ágil
+, estos principios priorizan la
+colaboración, la flexibilidad y la entrega continua de valor, adaptándose constantemente a las necesidades del
+cliente y los cambios en los requisitos.
+Uno de los pilares fundamentales del desarrollo ágil es la 
+colaboración activa
+ entre todos los involucrados en
+el proyecto: clientes, desarrolladores y otros roles clave. Este enfoque fomenta una comunicación abierta y
+constante, lo que asegura que el equipo comprenda claramente los objetivos y pueda ajustar el trabajo según
+las expectativas del cliente.
+La 
+flexibilidad
+ es otro principio esencial. A diferencia de los modelos tradicionales, las metodologías ágiles
+están diseñadas para aceptar y responder rápidamente a cambios en los requisitos, incluso en etapas
+avanzadas del desarrollo. Esto permite que el software sea más relevante y útil al final del proyecto.
+El principio de 
+entregas frecuentes
+ o 
+continuous delivery
+ busca proporcionar valor de manera constante.
+En lugar de esperar hasta el final del proyecto para entregar un producto completo, el desarrollo ágil organiza
+el trabajo en ciclos cortos llamados iteraciones o sprints. Al final de cada ciclo, se entrega un incremento
+funcional del software que puede ser evaluado por el cliente, lo que asegura una retroalimentación constante y
+mejora continua.
+Estos principios hacen del desarrollo ágil un enfoque ideal para proyectos dinámicos, colaborativos y
+orientados al cliente.
+2.3.2. Scrum como ejemplo práctico
+Scrum es una de las metodologías ágiles más utilizadas en el desarrollo de software. Su enfoque se basa en
+dividir el trabajo en ciclos cortos llamados 
+sprints
+, que generalmente duran entre una y cuatro semanas.
+Durante cada sprint, el equipo se enfoca en entregar un incremento funcional del producto que puede
+evaluarse y ajustarse según sea necesario.
+En Scrum, los roles principales son:
+Product Owner:
+ Es el encargado de gestionar el 
+backlog del producto
+, una lista priorizada de tareas
+y requisitos. Representa los intereses del cliente y asegura que el equipo esté trabajando en las tareas
+más importantes para maximizar el valor del producto.
+Scrum Master:
+ Facilita el proceso Scrum y elimina obstáculos que puedan afectar al equipo. También
+se asegura de que se sigan los principios y prácticas ágiles, actuando como guía y mentor del equipo.
+Equipo de desarrollo:
+ Es un grupo multifuncional responsable de planificar, diseñar, construir y
+probar los incrementos del producto. El equipo tiene autonomía para decidir cómo abordar las tareas
+asignadas.
+Scrum incluye varias ceremonias clave:
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Sprint planning:
+ Reunión al inicio de cada sprint donde el equipo define qué tareas del backlog se
+completarán.
+Reuniones diarias (daily stand-ups):
+ Breves encuentros donde el equipo sincroniza su progreso,
+identifica bloqueos y ajusta sus prioridades.
+Retrospectivas:
+ Al final del sprint, el equipo reflexiona sobre lo que funcionó bien, lo que debe mejorar
+y cómo hacerlo en el siguiente sprint.
+Scrum combina roles claros, ceremonias estructuradas y ciclos iterativos, proporcionando un marco flexible y
+eficiente para gestionar proyectos de software en entornos dinámicos y cambiantes.
+2.3.3. Comparación entre modelos clásicos y ágiles
+Los modelos clásicos, como el modelo en cascada, y los modelos ágiles, como Scrum, representan enfoques
+diferentes para gestionar el desarrollo de software, cada uno con sus propias fortalezas y limitaciones. La
+principal diferencia radica en la 
+adaptabilidad frente a la estabilidad
+.
+Los modelos clásicos se caracterizan por su enfoque en la 
+estabilidad
+. Estos modelos definen un plan
+detallado desde el inicio del proyecto y siguen etapas secuenciales bien estructuradas. Son ideales para
+proyectos donde los requisitos están completamente claros y no se espera que cambien durante el desarrollo.
+Por ejemplo, el modelo en cascada se utiliza comúnmente en sectores como el desarrollo de software para
+sistemas críticos (aeronáutica, defensa) o proyectos con estrictas regulaciones, donde la estabilidad y
+documentación exhaustiva son esenciales.
+En contraste, las metodologías ágiles destacan por su 
+adaptabilidad
+. Están diseñadas para responder
+rápidamente a los cambios en los requisitos o prioridades, incluso en etapas avanzadas del desarrollo. Este
+enfoque es más adecuado para proyectos dinámicos, como el desarrollo de aplicaciones móviles o
+plataformas web, donde las necesidades del cliente o las tendencias del mercado pueden evolucionar
+rápidamente.
+Ambos enfoques tienen su lugar dependiendo del contexto. Mientras que los modelos clásicos ofrecen
+predictibilidad y control, los ágiles brindan flexibilidad y colaboración continua. En algunos casos, incluso se
+pueden combinar elementos de ambos modelos, como en proyectos híbridos, para aprovechar lo mejor de
+cada enfoque. Esta comparación subraya la importancia de seleccionar el modelo más adecuado según las
+características y objetivos del proyecto.
+3. Actividades clave del desarrollo de software
+3.1. Análisis
+El análisis es la primera etapa del desarrollo de software y tiene como objetivo comprender y definir
+claramente lo que el sistema debe hacer para satisfacer las necesidades del cliente o usuario.
+En esta fase, se identifican dos tipos principales de requisitos:
+1
+. 
+Requisitos funcionales:
+ Describen las funcionalidades específicas que el software debe ofrecer.
+Por ejemplo, "el sistema debe permitir a los usuarios registrarse y autenticar su cuenta".
+2
+. 
+Requisitos no funcionales:
+ Definen características relacionadas con el rendimiento, la seguridad,
+la usabilidad o la compatibilidad del software. Por ejemplo, "el sistema debe responder en menos de
+dos segundos a cada solicitud del usuario".
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Para recopilar estos requisitos, se utilizan diversas técnicas que ayudan a obtener información completa y
+precisa:
+1
+. 
+Entrevistas:
+ Consisten en reuniones directas con los clientes o usuarios para entender sus
+necesidades, expectativas y limitaciones. Esta técnica es efectiva para capturar detalles específicos.
+2
+. 
+Casos de uso:
+ Representan escenarios detallados que describen cómo interactuarán los usuarios
+con el sistema. Ayudan a visualizar las funcionalidades requeridas desde el punto de vista del
+usuario.
+3
+. 
+Prototipos iniciales:
+ Son versiones simples y preliminares del software que permiten a los clientes
+validar los requisitos y proporcionar retroalimentación antes de comenzar el desarrollo completo.
+Un análisis bien realizado asegura una base sólida para las fases posteriores del proyecto, minimizando
+malentendidos y reduciendo el riesgo de costosos cambios durante el desarrollo. Esta etapa es fundamental
+para alinear las expectativas del cliente con las capacidades del equipo de desarrollo.
+3.2. Diseño
+La fase de diseño transforma los requisitos en una estructura técnica del software. Se divide en dos tipos:
+1
+. 
+Diseño conceptual:
+ Define la arquitectura general y las relaciones entre componentes.
+2
+. 
+Diseño detallado:
+ Especifica aspectos técnicos como algoritmos, bases de datos y la interacción entre
+módulos.
+3.2.1. Diseño conceptual
+El diseño conceptual es una de las etapas más importantes en el desarrollo de software, ya que define la
+estructura general del sistema y las relaciones entre sus componentes. Su objetivo principal es proporcionar
+una representación abstracta y visual del sistema que facilite la comunicación entre los diferentes miembros
+del equipo y sirva como guía para las fases posteriores de diseño detallado e implementación.
+Una herramienta fundamental en esta etapa son los 
+diagramas de clases
+, una de las principales notaciones
+del Lenguaje Unificado de Modelado (UML, por sus siglas en inglés). Los diagramas de clases permiten
+representar las clases del sistema, sus atributos, métodos y las relaciones que existen entre ellas. Las clases
+suelen representarse como rectángulos divididos en tres secciones: nombre de la clase, atributos y métodos.
+Las 
+relaciones
+ entre clases son otro componente clave del diseño conceptual en UML. Estas incluyen:
+Asociación:
+ Representa una relación general entre dos clases, como un usuario y un pedido.
+Agregación:
+ Indica que una clase está compuesta por otras, pero estas pueden existir de manera
+independiente.
+Composición:
+ Similar a la agregación, pero indica una dependencia más fuerte, donde los
+componentes no existen sin la clase principal.
+Herencia:
+ Representa una relación de especialización entre una clase padre y sus subclases.
+El diseño conceptual con diagramas de clases y relaciones ayuda a identificar los elementos fundamentales
+del sistema, su organización y su comportamiento general, proporcionando una base sólida para el diseño
+detallado y la implementación.
+3.2.2. Diseño detallado
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+El diseño detallado es una etapa crítica en el desarrollo de software que especifica cómo se implementarán
+los componentes definidos en el diseño conceptual. En esta fase, se definen aspectos técnicos esenciales,
+como las tecnologías, las bases de datos y los frameworks que se utilizarán, proporcionando una guía
+concreta para los desarrolladores.
+La 
+selección de tecnologías
+ es uno de los primeros pasos en el diseño detallado. Esto incluye decidir el
+lenguaje de programación principal (como Python, Java o JavaScript), los entornos de desarrollo integrados
+(IDEs), y otras herramientas que optimizarán el trabajo del equipo. La elección debe basarse en los requisitos
+del proyecto, las habilidades del equipo y las características del producto final.
+En cuanto a las 
+bases de datos
+, se debe decidir entre modelos relacionales o no relacionales según las
+necesidades del sistema. Por ejemplo:
+Bases de datos relacionales (SQL) como MySQL o PostgreSQL son ideales para datos estructurados y
+relaciones complejas.
+Bases de datos no relacionales (NoSQL) como MongoDB o Firebase son más adecuadas para datos
+no estructurados y escalabilidad horizontal.
+Además, la elección de 
+frameworks
+ facilita la construcción del sistema al proporcionar herramientas y
+componentes predefinidos. Por ejemplo:
+Django
+ o 
+Flask
+ para desarrollo web con Python.
+React
+ o 
+Angular
+ para interfaces de usuario.
+TensorFlow
+ para proyectos de inteligencia artificial.
+En esta etapa también se diseñan las interacciones entre módulos, los algoritmos específicos y la estructura
+detallada de las bases de datos, garantizando que todos los componentes trabajen en conjunto.
+Un diseño detallado bien realizado reduce riesgos, facilita la implementación y asegura que el software sea
+eficiente, escalable y fácil de mantener. Es aquí donde las decisiones técnicas se convierten en el puente
+entre el diseño conceptual y el código funcional.
+3.3. Implementación
+La fase de implementación en el desarrollo de software consiste en traducir el diseño detallado en código
+fuente funcional. En esta etapa, los desarrolladores transforman los diagramas, estructuras y especificaciones
+técnicas creadas previamente en un sistema real utilizando el lenguaje de programación seleccionado. Esta
+fase requiere seguir buenas prácticas, como escribir código limpio, modular y bien documentado, para
+garantizar que el software sea mantenible y escalable.
+Para facilitar el proceso de implementación, se utilizan herramientas modernas que optimizan la colaboración
+entre los desarrolladores y aseguran un flujo de trabajo eficiente. Entre las más importantes se encuentran:
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La implementación es el núcleo del desarrollo de software, ya que materializa el diseño conceptual y detallado
+en un producto real. Un enfoque estructurado y el uso de herramientas colaborativas son claves para
+garantizar el éxito en esta etapa.
+3.4. Pruebas
+Las pruebas o testing son una etapa crucial en el desarrollo de software. Su objetivo es verificar que el
+sistema funcione correctamente, cumpla con los requisitos y esté libre de errores. Incluye diversos tipos de
+pruebas, como unitarias, de integración y de aceptación, para garantizar calidad y confiabilidad.
+3.4.1. Tipos de pruebas
+En el desarrollo de software, las pruebas son fundamentales para garantizar que el sistema funcione
+correctamente y cumpla con los requisitos definidos. Entre los principales tipos de pruebas se encuentran las
+unitarias
+, de 
+integración
+ y de 
+aceptación
+, cada una con un propósito específico.
+1
+. 
+Pruebas unitarias:
+ Las pruebas unitarias verifican el funcionamiento de las unidades más pequeñas
+del código, como funciones, métodos o clases, de forma aislada. Su objetivo es garantizar que cada
+componente individual produzca los resultados esperados. Estas pruebas suelen ser automatizadas y
+ejecutadas frecuentemente durante el desarrollo para detectar errores en las primeras etapas del
+proyecto.
+2
+. 
+Pruebas de integración:
+ Las pruebas de integración evalúan cómo interactúan diferentes módulos o
+componentes del sistema cuando se combinan. Por ejemplo, verifican si un módulo de autenticación
+funciona correctamente con la base de datos. Estas pruebas aseguran que las partes del sistema
+trabajen juntas de manera fluida, identificando errores relacionados con la comunicación o integración
+de componentes.
+3
+. 
+Pruebas de aceptación:
+ Estas pruebas se realizan desde la perspectiva del usuario final y verifican
+que el sistema cumpla con los requisitos funcionales y no funcionales establecidos. Su objetivo
+principal es validar que el software esté listo para su despliegue y que satisfaga las expectativas del
+cliente o usuario.
+Cada tipo de prueba contribuye a un sistema más confiable y reduce el riesgo de errores en etapas
+avanzadas o durante la producción.
+3.4.2. Automatización del testing
+1
+. 
+Control de versiones con Git:
+ Git es una herramienta esencial que permite a los
+desarrolladores gestionar y rastrear los cambios realizados en el código. Con
+plataformas como GitHub, GitLab o Bitbucket, los equipos pueden trabajar
+simultáneamente en diferentes partes del proyecto sin interferir entre sí. Esto mejora
+la colaboración, facilita la integración del código y permite revertir errores
+rápidamente si es necesario.
+2
+. 
+Entornos de Desarrollo Integrados (IDEs):
+ Los IDEs como PyCharm, Visual
+Studio Code o IntelliJ ofrecen una experiencia de programación más productiva.
+Estas herramientas incluyen funciones como autocompletado, depuración, análisis
+de errores y soporte para múltiples lenguajes y frameworks, lo que ayuda a los
+desarrolladores a escribir código más rápido y con menos errores.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La automatización del testing es una práctica esencial en el desarrollo moderno de software, ya que permite
+ejecutar pruebas de manera eficiente y repetitiva durante todo el ciclo de vida del proyecto. En Python, los
+frameworks más utilizados para este propósito son 
+pytest
+ y 
+unittest
+.
+pytest
+ es un framework potente y flexible que facilita la creación de pruebas unitarias, funcionales y de
+integración. Destaca por su sintaxis sencilla y su capacidad para gestionar pruebas complejas mediante el uso
+de fixtures y plugins. Su capacidad para generar informes detallados y su soporte para parametrización lo
+hacen ideal para proyectos de cualquier tamaño.
+unittest
+, por otro lado, es una biblioteca estándar de Python inspirada en el framework xUnit. Es ampliamente
+utilizado por su integración directa con Python y su enfoque en pruebas estructuradas. Permite organizar
+pruebas en clases, agruparlas y generar informes básicos.
+Ambos frameworks ayudan a automatizar la detección de errores, garantizando que los cambios en el código
+no introduzcan fallos en el sistema. Su uso regular mejora la calidad del software, reduce costos a largo plazo
+y acelera la entrega de productos confiables. La automatización del testing es una inversión clave en el
+desarrollo profesional.
+3.5. Despliegue
+El despliegue es la etapa del desarrollo de software en la que el sistema se prepara y se lanza en un entorno
+de producción para que los usuarios finales puedan interactuar con él. Este proceso requiere una planificación
+cuidadosa para garantizar que el software funcione correctamente en su entorno final y cumpla con los
+requisitos de rendimiento, escalabilidad y seguridad.
+La 
+preparación del entorno de producción
+ incluye varias actividades importantes. Entre ellas, configurar
+servidores, bases de datos y servicios necesarios, asegurar compatibilidad entre el software y el hardware, y
+garantizar la correcta gestión de permisos y accesos. También es fundamental realizar pruebas en un entorno
+de preproducción que sea lo más similar posible al de producción para minimizar riesgos.
+En el contexto moderno, se utilizan herramientas y técnicas avanzadas que optimizan y automatizan el
+despliegue. Una de las más importantes es 
+CI/CD (Integración y Entrega Continuas)
+. CI/CD permite
+automatizar procesos como la integración de código, pruebas y despliegue. Herramientas como Jenkins,
+GitHub Actions o GitLab CI/CD facilitan que los equipos implementen cambios frecuentes y confiables,
+reduciendo errores humanos y acelerando la entrega.
+Otra técnica clave es el uso de 
+contenedores Docker
+. Docker permite empaquetar el software con todas sus
+dependencias en contenedores ligeros, asegurando que funcione de manera uniforme en cualquier entorno.
+Esto elimina problemas relacionados con configuraciones inconsistentes y facilita la escalabilidad, ya que
+múltiples contenedores pueden ejecutarse en paralelo.
+El despliegue moderno no solo asegura que el software esté operativo, sino que también permite
+actualizaciones frecuentes y confiables. Estas técnicas avanzadas, junto con una preparación adecuada,
+garantizan un despliegue exitoso y una experiencia fluida para los usuarios.
+3.6. Mantenimiento 1t
+Corrección de errores, optimización de rendimiento.
+Evolución del software para adaptarse a nuevas necesidades.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+4. Roles en el desarrollo de software
+El desarrollo de software involucra a diferentes roles, cada uno con responsabilidades específicas para
+garantizar el éxito del proyecto. Entre los más destacados se encuentran el analista, quien recopila y define
+los requisitos; el desarrollador, encargado de transformar los diseños en código funcional; el tester, que
+verifica la calidad del software mediante pruebas, y el gestor de proyectos, que coordina al equipo, los
+recursos y los plazos. La colaboración efectiva entre estos roles es fundamental para asegurar que el software
+cumpla con los objetivos del cliente, sea de alta calidad y se entregue dentro del tiempo y presupuesto
+establecidos.
+4.1. Analista
+El analista desempeña un papel fundamental en el desarrollo de software, ya que es responsable de
+comprender las necesidades del cliente y traducirlas en requisitos claros y detallados. Este rol se enfoca en la
+recopilación y documentación de requisitos
+, que incluyen tanto las funcionalidades que debe cumplir el
+sistema como las características no funcionales, como el rendimiento o la seguridad. La documentación
+generada por el analista sirve como una guía esencial para el equipo de desarrollo y asegura que todos los
+involucrados compartan una visión común del proyecto.
+Para desempeñar esta función de manera efectiva, el analista debe poseer 
+habilidades clave
+ como la
+comunicación y el análisis crítico. Una comunicación clara y efectiva es vital, ya que el analista actúa como
+intermediario entre los clientes o usuarios finales y el equipo técnico. Debe saber formular preguntas
+adecuadas para extraer la información relevante y transmitirla de manera comprensible para todos los
+involucrados.
+El análisis crítico es igualmente importante, ya que permite al analista identificar problemas potenciales,
+priorizar necesidades y evaluar la viabilidad de las soluciones propuestas. Un buen analista no solo recopila
+información, sino que también cuestiona y clarifica las necesidades para garantizar que el producto final
+cumpla con los objetivos del cliente de manera eficiente y efectiva.
+4.2. Desarrollador
+El desarrollador es un rol clave en el desarrollo de software, ya que es responsable de transformar el diseño
+conceptual y detallado en un producto funcional mediante la escritura de código. Trabaja directamente con las
+especificaciones técnicas definidas en las etapas anteriores, asegurando que el sistema cumpla con los
+requisitos establecidos y sea eficiente, escalable y mantenible. Su trabajo implica crear las funcionalidades
+descritas, solucionar problemas técnicos y optimizar el rendimiento del software.
+Para desempeñar este rol de manera efectiva, el desarrollador debe contar con sólidas 
+competencias
+técnicas
+. En primer lugar, es fundamental tener experiencia en uno o más 
+lenguajes de programación
+,
+como Python, Java, JavaScript o C++, dependiendo del proyecto. Además, debe comprender y aplicar
+principios de diseño de software, estructuras de datos y algoritmos para crear soluciones robustas y
+eficientes.
+El manejo de herramientas de 
+control de versiones
+, como Git, es igualmente crucial. Estas herramientas
+permiten a los desarrolladores colaborar en equipo, gestionar cambios en el código y mantener un historial de
+versiones para facilitar la resolución de problemas y revertir errores.
+El desarrollador combina habilidades técnicas y capacidad para resolver problemas, convirtiendo ideas
+abstractas en aplicaciones reales que cumplen con las expectativas del cliente y los usuarios finales.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+4.3. Tester
+El tester es responsable de verificar la calidad del software, asegurando que cumpla con los requisitos
+funcionales y no funcionales definidos. Su trabajo es crucial para identificar errores, inconsistencias o áreas
+de mejora antes de que el software sea entregado al cliente o usuario final.
+Los testers emplean dos métodos principales para realizar su labor:
+1
+. 
+Pruebas manuales:
+ En este enfoque, el tester interactúa directamente con el software, simulando el
+comportamiento del usuario final para detectar errores o problemas de usabilidad. Estas pruebas son
+ideales para escenarios complejos o donde se requiere evaluación subjetiva.
+2
+. 
+Pruebas automatizadas:
+ Utilizan herramientas y scripts para ejecutar pruebas repetitivas de manera
+eficiente. Frameworks como Selenium, pytest o JUnit permiten automatizar pruebas unitarias,
+funcionales y de regresión, ahorrando tiempo y mejorando la precisión.
+La combinación de ambos métodos garantiza que el software sea confiable, funcional y esté listo para su
+despliegue en producción. El tester juega un papel esencial en la entrega de productos de alta calidad y en la
+satisfacción del cliente.
+4.4. Gestor de proyectos
+El gestor de proyectos es el responsable de coordinar y supervisar todas las actividades de un proyecto de
+software, asegurando que se complete dentro del tiempo, el presupuesto y los estándares de calidad
+acordados. Este rol implica gestionar equipos, recursos y plazos para garantizar que todas las fases del
+desarrollo se ejecuten de manera eficiente y alineada con los objetivos del cliente.
+Una de las principales responsabilidades del gestor de proyectos es la 
+coordinación de equipos
+. Esto
+incluye asignar tareas específicas a los miembros del equipo, fomentar una comunicación efectiva y resolver
+conflictos para mantener un ambiente de trabajo colaborativo. Además, el gestor supervisa el progreso del
+proyecto, asegurándose de que cada etapa se complete según lo planificado.
+La 
+gestión del tiempo y los recursos
+ es otro aspecto clave. Esto implica planificar cronogramas detallados,
+identificar prioridades y administrar los recursos disponibles, como el presupuesto y las herramientas técnicas,
+de manera óptima para evitar desperdicios y retrasos.
+Para facilitar su trabajo, los gestores de proyectos utilizan diversas herramientas especializadas, como:
+Jira:
+ Ideal para proyectos ágiles, permite gestionar tareas, asignar responsabilidades y realizar un
+seguimiento del progreso.
+Trello:
+ Ofrece una interfaz visual con tableros y listas para organizar tareas y colaborar fácilmente.
+MS Project:
+ Una herramienta robusta para la planificación detallada y la gestión de recursos en
+proyectos grandes.
+El gestor de proyectos es esencial para garantizar que el equipo funcione como una unidad cohesionada y
+que el producto final cumpla con las expectativas del cliente, entregándose en tiempo y forma. Su habilidad
+para planificar y coordinar es clave para el éxito del proyecto.
+4.5. Interacción y colaboración entre roles 1t
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La interacción y colaboración entre roles es fundamental para el éxito de cualquier proyecto de desarrollo de
+software. Cada rol, desde analistas y desarrolladores hasta testers y gestores de proyectos, tiene
+responsabilidades específicas que contribuyen al objetivo común. Sin embargo, sin una 
+comunicación
+efectiva
+, incluso los mejores equipos pueden enfrentar desafíos como malentendidos, retrasos y conflictos.
+La comunicación efectiva asegura que todos los miembros del equipo comprendan claramente los requisitos,
+las prioridades y el progreso del proyecto. Esto ayuda a evitar ambigüedades y garantiza que el trabajo de
+cada rol esté alineado con las metas generales. Reuniones regulares, como las diarias en metodologías
+ágiles, facilitan la resolución de problemas y la adaptación a cambios.
+Además, herramientas como Slack, Microsoft Teams o plataformas colaborativas como Confluence permiten
+compartir información y mantener a todos informados. Una buena colaboración crea un entorno de trabajo
+positivo, mejora la productividad y aumenta la calidad del producto final.
+Bibliografía y lecturas recomendadas:
+Pressman, R. S., & Maxim, B. R. (2015). 
+"Ingeniería del Software: Un Enfoque
+Práctico"
+. McGraw-Hill.
+Sommerville, I. (2016). 
+"Ingeniería del Software"
+. Pearson.
+Booch, G., 
+Maksimchuk
+, R. A., Engle, M. W., Young, B. J., Conallen, J., & Houston,
+K. A. (2007). 
+"El Proceso Unificado de Desarrollo de Software"
+. Addison-
+Wesley.
+Scrum.org. 
+"Scrum Guide en Español"
+. 
+https://scrumguides.org
+Atlassian. 
+"Guía sobre Desarrollo Ágil"
+. 
+https://www.atlassian.com/es/agile
+Stack Overflow Blog. 
+"Ciclo de Vida del Software: Comprender los Modelos
+Tradicionales y Ágiles"
+. 
+https://stackoverflow.blog/
+Pérez, L., & Gómez, A. (2019). 
+"Introducción al Desarrollo Ágil"
+. Ediciones
+Pirámide.
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Ejercicio 1. Aplicación de Metodologías Ágiles para un Proyecto de
+Comercio Electrónico
+Un equipo de desarrollo ha recibido la solicitud de crear una tienda en línea que permita a los usuarios
+navegar por productos, agregarlos al carrito y realizar compras seguras. El cliente requiere entregas
+frecuentes para evaluar el progreso y proponer mejoras. 
+Como desarrollador: 
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Ejercicio 2. Análisis de Modelos de Ciclo de Vida para un Proyecto de
+Gestión Escolar
+Una institución educativa desea desarrollar un sistema de gestión escolar que permita gestionar estudiantes,
+cursos y calificaciones. El sistema debe garantizar la seguridad de los datos, ser accesible en navegadores
+web y cumplir con regulaciones locales de protección de datos. 
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+1.
+Explica por qué una metodología ágil es adecuada para este proyecto. 
+Identifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. 
+Enumera los roles clave en el equipo y sus responsabilidades. 
+Como parte del equipo de desarrollo, se te pide: 
+1.
+Describir las actividades principales de la fase de análisis y diseño en el modelo seleccionado. 
+Justificar tu elección del modelo, destacando ventajas y posibles limitaciones para este caso. 
+Analizar las características del proyecto y seleccionar un modelo de ciclo de vida adecuado
+(cascada, espiral, incremental o ágil). 
+Documento solo para uso personal. Prohibido copiar o distribuir
+15/15
+Introducción al proceso de desarrollo de software
+idalumno:906687|unidad:1|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

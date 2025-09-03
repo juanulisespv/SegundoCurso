@@ -1,0 +1,1329 @@
+/* 
+ * HCI Temas - Estilos Comunes
+ * Archivo CSS común para todos los temas de HCI
+ * Consolidado desde tema1-styles.css y tema12-styles.css
+ */
+
+/* ===========================
+ * VARIABLES CSS GLOBALES
+ * =========================== */
+
+:root {
+    /* Colores principales */
+    --primary-color: #198754;
+    --secondary-color: #20c997;
+    --accent-color: #0dcaf0;
+    --text-dark: #212529;
+    --bg-light: #f8f9fa;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --success-color: #28a745;
+    
+    /* Colores específicos accesibilidad */
+    --accessibility-green: #28a745;
+    --accessibility-blue: #007bff;
+    --warning-amber: #ffc107;
+    --danger-red: #dc3545;
+    
+    /* Colores neutrales */
+    --background-light: #f8f9fa;
+    --text-muted: #6c757d;
+    --border-light: #dee2e6;
+    
+    /* Shadows y efectos */
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.1);
+    --shadow-lg: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* ===========================
+ * ESTILOS BASE
+ * =========================== */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-light);
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+/* ===========================
+ * COMPONENTES DE NAVEGACIÓN
+ * =========================== */
+
+/* Navbar Styles */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: white !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: white !important;
+}
+
+.dropdown-menu {
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+}
+
+.dropdown-item.active {
+    background-color: var(--primary-color);
+}
+
+/* ===========================
+ * SECCIONES HERO
+ * =========================== */
+
+/* Hero Section General */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 4rem 0 2rem 0;
+    margin-bottom: 0;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+/* Hero específico de accesibilidad */
+.accessibility-hero {
+    background: linear-gradient(135deg, var(--accessibility-green) 0%, var(--secondary-color) 100%);
+    color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ===========================
+ * CONTENIDO PRINCIPAL
+ * =========================== */
+
+/* Main Content */
+.main-content {
+    background: white;
+    margin: 0;
+    padding: 2rem 0;
+    box-shadow: 0 -3px 10px rgba(0,0,0,0.1);
+}
+
+/* ===========================
+ * SIDEBAR Y NAVEGACIÓN
+ * =========================== */
+
+/* Sidebar */
+.sidebar {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 100px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.sidebar h5 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.sidebar .nav-link {
+    color: var(--text-dark);
+    padding: 0.5rem 0;
+    border-left: 3px solid transparent;
+    padding-left: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: block;
+    font-size: 0.95rem;
+}
+
+.sidebar .nav-link:hover {
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    background-color: rgba(25, 135, 84, 0.05);
+}
+
+.sidebar .nav-link.active {
+    color: var(--primary-color);
+    border-left-color: var(--primary-color);
+    background-color: rgba(25, 135, 84, 0.1);
+    font-weight: 600;
+}
+
+/* ===========================
+ * SECCIONES DE CONTENIDO
+ * =========================== */
+
+/* Content Sections */
+.content-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+    scroll-margin-top: 100px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.content-section h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.content-section h3 {
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.content-section h4 {
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* ===========================
+ * CAJAS Y CONTENEDORES ESPECIALES
+ * =========================== */
+
+/* Highlight Boxes */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(139, 92, 246, 0.1));
+    border: 1px solid rgba(111, 66, 193, 0.3);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.highlight-box h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Definition Box */
+.definition-box {
+    background: linear-gradient(135deg, #fff3cd 0%, #f8f9fa 100%);
+    border: 1px solid #ffeaa7;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.definition-box p {
+    margin-bottom: 0;
+}
+
+/* Example Box */
+.example-box {
+    background: linear-gradient(135deg, #e3f2fd 0%, #f8f9fa 100%);
+    border-left: 5px solid var(--accent-color);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 10px 10px 0;
+}
+
+/* ===========================
+ * CARDS Y TARJETAS
+ * =========================== */
+
+/* Principle Cards */
+.principle-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.principle-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.principle-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.principle-card .example-box {
+    font-size: 0.9rem;
+    padding: 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Application Cards */
+.application-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.application-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.application-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.application-card .feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.application-card .feature-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.application-card .feature-list li:last-child {
+    border-bottom: none;
+}
+
+.application-card .feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+/* ===========================
+ * ESTILOS ESPECÍFICOS TEMA 2 (HISTORIA HCI)
+ * =========================== */
+
+/* Innovation Cards - Tema 2 */
+.innovation-card, .evolution-card {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.innovation-card:hover, .evolution-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.innovation-card h4, .evolution-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Case Study Cards - Tema 2 */
+.case-study {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border: 1px solid #dee2e6;
+}
+
+.case-study h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.case-questions {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.case-questions h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+ * ESTILOS ESPECÍFICOS TEMA 3 (INTERFACES Y USABILIDAD)
+ * =========================== */
+
+/* Code Examples - Tema 3 */
+.code-example {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+/* Before/After Examples - Tema 3 */
+.before-after-example {
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+}
+
+.before-example {
+    background: #ffe6e6;
+    border-left: 5px solid #dc3545;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 0 5px 5px 0;
+}
+
+.after-example {
+    background: #e6ffe6;
+    border-left: 5px solid #198754;
+    padding: 1rem;
+    border-radius: 0 5px 5px 0;
+}
+
+/* WCAG Principles - Tema 3 */
+.wcag-principle {
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    background: linear-gradient(135deg, #f8fffa 0%, #f0f9ff 100%);
+}
+
+.wcag-principle h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+ * ESTILOS ESPECÍFICOS TEMA 12 (ACCESIBILIDAD)
+ * =========================== */
+
+/* WCAG Principle Cards */
+.wcag-principle-card {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.05) 0%, rgba(32, 201, 151, 0.05) 100%);
+    border: 2px solid var(--accessibility-green);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wcag-principle-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.15);
+}
+
+.wcag-principle-card h3 {
+    color: var(--accessibility-green);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+/* Design Principle Cards */
+.design-principle-card {
+    background: white;
+    border: 1px solid var(--accessibility-green);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}
+
+.design-principle-card:hover {
+    border-color: var(--secondary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.design-principle-card h4 {
+    color: var(--accessibility-green);
+    margin-bottom: 1rem;
+}
+
+/* Guideline Cards */
+.guideline-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-left: 5px solid var(--accessibility-blue);
+    border-radius: 0 10px 10px 0;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.guideline-card h4 {
+    color: var(--accessibility-blue);
+    margin-bottom: 1.5rem;
+}
+
+/* Best Practice Cards */
+.best-practice-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.best-practice-card h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Standard Cards */
+.standard-card {
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.05) 0%, rgba(32, 201, 151, 0.05) 100%);
+    border: 2px solid var(--accessibility-blue);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.standard-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.15);
+}
+
+.standard-card h3 {
+    color: var(--accessibility-blue);
+    margin-bottom: 1rem;
+}
+
+/* ===========================
+ * ELEMENTOS DE CÓDIGO Y EJEMPLOS
+ * =========================== */
+
+/* Code Examples */
+.code-example {
+    background: #2d3748;
+    color: #e2e8f0;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    overflow-x: auto;
+    border-left: 4px solid var(--accessibility-green);
+}
+
+.code-example .keyword {
+    color: #4299e1;
+}
+
+.code-example .string {
+    color: #68d391;
+}
+
+.code-example .attribute {
+    color: #fbb6ce;
+}
+
+.code-example .comment {
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* Contrast Examples */
+.contrast-example {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contrast-example.contrast-good {
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid var(--success-color);
+}
+
+.contrast-example.contrast-bad {
+    background-color: #ffffff;
+    color: #cccccc;
+    border: 2px solid var(--danger-color);
+}
+
+/* ===========================
+ * TIMELINE Y ELEMENTOS HISTÓRICOS
+ * =========================== */
+
+/* Timeline Section */
+.timeline-section {
+    position: relative;
+    padding-left: 2rem;
+    margin: 2rem 0;
+}
+
+.timeline-section::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.timeline-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* ===========================
+ * CASOS DE ESTUDIO Y ACTIVIDADES
+ * =========================== */
+
+/* Case Study Cards */
+.case-study-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-left: 5px solid var(--primary-color);
+    border-radius: 0 10px 10px 0;
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.case-study-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.case-study-card .question-section {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-sm);
+}
+
+.case-study-card .question-section h5 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.case-study-card .question-list {
+    list-style: decimal;
+    padding-left: 1.5rem;
+}
+
+.case-study-card .question-list li {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* ===========================
+ * TÉCNICAS Y LISTAS
+ * =========================== */
+
+.technique-list {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.technique-list h5 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.technique-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.technique-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.technique-list li:last-child {
+    border-bottom: none;
+}
+
+.technique-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* Tech Badges */
+.tech-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===========================
+ * NAVEGACIÓN Y ENLACES
+ * =========================== */
+
+/* Navigation Cards */
+.nav-cards {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.nav-card {
+    flex: 1;
+    max-width: 300px;
+}
+
+.nav-card a {
+    display: block;
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.nav-card a:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+}
+
+.nav-card .card-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    opacity: 0.7;
+}
+
+.nav-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.nav-card a:hover .card-title {
+    color: white;
+}
+
+/* Navigation Section */
+.navigation-section {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border-radius: 15px;
+}
+
+/* ===========================
+ * ELEMENTOS FLOTANTES
+ * =========================== */
+
+/* Floating Elements */
+.btn-toggle {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 1000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.quiz-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1050;
+}
+
+.quiz-link .btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.quiz-link .btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ===========================
+ * BOTONES Y CONTROLES
+ * =========================== */
+
+/* Button Styles */
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* ===========================
+ * RESPONSIVE DESIGN
+ * =========================== */
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        position: static;
+        margin-bottom: 2rem;
+        top: auto;
+        max-height: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-card {
+        max-width: none;
+        margin: 0 0 1rem 0 !important;
+        width: 100%;
+    }
+    
+    .timeline-section {
+        padding-left: 1rem;
+    }
+    
+    .timeline-section::before {
+        left: 0.5rem;
+    }
+    
+    .timeline-item::before {
+        left: -1.5rem;
+    }
+    
+    .principle-card {
+        margin-bottom: 1rem;
+    }
+    
+    .case-study-card {
+        padding: 1.5rem;
+    }
+    
+    .content-section {
+        padding: 1.5rem;
+    }
+    
+    .wcag-principle-card {
+        padding: 1.5rem;
+    }
+    
+    .standard-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .main-content {
+        padding: 1rem 0;
+    }
+    
+    .content-section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .sidebar {
+        padding: 1rem;
+    }
+    
+    .code-example {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .wcag-principle-card,
+    .standard-card {
+        padding: 1rem;
+    }
+}
+
+/* ===========================
+ * TEMA 4 ESPECÍFICOS - DISEÑO CENTRADO EN EL USUARIO
+ * =========================== */
+
+/* Contenedor fluido específico para tema 4 */
+.container-fluid {
+    max-width: 1400px;
+}
+
+/* Estilos específicos para fases del Design Thinking */
+.phase-card {
+    background: white;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.phase-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.phase-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Técnicas y listas de metodología */
+.technique-list {
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.05) 0%, rgba(32, 201, 151, 0.05) 100%);
+    border-left: 3px solid var(--secondary-color);
+    padding: 1.2rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.technique-list:hover {
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+    transform: translateX(5px);
+}
+
+.technique-list h5 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.technique-list ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.technique-list ul li {
+    padding: 0.3rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.technique-list ul li:before {
+    content: "→";
+    color: var(--secondary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ===========================
+ * TEMA 5: PROTOTIPADO DE INTERFACES
+ * =========================== */
+
+/* Technique Cards */
+.technique-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.technique-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.technique-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+/* Tool Cards */
+.tool-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    border-top: 3px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--primary-color);
+}
+
+.tool-card h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tool-features {
+    margin-top: 1rem;
+}
+
+.tool-features .badge {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Comparison Table */
+.comparison-table {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* List Styles */
+.list-compact {
+    padding-left: 1rem;
+}
+
+.list-compact li {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+
+/* Case Studies */
+.case-study {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--accent-color);
+}
+
+.case-study h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.case-content h4 {
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.case-content h5 {
+    color: var(--text-dark);
+    margin-top: 1rem;
+}
+
+.case-content h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ===========================
+ * TEMA 6: MULTIMEDIA EN HCI
+ * =========================== */
+
+/* Multimedia Components */
+.multimedia-component {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-left: 5px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.multimedia-component:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.multimedia-component h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.multimedia-component h6 {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Multimedia Lists */
+.multimedia-list {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.multimedia-list li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.multimedia-list li strong {
+    color: var(--primary-color);
+}
+
+/* Consideration Cards */
+.consideration-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.8rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--accent-color);
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.consideration-card:hover {
+    transform: translateY(-3px);
+    border-top-color: var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.consideration-card h4 {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.consideration-card .multimedia-list {
+    margin-bottom: 0;
+}
+
+/* Media Type Icons */
+.multimedia-component .bi-emoji-smile,
+.multimedia-component .bi-image,
+.multimedia-component .bi-bar-chart,
+.multimedia-component .bi-magic {
+    color: var(--primary-color);
+}
+
+.multimedia-component .bi-speaker,
+.multimedia-component .bi-music-note,
+.multimedia-component .bi-mic {
+    color: var(--secondary-color);
+}
+
+.multimedia-component .bi-camera-video,
+.multimedia-component .bi-book,
+.multimedia-component .bi-megaphone {
+    color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .multimedia-component {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .consideration-card {
+        padding: 1.5rem;
+    }
+    
+    .multimedia-list {
+        font-size: 0.9rem;
+    }
+}
+
+/* ===========================
+ * NAVEGACIÓN AL PIE DE PÁGINA
+ * =========================== */
+
+.footer-navigation {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.nav-button {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+.nav-button:hover {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.nav-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nav-center {
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+}
+
+.nav-center .nav-link {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-center .nav-link:hover {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .footer-nav-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+}

@@ -1,0 +1,1695 @@
+Modelado conceptual avanzado y
+jerarquías. Modelado arquitectónico
+© Universitas Europaea IMF
+Indice
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+4
+1. Introducción al Modelado Conceptual Avanzado
+4
+1.1. ¿Qué es el modelado conceptual avanzado?
+4
+Importancia en el Diseño de Software
+4
+Relación con la Programación Orientada a Objetos (POO)
+4
+1.2. Beneficios del modelado conceptual avanzado en sistemas complejos
+4
+1.2.1. Reutilización de Código
+5
+1.2.2. Flexibilidad y Escalabilidad
+5
+2. Herencia en el Modelado Conceptual
+5
+2.1. Conceptos fundamentales de la herencia
+5
+Definición y Principios Básicos
+5
+Principios básicos de la herencia:
+5
+Ejemplo en Python:
+6
+Representación en UML
+6
+2.2. Polimorfismo y su importancia en el diseño de software
+7
+Métodos Polimórficos y su Aplicación
+7
+Ejemplo en Python: Polimorfismo por Sobreescritura
+7
+2.3. Sobreescritura de métodos en jerarquías de clases
+7
+Diferencias entre Sobrecarga y Sobreescritura
+8
+Implementación en Python con super()
+8
+Ejemplo de sobreescritura usando super():
+8
+2.4. Ventajas y desventajas de la herencia
+8
+Casos en los que es recomendable utilizar herencia
+9
+Alternativas cuando la herencia no es la mejor opción
+9
+3. Composición: Una Alternativa a la Herencia
+9
+3.1. Diferencia entre herencia y composición
+9
+Comparación Conceptual y en UML
+10
+Ejemplo en UML:
+10
+Ejemplo en Python
+10
+3.2. Casos de uso de la composición
+11
+Modelado de Relaciones "Tiene un" (Has-a)
+11
+Implementación en Python con Clases Anidadas
+11
+3.3. Cuándo usar herencia y cuándo composición
+11
+Herencia:
+11
+Composición:
+12
+Ejemplos Prácticos en Desarrollo de Software
+12
+4. Modelado Arquitectónico en el Diseño de Software
+12
+4.1. Introducción a las vistas arquitectónicas
+12
+¿Qué es una Vista Arquitectónica?
+13
+Relación con la Escalabilidad del Software
+13
+4.2. Vista estructural
+13
+Componentes y Módulos en UML:
+13
+Ejemplo de diagrama de componentes UML:
+13
+Representación de Capas en un Sistema
+14
+Ejemplo de representación en capas:
+14
+4.3. Vista funcional
+14
+Flujo de Datos y Operaciones:
+15
+Ejemplo Práctico con un Sistema Basado en Microservicios:
+15
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/25
+5. Patrones de Diseño: Principios y Aplicaciones
+15
+5.1. Introducción a los patrones de diseño
+15
+¿Qué es un Patrón de Diseño y por qué es útil?
+15
+Beneficios del uso de patrones de diseño:
+15
+Clasificación de los Patrones de Diseño
+16
+5.2. Patrón Singleton
+16
+Definición y Uso en el Modelado Conceptual:
+16
+Ejemplo en Python:
+16
+5.3. Patrón Factory
+17
+Concepto y Utilidad en la Creación de Objetos:
+17
+Ejemplo en Python:
+17
+5.4. Comparativa entre Singleton y Factory
+18
+Diferencias entre Singleton y Factory
+18
+Casos en los que es recomendable cada uno
+19
+6. Aplicaciones Prácticas y Casos de Uso
+19
+6.1. Implementación de jerarquías en sistemas empresariales
+19
+Ejemplo en un Sistema de Gestión de Empleados:
+19
+Implementación en Python:
+19
+6.2. Modelado de arquitecturas en proyectos reales
+20
+Análisis de un Sistema Basado en Capas:
+20
+Beneficios del Modelo en Capas
+21
+6.3. Uso de patrones en aplicaciones escalables
+21
+Ejemplo de Factory en una API de Productos:
+21
+Implementación en Python:
+21
+Bibliografía y lecturas recomendadas:
+22
+Actividades prácticas
+24
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/25
+Modelado conceptual avanzado y jerarquías. Modelado
+arquitectónico
+1. Introducción al Modelado Conceptual Avanzado
+1.1. ¿Qué es el modelado conceptual avanzado?
+El 
+modelado conceptual avanzado
+ es una metodología utilizada en el diseño de software para representar
+de manera estructurada y detallada los componentes del sistema, sus relaciones y comportamientos. Se basa
+en principios de la 
+programación orientada a objetos (POO)
+ y es fundamental para desarrollar aplicaciones
+escalables, reutilizables y mantenibles. El modelado conceptual avanzado es una herramienta clave para
+representar de manera clara y efectiva la estructura de un sistema, asegurando su correcto desarrollo dentro
+de un enfoque orientado a objetos. Su aplicación mejora la organización del código, facilita la colaboración y
+promueve la reutilización y escalabilidad del software.
+Importancia en el Diseño de Software
+El modelado conceptual avanzado permite estructurar el software de manera clara antes de su
+implementación, proporcionando beneficios como:
+Claridad en la estructura del sistema:
+ Ayuda a visualizar la jerarquía y las relaciones entre los
+distintos elementos del software.
+Facilitación de la colaboración:
+ Diseñadores, desarrolladores y analistas pueden trabajar con una
+representación común del sistema.
+Mantenimiento y escalabilidad:
+ Un diseño bien estructurado permite que el software evolucione con
+facilidad sin comprometer su funcionalidad.
+Reutilización de código:
+ Al definir correctamente clases y relaciones, se promueve la reutilización en
+futuros proyectos.
+Relación con la Programación Orientada a Objetos (POO)
+El modelado conceptual avanzado está estrechamente ligado a la 
+programación orientada a objetos (POO)
+,
+ya que ambos comparten principios fundamentales:
+Herencia:
+ Permite que una clase derive de otra, reutilizando código y estableciendo jerarquías lógicas.
+Polimorfismo:
+ Facilita la creación de métodos genéricos que pueden ser implementados de distintas
+maneras en clases derivadas.
+Encapsulamiento:
+ Protege la información de los objetos, asegurando un acceso controlado a sus
+atributos y métodos.
+Composición:
+ Establece relaciones entre clases sin necesidad de herencia, promoviendo una mayor
+modularidad y flexibilidad.
+En 
+lenguajes como Python
+, el modelado conceptual avanzado se implementa utilizando clases,
+interfaces y patrones de diseño que optimizan la arquitectura del software.
+1.2. Beneficios del modelado conceptual avanzado en sistemas
+complejos
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+El 
+modelado conceptual avanzado
+ es una herramienta esencial en el desarrollo de sistemas de software
+complejos, ya que permite estructurar y organizar la arquitectura del sistema de manera eficiente. Su
+aplicación facilita la planificación y el mantenimiento del software, optimizando su funcionalidad y asegurando
+su crecimiento a largo plazo.
+1.2.1. Reutilización de Código
+Uno de los principales beneficios del modelado conceptual avanzado es la 
+reutilización de código
+, lo que
+permite optimizar el tiempo y los recursos en el desarrollo de software. A través de técnicas como la 
+herencia
+y la composición
+, los desarrolladores pueden definir estructuras reutilizables que simplifican la
+implementación de nuevas funcionalidades sin necesidad de reescribir código.
+Ejemplo con herencia:
+ En un sistema de gestión de empleados, una clase Empleado puede contener
+atributos generales como nombre, id y salario. Luego, se pueden crear subclases como Gerente o
+Ingeniero que reutilicen estos atributos y agreguen nuevas propiedades específicas.
+Ejemplo con composición:
+ En lugar de que una clase Coche herede de Motor, puede contener una
+instancia de Motor como atributo, lo que permite una mayor modularidad y flexibilidad.
+Gracias a estos enfoques, el código se vuelve más eficiente, modular y fácil de mantener.
+1.2.2. Flexibilidad y Escalabilidad
+El modelado conceptual avanzado también mejora la 
+flexibilidad
+ y 
+escalabilidad
+ del software, permitiendo
+que los sistemas puedan crecer sin necesidad de grandes modificaciones en su estructura.
+Flexibilidad:
+ Al utilizar principios de 
+encapsulamiento y polimorfismo
+, es posible modificar o
+extender funcionalidades sin afectar otras partes del sistema. Por ejemplo, si se desea cambiar el
+sistema de autenticación de una aplicación, solo se modificaría la clase relacionada sin alterar el resto
+del código.
+Escalabilidad:
+ Un diseño bien estructurado permite que el software pueda adaptarse a un número
+creciente de usuarios o funcionalidades sin perder eficiencia. Un sistema de comercio electrónico, por
+ejemplo, puede comenzar con una gestión básica de productos y luego incorporar nuevas
+características como recomendaciones personalizadas o pago en cuotas sin afectar su núcleo
+funcional.
+2. Herencia en el Modelado Conceptual
+2.1. Conceptos fundamentales de la herencia
+La 
+herencia
+ es un principio clave de la 
+programación orientada a objetos (POO)
+ que permite a una clase
+derivar de otra, heredando sus atributos y métodos. Su objetivo principal es promover la reutilización de
+código y estructurar jerárquicamente los elementos de un sistema.
+Definición y Principios Básicos
+La herencia permite que una 
+clase hija (subclase)
+ adquiera las propiedades y comportamientos de una
+clase padre (superclase)
+, evitando la duplicación de código y facilitando la extensión de funcionalidades.
+Principios básicos de la herencia:
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1
+. 
+Reutilización de código:
+ Permite que las clases hijas reutilicen atributos y métodos ya definidos en la
+clase padre, evitando redundancias.
+2
+. 
+Jerarquía de clases:
+ Organiza el sistema en una estructura clara, donde las clases más generales
+están en la parte superior y las más especializadas en la parte inferior.
+3
+. 
+Extensibilidad:
+ Facilita la adición de nuevas funcionalidades sin modificar directamente el código de
+la superclase.
+4
+. 
+Relación "es un":
+ Se establece cuando una clase hija puede considerarse un tipo más específico de
+la clase padre (Ejemplo: "Un perro es un animal").
+Ejemplo en Python:
+ 
+class
+ 
+Animal
+:     
+def
+ 
+__init__
+(
+self
+, nombre
+):         
+self
+.nombre = nombre      
+def
+ 
+hacer_sonido
+(
+self
+):         
+return
+ 
+"Sonido genérico"
+  
+class
+ 
+Perro
+(
+Animal
+):  
+# Hereda de Animal     def hacer_sonido(self):         return "Ladrido"  
+mi_perro = Perro("Firulais") print(mi_perro.hacer_sonido())  # Salida: Ladrido 
+ 
+Representación en UML
+En UML, la herencia se representa mediante un 
+diagrama de clases
+, donde la clase padre se encuentra en
+la parte superior y las clases hijas derivan de ella mediante una línea con un triángulo en la parte superior.
+Ejemplo en UML:
++------------------+
+| Animal |
++------------------+
+| - nombre: String |
++------------------+
+| + hacer_sonido() |
++------------------+
+▲
+│
++--------------------+
+| Perro |
++--------------------+
+| + hacer_sonido() |
++--------------------+
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+En este diagrama, 
+Perro
+ hereda de 
+Animal
+, lo que significa que puede acceder a sus atributos y métodos,
+pero también sobrescribirlos cuando sea necesario.
+2.2. Polimorfismo y su importancia en el diseño de software
+El 
+polimorfismo
+ es un principio clave de la 
+programación orientada a objetos (POO)
+ que permite que
+diferentes clases respondan de manera distinta a un mismo método. Este concepto mejora la flexibilidad y
+escalabilidad del software, facilitando la reutilización del código y la extensión de funcionalidades sin
+necesidad de modificar las clases base.
+Métodos Polimórficos y su Aplicación
+Un método polimórfico es aquel que puede ser redefinido en diferentes clases, permitiendo que cada
+una implemente su propio comportamiento. Existen dos tipos principales de polimorfismo:
+Polimorfismo por sobreescritura (override):
+Se da cuando una subclase redefine un método de la clase padre con un comportamiento diferente.
+Se usa en herencia para adaptar métodos generales a casos específicos.
+Polimorfismo por sobrecarga (overloading):
+Ocurre cuando múltiples métodos comparten el mismo nombre pero tienen diferentes parámetros.
+Python no admite sobrecarga de métodos de manera estricta como en otros lenguajes (Java, C++),
+pero se puede simular con valores por defecto en los parámetros.
+Ejemplo en Python: Polimorfismo por Sobreescritura
+ 
+class
+ 
+Animal
+:     
+def
+ 
+hacer_sonido
+(
+self
+):         
+return
+ 
+"Sonido genérico"
+  
+class
+ 
+Perro
+(
+Animal
+):     
+def
+ 
+hacer_soni
+do
+(
+self
+):         
+return
+ 
+"Ladrido"
+  
+class
+ 
+Gato
+(
+Animal
+):     
+def
+ 
+hacer_sonido
+(
+self
+):         
+return
+ 
+"Maullido"
+  
+# Uso del 
+polimorfismo animales = [Perro(), Gato(), Animal()] for animal in animales:     print(animal.hacer_sonido())   
+Salida:
+Ladrido
+Maullido
+Sonido genérico
+Importancia del Polimorfismo en el Diseño de Software
+Flexibilidad:
+ Permite que nuevas clases implementen funcionalidades sin modificar el código
+existente.
+Reutilización:
+ Facilita el uso de métodos genéricos en diferentes tipos de objetos.
+Escalabilidad:
+ Hace que el software sea más adaptable a cambios y expansiones futuras.
+El polimorfismo es una técnica fundamental para escribir código modular, limpio y mantenible.
+2.3. Sobreescritura de métodos en jerarquías de clases
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+En la 
+programación orientada a objetos (POO)
+, la 
+sobreescritura de métodos
+ es un mecanismo que
+permite a una subclase redefinir un método heredado de su clase padre, adaptándolo a sus propias
+necesidades. Esta técnica es fundamental para lograr el 
+polimorfismo
+, ya que permite que diferentes clases
+implementen el mismo método de manera específica.
+Diferencias entre Sobrecarga y Sobreescritura
+Sobrecarga de métodos:
+Consiste en definir múltiples métodos con el mismo nombre pero con diferentes parámetros (en
+cantidad o tipo).
+En Python, no existe sobrecarga real como en Java o C++, pero se puede simular usando valores por
+defecto en los parámetros.
+Sobreescritura de métodos:
+Ocurre cuando una subclase redefine un método heredado de su clase padre, manteniendo el mismo
+nombre y la misma firma.
+Se utiliza para modificar el comportamiento de métodos heredados y adaptarlos a las necesidades de
+la subclase.
+Implementación en Python con super()
+En Python, se usa la función 
+super()
+ para llamar a métodos de la clase padre dentro de una subclase. Esto
+permite reutilizar código mientras se añade funcionalidad adicional en la subclase.
+Ejemplo de sobreescritura usando super():
+ 
+class
+ 
+Animal
+:     
+def
+ 
+hacer_sonido
+(
+self
+):         
+return
+ 
+"Sonido genérico"
+ 
+class
+ 
+Perro
+(
+Animal
+):     
+def
+ 
+hacer_sonid
+o
+(
+self
+):         sonido_base = 
+super
+().hacer_sonido()  
+# Llamada al método de la clase padre         return f"{sonid
+o_base} - Ladrido" mi_perro = Perro() print(mi_perro.hacer_sonido())   
+Salida:
+Sonido genérico - Ladrido
+Importancia de la Sobreescritura
+Permite modificar el comportamiento de métodos heredados sin cambiar la clase padre.
+Facilita el mantenimiento y la extensibilidad del código.
+Fomenta la reutilización de código mediante el uso de super().
+La sobreescritura es clave en el diseño de software modular y escalable, asegurando que cada clase
+implemente su funcionalidad de manera flexible y eficiente.
+2.4. Ventajas y desventajas de la herencia
+La 
+herencia
+ es un mecanismo clave en la 
+programación orientada a objetos (POO)
+ que permite que una
+clase derive de otra, reutilizando sus atributos y métodos. Sin embargo, su uso debe ser cuidadosamente
+considerado, ya que en ciertos casos puede generar acoplamiento innecesario y dificultar la escalabilidad del
+software.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Casos en los que es recomendable utilizar herencia
+Cuando existe una relación "es un" entre las clases:
+Ejemplo: Una clase Perro que hereda de Animal porque un perro 
+es un
+ animal.
+Si las subclases comparten atributos y métodos comunes:
+Ejemplo: Un sistema de gestión de empleados puede definir una clase Empleado con atributos nombre
+y salario, y clases Gerente y Ingeniero que hereden estas características sin necesidad de repetir
+código.
+Cuando se requiere polimorfismo:
+La herencia permite que diferentes subclases puedan sobrescribir métodos de la clase padre, lo que es
+útil para definir comportamientos personalizados.
+Cuando se necesita extender funcionalidades de una clase base sin modificarla:
+La herencia permite agregar nuevas características sin alterar el código original de la superclase.
+Alternativas cuando la herencia no es la mejor opción
+Composición:
+Si una clase no es realmente un subtipo de otra, es mejor usar 
+composición
+ en lugar de herencia.
+Ejemplo: Un Coche no debería heredar de Motor, sino que debería 
+contener
+ un objeto Motor como
+atributo.
+Interfaces y abstracción:
+En lenguajes como Java, el uso de interfaces es preferible cuando varias clases deben compartir
+métodos pero sin forzar una jerarquía rígida.
+Delegación:
+En lugar de heredar métodos, una clase puede contener otra clase y delegarle ciertas
+responsabilidades.
+3. Composición: Una Alternativa a la Herencia
+3.1. Diferencia entre herencia y composición
+La 
+herencia
+ y la 
+composición
+ son dos enfoques fundamentales en el diseño de software orientado a
+objetos. Ambos permiten la reutilización del código y la estructuración de las relaciones entre clases, pero se
+aplican en contextos distintos y tienen implicaciones diferentes en términos de diseño y mantenimiento del
+código.
+La 
+herencia
+ es útil cuando las clases comparten características comunes y existe una relación "es un". La
+composición
+ es más flexible y modular, permitiendo reutilizar componentes sin crear jerarquías rígidas. En
+términos de mantenimiento, la 
+composición
+ suele ser preferible porque reduce el acoplamiento entre clases
+y facilita cambios sin afectar la estructura general del sistema.
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Comparación Conceptual y en UML
+Herencia ("es un")
+Se basa en la relación padre-hijo, donde una subclase hereda atributos y métodos de una superclase.
+Se usa cuando existe una relación 
+"es un"
+ entre clases (ejemplo: "Un Perro es un Animal").
+En UML, se representa con una flecha con un triángulo apuntando a la clase padre.
+Composición ("tiene un")
+Se basa en la relación "parte-todo", donde una clase contiene instancias de otra.
+Se usa cuando una clase 
+tiene
+ una instancia de otra como parte de su estructura (ejemplo: "Un Coche
+tiene un Motor").
+En UML, se representa con un rombo negro en la clase contenedora y una línea que apunta a la clase
+contenida.
+Ejemplo en UML:
++------------------+ +------------------+
+| Animal | | Coche |
++------------------+ +------------------+
+| + hacer_sonido()| | - motor: Motor |
++------------------+ +------------------+
+▲ 
+◆
+│ │
++------------------+ +------------------+
+| Perro | | Motor |
++------------------+ +------------------+
+| + hacer_sonido()| | + encender() |
++------------------+ +------------------+
+Ejemplo en Python
+Herencia:
+ 
+class
+ 
+Animal
+:     
+def
+ 
+hacer_sonido
+(
+self
+):         
+return
+ 
+"Sonido genérico"
+ 
+class
+ 
+Perro
+(
+Animal
+):     
+def
+ 
+hacer_sonid
+o
+(
+self
+):         
+return
+ 
+"Ladrido"
+ mi_perro = 
+Perro
+() print(mi_perro.hacer_sonido())  
+# Salida: Ladrido 
+Composición:
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+ 
+class
+ 
+Motor
+:     
+def
+ 
+encender
+(
+self
+):         
+return
+ 
+"Motor encendido"
+ 
+class
+ 
+Coche
+:     
+def
+ 
+__init__
+(
+self
+):         
+self
+.
+motor = 
+Motor
+()  
+# Composición     def arrancar(self):         return self.motor.encender() mi_coche = Coche() pri
+nt(mi_coche.arrancar())  # Salida: Motor encendido 
+3.2. Casos de uso de la composición
+La 
+composición
+ es una técnica clave en la 
+programación orientada a objetos (POO)
+ que establece una
+relación entre clases basada en la idea de 
+"tiene un"
+ (
+has-a
+). En lugar de utilizar herencia, donde una clase
+hereda atributos y métodos de otra, la composición permite que una clase contenga instancias de otras clases
+como atributos. La 
+composición
+ permite un diseño flexible y modular, evitando dependencias rígidas entre
+clases. Es preferible a la herencia cuando las clases no comparten una relación "es un" sino "tiene un". En
+Python, se implementa fácilmente mediante atributos que contienen instancias de otras clases, facilitando el
+mantenimiento y la reutilización del código.
+Modelado de Relaciones "Tiene un" (Has-a)
+La composición es útil cuando una clase debe representar una entidad que 
+contiene
+ otra entidad, en lugar de
+ser un subtipo de ella.
+Ejemplos comunes de relaciones "tiene un":
+Un coche tiene un motor
+ (Coche contiene un objeto Motor).
+Una computadora tiene un procesador
+ (Computadora contiene un objeto Procesador).
+Un pedido tiene múltiples productos
+ (Pedido contiene una lista de objetos Producto).
+Estas relaciones permiten una mayor modularidad y evitan problemas que surgen con jerarquías rígidas de
+herencia.
+Implementación en Python con Clases Anidadas
+Python permite implementar la composición utilizando clases dentro de clases, lo que organiza mejor el
+código y refuerza la relación "tiene un".
+Ejemplo:
+ 
+class
+ 
+Motor
+:     
+def
+ 
+__init__
+(
+self
+, tipo
+):         
+self
+.tipo = tipo     
+def
+ 
+encender
+(
+self
+):         
+return
+ f
+"Motor {self.tipo} 
+encendido"
+ 
+class
+ 
+Coche
+:     
+def
+ 
+__init__
+(
+self
+, marca, tipo_motor
+):         
+self
+.marca = marca         
+self
+.motor = 
+Mo
+tor
+(tipo_motor)  
+# Composición: Coche "tiene un" Motor     def arrancar(self):         return f"{self.marca}: {self.m
+otor.encender()}" mi_coche = Coche("Toyota", "Eléctrico") print(mi_coche.arrancar())  # Salida: Toyota: Motor E
+léctrico encendido 
+3.3. Cuándo usar herencia y cuándo composición
+La 
+herencia
+ y la 
+composición
+ son dos enfoques fundamentales para establecer relaciones entre clases en la
+programación orientada a objetos (POO)
+. Cada una tiene sus ventajas y desventajas, y la elección entre
+una u otra depende de la naturaleza de las relaciones entre las entidades que se modelan.
+Análisis de Ventajas y Desventajas
+Herencia:
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Ventajas:
+Reutilización de código:
+ Las subclases heredan atributos y métodos de las clases padres, lo que
+facilita la reutilización y evita la duplicación de código.
+Polimorfismo:
+ Permite el uso de métodos sobrescritos en las subclases, lo que facilita la
+implementación de funcionalidades comunes pero personalizadas.
+Organización jerárquica:
+ Ideal para relaciones 
+"es un"
+, donde una clase es un tipo especializado de
+otra (por ejemplo, un Perro es un Animal).
+Desventajas:
+Rigidez:
+ Introduce un alto acoplamiento entre clases, lo que puede dificultar la evolución del sistema.
+Herencia múltiple:
+ En lenguajes como Python, puede ser compleja de gestionar, especialmente
+cuando diferentes clases padres tienen métodos con el mismo nombre o propósito.
+Escalabilidad limitada:
+ La herencia puede volverse difícil de mantener en sistemas grandes,
+especialmente cuando las jerarquías se hacen profundas.
+Composición:
+Ventajas:
+Flexibilidad:
+ La composición permite crear objetos complejos sin las restricciones de la jerarquía de
+clases. A través de la composición, una clase puede "tener" otras clases como atributos, lo que facilita
+la reutilización de componentes.
+Bajo acoplamiento:
+ Las clases están menos dependientes unas de otras, lo que facilita el
+mantenimiento y la escalabilidad del sistema.
+Modularidad:
+ Favorece el diseño de sistemas modulares y fáciles de extender.
+Desventajas:
+Requiere más diseño:
+ Puede ser más complejo de organizar en proyectos grandes, ya que las
+relaciones entre clases no son tan evidentes como en la herencia.
+Ejemplos Prácticos en Desarrollo de Software
+Usar herencia: 
+Un sistema de gestión de empleados podría tener una clase base Empleado, con
+subclases como Gerente, Vendedor y Desarrollador, cada una con atributos y métodos específicos,
+pero reutilizando la funcionalidad general de Empleado.
+Usar composición: 
+Un sistema de automóviles podría tener una clase Coche que contiene una
+instancia de Motor. En este caso, el Coche no 
+es un
+ tipo de Motor, sino que 
+tiene un
+ motor. Esto
+permite cambiar el tipo de motor sin modificar la clase Coche.
+4. Modelado Arquitectónico en el Diseño de Software
+4.1. Introducción a las vistas arquitectónicas
+En el desarrollo de software, una 
+vista arquitectónica
+ es una representación estructurada que permite
+comprender los distintos aspectos de un sistema. Estas vistas ayudan a organizar la arquitectura del software,
+proporcionando diferentes perspectivas para analizar su diseño, funcionalidad y escalabilidad.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+¿Qué es una Vista Arquitectónica?
+Una vista arquitectónica es una abstracción que representa una parte específica de un sistema. Dado que los
+sistemas de software suelen ser complejos, es necesario descomponer su arquitectura en múltiples vistas que
+expliquen cómo interactúan los componentes, cómo fluye la información y cómo se mantiene la eficiencia del
+sistema.
+Existen varias vistas arquitectónicas, entre ellas:
+Vista lógica:
+ Describe los módulos y clases del sistema.
+Vista de procesos:
+ Representa la ejecución y concurrencia del sistema.
+Vista física:
+ Muestra la distribución del software en hardware específico.
+Vista funcional:
+ Explica cómo se organizan las funcionalidades dentro del sistema.
+Cada vista ofrece una perspectiva diferente y complementaria, permitiendo que arquitectos, desarrolladores y
+administradores comprendan cómo funciona el sistema en diferentes niveles.
+Relación con la Escalabilidad del Software
+Las vistas arquitectónicas juegan un papel clave en la 
+escalabilidad
+ del software, ya que permiten diseñar
+soluciones modulares y eficientes que puedan crecer con el tiempo.
+Mejor planificación:
+ Al dividir el sistema en diferentes vistas, es posible anticipar cuellos de botella y
+optimizar el rendimiento antes de la implementación.
+Separación de responsabilidades:
+ Cada vista define claramente el propósito de los componentes,
+facilitando la evolución del sistema sin afectar otras partes.
+Facilidad de mantenimiento:
+ Con una arquitectura bien documentada, los desarrolladores pueden
+realizar mejoras sin comprometer la estabilidad del sistema.
+Adaptabilidad a nuevos requerimientos:
+ Un sistema diseñado con vistas arquitectónicas puede
+integrar nuevas funcionalidades sin necesidad de una reestructuración completa.
+4.2. Vista estructural
+La 
+vista estructural
+ de una arquitectura de software describe la organización estática del sistema,
+identificando sus componentes, módulos y relaciones. Esta vista es esencial para entender cómo está
+construido el software y cómo se relacionan sus partes, facilitando su mantenimiento y escalabilidad.
+Componentes y Módulos en UML:
+En UML (Unified Modeling Language), los componentes y módulos se representan mediante 
+diagramas de
+componentes
+ y 
+diagramas de clases
+.
+Componentes:
+ Son unidades independientes del sistema que pueden ser reutilizadas y desplegadas
+de manera separada. Ejemplo: un servicio de autenticación o una API de pagos.
+Módulos:
+ Agrupan clases y funciones con un propósito común. Por ejemplo, un módulo de "Usuarios"
+puede incluir clases como Cliente, Administrador y Perfil.
+Ejemplo de diagrama de componentes UML:
++------------------+
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+| Aplicación |
++------------------+
+| |
++-------+ +--------+
+| Módulo UI | | Módulo API |
++-------------+ +-----------+
+Este diagrama muestra que la aplicación está dividida en dos módulos principales: la interfaz de usuario (UI) y
+la API.
+Representación de Capas en un Sistema
+En arquitecturas más complejas, se utiliza una organización en 
+capas
+, donde cada una cumple una función
+específica:
+1
+. 
+Capa de presentación:
+ Interfaz gráfica del usuario (GUI), maneja la interacción con el usuario.
+2
+. 
+Capa de lógica de negocio:
+ Contiene la lógica principal del sistema, como validaciones y
+procesamiento de datos.
+3
+. 
+Capa de datos:
+ Gestiona el acceso a bases de datos y almacenamiento.
+Ejemplo de representación en capas:
++----------------------------+
+| Capa de Presentación |
++----------------------------+
+| Capa de Negocio |
++---------------------------+
+| Capa de Datos |
++--------------------------+
+4.3. Vista funcional
+La 
+vista funcional
+ de una arquitectura de software describe cómo interactúan los distintos componentes del
+sistema para procesar datos y ejecutar operaciones. A diferencia de la vista estructural, que se enfoca en la
+organización de los módulos, la vista funcional se centra en el 
+flujo de datos
+ y la 
+secuencia de operaciones
+necesarias para cumplir con los requerimientos del sistema. La vista funcional es clave para entender cómo
+los diferentes módulos interactúan y procesan información dentro del sistema. Su aplicación en arquitecturas
+modernas como los microservicios mejora la escalabilidad y el mantenimiento del software.
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Flujo de Datos y Operaciones:
+El flujo de datos representa cómo la información viaja a través del sistema, desde la entrada del usuario hasta
+la salida procesada. Puede incluir:
+1
+. 
+Entrada de datos:
+ Captura de información a través de una GUI, una API o un sensor.
+2
+. 
+Procesamiento:
+ Transformación y validación de los datos en la lógica de negocio.
+3
+. 
+Almacenamiento:
+ Guardado de la información en una base de datos.
+4
+. 
+Salida:
+ Respuesta al usuario en forma de datos procesados o actualización del estado del sistema.
+Ejemplo Práctico con un Sistema Basado en Microservicios:
+Un 
+sistema de pedidos en línea
+ basado en microservicios podría funcionar de la siguiente manera:
+Microservicio de pedidos:
+ Recibe la solicitud de compra de un usuario.
+Microservicio de pago:
+ Procesa la transacción con una pasarela de pago.
+Microservicio de inventario:
+ Verifica la disponibilidad de productos y actualiza la base de datos.
+Microservicio de notificaciones:
+ Envía un correo de confirmación al usuario.
+Estos microservicios operan de manera independiente pero se comunican entre sí a través de 
+APIs REST o
+mensajes asincrónicos
+.
+5. Patrones de Diseño: Principios y Aplicaciones
+5.1. Introducción a los patrones de diseño
+Los 
+patrones de diseño
+ son soluciones reutilizables a problemas comunes en el diseño de software. Se
+utilizan para estructurar el código de manera eficiente, mejorando la mantenibilidad, escalabilidad y
+organización de un sistema. En lugar de reinventar soluciones, los patrones proporcionan una base probada
+que los desarrolladores pueden aplicar a diferentes contextos. Los patrones de diseño son herramientas
+esenciales para mejorar la calidad del software, asegurando que el código sea modular, reutilizable y fácil de
+mantener. Su aplicación depende del problema a resolver y de la estructura del sistema.
+¿Qué es un Patrón de Diseño y por qué es útil?
+Un patrón de diseño es una 
+estrategia de programación
+ que ofrece una solución general a un problema
+recurrente en el desarrollo de software. No es un fragmento de código específico, sino una 
+guía estructurada
+que se puede implementar en distintos lenguajes y contextos.
+Beneficios del uso de patrones de diseño:
+Reutilización de código:
+ Permiten resolver problemas comunes sin necesidad de rediseñar la
+solución desde cero.
+Facilitan la comunicación:
+ Proveen un lenguaje común entre desarrolladores al describir soluciones
+con términos estándar.
+Mejoran la mantenibilidad:
+ Un código bien estructurado con patrones de diseño es más fácil de
+actualizar y extender.
+Documento solo para uso personal. Prohibido copiar o distribuir
+15/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Clasificación de los Patrones de Diseño
+Los patrones de diseño se dividen en tres grandes categorías:
+Patrones Creacionales:
+ Se enfocan en la creación de objetos de manera eficiente y flexible.
+Ejemplo:
+ 
+Singleton
+ (garantiza una única instancia de una clase).
+Ejemplo:
+ 
+Factory Method
+ (permite la creación de objetos sin especificar la clase exacta).
+Patrones Estructurales:
+ Ayudan a definir la relación entre clases y objetos para garantizar que se puedan
+expandir fácilmente.
+Ejemplo:
+ 
+Adapter
+ (permite que clases incompatibles trabajen juntas).
+Ejemplo:
+ 
+Composite
+ (estructura objetos en jerarquías tipo árbol).
+Patrones de Comportamiento:
+ Se centran en la comunicación y la asignación de responsabilidades entre
+objetos.
+Ejemplo:
+ 
+Observer
+ (permite que un objeto notifique cambios a múltiples observadores).
+Ejemplo:
+ 
+Strategy
+ (permite definir múltiples algoritmos intercambiables).
+5.2. Patrón Singleton
+El 
+patrón Singleton
+ es un patrón de diseño 
+creacional
+ que garantiza que una clase tenga 
+una única
+instancia
+ en todo el sistema y proporciona un punto de acceso global a ella. Su propósito es evitar la
+creación de múltiples objetos innecesarios cuando solo se necesita una única representación de un recurso.
+El patrón Singleton es útil cuando se necesita 
+una única instancia
+ en el sistema, evitando la duplicación de
+recursos y garantizando un acceso centralizado a ciertas funcionalidades críticas. Sin embargo, su uso debe
+ser moderado, ya que puede generar un alto acoplamiento en el código.
+Definición y Uso en el Modelado Conceptual:
+En el 
+modelado conceptual
+, el patrón Singleton se emplea para representar elementos del sistema que
+deben mantenerse únicos en toda la aplicación. Algunos ejemplos incluyen:
+Gestores de configuración:
+ Un único objeto maneja las configuraciones globales del sistema.
+Conexión a bases de datos:
+ Se evita la creación de múltiples conexiones innecesarias.
+Gestión de logs:
+ Permite registrar eventos desde distintos puntos de la aplicación sin crear múltiples
+instancias.
+En UML, el Singleton se representa con una 
+clase única
+, con restricciones en su instanciación.
+Ejemplo en Python:
+Documento solo para uso personal. Prohibido copiar o distribuir
+16/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+ 
+class
+ 
+Singleton
+: 
+    _instancia = 
+None
+  
+# Variable de clase para almacenar la única instancia 
+    
+def
+ 
+__new__
+(
+cls
+): 
+        
+if
+ cls._instancia 
+is
+ 
+None
+: 
+            cls._instancia = 
+super
+(Singleton, cls).__new__(cls) 
+        
+return
+ cls._instancia 
+# Uso del Singleton 
+obj1 = Singleton() 
+obj2 = Singleton() 
+print
+(obj1 
+is
+ obj2)  
+# Salida: True 
+5.3. Patrón Factory
+El 
+patrón Factory
+ es un 
+patrón de diseño creacional
+ que se utiliza para gestionar la creación de objetos de
+manera flexible y centralizada. En lugar de instanciar objetos directamente utilizando el operador new (en
+lenguajes como Java o C++) o llamando al constructor en Python, el patrón Factory delega la responsabilidad
+de la creación a un método especializado, lo que permite mayor control sobre el proceso y mejora la
+modularidad del código. El patrón Factory mejora la escalabilidad y el mantenimiento del código al
+proporcionar una forma flexible y controlada de instanciar objetos. Es útil en sistemas donde se requiere crear
+múltiples tipos de objetos sin que el código principal dependa de sus implementaciones concretas.
+Concepto y Utilidad en la Creación de Objetos:
+El 
+patrón Factory
+ se basa en la idea de que las clases no deberían encargarse de crear sus propias
+instancias, sino que deberían delegar esta tarea a una 
+fábrica de objetos
+. Esto es útil en los siguientes
+escenarios:
+Cuando se necesita ocultar la lógica de creación de objetos:
+ Permite que la clase principal no
+dependa de los detalles de implementación de sus instancias.
+Cuando se requiere flexibilidad:
+ Se pueden crear instancias de diferentes subclases en función de
+ciertos parámetros, sin modificar el código que las usa.
+Cuando el proceso de creación es complejo:
+ Si un objeto requiere múltiples configuraciones, el
+patrón Factory simplifica su inicialización.
+Ejemplo en Python:
+Documento solo para uso personal. Prohibido copiar o distribuir
+17/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+ 
+class
+ 
+Vehiculo
+: 
+    
+def
+ 
+conducir
+(
+self
+): 
+        pass 
+class
+ 
+Coche
+(
+Vehiculo
+): 
+    
+def
+ 
+conducir
+(
+self
+): 
+        
+return
+ 
+"Conduciendo un coche"
+ 
+class
+ 
+Moto
+(
+Vehiculo
+): 
+    
+def
+ 
+conducir
+(
+self
+): 
+        
+return
+ 
+"Conduciendo una moto"
+ 
+class
+ 
+VehiculoFactory
+: 
+    
+@staticmethod
+ 
+    
+def
+ 
+crear_vehiculo
+(
+tipo
+): 
+        
+if
+ tipo == 
+"coche"
+: 
+            
+return
+ 
+Coche
+() 
+        elif tipo == 
+"moto"
+: 
+            
+return
+ 
+Moto
+() 
+        
+else:
+ 
+            
+raise
+ 
+ValueError
+(
+"Tipo de vehículo no válido"
+) 
+# Uso del Factory 
+vehiculo1 = 
+VehiculoFactory
+.crear_vehiculo(
+"coche"
+) 
+print(vehiculo1.conducir())  
+# Salida: Conduciendo un coche 
+5.4. Comparativa entre Singleton y Factory
+Los patrones 
+Singleton
+ y 
+Factory
+ son dos patrones de diseño 
+creacionales
+, pero tienen objetivos y
+aplicaciones distintas en el desarrollo de software. El patrón 
+Singleton
+ es útil cuando se necesita una única
+instancia global, mientras que 
+Factory
+ permite crear múltiples instancias sin acoplar el código al tipo
+específico de objeto. Ambos patrones mejoran la organización y el mantenimiento del software cuando se
+aplican en el contexto adecuado.
+Diferencias entre Singleton y Factory
+Característica
+Singleton
+Factory
+Propósito
+Garantiza que una clase tenga una única
+instancia en todo el sistema.
+Centraliza la creación de objetos, permitiendo la
+generación flexible de múltiples instancias.
+Alcance
+Se aplica a una única clase con acceso
+global.
+Se usa para manejar la creación de múltiples
+clases sin exponer detalles de implementación.
+Uso
+Controla recursos compartidos como
+bases de datos o gestores de
+configuración.
+Simplifica la creación de objetos en sistemas
+con múltiples tipos de instancias.
+Documento solo para uso personal. Prohibido copiar o distribuir
+18/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Casos en los que es recomendable cada uno
+Cuándo usar Singleton:
+Cuando es necesario un único punto de acceso a un recurso compartido.
+En la gestión de conexiones a bases de datos, manejo de logs o configuración global.
+Cuándo usar Factory:
+Cuando la creación de objetos es compleja y depende de múltiples condiciones.
+En sistemas donde se requiere flexibilidad para instanciar diferentes clases sin modificar el código
+principal.
+6. Aplicaciones Prácticas y Casos de Uso
+6.1. Implementación de jerarquías en sistemas empresariales
+Las 
+jerarquías de clases
+ son esenciales en sistemas empresariales para estructurar y organizar los
+diferentes roles y responsabilidades dentro de una organización. La 
+programación orientada a objetos
+(POO)
+ permite modelar estas jerarquías utilizando 
+herencia
+, lo que facilita la reutilización de código y la
+administración de empleados en un sistema escalable y mantenible. El uso de jerarquías en sistemas
+empresariales facilita la administración de empleados, permitiendo definir atributos comunes y personalizar el
+comportamiento según el cargo. Gracias a la herencia, el sistema es más flexible, reutilizable y fácil de
+mantener.
+Ejemplo en un Sistema de Gestión de Empleados:
+Un sistema de gestión de empleados puede estructurar su jerarquía de la siguiente manera:
+Superclase Empleado
+Contiene atributos y métodos comunes a todos los empleados, como nombre, id, salario y
+calcular_pago().
+Subclases Gerente, Desarrollador y Vendedor
+Cada una extiende Empleado y redefine métodos específicos según su rol.
+Implementación en Python:
+Documento solo para uso personal. Prohibido copiar o distribuir
+19/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+ 
+class
+ 
+Empleado
+: 
+    
+def
+ 
+__init__
+(
+self, nombre, 
+id
+, salario
+): 
+        self.nombre = nombre 
+        self.
+id
+ = 
+id
+ 
+        self.salario = salario 
+ 
+    
+def
+ 
+calcular_pago
+(
+self
+): 
+        
+return
+ self.salario 
+ 
+class
+ 
+Gerente
+(
+Empleado
+): 
+    
+def
+ 
+calcular_pago
+(
+self
+): 
+        
+return
+ self.salario * 
+1.2
+  
+# Bono del 20% 
+ 
+class
+ 
+Desarrollador
+(
+Empleado
+): 
+    
+def
+ 
+calcular_pago
+(
+self
+): 
+        
+return
+ self.salario * 
+1.1
+  
+# Bono del 10% 
+ 
+# Uso del sistema 
+empleado1 = Gerente(
+"Laura"
+, 
+101
+, 
+5000
+) 
+empleado2 = Desarrollador(
+"Carlos"
+, 
+102
+, 
+4000
+) 
+ 
+print
+(empleado1.calcular_pago())  
+# Salida: 6000 
+print
+(empleado2.calcular_pago())  
+# Salida: 4400 
+6.2. Modelado de arquitecturas en proyectos reales
+En el desarrollo de software, una de las estrategias más utilizadas para diseñar sistemas escalables y
+mantenibles es la 
+arquitectura en capas
+. Este modelo organiza los componentes del sistema en niveles bien
+definidos, separando responsabilidades y facilitando la evolución del software sin afectar su estructura
+general. El uso de una arquitectura en capas en proyectos reales permite diseñar sistemas más organizados y
+modulares, facilitando su mantenimiento y escalabilidad en el tiempo.
+Análisis de un Sistema Basado en Capas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+20/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Un 
+sistema basado en capas
+ se divide en distintos niveles, cada uno con una función específica. A
+continuación, se presenta un ejemplo aplicado a un 
+sistema de gestión de ventas
+:
+Capa de Presentación (UI):
+Es la interfaz con la que interactúa el usuario. Puede ser una aplicación web, de escritorio o móvil.
+En un sistema de ventas, muestra productos, permite ingresar datos de clientes y procesar pedidos.
+Capa de Negocio:
+Contiene la lógica del sistema. Se encarga de procesar reglas, validaciones y transacciones.
+Por ejemplo, en un pedido, verifica disponibilidad de productos y calcula descuentos.
+Capa de Datos:
+Gestiona el almacenamiento y recuperación de la información en bases de datos.
+En el sistema de ventas, almacena información sobre clientes, productos y transacciones.
+Beneficios del Modelo en Capas
+Separación de responsabilidades:
+ Facilita el mantenimiento y evolución del sistema.
+Reutilización de código:
+ Cada capa puede ser usada en diferentes contextos.
+Escalabilidad:
+ Se pueden modificar o ampliar capas sin afectar el resto del sistema.
+6.3. Uso de patrones en aplicaciones escalables
+El uso de 
+patrones de diseño
+ en aplicaciones escalables es fundamental para garantizar la modularidad,
+reutilización de código y facilidad de mantenimiento. Uno de los patrones más utilizados en el desarrollo de
+software escalable es el 
+patrón Factory
+, que permite gestionar la creación de objetos de manera flexible y
+eficiente. El uso del 
+patrón Factory
+ en la API de productos permite manejar diferentes tipos de productos sin
+modificar el código base, facilitando la escalabilidad del sistema. Esto mejora la flexibilidad y el mantenimiento
+de la aplicación a medida que crece.
+Ejemplo de Factory en una API de Productos:
+Supongamos que estamos desarrollando una 
+API de productos
+ para una tienda en línea. La API necesita
+gestionar distintos tipos de productos, como 
+electrónicos, ropa y alimentos
+, cada uno con atributos y
+comportamientos específicos. En lugar de crear instancias de cada producto manualmente en diferentes
+partes del código, utilizamos el 
+patrón Factory
+ para centralizar la lógica de creación.
+Implementación en Python:
+ 
+class
+ 
+Producto
+: 
+    
+def
+ 
+__init__
+(
+self, nombre, precio
+): 
+        self.nombre = nombre 
+        self.precio = precio 
+ 
+Documento solo para uso personal. Prohibido copiar o distribuir
+21/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+    
+def
+ 
+obtener_info
+(
+self
+): 
+        
+return
+ 
+f"
+{self.nombre}
+: $
+{self.precio}
+"
+ 
+ 
+class
+ 
+Electronico
+(
+Producto
+): 
+    
+def
+ 
+obtener_info
+(
+self
+): 
+        
+return
+ 
+f"[Electrónico] 
+{self.nombre}
+: $
+{self.precio}
+"
+ 
+ 
+class
+ 
+Ropa
+(
+Producto
+): 
+    
+def
+ 
+obtener_info
+(
+self
+): 
+        
+return
+ 
+f"[Ropa] 
+{self.nombre}
+: $
+{self.precio}
+"
+ 
+ 
+class
+ 
+ProductoFactory
+: 
+    @staticmethod 
+    
+def
+ 
+crear_producto
+(
+tipo, nombre, precio
+): 
+        
+if
+ tipo == 
+"electronico"
+: 
+            
+return
+ Electronico(nombre, precio) 
+        
+elif
+ tipo == 
+"ropa"
+: 
+            
+return
+ Ropa(nombre, precio) 
+        
+else
+: 
+            
+return
+ Producto(nombre, precio) 
+ 
+# Uso del Factory en la API 
+producto1 = ProductoFactory.crear_producto(
+"electronico"
+, 
+"Smartphone"
+, 
+800
+) 
+producto2 = ProductoFactory.crear_producto(
+"ropa"
+, 
+"Camiseta"
+, 
+25
+) 
+ 
+print
+(producto1.obtener_info())  
+# [Electrónico] Smartphone: 0 
+print
+(producto2.obtener_info())  
+# [Ropa] Camiseta:  
+Bibliografía y lecturas recomendadas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+22/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994).
+ 
+Patrones de Diseño:
+Elementos Reutilizables en la Programación Orientada a Objetos.
+ Addison-Wesley.
+Sommerville, I. (2011).
+ 
+Ingeniería del Software.
+ Pearson.
+Freeman, E., & Bates, B. (2004).
+ 
+Head First Design Patterns.
+ O'Reilly Media.
+Pressman, R. S., & Maxim, B. R. (2015).
+ 
+Ingeniería del Software: Un Enfoque
+Práctico.
+ McGraw-Hill.
+Python Software Foundation - POO en Python
+: URL: 
+https://docs.python.org/es/3/
+tutorial/classes.html
+Refactoring.Guru - Patrones de Diseño
+: URL: 
+https://refactoring.guru/es/design-
+patterns
+Martin Fowler - Arquitectura de Software
+: URL: 
+https://martinfowler.com/architect
+ure/
+Documento solo para uso personal. Prohibido copiar o distribuir
+23/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Ejercicio 11. Análisis de un Diagrama UML
+A continuación, se presenta un diagrama de clases UML que representa una jerarquía de clases en un
+sistema de gestión de vehículos: 
+1.
+¿Qué tipo de relación existe entre la clase Vehiculo y las clases Coche y Moto? Justifica tu
+respuesta. 
+Si se quisiera implementar este modelo en Python, ¿qué palabra clave se utilizaría para
+establecer la herencia? 
+¿Cómo aplicarías el polimorfismo en este modelo para que cada tipo de vehículo muestre su
+propia información al llamar obtener_info()? 
+Documento solo para uso personal. Prohibido copiar o distribuir
+24/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Ejercicio 12. Implementación de una Jerarquía con Herencia y
+Polimorfismo
+Implementa en Python una jerarquía de clases basada en la siguiente estructura: 
+Clase base: Empleado con atributos nombre y salario, y un método calcular_pago(). 
+Clases derivadas:  
+Gerente, cuyo salario incluye un bono del 20%. 
+Desarrollador, cuyo salario incluye un bono del 10%. 
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Ejemplo de salida esperada: 
+Gerente: Salario final = 3600€ 
+Desarrollador: Salario final = 3300€ 
+1.
+Escribe el código en Python respetando la herencia y el polimorfismo. 
+Crea instancias de Gerente y Desarrollador, asignando un salario base de 3000€, e imprime
+sus respectivos salarios finales. 
+Documento solo para uso personal. Prohibido copiar o distribuir
+25/25
+Modelado conceptual avanzado y jerarquías. Modelado arquitectónico
+idalumno:906687|unidad:6|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

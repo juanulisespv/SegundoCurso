@@ -1,0 +1,1098 @@
+Validación y verificación (Testing)
+© Universitas Europaea IMF
+Indice
+Validación y verificación (Testing)
+4
+1. Introducción a la Validación y Verificación en el Desarrollo de Software
+4
+1.1. Definición y Diferencias entre Validación y Verificación
+4
+¿Qué es la Verificación?
+4
+¿Qué es la Validación?
+4
+Diferencias Clave entre Verificación y Validación
+5
+1.2. Importancia del Testing en el Ciclo de Vida del Software
+5
+Beneficios de Realizar Pruebas desde Etapas Tempranas:
+5
+Relación entre Testing y Calidad del Software:
+5
+Costos de los Errores en Cada Fase del Desarrollo
+6
+2. Tipos de Pruebas en el Desarrollo de Software
+6
+2.1. Pruebas Funcionales
+6
+Pruebas Unitarias:
+6
+Pruebas de Integración:
+6
+Pruebas de Sistema:
+7
+Pruebas de Aceptación:
+7
+2.2. Pruebas No Funcionales
+7
+Pruebas de Rendimiento y Carga Las pruebas de rendimiento
+7
+Pruebas de Seguridad:
+8
+Pruebas de Usabilidad:
+8
+Pruebas de Compatibilidad y Accesibilidad:
+9
+2.3. Pruebas Automatizadas vs. Pruebas Manuales
+9
+Características y Ventajas de la Automatización:
+9
+Cuándo Aplicar Pruebas Manuales:
+10
+Herramientas para Pruebas Automatizadas
+10
+3. Estrategias de Testing en el Desarrollo de Software
+10
+3.1. Metodologías de Pruebas
+10
+Pruebas Basadas en Requisitos:
+11
+Pruebas Basadas en Riesgos:
+11
+Pruebas Exploratorias y Heurísticas:
+11
+3.2. Técnicas de Pruebas de Software
+12
+Pruebas de Caja Negra:
+12
+Pruebas de Caja Blanca:
+12
+Pruebas de Caja Gris:
+13
+3.3. Planificación y Ejecución de Pruebas
+13
+Plan de Pruebas: Objetivos, Alcance y Recursos
+13
+Diseño de Casos de Prueba:
+13
+Registro y Reporte de Defectos:
+14
+4. Herramientas y Frameworks para Testing
+14
+4.1. Herramientas para Pruebas Unitarias
+14
+PyTest para Pruebas en Python:
+14
+JUnit para Pruebas en Java:
+14
+NUnit para Pruebas en .NET:
+15
+4.2. Herramientas para Pruebas de Integración y End-to-End (E2E)
+15
+4.3. Herramientas para Pruebas de Seguridad y Rendimiento
+15
+5. Automatización del Testing y CI/CD
+16
+5.1. Introducción a la Automatización de Pruebas
+16
+Beneficios de la automatización:
+16
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/21
+Estrategias para implementar pruebas automatizadas:
+16
+5.2. Testing en Integración y Despliegue Continuo (CI/CD)
+17
+Concepto de CI/CD y su Relación con Testing
+17
+Implementación de Pruebas Automatizadas en Pipelines CI/CD:
+17
+Herramientas para CI/CD: Jenkins, GitHub Actions y GitLab CI
+17
+5.3 Buenas Prácticas en Testing
+17
+Resumen de las Mejores Prácticas en Testing:
+18
+Recomendaciones para Garantizar la Calidad del Software:
+18
+Tendencias Futuras en el Testing de Software:
+18
+Bibliografía y lecturas recomendadas:
+18
+Actividades prácticas
+20
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/21
+Validación y verificación (Testing)
+1. Introducción a la Validación y Verificación en el
+Desarrollo de Software
+1.1. Definición y Diferencias entre Validación y Verificación
+La 
+validación y verificación
+ son dos procesos fundamentales en el desarrollo de software que aseguran la
+calidad y correcto funcionamiento de un sistema. Aunque a menudo se usan indistintamente, representan
+enfoques distintos para evaluar un producto antes de su implementación. Tanto la 
+verificación
+ como la
+validación
+ son esenciales para garantizar la calidad del software. Mientras que la verificación asegura que el
+sistema 
+se desarrolla correctamente
+ según las especificaciones, la validación confirma que el producto
+cumple con las expectativas del usuario
+. Implementar ambos procesos reduce errores, mejora la calidad
+del software y minimiza riesgos en el despliegue.
+¿Qué es la Verificación?
+La 
+verificación
+ es el proceso de asegurarse de que el software cumple con las especificaciones y requisitos
+definidos en la fase de diseño y desarrollo. Se enfoca en responder la pregunta: 
+"¿Estamos construyendo
+el producto correctamente?"
+Se realiza durante todas las etapas del desarrollo y generalmente implica 
+revisiones, inspecciones y
+pruebas estáticas
+, sin necesidad de ejecutar el software.
+Ejemplos de actividades de verificación:
+Revisiones de código fuente.
+Inspección de documentación y requisitos.
+Evaluación de arquitectura y diseño del software.
+Pruebas estáticas sin ejecutar el código.
+Objetivo:
+ Detectar errores en fases tempranas para reducir costos y mejorar la calidad del software antes de
+su implementación.
+¿Qué es la Validación?
+La 
+validación
+ verifica si el software cumple con las necesidades y expectativas del usuario final, asegurando
+que el sistema funcione correctamente en un entorno real. Se centra en responder la pregunta: 
+"¿Estamos
+construyendo el producto correcto?"
+Se lleva a cabo después de la verificación y suele incluir 
+pruebas dinámicas
+, donde el software es ejecutado
+en diferentes escenarios.
+Ejemplos de actividades de validación:
+Pruebas funcionales para verificar que la API responde correctamente.
+Pruebas de usabilidad para evaluar la experiencia del usuario.
+Pruebas de aceptación con clientes antes del despliegue.
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Simulación de escenarios reales para validar el comportamiento del software.
+Objetivo:
+ Asegurar que el software cumple con los requisitos de los usuarios y que es adecuado para su
+propósito final.
+Diferencias Clave entre Verificación y Validación
+Característica
+Verificación
+Validación
+Propósito
+Asegurar que el software cumple con las
+especificaciones y requisitos.
+Confirmar que el software satisface las
+necesidades del usuario final.
+Cuándo
+ocurre
+Durante el desarrollo del software.
+Después de la verificación, en entornos de
+prueba o producción.
+Método
+Revisiones, inspecciones, análisis estáticos.
+Pruebas dinámicas, pruebas funcionales y
+pruebas de aceptación.
+Ejemplo
+Revisar código fuente y documentación.
+Ejecutar pruebas con usuarios finales para
+validar su experiencia.
+1.2. Importancia del Testing en el Ciclo de Vida del Software
+El 
+testing
+ es una parte fundamental del desarrollo de software, ya que permite detectar y corregir errores
+antes de que el producto llegue a producción. Su implementación en todas las etapas del ciclo de vida del
+software mejora la calidad, reduce costos y minimiza riesgos asociados a fallos en los sistemas. Integrar
+pruebas desde el inicio minimiza los costos y garantiza la estabilidad del software en producción.
+Beneficios de Realizar Pruebas desde Etapas Tempranas:
+Realizar pruebas desde las primeras fases del desarrollo, como en la fase de diseño y codificación, permite:
+Detección temprana de errores
+, evitando que se propaguen a fases posteriores.
+Reducción de costos
+, ya que corregir errores en etapas iniciales es más barato que hacerlo en
+producción.
+Mejora en la eficiencia del desarrollo
+, permitiendo iteraciones más rápidas y seguras.
+Mayor confianza en el producto final
+, asegurando que cumple con los requisitos antes de su
+despliegue.
+El enfoque 
+Shift-Left Testing
+, que promueve la integración de pruebas desde el inicio del desarrollo, es una
+estrategia clave para garantizar software de alta calidad.
+Relación entre Testing y Calidad del Software:
+El testing no solo busca encontrar fallos, sino que también contribuye a la 
+calidad general del software
+ al
+evaluar:
+Funcionalidad
+: Verifica que el software cumpla con los requisitos especificados.
+Rendimiento
+: Garantiza tiempos de respuesta adecuados y eficiencia en el uso de recursos.
+Seguridad
+: Detecta vulnerabilidades antes de que puedan ser explotadas.
+Usabilidad
+: Evalúa la experiencia del usuario y la accesibilidad del sistema.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Un proceso de testing bien implementado previene fallos críticos que podrían afectar la experiencia del
+usuario y la reputación de la empresa.
+Costos de los Errores en Cada Fase del Desarrollo
+El costo de corregir errores aumenta significativamente a medida que el software avanza en su ciclo de vida.
+Fase
+Costo Relativo de Corrección
+Diseño
+Bajo ($) - Errores detectados en esta etapa son fáciles de corregir.
+Desarrollo
+Moderado ($$) - Corregir fallos en código es manejable, pero consume tiempo.
+Pruebas
+Alto ($$$) - Requiere ajustes en varias partes del sistema.
+Producción
+Muy Alto ($$$$) - Los errores pueden afectar usuarios, causar pérdidas económicas y dañar la
+reputación.
+2. Tipos de Pruebas en el Desarrollo de Software
+2.1. Pruebas Funcionales
+Las 
+pruebas funcionales
+ verifican que un software cumpla con los requisitos definidos, asegurando que cada
+componente y el sistema en su conjunto funcionen correctamente. Se centran en 
+validar la funcionalidad
+ del
+software sin evaluar su implementación interna. Estas pruebas incluyen distintos niveles, desde la verificación
+de módulos individuales hasta la evaluación del sistema completo en un entorno real. Las 
+pruebas
+funcionales
+ son esenciales para garantizar la calidad del software en diferentes niveles, desde componentes
+individuales hasta la experiencia completa del usuario. Implementar 
+pruebas unitarias, de integración, de
+sistema y de aceptación
+ permite detectar errores a tiempo y asegurar que el software funcione de manera
+óptima antes de su lanzamiento.
+Pruebas Unitarias:
+Las 
+pruebas unitarias
+ validan el funcionamiento de unidades individuales del código, como funciones, clases
+o módulos. Se realizan en las primeras etapas del desarrollo y permiten detectar errores en componentes
+específicos antes de integrarlos con otras partes del sistema.
+Características:
+Se ejecutan de forma aislada sin dependencias externas.
+Ayudan a identificar errores en funciones específicas antes de que afecten a otras partes del software.
+Son automatizables con frameworks como 
+JUnit (Java), PyTest (Python) y NUnit (.NET)
+.
+Ejemplo de uso: 
+Un desarrollador prueba si una función matemática devuelve los resultados esperados
+antes de integrarla en el sistema.
+Pruebas de Integración:
+Las 
+pruebas de integración
+ validan la interacción entre distintos módulos del sistema para asegurar que
+trabajan correctamente juntos. Se enfocan en la comunicación entre componentes y la transferencia de datos
+entre ellos.
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Características:
+Detectan fallos en la interacción entre módulos independientes.
+Se ejecutan tras las pruebas unitarias para verificar conexiones y dependencias.
+Se pueden realizar de forma incremental (integrando módulos progresivamente) o en un solo paso.
+Ejemplo de uso: 
+Verificar que un módulo de pago en una tienda online se comunique correctamente con la
+API de procesamiento de pagos.
+Pruebas de Sistema:
+Las 
+pruebas de sistema
+ evalúan el software en su totalidad, asegurando que cumple con los requisitos
+funcionales y no funcionales. Se realizan en un entorno similar al de producción para simular el uso real de la
+aplicación.
+Características:
+Validan la funcionalidad completa del software.
+Involucran pruebas de rendimiento, usabilidad y seguridad.
+Pueden ser manuales o automatizadas.
+Ejemplo de uso: 
+Probar un sistema de reservas de vuelos para verificar que los usuarios puedan buscar,
+reservar y pagar boletos sin errores.
+Pruebas de Aceptación:
+Las 
+pruebas de aceptación
+ validan si el software satisface las necesidades del usuario final y los requisitos
+del negocio. Se realizan en colaboración con clientes o usuarios clave antes del lanzamiento del producto.
+Características:
+Son la última fase antes de la implementación en producción.
+Evalúan la satisfacción del usuario con el producto final.
+Se pueden realizar mediante pruebas alfa (internas) y beta (externas).
+Ejemplo de uso: 
+Un grupo de usuarios prueba una nueva app bancaria para asegurarse de que todas las
+funcionalidades sean intuitivas y cumplan con las expectativas.
+2.2. Pruebas No Funcionales
+Las 
+pruebas no funcionales
+ evalúan aspectos del software que no están relacionados con su funcionalidad,
+sino con su rendimiento, seguridad, usabilidad y compatibilidad. Su propósito es garantizar que el sistema sea
+eficiente, seguro y accesible para los usuarios en distintos entornos y dispositivos. Las 
+pruebas no
+funcionales
+ son esenciales para garantizar la estabilidad, seguridad y accesibilidad del software. Implementar
+pruebas de rendimiento, seguridad, usabilidad y compatibilidad
+ mejora la experiencia del usuario y
+previene fallos que pueden afectar la calidad del producto final.
+Pruebas de Rendimiento y Carga Las pruebas de rendimiento
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Miden la capacidad del software para responder a diferentes condiciones de uso, evaluando tiempos de
+respuesta, consumo de recursos y estabilidad. Dentro de ellas, se encuentran las 
+pruebas de carga
+, que
+analizan cómo se comporta el sistema bajo una gran cantidad de solicitudes simultáneas.
+Características:
+Determinan el tiempo de respuesta de una API o aplicación.
+Evalúan el uso de CPU, memoria y ancho de banda.
+Detectan cuellos de botella y problemas de escalabilidad.
+Ejemplo de uso: 
+Probar cuántos usuarios simultáneos puede manejar un sistema de reservas sin que se
+degrade el rendimiento.
+Herramientas:
+JMeter:
+ Simula múltiples usuarios concurrentes.
+Gatling:
+ Evalúa la capacidad de respuesta de APIs y servicios web.
+Pruebas de Seguridad:
+Las 
+pruebas de seguridad
+ identifican vulnerabilidades en el software para prevenir ataques cibernéticos y
+proteger los datos de los usuarios.
+Características:
+Evalúan la resistencia del sistema a ataques como 
+inyección SQL, XSS y fuerza bruta
+.
+Verifican la implementación de autenticación y autorización adecuadas.
+Revisan la seguridad en la transmisión de datos mediante cifrado (HTTPS, TLS).
+Ejemplo de uso: 
+Probar si una API permite acceder a datos restringidos sin autenticación adecuada.
+Herramientas:
+OWASP ZAP:
+ Identifica vulnerabilidades en aplicaciones web.
+Burp Suite:
+ Analiza la seguridad de las API y conexiones web.
+Pruebas de Usabilidad:
+Las 
+pruebas de usabilidad
+ evalúan la facilidad con la que los usuarios pueden interactuar con la aplicación,
+asegurando una experiencia intuitiva y eficiente.
+Características:
+Analizan la disposición de los elementos en la interfaz.
+Verifican la claridad de los textos y la navegación.
+Evalúan la rapidez con la que los usuarios logran completar tareas.
+Ejemplo de uso:
+Realizar pruebas con un grupo de usuarios para comprobar si pueden realizar una compra en una tienda
+online sin confusión.
+Herramientas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Hotjar:
+ Analiza la interacción de los usuarios con la interfaz.
+UsabilityHub:
+ Permite realizar pruebas de usabilidad con usuarios reales.
+Pruebas de Compatibilidad y Accesibilidad:
+Las 
+pruebas de compatibilidad
+ verifican que la aplicación funcione correctamente en diferentes dispositivos,
+navegadores y sistemas operativos.
+Las 
+pruebas de accesibilidad
+ aseguran que el software pueda ser utilizado por personas con
+discapacidades, cumpliendo con estándares como 
+WCAG (Web Content Accessibility Guidelines)
+.
+Ejemplo de uso: 
+Probar si una aplicación web se visualiza correctamente en Chrome, Firefox y Safari, y si
+los usuarios con discapacidad visual pueden navegar con lectores de pantalla.
+Herramientas:
+BrowserStack:
+ Prueba la compatibilidad en múltiples navegadores.
+WAVE:
+ Evalúa la accesibilidad de sitios web.
+2.3. Pruebas Automatizadas vs. Pruebas Manuales
+El proceso de 
+testing
+ en el desarrollo de software puede realizarse de dos maneras: 
+pruebas manuales y
+pruebas automatizadas
+. La elección entre ambas depende del tipo de pruebas a ejecutar, la frecuencia con
+la que se repetirán y la criticidad del sistema. Las 
+pruebas automatizadas
+ son ideales para validar procesos
+repetitivos y reducir costos a largo plazo, mientras que las 
+pruebas manuales
+ son esenciales cuando se
+requiere un análisis más subjetivo del software. Utilizar una combinación de ambas estrategias permite
+garantizar la calidad y estabilidad del sistema.
+Características y Ventajas de la Automatización:
+Las 
+pruebas automatizadas
+ utilizan scripts y herramientas para ejecutar pruebas sin intervención humana, lo
+que permite validar la funcionalidad del software de manera eficiente y repetitiva.
+Características de las pruebas automatizadas:
+Se ejecutan mediante scripts programados en herramientas especializadas.
+Son ideales para pruebas repetitivas y de regresión.
+Requieren una inversión inicial para desarrollar los scripts, pero reducen costos a largo plazo.
+Ventajas de la automatización:
+Mayor rapidez:
+ Se pueden ejecutar cientos de pruebas en minutos.
+Consistencia:
+ Eliminan el error humano al seguir un flujo predefinido.
+Eficiencia en pruebas de regresión:
+ Permiten detectar fallos en nuevas versiones sin necesidad de
+probar manualmente todo el sistema.
+Facilitan la integración en pipelines de CI/CD:
+ Garantizan que los cambios en el código no afecten
+la estabilidad del software.
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Cuándo Aplicar Pruebas Manuales:
+Las 
+pruebas manuales
+ son ejecutadas por testers sin el uso de scripts automatizados. Son esenciales
+cuando se requiere evaluar aspectos subjetivos del software o cuando la automatización no es viable.
+Casos en los que se prefieren pruebas manuales:
+Pruebas exploratorias:
+ Para detectar errores inesperados sin seguir un script predefinido.
+Pruebas de usabilidad:
+ Evaluar la experiencia del usuario en la navegación e interacción con la
+aplicación.
+Pruebas de casos únicos:
+ Cuando el costo de automatizar es mayor que el beneficio obtenido (por
+ejemplo, pruebas que se ejecutan una sola vez).
+Ejemplo de uso: 
+Antes del lanzamiento de una aplicación móvil, un equipo de testers realiza 
+pruebas
+manuales
+ para verificar que la interfaz sea intuitiva y accesible para los usuarios.
+Herramientas para Pruebas Automatizadas
+Existen diversas herramientas para la ejecución de pruebas automatizadas según el tipo de pruebas
+requeridas:
+Pruebas unitarias:
+PyTest (Python)
+, 
+JUnit (Java)
+, 
+NUnit (.NET)
+.
+Pruebas funcionales y de integración:
+Selenium:
+ Automatización de pruebas en navegadores web.
+Cypress:
+ Pruebas end-to-end para aplicaciones web modernas.
+Pruebas de API:
+Postman:
+ Automatización de pruebas en APIs REST.
+RestAssured:
+ Testing de APIs en Java.
+Pruebas de rendimiento:
+JMeter:
+ Simulación de múltiples usuarios para evaluar la carga del sistema.
+Gatling:
+ Pruebas de estrés y rendimiento en servidores.
+3. Estrategias de Testing en el Desarrollo de Software
+3.1. Metodologías de Pruebas
+Ejemplo de uso: 
+Una empresa de comercio electrónico implementa 
+pruebas
+automatizadas
+ para verificar que el proceso de pago funcione correctamente en cada
+actualización de su plataforma.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Las 
+metodologías de pruebas
+ establecen estrategias para planificar, diseñar y ejecutar pruebas en el
+desarrollo de software. Dependiendo de los objetivos y contexto del proyecto, se pueden utilizar enfoques
+distintos para maximizar la calidad y reducir el riesgo de fallos. Entre las metodologías más utilizadas se
+encuentran las 
+pruebas basadas en requisitos, basadas en riesgos y pruebas exploratorias o
+heurísticas
+. Las 
+metodologías de pruebas
+ permiten estructurar el proceso de testing para maximizar la
+calidad del software. Las 
+pruebas basadas en requisitos
+ aseguran el cumplimiento de especificaciones, las
+pruebas basadas en riesgos
+ priorizan la detección de fallos críticos, y las 
+pruebas exploratorias
+ aportan
+flexibilidad y creatividad en la identificación de errores.
+Pruebas Basadas en Requisitos:
+Las pruebas basadas en requisitos tienen como objetivo verificar que el software cumple con los 
+requisitos
+funcionales y no funcionales
+ definidos en la fase de análisis y diseño. Se centran en evaluar si el sistema
+satisface las especificaciones establecidas por el cliente o el equipo de desarrollo.
+Características:
+Se diseñan casos de prueba a partir de la documentación de requisitos.
+Permiten validar que todas las funcionalidades están implementadas correctamente.
+Son útiles en metodologías tradicionales como 
+Cascada (Waterfall)
+ o ágiles como 
+Scrum
+.
+Ejemplo de uso: 
+Si un sistema de reservas debe permitir a los usuarios seleccionar una fecha y confirmar
+una cita, una prueba basada en requisitos verificará que estos pasos funcionan correctamente.
+Pruebas Basadas en Riesgos:
+Este enfoque prioriza las pruebas en función de los posibles 
+riesgos y fallos críticos
+ que puedan afectar al
+sistema. Se enfoca en identificar y probar aquellas áreas donde un fallo tendría el mayor impacto en la
+seguridad, funcionalidad o experiencia del usuario.
+Características:
+Se evalúa el impacto y la probabilidad de cada posible fallo.
+Se priorizan las pruebas en módulos con mayor exposición al riesgo.
+Reduce la posibilidad de fallos graves en producción.
+Ejemplo de uso:
+En una plataforma de banca en línea, las pruebas de seguridad en el sistema de pagos tienen mayor prioridad
+que la personalización del perfil del usuario.
+Pruebas Exploratorias y Heurísticas:
+Las pruebas exploratorias no siguen un guion predefinido, sino que el tester investiga y prueba el sistema de
+manera libre, 
+identificando fallos de manera intuitiva
+. Se basan en la experiencia y creatividad del tester
+para encontrar errores inesperados.
+Características:
+No requieren casos de prueba escritos previamente.
+Son útiles cuando el tiempo es limitado o la documentación no está completa.
+Complementan otras estrategias para detectar fallos no anticipados.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Ejemplo de uso: 
+Un tester navega por una aplicación móvil sin seguir un plan estructurado, buscando errores
+en la interfaz y fallos en la interacción del usuario.
+3.2. Técnicas de Pruebas de Software
+Las 
+técnicas de pruebas de software
+ permiten evaluar la funcionalidad, estructura y comportamiento de una
+aplicación para detectar fallos antes de su lanzamiento. Dependiendo del nivel de conocimiento que el tester
+tenga sobre el código y la lógica interna del sistema, las pruebas pueden clasificarse en 
+caja negra, caja
+blanca y caja gris
+. Las 
+pruebas de caja negra, blanca y gris
+ son técnicas esenciales para evaluar el
+software desde diferentes perspectivas. Mientras que 
+caja negra
+ se enfoca en la experiencia del usuario,
+caja blanca
+ analiza la estructura interna del código, y 
+caja gris
+ permite validar la interacción entre los
+componentes internos y externos. Utilizar una combinación de estas técnicas garantiza un software 
+más
+robusto, seguro y funcional
+.
+Pruebas de Caja Negra:
+Las 
+pruebas de caja negra
+ evalúan la funcionalidad del software sin conocer su estructura interna o código
+fuente. Se centran en validar las 
+entradas y salidas
+ del sistema, asegurando que los resultados sean los
+esperados.
+Características:
+Se basan en los requisitos funcionales del sistema.
+No requieren acceso al código fuente.
+Permiten evaluar el software desde la perspectiva del usuario final.
+Ejemplo de uso: 
+Un tester ingresa credenciales incorrectas en un formulario de inicio de sesión para verificar
+si el sistema muestra un mensaje de error adecuado.
+Ventajas:
+Se pueden aplicar en cualquier fase del desarrollo.
+No requiere conocimientos de programación.
+Útil para validar la experiencia del usuario.
+Pruebas de Caja Blanca:
+Las 
+pruebas de caja blanca
+ analizan la estructura interna del código, verificando el flujo lógico y la ejecución
+de cada instrucción. Se centran en 
+la lógica de programación, cobertura de código y estructuras de
+control
+.
+Características:
+Requieren acceso al código fuente y conocimientos de programación.
+Permiten evaluar la cobertura del código (pruebas de caminos, bucles y condiciones).
+Son útiles para identificar errores en estructuras de control y cálculos complejos.
+Ejemplo de uso: 
+Un desarrollador revisa si todas las condiciones en una estructura if-else se ejecutan
+correctamente con distintos valores de entrada.
+Ventajas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Detecta fallos en la lógica del código.
+Garantiza una mayor cobertura de pruebas en el código fuente.
+Permite optimizar el rendimiento del software.
+Pruebas de Caja Gris:
+Las 
+pruebas de caja gris
+ combinan elementos de las pruebas de caja negra y caja blanca. Se utilizan
+cuando el tester tiene 
+acceso parcial
+ a la información interna del sistema, permitiendo validar tanto la
+funcionalidad como ciertos aspectos del código.
+Características:
+Permiten evaluar la interacción entre módulos internos y externos.
+Son útiles en pruebas de integración y de seguridad.
+Ayudan a identificar vulnerabilidades ocultas en el sistema.
+Ejemplo de uso: 
+Un tester analiza los registros de la base de datos después de ejecutar pruebas en la
+interfaz de usuario para verificar si los datos se almacenan correctamente.
+Ventajas:
+Combina lo mejor de las pruebas funcionales y estructurales.
+Permite descubrir fallos en la interacción entre componentes internos y externos.
+Se usa en pruebas de seguridad y carga.
+3.3. Planificación y Ejecución de Pruebas
+La planificación y ejecución de pruebas es fundamental en el desarrollo de software para garantizar la calidad
+del producto final. Un proceso de testing bien estructurado permite detectar fallos a tiempo, optimizar el
+rendimiento y mejorar la experiencia del usuario. La planificación y ejecución de pruebas es clave para
+garantizar software confiable. Un 
+plan de pruebas bien estructurado, un diseño eficiente de casos de
+prueba y un adecuado registro de defectos
+ mejoran la calidad y reducen costos de mantenimiento.
+Plan de Pruebas: Objetivos, Alcance y Recursos
+El 
+plan de pruebas
+ es un documento que define la estrategia de testing, estableciendo los objetivos, el
+alcance y los recursos necesarios para su ejecución.
+Objetivos:
+ Determinar qué aspectos del software serán evaluados y qué se espera lograr con las
+pruebas (ejemplo: validar la funcionalidad de una API o medir el rendimiento bajo alta carga).
+Alcance:
+ Especificar qué módulos, funcionalidades y plataformas serán probados. También define qué
+tipos de pruebas se realizarán (unitarias, integración, sistema, aceptación).
+Recursos:
+ Identificar el equipo de testing, herramientas a utilizar (Postman, Selenium, JMeter) y el
+entorno de pruebas (servidores, bases de datos, dispositivos).
+Un plan bien definido reduce riesgos, optimiza tiempos y facilita la detección de problemas antes del
+despliegue.
+Diseño de Casos de Prueba:
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+El 
+caso de prueba
+ es un conjunto de condiciones que se ejecutan para evaluar una funcionalidad específica
+del software. Un buen diseño de casos de prueba debe considerar:
+1
+. 
+Identificación del módulo o funcionalidad a probar.
+2
+. 
+Entradas esperadas
+ (datos de prueba).
+3
+. 
+Acción a realizar
+ (clic, envío de formulario, consulta a API).
+4
+. 
+Resultado esperado
+ (mensaje de éxito, respuesta en JSON, pantalla cargada correctamente).
+Ejemplo:
+Caso de prueba:
+ Validar el inicio de sesión con credenciales incorrectas.
+Entrada:
+ Usuario: "
+test@example.com
+", Contraseña: "12345".
+Acción:
+ Ingresar credenciales y presionar "Iniciar sesión".
+Resultado esperado:
+ Mostrar mensaje "Credenciales incorrectas".
+Registro y Reporte de Defectos:
+Cuando se detecta un fallo en el software, se debe documentar correctamente para que el equipo de
+desarrollo pueda corregirlo. Un 
+buen reporte de defectos
+ debe incluir:
+Descripción del error.
+Pasos para reproducirlo.
+Entorno donde ocurrió (navegador, sistema operativo, versión del software).
+Prioridad y severidad del error.
+El uso de herramientas como 
+JIRA, Bugzilla o Trello
+ facilita la gestión y seguimiento de errores.
+4. Herramientas y Frameworks para Testing
+4.1. Herramientas para Pruebas Unitarias
+Las 
+pruebas unitarias
+ son esenciales en el desarrollo de software para verificar que los módulos individuales
+funcionan correctamente. Existen diversas herramientas para automatizar estas pruebas en diferentes
+lenguajes de programación.
+PyTest para Pruebas en Python:
+PyTest
+ es una de las herramientas más utilizadas para realizar pruebas unitarias en 
+Python
+ debido a su
+simplicidad y flexibilidad
+.
+Características:
+Permite escribir pruebas con menos código en comparación con unittest.
+Soporta 
+parametrización
+ de pruebas para ejecutar múltiples escenarios con diferentes datos.
+Se integra con frameworks como 
+Django y Flask
+.
+JUnit para Pruebas en Java:
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+JUnit
+ es la herramienta estándar para pruebas unitarias en 
+Java
+, utilizada en entornos empresariales y
+proyectos de código abierto.
+Características:
+Soporte para pruebas automatizadas con 
+anotaciones (@Test, @Before, @After)
+.
+Se integra con herramientas como 
+Maven y Gradle
+.
+Permite ejecutar pruebas de forma aislada o en grupos.
+NUnit para Pruebas en .NET:
+NUnit
+ es un framework popular para realizar pruebas unitarias en 
+.NET
+.
+Características:
+Soporta 
+aserciones y ejecución paralela
+.
+Compatible con 
+.NET Core y .NET Framework
+.
+Se integra con herramientas como 
+Visual Studio y Azure DevOps
+.
+4.2. Herramientas para Pruebas de Integración y End-to-End (E2E)
+Las 
+pruebas de integración y End-to-End (E2E)
+ garantizan que los diferentes componentes de un sistema
+funcionen correctamente juntos. Para ello, se utilizan herramientas que permiten simular interacciones reales
+y validar la comunicación entre módulos.
+Selenium
+Es una de las herramientas más populares para 
+automatizar pruebas en interfaces gráficas
+. Permite
+interactuar con aplicaciones web como lo haría un usuario real, simulando acciones como hacer clic,
+ingresar texto y navegar entre páginas. Es compatible con múltiples navegadores y lenguajes de
+programación.
+Cypress
+Está diseñado específicamente para 
+pruebas en aplicaciones web
+ modernas. Su principal ventaja es que
+ejecuta las pruebas directamente en el navegador, ofreciendo mayor rapidez y control sobre los eventos de
+la página. Es ideal para validar el comportamiento de interfaces dinámicas en frameworks como React,
+Angular y Vue.js.
+Postman
+Se utiliza para 
+pruebas en APIs REST
+, permitiendo enviar solicitudes HTTP (GET, POST, PUT, DELETE)
+y validar respuestas. Es una herramienta clave en la integración de servicios, asegurando que la
+comunicación entre módulos y bases de datos sea correcta.
+4.3. Herramientas para Pruebas de Seguridad y Rendimiento
+Documento solo para uso personal. Prohibido copiar o distribuir
+15/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Las pruebas de seguridad y rendimiento son fundamentales para garantizar la 
+protección de los datos
+ y la
+eficiencia del software
+ bajo diferentes condiciones de uso. Existen herramientas especializadas que
+permiten detectar vulnerabilidades y evaluar el desempeño del sistema.
+OWASP ZAP
+(Zed Attack Proxy) es una herramienta utilizada para el 
+análisis de vulnerabilidades en aplicaciones
+web
+. Identifica riesgos como inyección SQL, XSS y configuración incorrecta de seguridad. Es ampliamente
+utilizada en pruebas de penetración automatizadas y manuales.
+JMeter
+Se usa para realizar 
+pruebas de carga y estrés
+, evaluando cómo un sistema responde bajo alta
+concurrencia de usuarios. Permite medir tiempos de respuesta y detectar cuellos de botella en servidores,
+bases de datos y APIs.
+Burp Suite
+Es una herramienta avanzada de 
+pentesting en APIs
+, diseñada para encontrar debilidades en la
+comunicación entre clientes y servidores. Ayuda a interceptar solicitudes, manipular datos y analizar
+protocolos de seguridad, siendo esencial en auditorías de seguridad.
+5. Automatización del Testing y CI/CD
+5.1. Introducción a la Automatización de Pruebas
+La 
+automatización de pruebas
+ permite ejecutar pruebas de software de manera repetitiva y eficiente
+mediante herramientas especializadas. Su objetivo es mejorar la calidad del software reduciendo el tiempo y
+los errores humanos en las pruebas manuales.
+Beneficios de la automatización:
+Mayor rapidez y eficiencia
+, ya que las pruebas pueden ejecutarse sin intervención manual.
+Reducción de costos a largo plazo
+, evitando la repetición manual de pruebas.
+Mejor cobertura de pruebas
+, al ejecutar múltiples casos en distintos entornos.
+Sin embargo, la automatización también presenta 
+desafíos
+, como la 
+inversión inicial en herramientas y
+scripts
+ y la necesidad de 
+mantenimiento constante
+ para adaptarse a cambios en el software.
+Estrategias para implementar pruebas automatizadas:
+Priorizar pruebas repetitivas y de regresión.
+Utilizar herramientas adecuadas
+ según el tipo de prueba (Selenium, PyTest, JUnit).
+Integrar las pruebas en pipelines de CI/CD
+, asegurando validaciones en cada nueva versión del
+software.
+Documento solo para uso personal. Prohibido copiar o distribuir
+16/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+5.2. Testing en Integración y Despliegue Continuo (CI/CD)
+Las metodologías 
+CI/CD (Integración Continua y Despliegue Continuo)
+ han revolucionado el desarrollo de
+software al permitir 
+entregas frecuentes, automatizadas y confiables
+. El testing juega un papel clave en
+este proceso, asegurando que cada cambio en el código pase por validaciones antes de ser desplegado en
+producción. Integrar pruebas automatizadas en 
+pipelines CI/CD
+ asegura un desarrollo ágil, confiable y sin
+errores en producción. Herramientas como 
+Jenkins, GitHub Actions y GitLab CI
+ facilitan la ejecución de
+pruebas en cada cambio de código, mejorando la calidad y eficiencia del software.
+Concepto de CI/CD y su Relación con Testing
+Integración Continua (CI):
+ Se refiere a la práctica de integrar cambios de código en un repositorio
+central varias veces al día, donde se ejecutan pruebas automáticas para detectar errores rápidamente.
+Despliegue Continuo (CD):
+ Automiza la entrega del software a entornos de prueba o producción
+después de validar que pasó todas las pruebas definidas en el pipeline.
+El testing en CI/CD es esencial porque garantiza que 
+cada modificación en el código se valide
+automáticamente
+, reduciendo el riesgo de errores en producción y acelerando los ciclos de desarrollo.
+Implementación de Pruebas Automatizadas en Pipelines CI/CD:
+Para integrar pruebas en un pipeline CI/CD, se deben seguir estos pasos:
+1
+. 
+Ejecutar pruebas unitarias
+ cada vez que se realice un commit para detectar errores en funciones
+individuales.
+2
+. 
+Ejecutar pruebas de integración
+ para validar la comunicación entre módulos.
+3
+. 
+Realizar pruebas end-to-end (E2E)
+ que simulen interacciones reales de los usuarios.
+4
+. 
+Ejecutar pruebas de rendimiento y seguridad
+ en fases avanzadas del pipeline.
+5
+. 
+Si las pruebas son exitosas, automatizar el despliegue a entornos de prueba o producción.
+Esta estrategia garantiza que solo se desplieguen versiones estables y sin errores.
+Herramientas para CI/CD: Jenkins, GitHub Actions y GitLab CI
+Jenkins:
+ Una de las herramientas más populares para CI/CD, permite crear pipelines personalizados
+para automatizar pruebas y despliegues en cualquier entorno.
+GitHub Actions:
+ Integrado en GitHub, facilita la automatización de pruebas en cada commit o pull
+request. Es ideal para equipos que trabajan con repositorios en GitHub.
+GitLab CI:
+ Permite definir pipelines dentro de un repositorio GitLab, con soporte para múltiples
+entornos y automatización de pruebas en cada fase del desarrollo.
+5.3 Buenas Prácticas en Testing
+El testing es un componente fundamental en el desarrollo de software, ya que garantiza la 
+calidad,
+estabilidad y seguridad
+ de las aplicaciones. Implementar buenas prácticas permite detectar errores de
+manera temprana, optimizar los procesos de validación y reducir costos en la corrección de defectos. Aplicar
+buenas prácticas en testing es esencial para entregar 
+software de calidad, seguro y eficiente
+. La
+combinación de pruebas automatizadas, estrategias de validación en CI/CD y nuevas tendencias tecnológicas
+permitirá mejorar la estabilidad y fiabilidad del software en el futuro.
+Documento solo para uso personal. Prohibido copiar o distribuir
+17/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Resumen de las Mejores Prácticas en Testing:
+1
+. 
+Definir una estrategia de pruebas:
+ Es crucial establecer un plan de testing que incluya pruebas
+unitarias, de integración, de sistema y de aceptación.
+2
+. 
+Automatizar pruebas repetitivas:
+ La automatización de pruebas de regresión y de integración agiliza
+el desarrollo y previene errores en nuevas versiones.
+3
+. 
+Ejecutar pruebas desde etapas tempranas:
+ Aplicar el enfoque 
+Shift-Left Testing
+ permite detectar
+problemas en fases iniciales, reduciendo costos de corrección.
+4
+. 
+Utilizar datos de prueba realistas:
+ Emplear escenarios de prueba que reflejen condiciones reales de
+uso mejora la fiabilidad de los resultados.
+5
+. 
+Monitorizar y analizar métricas de calidad:
+ Evaluar cobertura de pruebas, tasa de fallos y tiempos
+de respuesta para mejorar el desempeño del software.
+Recomendaciones para Garantizar la Calidad del Software:
+Combinar pruebas manuales y automatizadas:
+ La automatización mejora la eficiencia, pero las
+pruebas manuales siguen siendo clave en validaciones de usabilidad y experiencia de usuario.
+Implementar pruebas continuas en CI/CD:
+ Integrar pruebas en pipelines de Integración y
+Despliegue Continuo (CI/CD) garantiza que cada cambio de código sea validado automáticamente.
+Incluir pruebas de seguridad y rendimiento:
+ Evaluar la resistencia del software frente a ataques y
+pruebas de carga permite asegurar su estabilidad bajo diferentes condiciones.
+Realizar revisiones periódicas de los casos de prueba:
+ Asegurar que los casos de prueba
+evolucionen conforme cambian los requisitos del software.
+Tendencias Futuras en el Testing de Software:
+El testing de software sigue evolucionando con nuevas tecnologías y metodologías. Algunas tendencias
+destacadas incluyen:
+Inteligencia Artificial en testing:
+ Se están desarrollando herramientas basadas en IA para detectar
+patrones de fallos y generar casos de prueba automáticamente.
+Testing en entornos DevOps:
+ Las pruebas continuas son cada vez más relevantes en entornos
+ágiles y DevOps.
+Pruebas en la nube:
+ La simulación de entornos de prueba en la nube permite escalar y ejecutar
+pruebas en múltiples configuraciones sin depender de infraestructura física.
+Bibliografía y lecturas recomendadas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+18/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Martínez, J. (2021).
+ 
+Testing de software: Metodologías y técnicas para la garantía
+de calidad.
+ Ediciones Ra-Ma.
+González, A. & Pérez, M. (2020).
+ 
+Automatización de pruebas de software:
+Estrategias y herramientas.
+ Alfaomega.
+Soler, C. (2019).
+ 
+Pruebas de software y aseguramiento de la calidad.
+ Marcombo.
+García, F. (2022).
+ 
+Metodologías de Testing y control de calidad en el desarrollo de
+software.
+ Anaya Multimedia.
+ISTQB (International Software Testing Qualifications Board)
+ URL: 
+https://www.is
+tqb.org/
+OWASP (Open Web Application Security Project)
+ URL: 
+https://owasp.org/
+Ministerio de Asuntos Económicos y Transformación Digital de España - Guía
+de Calidad del Software
+ URL: 
+https://www.incibe.es/protege-tu-empresa/guia-calid
+ad-software
+Documento solo para uso personal. Prohibido copiar o distribuir
+19/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Ejercicio 19. Estrategia de Testing para una Plataforma de Comercio
+Electrónico
+Una empresa de comercio electrónico está desarrollando una nueva versión de su plataforma web, que
+incluye las siguientes funcionalidades clave:
+Gestión de usuarios: Registro, inicio de sesión y recuperación de contraseñas.
+Catálogo de productos: Visualización, filtrado y búsqueda de productos.
+Carrito de compras y pagos: Agregar productos al carrito, procesar pagos con Stripe y PayPal.
+Sistema de pedidos: Seguimiento y notificación de envíos.
+El equipo de desarrollo ha solicitado definir una estrategia de pruebas para garantizar la calidad del software
+antes de su lanzamiento.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Ejercicio 20. Estrategia de Testing para una Aplicación de Reservas
+de Hoteles
+Una empresa de turismo ha desarrollado una aplicación web y móvil para gestionar reservas de hoteles,
+donde los usuarios pueden:
+Buscar hoteles según ubicación, disponibilidad y precio.
+Reservar habitaciones y pagar en línea con tarjetas de crédito y PayPal.
+Gestionar cancelaciones y modificaciones de reservas.
+Recibir confirmaciones y notificaciones de su reserva.
+El equipo de desarrollo necesita definir una estrategia de testing antes del lanzamiento para garantizar que el
+sistema sea estable, seguro y fácil de usar.
+Tareas a Resolver:
+1.
+Definir los tipos de pruebas necesarias (unitarias, integración, sistema, aceptación).
+Planificar pruebas no funcionales (rendimiento, seguridad, usabilidad).
+Seleccionar herramientas adecuadas para la ejecución de pruebas automatizadas y manuales.
+Establecer un proceso de reporte y seguimiento de errores.
+Documento solo para uso personal. Prohibido copiar o distribuir
+20/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Tareas a Resolver:
+1.
+Definir los tipos de pruebas necesarias (unitarias, integración, sistema, aceptación).
+Planificar pruebas no funcionales (rendimiento, seguridad, compatibilidad).
+Seleccionar herramientas adecuadas para la ejecución de pruebas automatizadas y manuales.
+Establecer un proceso de reporte y seguimiento de errores.
+Documento solo para uso personal. Prohibido copiar o distribuir
+21/21
+Validación y verificación (Testing)
+idalumno:906687|unidad:10|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Tema 4: Diseño - Introducción al Modelado Conceptual - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .programming-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .diagram-type {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .data-model {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .design-pattern {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .modeling-tool {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación
+            </a>
+            
+            <span class="navbar-text">
+                Tema 4: Diseño - Modelado Conceptual - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-light me-2" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <span class="navbar-text timer-display" id="timer-display">Teoría</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid">
+        <div class="programming-hero">
+            <div class="container">
+                <h1 class="display-4 mb-3">
+                    <i class="bi bi-diagram-3 me-3"></i>
+                    Diseño y Modelado Conceptual
+                </h1>
+                <p class="lead mb-4">Parte 2: Diagramas de Comportamiento • Modelado de Datos • Patrones • Herramientas</p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-book me-1"></i>Tema 4 - Parte 2
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-clock me-1"></i>40 min lectura
+                        </span>
+                        <span class="badge bg-light text-dark fs-6">
+                            <i class="bi bi-tools me-1"></i>Prácticas
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#diagramas-comportamiento">Diagramas de Comportamiento</a>
+                                <a class="nav-link" href="#modelado-datos">Modelado de Datos</a>
+                                <a class="nav-link" href="#patrones-diseño">Patrones de Diseño</a>
+                                <a class="nav-link" href="#herramientas-modelado">Herramientas</a>
+                                <a class="nav-link" href="#mejores-practicas">Mejores Prácticas</a>
+                                <a class="nav-link" href="#resumen">Resumen</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Diagramas de Comportamiento -->
+                <section id="diagramas-comportamiento" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Diagramas de Comportamiento UML
+                    </h2>
+                    
+                    <p class="lead">Los diagramas de comportamiento muestran <strong>cómo funciona el sistema</strong> - las interacciones, flujos y cambios de estado.</p>
+                    
+                    <h3>Diagrama de Secuencia</h3>
+                    <div class="diagram-type">
+                        <h5><i class="bi bi-arrow-down-up me-2"></i>Interacciones en el Tiempo</h5>
+                        <p>Muestra <strong>cómo los objetos colaboran</strong> para realizar una funcionalidad</p>
+                        
+                        <div class="code-example">
+                            <h6>Ejemplo: Login de usuario</h6>
+                            <pre>Usuario    │ Sistema   │ BD
+   │        │           │
+   ├────────▶ login()   │
+   │        ├───────────▶ verificar()
+   │        ◁───────────┤ true/false
+   │        │           │
+   ◁────────┤ sesión    │</pre>
+                        </div>
+                    </div>
+
+                    <h3>Diagrama de Actividad</h3>
+                    <div class="diagram-type">
+                        <h5><i class="bi bi-flow-parallel me-2"></i>Flujos de Proceso</h5>
+                        <p>Representa <strong>workflow y lógica de negocio</strong> con decisiones y paralelismo</p>
+                        
+                        <div class="code-example">
+                            <h6>Ejemplo: Proceso de compra</h6>
+                            <pre>○ Inicio
+↓
+□ Seleccionar productos
+↓
+◇ ¿Carrito vacío? → Sí → ○ Fin
+↓ No
+□ Proceso pago
+↓
+□ Confirmar orden
+↓
+○ Fin</pre>
+                        </div>
+                    </div>
+
+                    <h3>Diagrama de Estados</h3>
+                    <div class="diagram-type">
+                        <h5><i class="bi bi-circle-square me-2"></i>Ciclos de Vida</h5>
+                        <p>Modela <strong>estados de objetos</strong> y transiciones entre ellos</p>
+                        
+                        <div class="code-example">
+                            <h6>Estados de un pedido:</h6>
+                            <pre>Pendiente → [pago confirmado] → Procesando
+     ↓                              ↓
+Cancelado ← [timeout/error] ← Enviado
+                              ↓
+                          Entregado</pre>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Cuándo Usar Cada Diagrama</h4>
+                        <ul class="mb-0">
+                            <li><strong>Secuencia:</strong> Colaboración entre objetos específicos</li>
+                            <li><strong>Actividad:</strong> Procesos de negocio y workflows complejos</li>
+                            <li><strong>Estados:</strong> Objetos con ciclos de vida definidos</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Modelado de Datos -->
+                <section id="modelado-datos" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-database me-2"></i>
+                        Modelado de Datos
+                    </h2>
+
+                    <p>El modelado de datos diseña <strong>cómo se almacenan, organizan y relacionan</strong> los datos en el sistema.</p>
+
+                    <h3>Modelo Entidad-Relación (ER)</h3>
+                    <div class="data-model">
+                        <h5><i class="bi bi-diagram-2 me-2"></i>Componentes del Modelo ER</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <p><strong>Entidades:</strong> Objetos del mundo real</p>
+                                <p class="small mb-0">Usuario, Producto, Pedido</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Atributos:</strong> Propiedades de entidades</p>
+                                <p class="small mb-0">nombre, precio, fecha</p>
+                            </div>
+                            <div class="col-md-4">
+                                <p><strong>Relaciones:</strong> Conexiones entre entidades</p>
+                                <p class="small mb-0">Cliente "realiza" Pedido</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-diagram-3 me-2"></i>Ejemplo de modelo ER:</h6>
+                        <pre>USUARIO (id, nombre, email, fecha_registro)
+   │
+   │ 1:N (realiza)
+   ▼
+PEDIDO (id, fecha, total, estado, usuario_id)
+   │
+   │ N:M (contiene)
+   ▼
+PRODUCTO (id, nombre, precio, stock)</pre>
+                    </div>
+
+                    <h3>Normalización de Bases de Datos</h3>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="data-model">
+                                <h5><i class="bi bi-1-circle me-2"></i>Primera Forma Normal (1NF)</h5>
+                                <p><strong>Eliminar valores repetidos</strong></p>
+                                <p class="mb-0">Cada celda contiene un solo valor</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="data-model">
+                                <h5><i class="bi bi-2-circle me-2"></i>Segunda Forma Normal (2NF)</h5>
+                                <p><strong>Eliminar dependencias parciales</strong></p>
+                                <p class="mb-0">Todos los atributos dependen de la clave completa</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="data-model">
+                                <h5><i class="bi bi-3-circle me-2"></i>Tercera Forma Normal (3NF)</h5>
+                                <p><strong>Eliminar dependencias transitivas</strong></p>
+                                <p class="mb-0">Atributos no clave no dependen entre sí</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-balance me-2"></i>Normalización vs. Rendimiento</h4>
+                        <p>La normalización reduce redundancia pero puede afectar el rendimiento. En sistemas con <strong>muchas consultas</strong>, a veces se desnormaliza intencionalmente.</p>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-table me-2"></i>Ejemplo de normalización:</h6>
+                        <pre><strong>Sin normalizar (problemático):</strong>
+PEDIDO (id, cliente_nombre, cliente_email, producto_nombre, precio)
+
+<strong>Normalizado (correcto):</strong>
+CLIENTE (id, nombre, email)
+PRODUCTO (id, nombre, precio)  
+PEDIDO (id, cliente_id, producto_id, cantidad)</pre>
+                    </div>
+                </section>
+
+                <!-- Patrones de Diseño -->
+                <section id="patrones-diseño" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-palette me-2"></i>
+                        Patrones de Diseño
+                    </h2>
+
+                    <p>Los patrones de diseño son <strong>soluciones reutilizables</strong> a problemas comunes en el diseño de software.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-recycle me-2"></i>¿Por qué Usar Patrones?</h4>
+                        <ul class="mb-0">
+                            <li><strong>Experiencia probada:</strong> Soluciones validadas</li>
+                            <li><strong>Comunicación:</strong> Vocabulario común entre desarrolladores</li>
+                            <li><strong>Reutilización:</strong> No reinventar la rueda</li>
+                            <li><strong>Mantenibilidad:</strong> Código más organizado</li>
+                        </ul>
+                    </div>
+
+                    <h3>Patrones Fundamentales</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-pattern">
+                                <h5><i class="bi bi-person me-2"></i>Singleton</h5>
+                                <p><strong>Una sola instancia global</strong></p>
+                                <p class="mb-0">Para configuración, logs, conexiones BD</p>
+                                
+                                <div class="code-example mt-2">
+                                    <pre>class ConfigManager:
+    _instance = None
+    
+    def __new__(cls):
+        if not cls._instance:
+            cls._instance = super().__new__(cls)
+        return cls._instance</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-pattern">
+                                <h5><i class="bi bi-tools me-2"></i>Factory</h5>
+                                <p><strong>Crear objetos sin especificar clase exacta</strong></p>
+                                <p class="mb-0">Para crear diferentes tipos de objetos</p>
+                                
+                                <div class="code-example mt-2">
+                                    <pre>class VehiculoFactory:
+    def crear(tipo):
+        if tipo == "auto":
+            return Auto()
+        elif tipo == "moto":
+            return Moto()</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-pattern">
+                                <h5><i class="bi bi-eye me-2"></i>Observer</h5>
+                                <p><strong>Notificar cambios automáticamente</strong></p>
+                                <p class="mb-0">Para actualizaciones de UI, eventos</p>
+                                
+                                <div class="code-example mt-2">
+                                    <pre>class Observable:
+    def __init__(self):
+        self.observers = []
+    
+    def notify(self):
+        for obs in self.observers:
+            obs.update()</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-pattern">
+                                <h5><i class="bi bi-strategy me-2"></i>Strategy</h5>
+                                <p><strong>Algoritmos intercambiables</strong></p>
+                                <p class="mb-0">Para diferentes comportamientos</p>
+                                
+                                <div class="code-example mt-2">
+                                    <pre>class PagoContext:
+    def __init__(self, strategy):
+                        self.strategy = strategy
+    
+    def procesar(self, amount):
+        return self.strategy.pagar(amount)</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Cuándo NO Usar Patrones</h4>
+                        <p class="mb-0">No aplicar patrones <strong>"porque sí"</strong>. Úsalos solo cuando resuelvan un problema específico y mejoren el diseño.</p>
+                    </div>
+                </section>
+
+                <!-- Herramientas de Modelado -->
+                <section id="herramientas-modelado" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-tools me-2"></i>
+                        Herramientas de Modelado
+                    </h2>
+
+                    <p>Las herramientas adecuadas facilitan la <strong>creación, mantenimiento y colaboración</strong> en modelos de software.</p>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="modeling-tool">
+                                <h5><i class="bi bi-cloud me-2"></i>Herramientas Online</h5>
+                                <ul>
+                                    <li><strong>Lucidchart:</strong> Colaborativo, integración con Google</li>
+                                    <li><strong>Draw.io:</strong> Gratuito, funciona offline</li>
+                                    <li><strong>Miro:</strong> Pizarra digital para diseño</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="modeling-tool">
+                                <h5><i class="bi bi-laptop me-2"></i>Software Especializado</h5>
+                                <ul>
+                                    <li><strong>Enterprise Architect:</strong> UML completo</li>
+                                    <li><strong>Visual Paradigm:</strong> Modelado profesional</li>
+                                    <li><strong>PlantUML:</strong> Diagramas como código</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="modeling-tool">
+                                <h5><i class="bi bi-code me-2"></i>IDEs con UML</h5>
+                                <ul>
+                                    <li><strong>IntelliJ IDEA:</strong> Diagramas desde código</li>
+                                    <li><strong>Visual Studio:</strong> Modelado integrado</li>
+                                    <li><strong>Eclipse:</strong> Plugins de UML</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="modeling-tool">
+                                <h5><i class="bi bi-database me-2"></i>Bases de Datos</h5>
+                                <ul>
+                                    <li><strong>MySQL Workbench:</strong> Modelado ER</li>
+                                    <li><strong>PostgreSQL pgAdmin:</strong> Diseño BD</li>
+                                    <li><strong>MongoDB Compass:</strong> Esquemas NoSQL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>PlantUML: Diagramas como Código</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-file-code me-2"></i>Ventajas de PlantUML</h4>
+                        <ul class="mb-0">
+                            <li><strong>Control de versiones:</strong> Texto plano en Git</li>
+                            <li><strong>Automatización:</strong> Generar diagramas en CI/CD</li>
+                            <li><strong>Consistencia:</strong> Estilo uniforme automático</li>
+                            <li><strong>Velocidad:</strong> Escritura rápida vs. drag&drop</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-diagram-2 me-2"></i>Ejemplo PlantUML:</h6>
+                        <pre>@startuml
+class Usuario {
+  -id: int
+  -nombre: string
+  +login()
+  +logout()
+}
+
+class Pedido {
+  -id: int
+  -fecha: Date
+  +calcularTotal()
+}
+
+Usuario ||--o{ Pedido : realiza
+@enduml</pre>
+                    </div>
+                </section>
+
+                <!-- Mejores Prácticas -->
+                <section id="mejores-practicas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-award me-2"></i>
+                        Mejores Prácticas en Modelado
+                    </h2>
+
+                    <p>Seguir mejores prácticas asegura que los modelos sean <strong>útiles, mantenibles y comprensibles</strong>.</p>
+
+                    <h3>Principios de Modelado Efectivo</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-target me-2"></i>Simplicidad</h5>
+                                <p><strong>Modelos simples comunican mejor</strong></p>
+                                <ul class="mb-0">
+                                    <li>Un diagrama, un propósito</li>
+                                    <li>No más de 7±2 elementos por vista</li>
+                                    <li>Niveles de abstracción apropiados</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-people me-2"></i>Orientado a Audiencia</h5>
+                                <p><strong>Modelos para diferentes stakeholders</strong></p>
+                                <ul class="mb-0">
+                                    <li>Clientes: casos de uso</li>
+                                    <li>Desarrolladores: clases detalladas</li>
+                                    <li>Arquitectos: componentes de alto nivel</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-arrow-clockwise me-2"></i>Evolutivos</h5>
+                                <p><strong>Modelos que evolucionan</strong></p>
+                                <ul class="mb-0">
+                                    <li>Actualizados con el código</li>
+                                    <li>Versionados en control de código</li>
+                                    <li>Refinados iterativamente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-check-square me-2"></i>Validados</h5>
+                                <p><strong>Verificados con stakeholders</strong></p>
+                                <ul class="mb-0">
+                                    <li>Revisiones con usuarios</li>
+                                    <li>Validación técnica</li>
+                                    <li>Pruebas de concepto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-exclamation-triangle me-2"></i>Errores Comunes en Modelado</h4>
+                        <ul class="mb-0">
+                            <li><strong>Sobre-modelado:</strong> Crear diagramas que nadie mantiene</li>
+                            <li><strong>Modelos obsoletos:</strong> No actualizar con cambios de código</li>
+                            <li><strong>Demasiado detalle:</strong> Diagramas incomprensibles</li>
+                            <li><strong>Falta de validación:</strong> Modelos que no reflejan realidad</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Metodologías de Modelado -->
+                <section id="metodologias" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-arrow-repeat me-2"></i>
+                        Metodologías de Modelado
+                    </h2>
+
+                    <h3>Domain-Driven Design (DDD)</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-globe me-2"></i>Enfoque en el Dominio</h4>
+                        <p class="mb-0">El modelo debe reflejar el <strong>lenguaje y conceptos del negocio</strong>, no solo la implementación técnica.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-chat-square-text me-2"></i>Lenguaje Ubicuo</h5>
+                                <p><strong>Vocabulario común</strong></p>
+                                <p class="mb-0">Desarrolladores y expertos del negocio usan los mismos términos</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-diagram-2 me-2"></i>Modelos de Dominio</h5>
+                                <p><strong>Entidades del mundo real</strong></p>
+                                <p class="mb-0">Objetos que tienen identidad y comportamiento en el negocio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Model-Driven Development (MDD)</h3>
+                    <div class="data-model">
+                        <h5><i class="bi bi-arrow-down me-2"></i>De Modelos a Código</h5>
+                        <p>Generar código automáticamente desde modelos de alto nivel</p>
+                        
+                        <div class="code-example">
+                            <h6>Flujo MDD:</h6>
+                            <pre>Modelo UML → Generador → Código Base → Desarrollo Manual</pre>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-balance me-2"></i>Ventajas y Desafíos del MDD</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Ventajas:</strong></p>
+                                <ul>
+                                    <li>Desarrollo más rápido</li>
+                                    <li>Menos errores de codificación</li>
+                                    <li>Documentación automática</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Desafíos:</strong></p>
+                                <ul class="mb-0">
+                                    <li>Herramientas costosas</li>
+                                    <li>Curva de aprendizaje</li>
+                                    <li>Pérdida de control del código</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integración con Desarrollo -->
+                <section id="integracion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-gear-fill me-2"></i>
+                        Integración del Modelado en el Desarrollo
+                    </h2>
+
+                    <p>El modelado debe estar <strong>integrado</strong> en el proceso de desarrollo, no ser una actividad aislada.</p>
+
+                    <h3>Modelado Ágil</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-lightning me-2"></i>Principios del Modelado Ágil</h4>
+                        <ul class="mb-0">
+                            <li><strong>Just enough:</strong> Modelar solo lo necesario</li>
+                            <li><strong>Just in time:</strong> Modelar cuando se necesite</li>
+                            <li><strong>Colaborativo:</strong> Toda el equipo participa</li>
+                            <li><strong>Iterativo:</strong> Refinar modelos constantemente</li>
+                        </ul>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-arrow-clockwise me-2"></i>Modelado Continuo</h5>
+                                <ul class="mb-0">
+                                    <li>Sesiones de diseño regulares</li>
+                                    <li>Modelos actualizados con refactoring</li>
+                                    <li>Documentación viviente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-principle">
+                                <h5><i class="bi bi-people me-2"></i>Modelado Colaborativo</h5>
+                                <ul class="mb-0">
+                                    <li>Sesiones de whiteboarding</li>
+                                    <li>Revisiones de diseño</li>
+                                    <li>Pair modeling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-calendar me-2"></i>Integración en Sprints:</h6>
+                        <pre><strong>Sprint Planning:</strong> Modelar historias complejas
+<strong>Durante desarrollo:</strong> Refinar modelos según necesidad
+<strong>Sprint Review:</strong> Validar modelos con stakeholders
+<strong>Retrospectiva:</strong> Evaluar efectividad del modelado</pre>
+                    </div>
+                </section>
+
+                <!-- Resumen -->
+                <section id="resumen" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-check-all me-2"></i>
+                        Resumen del Tema 4
+                    </h2>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-award me-2"></i>Conceptos Clave Aprendidos</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Principios fundamentales de diseño (SOLID)</li>
+                                    <li>Modelado conceptual y tipos de modelos</li>
+                                    <li>Diagramas UML estructurales y de comportamiento</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Modelado de datos y normalización</li>
+                                    <li>Patrones de diseño fundamentales</li>
+                                    <li>Herramientas de modelado y metodologías ágiles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>El diseño efectivo requiere <strong>equilibrio</strong> entre simplicidad y completitud, usando las herramientas y técnicas apropiadas para cada contexto.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Puntos Clave para Recordar</h4>
+                        <ul class="mb-0">
+                            <li><strong>El diseño es comunicación:</strong> Debe ser entendible por todos los stakeholders</li>
+                            <li><strong>Los modelos evolucionan:</strong> Mantenlos actualizados con el código</li>
+                            <li><strong>La herramienta no es lo importante:</strong> El proceso de pensamiento sí lo es</li>
+                            <li><strong>Validar temprano:</strong> Detectar problemas en diseño es más barato</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Preparación para Tema 5</h4>
+                        <p class="mb-0">En el siguiente tema exploraremos <strong>Diseño GUI - Prototipos y Mockups</strong>, donde aprenderemos a diseñar interfaces de usuario efectivas.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema4.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 4 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema5.html" class="btn btn-outline-success">
+                            Tema 5
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion4" class="btn btn-success floating-quiz-btn" title="Quiz Tema 4">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 4: Diseño - Introducción al Modelado Conceptual - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

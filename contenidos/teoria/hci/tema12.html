@@ -1,108 +1,303 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 12: Accesibilidad y Estándares de Calidad - Parte 1 | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 12: Accesibilidad y Estándares de Calidad | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    <!-- CSS común del tema 12 -->
+    <link rel="stylesheet" href="hci-common-styles.css">
     
     <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #28a745;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
-        
-        .sidebar {
-            position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .accessibility-hero {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .wcag-guideline-card {
-            background: linear-gradient(135deg, #007bff 0%, #6610f2 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .disability-showcase {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .testing-method-card {
-            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-        }
-        
-        .implementation-example {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
-            overflow-x: auto;
-            border: 1px solid #444;
-        }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .accessibility-principle {
-            background: #e3f2fd;
-            border-left: 4px solid #2196f3;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .wcag-level {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+
+        .navbar-brand {
             font-weight: bold;
-            margin: 0.2rem;
+            font-size: 1.5rem;
+        }
+
+        .container-fluid {
+            max-width: 1400px;
         }
         
-        .wcag-a { background: #d4edda; color: #155724; }
-        .wcag-aa { background: #fff3cd; color: #856404; }
-        .wcag-aaa { background: #f8d7da; color: #721c24; }
-        
-        .barrier-example {
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1><i class="bi bi-universal-access me-3"></i>Tema 12: Accesibilidad y Estándares de Calidad</h1>
+                        <p class="lead">Aprende a crear interfaces inclusivas que garanticen el acceso equitativo a la tecnología para todas las personas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list me-2"></i>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#introduccion">Introducción</a>
+                        <a class="nav-link" href="#normas-estandares">1. Normas y Estándares</a>
+                        <a class="nav-link" href="#principios-practicas">2. Principios y Prácticas</a>
+                        <a class="nav-link text-muted" href="tema12-parte2.html">→ Parte 2: Pautas Específicas</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <div id="introduccion" class="content-section">
+                    <div class="accessibility-hero">
+                        <h2><i class="bi bi-heart-fill me-2"></i>¿Qué es la Accesibilidad?</h2>
+                        <p class="mb-0">La accesibilidad en el diseño de interfaces digitales es un aspecto fundamental para garantizar que <strong>todas las personas</strong>, independientemente de sus habilidades o discapacidades, puedan acceder a la información y utilizar la tecnología sin barreras.</p>
+                    </div>
+
+                    <p>En un mundo digitalizado, donde el acceso a servicios esenciales, educación y empleo se realiza cada vez más a través de plataformas en línea, la accesibilidad se ha convertido en una <strong>necesidad ética, legal y técnica</strong>.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb-fill text-warning me-2"></i>Beneficios del Diseño Accesible</h4>
+                        <p>El desarrollo accesible no solo beneficia a personas con <strong>discapacidades visuales, auditivas, motoras o cognitivas</strong>, sino que también mejora la experiencia de usuario en general. Un diseño accesible es <strong>más usable, más intuitivo y adaptable</strong> a diferentes dispositivos y contextos de uso.</p>
+                    </div>
+
+                    <p>Además, garantiza el cumplimiento de normativas y estándares internacionales, evitando sanciones legales y promoviendo la inclusión digital.</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="benefit-card">
+                                <h5><i class="bi bi-globe me-2"></i>WCAG</h5>
+                                <p><small>Web Content Accessibility Guidelines</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="benefit-card">
+                                <h5><i class="bi bi-code-square me-2"></i>ARIA</h5>
+                                <p><small>Accessible Rich Internet Applications</small></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="benefit-card">
+                                <h5><i class="bi bi-shield-check me-2"></i>Sección 508</h5>
+                                <p><small>EE.UU. y EN 301 549 Europa</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 1. Normas y Estándares de Accesibilidad -->
+                <div id="normas-estandares" class="content-section">
+                    <h2><i class="bi bi-award me-2"></i>1. Normas y Estándares de Accesibilidad</h2>
+                    <p>La accesibilidad en la web y en interfaces digitales es un principio fundamental para garantizar que todas las personas, independientemente de sus capacidades físicas, sensoriales o cognitivas, puedan acceder y utilizar tecnologías de manera efectiva.</p>
+
+                    <div class="highlight-box">
+                        <h4>Objetivo de las Normativas</h4>
+                        <p>Para asegurar la accesibilidad, existen <strong>normas y estándares internacionales</strong> que establecen requisitos técnicos y mejores prácticas para el diseño de interfaces inclusivas. Estas normativas no solo buscan <strong>cumplir con requisitos legales</strong>, sino que también mejoran la experiencia del usuario, optimizan la usabilidad y amplían el alcance de los productos digitales a un mayor número de personas.</p>
+                    </div>
+
+                    <h3>1.1 WCAG (Web Content Accessibility Guidelines)</h3>
+                    <p>Las <strong>Pautas de Accesibilidad para el Contenido Web (WCAG)</strong>, desarrolladas por el <strong>World Wide Web Consortium (W3C)</strong>, son el estándar global más reconocido para garantizar la accesibilidad web.</p>
+
+                    <div class="wcag-principle-card">
+                        <h4>Principios de WCAG 2.1</h4>
+                        <p>Las WCAG se basan en cuatro principios fundamentales:</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="design-principle-card">
+                                <h5><i class="bi bi-eye me-2"></i>1. Perceptible</h5>
+                                <p>La información y los componentes de la interfaz deben ser presentados de manera que todos los usuarios puedan percibirlos sin problemas. Esto incluye proporcionar <strong>alternativas textuales</strong> para imágenes y videos, y asegurar suficiente <strong>contraste de color</strong>.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="design-principle-card">
+                                <h5><i class="bi bi-hand-index me-2"></i>2. Operable</h5>
+                                <p>Los usuarios deben poder interactuar con todos los elementos de la interfaz sin restricciones. Esto implica garantizar que la navegación sea accesible mediante <strong>teclado y tecnologías asistivas</strong>, y evitar contenido que cause molestias (como parpadeos excesivos).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="design-principle-card">
+                                <h5><i class="bi bi-lightbulb me-2"></i>3. Comprensible</h5>
+                                <p>La información y la navegación deben ser claras y predecibles. Se debe utilizar <strong>lenguaje simple</strong>, estructuras de navegación coherentes y proporcionar ayudas para completar formularios.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="design-principle-card">
+                                <h5><i class="bi bi-shield-check me-2"></i>4. Robusto</h5>
+                                <p>El contenido debe ser interpretable por <strong>diferentes dispositivos y tecnologías asistivas</strong>, asegurando compatibilidad con <strong>lectores de pantalla y navegadores</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Niveles de conformidad</h4>
+                    <p>Las WCAG establecen tres niveles de accesibilidad:</p>
+                    <div class="technique-list">
+                        <ul>
+                            <li><span class="wcag-level wcag-a">Nivel A</span> Contiene los requisitos mínimos de accesibilidad.</li>
+                            <li><span class="wcag-level wcag-aa">Nivel AA</span> Estándar recomendado para la mayoría de sitios web.</li>
+                            <li><span class="wcag-level wcag-aaa">Nivel AAA</span> Máximo nivel de accesibilidad, requerido para contenido especializado.</li>
+                        </ul>
+                    </div>
+
+                    <h3>1.2 ARIA (Accessible Rich Internet Applications)</h3>
+                    <div class="standard-card">
+                        <h4>¿Qué es ARIA?</h4>
+                        <p>ARIA mejora la interacción de contenido dinámico con tecnologías asistivas, proporcionando información semántica adicional a elementos HTML.</p>
+                        
+                        <h5>Usos principales de ARIA:</h5>
+                        <ul>
+                            <li>Describir la función de elementos complejos</li>
+                            <li>Indicar estados dinámicos (expandido/colapsado)</li>
+                            <li>Proporcionar etiquetas accesibles</li>
+                            <li>Establecer relaciones entre elementos</li>
+                        </ul>
+
+                        <h5>Ejemplo de ARIA en HTML:</h5>
+                        <div class="code-example">
+<span class="keyword">&lt;button</span> <span class="attribute">aria-expanded</span>=<span class="string">"false"</span> <span class="attribute">aria-controls</span>=<span class="string">"menu"</span><span class="keyword">&gt;</span>
+    Menú
+<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;ul</span> <span class="attribute">id</span>=<span class="string">"menu"</span> <span class="attribute">hidden</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;li&gt;</span>Opción 1<span class="keyword">&lt;/li&gt;</span>
+    <span class="keyword">&lt;li&gt;</span>Opción 2<span class="keyword">&lt;/li&gt;</span>
+<span class="keyword">&lt;/ul&gt;</span>
+                        </div>
+
+                        <h5>Cuándo usar ARIA:</h5>
+                        <ul>
+                            <li>Cuando HTML semántico no es suficiente</li>
+                            <li>Para elementos interactivos complejos</li>
+                            <li>En aplicaciones web dinámicas</li>
+                            <li>Para mejorar la experiencia con lectores de pantalla</li>
+                        </ul>
+                    </div>
+
+                    <h3>1.3 Legislaciones y Estándares Internacionales</h3>
+
+                    <div class="standard-card">
+                        <h4>1.3.1 Sección 508 de la Ley de Rehabilitación (EE.UU.)</h4>
+                        <p>Requisitos clave:</p>
+                        <ul>
+                            <li>Tecnologías de información federal deben ser accesibles</li>
+                            <li>Cumplimiento obligatorio para agencias gubernamentales</li>
+                            <li>Aplicable a sitios web, software y hardware</li>
+                        </ul>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>1.3.2 EN 301 549 (Unión Europea)</h4>
+                        <p>Este estándar establece requisitos de accesibilidad para <strong>productos y servicios de Tecnologías de la Información y la Comunicación (TIC)</strong> dentro de la <strong>Unión Europea</strong>.</p>
+                        <ul>
+                            <li>Se aplica a <strong>sitios web, aplicaciones móviles, software y hardware</strong></li>
+                            <li>Está alineado con las <strong>WCAG 2.1 en nivel AA</strong></li>
+                            <li>Es obligatorio para entidades gubernamentales y servicios públicos</li>
+                        </ul>
+                    </div>
+
+                    <div class="standard-card">
+                        <h4>1.3.3 ISO/IEC 40500</h4>
+                        <p>Esta norma es la adopción internacional de <strong>WCAG 2.0</strong> como estándar oficial de accesibilidad web. Asegura que los criterios de accesibilidad sean aplicados de manera <strong>consistente en múltiples países</strong>.</p>
+                        
+                        <h5>Beneficios de cumplir con ISO/IEC 40500:</h5>
+                        <ul>
+                            <li>Facilita la certificación internacional de productos accesibles</li>
+                            <li>Proporciona un marco global para el desarrollo inclusivo</li>
+                            <li>Mejora la compatibilidad con dispositivos y tecnologías asistivas</li>
+                        </ul>
+                    </div>
+
+                    <h3>1.4 Beneficios de Cumplir con las Normas de Accesibilidad</h3>
+                    <p>Cumplir con los estándares de accesibilidad no solo garantiza el <strong>cumplimiento legal</strong>, sino que también mejora la experiencia de usuario y proporciona beneficios significativos para las organizaciones.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="benefit-card">
+                                <h5>1. Mayor alcance de usuarios</h5>
+                                <p>Facilita el acceso a millones de personas con discapacidades.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h5>2. Mejora del SEO</h5>
+                                <p>Google favorece sitios accesibles, mejorando su posicionamiento.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h5>3. Cumplimiento legal</h5>
+                                <p>Evita sanciones y demandas por incumplimiento de normativas.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="benefit-card">
+                                <h5>4. Mejora la reputación de la marca</h5>
+                                <p>Demuestra un compromiso con la inclusión y la responsabilidad social.</p>
+                            </div>
+                            <div class="benefit-card">
+                                <h5>5. Optimización de la usabilidad</h5>
+                                <p>Un diseño accesible beneficia a todos los usuarios, no solo a aquellos con discapacidades.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-circle-fill text-success me-2"></i>Conclusión</h4>
+                        <p>Los <strong>estándares de accesibilidad</strong> como <strong>WCAG, ARIA, Sección 508, EN 301 549 e ISO/IEC 40500</strong> proporcionan un marco esencial para el desarrollo de tecnologías inclusivas. Aplicar estas normativas no solo cumple con requerimientos legales, sino que también mejora la experiencia de usuario, aumenta el alcance del contenido digital y optimiza el rendimiento de las plataformas.</p>
+                        <p>Siguiendo estas normas, las empresas y desarrolladores pueden construir productos <strong>más inclusivos, eficientes y usables</strong>, asegurando que la tecnología sea accesible para <strong>todas las personas</strong>.</p>
+                    </div>
+                </div>
+
+                <!-- Navigation to Part 2 -->
+                <div class="navigation-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <a href="tema12-parte2.html" class="nav-card d-inline-block">
+                                    <h4><i class="bi bi-arrow-right-circle me-2"></i>Continuar con Parte 2</h4>
+                                    <p class="mb-0">Principios, Prácticas y Pautas Específicas para el Diseño Accesible</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>        .barrier-example {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
             border-radius: 8px;

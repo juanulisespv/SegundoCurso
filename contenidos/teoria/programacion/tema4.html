@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 4: Introducción al Modelado Conceptual | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .model-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .uml-card {
+            background: #e7f3ff;
+            border: 1px solid #0066cc;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .tool-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .practice-card {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+        
+        .nav-link.active {
+            background-color: var(--bs-success) !important;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link {
+            color: var(--bs-body-color);
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--bs-success);
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .model-card,
+        [data-bs-theme="dark"] .uml-card,
+        [data-bs-theme="dark"] .tool-card,
+        [data-bs-theme="dark"] .practice-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-bs-theme="dark"] .code-snippet {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item active" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="theme-toggle">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Introducción al Modelado Conceptual</h1>
+                    <p class="lead mb-4">
+                        Técnica clave para representar de manera abstracta los elementos principales de un sistema y sus relaciones, 
+                        sirviendo como base sólida para el diseño técnico e implementación del software.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-diagram-3"></i> Conceptos Básicos
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-box"></i> Diagramas UML
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-tools"></i> Herramientas
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-code-slash"></i> Implementación
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-diagram-2 text-light" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold text-success mb-3">
+                                <i class="bi bi-list"></i> Contenido
+                            </h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion">1. Introducción</a>
+                                <a class="nav-link" href="#conceptos-basicos">2. Conceptos Básicos</a>
+                                <a class="nav-link" href="#diagramas-uml">3. Diagramas UML</a>
+                                <a class="nav-link" href="#uso-practico">4. Uso Práctico</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-play-circle"></i> 1. Introducción al Modelado Conceptual
+                    </h2>
+                    
+                    <div class="model-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-info-circle"></i> Definición y Objetivos</h4>
+                        <p>
+                            El <strong>modelado conceptual</strong> es el proceso de representar de manera abstracta 
+                            los elementos fundamentales de un sistema y sus relaciones. Se centra en definir 
+                            <em>qué es</em> el sistema y <em>qué debe hacer</em>, sin entrar en detalles técnicos.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Objetivos Principales:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-people"></i> Comprensión Compartida
+                                        </h6>
+                                        <p class="small mb-0">
+                                            Ayuda a stakeholders y desarrolladores a entender 
+                                            el alcance y requisitos del sistema
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-diagram-3"></i> Estructura Clara
+                                        </h6>
+                                        <p class="small mb-0">
+                                            Proporciona base estructurada para diseño 
+                                            lógico e implementación técnica
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">
+                                            <i class="bi bi-exclamation-triangle"></i> Resolución de Conflictos
+                                        </h6>
+                                        <p class="small mb-0">
+                                            Identifica y corrige errores o conflictos 
+                                            en requisitos antes del desarrollo
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-arrow-repeat"></i> Flexibilidad
+                                        </h6>
+                                        <p class="small mb-0">
+                                            Permite adaptarse a cambios en requisitos 
+                                            de manera eficiente en etapa inicial
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">Relación con Ingeniería de Requisitos</h4>
+                    <p>
+                        El modelado conceptual <strong>traduce los requisitos</strong> en una representación visual 
+                        y estructurada que sirve como puente entre los requisitos y el diseño técnico.
+                    </p>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-search text-primary" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Identificación</h6>
+                                <small>Requisitos se convierten en entidades, atributos y relaciones</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-diagram-2 text-info" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Organización</h6>
+                                <small>Estructura clara mostrando interacciones del sistema</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center p-3 border rounded">
+                                <i class="bi bi-bug text-warning" style="font-size: 2rem;"></i>
+                                <h6 class="mt-2">Detección</h6>
+                                <small>Identifica inconsistencias antes del diseño técnico</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">Beneficios para el Desarrollo</h4>
+                    <div class="alert alert-success">
+                        <h6 class="fw-bold">
+                            <i class="bi bi-star"></i> Ventajas Clave:
+                        </h6>
+                        <ul class="mb-0">
+                            <li><strong>Claridad en requisitos:</strong> Representación visual facilita comprensión</li>
+                            <li><strong>Detección temprana de errores:</strong> Identifica conflictos en etapa inicial</li>
+                            <li><strong>Base para diseño técnico:</strong> Estructura para diagramas UML y BD</li>
+                            <li><strong>Adaptabilidad a cambios:</strong> Facilita modificaciones sin comprometer cohesión</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Conceptos Básicos -->
+                <section id="conceptos-basicos" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-building"></i> 2. Conceptos Básicos del Modelado Conceptual
+                    </h2>
+
+                    <!-- Elementos Clave -->
+                    <div class="model-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-puzzle"></i> 2.1. Elementos Clave
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-box"></i> Clases
+                                        </h5>
+                                        <p class="small">
+                                            Representan entidades del mundo real. Definidas por nombre 
+                                            y dividas en tres secciones: nombre, atributos, métodos.
+                                        </p>
+                                        <div class="code-snippet small">
+[Libro]
+- titulo: string
+- autor: string
+- isbn: string
++ prestar(): void
++ devolver(): void
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-info">
+                                            <i class="bi bi-list-ul"></i> Atributos
+                                        </h5>
+                                        <p class="small">
+                                            Describen propiedades o características de una clase. 
+                                            Cada atributo tiene un tipo de dato asociado.
+                                        </p>
+                                        <div class="code-snippet small">
+Usuario:
+- nombre: string
+- email: string  
+- contraseña: string
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-gear"></i> Métodos
+                                        </h5>
+                                        <p class="small">
+                                            Representan acciones o comportamientos asociados a una clase. 
+                                            Funciones que operan sobre los datos.
+                                        </p>
+                                        <div class="code-snippet small">
++ iniciarSesion(): bool
++ consultarHistorial(): List
++ registrarse(): void
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4 mb-3">Visibilidad:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <span class="badge bg-success">+</span>
+                                    <h6 class="mt-2">Pública</h6>
+                                    <small>Accesible desde cualquier lugar</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <span class="badge bg-warning">#</span>
+                                    <h6 class="mt-2">Protegida</h6>
+                                    <small>Accesible desde clase y subclases</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <span class="badge bg-danger">-</span>
+                                    <h6 class="mt-2">Privada</h6>
+                                    <small>Accesible únicamente dentro de la clase</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tipos de Relaciones -->
+                    <div class="model-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-diagram-3"></i> 2.2. Tipos de Relaciones
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-arrow-left-right"></i> Asociación
+                                        </h6>
+                                        <p class="small">
+                                            Relación general entre clases. Puede ser unidireccional o bidireccional.
+                                        </p>
+                                        <div class="text-muted small">
+                                            <em>Ejemplo:</em> Estudiante ↔ Curso
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-triangle"></i> Herencia
+                                        </h6>
+                                        <p class="small">
+                                            Clase hija hereda atributos y métodos de clase padre.
+                                        </p>
+                                        <div class="text-muted small">
+                                            <em>Ejemplo:</em> Administrador ← Usuario
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-diamond"></i> Agregación
+                                        </h6>
+                                        <p class="small">
+                                            Relación "parte-todo" donde partes pueden existir independientemente.
+                                        </p>
+                                        <div class="text-muted small">
+                                            <em>Ejemplo:</em> Universidad ◇ Departamentos
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-diamond-fill"></i> Composición
+                                        </h6>
+                                        <p class="small">
+                                            Relación "parte-todo" fuerte. Partes no pueden existir sin el todo.
+                                        </p>
+                                        <div class="text-muted small">
+                                            <em>Ejemplo:</em> Pedido ◆ Ítems
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modelado Conceptual vs Lógico -->
+                    <div class="model-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-arrow-left-right"></i> 2.3. Conceptual vs Lógico
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">Modelado Conceptual</h6>
+                                        <ul class="small">
+                                            <li><strong>Enfoque:</strong> "Qué es" y "qué debe hacer"</li>
+                                            <li><strong>Nivel:</strong> Abstracto, sin detalles técnicos</li>
+                                            <li><strong>Independencia:</strong> De tecnología específica</li>
+                                            <li><strong>Objetivo:</strong> Comunicación y alineación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">Modelado Lógico</h6>
+                                        <ul class="small">
+                                            <li><strong>Enfoque:</strong> "Cómo" implementar</li>
+                                            <li><strong>Nivel:</strong> Detallado con decisiones técnicas</li>
+                                            <li><strong>Dependencia:</strong> De tecnología específica</li>
+                                            <li><strong>Objetivo:</strong> Base para implementación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buenas Prácticas -->
+                    <div class="alert alert-info">
+                        <h5 class="fw-bold">
+                            <i class="bi bi-lightbulb"></i> Buenas Prácticas
+                        </h5>
+                        <ol class="mb-0">
+                            <li><strong>Claridad y simplicidad:</strong> Fácil de entender para todos los stakeholders</li>
+                            <li><strong>Consistencia:</strong> Nombres coherentes que reflejen el dominio</li>
+                            <li><strong>Completitud:</strong> Incluir todas las entidades y relaciones relevantes</li>
+                            <li><strong>Iteración constante:</strong> Ajustar según retroalimentación</li>
+                            <li><strong>Colaboración:</strong> Involucrar stakeholders en creación y revisión</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Diagramas UML -->
+                <section id="diagramas-uml" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-diagram-2"></i> 3. Diagramas de Clases y Objetos UML
+                    </h2>
+
+                    <!-- Introducción a UML -->
+                    <div class="uml-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-diagram-3"></i> 3.1. Lenguaje Unificado de Modelado (UML)
+                        </h4>
+                        <p>
+                            <strong>UML</strong> es un estándar para visualizar, especificar, construir y documentar 
+                            sistemas de software. Desarrollado por Grady Booch, James Rumbaugh e Ivar Jacobson, 
+                            unifica diversas metodologías en un lenguaje común.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Características:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-eye text-primary" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Estándar Visual</h6>
+                                    <small>Notaciones gráficas fáciles de interpretar</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-cpu text-info" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Independencia</h6>
+                                    <small>No depende de lenguajes específicos</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-arrow-up-right text-success" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Flexibilidad</h6>
+                                    <small>Desde sistemas simples hasta complejos</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Tipos de Diagramas:</h5>
+                        <ul>
+                            <li><strong>Clases:</strong> Estructura estática del sistema</li>
+                            <li><strong>Casos de uso:</strong> Interacciones entre actores y sistema</li>
+                            <li><strong>Secuencia:</strong> Flujo de mensajes entre objetos</li>
+                            <li><strong>Actividad:</strong> Flujos de trabajo y procesos</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ejemplos Prácticos -->
+                    <div class="uml-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-laptop"></i> 3.2. Ejemplos Prácticos
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-cart"></i> Tienda Online
+                                        </h5>
+                                        
+                                        <h6 class="fw-bold">Clases Principales:</h6>
+                                        <div class="code-snippet small">
+[Producto]
+- id: int
+- nombre: string
+- precio: float
+- stock: int
++ actualizarStock()
++ aplicarDescuento()
+
+[Cliente] 
+- idCliente: int
+- nombre: string
+- email: string
++ registrarse()
++ iniciarSesion()
+
+[Carrito]
+- idCarrito: int
+- total: float
++ añadirProducto()
++ calcularTotal()
+
+[Pedido]
+- idPedido: int
+- fecha: date
+- estado: string
++ confirmarPedido()
+                                        </div>
+                                        
+                                        <h6 class="fw-bold mt-2">Relaciones:</h6>
+                                        <ul class="small mb-0">
+                                            <li>Cliente ↔ Pedido (1...*)</li>
+                                            <li>Carrito ↔ Producto (1...*)</li>
+                                            <li>Pedido ◆ Carrito (composición)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-info">
+                                            <i class="bi bi-book"></i> Sistema de Biblioteca
+                                        </h5>
+                                        
+                                        <h6 class="fw-bold">Clases Principales:</h6>
+                                        <div class="code-snippet small">
+[Libro]
+- isbn: string
+- titulo: string
+- autor: string
+- disponibilidad: bool
++ prestar()
++ devolver()
+
+[Usuario]
+- idUsuario: int
+- nombre: string
+- email: string
++ registrarse()
++ consultarHistorial()
+
+[Prestamo]
+- idPrestamo: int
+- fechaInicio: date
+- fechaDevolucion: date
++ realizarPrestamo()
++ finalizarPrestamo()
+                                        </div>
+                                        
+                                        <h6 class="fw-bold mt-2">Relaciones:</h6>
+                                        <ul class="small mb-0">
+                                            <li>Usuario ↔ Préstamo (1...*)</li>
+                                            <li>Préstamo ↔ Libro (1..1)</li>
+                                            <li>Biblioteca ◆ Libro (composición)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagramas de Objetos -->
+                    <div class="uml-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-circles"></i> 3.3. Diagramas de Objetos
+                        </h4>
+                        <p>
+                            Representan <strong>instancias específicas</strong> de las clases en un momento determinado, 
+                            proporcionando una vista concreta de cómo interactúan los objetos reales.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Clase Abstracta:</h6>
+                                <div class="code-snippet small">
+[Cliente]
+- nombre: string
+- email: string
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Instancia Específica:</h6>
+                                <div class="code-snippet small">
+cliente1: Cliente
+- nombre: "Juan Pérez"
+- email: "juan@example.com"
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-3">
+                            <h6 class="fw-bold">
+                                <i class="bi bi-star"></i> Ventajas:
+                            </h6>
+                            <ul class="mb-0">
+                                <li><strong>Claridad:</strong> Contexto específico y tangible</li>
+                                <li><strong>Validación:</strong> Verificar que relaciones funcionen correctamente</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Uso Práctico -->
+                <section id="uso-practico" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-tools"></i> 4. Uso Práctico del Modelado Conceptual
+                    </h2>
+
+                    <!-- Herramientas -->
+                    <div class="tool-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-palette"></i> 4.1. Herramientas para Modelado
+                        </h4>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-success">
+                                    <tr>
+                                        <th>Herramienta</th>
+                                        <th>Precio</th>
+                                        <th>Integración</th>
+                                        <th>Colaboración</th>
+                                        <th>Curva Aprendizaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>MS Visio</strong></td>
+                                        <td>Pago (licencia)</td>
+                                        <td>Microsoft 365</td>
+                                        <td>Limitada</td>
+                                        <td>Media</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Draw.io</strong></td>
+                                        <td>Gratuito</td>
+                                        <td>Google Drive, OneDrive</td>
+                                        <td>Sí</td>
+                                        <td>Baja</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Lucidchart</strong></td>
+                                        <td>Pago (básica gratuita)</td>
+                                        <td>Google Workspace, Slack</td>
+                                        <td>Sí</td>
+                                        <td>Baja</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-microsoft"></i> MS Visio
+                                        </h6>
+                                        <p class="small">
+                                            Ideal para proyectos empresariales con integración Microsoft. 
+                                            Plantillas predefinidas UML.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-globe"></i> Draw.io
+                                        </h6>
+                                        <p class="small">
+                                            Gratuito, basado en web. Colaboración tiempo real, 
+                                            integración con servicios en la nube.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-cloud"></i> Lucidchart
+                                        </h6>
+                                        <p class="small">
+                                            Herramienta en la nube, ideal para equipos remotos. 
+                                            Plantillas avanzadas UML.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Integración en Desarrollo Ágil -->
+                    <div class="tool-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-arrow-repeat"></i> 4.2. Integración en Desarrollo Ágil
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-people"></i> Colaboración Tiempo Real
+                                        </h6>
+                                        <p class="small">
+                                            Varios miembros trabajan simultáneamente, 
+                                            retroalimentación inmediata en sprints.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-arrow-clockwise"></i> Actualización Constante
+                                        </h6>
+                                        <p class="small">
+                                            Requisitos cambian entre iteraciones, 
+                                            herramientas facilitan ajustes rápidos.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-link"></i> Integración
+                                        </h6>
+                                        <p class="small">
+                                            Vinculación con Jira/Trello, 
+                                            mejora trazabilidad y comunicación.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vinculación con Implementación -->
+                    <div class="practice-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-code-slash"></i> 4.3. Vinculación con Implementación
+                        </h4>
+                        
+                        <p>
+                            Vincular modelos conceptuales con implementaciones garantiza que las representaciones 
+                            abstractas se traduzcan correctamente en soluciones técnicas funcionales.
+                        </p>
+
+                        <h5 class="fw-bold mt-3">Ejemplo Sistema Biblioteca:</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-code"></i> Implementación Python:
+                                </h6>
+                                <div class="code-snippet">
+class Libro:
+    def __init__(self, titulo, autor, isbn):
+        self.titulo = titulo
+        self.autor = autor
+        self.isbn = isbn
+
+class Usuario:
+    def __init__(self, nombre, email):
+        self.nombre = nombre
+        self.email = email
+
+class Prestamo:
+    def __init__(self, libro, usuario, fecha):
+        self.libro = libro
+        self.usuario = usuario
+        self.fecha_inicio = fecha
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-database"></i> Implementación SQL:
+                                </h6>
+                                <div class="code-snippet">
+CREATE TABLE Libro (
+    isbn VARCHAR(20) PRIMARY KEY,
+    titulo VARCHAR(100),
+    autor VARCHAR(50)
+);
+
+CREATE TABLE Usuario (
+    idUsuario INT PRIMARY KEY,
+    nombre VARCHAR(50),
+    email VARCHAR(50)
+);
+
+CREATE TABLE Prestamo (
+    idPrestamo INT PRIMARY KEY,
+    isbn VARCHAR(20),
+    idUsuario INT,
+    fecha_inicio DATE,
+    FOREIGN KEY (isbn) REFERENCES Libro(isbn),
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-3">
+                            <h6 class="fw-bold">
+                                <i class="bi bi-trophy"></i> Ventajas de la Vinculación:
+                            </h6>
+                            <ul class="mb-0">
+                                <li><strong>Coherencia:</strong> Entre diseño y código, minimiza malentendidos</li>
+                                <li><strong>Mantenimiento:</strong> Más sencillo realizar modificaciones</li>
+                                <li><strong>Trazabilidad:</strong> Identificar cómo requisitos se traducen en componentes</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Recomendaciones -->
+                    <div class="practice-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-lightbulb"></i> 4.4. Recomendaciones Efectivas
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-people"></i> Participación de Stakeholders:
+                                </h6>
+                                <p class="small">
+                                    Involucrar activamente durante creación y revisión para asegurar 
+                                    que el modelo refleje correctamente las necesidades.
+                                </p>
+                                
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-arrow-clockwise"></i> Iteración y Validación:
+                                </h6>
+                                <p class="small">
+                                    No considerar documento definitivo. Iterar y ajustar según 
+                                    retroalimentación y necesidades emergentes.
+                                </p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-eye"></i> Herramientas Visuales:
+                                </h6>
+                                <p class="small">
+                                    Usar Lucidchart, Draw.io o MS Visio para representación gráfica 
+                                    que facilite comprensión y colaboración.
+                                </p>
+                                
+                                <h6 class="fw-bold">
+                                    <i class="bi bi-file-text"></i> Documentación Complementaria:
+                                </h6>
+                                <p class="small">
+                                    Complementar diagramas con descripciones textuales que expliquen 
+                                    entidades, relaciones y decisiones clave.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-lightbulb"></i> Casos Prácticos
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-restaurant"></i> Sistema de Reservas de Restaurante
+                                    </h5>
+                                    <h6 class="fw-bold">Funcionalidades:</h6>
+                                    <ul class="small">
+                                        <li>Registrar clientes (nombre, email, teléfono)</li>
+                                        <li>Realizar reservas (fecha, hora, personas, mesa)</li>
+                                        <li>Gestionar disponibilidad de mesas</li>
+                                        <li>Asignar empleado (mesero) a reservas</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Clases Principales:</h6>
+                                    <ul class="small mb-0">
+                                        <li><strong>Cliente:</strong> Datos personales y contacto</li>
+                                        <li><strong>Reserva:</strong> Información de la cita</li>
+                                        <li><strong>Mesa:</strong> Capacidad y disponibilidad</li>
+                                        <li><strong>Empleado:</strong> Datos del mesero asignado</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-laptop"></i> Plataforma de Cursos Online
+                                    </h5>
+                                    <h6 class="fw-bold">Funcionalidades:</h6>
+                                    <ul class="small">
+                                        <li>Registrar estudiantes (nombre, email, cursos)</li>
+                                        <li>Instructores crear cursos (título, descripción, duración)</li>
+                                        <li>Gestionar inscripciones (fecha, estado)</li>
+                                        <li>Seguimiento progreso estudiantes</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Clases Principales:</h6>
+                                    <ul class="small mb-0">
+                                        <li><strong>Estudiante:</strong> Datos personales y progreso</li>
+                                        <li><strong>Instructor:</strong> Información y cursos creados</li>
+                                        <li><strong>Curso:</strong> Contenido y configuración</li>
+                                        <li><strong>Inscripción:</strong> Relación estudiante-curso</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="tema3.html" class="btn btn-outline-success">
+                        <i class="bi bi-arrow-left"></i> Tema 3: Ingeniería de Requisitos
+                    </a>
+                    <a href="../../../quiz-spa/index.html" class="btn btn-success">
+                        <i class="bi bi-trophy"></i> Realizar Quiz
+                    </a>
+                    <a href="tema5.html" class="btn btn-outline-success">
+                        Tema 5: Diseño GUI <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold text-success">Modelado Conceptual</h6>
+                    <p class="text-muted small mb-0">
+                        Representación abstracta de elementos del sistema que sirve como puente 
+                        entre requisitos y diseño técnico, garantizando coherencia y claridad.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        <i class="bi bi-book"></i> Material de Estudio - EUniv<br>
+                        <i class="bi bi-clock"></i> Programación - Tema 4
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon';
+            } else {
+                icon.className = 'bi bi-sun';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll position
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.sidebar .nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

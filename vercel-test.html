@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Test</title>
+</head>
+<body>
+    <h1>✅ Vercel Deployment Test</h1>
+    <p>Build time: <span id="buildTime"></span></p>
+    <p>Current URL: <span id="currentUrl"></span></p>
+    
+    <h2>Navigation Tests:</h2>
+    <ul>
+        <li><a href="/quiz-spa/">Quiz SPA Main</a></li>
+        <li><a href="/quiz-spa/index.html">Quiz SPA Index</a></li>
+        <li><a href="/quiz-spa/index.html?theme=hci10">HCI Tema 10 Auto-start</a></li>
+        <li><a href="/contenidos/teoria/hci/tema12.html">HCI Tema 12 Theory</a></li>
+    </ul>
+    
+    <script>
+        document.getElementById('buildTime').textContent = new Date().toISOString();
+        document.getElementById('currentUrl').textContent = window.location.href;
+    </script>
+</body>
+</html>

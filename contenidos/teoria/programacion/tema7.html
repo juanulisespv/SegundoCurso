@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 7: Diseño de Aplicaciones - Patrón MVC | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .mvc-component {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .framework-comparison {
+            background: #f8f9fa;
+            border: 1px solid #6c757d;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            color: #198754;
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #198754;
+            color: white;
+        }
+        
+        .mvc-flow {
+            text-align: center;
+            font-family: monospace;
+            background: #ffffff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item active" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-diagram-3 me-3"></i>
+                        Patrón Model-View-Controller (MVC)
+                    </h1>
+                    <p class="lead mb-4">Separación de Responsabilidades • Frameworks Python • Patrones Avanzados</p>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-book me-1"></i>Tema 7
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-clock me-1"></i>45 min lectura
+                            </span>
+                            <span class="badge bg-light text-dark fs-6">
+                                <i class="bi bi-diagram-3 me-1"></i>Arquitectura
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido del Tema
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion-mvc">Introducción al MVC</a>
+                                <a class="nav-link" href="#componentes-mvc">Componentes del MVC</a>
+                                <a class="nav-link" href="#comparacion-patrones">Comparación con Otros Patrones</a>
+                                <a class="nav-link" href="#implementacion-python">Implementación en Python</a>
+                                <a class="nav-link" href="#flask-framework">Flask Framework</a>
+                                <a class="nav-link" href="#django-framework">Django Framework</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción al MVC -->
+                <section id="introduccion-mvc" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        Introducción al Patrón Model-View-Controller (MVC)
+                    </h2>
+                    
+                    <p class="lead">El patrón MVC es una <strong>arquitectura de software</strong> que separa la lógica de aplicación en tres componentes principales para mejorar organización y mantenimiento.</p>
+                    
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-puzzle me-2"></i>¿Qué es el Patrón MVC?</h4>
+                        <p>Arquitectura que separa la aplicación en <strong>tres componentes principales</strong>:</p>
+                        <ul class="mb-0">
+                            <li><strong>Modelo (Model):</strong> Gestiona datos y lógica de negocio</li>
+                            <li><strong>Vista (View):</strong> Maneja presentación e interfaz de usuario</li>
+                            <li><strong>Controlador (Controller):</strong> Coordina Modelo y Vista</li>
+                        </ul>
+                    </div>
+
+                    <h3>Beneficios de la Separación de Responsabilidades</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-tools me-2"></i>Mantenimiento y Escalabilidad</h5>
+                                <ul class="mb-0">
+                                    <li>Actualizar componentes sin afectar el resto</li>
+                                    <li>Agregar funcionalidades con menor impacto</li>
+                                    <li>Código más organizado y claro</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-recycle me-2"></i>Reutilización de Código</h5>
+                                <ul class="mb-0">
+                                    <li>Vistas reutilizables con diferentes modelos</li>
+                                    <li>Controladores manejan múltiples vistas</li>
+                                    <li>Lógica de negocio independiente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-people me-2"></i>Colaboración en Equipos</h5>
+                                <ul class="mb-0">
+                                    <li>Backend trabaja en Modelo sin interferir Vista</li>
+                                    <li>Diseñadores modifican apariencia independientemente</li>
+                                    <li>Desarrollo paralelo de componentes</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-shield-check me-2"></i>Mejor Organización</h5>
+                                <ul class="mb-0">
+                                    <li>Separación reduce acoplamiento</li>
+                                    <li>Código más fácil de entender</li>
+                                    <li>Debugging y testing simplificados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-info-circle me-2"></i>Origen e Historia</h4>
+                        <p class="mb-0">El patrón MVC fue introducido en los <strong>años 1970 por Trygve Reenskaug</strong> en Xerox PARC, originalmente diseñado para mejorar la interacción usuario-sistema en entornos gráficos.</p>
+                    </div>
+                </section>
+
+                <!-- Componentes del MVC -->
+                <section id="componentes-mvc" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-boxes me-2"></i>
+                        Componentes del MVC
+                    </h2>
+
+                    <p>El patrón MVC divide la estructura en <strong>tres componentes principales</strong> con responsabilidades específicas y bien definidas.</p>
+
+                    <div class="mvc-flow">
+                        <pre>Usuario interactúa
+         ↓
+    [CONTROLADOR] ←→ [MODELO]
+         ↓              ↓
+       [VISTA] ←────────┘
+         ↓
+   Respuesta al Usuario</pre>
+                    </div>
+
+                    <h3>Modelo (Model) - Gestión de Datos y Lógica de Negocio</h3>
+                    <div class="mvc-component">
+                        <h5><i class="bi bi-database me-2"></i>Responsabilidades del Modelo</h5>
+                        <ul>
+                            <li><strong>Gestión de datos:</strong> Almacenar, recuperar y procesar información</li>
+                            <li><strong>Lógica de negocio:</strong> Implementar reglas y validaciones</li>
+                            <li><strong>Comunicación con BD:</strong> Manejo de persistencia</li>
+                            <li><strong>Notificación de cambios:</strong> Informar actualizaciones a vistas</li>
+                        </ul>
+                        
+                        <div class="code-example">
+                            <h6><i class="bi bi-code me-2"></i>Ejemplo en Python:</h6>
+                            <pre>class Producto:
+    def __init__(self, nombre, precio):
+        self.nombre = nombre
+        self.precio = precio
+    
+    def calcular_descuento(self, porcentaje):
+        return self.precio * (1 - porcentaje / 100)
+    
+    def aplicar_iva(self, iva=21):
+        return self.precio * (1 + iva / 100)</pre>
+                        </div>
+                    </div>
+
+                    <h3>Vista (View) - Presentación de la Información</h3>
+                    <div class="mvc-component">
+                        <h5><i class="bi bi-eye me-2"></i>Responsabilidades de la Vista</h5>
+                        <ul>
+                            <li><strong>Presentación de datos:</strong> Mostrar información de forma clara</li>
+                            <li><strong>Captura de interacciones:</strong> Formularios y eventos de usuario</li>
+                            <li><strong>Renderizado:</strong> HTML en web, GUI en aplicaciones escritorio</li>
+                            <li><strong>Interfaz de usuario:</strong> Experiencia visual y usabilidad</li>
+                        </ul>
+                        
+                        <div class="code-example">
+                            <h6><i class="bi bi-code me-2"></i>Template HTML (Flask):</h6>
+                            <pre>&lt;!-- productos.html --&gt;
+&lt;div class="productos"&gt;
+    {% for producto in productos %}
+        &lt;div class="producto-card"&gt;
+            &lt;h3&gt;{{ producto.nombre }}&lt;/h3&gt;
+            &lt;p&gt;Precio: ${{ producto.precio }}&lt;/p&gt;
+        &lt;/div&gt;
+    {% endfor %}
+&lt;/div&gt;</pre>
+                        </div>
+                    </div>
+
+                    <h3>Controlador (Controller) - Coordinación</h3>
+                    <div class="mvc-component">
+                        <h5><i class="bi bi-gear me-2"></i>Responsabilidades del Controlador</h5>
+                        <ul>
+                            <li><strong>Recibir solicitudes:</strong> Capturar peticiones del usuario</li>
+                            <li><strong>Coordinar componentes:</strong> Llamar métodos apropiados del modelo</li>
+                            <li><strong>Procesar datos:</strong> Preparar información para la vista</li>
+                            <li><strong>Gestionar flujo:</strong> Dirigir navegación y respuestas</li>
+                        </ul>
+                        
+                        <div class="code-example">
+                            <h6><i class="bi bi-code me-2"></i>Ejemplo en Flask:</h6>
+                            <pre>from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def mostrar_productos():
+    # Obtener datos del modelo
+    productos = [
+        Producto("Laptop", 1200), 
+        Producto("Teléfono", 800)
+    ]
+    # Pasar datos a la vista
+    return render_template("productos.html", productos=productos)
+
+if __name__ == '__main__':
+    app.run(debug=True)</pre>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparación con Otros Patrones -->
+                <section id="comparacion-patrones" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-arrow-left-right me-2"></i>
+                        Comparación entre MVC y Otros Patrones
+                    </h2>
+
+                    <p>MVC se diferencia de otros patrones arquitectónicos por su enfoque específico en <strong>aplicaciones interactivas</strong>.</p>
+
+                    <h3>MVC vs Diseño en Capas</h3>
+                    <div class="framework-comparison">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-diagram-3 me-2"></i>Patrón MVC</h5>
+                                <ul>
+                                    <li><strong>Estructura:</strong> Modelo, Vista, Controlador</li>
+                                    <li><strong>Flujo:</strong> Controlador dirige información</li>
+                                    <li><strong>Enfoque:</strong> Interacción con usuario</li>
+                                    <li><strong>Uso común:</strong> Aplicaciones web y escritorio</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="bi bi-layers me-2"></i>Diseño en Capas</h5>
+                                <ul>
+                                    <li><strong>Estructura:</strong> Múltiples capas funcionales</li>
+                                    <li><strong>Flujo:</strong> Comunicación secuencial entre capas</li>
+                                    <li><strong>Enfoque:</strong> Lógica de negocio compleja</li>
+                                    <li><strong>Uso común:</strong> Sistemas empresariales distribuidos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mvc-flow">
+                            <pre>CAPAS TRADICIONALES:
+Presentación → Lógica Negocio → Acceso Datos → Base Datos
+
+MVC:
+Usuario → Controlador ↔ Modelo
+              ↓         ↓
+            Vista ←─────┘</pre>
+                        </div>
+                    </div>
+
+                    <h3>Ventajas frente a Arquitecturas Monolíticas</h3>
+                    <div class="warning-box">
+                        <h4><i class="bi bi-exclamation-triangle me-2"></i>Problemas de Arquitecturas Monolíticas</h4>
+                        <ul>
+                            <li><strong>Dificultad mantenimiento:</strong> Modificar una parte afecta otras</li>
+                            <li><strong>Código desorganizado:</strong> Lógica mezclada con interfaz</li>
+                            <li><strong>Problemas reutilización:</strong> No se pueden reutilizar componentes</li>
+                            <li><strong>Acoplamiento alto:</strong> Dependencias complejas entre módulos</li>
+                        </ul>
+                        
+                        <p class="mb-0"><strong>MVC soluciona estos problemas</strong> mediante separación clara de responsabilidades.</p>
+                    </div>
+                </section>
+
+                <!-- Implementación en Python -->
+                <section id="implementacion-python" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-code-slash me-2"></i>
+                        Implementación Práctica del MVC en Python
+                    </h2>
+
+                    <p>Python ofrece <strong>múltiples frameworks</strong> para implementar MVC, desde enfoques ligeros hasta soluciones completas.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-python me-2"></i>Frameworks Python para MVC</h4>
+                        <p>Python proporciona diversas opciones según complejidad y necesidades del proyecto:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Flask:</strong> Ligero, flexible, proyectos pequeños</li>
+                                    <li><strong>FastAPI:</strong> Moderno, APIs rápidas, asyncio</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>Django:</strong> Completo, robusto, proyectos grandes</li>
+                                    <li><strong>Pyramid:</strong> Intermedio, configuración flexible</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Ejemplo MVC Básico en Python Puro</h3>
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Implementación sin framework:</h6>
+                        <pre># MODELO - Gestión de datos
+class ProductoModel:
+    def __init__(self):
+        self.productos = []
+    
+    def agregar_producto(self, nombre, precio):
+        producto = {"nombre": nombre, "precio": precio}
+        self.productos.append(producto)
+        return producto
+    
+    def obtener_productos(self):
+        return self.productos
+
+# VISTA - Presentación
+class ProductoView:
+    def mostrar_productos(self, productos):
+        print("=== LISTA DE PRODUCTOS ===")
+        for i, producto in enumerate(productos, 1):
+            print(f"{i}. {producto['nombre']} - ${producto['precio']}")
+    
+    def mostrar_menu(self):
+        print("\n1. Ver productos")
+        print("2. Agregar producto")
+        print("3. Salir")
+
+# CONTROLADOR - Coordinación
+class ProductoController:
+    def __init__(self):
+        self.model = ProductoModel()
+        self.view = ProductoView()
+    
+    def ejecutar(self):
+        while True:
+            self.view.mostrar_menu()
+            opcion = input("Seleccione opción: ")
+            
+            if opcion == "1":
+                productos = self.model.obtener_productos()
+                self.view.mostrar_productos(productos)
+            elif opcion == "2":
+                nombre = input("Nombre: ")
+                precio = float(input("Precio: "))
+                self.model.agregar_producto(nombre, precio)
+            elif opcion == "3":
+                break
+
+# Uso
+controller = ProductoController()
+controller.ejecutar()</pre>
+                    </div>
+                </section>
+
+                <!-- Flask Framework -->
+                <section id="flask-framework" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-flask me-2"></i>
+                        Flask: Enfoque Ligero para Aplicaciones Pequeñas
+                    </h2>
+
+                    <p>Flask es un <strong>microframework</strong> que proporciona flexibilidad máxima para implementar MVC según necesidades específicas.</p>
+
+                    <h3>Características Principales de Flask</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-feather me-2"></i>Ligero y Minimalista</h5>
+                                <ul class="mb-0">
+                                    <li>Núcleo pequeño y extensible</li>
+                                    <li>Solo incluye lo esencial</li>
+                                    <li>Agregar funcionalidades según necesidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-gear me-2"></i>Flexibilidad Total</h5>
+                                <ul class="mb-0">
+                                    <li>Control completo sobre arquitectura</li>
+                                    <li>Elección libre de componentes</li>
+                                    <li>Configuración personalizada</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Estructura MVC en Flask:</h6>
+                        <pre># app.py - Aplicación principal
+from flask import Flask, render_template, request, redirect, url_for
+
+app = Flask(__name__)
+
+# MODELO - Gestión de datos
+class ProductoModel:
+    productos = []
+    
+    @classmethod
+    def agregar(cls, nombre, precio):
+        producto = {"id": len(cls.productos) + 1, "nombre": nombre, "precio": precio}
+        cls.productos.append(producto)
+        return producto
+    
+    @classmethod
+    def obtener_todos(cls):
+        return cls.productos
+
+# CONTROLADOR - Rutas y lógica de control
+@app.route('/')
+def index():
+    productos = ProductoModel.obtener_todos()
+    return render_template('productos.html', productos=productos)
+
+@app.route('/agregar', methods=['GET', 'POST'])
+def agregar_producto():
+    if request.method == 'POST':
+        nombre = request.form['nombre']
+        precio = float(request.form['precio'])
+        ProductoModel.agregar(nombre, precio)
+        return redirect(url_for('index'))
+    
+    return render_template('agregar.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)</pre>
+                    </div>
+
+                    <h3>Cuándo Usar Flask</h3>
+                    <div class="framework-comparison">
+                        <h5><i class="bi bi-check-circle me-2"></i>Ideal para:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Aplicaciones pequeñas y medianas</li>
+                                    <li>APIs REST simples</li>
+                                    <li>Prototipos rápidos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Microservicios</li>
+                                    <li>Proyectos con requisitos específicos</li>
+                                    <li>Aprendizaje de conceptos MVC</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Django Framework -->
+                <section id="django-framework" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-building me-2"></i>
+                        Django: Enfoque Estructurado con Herramientas
+                    </h2>
+
+                    <p>Django es un <strong>framework completo</strong> que implementa MVC (llamado MTV: Model-Template-View) con herramientas integradas.</p>
+
+                    <h3>Características Principales de Django</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-tools me-2"></i>Batteries Included</h5>
+                                <ul class="mb-0">
+                                    <li>ORM integrado para base de datos</li>
+                                    <li>Sistema de autenticación</li>
+                                    <li>Panel de administración automático</li>
+                                    <li>Sistema de templates robusto</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mvc-component">
+                                <h5><i class="bi bi-shield-check me-2"></i>Seguridad y Escalabilidad</h5>
+                                <ul class="mb-0">
+                                    <li>Protección CSRF automática</li>
+                                    <li>Validación de datos integrada</li>
+                                    <li>Migraciones de BD automáticas</li>
+                                    <li>Escalable para aplicaciones grandes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Estructura MVC en Django:</h6>
+                        <pre># models.py - MODELO
+from django.db import models
+
+class Producto(models.Model):
+    nombre = models.CharField(max_length=100)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    
+    def calcular_descuento(self, porcentaje):
+        return float(self.precio) * (1 - porcentaje / 100)
+
+# views.py - CONTROLADOR
+from django.shortcuts import render
+from .models import Producto
+
+def lista_productos(request):
+    productos = Producto.objects.all()  # Consulta al modelo
+    return render(request, 'productos.html', {'productos': productos})
+
+# urls.py - Configuración de rutas
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('productos/', views.lista_productos, name='productos'),
+]</pre>
+                    </div>
+
+                    <h3>Cuándo Usar Django</h3>
+                    <div class="framework-comparison">
+                        <h5><i class="bi bi-check-circle me-2"></i>Ideal para:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Aplicaciones web complejas</li>
+                                    <li>Sistemas con muchos modelos de datos</li>
+                                    <li>Proyectos que requieren panel admin</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>E-commerce y CMS</li>
+                                    <li>Aplicaciones empresariales</li>
+                                    <li>Proyectos con equipos grandes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Django MTV vs MVC Tradicional</h4>
+                        <p>Django usa <strong>Model-Template-View (MTV)</strong>:</p>
+                        <ul class="mb-0">
+                            <li><strong>Model:</strong> Equivale al Model de MVC</li>
+                            <li><strong>Template:</strong> Equivale a la View de MVC (presentación)</li>
+                            <li><strong>View:</strong> Equivale al Controller de MVC (lógica de control)</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema6-parte2.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 6
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 7 de 12 - Parte 1</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema7-parte2.html" class="btn btn-outline-success">
+                            Parte 2
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion7" class="btn btn-success floating-quiz-btn" title="Quiz Tema 7">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 7: Patrón Model-View-Controller (MVC)
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

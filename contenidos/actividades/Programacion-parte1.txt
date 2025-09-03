@@ -1,0 +1,568 @@
+Tema 1
+
+Ejercicio 1. Aplicación de Metodologías Ágiles para un Proyecto de Comercio Electrónico
+Un equipo de desarrollo ha recibido la solicitud de crear una tienda en línea que permita a los usuarios navegar por productos, agregarlos al carrito y realizar compras seguras. El cliente requiere entregas frecuentes para evaluar el progreso y proponer mejoras. 
+
+Como desarrollador: 
+
+Mis respuestas
+Solución
+1.
+Explica por qué una metodología ágil es adecuada para este proyecto. 
+Identifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. 
+Enumera los roles clave en el equipo y sus responsabilidades. 
+Propuesta de Solución: 
+
+1. Metodología Ágil: Scrum es ideal para este proyecto porque facilita entregas frecuentes y retroalimentación continua, permitiendo ajustes rápidos según las necesidades del cliente. 
+
+2. Ceremonias: 
+
+Sprint Planning: Planificar las tareas para el sprint, priorizando funcionalidades como el carrito de compras. 
+Daily Stand-Up: Sincronizar al equipo sobre el progreso y bloqueos. 
+Sprint Review: Demostrar el incremento funcional al cliente para recibir retroalimentación. 
+Retrospectiva: Analizar qué funcionó y qué mejorar en futuros sprints. 
+3. Roles: 
+
+Product Owner: Priorizar el backlog y representar los intereses del cliente. 
+Scrum Master: Facilitar el proceso ágil y resolver bloqueos. 
+Equipo de Desarrollo: Implementar funcionalidades como el catálogo de productos y la pasarela de pagos. 
+Este enfoque asegura que el producto evolucione constantemente según las expectativas del cliente. 
+
+
+
+Ejercicio 2. Análisis de Modelos de Ciclo de Vida para un Proyecto de Gestión Escolar
+Una institución educativa desea desarrollar un sistema de gestión escolar que permita gestionar estudiantes, cursos y calificaciones. El sistema debe garantizar la seguridad de los datos, ser accesible en navegadores web y cumplir con regulaciones locales de protección de datos. 
+
+Mis respuestas
+Solución
+1.
+Como parte del equipo de desarrollo, se te pide: 
+
+Describir las actividades principales de la fase de análisis y diseño en el modelo seleccionado. 
+Justificar tu elección del modelo, destacando ventajas y posibles limitaciones para este caso. 
+Analizar las características del proyecto y seleccionar un modelo de ciclo de vida adecuado (cascada, espiral, incremental o ágil). 
+1. Modelo Seleccionado: El modelo en espiral es adecuado, ya que el sistema necesita alta seguridad y cumplimiento normativo. Este modelo permite identificar y gestionar riesgos en cada iteración. 
+
+2. Justificación: Ventajas: 
+
+Gestión de riesgos en cada iteración. 
+Flexibilidad para incorporar cambios durante el desarrollo. 
+Limitaciones: 
+Costos más altos debido al análisis continuo. 
+Requiere personal con experiencia en gestión de riesgos. 
+3. Actividades: 
+
+Análisis: Identificar requisitos funcionales como la gestión de estudiantes y cursos, y no funcionales como la seguridad y escalabilidad. Realizar entrevistas con los administradores escolares. 
+Diseño: Crear diagramas de clases para las entidades principales (estudiantes, cursos). Diseñar un mockup de la interfaz para la gestión de calificaciones. 
+
+
+
+
+Tema 2
+
+
+Ejercicio 3. Aplicación de Metodologías Ágiles y Principios de Desarrollo para un Proyecto de Software Educativo
+Una institución educativa desea desarrollar una plataforma web que permita a los estudiantes acceder a recursos educativos, participar en foros de discusión y enviar tareas para revisión. Los requisitos iniciales incluyen: 
+
+Registro y autenticación de usuarios. 
+Gestión de contenido por parte de los profesores. 
+Interacción entre estudiantes y profesores mediante foros y mensajería. 
+Función de subida y calificación de tareas. 
+El cliente ha pedido entregas frecuentes para evaluar el progreso y ajustar funcionalidades según el feedback recibido. También solicita que el equipo de desarrollo siga estándares de calidad y mantenga el código bien documentado. 
+
+Mis respuestas
+Solución
+1.
+Proponer una metodología de desarrollo adecuada para este proyecto, justificando su elección. 
+Identificar las buenas prácticas y herramientas que el equipo debería usar para garantizar la calidad del código y la validación temprana. 
+Detallar cómo integrarías las ceremonias de Scrum en el flujo de trabajo del equipo. 
+Propuesta de Solución 
+
+1. Metodología Propuesta: 
+
+ 
+Para este proyecto, la metodología Scrum es ideal. Justificación: 
+
+Permite trabajar en incrementos funcionales (por ejemplo, desarrollar primero el registro de usuarios). 
+Facilita adaptarse a los cambios en los requisitos mediante sprints cortos. 
+Promueve la colaboración constante entre el cliente y el equipo. 
+2. Buenas Prácticas y Herramientas: 
+
+Buenas Prácticas:  
+Aplicar PEP8 para asegurar un código limpio y consistente. 
+Seguir principios como DRY (evitar duplicar código) y KISS (mantener el diseño simple). 
+Herramientas:  
+Linters como pylint y flake8 para detectar errores de estilo y problemas de lógica. 
+Pruebas unitarias con pytest para validar cada funcionalidad desarrollada. 
+Sistemas de integración continua (GitHub Actions) para ejecutar validaciones automáticas al subir cambios al repositorio. 
+3. Integración de Ceremonias Scrum: 
+
+Sprint Planning: Antes de cada sprint, definir objetivos claros, como implementar el módulo de foros o la subida de tareas. 
+Reuniones Diarias: Breves encuentros para sincronizar al equipo, identificar bloqueos y planificar el día. 
+Sprint Review: Mostrar al cliente las funcionalidades completadas y recopilar feedback para priorizar ajustes. 
+Retrospectiva: Reflexionar sobre qué funcionó bien y qué debe mejorarse para aumentar la eficiencia del equipo en el siguiente sprint. 
+Esta solución garantiza un desarrollo ágil, enfocado en la calidad, con entregas frecuentes y alineado con las expectativas del cliente. 
+
+
+Ejercicio 4. Desarrollo de un Sistema de Información para la Gestión de Historias Clínicas Electrónicas
+Una institución sanitaria requiere un sistema de información para gestionar las historias clínicas electrónicas (HCE) de sus pacientes. El sistema debe cumplir con estrictas regulaciones legales de protección de datos y seguridad, como la Ley de Protección de Datos Personales. Los requisitos iniciales incluyen: 
+
+Registro y acceso seguro a las historias clínicas. 
+Gestión de permisos para diferentes roles médicos. 
+Generación de reportes y auditorías de acceso. 
+Integración con sistemas hospitalarios existentes. 
+El cliente exige una planificación detallada, documentación exhaustiva y un proceso riguroso de validación para garantizar que el sistema cumpla con todas las normativas. 
+
+Mis respuestas
+Solución
+1.
+Tarea: 
+
+Justificar por qué el modelo Waterfall es adecuado para este proyecto. 
+Describir las etapas del modelo y cómo se aplicarían al caso. 
+Identificar los beneficios de este enfoque frente a metodologías ágiles. 
+Propuesta de Solución 
+
+1. Justificación del Modelo Waterfall: 
+El modelo Waterfall es ideal para este proyecto debido a la necesidad de cumplir con regulaciones estrictas de protección de datos en el sector sanitario. Su enfoque secuencial y estructurado garantiza que cada fase se complete y verifique antes de avanzar a la siguiente, minimizando riesgos y errores. Además, la generación de documentación exhaustiva es crucial para auditar el cumplimiento normativo y facilitar el mantenimiento del sistema. 
+
+2. Aplicación de las Etapas del Modelo Waterfall: 
+
+Recolección de requisitos: Se identifican y documentan exhaustivamente los requisitos funcionales y no funcionales, incluyendo regulaciones específicas como el control de accesos y la encriptación de datos. 
+Diseño del sistema:  
+Diseño conceptual: Definir la arquitectura del sistema, como bases de datos seguras y módulos de gestión de permisos. 
+Diseño detallado: Especificar estructuras de datos, flujos de trabajo y esquemas de auditoría. 
+Implementación: Los desarrolladores traducen el diseño a código funcional utilizando lenguajes seguros como Python y frameworks orientados a sistemas sanitarios. 
+Pruebas: Se realizan pruebas exhaustivas, como pruebas de seguridad, para garantizar que el sistema cumpla con las normativas y funcione correctamente. 
+Despliegue: El sistema se implementa en el entorno de producción, acompañado de manuales técnicos y capacitación para el personal médico. 
+Mantenimiento: Se gestionan actualizaciones para cumplir con nuevas regulaciones y se corrigen errores detectados en producción. 
+3. Beneficios del Enfoque Waterfall: 
+
+Estabilidad: Ideal para proyectos con requisitos definidos y poco propensos a cambios. 
+Cumplimiento normativo: La documentación detallada facilita auditorías y pruebas regulatorias. 
+Gestión del riesgo: El enfoque secuencial asegura un desarrollo controlado, reduciendo errores críticos. 
+Este enfoque asegura un producto confiable, seguro y alineado con las necesidades del sector regulado.
+
+
+TEMA 3
+
+Ejercicio 5. Gestión de Requisitos para el Desarrollo de un Sistema de Reservas de Consultas Médicas
+Una clínica desea desarrollar un sistema de reservas en línea que permita a los pacientes: 
+
+Registrar una cuenta y autenticarse. 
+Seleccionar un médico y reservar una cita según la disponibilidad. 
+Recibir notificaciones de confirmación y recordatorio por correo electrónico. 
+Consultar su historial de citas. 
+El sistema debe cumplir con las siguientes condiciones: 
+
+Proteger los datos de los pacientes según el RGPD. 
+Procesar hasta 500 solicitudes por segundo. 
+Ser accesible desde dispositivos móviles y cumplir con las normas WCAG 2.1. 
+Mis respuestas
+Solución
+1.
+Identifica y clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema.
+Proporciona un caso de uso para una funcionalidad clave del sistema.
+Propuesta de validación: explica cómo validarías los requisitos para asegurar que cumplen con las expectativas del cliente.
+1. Clasificación de Requisitos: 
+
+Funcionales:  
+
+Registro y autenticación de usuarios. 
+
+Reservar citas con médicos disponibles. 
+
+Notificar al paciente por correo electrónico. 
+
+No funcionales:  
+
+Procesar hasta 500 solicitudes por segundo. 
+
+Tiempo de respuesta inferior a 2 segundos en redes estándar. 
+
+Diseño accesible para usuarios con discapacidades (cumplimiento WCAG 2.1). 
+
+Técnicos:  
+
+Desarrollar el sistema en Python con Django. 
+
+Base de datos PostgreSQL para gestionar citas. 
+
+Legales:  
+
+Cumplir con el RGPD, implementando anonimización y encriptación de datos. 
+
+2. Caso de Uso: Reservar una Cita 
+
+Actor: Paciente. 
+
+Flujo Principal:  
+
+El paciente inicia sesión. 
+
+Selecciona un médico y una fecha disponible. 
+
+Ejercicio 6. Sistema de Gestión de Pedidos para una Tienda Online
+Una tienda online desea desarrollar un sistema que permita a los clientes: 
+
+Registrarse y acceder a su cuenta. 
+Navegar por categorías de productos y añadirlos al carrito. 
+Realizar pagos seguros mediante una pasarela de pago integrada. 
+Recibir confirmación del pedido por correo electrónico. 
+El sistema debe cumplir con los siguientes requisitos: 
+
+Procesar hasta 1000 pedidos simultáneos. 
+Cargar la página principal en menos de 2 segundos. 
+Cumplir con el RGPD para garantizar la seguridad de los datos de los clientes. 
+Mis respuestas
+Solución
+1.
+Clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema. 
+Proporciona un caso de uso para la funcionalidad de realizar un pedido. 
+Explica cómo validarías los requisitos para garantizar que se alineen con las necesidades del cliente. 
+Clasificación de Requisitos: 
+
+Funcionales:  
+
+Registro y autenticación de clientes. 
+
+Gestión de carritos de compra. 
+
+Procesamiento de pagos seguros. 
+
+No funcionales:  
+
+Tiempo de carga inferior a 2 segundos. 
+
+Procesar 1000 pedidos simultáneos. 
+
+Técnicos:  
+
+Uso de Python con Django y una base de datos MySQL. 
+
+Legales:  
+
+Cumplir con el RGPD mediante encriptación de datos y consentimiento explícito. 
+
+Caso de Uso: Realizar un Pedido 
+
+Actor: Cliente. 
+
+Flujo Principal:  
+
+El cliente añade productos al carrito. 
+
+Selecciona una dirección de envío y el método de pago. 
+
+Realiza el pago y recibe confirmación del pedido. 
+
+
+TEMA 4
+
+
+Ejercicio 7. Creación y Representación de un Modelo Conceptual para un Sistema de Gestión de Reservas en un Restaurante
+Un restaurante desea implementar un sistema para gestionar las reservas de sus clientes. El sistema debe permitir:
+
+Registrar clientes con su nombre, correo electrónico y número de teléfono.
+Permitir a los clientes realizar reservas especificando fecha, hora, número de personas y preferencia de mesa.
+Gestionar la disponibilidad de las mesas, considerando el número de personas.
+Asignar un empleado (mesero) a las reservas para atenderlas.
+Mis respuestas
+Solución
+1.
+Identifica las clases principales, atributos y métodos necesarios para el sistema.
+Crea un diagrama UML que represente las clases y sus relaciones (asociación, composición, herencia).
+Explica cómo se implementarían las clases y relaciones en Python.
+1. Identificación de Clases, Atributos y Métodos:
+
+Cliente:
+
+Atributos: idCliente, nombre, correo, telefono.
+Métodos: registrarse(), consultarReservas().
+Reserva:
+Atributos: idReserva, fecha, hora, numPersonas, mesa, empleado.
+Métodos: crearReserva(), cancelarReserva().
+Mesa:
+Atributos: idMesa, numAsientos, disponible.
+Métodos: actualizarDisponibilidad().
+Empleado:
+Atributos: idEmpleado, nombre, cargo.
+Métodos: asignarReserva().
+2. Diagrama UML:
+
+
+Ejercicio 8. Modelo Conceptual para un Sistema de Gestión de Cursos Online
+Una plataforma de educación en línea necesita un sistema para gestionar cursos, instructores y estudiantes. El sistema debe permitir:
+
+Registrar estudiantes con su nombre, correo y cursos en los que están inscritos.
+Permitir a los instructores crear cursos especificando el título, descripción y duración.
+Gestionar la relación entre estudiantes y cursos, incluyendo la fecha de inscripción y el estado (activo o completado).
+Mis respuestas
+Solución
+1.
+Identifica las clases principales, atributos y métodos necesarios.
+Diseña un diagrama UML que represente el sistema.
+Muestra cómo implementarías las clases y relaciones en Python.
+1. Clases, Atributos y Métodos:
+
+Estudiante:
+Atributos: idEstudiante, nombre, correo.
+Métodos: registrarse(), consultarCursos().
+Curso:
+Atributos: idCurso, titulo, descripcion, duracion.
+Métodos: crearCurso(), actualizarCurso().
+Inscripcion:
+Atributos: idInscripcion, fecha, estado.
+Métodos: inscribirEstudiante(), actualizarEstado().
+Instructor:
+Atributos: idInstructor, nombre, email.
+Métodos: crearCurso().
+2. Diagrama UML:
+
+
+Tema 5
+
+
+Ejercicio 9.
+Un gimnasio necesita implementar un sistema para gestionar las reservas de clases grupales. El analista propone una estrategia basada en prototipos y mockups para garantizar que la interfaz gráfica (GUI) cumpla con las necesidades de los usuarios. El sistema debe incluir: 
+
+Una vista de calendario donde los usuarios puedan ver las clases disponibles. 
+Un formulario para registrarse en una clase con datos como nombre del usuario y horario seleccionado. 
+Un área donde los usuarios puedan consultar sus clases reservadas. 
+Mis respuestas
+Solución
+1.
+Tarea: 
+
+Describe cómo el analista utilizaría herramientas como Figma o Balsamiq para diseñar un mockup de la interfaz. 
+Propón cómo se implementarían los elementos de la GUI en Python utilizando Tkinter o PyQt. 
+Explica por qué el uso de mockups y prototipos es útil para este proyecto. 
+Uso de herramientas para mockups: 
+
+En Figma, el analista crea un diseño con tres secciones: el calendario en la parte superior, el formulario de registro en el centro y las reservas del usuario en la parte inferior. Utiliza un diseño limpio y colores que reflejen la identidad del gimnasio. 
+
+Implementación en Python con Tkinter: 
+
+El calendario se representa mediante una tabla interactiva (puede usarse ttk.Treeview). 
+Los datos del formulario se capturan con widgets como Entry y Button. 
+La lista de reservas se muestra en un Listbox, donde los usuarios pueden ver o cancelar sus clases. 
+Ventajas de prototipos y mockups: 
+
+Facilitan la validación del diseño con los administradores del gimnasio. 
+Permiten realizar ajustes tempranos basados en la retroalimentación antes de iniciar la implementación. 
+
+Ejercicio 10.
+Una tienda de electrónica desea desarrollar un portal para gestionar las ventas en línea. El analista propone un enfoque iterativo basado en prototipos interactivos para diseñar la interfaz. El portal debe incluir: 
+
+Una página de productos con filtros (categoría, precio). 
+Un carrito de compras donde los usuarios puedan gestionar sus pedidos. 
+Un formulario para completar la compra con datos de envío y pago. 
+Mis respuestas
+Solución
+1.
+Tarea: 
+
+Detalla cómo el analista desarrollaría un prototipo funcional para este proyecto. 
+Explica cómo integrar la interfaz con Python utilizando PyQt. 
+Justifica cómo los prototipos mejoran la comunicación con los stakeholders. 
+Prototipo funcional: 
+
+En Figma, se crea un prototipo interactivo donde los usuarios puedan simular la selección de productos, añadirlos al carrito y completar la compra. Los filtros se simulan con botones interactivos. 
+Implementación en PyQt: 
+
+La lista de productos se implementa con un QTableWidget, permitiendo añadir funcionalidades avanzadas como filtros dinámicos. 
+El carrito de compras es un QListWidget con opciones para actualizar la cantidad o eliminar productos. 
+El formulario utiliza widgets como QLineEdit y QComboBox para capturar información de envío y pago. 
+Impacto de los prototipos: 
+
+Permiten validar el flujo de navegación y la funcionalidad antes del desarrollo técnico. 
+Ayudan a alinear expectativas entre los stakeholders y el equipo técnico. 
+
+
+Tema 6
+
+Ejercicio 11. Análisis de un Diagrama UML
+A continuación, se presenta un diagrama de clases UML que representa una jerarquía de clases en un sistema de gestión de vehículos: 
+
+
+
+Mis respuestas
+Solución
+1.
+¿Qué tipo de relación existe entre la clase Vehiculo y las clases Coche y Moto? Justifica tu respuesta. 
+Si se quisiera implementar este modelo en Python, ¿qué palabra clave se utilizaría para establecer la herencia? 
+¿Cómo aplicarías el polimorfismo en este modelo para que cada tipo de vehículo muestre su propia información al llamar obtener_info()? 
+1. ¿Qué tipo de relación existe entre la clase Vehiculo y las clases Coche y Moto? Justifica tu respuesta. 
+
+La relación entre Vehiculo y sus subclases Coche y Moto es una relación de herencia. En UML, esto se representa con una línea con un triángulo apuntando a la superclase Vehiculo, lo que indica que Coche y Moto heredan sus atributos y métodos. 
+
+Esta relación es adecuada porque un Coche y una Moto son tipos específicos de Vehiculo (relación "es un"), lo que permite reutilizar atributos comunes (marca, modelo, año) y definir comportamientos compartidos en la superclase. 
+
+ 
+
+2. Si se quisiera implementar este modelo en Python, ¿qué palabra clave se utilizaría para establecer la herencia? 
+
+En Python, la herencia se establece utilizando la palabra clave class Subclase(Superclase). Para este caso, la implementación básica sería: 
+
+class Vehiculo: 
+
+    def __init__(self, marca, modelo, año): 
+
+        self.marca = marca 
+
+        self.modelo = modelo 
+
+        self.año = año 
+
+ 
+
+class Coche(Vehiculo): 
+
+    def __init__(self, marca, modelo, año, num_puertas): 
+
+        super().__init__(marca, modelo, año) 
+
+        self.num_puertas = num_puertas 
+
+ 
+
+class Moto(Vehiculo): 
+
+    def __init__(self, marca, modelo, año, cilindrada): 
+
+        super().__init__(marca, modelo, año) 
+
+        self.cilindrada = cilindrada 
+
+La función super() permite llamar al constructor de la clase padre Vehiculo y reutilizar su lógica en Coche y Moto. 
+
+ 
+
+3. ¿Cómo aplicarías el polimorfismo en este modelo para que cada tipo de vehículo muestre su propia información al llamar obtener_info()? 
+
+El polimorfismo permite que Coche y Moto sobrescriban el método obtener_info() de Vehiculo, personalizando su comportamiento en cada subclase. 
+
+Implementación en Python: 
+
+class Vehiculo: 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año})" 
+
+ 
+
+class Coche(Vehiculo): 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año}) - {self.num_puertas} puertas" 
+
+ 
+
+class Moto(Vehiculo): 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año}) - {self.cilindrada}cc" 
+
+ 
+
+# Uso del polimorfismo 
+
+vehiculo1 = Coche("Toyota", "Corolla", 2022, 4) 
+
+vehiculo2 = Moto("Honda", "CBR600RR", 2021, 600) 
+
+ 
+
+print(vehiculo1.obtener_info())  # Toyota Corolla (2022) - 4 puertas 
+
+print(vehiculo2.obtener_info())  # Honda CBR600RR (2021) - 600cc
+
+
+
+Ejercicio 12. Implementación de una Jerarquía con Herencia y Polimorfismo
+Implementa en Python una jerarquía de clases basada en la siguiente estructura: 
+
+Clase base: Empleado con atributos nombre y salario, y un método calcular_pago(). 
+Clases derivadas:  
+Gerente, cuyo salario incluye un bono del 20%. 
+Desarrollador, cuyo salario incluye un bono del 10%. 
+Mis respuestas
+Solución
+1.
+Escribe el código en Python respetando la herencia y el polimorfismo. 
+Crea instancias de Gerente y Desarrollador, asignando un salario base de 3000€, e imprime sus respectivos salarios finales. 
+Ejemplo de salida esperada: 
+
+Gerente: Salario final = 3600€ 
+
+Desarrollador: Salario final = 3300€ 
+
+1. Código en Python respetando la herencia y el polimorfismo 
+
+La implementación en Python debe seguir los principios de la programación orientada a objetos (POO), usando herencia para reutilizar código y polimorfismo para sobrescribir métodos en las subclases. 
+
+class Empleado: 
+
+    def __init__(self, nombre, salario): 
+
+        self.nombre = nombre 
+
+        self.salario = salario 
+
+ 
+
+    def calcular_pago(self): 
+
+        return self.salario  # Método base que será sobrescrito en las subclases 
+
+ 
+
+class Gerente(Empleado): 
+
+    def calcular_pago(self): 
+
+        return self.salario * 1.2  # Bono del 20% 
+
+ 
+
+class Desarrollador(Empleado): 
+
+    def calcular_pago(self): 
+
+        return self.salario * 1.1  # Bono del 10% 
+
+Aquí, Empleado es la superclase, mientras que Gerente y Desarrollador heredan de ella y sobrescriben el método calcular_pago() para aplicar los bonos correspondientes. 
+
+ 
+
+2. Creación de instancias y cálculo del salario final 
+
+Ahora, creamos instancias de Gerente y Desarrollador con un salario base de 3000€ y verificamos que el cálculo del salario funcione correctamente. 
+
+# Creación de objetos 
+
+empleado1 = Gerente("Laura", 3000) 
+
+empleado2 = Desarrollador("Carlos", 3000) 
+
+ 
+
+# Impresión de salarios finales 
+
+print(f"Gerente: Salario final = {empleado1.calcular_pago()}€") 
+
+print(f"Desarrollador: Salario final = {empleado2.calcular_pago()}€") 
+
+Salida esperada: 
+
+Gerente: Salario final = 3600€ 
+
+Desarrollador: Salario final = 3300€ 
+
+
+
+
+

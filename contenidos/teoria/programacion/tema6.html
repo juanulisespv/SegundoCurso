@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Tema 6: Modelado Conceptual Avanzado y Jerarquías - Parte 1 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .programming-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hierarchy-pattern {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .advanced-concept {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .architectural-layer {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .modeling-technique {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .inheritance-diagram {
+            background: #ffffff;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: monospace;
+        }
+        
+        .pattern-example {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item active" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid">
+        <div class="programming-hero">
+            <div class="container">
+                <h1 class="display-4 mb-3">
+                    <i class="bi bi-diagram-3-fill me-3"></i>
+                    Modelado Conceptual Avanzado y Jerarquías
+                </h1>
+                <p class="lead mb-4">Parte 1: Herencia Avanzada • Polimorfismo • Composición vs Herencia • Patrones Creacionales</p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-book me-1"></i>Tema 6 - Parte 1
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-clock me-1"></i>45 min lectura
+                        </span>
+                        <span class="badge bg-light text-dark fs-6">
+                            <i class="bi bi-diagram-3 me-1"></i>Avanzado
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 1
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#herencia-conceptual">Herencia en Modelado</a>
+                                <a class="nav-link" href="#polimorfismo-diseño">Polimorfismo</a>
+                                <a class="nav-link" href="#composicion-herencia">Composición vs Herencia</a>
+                                <a class="nav-link" href="#patrones-creacionales">Patrones Creacionales</a>
+                                <a class="nav-link" href="#preparacion-parte2">Preparación Parte 2</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-rocket me-2"></i>
+                        Introducción al Modelado Conceptual Avanzado
+                    </h2>
+                    
+                    <p class="lead">El modelado conceptual avanzado es una <strong>metodología estructurada</strong> para representar sistemas complejos usando principios de POO.</p>
+                    
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-lightbulb me-2"></i>¿Qué es el Modelado Conceptual Avanzado?</h4>
+                        <p>Metodología para representar de manera <strong>estructurada y detallada</strong> los componentes del sistema, sus relaciones y comportamientos.</p>
+                        <ul class="mb-0">
+                            <li><strong>Se basa en principios de POO</strong></li>
+                            <li><strong>Fundamental para aplicaciones escalables</strong></li>
+                            <li><strong>Promueve reutilización y mantenibilidad</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3>Importancia en el Diseño de Software</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-eye me-2"></i>Claridad Estructural</h5>
+                                <p><strong>Visualizar jerarquías y relaciones</strong></p>
+                                <ul class="mb-0">
+                                    <li>Estructura del sistema clara</li>
+                                    <li>Relaciones entre elementos</li>
+                                    <li>Organización antes de implementar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-people me-2"></i>Colaboración Facilitada</h5>
+                                <p><strong>Representación común del sistema</strong></p>
+                                <ul class="mb-0">
+                                    <li>Diseñadores y desarrolladores</li>
+                                    <li>Analistas y arquitectos</li>
+                                    <li>Lenguaje común de comunicación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-arrow-up-right me-2"></i>Mantenimiento y Escalabilidad</h5>
+                                <p><strong>Software evoluciona fácilmente</strong></p>
+                                <ul class="mb-0">
+                                    <li>Diseño bien estructurado</li>
+                                    <li>Evolución sin comprometer funcionalidad</li>
+                                    <li>Adaptabilidad a cambios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-recycle me-2"></i>Reutilización de Código</h5>
+                                <p><strong>Clases y relaciones reutilizables</strong></p>
+                                <ul class="mb-0">
+                                    <li>Definición correcta de clases</li>
+                                    <li>Reutilización en futuros proyectos</li>
+                                    <li>Eficiencia en desarrollo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Relación con la Programación Orientada a Objetos</h3>
+                    <div class="advanced-concept">
+                        <h5><i class="bi bi-diagram-3 me-2"></i>Principios Fundamentales Compartidos</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Herencia:</strong> Clases derivan de otras, reutilizando código</li>
+                                    <li><strong>Polimorfismo:</strong> Métodos genéricos, implementaciones específicas</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li><strong>Encapsulamiento:</strong> Acceso controlado a atributos</li>
+                                    <li><strong>Composición:</strong> Relaciones sin herencia, mayor modularidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-star me-2"></i>Beneficios en Sistemas Complejos</h4>
+                        <p><strong>Reutilización de Código:</strong> Herencia y composición optimizan tiempo y recursos</p>
+                        <p class="mb-0"><strong>Flexibilidad y Escalabilidad:</strong> Sistemas adaptan y crecen sin grandes modificaciones</p>
+                    </div>
+                </section>
+
+                <!-- Herencia en el Modelado Conceptual -->
+                <section id="herencia-conceptual" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-diagram-2 me-2"></i>
+                        Herencia en el Modelado Conceptual
+                    </h2>
+
+                    <p>La herencia es un <strong>principio clave de POO</strong> que permite a una clase derivar de otra, heredando atributos y métodos.</p>
+
+                    <h3>Conceptos Fundamentales</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-hierarchy me-2"></i>Principios Básicos de la Herencia</h4>
+                        <ol>
+                            <li><strong>Reutilización de código:</strong> Subclases reutilizan atributos y métodos, evitando redundancias</li>
+                            <li><strong>Jerarquía de clases:</strong> Estructura clara, clases generales arriba, especializadas abajo</li>
+                            <li><strong>Extensibilidad:</strong> Añadir funcionalidades sin modificar superclase</li>
+                            <li><strong>Relación "es un":</strong> Subclase es tipo más específico de superclase</li>
+                        </ol>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Ejemplo básico en Python:</h6>
+                        <pre>class Animal:
+    def __init__(self, nombre):
+        self.nombre = nombre
+    
+    def hacer_sonido(self):
+        return "Sonido genérico"
+
+class Perro(Animal):  # Hereda de Animal
+    def hacer_sonido(self):
+        return "Ladrido"
+
+mi_perro = Perro("Firulais")
+print(mi_perro.hacer_sonido())  # Salida: Ladrido</pre>
+                    </div>
+
+                    <h3>Representación en UML</h3>
+                    <div class="inheritance-diagram">
+                        <pre>+------------------+
+|      Animal      |
++------------------+
+| - nombre: String |
++------------------+
+| + hacer_sonido() |
++------------------+
+         ▲
+         │ (hereda)
++------------------+
+|      Perro       |
++------------------+
+| + hacer_sonido() |
++------------------+</pre>
+                    </div>
+
+                    <h3>Sobreescritura de Métodos</h3>
+                    <div class="advanced-concept">
+                        <h5><i class="bi bi-arrow-repeat me-2"></i>Override vs Overload</h5>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p><strong>Sobreescritura (Override):</strong></p>
+                                <ul class="mb-0">
+                                    <li>Subclase redefine método padre</li>
+                                    <li>Mismo nombre y firma</li>
+                                    <li>Comportamiento específico</li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6">
+                                <p><strong>Sobrecarga (Overload):</strong></p>
+                                <ul class="mb-0">
+                                    <li>Múltiples métodos mismo nombre</li>
+                                    <li>Diferentes parámetros</li>
+                                    <li>Python: simulado con defaults</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-arrow-up me-2"></i>Uso de super() en Python:</h6>
+                        <pre>class Animal:
+    def hacer_sonido(self):
+        return "Sonido genérico"
+
+class Perro(Animal):
+    def hacer_sonido(self):
+        sonido_base = super().hacer_sonido()  # Llamada al padre
+        return f"{sonido_base} - Ladrido"
+
+mi_perro = Perro()
+print(mi_perro.hacer_sonido())  # Salida: Sonido genérico - Ladrido</pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-balance me-2"></i>Ventajas y Desventajas de la Herencia</h4>
+                        <p><strong>Usar herencia cuando:</strong> Existe relación "es un", clases comparten atributos, se requiere polimorfismo</p>
+                        <p class="mb-0"><strong>Alternativas:</strong> Composición para relaciones "tiene un", interfaces para contratos, delegación para responsabilidades</p>
+                    </div>
+                </section>
+
+                <!-- Polimorfismo -->
+                <section id="polimorfismo-diseño" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-shuffle me-2"></i>
+                        Polimorfismo y su Importancia en el Diseño
+                    </h2>
+
+                    <p>El polimorfismo permite que <strong>diferentes clases respondan de manera distinta</strong> a un mismo método, mejorando flexibilidad y escalabilidad.</p>
+
+                    <h3>Tipos de Polimorfismo</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="advanced-concept">
+                                <h5><i class="bi bi-arrow-down me-2"></i>Por Sobreescritura (Override)</h5>
+                                <p><strong>Subclase redefine método padre</strong></p>
+                                <ul class="mb-0">
+                                    <li>Usado en herencia</li>
+                                    <li>Comportamiento específico por clase</li>
+                                    <li>Mismo nombre, implementación diferente</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="advanced-concept">
+                                <h5><i class="bi bi-layers me-2"></i>Por Sobrecarga (Overloading)</h5>
+                                <p><strong>Múltiples métodos mismo nombre</strong></p>
+                                <ul class="mb-0">
+                                    <li>Diferentes parámetros</li>
+                                    <li>Python: valores por defecto</li>
+                                    <li>Java/C++: sobrecarga estricta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Ejemplo polimorfismo en acción:</h6>
+                        <pre>class Animal:
+    def hacer_sonido(self):
+        return "Sonido genérico"
+
+class Perro(Animal):
+    def hacer_sonido(self):
+        return "Ladrido"
+
+class Gato(Animal):
+    def hacer_sonido(self):
+        return "Maullido"
+
+# Uso del polimorfismo
+animales = [Perro(), Gato(), Animal()]
+for animal in animales:
+    print(animal.hacer_sonido())
+
+# Salida:
+# Ladrido
+# Maullido  
+# Sonido genérico</pre>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-star me-2"></i>Importancia del Polimorfismo</h4>
+                        <ul class="mb-0">
+                            <li><strong>Flexibilidad:</strong> Nuevas clases implementan funcionalidades sin modificar código existente</li>
+                            <li><strong>Reutilización:</strong> Métodos genéricos en diferentes tipos de objetos</li>
+                            <li><strong>Escalabilidad:</strong> Software adaptable a cambios y expansiones futuras</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Composición vs Herencia -->
+                <section id="composicion-herencia" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-puzzle me-2"></i>
+                        Composición: Una Alternativa a la Herencia
+                    </h2>
+
+                    <p>La <strong>composición</strong> establece relaciones "tiene un" sin crear jerarquías rígidas, promoviendo mayor modularidad y flexibilidad.</p>
+
+                    <h3>Diferencias Conceptuales</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-arrow-up me-2"></i>Herencia ("es un")</h5>
+                                <p><strong>Relación padre-hijo</strong></p>
+                                <ul>
+                                    <li>Subclase hereda atributos y métodos</li>
+                                    <li>Ejemplo: "Un Perro <strong>es un</strong> Animal"</li>
+                                    <li>UML: flecha con triángulo</li>
+                                    <li>Jerarquía clara y rígida</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-box me-2"></i>Composición ("tiene un")</h5>
+                                <p><strong>Relación parte-todo</strong></p>
+                                <ul>
+                                    <li>Clase contiene instancias de otra</li>
+                                    <li>Ejemplo: "Un Coche <strong>tiene un</strong> Motor"</li>
+                                    <li>UML: rombo negro</li>
+                                    <li>Flexibilidad y modularidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inheritance-diagram">
+                        <h6><i class="bi bi-diagram-3 me-2"></i>Comparación en UML:</h6>
+                        <pre>HERENCIA:                    COMPOSICIÓN:
++------------+               +------------+
+|   Animal   |               |   Coche    |
++------------+               +------------+
+|+hacer_sonido()              | - motor: Motor |
++------------+               +------------+
+     ▲                            ♦
+     │                            │
++------------+               +------------+
+|   Perro    |               |   Motor    |
++------------+               +------------+
+|+hacer_sonido()              | + encender() |
++------------+               +------------+</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Implementación de composición:</h6>
+                        <pre>class Motor:
+    def encender(self):
+        return "Motor encendido"
+
+class Coche:
+    def __init__(self):
+        self.motor = Motor()  # Composición: Coche "tiene un" Motor
+    
+    def arrancar(self):
+        return self.motor.encender()
+
+mi_coche = Coche()
+print(mi_coche.arrancar())  # Salida: Motor encendido</pre>
+                    </div>
+
+                    <h3>Casos de Uso de la Composición</h3>
+                    <div class="advanced-concept">
+                        <h5><i class="bi bi-collection me-2"></i>Relaciones "Tiene un" (Has-a)</h5>
+                        <p><strong>Entidad contiene otra entidad</strong></p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul class="mb-0">
+                                    <li>Coche <strong>tiene</strong> Motor</li>
+                                    <li>Computadora <strong>tiene</strong> Procesador</li>
+                                    <li>Pedido <strong>tiene</strong> Productos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="code-example">
+                                    <pre>class Motor:
+    def __init__(self, tipo):
+        self.tipo = tipo
+    def encender(self):
+        return f"Motor {self.tipo} encendido"
+
+class Coche:
+    def __init__(self, marca, tipo_motor):
+        self.marca = marca
+        self.motor = Motor(tipo_motor)  # Composición
+    
+    def arrancar(self):
+        return f"{self.marca}: {self.motor.encender()}"</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Cuándo Usar Herencia vs Composición</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-check-circle me-2"></i>Usar Herencia Cuando:</h5>
+                                <ul class="mb-0">
+                                    <li>Existe relación "es un"</li>
+                                    <li>Clases comparten atributos comunes</li>
+                                    <li>Se requiere polimorfismo</li>
+                                    <li>Extender sin modificar clase base</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="hierarchy-pattern">
+                                <h5><i class="bi bi-x-circle me-2"></i>Usar Composición Cuando:</h5>
+                                <ul class="mb-0">
+                                    <li>No hay relación "es un" real</li>
+                                    <li>Se necesita flexibilidad</li>
+                                    <li>Evitar jerarquías rígidas</li>
+                                    <li>Bajo acoplamiento preferido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Patrones Creacionales -->
+                <section id="patrones-creacionales" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-gear me-2"></i>
+                        Patrones de Diseño: Principios y Aplicaciones
+                    </h2>
+
+                    <p>Los patrones de diseño son <strong>soluciones reutilizables</strong> a problemas comunes en el diseño de software.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-puzzle me-2"></i>¿Qué es un Patrón de Diseño?</h4>
+                        <p>Estrategia de programación que ofrece <strong>solución general</strong> a problema recurrente. No es código específico, sino guía estructurada.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Beneficios:</strong></p>
+                                <ul class="mb-0">
+                                    <li>Reutilización de código</li>
+                                    <li>Comunicación entre desarrolladores</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Mejoran mantenibilidad</li>
+                                    <li>Lenguaje común estándar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Clasificación de Patrones</h3>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="advanced-concept">
+                                <h5><i class="bi bi-plus-circle me-2"></i>Creacionales</h5>
+                                <p><strong>Creación de objetos eficiente</strong></p>
+                                <ul class="mb-0">
+                                    <li>Singleton</li>
+                                    <li>Factory Method</li>
+                                    <li>Builder</li>
+                                    <li>Abstract Factory</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="advanced-concept">
+                                <h5><i class="bi bi-diagram-2 me-2"></i>Estructurales</h5>
+                                <p><strong>Relación entre clases/objetos</strong></p>
+                                <ul class="mb-0">
+                                    <li>Adapter</li>
+                                    <li>Composite</li>
+                                    <li>Decorator</li>
+                                    <li>Facade</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="advanced-concept">
+                                <h5><i class="bi bi-chat me-2"></i>Comportamiento</h5>
+                                <p><strong>Comunicación entre objetos</strong></p>
+                                <ul class="mb-0">
+                                    <li>Observer</li>
+                                    <li>Strategy</li>
+                                    <li>Command</li>
+                                    <li>Template Method</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Patrón Singleton</h3>
+                    <div class="pattern-example">
+                        <h5><i class="bi bi-record-circle me-2"></i>Una Única Instancia Global</h5>
+                        <p>Garantiza que una clase tenga <strong>una única instancia</strong> y proporciona acceso global</p>
+                        
+                        <div class="code-example">
+                            <pre>class Singleton:
+    _instancia = None  # Variable de clase
+    
+    def __new__(cls):
+        if cls._instancia is None:
+            cls._instancia = super(Singleton, cls).__new__(cls)
+        return cls._instancia
+
+# Uso del Singleton
+obj1 = Singleton()
+obj2 = Singleton()
+print(obj1 is obj2)  # Salida: True</pre>
+                        </div>
+                        
+                        <p><strong>Casos de uso:</strong> Gestión configuración, conexiones BD, logging</p>
+                    </div>
+
+                    <h3>Patrón Factory</h3>
+                    <div class="pattern-example">
+                        <h5><i class="bi bi-gear-fill me-2"></i>Creación Centralizada de Objetos</h5>
+                        <p>Delega responsabilidad de creación a <strong>método especializado</strong></p>
+                        
+                        <div class="code-example">
+                            <pre>class Vehiculo:
+    def conducir(self):
+        pass
+
+class Coche(Vehiculo):
+    def conducir(self):
+        return "Conduciendo un coche"
+
+class Moto(Vehiculo):
+    def conducir(self):
+        return "Conduciendo una moto"
+
+class VehiculoFactory:
+    @staticmethod
+    def crear_vehiculo(tipo):
+        if tipo == "coche":
+            return Coche()
+        elif tipo == "moto":
+            return Moto()
+        else:
+            raise ValueError("Tipo no válido")
+
+# Uso del Factory
+vehiculo1 = VehiculoFactory.crear_vehiculo("coche")
+print(vehiculo1.conducir())  # Salida: Conduciendo un coche</pre>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-info-circle me-2"></i>Singleton vs Factory</h4>
+                        <p><strong>Singleton:</strong> Una única instancia global, recursos compartidos</p>
+                        <p class="mb-0"><strong>Factory:</strong> Múltiples instancias, creación flexible sin acoplamiento</p>
+                    </div>
+                </section>
+
+                <!-- Preparación Parte 2 -->
+                <section id="preparacion-parte2" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-arrow-right me-2"></i>
+                        Preparación para Parte 2: Modelado Arquitectónico
+                    </h2>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-list-check me-2"></i>Conceptos Base Establecidos</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Herencia y sobreescritura de métodos</li>
+                                    <li>Polimorfismo por override y overload</li>
+                                    <li>Composición vs herencia</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Patrones creacionales (Singleton, Factory)</li>
+                                    <li>Relaciones "es un" vs "tiene un"</li>
+                                    <li>Uso de super() en Python</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>En la <strong>Parte 2</strong> aplicaremos estos conceptos al modelado arquitectónico:</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="architectural-layer">
+                                <h5><i class="bi bi-layers me-2"></i>Vistas Arquitectónicas</h5>
+                                <p class="mb-0">Estructural, funcional, lógica, física</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architectural-layer">
+                                <h5><i class="bi bi-building me-2"></i>Arquitectura en Capas</h5>
+                                <p class="mb-0">Presentación, negocio, datos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architectural-layer">
+                                <h5><i class="bi bi-grid me-2"></i>Sistemas Empresariales</h5>
+                                <p class="mb-0">Jerarquías empleados, casos reales</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="architectural-layer">
+                                <h5><i class="bi bi-cloud me-2"></i>Aplicaciones Escalables</h5>
+                                <p class="mb-0">APIs, microservicios, patrones en producción</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Hacia el Modelado Arquitectónico</h4>
+                        <p class="mb-0">Los conceptos de herencia, polimorfismo y composición son <strong>fundamentales</strong> para diseñar arquitecturas de software escalables y mantenibles.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema5-parte2.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 5
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 6 de 12 - Parte 1</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema6-parte2.html" class="btn btn-success">
+                            Parte 2
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion6" class="btn btn-success floating-quiz-btn" title="Quiz Tema 6">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 6: Modelado Conceptual Avanzado y Jerarquías - Parte 1
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

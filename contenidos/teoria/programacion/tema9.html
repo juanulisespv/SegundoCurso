@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 9: Gestión de APIs - API Manager | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .manager-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .security-card {
+            background: #fff5f5;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .integration-card {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .lifecycle-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+        
+        .nav-link.active {
+            background-color: var(--bs-success) !important;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link {
+            color: var(--bs-body-color);
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--bs-success);
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .manager-card,
+        [data-bs-theme="dark"] .security-card,
+        [data-bs-theme="dark"] .integration-card,
+        [data-bs-theme="dark"] .lifecycle-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-bs-theme="dark"] .code-snippet {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item active" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="theme-toggle">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Gestión de APIs - API Manager</h1>
+                    <p class="lead mb-4">
+                        Herramienta que permite gestionar, monitorear y asegurar el acceso a APIs en entornos empresariales. 
+                        Facilita el control sobre el ciclo de vida de las APIs, asegurando disponibilidad, seguridad y escalabilidad.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-gear-wide-connected"></i> API Manager
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-shield-lock"></i> Seguridad
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-diagram-3"></i> Integración
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-arrow-repeat"></i> Ciclo de Vida
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-gear-wide-connected text-light" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold text-success mb-3">
+                                <i class="bi bi-list"></i> Contenido
+                            </h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion-manager">1. Introducción API Manager</a>
+                                <a class="nav-link" href="#seguridad-apis">2. Seguridad en APIs</a>
+                                <a class="nav-link" href="#integracion-externa">3. Integración Externa</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción API Manager -->
+                <section id="introduccion-manager" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-gear-wide-connected"></i> 1. Introducción a la Gestión de APIs con API Manager
+                    </h2>
+                    
+                    <div class="manager-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-question-circle"></i> ¿Qué es un API Manager?</h4>
+                        <p>
+                            Un <strong>API Manager</strong> es una herramienta que permite gestionar, monitorear y asegurar 
+                            el acceso a APIs en un entorno empresarial. Su propósito principal es facilitar el control 
+                            sobre el ciclo de vida de las APIs.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Beneficios en Entornos Empresariales:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-centralize"></i> Centralización
+                                        </h6>
+                                        <ul class="small">
+                                            <li>Administrar todas las APIs desde un único punto</li>
+                                            <li>Facilita monitoreo y mantenimiento</li>
+                                            <li>Políticas de acceso homogéneas</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-shield-check"></i> Seguridad y Control
+                                        </h6>
+                                        <ul class="small">
+                                            <li>Autenticación y autorización (OAuth2, JWT)</li>
+                                            <li>Rate limiting contra ataques DDoS</li>
+                                            <li>Control de acceso granular</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-graph-up"></i> Monitoreo y Análisis
+                                        </h6>
+                                        <ul class="small">
+                                            <li>Logging y análisis en tiempo real</li>
+                                            <li>Reportes sobre tráfico y uso</li>
+                                            <li>Identificación de cuellos de botella</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">
+                                            <i class="bi bi-arrow-clockwise"></i> Versionado
+                                        </h6>
+                                        <ul class="small">
+                                            <li>Gestión de versiones de APIs</li>
+                                            <li>Pruebas A/B y despliegues controlados</li>
+                                            <li>Compatibilidad con versiones anteriores</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- API Managers Populares -->
+                    <div class="manager-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-cloud-arrow-up"></i> API Managers Populares
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-amazon"></i> AWS API Gateway
+                                        </h5>
+                                        <h6 class="fw-bold">Características:</h6>
+                                        <ul class="small">
+                                            <li><strong>APIs REST, WebSocket y HTTP</strong></li>
+                                            <li><strong>Integración:</strong> Lambda, DynamoDB, CloudWatch, IAM</li>
+                                            <li><strong>Autenticación:</strong> OAuth2, AWS IAM, JWT</li>
+                                            <li><strong>Protección:</strong> Rate limiting y AWS WAF</li>
+                                            <li><strong>Monetización:</strong> Planes de suscripción</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Casos de Uso:</h6>
+                                        <ul class="small">
+                                            <li>Aplicaciones serverless con AWS Lambda</li>
+                                            <li>Gestión de APIs para microservicios</li>
+                                            <li>Arquitecturas híbridas cloud/on-premise</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-gear"></i> Kong API Gateway
+                                        </h5>
+                                        <h6 class="fw-bold">Características:</h6>
+                                        <ul class="small">
+                                            <li><strong>Arquitectura:</strong> Basado en NGINX</li>
+                                            <li><strong>Extensibilidad:</strong> Sistema de plugins</li>
+                                            <li><strong>Contenedores:</strong> Soporte Kubernetes</li>
+                                            <li><strong>Seguridad:</strong> OAuth2, JWT, ACLs</li>
+                                            <li><strong>Monitoreo:</strong> Prometheus, Grafana</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Casos de Uso:</h6>
+                                        <ul class="small">
+                                            <li>Entornos microservicios y Kubernetes</li>
+                                            <li>Soluciones altamente personalizables</li>
+                                            <li>Alto rendimiento y baja latencia</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Comparativa API Managers:</h5>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-success">
+                                    <tr>
+                                        <th>Característica</th>
+                                        <th>AWS API Gateway</th>
+                                        <th>Kong</th>
+                                        <th>Apigee</th>
+                                        <th>Tyk</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Despliegue</strong></td>
+                                        <td>Cloud (AWS)</td>
+                                        <td>On-premise / Cloud</td>
+                                        <td>Cloud y On-premise</td>
+                                        <td>Open Source y Cloud</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Kubernetes</strong></td>
+                                        <td>Limitada</td>
+                                        <td>Alta</td>
+                                        <td>Media</td>
+                                        <td>Alta</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Extensibilidad</strong></td>
+                                        <td>Limitada</td>
+                                        <td>Alta (Plugins)</td>
+                                        <td>Media</td>
+                                        <td>Alta</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Autenticación</strong></td>
+                                        <td>IAM, OAuth2, JWT</td>
+                                        <td>OAuth2, JWT, ACLs</td>
+                                        <td>OAuth2, OpenID</td>
+                                        <td>OAuth2, JWT</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Monitoreo</strong></td>
+                                        <td>AWS CloudWatch</td>
+                                        <td>Prometheus, Grafana</td>
+                                        <td>Google Analytics</td>
+                                        <td>OpenTracing</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Ciclo de Vida API -->
+                    <div class="lifecycle-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-arrow-repeat"></i> Gestión del Ciclo de Vida de una API
+                        </h4>
+                        
+                        <h5 class="fw-bold mt-3">Etapas del Ciclo de Vida:</h5>
+                        <div class="row">
+                            <div class="col-md-10 col-12">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-primary">
+                                            <div class="card-body">
+                                                <div class="badge bg-primary rounded-circle p-2 mb-2">1</div>
+                                                <h6 class="card-title">Diseño</h6>
+                                                <ul class="small">
+                                                    <li>Requisitos funcionales/no funcionales</li>
+                                                    <li>Endpoints, métodos HTTP, formatos</li>
+                                                    <li>OpenAPI/Swagger para documentación</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-success">
+                                            <div class="card-body">
+                                                <div class="badge bg-success rounded-circle p-2 mb-2">2</div>
+                                                <h6 class="card-title">Desarrollo</h6>
+                                                <ul class="small">
+                                                    <li>Implementación Flask/Django/FastAPI</li>
+                                                    <li>Autenticación OAuth2/JWT</li>
+                                                    <li>Pruebas unitarias e integración</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-info">
+                                            <div class="card-body">
+                                                <div class="badge bg-info rounded-circle p-2 mb-2">3</div>
+                                                <h6 class="card-title">Despliegue</h6>
+                                                <ul class="small">
+                                                    <li>AWS API Gateway, Kong, Apigee</li>
+                                                    <li>Escalabilidad: caché, balanceo</li>
+                                                    <li>Controles acceso y rate limiting</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-warning">
+                                            <div class="card-body">
+                                                <div class="badge bg-warning rounded-circle p-2 mb-2">4</div>
+                                                <h6 class="card-title">Monitoreo</h6>
+                                                <ul class="small">
+                                                    <li>Métricas: uso, tiempos respuesta, errores</li>
+                                                    <li>Herramientas: Prometheus, Grafana, CloudWatch</li>
+                                                    <li>Optimización rendimiento</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-danger">
+                                            <div class="card-body">
+                                                <div class="badge bg-danger rounded-circle p-2 mb-2">5</div>
+                                                <h6 class="card-title">Retiro</h6>
+                                                <ul class="small">
+                                                    <li>Desmantelamiento progresivo</li>
+                                                    <li>Notificación a desarrolladores</li>
+                                                    <li>Alternativas y nuevas versiones</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Estrategias de Versionado:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-link"></i> Versionado en URL
+                                        </h6>
+                                        <div class="code-snippet">
+GET /v1/usuarios
+GET /v2/usuarios
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-file-code"></i> Versionado en Header
+                                        </h6>
+                                        <div class="code-snippet">
+GET /usuarios
+Headers: Accept-Version: v1
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-search"></i> Versionado en Parámetros
+                                        </h6>
+                                        <div class="code-snippet">
+GET /usuarios?version=1
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Documentación con OpenAPI/Swagger:</h5>
+                        <div class="code-snippet">
+openapi: 3.0.0
+info:
+  title: API de Usuarios
+  version: 1.0.0
+paths:
+  /usuarios:
+    get:
+      summary: Obtiene la lista de usuarios
+      responses:
+        200:
+          description: Lista de usuarios en formato JSON
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seguridad en APIs -->
+                <section id="seguridad-apis" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-shield-lock"></i> 2. Seguridad en APIs
+                    </h2>
+
+                    <!-- Autenticación -->
+                    <div class="security-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-person-check"></i> 2.1. Autenticación en APIs
+                        </h4>
+                        <p>
+                            La <strong>autenticación</strong> en APIs es el proceso mediante el cual se verifica la identidad 
+                            de usuarios o aplicaciones que intentan acceder a los recursos, protegiendo la información 
+                            y asegurando que solo clientes autorizados puedan realizar solicitudes.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">¿Por qué es necesaria?</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-shield text-danger" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Seguridad</h6>
+                                    <small>Previene accesos no autorizados y protege datos sensibles</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-key text-warning" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Control de Acceso</h6>
+                                    <small>Define quién puede acceder a qué recursos</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-search text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Trazabilidad</h6>
+                                    <small>Monitoreo de interacciones para auditoría</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-key-fill"></i> JWT (JSON Web Tokens)
+                                        </h5>
+                                        <p class="small">
+                                            Estándar de autenticación basado en tokens en formato JSON. 
+                                            Ampliamente utilizado para autenticar usuarios sin almacenar sesiones.
+                                        </p>
+                                        
+                                        <h6 class="fw-bold">Funcionamiento:</h6>
+                                        <ol class="small">
+                                            <li>Usuario se autentica con credenciales</li>
+                                            <li>Servidor genera token JWT firmado</li>
+                                            <li>Cliente envía token en header Authorization</li>
+                                            <li>Servidor valida token antes de procesar</li>
+                                        </ol>
+                                        
+                                        <h6 class="fw-bold">Ventajas:</h6>
+                                        <ul class="small">
+                                            <li><strong>Seguro:</strong> Firmado con algoritmos cifrado</li>
+                                            <li><strong>Sin estado:</strong> Reduce carga servidor</li>
+                                            <li><strong>Información:</strong> Payload con datos usuario</li>
+                                        </ul>
+                                        
+                                        <div class="code-snippet">
+GET /perfil
+Authorization: Bearer &lt;TOKEN_JWT&gt;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-google"></i> OAuth2
+                                        </h5>
+                                        <p class="small">
+                                            Protocolo que permite a aplicaciones de terceros acceder a recursos 
+                                            de un usuario sin compartir credenciales. Estándar de Google, Facebook, GitHub.
+                                        </p>
+                                        
+                                        <h6 class="fw-bold">Flujo OAuth2:</h6>
+                                        <ol class="small">
+                                            <li>Usuario inicia sesión en proveedor (Google)</li>
+                                            <li>Proveedor solicita autorización</li>
+                                            <li>Usuario acepta, envía código autorización</li>
+                                            <li>Aplicación intercambia código por token acceso</li>
+                                        </ol>
+                                        
+                                        <h6 class="fw-bold">Ventajas:</h6>
+                                        <ul class="small">
+                                            <li><strong>Más seguro:</strong> Sin compartir credenciales</li>
+                                            <li><strong>Permisos:</strong> Scopes granulares</li>
+                                            <li><strong>Integración:</strong> Servicios externos</li>
+                                        </ul>
+                                        
+                                        <div class="code-snippet">
+GET https://accounts.google.com/o/oauth2/auth?
+client_id=APP_ID&redirect_uri=CALLBACK_URL&
+response_type=code&scope=email
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Autorización y Control de Acceso -->
+                    <div class="security-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-shield-plus"></i> 2.2. Autorización y Control de Acceso
+                        </h4>
+                        
+                        <div class="alert alert-info">
+                            <h6 class="fw-bold">Diferencia Clave:</h6>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <strong>Autenticación:</strong> Verifica <em>quién es</em> el usuario<br>
+                                    <small>Ejemplo: Usuario inicia sesión con email/contraseña</small>
+                                </div>
+                                <div class="col-md-6">
+                                    <strong>Autorización:</strong> Define <em>qué puede hacer</em> el usuario<br>
+                                    <small>Ejemplo: Solo admin puede eliminar registros</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">RBAC (Role-Based Access Control):</h5>
+                        <p>
+                            Modelo de control de acceso que asigna permisos según los <strong>roles de usuario</strong> 
+                            en lugar de gestionar accesos individuales.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-person"></i> Usuarios
+                                        </h6>
+                                        <p class="small">Personas o aplicaciones que acceden a la API</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-people"></i> Roles
+                                        </h6>
+                                        <p class="small">Conjunto de permisos: "Administrador", "Usuario estándar"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-check-square"></i> Permisos
+                                        </h6>
+                                        <p class="small">Acciones permitidas: "Crear", "Leer", "Eliminar"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="code-snippet">
+# Ejemplo AWS IAM Policy
+{
+  "Effect": "Allow",
+  "Action": "execute-api:Invoke",
+  "Resource": "arn:aws:execute-api:us-east-1:*/GET/pedidos"
+}
+                        </div>
+                    </div>
+
+                    <!-- Protección contra Ataques -->
+                    <div class="security-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-shield-exclamation"></i> 2.3. Protección contra Ataques
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-bug"></i> Inyección SQL/XSS
+                                        </h5>
+                                        <h6 class="fw-bold">Prevención SQL Injection:</h6>
+                                        <ul class="small">
+                                            <li><strong>Consultas parametrizadas</strong></li>
+                                            <li><strong>ORMs seguros:</strong> SQLAlchemy, Django ORM</li>
+                                            <li><strong>Validación:</strong> Sanitizar datos entrada</li>
+                                        </ul>
+                                        
+                                        <div class="code-snippet">
+cursor.execute("SELECT * FROM usuarios WHERE email = ?", (email,))
+                                        </div>
+                                        
+                                        <h6 class="fw-bold">Prevención XSS:</h6>
+                                        <ul class="small">
+                                            <li>Escapar y validar datos entrada/salida</li>
+                                            <li>Headers seguridad: Content-Security-Policy</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-danger">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-danger">
+                                            <i class="bi bi-exclamation-triangle"></i> Ataques DDoS
+                                        </h5>
+                                        <h6 class="fw-bold">Estrategias Mitigación:</h6>
+                                        <ul class="small">
+                                            <li><strong>Rate Limiting:</strong> Limitar solicitudes/tiempo</li>
+                                            <li><strong>Firewalls WAF:</strong> Filtrar tráfico malicioso</li>
+                                            <li><strong>Monitoreo:</strong> Detección tráfico anómalo</li>
+                                        </ul>
+                                        
+                                        <div class="code-snippet">
+from flask_limiter import Limiter
+
+limiter = Limiter(app, key_func=get_remote_address)
+
+@app.route("/endpoint")
+@limiter.limit("10 per minute")
+def endpoint():
+    return "Acceso permitido"
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Seguridad en Transmisión - HTTPS:</h5>
+                        <ul>
+                            <li><strong>Forzar HTTPS:</strong> Certificados SSL/TLS</li>
+                            <li><strong>Autenticación cifrada:</strong> OAuth2 y JWT seguros</li>
+                            <li><strong>Cifrado datos:</strong> AES-256 en base de datos</li>
+                        </ul>
+                        
+                        <div class="code-snippet">
+@app.before_request
+def force_https():
+    if not request.is_secure:
+        return redirect(request.url.replace("http://", "https://"))
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integración Servicios Externos -->
+                <section id="integracion-externa" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-diagram-3"></i> 3. Integración de APIs con Servicios Externos
+                    </h2>
+
+                    <!-- Introducción -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-link-45deg"></i> 3.1. Conexión con Servicios Externos
+                        </h4>
+                        <p>
+                            Las APIs permiten que las aplicaciones se comuniquen con otros sistemas para 
+                            <strong>compartir datos y funcionalidades</strong> sin desarrollarlas desde cero. 
+                            La integración con servicios externos mejora eficiencia, escalabilidad y funcionalidad.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Beneficios de Integración:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Reducción tiempo desarrollo:</strong> Stripe para pagos, Google Maps para geolocalización</li>
+                                    <li><strong>Mayor confiabilidad:</strong> Infraestructura robusta y protocolos seguridad avanzados</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Escalabilidad:</strong> Crecimiento sin modificar arquitectura interna</li>
+                                    <li><strong>Datos avanzados:</strong> Tiempo real (clima, finanzas), tecnologías IA/ML</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Desafíos y Mejores Prácticas:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-arrow-clockwise"></i> Gestión Dependencias
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Desafío:</strong> APIs externas pueden cambiar<br>
+                                            <strong>Práctica:</strong> Versionado APIs (v1, v2), leer documentación
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">
+                                            <i class="bi bi-speedometer2"></i> Latencia
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Desafío:</strong> Retrasos en respuestas<br>
+                                            <strong>Práctica:</strong> Implementar caché para consultas repetitivas
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-exclamation-triangle"></i> Disponibilidad
+                                        </h6>
+                                        <p class="small">
+                                            <strong>Desafío:</strong> Fallos API externa<br>
+                                            <strong>Práctica:</strong> Mecanismos fallback, respuestas predeterminadas
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Casos de Uso -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-puzzle"></i> 3.2. Casos de Uso Servicios Externos
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-info">
+                                            <i class="bi bi-geo-alt"></i> Google Maps API
+                                        </h5>
+                                        <h6 class="fw-bold">Aplicaciones:</h6>
+                                        <ul class="small">
+                                            <li>Mostrar ubicaciones de tiendas en mapa interactivo</li>
+                                            <li>Obtener rutas de navegación entre puntos</li>
+                                            <li>Autocompletar direcciones con Places API</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Ejemplo:</h6>
+                                        <p class="small">
+                                            App entrega a domicilio: calcular distancia y tiempo estimado 
+                                            entre ubicación usuario y restaurante.
+                                        </p>
+                                        <h6 class="fw-bold">Mejores Prácticas:</h6>
+                                        <ul class="small">
+                                            <li>Usar claves API para restringir acceso</li>
+                                            <li>Aplicar caché para mejorar rendimiento</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-credit-card"></i> Stripe API
+                                        </h5>
+                                        <h6 class="fw-bold">Aplicaciones:</h6>
+                                        <ul class="small">
+                                            <li>Comercio electrónico: pagos productos/servicios</li>
+                                            <li>Suscripciones: cobros automáticos</li>
+                                            <li>Marketplaces: dividir pagos vendedores</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Flujo Integración:</h6>
+                                        <ol class="small">
+                                            <li>Usuario ingresa datos tarjeta formulario seguro</li>
+                                            <li>Stripe procesa pago, devuelve éxito/error</li>
+                                            <li>Aplicación confirma y actualiza base datos</li>
+                                        </ol>
+                                        <h6 class="fw-bold">Mejores Prácticas:</h6>
+                                        <ul class="small">
+                                            <li>Autenticación 3D Secure</li>
+                                            <li>Cumplir normativas PCI DSS</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-shield-check"></i> Auth0/Google OAuth
+                                        </h5>
+                                        <h6 class="fw-bold">Aplicaciones:</h6>
+                                        <ul class="small">
+                                            <li>Inicio sesión Google, Facebook, GitHub</li>
+                                            <li>Gestionar acceso APIs con tokens</li>
+                                            <li>Autorización basada en roles (RBAC)</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Flujo Integración:</h6>
+                                        <ol class="small">
+                                            <li>Usuario elige "Iniciar sesión con Google"</li>
+                                            <li>Redirección a Google para autorización</li>
+                                            <li>Google devuelve token de acceso</li>
+                                        </ol>
+                                        <h6 class="fw-bold">Mejores Prácticas:</h6>
+                                        <ul class="small">
+                                            <li>Permisos específicos (scopes)</li>
+                                            <li>Tokens corta duración con renovación</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conectores y Middleware -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-plug"></i> 3.3. Gestión de Conectores y Middleware
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-amazon"></i> Conectores AWS API Gateway
+                                        </h5>
+                                        <p class="small">
+                                            Facilitan integración con servicios AWS como Lambda, DynamoDB, S3 o servicios externos.
+                                        </p>
+                                        <h6 class="fw-bold">Beneficios:</h6>
+                                        <ul class="small">
+                                            <li>Conexión servicios serverless (AWS Lambda)</li>
+                                            <li>Reducen complejidad código backend</li>
+                                            <li>Mejoran seguridad evitando acceso directo</li>
+                                        </ul>
+                                        <h6 class="fw-bold">Ejemplo Integración:</h6>
+                                        <ol class="small">
+                                            <li>Crear endpoint en API Gateway</li>
+                                            <li>Configurar conector hacia función Lambda</li>
+                                            <li>API Gateway envía solicitud a Lambda</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-success">
+                                            <i class="bi bi-gear"></i> Middleware Kong
+                                        </h5>
+                                        <p class="small">
+                                            Pequeños programas que se ejecutan antes o después de procesar 
+                                            una solicitud en la API.
+                                        </p>
+                                        <h6 class="fw-bold">Casos de Uso:</h6>
+                                        <ul class="small">
+                                            <li><strong>Autenticación:</strong> Verificar credenciales</li>
+                                            <li><strong>Logging:</strong> Almacenar información solicitudes</li>
+                                            <li><strong>Modificación:</strong> Agregar/eliminar headers</li>
+                                        </ul>
+                                        <div class="code-snippet">
+curl -X POST http://localhost:8001/services/mi-api/plugins \
+--data "name=jwt"  # Agrega autenticación JWT
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Webhooks y Notificaciones:</h5>
+                        <p>
+                            Los <strong>webhooks</strong> permiten que una API notifique automáticamente a otros sistemas 
+                            cuando ocurre un evento, mejorando eficiencia al permitir comunicación en tiempo real.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-credit-card text-success" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Procesamiento Pagos</h6>
+                                    <small>Stripe notifica cuando pago es exitoso</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-chat-dots text-info" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Notificaciones</h6>
+                                    <small>Alertas a Slack/Discord por cambios sistema</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-arrow-repeat text-warning" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Automatización</h6>
+                                    <small>Actualizar bases datos tiempo real</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mt-3">Ejemplo Webhook JSON:</h6>
+                        <div class="code-snippet">
+{
+  "evento": "pago_realizado",
+  "usuario": "12345",
+  "monto": "50.00",
+  "fecha": "2024-06-01T12:00:00Z"
+}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-lightbulb"></i> Casos Prácticos
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-cart"></i> Comercio Electrónico
+                                    </h5>
+                                    <h6 class="fw-bold">APIs Gestionadas:</h6>
+                                    <ul class="small">
+                                        <li><strong>Productos:</strong> Altas, bajas, modificaciones catálogo</li>
+                                        <li><strong>Pagos:</strong> Integración Stripe y PayPal</li>
+                                        <li><strong>Pedidos:</strong> Creación, seguimiento, cancelaciones</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Arquitectura API Manager:</h6>
+                                    <ul class="small">
+                                        <li>Elección solución (AWS Gateway, Kong, Apigee)</li>
+                                        <li>Seguridad: autenticación, autorización</li>
+                                        <li>Monitoreo: disponibilidad alta demanda</li>
+                                        <li>Integración: servicios terceros seguros</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-hospital"></i> Sistema de Salud
+                                    </h5>
+                                    <h6 class="fw-bold">Servicios Gestionados:</h6>
+                                    <ul class="small">
+                                        <li><strong>Pacientes:</strong> Registro, historial clínico, citas</li>
+                                        <li><strong>Laboratorios:</strong> Conexión externa resultados análisis</li>
+                                        <li><strong>Facturación:</strong> Pagos aseguradoras y pasarelas</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Consideraciones Especiales:</h6>
+                                    <ul class="small">
+                                        <li>Protección datos médicos (HIPAA, GDPR)</li>
+                                        <li>Integración segura laboratorios/aseguradoras</li>
+                                        <li>Disponibilidad crítica para emergencias</li>
+                                        <li>Auditoría y trazabilidad completa</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h6 class="fw-bold">
+                            <i class="bi bi-lightbulb"></i> Recomendaciones Generales:
+                        </h6>
+                        <ul class="mb-0">
+                            <li><strong>AWS API Gateway:</strong> Ideal para entornos serverless y aplicaciones en AWS</li>
+                            <li><strong>Kong:</strong> Mejor opción para microservicios y alta personalización</li>
+                            <li><strong>Apigee (Google):</strong> Adecuado para empresas que buscan analítica avanzada</li>
+                            <li><strong>Tyk:</strong> Opción flexible código abierto con equilibrio funcionalidades/control</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="tema8.html" class="btn btn-outline-success">
+                        <i class="bi bi-arrow-left"></i> Tema 8: APIs y Datos
+                    </a>
+                    <a href="../../../quiz-spa/index.html" class="btn btn-success">
+                        <i class="bi bi-trophy"></i> Realizar Quiz
+                    </a>
+                    <a href="tema10.html" class="btn btn-outline-success">
+                        Tema 10: Testing <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold text-success">Gestión de APIs - API Manager</h6>
+                    <p class="text-muted small mb-0">
+                        Gestión centralizada de APIs con herramientas como AWS API Gateway y Kong. 
+                        Seguridad, monitoreo e integración con servicios externos para escalabilidad empresarial.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        <i class="bi bi-book"></i> Material de Estudio - EUniv<br>
+                        <i class="bi bi-clock"></i> Programación - Tema 9
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon';
+            } else {
+                icon.className = 'bi bi-sun';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll position
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.sidebar .nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

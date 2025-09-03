@@ -1,0 +1,604 @@
+Estructura y navegación en
+interfaces web
+© Universitas Europaea IMF
+Indice
+Estructura y navegación en interfaces web
+3
+1. Principios de Diseño de Navegación
+4
+1.1 Claridad y Consistencia
+4
+1.2 Simplicidad
+4
+1.3 Relevancia
+4
+1.4 Accesibilidad
+5
+1.5 Feedback Visual y Orientación
+5
+1.6 Optimización para Dispositivos Móviles
+5
+1.7 Pruebas de Usabilidad
+6
+Conclusión
+6
+2. Técnicas de Estructuración de la Navegación
+6
+2.1 Menú Principal
+6
+2.2 Menús Secundarios o Dropdowns
+6
+2.3 Migas de Pan (Breadcrumbs)
+7
+2.4 Navegación Lateral (Sidebar)
+7
+2.5 Paginación y Scroll Infinito
+7
+2.6 Menú de Hamburguesa (para dispositivos móviles)
+8
+2.7 Búsqueda Interna
+8
+2.8 Enlaces Contextuales
+8
+Conclusión
+8
+3. Herramientas y Métodos para Diseñar la Navegación:
+9
+3.1 Mapas de Sitio: Visualización de la Estructura de Navegación
+9
+Beneficios del uso de mapas de sitio:
+9
+Herramientas para crear mapas de sitio:
+9
+3.2 Wireframes y Prototipos: Prueba de la Navegación Antes de la Implementación
+9
+Wireframes
+9
+Herramientas para crear wireframes:
+10
+Prototipos
+10
+Herramientas para crear prototipos:
+10
+3.3 Análisis de Uso y Pruebas de Usabilidad: Validación de la Experiencia del Usuario
+10
+Pruebas A/B
+10
+Herramientas para pruebas A/B:
+10
+Mapas de Calor (Heatmaps)
+10
+Herramientas para mapas de calor:
+11
+Pruebas de Usabilidad con Usuarios
+11
+Herramientas para realizar pruebas de usabilidad:
+11
+Conclusión
+11
+Actividades prácticas
+12
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/12
+Estructura y navegación en interfaces web
+En el desarrollo de interfaces web y móviles, la 
+navegación
+ es uno de los elementos más críticos para la
+experiencia del usuario (
+User Experience, UX
+). Una estructura de navegación bien diseñada facilita la
+búsqueda de información
+, mejora la usabilidad y ayuda a los usuarios a completar sus tareas de manera
+eficiente. En contraste, una navegación mal estructurada genera confusión, frustración y un alto porcentaje
+de abandono en los sitios web y aplicaciones.
+Los usuarios de la web moderna esperan 
+acceso inmediato y fluido
+ a la información. La navegación
+actúa como el mapa que guía su recorrido, permitiéndoles entender la organización del contenido y
+moverse dentro del sistema sin dificultad. Es por ello que el diseño de navegación debe ser 
+intuitivo, claro
+y accesible
+, asegurando que cualquier usuario, independientemente de su nivel de experiencia o
+dispositivo utilizado, pueda encontrar lo que busca sin obstáculos.
+Desde los primeros días de Internet, la navegación ha evolucionado de simples listas de enlaces a
+sistemas avanzados e interactivos
+ que responden a las necesidades de los usuarios en diferentes
+plataformas. Hoy en día, elementos como 
+menús desplegables, barras de navegación persistentes,
+migas de pan y búsquedas internas
+ son comunes en sitios web bien diseñados. En dispositivos móviles,
+el 
+menú de hamburguesa
+ y la navegación basada en gestos han surgido como soluciones para optimizar
+el uso del espacio limitado en pantalla.
+Un aspecto fundamental del diseño de navegación es la 
+jerarquía de la información
+. Un buen sistema de
+navegación debe reflejar la estructura lógica del contenido, organizándolo en categorías claras y
+accesibles. Además, debe minimizar el número de clics necesarios para alcanzar un destino relevante. Se
+estima que los usuarios deberían poder encontrar la información deseada en un máximo de 
+tres clics
+,
+aunque esta regla no siempre es estricta, depende del tipo de contenido y su organización.
+Otro principio clave es la 
+consistencia
+. Una estructura de navegación coherente en todo el sitio web
+mejora la familiaridad del usuario, reduciendo la carga cognitiva y permitiendo una experiencia más fluida.
+Los nombres de los menús y botones deben ser descriptivos y evitar ambigüedades, utilizando términos
+comprensibles para el público objetivo.
+Además, la 
+accesibilidad
+ es una prioridad en el diseño de navegación. Debe garantizarse que personas
+con discapacidades puedan interactuar con el sitio mediante tecnologías asistivas como lectores de
+pantalla o navegación por teclado. El cumplimiento de estándares como 
+WCAG (Web Content
+Accessibility Guidelines)
+ contribuye a una experiencia más inclusiva.
+Por último, la navegación no solo influye en la experiencia del usuario, sino también en la 
+optimización
+para motores de búsqueda (SEO)
+. Un sistema de navegación bien estructurado facilita el rastreo de los
+motores de búsqueda, mejorando la indexación del contenido y su visibilidad en los resultados de
+búsqueda.
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1. Principios de Diseño de Navegación
+El diseño de navegación es un componente esencial en cualquier sitio web o aplicación, ya que determina
+cómo los usuarios interactúan con el contenido y acceden a la información. Para lograr una navegación
+efectiva, es fundamental seguir ciertos principios que optimizan la experiencia del usuario (
+User Experience,
+UX
+), minimizan la fricción y garantizan la accesibilidad. A continuación, se presentan los principios clave en el
+diseño de estructuras de navegación.
+1.1 Claridad y Consistencia
+Uno de los aspectos más importantes en la navegación es la 
+claridad
+. Los usuarios deben entender de
+inmediato cómo moverse dentro del sitio, sin necesidad de instrucciones adicionales. Para ello, las etiquetas
+de los menús y enlaces deben ser 
+claras, descriptivas y comprensibles
+. Se deben evitar términos
+ambiguos, jerga técnica o etiquetas genéricas como "Hacer clic aquí", ya que no aportan información útil
+sobre la acción que el usuario realizará.
+La 
+consistencia
+ es igualmente esencial. La estructura de navegación debe ser uniforme en todas las páginas
+del sitio, evitando variaciones en el diseño, la ubicación de los menús o el estilo de los enlaces. Si un usuario
+aprende a navegar en una sección del sitio, debería poder aplicar ese conocimiento en cualquier otra sin
+confusión. Los menús deben permanecer en 
+el mismo lugar
+ y con la misma apariencia en todas las páginas.
+1.2 Simplicidad
+La navegación debe ser lo más 
+simple y directa posible
+. La sobrecarga de opciones y elementos de
+navegación puede generar confusión y dificultar la experiencia del usuario. Un principio comúnmente utilizado
+es el de 
+Minimizar el número de clics
+: los usuarios deben poder alcanzar su destino en el menor número de
+pasos posible. Aunque la regla de los 
+tres clics
+ ha sido debatida, se recomienda que el usuario pueda
+acceder a cualquier información clave sin esfuerzo excesivo.
+El diseño debe evitar 
+estructuras de navegación innecesariamente profundas
+, en las que los usuarios
+tengan que pasar por múltiples niveles de menús antes de encontrar lo que buscan. Una buena práctica es
+utilizar una 
+arquitectura plana
+, donde la información principal esté accesible en pocos niveles de jerarquía.
+1.3 Relevancia
+No todas las opciones de navegación son igualmente importantes para los usuarios. La interfaz debe mostrar
+únicamente aquellos enlaces y menús que sean más 
+relevantes
+ y utilizados con frecuencia. Incluir
+demasiados elementos en la navegación puede abrumar a los usuarios y dificultar la localización de lo que
+realmente necesitan.
+En esta unidad, exploraremos los principios esenciales para diseñar una navegación
+efectiva, las técnicas más utilizadas para estructurarla y las herramientas para evaluar su
+impacto en la usabilidad y accesibilidad.
+Aquí se exploran los principios y técnicas para diseñar estructuras de navegación claras y
+eficientes:
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Para definir una navegación efectiva, se recomienda realizar un 
+análisis de uso
+ mediante herramientas de
+analítica web, como 
+Google Analytics
+, que permiten identificar qué secciones del sitio reciben más tráfico y
+cuáles pueden ser optimizadas o eliminadas. De esta manera, se pueden destacar las opciones de
+navegación más importantes y simplificar el acceso a ellas.
+1.4 Accesibilidad
+La accesibilidad en la navegación es clave para asegurar que todas las personas, independientemente de sus
+capacidades o limitaciones, puedan interactuar con el sitio de manera eficiente. Para lograr esto, se deben
+seguir principios establecidos por las 
+Pautas de Accesibilidad para el Contenido Web (WCAG)
+:
+Navegación por teclado
+: Todos los elementos de navegación deben ser accesibles mediante el
+teclado, permitiendo a los usuarios desplazarse sin necesidad del ratón.
+Estructuras semánticas en HTML
+: El uso adecuado de etiquetas como 
+<nav>, <ul>, <li>, <a>
+ y aria-
+label mejora la interpretación del contenido por parte de lectores de pantalla.
+Contraste y tamaño de texto
+: Los enlaces y botones de navegación deben tener un contraste
+adecuado con el fondo y un tamaño de fuente legible.
+Indicadores visuales
+: Es importante que los enlaces y botones cambien de apariencia al ser
+seleccionados o enfocados, proporcionando una confirmación visual clara.
+1.5 Feedback Visual y Orientación
+El feedback visual es un elemento crucial en la navegación, ya que permite a los usuarios saber 
+dónde están
+dentro del sitio
+ y cómo pueden moverse a otras secciones. Para lograr esto, se pueden utilizar diversas
+técnicas:
+Migas de pan (
+breadcrumbs
+)
+: Permiten a los usuarios ver la ruta que han seguido y volver fácilmente
+a secciones anteriores.
+Cambio de color en enlaces activos
+: Resaltar visualmente el enlace de la página en la que el
+usuario se encuentra facilita la orientación.
+Indicadores de progreso
+: En procesos secuenciales, como formularios o flujos de compra, es útil
+mostrar en qué paso se encuentra el usuario y cuántos quedan por completar.
+Además, es recomendable proporcionar 
+mensajes de error claros
+ cuando un usuario intenta acceder a una
+página no disponible o comete un error en la navegación. Una página de error 404 bien diseñada debe
+ofrecer opciones alternativas o un buscador para redirigir al usuario.
+1.6 Optimización para Dispositivos Móviles
+Hoy en día, un gran porcentaje del tráfico web proviene de dispositivos móviles, por lo que la navegación
+debe estar optimizada para pantallas más pequeñas. Algunos principios clave para mejorar la navegación en
+dispositivos móviles incluyen:
+Menú de hamburguesa
+: Es una solución común para ocultar menús en dispositivos móviles,
+ahorrando espacio sin sacrificar funcionalidad.
+Botones táctiles grandes
+: Los enlaces y botones deben ser lo suficientemente grandes para que los
+usuarios puedan interactuar con ellos sin dificultad.
+Scroll intuitivo
+: Se debe evitar la necesidad de hacer zoom y garantizar que los elementos de
+navegación sean fáciles de tocar y deslizar.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1.7 Pruebas de Usabilidad
+Por último, un principio esencial del diseño de navegación es la 
+prueba y mejora continua
+. La única manera
+de saber si una estructura de navegación es efectiva es probándola con usuarios reales. Algunas de las
+técnicas más utilizadas para evaluar la navegación incluyen:
+Pruebas A/B
+: Comparar dos versiones de navegación para determinar cuál es más efectiva.
+Heatmaps
+: Analizar visualmente dónde los usuarios hacen clic con más frecuencia.
+Entrevistas y encuestas
+: Recoger retroalimentación directa de los usuarios sobre la experiencia de
+navegación.
+Conclusión
+El diseño de navegación es un aspecto crítico de cualquier interfaz digital, ya que impacta directamente en la
+experiencia del usuario y en la accesibilidad del contenido. Aplicar principios de claridad, simplicidad,
+relevancia, accesibilidad y feedback visual ayuda a crear una navegación eficiente e intuitiva. Además, la
+optimización para dispositivos móviles y la realización de pruebas de usabilidad garantizan que el sistema de
+navegación sea útil para todos los usuarios.
+Siguiendo estas buenas prácticas, es posible diseñar una navegación que no solo mejore la satisfacción del
+usuario, sino que también contribuya al éxito del sitio web o aplicación.
+2. Técnicas de Estructuración de la Navegación
+El diseño de la navegación no solo implica definir principios generales, sino también seleccionar y aplicar
+técnicas específicas que faciliten la experiencia del usuario. La elección de la estructura de navegación
+dependerá del tipo de sitio web o aplicación, la cantidad de contenido y la forma en que los usuarios
+interactúan con la información. A continuación, se presentan las técnicas más utilizadas para estructurar la
+navegación de manera clara y eficiente.
+2.1 Menú Principal
+El menú principal es el punto central de la navegación en la mayoría de los sitios web y aplicaciones. Debe
+proporcionar acceso directo a las secciones más importantes y ser 
+visible en todo momento o fácilmente
+accesible
+. Existen diferentes formatos de menú principal:
+Menú horizontal fijo
+: Se sitúa en la parte superior de la pantalla y permanece visible mientras el
+usuario navega. Es ideal para sitios con pocas categorías principales.
+Menú fijo lateral
+: Se coloca a la izquierda o derecha y es útil cuando hay muchas secciones,
+permitiendo un acceso continuo sin desplazar el contenido principal.
+Menú emergente o flotante
+: Aparece cuando el usuario lo necesita, mediante un ícono de activación,
+reduciendo el uso de espacio en pantalla.
+Independientemente del formato, el menú principal debe ser 
+claro, conciso y consistente
+, asegurando que
+todas las secciones sean fácilmente identificables.
+2.2 Menús Secundarios o Dropdowns
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Los menús secundarios permiten organizar mejor la información dentro del menú principal. Se despliegan al
+pasar el cursor (
+hover
+) o hacer clic sobre una categoría principal, mostrando subcategorías relacionadas.
+Menús en cascada
+ (
+dropdown multi-nivel
+): Se utilizan cuando hay múltiples niveles de información.
+Sin embargo, se debe evitar que sean demasiado profundos, ya que dificultan la navegación.
+Menús mega dropdown
+: Son versiones extendidas de los menús desplegables, donde se agrupan
+subcategorías, imágenes o enlaces adicionales en un cuadro grande. Son comunes en sitios de
+comercio electrónico y plataformas con mucho contenido.
+Estos menús deben implementarse con cuidado, asegurando que sean accesibles en dispositivos móviles y
+compatibles con la navegación por teclado.
+2.3 Migas de Pan (Breadcrumbs)
+Las 
+migas de pan
+ son una herramienta visual que muestra al usuario la jerarquía del sitio y la ruta que ha
+seguido. Generalmente, se presentan en la parte superior de la página y tienen el formato:
+Inicio > Categoría > Subcategoría > Página Actual
+Esta técnica es especialmente útil en sitios web con estructuras profundas, como 
+tiendas en línea, sitios
+educativos y portales de noticias
+, ya que permite a los usuarios regresar fácilmente a niveles anteriores sin
+necesidad de usar el botón "atrás" del navegador.
+2.4 Navegación Lateral (Sidebar)
+Las barras laterales son una forma eficaz de ofrecer navegación adicional dentro de una sección específica.
+Se pueden utilizar para:
+Mostrar 
+categorías relacionadas
+ dentro de un mismo tema.
+Incluir enlaces a 
+páginas populares o recientes
+.
+Facilitar el acceso a 
+filtros de búsqueda o navegación por facetas
+ (común en e-commerce).
+Para no sobrecargar la interfaz, es recomendable que la navegación lateral sea 
+colapsable
+, permitiendo a los
+usuarios expandir o contraer secciones según sea necesario.
+2.5 Paginación y Scroll Infinito
+Cuando un sitio web presenta una gran cantidad de contenido (por ejemplo, blogs, tiendas en línea o redes
+sociales), es necesario estructurar la navegación de manera eficiente para facilitar la exploración.
+Paginación tradicional
+: Divide el contenido en páginas numeradas, permitiendo a los usuarios
+moverse entre ellas fácilmente.
+Scroll infinito
+: Carga automáticamente más contenido a medida que el usuario se desplaza hacia
+abajo. Es común en redes sociales y plataformas de contenido visual, como Instagram o Pinterest.
+Carga bajo demanda (
+Load More
+)
+: En lugar de un scroll infinito, se ofrece un botón para cargar más
+contenido, equilibrando el rendimiento y la usabilidad.
+Cada método tiene ventajas y desventajas. La paginación es mejor para la orientación y el SEO, mientras que
+el scroll infinito puede mejorar la experiencia en dispositivos móviles.
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+2.6 Menú de Hamburguesa (para dispositivos móviles)
+En pantallas pequeñas, el espacio es limitado, por lo que los menús tradicionales pueden ocupar demasiado
+espacio visual. Para solucionar esto, se utiliza el 
+menú de hamburguesa
+, representado con el ícono 
+☰
+, que
+despliega la navegación al tocarlo.
+Aunque es una opción eficiente, se recomienda que las opciones más importantes sigan siendo accesibles sin
+necesidad de abrir el menú, como una barra de acceso rápido con iconos para funciones clave.
+2.7 Búsqueda Interna
+Cuando un sitio tiene un gran volumen de contenido, una barra de búsqueda eficiente puede ser la mejor
+opción de navegación. Algunos elementos clave en un sistema de búsqueda incluyen:
+Autocompletado
+: Sugerencias a medida que el usuario escribe.
+Corrección de errores ortográficos
+: Para mejorar la precisión de los resultados.
+Filtros y categorías
+: Permiten refinar los resultados según atributos específicos.
+Historial de búsquedas recientes
+: Para facilitar el acceso a búsquedas previas.
+La búsqueda interna es especialmente útil en tiendas en línea, sitios de documentación técnica y plataformas
+educativas.
+2.8 Enlaces Contextuales
+Además de los menús principales, la navegación puede integrarse dentro del contenido mediante 
+enlaces
+contextuales
+. Estos permiten a los usuarios acceder a información relacionada sin interrumpir su flujo de
+lectura.
+Ejemplos de enlaces contextuales incluyen:
+Hipervínculos dentro del texto
+ que llevan a artículos relacionados.
+Sugerencias de lectura
+ al final de un artículo o publicación.
+Productos relacionados
+ en tiendas en línea.
+Estos enlaces mejoran la retención de usuarios, ya que fomentan la exploración de más contenido dentro del
+sitio.
+Conclusión
+La elección de una técnica de navegación adecuada depende del tipo de sitio web, la cantidad de contenido y
+el comportamiento esperado de los usuarios. En sitios pequeños, un 
+menú principal claro
+ puede ser
+suficiente, mientras que en plataformas con mucho contenido se requieren estructuras más avanzadas, como
+menús desplegables, migas de pan, navegación lateral y búsqueda interna
+.
+Optimizar la navegación no solo mejora la experiencia del usuario, sino que también influye en la retención de
+visitantes, la accesibilidad y la optimización para motores de búsqueda (
+SEO
+). Implementar las técnicas
+adecuadas permitirá que los usuarios encuentren lo que buscan de manera rápida y sencilla, mejorando la
+eficiencia del sitio.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3. Herramientas y Métodos para Diseñar la Navegación:
+El diseño de la navegación no solo depende de la teoría y los principios fundamentales, sino que también
+requiere herramientas y métodos específicos que permitan planificar, prototipar y validar la usabilidad de las
+estructuras de navegación. A continuación, se presentan las principales herramientas y metodologías que se
+pueden utilizar en el desarrollo de la navegación web y móvil.
+3.1 Mapas de Sitio: Visualización de la Estructura de Navegación
+Beneficios del uso de mapas de sitio:
+Facilita la identificación de 
+posibles redundancias
+ o problemas en la organización del contenido.
+Permite optimizar la 
+jerarquía de navegación
+, reduciendo la cantidad de clics necesarios para
+acceder a la información.
+Mejora la comunicación entre diseñadores, desarrolladores y clientes en la fase de planificación.
+Es útil para estrategias de 
+SEO
+, asegurando que los motores de búsqueda comprendan la estructura
+del sitio.
+Herramientas para crear mapas de sitio:
+XMind
+: Software de mapas conceptuales que permite visualizar jerarquías.
+Lucidchart
+: Plataforma para diagramas de flujo, útil para diseñar estructuras de navegación.
+Slickplan
+: Herramienta en línea especializada en la creación de mapas de sitio interactivos.
+GlooMaps
+: Generador rápido de mapas de sitio con interfaz intuitiva.
+Un buen mapa de sitio debe ser 
+claro, organizado y flexible
+, permitiendo ajustes conforme evolucionan las
+necesidades del proyecto.
+3.2 Wireframes y Prototipos: Prueba de la Navegación Antes de la
+Implementación
+Los 
+wireframes
+ y 
+prototipos
+ permiten simular la navegación antes del desarrollo completo del sitio web o
+aplicación. Estas representaciones visuales permiten evaluar la disposición de los elementos de navegación y
+su efectividad en términos de usabilidad.
+Wireframes
+Los wireframes son bocetos o esquemas simplificados de una interfaz que representan la disposición de los
+elementos sin enfocarse en aspectos visuales como colores o imágenes. Se utilizan para:
+Un 
+mapa de sitio
+ es una representación gráfica de la estructura jerárquica de un sitio web.
+Su propósito es visualizar la relación entre las diferentes páginas y secciones, permitiendo
+a diseñadores y desarrolladores estructurar la navegación antes de la implementación.
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Definir la ubicación de menús y botones de navegación.
+Evaluar la accesibilidad y la jerarquía de información.
+Realizar ajustes en la estructura sin necesidad de código.
+Herramientas para crear wireframes:
+Balsamiq
+: Plataforma sencilla para bocetos rápidos.
+Figma
+: Permite colaboración en tiempo real para la creación de estructuras navegacionales.
+Adobe XD
+: Herramienta avanzada de diseño y prototipado.
+Axure RP
+: Plataforma robusta para wireframes y flujos de navegación.
+Prototipos
+Los prototipos son versiones interactivas del diseño que permiten a los usuarios probar la navegación antes
+del desarrollo definitivo. Se utilizan para:
+Simular la experiencia de usuario con interacciones reales.
+Validar el diseño y la usabilidad antes de la programación.
+Recibir retroalimentación de usuarios y mejorar la navegación.
+Herramientas para crear prototipos:
+InVision
+: Herramienta para crear prototipos interactivos sin código.
+Figma
+: Permite conectar wireframes y probar flujos de navegación.
+Marvel App
+: Plataforma accesible para la creación de prototipos rápidos.
+Los 
+wireframes y prototipos
+ son esenciales para garantizar que la navegación sea efectiva antes de invertir
+recursos en la fase de desarrollo.
+3.3 Análisis de Uso y Pruebas de Usabilidad: Validación de la
+Experiencia del Usuario
+Diseñar una navegación efectiva no es solo una cuestión de planificación, sino que requiere pruebas con
+usuarios reales para detectar problemas y optimizar la experiencia. Para ello, se utilizan diversas técnicas de
+análisis de uso y pruebas de usabilidad
+.
+Pruebas A/B
+Las pruebas A/B consisten en comparar dos versiones de un mismo sitio web con ligeras variaciones en la
+navegación para determinar cuál funciona mejor. Se puede evaluar:
+Diferencias en la tasa de conversión entre dos menús diferentes.
+La efectividad de enlaces contextuales o cambios en el diseño de navegación.
+La retención de usuarios al modificar estructuras de menú o breadcrumbs.
+Herramientas para pruebas A/B:
+Google Optimize
+: Plataforma integrada con Google Analytics para comparar versiones de una web.
+Optimizely
+: Herramienta avanzada para pruebas A/B con seguimiento de métricas.
+Mapas de Calor (Heatmaps)
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Los mapas de calor muestran visualmente cómo los usuarios interactúan con la navegación de un sitio web,
+indicando las zonas donde hacen clic con más frecuencia y aquellas que no reciben interacción.
+Herramientas para mapas de calor:
+Hotjar
+: Plataforma que permite visualizar clics y desplazamientos en una página.
+Crazy Egg
+: Ofrece análisis detallado del comportamiento del usuario.
+Pruebas de Usabilidad con Usuarios
+Realizar pruebas con usuarios reales permite identificar problemas de navegación y mejorar la accesibilidad.
+Algunas técnicas incluyen:
+Pruebas de recorrido
+: Se asignan tareas específicas a los usuarios y se observa cómo navegan en el
+sitio.
+Card Sorting
+: Los usuarios organizan elementos de navegación en categorías, ayudando a definir una
+jerarquía intuitiva.
+Entrevistas y encuestas
+: Se recopila información sobre la experiencia de navegación y posibles
+mejoras.
+Herramientas para realizar pruebas de usabilidad:
+UserTesting
+: Plataforma que permite obtener feedback de usuarios reales.
+Maze
+: Solución para pruebas de usabilidad y análisis de navegación.
+Conclusión
+El diseño de la navegación debe ser respaldado por herramientas y métodos que permitan planificar,
+visualizar y evaluar su efectividad. La combinación de 
+mapas de sitio, wireframes, prototipos y análisis de
+uso
+ garantiza que la navegación sea clara, accesible y eficiente.
+Implementar estas técnicas no solo mejora la experiencia del usuario, sino que también reduce la necesidad
+de modificaciones posteriores, optimizando los recursos en el desarrollo web y móvil.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Caso Práctico 13
+Estás rediseñando el sitio web de una biblioteca pública. La navegación actual es confusa, y los usuarios
+tienen dificultad para encontrar información sobre horarios, eventos y recursos disponibles. Describe cómo
+mejorarías la estructura de navegación para hacerla más intuitiva.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Caso Práctico 14
+Un sitio de comercio electrónico necesita una revisión de su estructura de navegación debido a quejas sobre
+la dificultad para encontrar productos específicos y la falta de claridad en la navegación por categorías.
+¿Cómo abordarías este problema?
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante
+para los usuarios de una biblioteca?
+1.
+¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra en un
+sitio de comercio electrónico?
+1.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/12
+Estructura y navegación en interfaces web
+idalumno:906687|unidad:7|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

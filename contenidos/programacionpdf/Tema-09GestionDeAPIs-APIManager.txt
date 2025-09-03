@@ -1,0 +1,1192 @@
+Gestión de APIs - API Manager
+© Universitas Europaea IMF
+Indice
+Gestión de APIs - API Manager
+3
+Texto claves
+3
+1. Introducción a la Gestión de APIs con API Manager
+3
+1.1. ¿Qué es un API Manager?
+3
+Beneficios de Utilizar un API Manager en Entornos Empresariales
+3
+1.2. Ejemplos de API Managers Populares
+4
+AWS API Gateway: Características y Casos de Uso:
+4
+Kong API Gateway: Arquitectura y Funcionalidades Clave:
+5
+Comparación entre Diferentes API Managers (AWS API Gateway, Kong, Apigee, Tyk):
+5
+1.3. Gestión del Ciclo de Vida de una API
+6
+Etapas del Ciclo de Vida de una API:
+6
+Versionado de APIs: Estrategias para Mantener Compatibilidad:
+7
+Documentación de APIs: OpenAPI y Swagger como Estándares:
+7
+Ejemplo de documentación con OpenAPI/Swagger:
+7
+2. Seguridad en APIs
+7
+2.1. Autenticación en APIs 2t
+7
+¿Por qué es necesaria la autenticación en APIs?
+8
+Implementación de Autenticación con JWT (JSON Web Tokens):
+8
+Uso de OAuth2 para la Autenticación de Terceros:
+8
+2.2. Autorización y Control de Acceso en APIs
+9
+Diferencia entre Autenticación y Autorización
+9
+Autorización Basada en Roles (RBAC - Role-Based Access Control)
+9
+Implementación de Políticas de Acceso en un API Manager
+10
+2.3. Protección contra Ataques en APIs
+10
+Prevención de Ataques de Inyección (SQL Injection, XSS):
+10
+Cómo prevenir SQL Injection en APIs:
+11
+Medidas de prevención contra XSS:
+11
+Protección contra Ataques DDoS y Uso de Rate Limiting
+11
+Seguridad en la Transmisión de Datos: HTTPS y Cifrado de Tráfico
+11
+3. Integración de APIs con Servicios Externos
+11
+3.1. Introducción a la Conexión con Servicios Externos
+12
+Beneficios de la Integración con Terceros
+12
+Desafíos y Mejores Prácticas en la Integración de APIs Externas
+12
+3.2. Casos de Uso de Integraciones con Servicios Externos
+13
+Uso de Google Maps API para la Geolocalización
+13
+Implementación de Pagos en Línea con Stripe API
+13
+Integración con APIs de Autenticación como Google OAuth y Auth0
+14
+3.3. Gestión de Conectores y Middleware en API Managers
+14
+Creación de Conectores en AWS API Gateway:
+14
+Uso de Middleware en Kong API Gateway:
+15
+Bibliografía y lecturas recomendadas:
+15
+Actividades prácticas
+17
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/18
+Gestión de APIs - API Manager
+Texto claves
+1. Introducción a la Gestión de APIs con API Manager
+1.1. ¿Qué es un API Manager?
+Un 
+API Manager
+ es una herramienta que permite gestionar, monitorear y asegurar el acceso a 
+APIs
+(Application Programming Interfaces)
+ en un entorno empresarial. Su propósito principal es facilitar el
+control sobre el ciclo de vida de las APIs, asegurando su disponibilidad, seguridad y escalabilidad. El uso de
+un 
+API Manager
+ es esencial para cualquier organización que gestione múltiples APIs, ya que mejora la
+seguridad, escalabilidad y control
+ sobre los servicios expuestos. Su implementación permite 
+optimizar el
+rendimiento de las APIs, asegurar la calidad del servicio y facilitar su integración con sistemas
+externos
+, impulsando la transformación digital en el ámbito empresarial.
+Las organizaciones utilizan 
+API Managers
+ para administrar la comunicación entre servicios internos,
+integraciones con terceros y la exposición de APIs a clientes y desarrolladores. Estas herramientas permiten
+definir reglas de acceso, aplicar autenticación y monitorear el rendimiento
+ de las APIs.
+Beneficios de Utilizar un API Manager en Entornos Empresariales
+Centralización de la Gestión de APIs
+Permite administrar todas las APIs desde un único punto de control, facilitando su monitoreo y
+mantenimiento.
+Posibilita la implementación de políticas de acceso y seguridad de manera homogénea en toda la
+organización.
+Algunos ejemplos de API Managers populares son:
+AWS API Gateway:
+ Proporciona gestión y seguridad para APIs en la nube de
+Amazon.
+Kong API Gateway:
+ Un API Manager de código abierto altamente escalable.
+Apigee (Google Cloud):
+ Una solución empresarial con herramientas avanzadas de
+análisis y control.
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Seguridad y Control de Acceso
+Los API Managers incorporan mecanismos de 
+autenticación y autorización
+, como 
+OAuth2 y
+JWT
+, para asegurar que solo usuarios y aplicaciones autorizadas puedan acceder a los servicios.
+Aplican 
+políticas de rate limiting
+ para evitar el abuso de las APIs y proteger los servidores contra
+ataques DDoS.
+Monitoreo y Análisis de Uso
+Proporcionan herramientas de 
+logging y análisis en tiempo real
+ que permiten identificar cuellos
+de botella y optimizar el rendimiento.
+Generan reportes sobre el tráfico, uso de endpoints y errores, facilitando la toma de decisiones.
+Versionado y Ciclo de Vida de las APIs
+Facilitan el 
+versionado de APIs
+, permitiendo a los desarrolladores seguir utilizando versiones
+antiguas mientras adoptan nuevas funcionalidades.
+Simplifican la implementación de 
+pruebas A/B y despliegues controlados
+ para minimizar riesgos.
+Facilidad de Integración con Servicios Externos
+Permiten conectar APIs con 
+servicios en la nube, plataformas de pago (Stripe, PayPal), mapas
+(Google Maps), autenticación (Auth0, Google OAuth2)
+, entre otros.
+Garantizan que las integraciones sean seguras y cumplan con estándares empresariales.
+1.2. Ejemplos de API Managers Populares
+Un 
+API Manager
+ es una herramienta clave para gestionar APIs de forma centralizada, proporcionando
+seguridad, monitoreo y control de acceso. Existen diversas soluciones en el mercado, cada una con
+características específicas. A continuación, se presentan algunos de los 
+API Managers más populares
+ y sus
+diferencias.
+AWS API Gateway: Características y Casos de Uso:
+AWS API Gateway
+ es un servicio de Amazon Web Services (AWS) que permite desarrollar, desplegar y
+administrar APIs de manera escalable en la nube.
+Características clave:
+Permite la creación de 
+APIs REST, WebSocket y HTTP
+.
+Se integra con otros servicios de AWS como 
+Lambda, DynamoDB, CloudWatch y IAM
+.
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Soporta autenticación con 
+OAuth2, AWS IAM y JWT
+.
+Implementa 
+rate limiting y protección contra ataques DDoS
+ mediante AWS WAF.
+Facilita la monetización de APIs con la opción de definir 
+planes de suscripción
+.
+Casos de uso:
+Creación de 
+APIs para aplicaciones serverless
+ utilizando AWS Lambda.
+Gestión de 
+APIs para microservicios
+ en entornos cloud-native.
+Implementación de 
+API Gateways para arquitecturas híbridas
+ que combinan servicios en la nube
+con on-premise.
+Kong API Gateway: Arquitectura y Funcionalidades Clave:
+Kong API Gateway
+ es un gestor de APIs de código abierto altamente extensible y modular. Su arquitectura
+basada en 
+plugins
+ lo hace ideal para personalizar funcionalidades según las necesidades del negocio.
+Características clave:
+Arquitectura basada en 
+NGINX
+, lo que garantiza alto rendimiento y baja latencia.
+Extensibilidad mediante 
+plugins
+, permitiendo personalizar autenticación, monitoreo y caching.
+Soporte para 
+implementaciones en contenedores y Kubernetes
+.
+Gestión avanzada de políticas de seguridad con 
+OAuth2, JWT y ACLs
+.
+Integración con herramientas de monitoreo como 
+Prometheus y Grafana
+.
+Casos de uso:
+Implementación en entornos 
+microservicios y Kubernetes
+.
+Empresas que requieren una 
+solución API Manager altamente personalizable
+.
+APIs que necesitan un 
+alto rendimiento y baja latencia
+ en procesamiento de peticiones.
+Comparación entre Diferentes API Managers (AWS API Gateway, Kong, Apigee,
+Tyk):
+Cada API Manager tiene fortalezas específicas, y la elección depende de las necesidades de cada
+organización.
+Característica
+AWS API
+Gateway
+Kong
+Apigee
+Tyk
+Modelo de despliegue
+Cloud (AWS)
+On-premise / Cloud
+Cloud y On-
+premise
+Open Source y
+Cloud
+Integración con
+Kubernetes
+Limitada
+Alta
+Media
+Alta
+Extensibilidad
+Limitada
+Alta (Plugins)
+Media
+Alta
+Autenticación
+IAM, OAuth2,
+JWT
+OAuth2, JWT,
+ACLs
+OAuth2, OpenID
+OAuth2, JWT
+Monitoreo
+AWS
+CloudWatch
+Prometheus,
+Grafana
+Google Analytics
+OpenTracing
+AWS API Gateway
+ es ideal para 
+entornos serverless y aplicaciones en AWS
+.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Kong
+ es la mejor opción para 
+microservicios y entornos con alta personalización
+.
+Apigee (Google)
+ es adecuado para 
+empresas que buscan analítica avanzada
+ en sus APIs.
+Tyk
+ es una opción flexible de código abierto con un equilibrio entre funcionalidades y control.
+Elegir el 
+API Manager adecuado
+ dependerá de las necesidades de escalabilidad, seguridad e integración de
+cada empresa.
+1.3. Gestión del Ciclo de Vida de una API
+La gestión del ciclo de vida de una API es esencial para garantizar su estabilidad, escalabilidad y seguridad a
+lo largo del tiempo. Implica desde su diseño inicial hasta su eventual retiro, asegurando que las integraciones
+y servicios dependientes sigan funcionando correctamente. La gestión del ciclo de vida de una API es
+fundamental para asegurar su estabilidad y adopción a largo plazo. Desde su diseño hasta su retiro, se deben
+implementar 
+buenas prácticas de versionado, documentación y monitoreo
+. Herramientas como 
+API
+Managers, OpenAPI y Swagger
+ facilitan la administración y el mantenimiento de APIs de manera
+estructurada y eficiente.
+Etapas del Ciclo de Vida de una API:
+El ciclo de vida de una API se divide en cinco etapas principales:
+1
+. 
+Diseño:
+Se definen los 
+requisitos funcionales y no funcionales
+ de la API.
+Se especifican los 
+endpoints, métodos HTTP, formatos de respuesta (JSON, XML),
+autenticación y políticas de seguridad
+.
+Se utilizan herramientas como 
+OpenAPI o Swagger
+ para estructurar la documentación antes
+del desarrollo.
+2
+. 
+Desarrollo:
+Se implementan los endpoints utilizando frameworks como 
+Flask, Django REST Framework,
+Express.js o FastAPI
+.
+Se integran mecanismos de autenticación (
+OAuth2, JWT
+) y validaciones de datos.
+Se realizan pruebas unitarias y de integración para asegurar la funcionalidad esperada.
+3
+. 
+Despliegue:
+La API se implementa en un servidor o en la nube mediante plataformas como 
+AWS API
+Gateway, Google Cloud Apigee, o Kong API Gateway
+.
+Se establecen estrategias de escalabilidad y disponibilidad, como 
+caché, balanceo de carga y
+replicación de bases de datos
+.
+Se configuran 
+controles de acceso y políticas de uso
+ (rate limiting, logs, seguridad).
+4
+. 
+Monitoreo y Mantenimiento:
+Se analizan métricas clave como 
+uso de endpoints, tiempos de respuesta y tasas de error
+.
+Se implementan herramientas de monitoreo como 
+Prometheus, Grafana o AWS CloudWatch
+.
+Se corrigen errores y se optimiza el rendimiento con nuevas versiones.
+5
+. 
+Retiro:
+Se planifica el 
+desmantelamiento progresivo
+ de la API, notificando a los desarrolladores y
+clientes.
+Se mantiene la versión anterior activa durante un tiempo antes del retiro definitivo.
+Se ofrecen alternativas o nuevas versiones para los clientes que dependen de la API.
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Versionado de APIs: Estrategias para Mantener Compatibilidad:
+El 
+versionado de APIs
+ es clave para asegurar que los cambios en la API no afecten a los clientes actuales.
+Existen diferentes estrategias:
+Versionado en la URL:
+ Se indica la versión en la ruta de los endpoints.
+GET /v1/usuarios
+GET /v2/usuarios
+Versionado en el encabezado HTTP:
+ La versión se envía en los headers de la solicitud.
+GET /usuarios
+Headers: Accept-Version: v1
+Versionado basado en parámetros:
+ Se incluye la versión en los parámetros de la solicitud.
+GET /usuarios?version=1
+El uso de 
+versionado adecuado
+ evita que los clientes experimenten fallos cuando se realizan cambios en la
+API.
+Documentación de APIs: OpenAPI y Swagger como Estándares:
+Una API bien documentada facilita su adopción y mantenimiento. 
+OpenAPI y Swagger
+ son estándares
+ampliamente utilizados para documentar APIs:
+OpenAPI:
+Especificación que define cómo deben estructurarse las APIs REST.
+Describe endpoints, métodos HTTP, parámetros y respuestas esperadas.
+Permite generar documentación automatizada y pruebas interactivas.
+Swagger:
+Herramienta basada en OpenAPI que permite visualizar y probar APIs desde una interfaz
+gráfica.
+Genera documentación en formato JSON o YAML.
+Facilita la exploración de endpoints y sus parámetros en una interfaz interactiva.
+Ejemplo de documentación con OpenAPI/Swagger:
+ 
+openapi:
+ 
+3.0
+.
+0i
+nfo:  title: API de Usuarios  version: 
+1.0
+.
+0
+paths:  /usuarios:    
+get
+:      summary: Obtiene la lista 
+de usuarios      responses:        
+200
+:          description: Lista de usuarios en formato JSON
+La documentación 
+garantiza que los desarrolladores entiendan el uso de la API y puedan integrarla
+fácilmente
+ en sus aplicaciones.
+2. Seguridad en APIs
+2.1. Autenticación en APIs 2t
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La 
+autenticación
+ en APIs es el proceso mediante el cual se verifica la identidad de los usuarios o
+aplicaciones que intentan acceder a los recursos de un servicio. Es un mecanismo fundamental para
+proteger la información
+, asegurando que solo los clientes autorizados puedan realizar solicitudes. La
+autenticación en APIs es 
+esencial
+ para proteger recursos y gestionar accesos. 
+JWT
+ es ideal para
+aplicaciones 
+sin estado
+, mientras que 
+OAuth2
+ facilita la autenticación con 
+proveedores externos
+ sin
+comprometer credenciales. La elección entre uno y otro dependerá de los requerimientos de la aplicación.
+¿Por qué es necesaria la autenticación en APIs?
+Seguridad:
+ Previene accesos no autorizados y protege datos sensibles.
+Control de acceso:
+ Permite definir quién puede acceder a qué recursos.
+Trazabilidad:
+ Facilita el monitoreo de quién interactúa con la API, mejorando la auditoría.
+Existen diferentes métodos de autenticación en APIs, siendo 
+JWT
+ y 
+OAuth2
+ dos de los más utilizados.
+Implementación de Autenticación con JWT (JSON Web Tokens):
+JWT (JSON Web Token)
+ es un estándar de autenticación basado en 
+tokens en formato JSON
+. Es
+ampliamente utilizado para autenticar usuarios sin necesidad de almacenar sesiones en el servidor.
+¿Cómo funciona JWT?
+1
+. 
+El usuario se autentica con sus credenciales (usuario/contraseña).
+2
+. 
+El servidor genera un 
+token JWT
+ firmado y lo envía al cliente.
+3
+. 
+En cada solicitud, el cliente envía el token en el 
+header HTTP Authorization
+.
+4
+. 
+El servidor valida el token antes de procesar la solicitud.
+Ejemplo de token JWT:
+ 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibm9tYnJlIjoiSm9obiBEb2UifQ.4aBy8aFYKxlFQ
+==
+Ventajas de JWT:
+Es 
+seguro
+, ya que puede firmarse con algoritmos de cifrado.
+Es 
+sin estado
+, lo que reduce la carga del servidor al no almacenar sesiones.
+Puede incluir información adicional sobre el usuario en el payload.
+Ejemplo de autenticación con JWT en una solicitud HTTP:
+ 
+GET
+ 
+/
+perfil
+Authorization
+: Bearer 
+<
+TOKEN_JWT
+>
+Uso de OAuth2 para la Autenticación de Terceros:
+OAuth2
+ es un protocolo de autenticación que permite a aplicaciones de terceros acceder a los recursos de un
+usuario sin necesidad de compartir credenciales. Es el estándar utilizado por 
+Google, Facebook, GitHub y
+otros servicios
+ para autenticación en aplicaciones.
+Flujo de OAuth2:
+1
+. 
+El usuario inicia sesión en un proveedor de autenticación (ej. Google).
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+2
+. 
+El proveedor solicita autorización para que la aplicación acceda a los datos del usuario.
+3
+. 
+Si el usuario acepta, el proveedor envía un 
+código de autorización
+ a la aplicación.
+4
+. 
+La aplicación intercambia ese código por un 
+token de acceso
+ que permite realizar solicitudes en
+nombre del usuario.
+Ejemplo de solicitud de autorización con OAuth2:
+ 
+GET https://accounts.google.com/o/oauth2/auth?client_id=APP_ID&redirect_uri=CALLBACK_URL&response_t
+ype=code&scope=email
+Ventajas de OAuth2:
+Más seguro
+ que compartir credenciales directas.
+Permite definir permisos granulares mediante 
+scopes
+.
+Facilita la integración con 
+servicios de autenticación externos
+.
+2.2. Autorización y Control de Acceso en APIs
+El 
+control de acceso en APIs
+ es un aspecto fundamental para proteger los recursos y garantizar que solo los
+usuarios autorizados puedan interactuar con ciertos endpoints. Mientras que la autenticación se enfoca en
+verificar 
+quién es el usuario
+, la autorización define 
+qué acciones puede realizar ese usuario
+ dentro del
+sistema. El control de acceso en APIs es esencial para proteger datos y servicios. 
+RBAC permite una
+gestión eficiente de permisos
+, y los 
+API Managers facilitan la implementación de políticas de acceso y
+seguridad
+ en entornos empresariales. Implementar estas estrategias asegura que la API sea segura y
+escalable.
+Diferencia entre Autenticación y Autorización
+Autenticación:
+Es el proceso de 
+verificación de identidad
+ del usuario o aplicación.
+Se implementa mediante 
+credenciales (usuario y contraseña), tokens JWT o OAuth2
+.
+Ejemplo: Un usuario inicia sesión en una API con su email y contraseña.
+Autorización:
+Define los 
+permisos y restricciones
+ de cada usuario autenticado.
+Se basa en roles (RBAC) o políticas de acceso definidas.
+Ejemplo: Un usuario autenticado puede leer datos, pero solo un administrador puede
+modificarlos.
+Ejemplo en un API REST:
+GET /clientes → Permitido para usuarios autenticados
+DELETE /clientes/{id} → Permitido solo para administradores
+Autorización Basada en Roles (RBAC - Role-Based Access Control)
+RBAC (Role-Based Access Control)
+ es un modelo de control de acceso que asigna permisos según los
+roles de usuario
+ en lugar de gestionar accesos individuales.
+Estructura de RBAC:
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1
+. 
+Usuarios:
+ Personas o aplicaciones que acceden a la API.
+2
+. 
+Roles:
+ Conjunto de permisos asignados a un usuario (Ejemplo: "Administrador", "Usuario estándar").
+3
+. 
+Permisos:
+ Acciones permitidas para cada rol (Ejemplo: "Crear pedidos", "Eliminar clientes").
+Ejemplo de RBAC en una API:
+Rol: Usuario → Permiso: Leer pedidos
+Rol: Administrador → Permiso: Crear, modificar y eliminar pedidos
+Ventajas de RBAC:
+Simplifica la administración de permisos.
+Mejora la seguridad, evitando accesos indebidos.
+Facilita la escalabilidad, permitiendo agregar nuevos roles sin modificar la estructura base.
+Implementación de Políticas de Acceso en un API Manager
+Un 
+API Manager
+ permite gestionar y aplicar políticas de acceso a los endpoints de una API. Algunas
+estrategias clave incluyen:
+Autenticación centralizada:
+ Uso de 
+OAuth2 o JWT
+ para gestionar usuarios.
+Definición de roles y permisos:
+ Configuración de 
+RBAC
+ en la API para restringir accesos.
+Rate Limiting y Control de Uso:
+ Se pueden establecer límites de solicitudes por usuario para evitar
+abusos.
+Registro y monitoreo de accesos:
+ Uso de herramientas como 
+AWS API Gateway o Kong
+ para
+analizar quién accede a la API y con qué permisos.
+Ejemplo en AWS API Gateway:
+ Definir un 
+política IAM
+ que permite a los administradores acceder a todos
+los endpoints, pero restringe a los usuarios estándar solo a ciertos recursos.
+ 
+{
+  
+"Effect"
+:
+ 
+"Allow"
+,
+  
+"Action"
+:
+ 
+"execute-api:Invoke"
+,
+  
+"Resource"
+:
+ 
+"arn:aws:execute-api:us-east-1:*:*/GET/pedid
+os"
+}
+2.3. Protección contra Ataques en APIs
+Las 
+APIs
+ son un objetivo frecuente de ataques que buscan explotar vulnerabilidades para acceder a datos
+sensibles o interrumpir servicios. Implementar estrategias de 
+seguridad robustas
+ es crucial para proteger
+una API contra amenazas como 
+inyección SQL, ataques DDoS y exposición de datos en tránsito
+.
+Proteger una API contra ataques es fundamental para garantizar la integridad y seguridad de los datos.
+Implementar 
+consultas seguras, limitación de solicitudes y cifrado de datos
+ reduce significativamente los
+riesgos de ataques cibernéticos, asegurando una API robusta y confiable.
+Prevención de Ataques de Inyección (SQL Injection, XSS):
+Proteger una API contra ataques es fundamental para garantizar la integridad y seguridad de los datos.
+Implementar 
+consultas seguras, limitación de solicitudes y cifrado de datos
+ reduce significativamente los
+riesgos de ataques cibernéticos, asegurando una API robusta y confiable.
+SQL Injection (SQLi)
+ es un ataque en el que un atacante manipula las consultas SQL enviadas a la base de
+datos a través de una API para obtener acceso no autorizado a la información.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Cómo prevenir SQL Injection en APIs:
+Usar consultas parametrizadas:
+cursor.execute("SELECT * FROM usuarios WHERE email = ?", (email,))
+Implementar ORM seguros
+ como 
+SQLAlchemy o Django ORM
+, que previenen inyecciones SQL.
+Validar y sanitizar datos de entrada
+, evitando que los usuarios inyecten código malicioso.
+Cross-Site Scripting (XSS)
+ ocurre cuando una API no filtra correctamente datos enviados por los usuarios y
+permite la ejecución de scripts maliciosos en navegadores.
+Medidas de prevención contra XSS:
+Escapar y validar datos de entrada y salida
+ para evitar la ejecución de código malicioso.
+Utilizar cabeceras de seguridad
+ como Content-Security-Policy para restringir la ejecución de scripts
+externos.
+Protección contra Ataques DDoS y Uso de Rate Limiting
+Un 
+ataque DDoS (Denegación de Servicio Distribuida)
+ busca colapsar una API enviando un gran volumen
+de solicitudes simultáneamente, dejando el servicio inoperativo.
+Estrategias de mitigación:
+Rate Limiting:
+Limita el número de solicitudes permitidas por usuario/IP en un período de tiempo.
+Ejemplo en Flask con Flask-Limiter:
+ 
+from flask_limiter 
+import
+ 
+Limiterlimiter
+ 
+=
+ Limiter(app, key_func=get_remote_address)
+@app
+.route(
+"/endpoint"
+)
+@limiter
+.limit(
+"10 per minute"
+)def 
+endpoint
+()
+:    
+return
+ 
+"Acceso permitido"
+Uso de Firewalls y WAF (Web Application Firewall)
+ para filtrar tráfico malicioso.
+Monitoreo y detección de tráfico anómalo
+ con herramientas como 
+AWS Shield o Cloudflare
+.
+Seguridad en la Transmisión de Datos: HTTPS y Cifrado de Tráfico
+El uso de 
+HTTPS
+ es esencial para evitar la intercepción de datos en tránsito mediante ataques como 
+Man-in-
+the-Middle (MITM)
+.
+Medidas clave:
+Forzar HTTPS
+ en la API utilizando certificados SSL/TLS.
+Autenticación con OAuth2 y JWT cifrados
+, asegurando que los tokens no sean expuestos.
+Cifrado de datos sensibles
+ en la base de datos con algoritmos como 
+AES-256
+.
+Ejemplo de 
+redirección forzada a HTTPS en Flask:
+ 
+@app
+.before_requestdef 
+force_https
+():    if 
+not
+ request.
+is_secure
+:        return 
+redirect
+(request.url.
+replace
+(
+"http
+://"
+, 
+"https://"
+))
+3. Integración de APIs con Servicios Externos
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3.1. Introducción a la Conexión con Servicios Externos
+Las APIs permiten que las aplicaciones se comuniquen con otros sistemas para 
+compartir datos y
+funcionalidades
+ sin necesidad de desarrollarlas desde cero. La integración con servicios externos es clave
+en el desarrollo moderno, ya que mejora la 
+eficiencia, escalabilidad y funcionalidad
+ de una aplicación. La
+integración con APIs externas aporta 
+beneficios clave en eficiencia y escalabilidad
+, pero también requiere
+estrategias para 
+garantizar seguridad, rendimiento y disponibilidad
+. Aplicar 
+mejores prácticas
+ en
+autenticación, manejo de errores y optimización del uso de APIs permite crear aplicaciones más robustas y
+confiables.
+Beneficios de la Integración con Terceros
+Reducción del tiempo de desarrollo:
+En lugar de desarrollar soluciones personalizadas, las empresas pueden aprovechar APIs de
+terceros como 
+Stripe para pagos
+, 
+Google Maps para geolocalización
+ o 
+Auth0 para
+autenticación
+.
+Mayor confiabilidad y seguridad:
+Muchos proveedores de APIs ofrecen 
+infraestructura robusta y protocolos de seguridad
+avanzados
+, lo que reduce la necesidad de mantener servidores propios para ciertas funciones.
+Escalabilidad y flexibilidad:
+Integrarse con APIs de terceros permite que una aplicación crezca sin necesidad de modificar
+la arquitectura interna, agregando nuevas funcionalidades sin afectar el núcleo del sistema.
+Acceso a datos y funcionalidades avanzadas:
+Permite acceder a 
+datos en tiempo real
+ (clima, finanzas, redes sociales) y a 
+tecnologías
+avanzadas
+ como IA o machine learning sin desarrollarlas desde cero.
+Desafíos y Mejores Prácticas en la Integración de APIs Externas
+Gestión de dependencias:
+Las API externas pueden cambiar, lo que podría afectar la funcionalidad de nuestra aplicación.
+Mejor práctica:
+ Utilizar versionado de APIs (v1, v2) y leer la documentación de los proveedores
+para anticipar cambios.
+Latencia y rendimiento:
+Consultar APIs externas puede generar 
+retrasos en las respuestas
+.
+Mejor práctica:
+ Implementar 
+caché
+ para almacenar respuestas de consultas repetitivas y
+reducir la carga en la API.
+Seguridad y autenticación:
+Se deben proteger las credenciales de acceso y asegurar la comunicación entre sistemas.
+Mejor práctica:
+ Usar 
+OAuth2, API Keys o JWT
+, y cifrar datos con HTTPS.
+Manejo de errores y disponibilidad:
+Si una API externa falla, nuestra aplicación podría quedar inoperativa.
+Mejor práctica:
+ Implementar 
+mecanismos de fallback
+, como respuestas predeterminadas o
+almacenamiento temporal de datos para evitar fallos críticos.
+Costo de uso y límites de llamadas:
+Muchas APIs tienen 
+planes gratuitos con límites de uso
+ y modelos de pago escalables.
+Mejor práctica:
+ Monitorear el consumo y optimizar las llamadas para evitar costos
+innecesarios.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3.2. Casos de Uso de Integraciones con Servicios Externos
+Las 
+integraciones con APIs externas
+ permiten ampliar las funcionalidades de una aplicación sin necesidad
+de desarrollar toda la infraestructura desde cero. A continuación, se presentan tres casos de uso comunes en
+el desarrollo de software moderno. Las integraciones con 
+Google Maps, Stripe y OAuth2
+ optimizan la
+experiencia del usuario y reducen la complejidad del desarrollo. Usar estas APIs externas permite 
+enriquecer
+las funcionalidades de una aplicación, mejorar la seguridad y escalar servicios sin invertir en
+infraestructura propia
+.
+Uso de Google Maps API para la Geolocalización
+Google Maps API es una de las herramientas más utilizadas para integrar servicios de 
+mapas, direcciones y
+geolocalización
+ en aplicaciones web y móviles.
+Aplicaciones prácticas:
+Mostrar 
+ubicaciones de tiendas
+ en un mapa interactivo.
+Obtener 
+rutas de navegación
+ entre dos puntos.
+Autocompletar direcciones en formularios con 
+Places API
+.
+Ejemplo de uso:
+Una aplicación de entrega a domicilio puede utilizar Google Maps API para 
+calcular la distancia y tiempo
+estimado de entrega
+ en función de la ubicación del usuario y la dirección del restaurante.
+Mejores prácticas:
+Usar 
+claves de API
+ para restringir el acceso y evitar abusos.
+Aplicar 
+caché
+ para reducir llamadas repetitivas y mejorar el rendimiento.
+Implementación de Pagos en Línea con Stripe API
+Stripe es una API que facilita la integración de 
+pagos en línea
+ en aplicaciones, permitiendo transacciones
+seguras con tarjetas de crédito, billeteras digitales y pagos recurrentes.
+Aplicaciones prácticas:
+Comercio electrónico para procesar pagos de productos y servicios.
+Aplicaciones de suscripción con cobros automáticos.
+Marketplaces que requieren dividir pagos entre vendedores.
+Flujo de integración:
+1
+. 
+El usuario ingresa los datos de su tarjeta en un formulario seguro de Stripe.
+2
+. 
+La API de Stripe procesa el pago y devuelve una respuesta de éxito o error.
+3
+. 
+La aplicación confirma la transacción y actualiza la base de datos.
+Mejores prácticas:
+Implementar 
+autenticación de pagos (3D Secure)
+ para mayor seguridad.
+Cumplir con las normativas 
+PCI DSS
+ para manejo de datos de tarjetas.
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Integración con APIs de Autenticación como Google OAuth y Auth0
+OAuth2 es un protocolo que permite a los usuarios 
+autenticarse en una aplicación sin compartir sus
+credenciales directamente
+, utilizando proveedores como 
+Google OAuth o Auth0
+.
+Aplicaciones prácticas:
+Permitir inicio de sesión con 
+Google, Facebook o GitHub
+ en una web.
+Gestionar acceso a APIs restringidas mediante 
+tokens de acceso
+.
+Implementar autorización basada en roles (RBAC) con Auth0.
+Flujo de integración:
+1
+. 
+El usuario elige 
+"Iniciar sesión con Google"
+.
+2
+. 
+Se redirige a Google, donde autoriza el acceso a su perfil.
+3
+. 
+Google devuelve un 
+token de acceso
+, que la aplicación usa para autenticar al usuario.
+Mejores prácticas:
+Definir 
+permisos específicos (scopes)
+ para limitar el acceso a datos del usuario.
+Usar 
+tokens de corta duración con renovación automática
+ para mejorar la seguridad.
+3.3. Gestión de Conectores y Middleware en API Managers
+Los 
+API Managers
+ permiten gestionar, monitorear y asegurar el acceso a APIs, además de ofrecer
+herramientas avanzadas como 
+conectores, middleware y webhooks
+ para optimizar la integración con otros
+sistemas. Estas funcionalidades mejoran la eficiencia y escalabilidad de las APIs. El uso de 
+conectores en
+AWS API Gateway, middleware en Kong y webhooks en APIs
+ permite mejorar la seguridad, escalabilidad
+e integración con otros sistemas. Estas herramientas facilitan la gestión de datos y la automatización de
+procesos, optimizando el rendimiento de las APIs en entornos empresariales.
+Creación de Conectores en AWS API Gateway:
+AWS API Gateway permite 
+crear conectores
+ que facilitan la integración con otros servicios dentro del
+ecosistema de AWS, como 
+Lambda, DynamoDB, S3 o servicios externos
+.
+Beneficios de los conectores en AWS API Gateway:
+Permiten la conexión con 
+servicios sin servidores (serverless)
+ mediante 
+AWS Lambda
+.
+Reducen la complejidad del código backend al permitir llamadas directas a servicios AWS.
+Mejoran la seguridad al evitar que los clientes accedan directamente a los recursos internos.
+Ejemplo de integración con AWS Lambda:
+1
+. 
+Se crea un 
+endpoint en API Gateway
+.
+2
+. 
+Se configura un 
+conector hacia una función Lambda
+.
+3
+. 
+API Gateway recibe la solicitud, la envía a Lambda y devuelve la respuesta al cliente.
+Este enfoque es ideal para 
+automatizar procesos
+ sin necesidad de administrar servidores.
+Documento solo para uso personal. Prohibido copiar o distribuir
+14/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Uso de Middleware en Kong API Gateway:
+Kong API Gateway
+ permite la ejecución de 
+middleware
+, pequeños programas que se ejecutan antes o
+después de procesar una solicitud en la API.
+Casos de uso del middleware en Kong:
+Autenticación y autorización:
+ Verifica credenciales antes de permitir el acceso.
+Registro de logs:
+ Almacena información sobre las solicitudes en herramientas como 
+Prometheus o
+Grafana
+.
+Modificación de respuestas:
+ Agrega o elimina encabezados antes de enviar la respuesta al cliente.
+Ejemplo de middleware en Kong:
+ 
+curl -X POST http://localhost:8001/services/mi-api/plugins \
+--data 
+"name=jwt"
+  
+# Agrega autenticación con JWT
+Los 
+middleware
+ mejoran la seguridad y optimización de las APIs sin necesidad de modificar el código fuente.
+ 
+Implementación de Webhooks y Notificaciones en APIs
+Los 
+webhooks
+ permiten que una API notifique automáticamente a otros sistemas cuando ocurre un evento,
+en lugar de que los clientes tengan que consultar continuamente la API.
+Ejemplos de uso:
+Procesamiento de pagos:
+ Stripe envía una notificación cuando un pago es exitoso.
+Notificaciones en Slack o Discord:
+ Un webhook puede enviar alertas a un canal cuando hay
+cambios en un sistema.
+Automatización de procesos:
+ Se pueden actualizar bases de datos en tiempo real cuando un evento
+ocurre en otro sistema.
+Ejemplo de webhook en JSON:
+ 
+{
+  
+"evento"
+:
+ 
+"pago_realizado"
+,
+  
+"usuario"
+:
+ 
+"12345"
+,
+  
+"monto"
+:
+ 
+"50.00"
+,
+  
+"fecha"
+:
+ 
+"2024-06-01T12:00:00Z"
+}
+Los 
+webhooks
+ mejoran la eficiencia de las APIs al permitir la 
+comunicación en tiempo real
+ sin sobrecargar
+los servidores con consultas innecesarias.
+Bibliografía y lecturas recomendadas:
+Documento solo para uso personal. Prohibido copiar o distribuir
+15/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Richards, M. (2020).
+ 
+Fundamentos de Arquitectura de Software.
+ O'Reilly Media.
+Hernández, M. (2021).
+ 
+Diseño y desarrollo de APIs RESTful con Flask y Django.
+Ediciones Ra-Ma.
+García, L. (2022).
+ 
+Seguridad en APIs y control de accesos con OAuth2 y JWT.
+Alfaomega.
+Gutiérrez, J. (2019).
+ 
+Integración de servicios en la nube mediante API Managers.
+Marcombo.
+Documentación oficial de AWS API Gateway:
+https://docs.aws.amazon.com/apigateway/latest/developerguide/
+Documentación de Kong API Gateway:
+ 
+https://docs.konghq.com/
+OAuth 2.0 y seguridad en APIs
+: 
+https://oauth.net/2/
+Documento solo para uso personal. Prohibido copiar o distribuir
+16/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Ejercicio 17. Diseño de una Arquitectura para la Gestión de APIs con
+un API Manager
+Una empresa de comercio electrónico ha decidido modernizar su infraestructura tecnológica mediante la
+implementación de un API Manager. Actualmente, su plataforma cuenta con múltiples APIs que manejan
+operaciones clave, como:
+Gestión de productos (altas, bajas y modificaciones en el catálogo).
+Procesamiento de pagos (integración con pasarelas de pago como Stripe y PayPal).
+Gestión de pedidos (creación, seguimiento y cancelaciones).
+El equipo de arquitectura necesita diseñar una solución que incluya un API Manager para mejorar la
+seguridad, escalabilidad y eficiencia del sistema.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Ejercicio 18. Diseño de una Arquitectura de API Manager para un
+Sistema de Salud
+Un hospital privado ha decidido modernizar su sistema de gestión médica mediante la implementación de un
+API Manager. Actualmente, el hospital maneja múltiples servicios en su plataforma digital, incluyendo:
+Gestión de pacientes (registro, historial clínico, citas médicas).
+Conexión con laboratorios externos para compartir resultados de análisis.
+Sistema de facturación que integra pagos con aseguradoras y pasarelas de pago.
+El equipo de TI debe diseñar una solución con un API Manager para garantizar la seguridad de los datos
+médicos, la integración con terceros y el monitoreo del sistema.
+Tareas a Resolver:
+1.
+Elección del API Manager: ¿Qué solución recomendarías (AWS API Gateway, Kong, Apigee,
+Tyk) y por qué?
+Control de seguridad: ¿Qué mecanismos de autenticación y autorización se implementarán
+para proteger las APIs?
+Gestión del tráfico y monitoreo: ¿Cómo se asegurará la disponibilidad de la API ante una alta
+demanda?
+Integración con servicios externos: ¿Cómo se gestionarán las conexiones con terceros
+(pasarelas de pago, servicios de notificación)?
+Documento solo para uso personal. Prohibido copiar o distribuir
+17/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+1.
+Elección del API Manager: ¿Qué solución recomendarías (Apigee, AWS API Gateway, Kong,
+Tyk) y por qué?
+Control de seguridad: ¿Cómo se garantizará la protección de datos médicos y el cumplimiento
+de normativas como HIPAA o GDPR?
+Gestión del tráfico y monitoreo: ¿Cómo se asegurará la disponibilidad del sistema ante una alta
+demanda?
+Integración con laboratorios y aseguradoras: ¿Cómo se gestionarán estas conexiones
+externas de manera segura y eficiente?
+Documento solo para uso personal. Prohibido copiar o distribuir
+18/18
+Gestión de APIs - API Manager
+idalumno:906687|unidad:9|codcurso:INF25E06|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

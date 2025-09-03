@@ -1,773 +1,360 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 2: Historia de HCI | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 2: Historia de HCI | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    
-    <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #6f42c1;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
-        }
-        
-        .timeline-item {
-            border-left: 3px solid #6f42c1;
-            padding-left: 1rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -8px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: #6f42c1;
-            border-radius: 50%;
-        }
-        
-        .sidebar {
-            position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        
-        .evolution-card {
-            transition: transform 0.2s;
-        }
-        
-        .evolution-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-    </style>
+    <link rel="stylesheet" href="hci-common-styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand fw-bold" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-book me-2"></i>
-                HCI Tema 2: Historia de HCI
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">HCI: Temas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item active" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo y Ágil</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web y Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad y Estándares</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/">
+                            <i class="bi bi-question-circle-fill me-1"></i>Quiz
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link" href="#introduccion">1. Introducción</a>
-                                <a class="nav-link" href="#origenes">2. Orígenes Históricos</a>
-                                <a class="nav-link" href="#decada-1960">3. Década de 1960</a>
-                                <a class="nav-link" href="#decada-1970">4. Década de 1970</a>
-                                <a class="nav-link" href="#decada-1980">5. Década de 1980</a>
-                                <a class="nav-link" href="#decada-1990">6. Década de 1990</a>
-                                <a class="nav-link" href="#siglo-xxi">7. Siglo XXI</a>
-                                <a class="nav-link" href="#pioneros">8. Pioneros y Figuras Clave</a>
-                                <a class="nav-link" href="#hitos">9. Hitos Importantes</a>
-                                <a class="nav-link" href="#evolucion">10. Evolución de Paradigmas</a>
-                                <a class="nav-link" href="#tendencias">11. Tendencias Actuales</a>
-                                <a class="nav-link" href="#resumen">12. Resumen</a>
-                            </nav>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1><i class="bi bi-clock-history me-3"></i>Tema 2: Historia de HCI</h1>
+                        <p class="lead">Descubre la evolución de la interacción humano-computadora desde los primeros sistemas hasta las interfaces modernas.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h1 class="display-5 text-primary">Historia de HCI</h1>
-                    <p class="lead">Evolución histórica de la Interacción Humano-Computadora</p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <h5><i class="bi bi-list me-2"></i>Contenido</h5>
+                        <nav class="nav flex-column">
+                            <a class="nav-link active" href="#primeras-interfaces">1. Las Primeras Interfaces</a>
+                            <a class="nav-link" href="#cli-era">2. Era de CLI</a>
+                            <a class="nav-link" href="#gui-emergencia">3. Emergencia de GUI</a>
+                            <a class="nav-link" href="#usabilidad-evolucion">4. Evolución hacia Usabilidad</a>
+                            <a class="nav-link text-muted" href="tema2-parte2.html">→ Parte 2: Era Moderna</a>
+                        </nav>
+                    </div>
                 </div>
 
-                <!-- 1. Introducción -->
-                <section id="introduccion" class="content-section">
-                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
-                    <p>La <strong>Historia de HCI</strong> abarca más de 50 años de evolución tecnológica y conceptual. Desde las primeras computadoras mainframe hasta las interfaces modernas de realidad virtual, HCI ha transformado la manera en que los humanos interactúan con la tecnología.</p>
-                    
-                    <div class="alert alert-info">
-                        <i class="bi bi-info-circle me-2"></i>
-                        <strong>¿Por qué estudiar la historia de HCI?</strong>
-                        <ul class="mb-0 mt-2">
-                            <li>Entender la evolución de los paradigmas de interacción</li>
-                            <li>Aprender de los errores y aciertos del pasado</li>
-                            <li>Predecir tendencias futuras basadas en patrones históricos</li>
-                            <li>Valorar los avances tecnológicos actuales</li>
-                        </ul>
+                <!-- Content -->
+                <div class="col-lg-9">
+                    <!-- Introducción -->
+                    <div class="content-section">
+                        <div class="definition-box">
+                            <h3><i class="bi bi-lightbulb-fill text-warning me-2"></i>¿Qué es la Historia de HCI?</h3>
+                            <p>La <strong>interacción humano-computadora (HCI)</strong> es un campo que ha evolucionado enormemente desde sus inicios, influenciando no solo la tecnología sino también la manera en que interactuamos con el mundo digital y físico.</p>
+                            <p>A continuación, se detallan algunos de los <strong>hitos más significativos</strong> en la historia de HCI.</p>
+                        </div>
                     </div>
-                </section>
 
-                <!-- 2. Orígenes Históricos -->
-                <section id="origenes" class="content-section">
-                    <h2><i class="bi bi-hourglass-split me-2"></i>2. Orígenes Históricos</h2>
-                    <p>Los orígenes de HCI se remontan a los primeros días de la computación, cuando la interacción era extremadamente limitada y técnica.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Primeras Computadoras (1940s-1950s)</h5>
+                    <!-- 1. Las Primeras Interfaces -->
+                    <div id="primeras-interfaces" class="content-section">
+                        <h2><i class="bi bi-gear-wide-connected me-2"></i>1. Las Primeras Interfaces</h2>
+                        <p>La historia de las interfaces de usuario comienza con una serie de innovaciones que sentaron las bases para la interacción entre humanos y máquinas. Aunque primitivas en comparación con las tecnologías modernas, estas primeras interfaces marcaron un <strong>cambio radical</strong> en la forma en que los humanos procesaban y manipulaban información.</p>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-archive me-2"></i>El Memex de Vannevar Bush (1945)</h4>
+                            <p>En 1945, Vannevar Bush presentó su visión del <strong>Memex</strong> en el artículo titulado "As We May Think". El Memex fue concebido como un dispositivo hipotético diseñado para:</p>
                             <ul>
-                                <li><strong>ENIAC (1946):</strong> Programación mediante cables y switches</li>
-                                <li><strong>Mainframes:</strong> Tarjetas perforadas como interfaz principal</li>
-                                <li><strong>Batch Processing:</strong> No había interacción directa</li>
-                                <li><strong>Operadores especializados:</strong> Solo expertos podían usar las máquinas</li>
+                                <li><strong>Almacenar</strong> información de manera organizada</li>
+                                <li><strong>Organizar</strong> mediante un sistema de enlaces asociativos</li>
+                                <li><strong>Recuperar</strong> información precursor de los hipervínculos</li>
+                            </ul>
+                            <div class="highlight-box">
+                                <p><strong>Impacto:</strong> Aunque nunca se construyó físicamente, este concepto fue revolucionario porque imaginaba un sistema donde el usuario podía interactuar con la información de manera <strong>no lineal</strong>, imitando los procesos de pensamiento humano. La idea del Memex inspiró posteriormente el desarrollo de tecnologías como la <strong>World Wide Web</strong> y los sistemas de bases de datos relacionales.</p>
+                            </div>
+                        </div>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-pencil me-2"></i>Sketchpad de Ivan Sutherland (1963)</h4>
+                            <p>El siguiente gran avance llegó casi dos décadas después, cuando Ivan Sutherland desarrolló <strong>Sketchpad</strong> como parte de su tesis doctoral en el MIT. Sketchpad fue un sistema de dibujo interactivo que permitió a los usuarios <strong>manipular directamente</strong> los objetos gráficos en una pantalla.</p>
+                            
+                            <h5>Características innovadoras:</h5>
+                            <ul>
+                                <li><strong>Lápiz óptico:</strong> Permitía crear y editar formas geométricas</li>
+                                <li><strong>Manipulación directa:</strong> Interacción con objetos gráficos</li>
+                                <li><strong>Ventanas de visualización:</strong> Precursor de las GUI modernas</li>
+                                <li><strong>Reconocimiento de relaciones geométricas:</strong> Mantener ángulos rectos, escalado proporcional</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <p><strong>Innovación clave:</strong> El sistema almacenaba relaciones como restricciones que podían ajustarse dinámicamente, mostrando por primera vez la utilidad de combinar la <strong>interacción gráfica</strong> con algoritmos computacionales avanzados.</p>
+                            </div>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-star-fill text-warning me-2"></i>Importancia de estas innovaciones</h4>
+                            <p>Tanto el <strong>Memex</strong> como <strong>Sketchpad</strong> representaron un cambio paradigmático en la relación entre humanos y computadoras. Antes de estas innovaciones, las interacciones estaban limitadas a dispositivos mecánicos, como tarjetas perforadas, que carecían de cualquier tipo de interactividad inmediata.</p>
+                            
+                            <h5>Aportes fundamentales:</h5>
+                            <ul>
+                                <li><strong>Enfoque centrado en el usuario</strong> para organizar información</li>
+                                <li><strong>Sistema gráfico interactivo</strong> materializado</li>
+                                <li><strong>Extensión de la capacidad humana</strong> para resolver problemas complejos</li>
+                                <li><strong>Visualización de datos</strong> de manera intuitiva</li>
                             </ul>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card bg-light">
-                                <div class="card-body">
-                                    <h6><i class="bi bi-lightbulb me-2"></i>Concepto Clave</h6>
-                                    <p class="mb-0">En esta época, las computadoras eran herramientas para especialistas. La idea de que personas comunes pudieran usar computadoras era impensable.</p>
+                    </div>
+
+                    <!-- 2. La Era de la Interfaz de Línea de Comandos -->
+                    <div id="cli-era" class="content-section">
+                        <h2><i class="bi bi-terminal me-2"></i>2. La Era de la Interfaz de Línea de Comandos</h2>
+                        <p>La interfaz de línea de comandos (CLI) marcó una etapa crucial en la evolución de HCI. Aunque estas interfaces carecían de elementos gráficos, representaron un <strong>avance significativo</strong> en su época, permitiendo a los usuarios interactuar directamente con sistemas computacionales a través de comandos de texto.</p>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-code-square me-2"></i>Características y Funcionamiento</h4>
+                            <p>La CLI operaba en un entorno textual, donde el usuario ingresaba comandos específicos que el sistema interpretaba y ejecutaba. Los sistemas basados en CLI, como <strong>UNIX</strong>, requerían un conjunto de comandos predefinidos que los usuarios debían aprender y memorizar.</p>
+
+                            <h5>Características principales:</h5>
+                            <ul>
+                                <li><strong>Simplicidad estructural:</strong> No dependían de recursos gráficos complejos</li>
+                                <li><strong>Control detallado:</strong> Acceso directo a funciones del sistema</li>
+                                <li><strong>Eficiencia:</strong> Ejecución rápida de tareas complejas</li>
+                                <li><strong>Flexibilidad:</strong> Combinación de comandos para tareas avanzadas</li>
+                            </ul>
+                        </div>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-unix me-2"></i>El Impacto de UNIX en la CLI</h4>
+                            <p>UNIX se convirtió en el <strong>estándar de facto</strong> para sistemas operativos basados en CLI, introduciendo conceptos que siguen siendo relevantes hoy en día:</p>
+
+                            <ul>
+                                <li><strong>Filosofía de herramientas pequeñas:</strong> Programas especializados que hacen una cosa bien</li>
+                                <li><strong>Pipes y redirección:</strong> Conectar la salida de un programa con la entrada de otro</li>
+                                <li><strong>Sistema de archivos jerárquico:</strong> Organización lógica de datos</li>
+                                <li><strong>Scripting:</strong> Automatización de tareas repetitivas</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <p><strong>Legado duradero:</strong> Los principios de UNIX siguen influyendo en sistemas operativos modernos como Linux, macOS y incluso en el subsistema Linux de Windows.</p>
+                            </div>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-balance-scale me-2"></i>Ventajas y Limitaciones</h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="text-success">Ventajas:</h5>
+                                    <ul>
+                                        <li>Mayor <strong>control</strong> y precisión</li>
+                                        <li><strong>Eficiencia</strong> para usuarios experimentados</li>
+                                        <li><strong>Menos recursos</strong> del sistema</li>
+                                        <li><strong>Automatización</strong> mediante scripts</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="text-danger">Limitaciones:</h5>
+                                    <ul>
+                                        <li><strong>Curva de aprendizaje</strong> pronunciada</li>
+                                        <li>Falta de <strong>retroalimentación visual</strong></li>
+                                        <li><strong>Memorización</strong> de comandos</li>
+                                        <li><strong>Propenso a errores</strong> de sintaxis</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- 3. Década de 1960 -->
-                <section id="decada-1960" class="content-section">
-                    <h2><i class="bi bi-calendar3 me-2"></i>3. Década de 1960: Los Primeros Pasos</h2>
-                    
-                    <div class="timeline-item">
-                        <h5>1962 - Ivan Sutherland y Sketchpad</h5>
-                        <p><strong>Revolución:</strong> Primera interfaz gráfica interactiva. Sketchpad permitía dibujar directamente en la pantalla usando un lápiz óptico.</p>
-                        <p><em>Impacto:</em> Demostró que las computadoras podían ser herramientas creativas, no solo calculadoras.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1963 - Douglas Engelbart y el Mouse</h5>
-                        <p><strong>Innovación:</strong> Invención del mouse como dispositivo de apuntamiento.</p>
-                        <p><em>Visión:</em> "Aumentar el intelecto humano" a través de la tecnología.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1968 - "The Mother of All Demos"</h5>
-                        <p><strong>Demostración histórica:</strong> Engelbart presenta el mouse, hipertexto, videoconferencia y trabajo colaborativo.</p>
-                        <p><em>Legado:</em> Muchas ideas no se implementarían hasta décadas después.</p>
-                    </div>
-                </section>
+                    <!-- 3. Emergencia de las Interfaces Gráficas de Usuario -->
+                    <div id="gui-emergencia" class="content-section">
+                        <h2><i class="bi bi-window-desktop me-2"></i>3. Emergencia de las Interfaces Gráficas de Usuario</h2>
+                        <p>La transición de las interfaces de línea de comandos a las interfaces gráficas de usuario (GUI) marcó una <strong>revolución</strong> en la forma en que las personas interactúan with computers, making computing accessible to a much broader audience.</p>
 
-                <!-- 4. Década de 1970 -->
-                <section id="decada-1970" class="content-section">
-                    <h2><i class="bi bi-calendar3 me-2"></i>4. Década de 1970: Nacimiento de las GUIs</h2>
-                    
-                    <div class="timeline-item">
-                        <h5>1973 - Xerox Alto</h5>
-                        <p><strong>Primera GUI comercial:</strong> Ventanas, iconos, menús y mouse (WIMP paradigm).</p>
-                        <p><em>Limitación:</em> Solo para uso interno en Xerox, muy costoso.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1975 - Término "User Interface"</h5>
-                        <p><strong>Reconocimiento académico:</strong> Se comienza a estudiar la interfaz como disciplina independiente.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1977 - Apple II</h5>
-                        <p><strong>Democratización:</strong> Primera computadora personal exitosa con interfaz relativamente amigable.</p>
-                        <p><em>Innovación:</em> Orientada al usuario doméstico, no solo a expertos.</p>
-                    </div>
-                </section>
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-building me-2"></i>Los Pioneros: Xerox PARC y el Xerox Star (1981)</h4>
+                            <p>El <strong>Xerox Palo Alto Research Center (PARC)</strong> fue el lugar donde nacieron muchos de los conceptos fundamentales de las GUI modernas. El Xerox Star, lanzado en 1981, fue el primer sistema comercial en implementar una interfaz gráfica completa.</p>
 
-                <!-- 5. Década de 1980 -->
-                <section id="decada-1980" class="content-section">
-                    <h2><i class="bi bi-calendar3 me-2"></i>5. Década de 1980: Explosión de las GUIs</h2>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="timeline-item">
-                                <h5>1981 - Xerox Star</h5>
-                                <p><strong>Primera workstation GUI comercial</strong></p>
-                                <p>Desktop metaphor, drag & drop, WYSIWYG</p>
+                            <h5>Innovaciones del Xerox Star:</h5>
+                            <ul>
+                                <li><strong>Escritorio (Desktop):</strong> Metáfora del espacio de trabajo físico</li>
+                                <li><strong>Ventanas:</strong> Múltiples aplicaciones visibles simultáneamente</li>
+                                <li><strong>Iconos:</strong> Representación visual de archivos y aplicaciones</li>
+                                <li><strong>Mouse:</strong> Dispositivo de señalización preciso</li>
+                                <li><strong>Menús desplegables:</strong> Organización jerárquica de opciones</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <p><strong>Impacto limitado:</strong> A pesar de su innovación, el Xerox Star fue un fracaso comercial debido a su alto precio ($16,595) y limitaciones de hardware de la época.</p>
                             </div>
+                        </div>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-apple me-2"></i>La Popularización de las GUI: Apple Macintosh (1984)</h4>
+                            <p>Apple tomó las ideas desarrolladas en Xerox PARC y las refinó en el <strong>Macintosh</strong>, lanzado en 1984. Este sistema fue el primero en hacer las GUI accesibles al público general.</p>
+
+                            <h5>Innovaciones del Macintosh:</h5>
+                            <ul>
+                                <li><strong>Interfaz consistente:</strong> Todas las aplicaciones seguían las mismas convenciones</li>
+                                <li><strong>Drag and Drop:</strong> Manipulación directa de objetos</li>
+                                <li><strong>What You See Is What You Get (WYSIWYG):</strong> Previsualización exacta</li>
+                                <li><strong>Tipografías múltiples:</strong> Mejor presentación de documentos</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <p><strong>Revolución cultural:</strong> El Macintosh no solo cambió la tecnología, sino que transformó la percepción pública de las computadoras, de herramientas para expertos a dispositivos para todos.</p>
+                            </div>
+                        </div>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-microsoft me-2"></i>Microsoft Windows y la Competencia</h4>
+                            <p>Microsoft respondió al éxito del Macintosh con el desarrollo de <strong>Windows</strong>, comenzando con Windows 1.0 en 1985. Aunque inicialmente inferior al Macintosh, Windows se benefició de:</p>
+
+                            <ul>
+                                <li><strong>Compatibilidad con PC:</strong> Aprovechó la base instalada de IBM PC</li>
+                                <li><strong>Menor costo:</strong> Más accesible que el Macintosh</li>
+                                <li><strong>Mejora iterativa:</strong> Cada versión agregaba características importantes</li>
+                                <li><strong>Ecosistema de software:</strong> Gran cantidad de aplicaciones disponibles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 4. Evolución hacia la Usabilidad -->
+                    <div id="usabilidad-evolucion" class="content-section">
+                        <h2><i class="bi bi-people me-2"></i>4. Evolución hacia la Usabilidad</h2>
+                        <p>A medida que las interfaces gráficas se volvieron más comunes, surgió la necesidad de hacer que las computadoras fueran no solo <strong>funcionales</strong>, sino también <strong>fáciles de usar</strong>. Esta etapa marcó el nacimiento formal de la usabilidad como disciplina.</p>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-lightbulb me-2"></i>El Concepto de Usabilidad</h4>
+                            <p>La usabilidad se definió como la medida en que un producto puede ser usado por usuarios específicos para alcanzar objetivos específicos con <strong>efectividad, eficiencia y satisfacción</strong> en un contexto de uso específico.</p>
+
+                            <h5>Principios fundamentales de usabilidad:</h5>
+                            <ul>
+                                <li><strong>Facilidad de aprendizaje:</strong> ¿Qué tan fácil es realizar tareas básicas la primera vez?</li>
+                                <li><strong>Eficiencia:</strong> ¿Qué tan rápido pueden realizar tareas los usuarios experimentados?</li>
+                                <li><strong>Memorabilidad:</strong> ¿Los usuarios pueden recordar cómo usar el sistema?</li>
+                                <li><strong>Errores:</strong> ¿Cuántos errores cometen y qué tan graves son?</li>
+                                <li><strong>Satisfacción:</strong> ¿Qué tan agradable es usar el sistema?</li>
+                            </ul>
+                        </div>
+
+                        <div class="innovation-card">
+                            <h4><i class="bi bi-book me-2"></i>Donald Norman y "The Design of Everyday Things" (1987)</h4>
+                            <p>Donald Norman revolucionó el campo con su libro "The Design of Everyday Things", introduciendo conceptos que siguen siendo fundamentales en HCI:</p>
+
+                            <ul>
+                                <li><strong>Affordances:</strong> Las propiedades percibidas de un objeto que determinan cómo puede ser usado</li>
+                                <li><strong>Mapping:</strong> La relación entre controles y sus efectos</li>
+                                <li><strong>Feedback:</strong> La información que el sistema proporciona sobre las acciones del usuario</li>
+                                <li><strong>Modelo mental:</strong> La representación conceptual que tiene el usuario del sistema</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <p><strong>Impacto duradero:</strong> Los principios de Norman transformaron no solo el diseño de software, sino también el diseño de productos físicos y espacios.</p>
+                            </div>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-globe me-2"></i>La Usabilidad en el Auge de la Web (1990s)</h4>
+                            <p>Con el advenimiento de la <strong>World Wide Web</strong>, la usabilidad adquirió una importancia aún mayor. Jakob Nielsen se convirtió en una figura prominente con sus <strong>"10 Heurísticas de Usabilidad"</strong>:</p>
                             
-                            <div class="timeline-item">
-                                <h5>1984 - Apple Macintosh</h5>
-                                <p><strong>"La computadora para el resto de nosotros"</strong></p>
-                                <p>GUI accesible, mouse estándar, metáforas visuales</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="timeline-item">
-                                <h5>1985 - Windows 1.0</h5>
-                                <p><strong>Microsoft entra en GUIs</strong></p>
-                                <p>Ventanas superpuestas, menús desplegables</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h5>1983 - Primer uso del término "HCI"</h5>
-                                <p><strong>Disciplina académica establecida</strong></p>
-                                <p>Se formaliza como área de investigación</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ol>
+                                        <li>Visibilidad del estado del sistema</li>
+                                        <li>Correspondencia entre el sistema y el mundo real</li>
+                                        <li>Control y libertad del usuario</li>
+                                        <li>Consistencia y estándares</li>
+                                        <li>Prevención de errores</li>
+                                    </ol>
+                                </div>
+                                <div class="col-md-6">
+                                    <ol start="6">
+                                        <li>Reconocimiento antes que recordar</li>
+                                        <li>Flexibilidad y eficiencia de uso</li>
+                                        <li>Diseño estético y minimalista</li>
+                                        <li>Ayuda a usuarios a reconocer y recuperarse de errores</li>
+                                        <li>Ayuda y documentación</li>
+                                    </ol>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- 6. Década de 1990 -->
-                <section id="decada-1990" class="content-section">
-                    <h2><i class="bi bi-calendar3 me-2"></i>6. Década de 1990: Era de Internet</h2>
-                    
-                    <div class="timeline-item">
-                        <h5>1990 - World Wide Web</h5>
-                        <p><strong>Tim Berners-Lee:</strong> Crea la Web con navegación por hiperenlaces.</p>
-                        <p><em>Impacto:</em> Nueva forma de navegar e interactuar con información.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1993 - Mosaic Browser</h5>
-                        <p><strong>Primer navegador gráfico popular:</strong> Imágenes integradas en texto.</p>
-                        <p><em>Explosión:</em> Internet se vuelve accesible para el público general.</p>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <h5>1995 - JavaScript</h5>
-                        <p><strong>Interactividad web:</strong> Las páginas web se vuelven dinámicas.</p>
-                        <p><em>Evolución:</em> De documentos estáticos a aplicaciones interactivas.</p>
-                    </div>
-                    
-                    <div class="alert alert-warning">
-                        <i class="bi bi-exclamation-triangle me-2"></i>
-                        <strong>Desafío de los 90s:</strong> Diseño inconsistente entre sitios web, falta de estándares de usabilidad web.
-                    </div>
-                </section>
-
-                <!-- 7. Siglo XXI -->
-                <section id="siglo-xxi" class="content-section">
-                    <h2><i class="bi bi-calendar-check me-2"></i>7. Siglo XXI: Era Digital Moderna</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card evolution-card h-100">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0">2000s - Web 2.0 y Redes Sociales</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>2004:</strong> Facebook - Interacción social masiva</li>
-                                        <li><strong>2005:</strong> Ajax - Páginas web más fluidas</li>
-                                        <li><strong>2006:</strong> Twitter - Microblogging</li>
-                                        <li><strong>Concepto:</strong> Usuario como creador de contenido</li>
-                                    </ul>
+                    <!-- Navigation to Part 2 -->
+                    <div class="navigation-section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <a href="tema2-parte2.html" class="nav-card d-inline-block">
+                                        <h4><i class="bi bi-arrow-right-circle me-2"></i>Continuar con Parte 2</h4>
+                                        <p class="mb-0">Era de la Movilidad, Realidad Virtual y Futuro de HCI</p>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card evolution-card h-100">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0">2007-2010 - Revolución Móvil</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>2007:</strong> iPhone - Touch interfaces</li>
-                                        <li><strong>2008:</strong> Android - Ecosistema abierto</li>
-                                        <li><strong>2010:</strong> iPad - Computación tablet</li>
-                                        <li><strong>Impacto:</strong> HCI se vuelve táctil y ubicua</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card evolution-card h-100">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0">2010s - Cloud y Apps</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>Cloud Computing:</strong> SaaS, aplicaciones web</li>
-                                        <li><strong>App Stores:</strong> Ecosistemas de aplicaciones</li>
-                                        <li><strong>Responsive Design:</strong> Una web para todos los dispositivos</li>
-                                        <li><strong>Material Design:</strong> Lenguajes de diseño unificados</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card evolution-card h-100">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0">2020s - IA y Realidad Extendida</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>AI/ML:</strong> Interfaces inteligentes y predictivas</li>
-                                        <li><strong>VR/AR:</strong> Interfaces tridimensionales</li>
-                                        <li><strong>Voice UI:</strong> Asistentes de voz omnipresentes</li>
-                                        <li><strong>Brain-Computer:</strong> Interfaces neurales emergentes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 8. Pioneros y Figuras Clave -->
-                <section id="pioneros" class="content-section">
-                    <h2><i class="bi bi-people me-2"></i>8. Pioneros y Figuras Clave</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Douglas Engelbart</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> Mouse, hipertexto, trabajo colaborativo<br>
-                                        <strong>Visión:</strong> "Augmenting Human Intellect"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Ivan Sutherland</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> Sketchpad, gráficos interactivos<br>
-                                        <strong>Legado:</strong> "Padre de los gráficos por computadora"
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Alan Kay</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> Concepto de GUI, orientación a objetos<br>
-                                        <strong>Dynabook:</strong> Visión de la computadora personal
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Vannevar Bush</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> Concepto de Memex (1945)<br>
-                                        <strong>Influencia:</strong> Inspiró el hipertexto y la Web
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Don Norman</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> "The Design of Everyday Things"<br>
-                                        <strong>Conceptos:</strong> User-centered design, affordances
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h6 class="card-title text-primary">Jakob Nielsen</h6>
-                                    <p class="small">
-                                        <strong>Contribución:</strong> Heurísticas de usabilidad<br>
-                                        <strong>Metodología:</strong> Evaluación heurística, testing de usuarios
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 9. Hitos Importantes -->
-                <section id="hitos" class="content-section">
-                    <h2><i class="bi bi-trophy me-2"></i>9. Hitos Importantes</h2>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-striped">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>Año</th>
-                                    <th>Hito</th>
-                                    <th>Impacto en HCI</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>1945</strong></td>
-                                    <td>Concepto Memex (Bush)</td>
-                                    <td>Inspiración para hipertexto y navegación asociativa</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1962</strong></td>
-                                    <td>Sketchpad (Sutherland)</td>
-                                    <td>Primera interfaz gráfica interactiva</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1968</strong></td>
-                                    <td>Mother of All Demos</td>
-                                    <td>Demostración de conceptos futuristas</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1973</strong></td>
-                                    <td>Xerox Alto</td>
-                                    <td>Primera implementación completa de GUI</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1981</strong></td>
-                                    <td>Xerox Star</td>
-                                    <td>Primera workstation GUI comercial</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1984</strong></td>
-                                    <td>Apple Macintosh</td>
-                                    <td>GUI accesible para el público general</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1990</strong></td>
-                                    <td>World Wide Web</td>
-                                    <td>Nueva forma de navegación e interacción</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>2007</strong></td>
-                                    <td>iPhone</td>
-                                    <td>Revolución de interfaces táctiles</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- 10. Evolución de Paradigmas -->
-                <section id="evolucion" class="content-section">
-                    <h2><i class="bi bi-arrow-up-right me-2"></i>10. Evolución de Paradigmas</h2>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>Paradigmas Históricos</h5>
-                            <div class="list-group">
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">Batch Processing (1940s-1960s)</h6>
-                                    <p class="mb-1 small">Sin interacción directa, programación por tarjetas</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">Command Line (1960s-1980s)</h6>
-                                    <p class="mb-1 small">Interacción textual, usuarios expertos</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">GUI/WIMP (1970s-presente)</h6>
-                                    <p class="mb-1 small">Ventanas, iconos, menús, mouse</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">Web-based (1990s-presente)</h6>
-                                    <p class="mb-1 small">Navegación por hiperenlaces, aplicaciones web</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <h5>Paradigmas Modernos</h5>
-                            <div class="list-group">
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">Touch/Gesture (2000s-presente)</h6>
-                                    <p class="mb-1 small">Interacción táctil, gestos naturales</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">Voice UI (2010s-presente)</h6>
-                                    <p class="mb-1 small">Comandos de voz, asistentes inteligentes</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">AI-driven (2010s-presente)</h6>
-                                    <p class="mb-1 small">Interfaces predictivas, personalización automática</p>
-                                </div>
-                                <div class="list-group-item">
-                                    <h6 class="mb-1">VR/AR (2010s-presente)</h6>
-                                    <p class="mb-1 small">Interfaces tridimensionales, realidad mixta</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 11. Tendencias Actuales -->
-                <section id="tendencias" class="content-section">
-                    <h2><i class="bi bi-graph-up-arrow me-2"></i>11. Tendencias Actuales</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card border-primary">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="bi bi-robot me-2"></i>Inteligencia Artificial</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li>Interfaces conversacionales (ChatGPT, Bard)</li>
-                                        <li>Recomendaciones automáticas personalizadas</li>
-                                        <li>Predicción de necesidades del usuario</li>
-                                        <li>Automatización de tareas de interfaz</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-headset-vr me-2"></i>Realidad Extendida</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li>VR: Entornos completamente virtuales</li>
-                                        <li>AR: Información superpuesta en el mundo real</li>
-                                        <li>MR: Fusión del mundo real y virtual</li>
-                                        <li>Interfaces espaciales tridimensionales</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-warning">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0"><i class="bi bi-mic me-2"></i>Interfaces de Voz</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li>Asistentes virtuales (Alexa, Siri, Google)</li>
-                                        <li>Control por voz en aplicaciones</li>
-                                        <li>Procesamiento de lenguaje natural</li>
-                                        <li>Interfaces manos libres</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-info">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0"><i class="bi bi-lightning me-2"></i>Internet de las Cosas</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li>Dispositivos conectados omnipresentes</li>
-                                        <li>Interfaces ambient (sin pantalla visible)</li>
-                                        <li>Interacción multimodal</li>
-                                        <li>Ecosistemas de dispositivos integrados</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 12. Resumen -->
-                <section id="resumen" class="content-section">
-                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen</h2>
-                    
-                    <div class="alert alert-success">
-                        <h5><i class="bi bi-lightbulb me-2"></i>Puntos Clave de la Historia de HCI</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Evolución Tecnológica</h6>
-                                <ul>
-                                    <li>De tarjetas perforadas a interfaces de voz</li>
-                                    <li>De usuarios expertos a usuarios cotidianos</li>
-                                    <li>De interacción limitada a ubicua</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Cambios Conceptuales</h6>
-                                <ul>
-                                    <li>Enfoque centrado en el usuario</li>
-                                    <li>Importancia de la usabilidad</li>
-                                    <li>Diseño universal y accesibilidad</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h6><i class="bi bi-arrow-right me-2"></i>Lecciones Aprendidas</h6>
-                            <ol>
-                                <li><strong>La tecnología debe adaptarse al usuario,</strong> no al revés</li>
-                                <li><strong>Las metáforas familiares</strong> facilitan la adopción de nuevas tecnologías</li>
-                                <li><strong>La simplicidad y consistencia</strong> son fundamentales para la usabilidad</li>
-                                <li><strong>El contexto de uso</strong> determina la efectividad de una interfaz</li>
-                                <li><strong>La evolución es gradual,</strong> las revoluciones son raras pero impactantes</li>
-                            </ol>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 text-center">
-                        <a href="../../../quiz-spa/index.html?theme=hci2" class="btn btn-success btn-lg">
-                            <i class="bi bi-question-circle me-2"></i>
-                            Realizar Quiz del Tema 2
-                        </a>
-                    </div>
-                </section>
-
-                <!-- Navigation Between Topics -->
-                <div class="row mt-5">
-                    <div class="col-6">
-                        <a href="tema1.html" class="btn btn-outline-primary">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            Tema 1: Introducción a HCI
-                        </a>
-                    </div>
-                    <div class="col-6 text-end">
-                        <a href="tema3.html" class="btn btn-outline-primary">
-                            Tema 3: Interfaces y Usabilidad
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci2" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 2">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-mortarboard me-2"></i>
-                HCI Tema 2: Historia de HCI
-            </p>
-            <small class="text-muted">Material de estudio complementario</small>
+    <!-- Footer Navigation -->
+    <footer class="footer-navigation">
+        <div class="container">
+            <div class="footer-nav-content">
+                <a href="tema1.html" class="nav-button">
+                    <i class="bi bi-chevron-left"></i>
+                    Tema Anterior
+                </a>
+                <div class="nav-center">
+                    <a href="../../../index.html" class="nav-link">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="../../../quiz-spa/" class="nav-link">
+                        <i class="bi bi-question-circle-fill"></i> Quiz
+                    </a>
+                </div>
+                <a href="tema3.html" class="nav-button">
+                    Tema Siguiente
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>

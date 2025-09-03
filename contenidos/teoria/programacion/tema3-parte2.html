@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Tema 3: Ingeniería de Requisitos - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .programming-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .document-type {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .validation-technique {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .management-practice {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .tool-category {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación
+            </a>
+            
+            <span class="navbar-text">
+                Tema 3: Ingeniería de Requisitos - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-light me-2" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <span class="navbar-text timer-display" id="timer-display">Teoría</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid">
+        <div class="programming-hero">
+            <div class="container">
+                <h1 class="display-4 mb-3">
+                    <i class="bi bi-file-text me-3"></i>
+                    Ingeniería de Requisitos
+                </h1>
+                <p class="lead mb-4">Parte 2: Documentación • Validación • Gestión de Cambios • Herramientas</p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-book me-1"></i>Tema 3 - Parte 2
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-clock me-1"></i>35 min lectura
+                        </span>
+                        <span class="badge bg-light text-dark fs-6">
+                            <i class="bi bi-tools me-1"></i>Prácticas
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#documentacion">Documentación</a>
+                                <a class="nav-link" href="#casos-uso">Casos de Uso</a>
+                                <a class="nav-link" href="#historias-usuario">Historias de Usuario</a>
+                                <a class="nav-link" href="#validacion">Validación y Verificación</a>
+                                <a class="nav-link" href="#gestion-cambios">Gestión de Cambios</a>
+                                <a class="nav-link" href="#herramientas">Herramientas</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Documentación -->
+                <section id="documentacion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-file-earmark-text me-2"></i>
+                        Documentación de Requisitos
+                    </h2>
+                    
+                    <p class="lead">La documentación efectiva es <strong>fundamental</strong> para comunicar requisitos de manera clara y sin ambigüedades.</p>
+                    
+                    <h3>Especificación de Requisitos de Software (SRS)</h3>
+                    <div class="document-type">
+                        <h5><i class="bi bi-book me-2"></i>Documento SRS</h5>
+                        <p><strong>Documento formal</strong> que define requisitos funcionales y no funcionales</p>
+                        
+                        <div class="code-example">
+                            <h6>Estructura típica de SRS:</h6>
+                            <pre>1. Introducción y propósito
+2. Descripción general del producto
+3. Requisitos funcionales específicos
+4. Requisitos no funcionales
+5. Interfaces externas
+6. Restricciones y limitaciones</pre>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="document-type">
+                                <h5><i class="bi bi-check-circle me-2"></i>Características SRS</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Completo:</strong> Toda funcionalidad</li>
+                                    <li><strong>Consistente:</strong> Sin contradicciones</li>
+                                    <li><strong>Inequívoco:</strong> Una sola interpretación</li>
+                                    <li><strong>Verificable:</strong> Se puede probar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="document-type">
+                                <h5><i class="bi bi-people me-2"></i>Audiencia del SRS</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Clientes:</strong> Validan necesidades</li>
+                                    <li><strong>Desarrolladores:</strong> Guía implementación</li>
+                                    <li><strong>Testers:</strong> Base para pruebas</li>
+                                    <li><strong>Gestores:</strong> Planificación</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos de Uso -->
+                <section id="casos-uso" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-diagram-3 me-2"></i>
+                        Casos de Uso
+                    </h2>
+
+                    <p>Los casos de uso describen <strong>interacciones específicas</strong> entre actores (usuarios) y el sistema para lograr un objetivo.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-person-circle me-2"></i>Componentes de un Caso de Uso</h4>
+                        <ul class="mb-0">
+                            <li><strong>Actor:</strong> Quien inicia la interacción</li>
+                            <li><strong>Objetivo:</strong> Qué quiere lograr</li>
+                            <li><strong>Precondiciones:</strong> Estado inicial</li>
+                            <li><strong>Flujo principal:</strong> Pasos normales</li>
+                            <li><strong>Flujos alternativos:</strong> Variaciones</li>
+                            <li><strong>Postcondiciones:</strong> Estado final</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-cart me-2"></i>Ejemplo de Caso de Uso:</h6>
+                        <pre><strong>Caso de Uso:</strong> Realizar Compra Online
+<strong>Actor:</strong> Cliente registrado
+<strong>Objetivo:</strong> Comprar productos y recibirlos
+
+<strong>Flujo Principal:</strong>
+1. Cliente busca productos
+2. Añade items al carrito
+3. Revisa carrito y procede al checkout
+4. Ingresa datos de envío y pago
+5. Confirma orden
+6. Sistema procesa pago
+7. Sistema confirma orden por email</pre>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="document-type">
+                                <h5><i class="bi bi-arrow-right me-2"></i>Flujos Alternativos</h5>
+                                <ul class="mb-0">
+                                    <li>Pago rechazado: volver a paso 4</li>
+                                    <li>Producto agotado: notificar y remover</li>
+                                    <li>Usuario cancela: vaciar carrito</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="document-type">
+                                <h5><i class="bi bi-x-circle me-2"></i>Flujos de Excepción</h5>
+                                <ul class="mb-0">
+                                    <li>Error de conexión: mostrar mensaje</li>
+                                    <li>Sesión expirada: redirigir a login</li>
+                                    <li>Sistema no disponible: página mantenimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Historias de Usuario -->
+                <section id="historias-usuario" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-chat-quote me-2"></i>
+                        Historias de Usuario
+                    </h2>
+
+                    <p>Las historias de usuario son <strong>requisitos ágiles</strong> escritos desde la perspectiva del usuario final, enfocándose en el valor de negocio.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-card-text me-2"></i>Formato Estándar</h4>
+                        <p class="mb-0"><em>"Como [tipo de usuario], quiero [funcionalidad], para [beneficio]"</em></p>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-person me-2"></i>Ejemplos de Historias de Usuario:</h6>
+                        <pre><strong>Historia 1:</strong>
+Como cliente frecuente, quiero guardar mis métodos de pago, 
+para completar compras más rápidamente.
+
+<strong>Historia 2:</strong>
+Como administrador, quiero ver reportes de ventas diarias, 
+para tomar decisiones de inventario.
+
+<strong>Historia 3:</strong>
+Como usuario móvil, quiero usar la aplicación offline, 
+para acceder a mi información sin conexión.</pre>
+                    </div>
+
+                    <h3>Criterios de Aceptación</h3>
+                    <div class="validation-technique">
+                        <h5><i class="bi bi-check-all me-2"></i>Definiendo "Terminado"</h5>
+                        <p>Los criterios de aceptación especifican <strong>cuándo una historia está completa</strong> y funcionando correctamente.</p>
+                        
+                        <div class="code-example">
+                            <h6>Criterios para "Guardar métodos de pago":</h6>
+                            <ul class="mb-0">
+                                <li>✓ Usuario puede añadir tarjetas de crédito/débito</li>
+                                <li>✓ Datos se almacenan encriptados</li>
+                                <li>✓ Usuario puede eliminar métodos guardados</li>
+                                <li>✓ Funciona en checkout con un click</li>
+                                <li>✓ Compatible con regulaciones PCI-DSS</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>INVEST: Características de Buenas Historias</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-person me-2"></i><strong>I</strong>ndependiente</h6>
+                                <p class="mb-0">Puede desarrollarse por separado</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-chat me-2"></i><strong>N</strong>egociable</h6>
+                                <p class="mb-0">Se puede discutir y ajustar</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-gem me-2"></i><strong>V</strong>aliosa</h6>
+                                <p class="mb-0">Aporta valor al usuario/negocio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-rulers me-2"></i><strong>E</strong>stimable</h6>
+                                <p class="mb-0">Se puede calcular esfuerzo</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-puzzle me-2"></i><strong>S</strong>mall</h6>
+                                <p class="mb-0">Tamaño manejable para un sprint</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="document-type">
+                                <h6><i class="bi bi-check-circle me-2"></i><strong>T</strong>esteable</h6>
+                                <p class="mb-0">Se puede verificar su funcionamiento</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Validación y Verificación -->
+                <section id="validacion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-shield-check me-2"></i>
+                        Validación y Verificación de Requisitos
+                    </h2>
+
+                    <p>Es crucial asegurar que los requisitos son <strong>correctos, completos y consistentes</strong> antes de implementar.</p>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-eye me-2"></i>Verificación</h5>
+                                <p><strong>"¿Estamos construyendo el producto correctamente?"</strong></p>
+                                <p class="mb-0">Comprueba que los requisitos cumplan estándares de calidad</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-person-check me-2"></i>Validación</h5>
+                                <p><strong>"¿Estamos construyendo el producto correcto?"</strong></p>
+                                <p class="mb-0">Confirma que los requisitos satisfacen necesidades reales</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Técnicas de Verificación</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-search me-2"></i>Revisiones Formales</h5>
+                                <ul class="mb-0">
+                                    <li>Inspecciones de código/documentos</li>
+                                    <li>Walkthroughs guiados</li>
+                                    <li>Revisiones por pares</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-list-check me-2"></i>Checklists</h5>
+                                <ul class="mb-0">
+                                    <li>Verificar completitud</li>
+                                    <li>Detectar inconsistencias</li>
+                                    <li>Validar trazabilidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Técnicas de Validación</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-eye-fill me-2"></i>Prototipos</h5>
+                                <ul class="mb-0">
+                                    <li>Mockups de interfaz</li>
+                                    <li>Prototipos funcionales</li>
+                                    <li>Demos tempranas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-technique">
+                                <h5><i class="bi bi-people me-2"></i>Validación con Usuarios</h5>
+                                <ul class="mb-0">
+                                    <li>Testing de usabilidad</li>
+                                    <li>Sesiones de feedback</li>
+                                    <li>Pruebas piloto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-exclamation-triangle me-2"></i>Errores Comunes</h4>
+                        <ul class="mb-0">
+                            <li><strong>Validar solo con stakeholders técnicos</strong> - ignorar usuarios finales</li>
+                            <li><strong>Verificación tardía</strong> - revisar solo al final del proyecto</li>
+                            <li><strong>Documentación sin validación</strong> - asumir que escribir = correcto</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Gestión de Cambios -->
+                <section id="gestion-cambios" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-arrow-repeat me-2"></i>
+                        Gestión de Cambios en Requisitos
+                    </h2>
+
+                    <p>Los requisitos <strong>evolucionan</strong> durante el proyecto. Una gestión efectiva de cambios es esencial para el éxito.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-graph-up me-2"></i>Realidad de los Cambios</h4>
+                        <p class="mb-0">En proyectos típicos, entre <strong>25-50%</strong> de los requisitos cambian durante el desarrollo.</p>
+                    </div>
+
+                    <h3>Proceso de Gestión de Cambios</h3>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="management-practice">
+                                <h5><i class="bi bi-1-circle me-2"></i>Solicitud</h5>
+                                <p><strong>Identificar</strong> la necesidad de cambio</p>
+                                <ul class="mb-0">
+                                    <li>Formulario estándar</li>
+                                    <li>Justificación del cambio</li>
+                                    <li>Impacto estimado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="management-practice">
+                                <h5><i class="bi bi-2-circle me-2"></i>Evaluación</h5>
+                                <p><strong>Analizar</strong> costo vs. beneficio</p>
+                                <ul class="mb-0">
+                                    <li>Impacto técnico</li>
+                                    <li>Costo de implementación</li>
+                                    <li>Efecto en cronograma</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="management-practice">
+                                <h5><i class="bi bi-3-circle me-2"></i>Decisión</h5>
+                                <p><strong>Aprobar o rechazar</strong> con justificación</p>
+                                <ul class="mb-0">
+                                    <li>Comité de cambios</li>
+                                    <li>Criterios claros</li>
+                                    <li>Comunicación de decisión</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-diagram-2 me-2"></i>Trazabilidad de Requisitos</h4>
+                        <p>Mantener vínculos entre requisitos, diseño, código y pruebas permite:</p>
+                        <ul class="mb-0">
+                            <li><strong>Análisis de impacto</strong> de cambios</li>
+                            <li><strong>Validación de cobertura</strong> en testing</li>
+                            <li><strong>Justificación</strong> de decisiones de diseño</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-link me-2"></i>Matriz de trazabilidad simplificada:</h6>
+                        <pre>REQ-001: Login usuario → UC-001, TEST-001-005
+REQ-002: Búsqueda productos → UC-002, TEST-006-012  
+REQ-003: Proceso pago → UC-003, TEST-013-020</pre>
+                    </div>
+                </section>
+
+                <!-- Herramientas -->
+                <section id="herramientas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-tools me-2"></i>
+                        Herramientas para Gestión de Requisitos
+                    </h2>
+
+                    <p>Las herramientas adecuadas facilitan la <strong>captura, documentación y gestión</strong> de requisitos durante todo el ciclo de vida.</p>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="tool-category">
+                                <h5><i class="bi bi-file-text me-2"></i>Documentación</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Confluence:</strong> Wiki colaborativo</li>
+                                    <li><strong>Notion:</strong> Documentos estructurados</li>
+                                    <li><strong>Google Docs:</strong> Colaboración simple</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="tool-category">
+                                <h5><i class="bi bi-kanban me-2"></i>Gestión Ágil</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Jira:</strong> Historias y backlog</li>
+                                    <li><strong>Azure DevOps:</strong> Gestión completa</li>
+                                    <li><strong>Trello:</strong> Kanban simple</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="tool-category">
+                                <h5><i class="bi bi-diagram-3 me-2"></i>Modelado</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Lucidchart:</strong> Diagramas UML</li>
+                                    <li><strong>Draw.io:</strong> Diagramas gratuitos</li>
+                                    <li><strong>Enterprise Architect:</strong> Modelado empresarial</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="tool-category">
+                                <h5><i class="bi bi-eye me-2"></i>Prototipado</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Figma:</strong> Prototipos interactivos</li>
+                                    <li><strong>InVision:</strong> Mockups colaborativos</li>
+                                    <li><strong>Balsamiq:</strong> Wireframes rápidos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Selección de Herramientas</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-funnel me-2"></i>Criterios de Selección</h4>
+                        <ul class="mb-0">
+                            <li><strong>Tamaño del equipo:</strong> Herramientas simples vs. empresariales</li>
+                            <li><strong>Metodología:</strong> Ágil (Jira) vs. Tradicional (DOORS)</li>
+                            <li><strong>Integración:</strong> Compatibilidad con herramientas existentes</li>
+                            <li><strong>Presupuesto:</strong> Opciones gratuitas vs. licencias comerciales</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-laptop me-2"></i>Stack típico para equipos pequeños:</h6>
+                        <pre>• Documentación: Notion/Confluence
+• Gestión: Jira/Trello  
+• Diagramas: Draw.io/Lucidchart
+• Prototipos: Figma/Balsamiq
+• Comunicación: Slack/Teams</pre>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Mejores Prácticas</h4>
+                        <ul class="mb-0">
+                            <li><strong>Integración:</strong> Herramientas que se conecten entre sí</li>
+                            <li><strong>Simplicidad:</strong> No sobre-complicar el proceso</li>
+                            <li><strong>Adopción:</strong> Entrenar al equipo en las herramientas seleccionadas</li>
+                            <li><strong>Respaldo:</strong> Versiones y backups de documentación</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Resumen y Próximos Pasos -->
+                <section id="resumen" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-check-all me-2"></i>
+                        Resumen del Tema 3
+                    </h2>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-award me-2"></i>Conceptos Clave Aprendidos</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Tipos de requisitos (funcionales/no funcionales)</li>
+                                    <li>Identificación de stakeholders</li>
+                                    <li>Técnicas de elicitación</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Documentación efectiva (SRS, casos de uso, historias)</li>
+                                    <li>Validación y verificación</li>
+                                    <li>Gestión de cambios y herramientas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>La ingeniería de requisitos es un <strong>proceso iterativo</strong> que requiere comunicación constante, documentación clara y gestión proactiva de cambios.</p>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Preparación para Tema 4</h4>
+                        <p class="mb-0">En el siguiente tema exploraremos el <strong>Diseño y Modelado Conceptual</strong>, donde aprenderemos a transformar requisitos en arquitecturas y modelos de sistema.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema3.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 3 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema4.html" class="btn btn-outline-success">
+                            Tema 4
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion3" class="btn btn-success floating-quiz-btn" title="Quiz Tema 3">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 3: Ingeniería de Requisitos - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

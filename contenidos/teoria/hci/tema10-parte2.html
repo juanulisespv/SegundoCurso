@@ -1,890 +1,1018 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 10: Interfaces para Android e iOS - Parte 2 | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 10: Interfaces para Android e iOS - Parte 2</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    
     <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #e91e63;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
         }
-        
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .container-fluid {
+            padding: 2rem 1rem;
+        }
+
         .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
             overflow-y: auto;
         }
-        
-        .gesture-demo {
-            border: 2px dashed #6c757d;
-            border-radius: 8px;
-            padding: 1.5rem;
-            text-align: center;
-            background: #f8f9fa;
-            margin: 0.5rem 0;
-            transition: all 0.2s ease;
-            position: relative;
-        }
-        
-        .gesture-demo:hover {
-            border-color: #e91e63;
-            background: #fff;
-            transform: scale(1.02);
-        }
-        
-        .pattern-showcase {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border: 2px solid #dee2e6;
-            border-radius: 12px;
-            padding: 1.5rem;
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
             transition: all 0.3s ease;
         }
-        
-        .pattern-showcase:hover {
-            border-color: #e91e63;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(233, 30, 99, 0.15);
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
         }
-        
-        .device-comparison {
-            border: 3px solid #6c757d;
-            border-radius: 20px;
-            padding: 1rem;
-            background: #ffffff;
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--text-dark);
+            margin-top: 2rem;
             margin-bottom: 1rem;
-            position: relative;
         }
-        
-        .android-comparison {
-            border-color: #4CAF50;
-            background: linear-gradient(135deg, #A5D6A7, #C8E6C9);
-        }
-        
-        .ios-comparison {
-            border-color: #2196F3;
-            background: linear-gradient(135deg, #BBDEFB, #E3F2FD);
-        }
-        
-        .implementation-code {
-            background: #1e1e1e;
-            color: #d4d4d4;
+
+        .development-card {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(108, 117, 125, 0.05) 100%);
+            border-left: 4px solid #6c757d;
+            padding: 1.5rem;
+            margin: 1rem 0;
             border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
+            transition: transform 0.3s ease;
         }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        .development-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-        
-        .best-practice {
-            background: #ffffff;
-            border: 1px solid #dee2e6;
+
+        .android-card {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.1) 0%, rgba(76, 175, 80, 0.05) 100%);
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            margin: 1rem 0;
             border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
-            border-left: 4px solid #28a745;
+            transition: transform 0.3s ease;
         }
-        
-        .anti-pattern {
-            background: #fff5f5;
-            border: 1px solid #dee2e6;
+
+        .android-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .ios-card {
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%);
+            border-left: 4px solid #2196f3;
+            padding: 1.5rem;
+            margin: 1rem 0;
             border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .ios-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .framework-card {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.1) 0%, rgba(255, 152, 0, 0.05) 100%);
+            border-left: 4px solid #ff9800;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .security-card {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
             border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .security-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(108, 117, 125, 0.05) 100%);
+            border: 1px solid #6c757d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .case-study-card {
+            background: linear-gradient(135deg, rgba(32, 201, 151, 0.1) 0%, rgba(25, 135, 84, 0.1) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .navigation-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-card {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .nav-card.prev {
+            margin-right: auto;
+        }
+
+        .nav-card.next {
+            margin-left: auto;
+        }
+
+        .nav-card a {
+            display: block;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-card a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: static;
+                margin: 1rem 0;
+            }
+            
+            .navigation-cards {
+                flex-direction: column;
+            }
+            
+            .nav-card.prev,
+            .nav-card.next {
+                margin: 0.5rem 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-book me-2"></i>
-                HCI Tema 10: Interfaces Android e iOS - Parte 2
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Temas HCI
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web/Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html"><strong>Tema 10: Interfaces Android/iOS</strong></a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Cuestionarios</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
+    <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido - Parte 2
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link text-muted" href="tema10.html">
-                                    <i class="bi bi-arrow-left me-1"></i>
-                                    Volver a Parte 1
-                                </a>
-                                <hr class="my-2">
-                                <a class="nav-link" href="#gestos-interacciones">7. Gestos e Interacciones</a>
-                                <a class="nav-link" href="#patrones-navegacion">8. Patrones de Navegación</a>
-                                <a class="nav-link" href="#componentes-nativos">9. Componentes Nativos</a>
-                                <a class="nav-link" href="#adaptabilidad">10. Adaptabilidad y Responsive</a>
-                                <a class="nav-link" href="#casos-estudio">11. Casos de Estudio</a>
-                                <a class="nav-link" href="#resumen">12. Resumen y Best Practices</a>
-                            </nav>
-                        </div>
-                    </div>
+                    <h5><i class="bi bi-list-ul me-2"></i>Contenido - Parte 2</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema10.html">← Parte 1: Diseño Android/iOS</a>
+                        <a class="nav-link" href="#desarrollo-movil">3. Desarrollo Móvil</a>
+                        <a class="nav-link" href="#entornos-desarrollo" style="padding-left: 1.5rem;">3.1. Entornos de Desarrollo</a>
+                        <a class="nav-link" href="#lenguajes" style="padding-left: 1.5rem;">3.2. Lenguajes de Programación</a>
+                        <a class="nav-link" href="#frameworks-multiplataforma" style="padding-left: 1.5rem;">3.3. Frameworks Multiplataforma</a>
+                        <a class="nav-link" href="#publicacion" style="padding-left: 1.5rem;">3.4. Publicación en Tiendas</a>
+                        <a class="nav-link" href="#consideraciones">4. Consideraciones Comunes</a>
+                        <a class="nav-link" href="#usabilidad-movil" style="padding-left: 1.5rem;">4.1. Usabilidad Móvil</a>
+                        <a class="nav-link" href="#pruebas-usabilidad" style="padding-left: 1.5rem;">4.2. Pruebas de Usabilidad</a>
+                        <a class="nav-link" href="#optimizacion" style="padding-left: 1.5rem;">4.3. Optimización</a>
+                        <a class="nav-link" href="#localizacion" style="padding-left: 1.5rem;">4.4. Localización</a>
+                        <a class="nav-link" href="#seguridad" style="padding-left: 1.5rem;">4.5. Seguridad</a>
+                        <a class="nav-link" href="#casos-practicos">Casos Prácticos</a>
+                    </nav>
                 </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h1 class="display-5 text-primary">Interfaces para Android e iOS</h1>
-                    <p class="lead">Parte 2: Gestos, Patrones y Implementación</p>
-                </div>
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Desarrollo Móvil -->
+                <section id="desarrollo-movil" class="content-section">
+                    <h1><i class="bi bi-code-slash me-2"></i>3. Desarrollo Móvil: Herramientas y Tecnologías</h1>
+                    
+                    <p>El desarrollo de aplicaciones móviles ha evolucionado significativamente, ofreciendo múltiples enfoques y herramientas especializadas. Cada plataforma tiene <strong>su propio entorno de desarrollo, lenguaje de programación y frameworks</strong>, lo que influye en el proceso de creación de aplicaciones.</p>
 
-                <!-- 7. Gestos e Interacciones -->
-                <section id="gestos-interacciones" class="content-section">
-                    <h2><i class="bi bi-hand-index me-2"></i>7. Gestos e Interacciones</h2>
-                    
-                    <p>Los <strong>gestos táctiles</strong> son fundamentales en interfaces móviles. Cada plataforma ha desarrollado su propio vocabulario gestual que los usuarios aprenden y esperan encontrar consistentemente.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5><i class="bi bi-android me-2 text-success"></i>Gestos Android</h5>
-                            
-                            <div class="gesture-demo">
-                                <h6>Tap & Long Press</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <i class="bi bi-cursor-fill display-4 text-primary"></i>
-                                        <p class="small"><strong>Tap:</strong> Activar, seleccionar</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <i class="bi bi-clock-fill display-4 text-warning"></i>
-                                        <p class="small"><strong>Long Press:</strong> Context menu, drag mode</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gesture-demo">
-                                <h6>Swipe Gestures</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <i class="bi bi-arrow-left-right display-4 text-success"></i>
-                                        <p class="small"><strong>Horizontal Swipe:</strong> Navegación entre tabs, dismiss notifications</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <i class="bi bi-arrow-up-down display-4 text-info"></i>
-                                        <p class="small"><strong>Vertical Swipe:</strong> Scroll, pull-to-refresh, quick settings</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gesture-demo">
-                                <h6>System Gestures (Android 10+)</h6>
-                                <ul class="small text-start">
-                                    <li><strong>Swipe up from bottom:</strong> Home</li>
-                                    <li><strong>Swipe up and hold:</strong> Recent apps</li>
-                                    <li><strong>Swipe from edges:</strong> Back navigation</li>
-                                    <li><strong>Diagonal swipe:</strong> Google Assistant</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <h5><i class="bi bi-apple me-2 text-primary"></i>Gestos iOS</h5>
-                            
-                            <div class="gesture-demo">
-                                <h6>Basic Touch Interactions</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <i class="bi bi-hand-index-thumb display-4 text-primary"></i>
-                                        <p class="small"><strong>Tap:</strong> Select, activate</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <i class="bi bi-smartwatch display-4 text-warning"></i>
-                                        <p class="small"><strong>Force Touch:</strong> Peek & Pop (legacy), contextual actions</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gesture-demo">
-                                <h6>Navigation Gestures</h6>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <i class="bi bi-arrow-left display-4 text-success"></i>
-                                        <p class="small"><strong>Edge Swipe:</strong> Back navigation (desde iOS 7)</p>
-                                    </div>
-                                    <div class="col-6">
-                                        <i class="bi bi-chevron-up display-4 text-info"></i>
-                                        <p class="small"><strong>Pull Down:</strong> Control Center, Notification Center</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="gesture-demo">
-                                <h6>System Gestures (iPhone X+)</h6>
-                                <ul class="small text-start">
-                                    <li><strong>Swipe up from bottom:</strong> Home</li>
-                                    <li><strong>Swipe up and pause:</strong> App switcher</li>
-                                    <li><strong>Swipe down from top-right:</strong> Control Center</li>
-                                    <li><strong>Swipe down from top-left:</strong> Notifications</li>
-                                    <li><strong>Swipe bottom edge:</strong> Quick app switching</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-info">
-                        <h6><i class="bi bi-info-circle me-2"></i>Gesture Accessibility</h6>
-                        <p class="small mb-0">Siempre proporciona alternativas para gestos complejos. Algunos usuarios no pueden realizar multi-touch gestures o swipes precisos. Include botones alternativos y voice commands cuando sea posible.</p>
+                    <p>Además de las herramientas nativas, el desarrollo móvil también ha evolucionado hacia <strong>soluciones multiplataforma</strong>, como React Native y Flutter, que permiten crear aplicaciones para ambos sistemas operativos con un solo código base.</p>
+
+                    <div class="definition-box">
+                        <h4><i class="bi bi-gear me-2"></i>Evolución del Desarrollo Móvil</h4>
+                        <p>El desarrollo móvil ha pasado de enfoques puramente nativos a <strong>soluciones híbridas y multiplataforma</strong> que optimizan tiempo y recursos de desarrollo, manteniendo performance y experiencia de usuario nativa.</p>
                     </div>
                 </section>
 
-                <!-- 8. Patrones de Navegación -->
-                <section id="patrones-navegacion" class="content-section">
-                    <h2><i class="bi bi-signpost me-2"></i>8. Patrones de Navegación</h2>
+                <!-- Entornos de Desarrollo -->
+                <section id="entornos-desarrollo" class="content-section">
+                    <h2><i class="bi bi-laptop me-2"></i>3.1. Entornos de Desarrollo</h2>
                     
-                    <p>Los <strong>patrones de navegación</strong> definen cómo los usuarios se mueven por tu aplicación. Cada plataforma ha establecido convenciones que los usuarios esperan y entienden intuitivamente.</p>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="pattern-showcase">
-                                <h5><i class="bi bi-android me-2 text-success"></i>Android Navigation Patterns</h5>
-                                
-                                <div class="device-comparison android-comparison">
-                                    <h6>1. Tab Navigation</h6>
-                                    <p class="small">Tabs en la parte superior, swipeable content</p>
-                                    <div class="bg-white p-2 rounded mb-2">
-                                        <div class="d-flex border-bottom">
-                                            <div class="flex-fill text-center py-2 bg-primary text-white small">Tab 1</div>
-                                            <div class="flex-fill text-center py-2 small">Tab 2</div>
-                                            <div class="flex-fill text-center py-2 small">Tab 3</div>
-                                        </div>
-                                        <div class="p-3 text-center small">Content Area - Swipeable</div>
-                                    </div>
-                                    
-                                    <h6>2. Navigation Drawer</h6>
-                                    <p class="small">Menú lateral para navegación principal</p>
-                                    <div class="bg-white p-2 rounded mb-2">
-                                        <div class="d-flex">
-                                            <div class="border-end pe-2" style="width: 30%;">
-                                                <div class="small mb-1">☰ Main</div>
-                                                <div class="small mb-1">📧 Email</div>
-                                                <div class="small mb-1">📅 Calendar</div>
-                                                <div class="small">⚙️ Settings</div>
-                                            </div>
-                                            <div class="flex-fill ps-2">
-                                                <div class="text-center small">Main Content</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <h6>3. Bottom Navigation</h6>
-                                    <p class="small">3-5 destinos principales en la parte inferior</p>
-                                    <div class="bg-white p-2 rounded">
-                                        <div class="text-center small mb-2">Content Area</div>
-                                        <div class="d-flex border-top pt-2">
-                                            <div class="flex-fill text-center small">🏠 Home</div>
-                                            <div class="flex-fill text-center small">🔍 Search</div>
-                                            <div class="flex-fill text-center small">❤️ Favorites</div>
-                                            <div class="flex-fill text-center small">👤 Profile</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <p>Cada plataforma cuenta con su propio <strong>Entorno de Desarrollo Integrado (IDE)</strong>, que proporciona herramientas para escribir, depurar y probar aplicaciones móviles.</p>
+
+                    <h3>Android Studio: IDE para Android</h3>
+                    <div class="android-card">
+                        <h4><i class="bi bi-android2 me-2"></i>Android Studio</h4>
+                        <p><strong>Android Studio</strong> es el IDE oficial para desarrollar aplicaciones en Android, basado en IntelliJ IDEA.</p>
                         
-                        <div class="col-md-6">
-                            <div class="pattern-showcase">
-                                <h5><i class="bi bi-apple me-2 text-primary"></i>iOS Navigation Patterns</h5>
-                                
-                                <div class="device-comparison ios-comparison">
-                                    <h6>1. Tab Bar Navigation</h6>
-                                    <p class="small">Navegación plana entre secciones principales</p>
-                                    <div class="bg-white p-2 rounded mb-2">
-                                        <div class="text-center small mb-2">Content Area</div>
-                                        <div class="d-flex border-top pt-2">
-                                            <div class="flex-fill text-center small">🏠<br>Home</div>
-                                            <div class="flex-fill text-center small">🔍<br>Search</div>
-                                            <div class="flex-fill text-center small">❤️<br>Favorites</div>
-                                            <div class="flex-fill text-center small">👤<br>Profile</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <h6>2. Navigation Stack</h6>
-                                    <p class="small">Jerarquía de push/pop para drill-down</p>
-                                    <div class="bg-white p-2 rounded mb-2">
-                                        <div class="border-bottom pb-2 mb-2">
-                                            <div class="d-flex align-items-center small">
-                                                <span>← Back</span>
-                                                <span class="flex-fill text-center">Detail View</span>
-                                                <span>Action</span>
-                                            </div>
-                                        </div>
-                                        <div class="text-center small">Detailed Content</div>
-                                    </div>
-                                    
-                                    <h6>3. Modal Presentation</h6>
-                                    <p class="small">Tareas self-contained que interrumpen el flujo</p>
-                                    <div class="bg-white p-2 rounded">
-                                        <div class="border-bottom pb-2 mb-2">
-                                            <div class="d-flex align-items-center small">
-                                                <span>Cancel</span>
-                                                <span class="flex-fill text-center">Modal Title</span>
-                                                <span>Done</span>
-                                            </div>
-                                        </div>
-                                        <div class="text-center small">Modal Content</div>
-                                    </div>
-                                </div>
+                        <h5>Herramientas Principales:</h5>
+                        <ul>
+                            <li><strong>Layout Editor:</strong> Permite diseñar interfaces gráficamente sin necesidad de escribir XML manualmente</li>
+                            <li><strong>Emulador de Android:</strong> Simula diferentes dispositivos para probar la aplicación sin necesidad de hardware físico</li>
+                            <li><strong>Android Debug Bridge (ADB):</strong> Herramienta para depurar aplicaciones en dispositivos reales</li>
+                            <li><strong>Gradle Build System:</strong> Sistema de construcción automatizada</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code me-2"></i>Ejemplo de Activity en Kotlin</h6>
+                            <div class="code-block">
+class MainActivity : AppCompatActivity() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;override fun onCreate(savedInstanceState: Bundle?) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.onCreate(savedInstanceState)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setContentView(R.layout.activity_main)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
                             </div>
                         </div>
                     </div>
+
+                    <h3>Xcode: IDE para iOS</h3>
+                    <div class="ios-card">
+                        <h4><i class="bi bi-apple me-2"></i>Xcode</h4>
+                        <p><strong>Xcode</strong> es el entorno de desarrollo oficial para iOS, macOS, watchOS y tvOS.</p>
+                        
+                        <h5>Herramientas Principales:</h5>
+                        <ul>
+                            <li><strong>Interface Builder:</strong> Permite diseñar interfaces mediante un editor visual</li>
+                            <li><strong>Simulador de iOS:</strong> Facilita la prueba de aplicaciones en diferentes modelos de iPhone y iPad</li>
+                            <li><strong>Instruments:</strong> Herramienta para analizar el rendimiento y la memoria de una aplicación</li>
+                            <li><strong>Swift Playgrounds:</strong> Entorno interactivo para aprender Swift</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code me-2"></i>Ejemplo de ViewController en Swift</h6>
+                            <div class="code-block">
+import UIKit<br><br>
+class ViewController: UIViewController {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;override func viewDidLoad() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.viewDidLoad()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;view.backgroundColor = UIColor.white<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-3">Ambos entornos proporcionan <strong>herramientas avanzadas</strong> para el desarrollo, optimización y prueba de aplicaciones, garantizando una experiencia fluida para los usuarios.</p>
+                </section>
+
+                <!-- Lenguajes de Programación -->
+                <section id="lenguajes" class="content-section">
+                    <h2><i class="bi bi-file-code me-2"></i>3.2. Lenguajes de Programación para Aplicaciones Móviles</h2>
                     
-                    <div class="alert alert-warning">
-                        <h6><i class="bi bi-exclamation-triangle me-2"></i>Navigation Anti-Patterns</h6>
+                    <p>Los lenguajes de programación utilizados en Android e iOS han evolucionado para mejorar la <strong>eficiencia, seguridad y velocidad del desarrollo</strong>.</p>
+
+                    <h3>Kotlin y Java para Android</h3>
+                    <div class="android-card">
+                        <h4><i class="bi bi-braces me-2"></i>Lenguajes para Android</h4>
+                        
                         <div class="row">
                             <div class="col-md-6">
-                                <h6 class="text-danger">❌ Evitar</h6>
-                                <ul class="small">
-                                    <li>Hamburger menu como única navegación</li>
-                                    <li>Más de 5 tabs en bottom navigation</li>
-                                    <li>Nested modals (modal dentro de modal)</li>
-                                    <li>Back button que sale de la app inesperadamente</li>
+                                <h5>Kotlin (Recomendado)</h5>
+                                <ul>
+                                    <li><strong>Sintaxis concisa:</strong> Menos código boilerplate</li>
+                                    <li><strong>Mayor seguridad:</strong> Null safety incorporada</li>
+                                    <li><strong>Interoperabilidad:</strong> Compatible 100% con Java</li>
+                                    <li><strong>Lenguaje oficial de Google</strong> para Android</li>
                                 </ul>
+                                
+                                <div class="code-block">
+fun saludo(): String {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "¡Hola, Android!"<br>
+}
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <h6 class="text-success">✅ Buenas Prácticas</h6>
-                                <ul class="small">
-                                    <li>Navegación principal siempre visible</li>
-                                    <li>Breadcrumbs claros en jerarquías profundas</li>
-                                    <li>Consistent back behavior</li>
-                                    <li>Clear entry y exit points para modals</li>
+                                <h5>Java (Legacy)</h5>
+                                <ul>
+                                    <li><strong>Ampliamente utilizado:</strong> Muchas apps existentes</li>
+                                    <li><strong>Ecosistema maduro:</strong> Abundantes recursos</li>
+                                    <li><strong>Migración gradual:</strong> Transición a Kotlin</li>
+                                    <li><strong>Soporte continuo:</strong> Mantenimiento de proyectos existentes</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- 9. Componentes Nativos -->
-                <section id="componentes-nativos" class="content-section">
-                    <h2><i class="bi bi-puzzle me-2"></i>9. Componentes Nativos</h2>
-                    
-                    <p>Cada plataforma proporciona un conjunto de <strong>componentes nativos</strong> optimizados para performance y consistencia con el sistema operativo.</p>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <thead class="table-primary">
-                                <tr>
-                                    <th>Función</th>
-                                    <th>Android Component</th>
-                                    <th>iOS Component</th>
-                                    <th>Diferencias Clave</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Text Input</strong></td>
-                                    <td>EditText</td>
-                                    <td>UITextField</td>
-                                    <td>Android: más customización visual; iOS: consistent look</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Lists</strong></td>
-                                    <td>RecyclerView</td>
-                                    <td>UITableView</td>
-                                    <td>Android: flexible layouts; iOS: structured sections</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Grids</strong></td>
-                                    <td>RecyclerView + GridLayoutManager</td>
-                                    <td>UICollectionView</td>
-                                    <td>Android: adaptive span count; iOS: flow layouts</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Alerts</strong></td>
-                                    <td>AlertDialog</td>
-                                    <td>UIAlertController</td>
-                                    <td>Android: más customizable; iOS: system consistency</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Action Sheets</strong></td>
-                                    <td>BottomSheetDialog</td>
-                                    <td>UIActionSheet/UIAlertController</td>
-                                    <td>Android: modal bottom sheet; iOS: platform-specific presentation</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Switches</strong></td>
-                                    <td>Switch/ToggleButton</td>
-                                    <td>UISwitch</td>
-                                    <td>Android: multiple styles; iOS: single consistent design</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Progress</strong></td>
-                                    <td>ProgressBar</td>
-                                    <td>UIProgressView</td>
-                                    <td>Android: circular y linear; iOS: primarily linear</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Date/Time</strong></td>
-                                    <td>DatePicker/TimePicker</td>
-                                    <td>UIDatePicker</td>
-                                    <td>Android: dialog-based; iOS: wheel picker inline</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-android me-2"></i>Android Specific Components</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="small">
-                                        <li><strong>Floating Action Button (FAB):</strong> Primary action prominente</li>
-                                        <li><strong>Snackbar:</strong> Lightweight feedback y undo actions</li>
-                                        <li><strong>Navigation View:</strong> Drawer menu structure</li>
-                                        <li><strong>CoordinatorLayout:</strong> Complex scrolling behaviors</li>
-                                        <li><strong>BottomSheet:</strong> Modal content desde bottom</li>
-                                        <li><strong>Chips:</strong> Compact elements para filters/actions</li>
-                                        <li><strong>App Shortcuts:</strong> Long-press home screen quick actions</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>Swift y Objective-C para iOS</h3>
+                    <div class="ios-card">
+                        <h4><i class="bi bi-braces me-2"></i>Lenguajes para iOS</h4>
                         
-                        <div class="col-md-6">
-                            <div class="card border-primary">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="bi bi-apple me-2"></i>iOS Specific Components</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="small">
-                                        <li><strong>Navigation Controller:</strong> Hierarchical navigation stack</li>
-                                        <li><strong>Segmented Control:</strong> Mutually exclusive choices</li>
-                                        <li><strong>Action Sheet:</strong> Contextual action menu</li>
-                                        <li><strong>Popover:</strong> iPad contextual content</li>
-                                        <li><strong>Activity Indicator:</strong> Loading states</li>
-                                        <li><strong>Stepper:</strong> Increment/decrement values</li>
-                                        <li><strong>3D Touch Actions:</strong> Force-sensitive quick actions</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 10. Adaptabilidad y Responsive -->
-                <section id="adaptabilidad" class="content-section">
-                    <h2><i class="bi bi-arrows-angle-expand me-2"></i>10. Adaptabilidad y Responsive Design</h2>
-                    
-                    <p>Las interfaces móviles deben <strong>adaptarse dinámicamente</strong> a diferentes tamaños de pantalla, orientaciones y contextos de uso. Cada plataforma maneja esto de manera diferente.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5><i class="bi bi-android me-2 text-success"></i>Android Adaptive Design</h5>
-                            
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0">Configuration Qualifiers</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="small">Android usa resource qualifiers para proporcionar layouts alternativos.</p>
-                                    
-                                    <h6>Screen Size Qualifiers</h6>
-                                    <ul class="small">
-                                        <li><strong>small:</strong> ≥426dp x 320dp</li>
-                                        <li><strong>normal:</strong> ≥470dp x 320dp</li>
-                                        <li><strong>large:</strong> ≥640dp x 480dp</li>
-                                        <li><strong>xlarge:</strong> ≥960dp x 720dp</li>
-                                    </ul>
-                                    
-                                    <h6>Density Qualifiers</h6>
-                                    <ul class="small">
-                                        <li><strong>ldpi:</strong> ~120dpi (0.75x)</li>
-                                        <li><strong>mdpi:</strong> ~160dpi (1x baseline)</li>
-                                        <li><strong>hdpi:</strong> ~240dpi (1.5x)</li>
-                                        <li><strong>xhdpi:</strong> ~320dpi (2x)</li>
-                                        <li><strong>xxhdpi:</strong> ~480dpi (3x)</li>
-                                        <li><strong>xxxhdpi:</strong> ~640dpi (4x)</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="card border-warning mt-3">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0">Fragment-Based Architecture</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="small">Fragments permiten interfaces modulares que se recombinan según screen size.</p>
-                                    
-                                    <h6>Phone Layout</h6>
-                                    <div class="bg-light p-2 rounded mb-2 small">
-                                        📱 Single pane: List Fragment → Detail Fragment (navigation)
-                                    </div>
-                                    
-                                    <h6>Tablet Layout</h6>
-                                    <div class="bg-light p-2 rounded small">
-                                        📱 Dual pane: List Fragment | Detail Fragment (side-by-side)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <h5><i class="bi bi-apple me-2 text-primary"></i>iOS Adaptive Design</h5>
-                            
-                            <div class="card border-primary">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0">Size Classes</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="small">iOS usa size classes abstractas que combinan width y height.</p>
-                                    
-                                    <h6>Horizontal Size Classes</h6>
-                                    <ul class="small">
-                                        <li><strong>Compact:</strong> iPhone portrait, iPhone landscape (smaller models)</li>
-                                        <li><strong>Regular:</strong> iPad any orientation, iPhone Plus/Max landscape</li>
-                                    </ul>
-                                    
-                                    <h6>Vertical Size Classes</h6>
-                                    <ul class="small">
-                                        <li><strong>Compact:</strong> iPhone landscape</li>
-                                        <li><strong>Regular:</strong> iPhone portrait, iPad any orientation</li>
-                                    </ul>
-                                    
-                                    <h6>Common Combinations</h6>
-                                    <div class="table-responsive">
-                                        <table class="table table-sm">
-                                            <thead>
-                                                <tr>
-                                                    <th>Device</th>
-                                                    <th>Portrait</th>
-                                                    <th>Landscape</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr class="small">
-                                                    <td>iPhone</td>
-                                                    <td>Compact/Regular</td>
-                                                    <td>Compact/Compact</td>
-                                                </tr>
-                                                <tr class="small">
-                                                    <td>iPhone Plus/Max</td>
-                                                    <td>Compact/Regular</td>
-                                                    <td>Regular/Compact</td>
-                                                </tr>
-                                                <tr class="small">
-                                                    <td>iPad</td>
-                                                    <td>Regular/Regular</td>
-                                                    <td>Regular/Regular</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="card border-info mt-3">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0">UISplitViewController</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="small">Maneja automáticamente master-detail relationships según size class.</p>
-                                    
-                                    <h6>Compact Width</h6>
-                                    <div class="bg-light p-2 rounded mb-2 small text-center">
-                                        Master View → Detail View (navigation stack)
-                                    </div>
-                                    
-                                    <h6>Regular Width</h6>
-                                    <div class="bg-light p-2 rounded small">
-                                        <div class="d-flex">
-                                            <div class="border-end pe-2 text-center" style="width: 40%;">Master View</div>
-                                            <div class="flex-fill ps-2 text-center">Detail View</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 11. Casos de Estudio -->
-                <section id="casos-estudio" class="content-section">
-                    <h2><i class="bi bi-file-earmark-text me-2"></i>11. Casos de Estudio</h2>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Éxito: WhatsApp Cross-Platform Consistency</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Desafío</h6>
-                                    <p class="small">Mantener experiencia familiar entre plataformas mientras respeta convenciones nativas.</p>
-                                    
-                                    <h6>Estrategia de Diseño</h6>
-                                    <ul class="small">
-                                        <li><strong>Core experience:</strong> Chat interface consistent</li>
-                                        <li><strong>Platform adaptations:</strong> Navigation patterns nativos</li>
-                                        <li><strong>Visual consistency:</strong> Green color scheme universal</li>
-                                        <li><strong>Feature parity:</strong> Misma funcionalidad en ambas platforms</li>
-                                    </ul>
-                                    
-                                    <h6>Platform-Specific Adaptations</h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h6 class="text-success">Android</h6>
-                                            <ul class="small">
-                                                <li>FAB para nueva conversación</li>
-                                                <li>Tabs en top para Chats/Status/Calls</li>
-                                                <li>Material Design cards</li>
-                                                <li>System back button support</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <h6 class="text-primary">iOS</h6>
-                                            <ul class="small">
-                                                <li>Tab bar en bottom</li>
-                                                <li>Navigation controller stack</li>
-                                                <li>iOS-style list cells</li>
-                                                <li>Swipe gestures para actions</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="alert alert-success small p-2">
-                                        <strong>Resultado:</strong> 95% user satisfaction en ambas plataformas, +2B usuarios activos
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-primary">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="bi bi-star me-2"></i>Caso: Instagram Stories Innovation</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Innovation Challenge</h6>
-                                    <p class="small">Crear nuevo pattern de content consumption que se sienta nativo en ambas plataformas.</p>
-                                    
-                                    <h6>Design Solutions</h6>
-                                    <ul class="small">
-                                        <li><strong>Gesture-first:</strong> Tap para next, swipe para dismiss</li>
-                                        <li><strong>Full-screen immersion:</strong> Content-focused experience</li>
-                                        <li><strong>Temporal UI:</strong> Progress indicators y auto-advance</li>
-                                        <li><strong>Quick interactions:</strong> React, reply, share sin interrumpir flow</li>
-                                    </ul>
-                                    
-                                    <h6>Platform Optimizations</h6>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <h6 class="text-success">Android</h6>
-                                            <ul class="small">
-                                                <li>Hardware back button exits stories</li>
-                                                <li>Volume keys para navigation</li>
-                                                <li>Share sheet integration</li>
-                                            </ul>
-                                        </div>
-                                        <div class="col-6">
-                                            <h6 class="text-primary">iOS</h6>
-                                            <ul class="small">
-                                                <li>3D Touch para preview</li>
-                                                <li>iOS share sheet</li>
-                                                <li>Haptic feedback</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="alert alert-primary small p-2">
-                                        <strong>Impacto:</strong> Pattern adoptado por múltiples platforms (Snapchat, Facebook, YouTube)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 12. Resumen -->
-                <section id="resumen" class="content-section">
-                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen y Best Practices</h2>
-                    
-                    <div class="alert alert-success">
-                        <h5><i class="bi bi-lightbulb me-2"></i>Principios Universales para Interfaces Móviles</h5>
                         <div class="row">
                             <div class="col-md-6">
-                                <h6>Diseño</h6>
+                                <h5>Swift (Recomendado)</h5>
                                 <ul>
-                                    <li>Respeta las convenciones de cada plataforma</li>
-                                    <li>Prioriza contenido sobre decoración UI</li>
-                                    <li>Diseña para thumb-friendly interactions</li>
-                                    <li>Considera contextos de uso real (luz, movimiento, distracciones)</li>
+                                    <li><strong>Seguridad y rendimiento:</strong> Optimizado por Apple</li>
+                                    <li><strong>Sintaxis moderna:</strong> Más legible que Objective-C</li>
+                                    <li><strong>Memory management automático:</strong> ARC (Automatic Reference Counting)</li>
+                                    <li><strong>Lenguaje principal</strong> para desarrollo iOS</li>
                                 </ul>
+                                
+                                <div class="code-block">
+func saludo() -> String {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return "¡Hola, iOS!"<br>
+}
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <h6>Implementación</h6>
+                                <h5>Objective-C (Legacy)</h5>
                                 <ul>
-                                    <li>Usa componentes nativos cuando sea posible</li>
-                                    <li>Optimiza para performance en hardware limitado</li>
-                                    <li>Implementa accessibility desde el inicio</li>
-                                    <li>Testa en dispositivos reales, no solo simuladores</li>
+                                    <li><strong>Aplicaciones heredadas:</strong> Proyectos antiguos</li>
+                                    <li><strong>Interoperabilidad:</strong> Integración con Swift</li>
+                                    <li><strong>Bibliotecas C/C++:</strong> Acceso directo</li>
+                                    <li><strong>Reemplazo gradual:</strong> Migración a Swift</li>
                                 </ul>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="best-practice">
-                                <h6><i class="bi bi-check-circle me-2 text-success"></i>Best Practices</h6>
-                                <ul class="small">
-                                    <li><strong>Touch targets:</strong> Mínimo 44x44pt (iOS) / 48x48dp (Android)</li>
-                                    <li><strong>Text legibility:</strong> Mínimo 16px en mobile, high contrast</li>
-                                    <li><strong>Loading states:</strong> Skeleton screens, progressive loading</li>
-                                    <li><strong>Error handling:</strong> Graceful degradation, clear recovery paths</li>
-                                    <li><strong>Offline support:</strong> Cache content crítico, estados offline claros</li>
-                                    <li><strong>Battery awareness:</strong> Minimize background processing</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="anti-pattern">
-                                <h6><i class="bi bi-x-circle me-2 text-danger"></i>Anti-Patterns</h6>
-                                <ul class="small">
-                                    <li><strong>Tiny touch targets:</strong> Botones <44pt causan frustración</li>
-                                    <li><strong>Platform confusion:</strong> Android patterns en iOS y viceversa</li>
-                                    <li><strong>Over-customization:</strong> Reinventar componentes estándar</li>
-                                    <li><strong>Ignoring accessibility:</strong> No support para screen readers</li>
-                                    <li><strong>Poor performance:</strong> Animations janky, loading lento</li>
-                                    <li><strong>Inconsistent navigation:</strong> Back button behavior impredecible</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card bg-light mt-4">
-                        <div class="card-body">
-                            <h6><i class="bi bi-arrow-right me-2"></i>Flujo de Desarrollo Mobile-First</h6>
-                            <div class="row text-center">
-                                <div class="col-3">
-                                    <i class="bi bi-pencil display-4 text-success"></i>
-                                    <h6>Research</h6>
-                                    <small>Platform guidelines, user behavior patterns</small>
-                                </div>
-                                <div class="col-3">
-                                    <i class="bi bi-phone display-4 text-primary"></i>
-                                    <h6>Mobile Design</h6>
-                                    <small>Start with smallest screen, core functionality</small>
-                                </div>
-                                <div class="col-3">
-                                    <i class="bi bi-laptop display-4 text-warning"></i>
-                                    <h6>Scale Up</h6>
-                                    <small>Enhance for larger screens, add features</small>
-                                </div>
-                                <div class="col-3">
-                                    <i class="bi bi-check-circle display-4 text-info"></i>
-                                    <h6>Test & Iterate</h6>
-                                    <small>Real devices, real users, real contexts</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-4">
-                            <div class="card border-primary">
-                                <div class="card-body text-center">
-                                    <h6>📱 Platform Respect</h6>
-                                    <p class="small mb-0">"Users eligieron su plataforma por una razón. Respeta sus expectativas y convenciones."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-success">
-                                <div class="card-body text-center">
-                                    <h6>⚡ Performance First</h6>
-                                    <p class="small mb-0">"En móvil, performance no es una feature nice-to-have, es un requirement básico."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-warning">
-                                <div class="card-body text-center">
-                                    <h6>♿ Accessibility Always</h6>
-                                    <p class="small mb-0">"15% de la población mundial tiene alguna discapacidad. Diseña inclusivamente desde el inicio."</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 text-center">
-                        <a href="../../../quiz-spa/index.html?theme=hci10" class="btn btn-success btn-lg">
-                            <i class="bi bi-question-circle me-2"></i>
-                            Realizar Quiz del Tema 10
-                        </a>
                     </div>
                 </section>
 
-                <!-- Navigation Between Topics -->
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <a href="tema10.html" class="btn btn-outline-secondary">
+                <!-- Frameworks Multiplataforma -->
+                <section id="frameworks-multiplataforma" class="content-section">
+                    <h2><i class="bi bi-diagram-3 me-2"></i>3.3. Frameworks y Herramientas para Desarrollo Multiplataforma</h2>
+                    
+                    <p>El desarrollo multiplataforma ha ganado popularidad debido a la necesidad de crear aplicaciones para <strong>Android e iOS con un solo código base</strong>, reduciendo tiempos y costos de desarrollo.</p>
+
+                    <h3>React Native</h3>
+                    <div class="framework-card">
+                        <h4><i class="bi bi-bootstrap me-2"></i>React Native</h4>
+                        <p>Desarrollado por <strong>Meta (Facebook)</strong>, permite construir aplicaciones móviles utilizando JavaScript y React.</p>
+                        
+                        <h5>Características Clave:</h5>
+                        <ul>
+                            <li><strong>Compartir hasta el 90% del código</strong> entre Android e iOS</li>
+                            <li><strong>Usa componentes nativos:</strong> Mejorando la experiencia del usuario</li>
+                            <li><strong>Gran comunidad:</strong> Amplio soporte de bibliotecas</li>
+                            <li><strong>Hot Reload:</strong> Cambios en tiempo real durante desarrollo</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code-slash me-2"></i>Ejemplo de React Native</h6>
+                            <div class="code-block">
+import React from 'react';<br>
+import { Text, View } from 'react-native';<br><br>
+const App = () => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;View&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Text&gt;¡Hola, React Native!&lt;/Text&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/View&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+};<br><br>
+export default App;
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Flutter</h3>
+                    <div class="framework-card">
+                        <h4><i class="bi bi-phone-flip me-2"></i>Flutter</h4>
+                        <p>Creado por <strong>Google</strong>, usa el lenguaje Dart para desarrollar aplicaciones nativas desde un solo código base.</p>
+                        
+                        <h5>Características Clave:</h5>
+                        <ul>
+                            <li><strong>Widgets personalizables:</strong> Interfaces con alto rendimiento</li>
+                            <li><strong>Motor gráfico Skia:</strong> Renderizado rápido</li>
+                            <li><strong>Hot Reload:</strong> Desarrollo iterativo rápido</li>
+                            <li><strong>Performance nativo:</strong> Compilación directa a código máquina</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code-slash me-2"></i>Ejemplo de Flutter</h6>
+                            <div class="code-block">
+import 'package:flutter/material.dart';<br><br>
+void main() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;runApp(MyApp());<br>
+}<br><br>
+class MyApp extends StatelessWidget {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;@override<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Widget build(BuildContext context) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return MaterialApp(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;home: Scaffold(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body: Center(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;child: Text('¡Hola, Flutter!'),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mt-3">Estos frameworks han facilitado la creación de aplicaciones multiplataforma <strong>sin sacrificar rendimiento ni experiencia de usuario</strong>.</p>
+                </section>
+
+                <!-- Publicación -->
+                <section id="publicacion" class="content-section">
+                    <h2><i class="bi bi-cloud-upload me-2"></i>3.4. Proceso de Desarrollo y Publicación en Tiendas de Aplicaciones</h2>
+                    
+                    <p>Para lanzar una aplicación móvil, es necesario cumplir con los <strong>requisitos y directrices de publicación</strong> en Google Play Store y App Store.</p>
+
+                    <h3>Publicación en Google Play Store</h3>
+                    <div class="android-card">
+                        <h4><i class="bi bi-google-play me-2"></i>Proceso para Android</h4>
+                        <ol>
+                            <li><strong>Crear una cuenta</strong> de Google Play Console</li>
+                            <li><strong>Configurar la aplicación</strong> en Android Studio y generar un archivo .apk o .aab</li>
+                            <li><strong>Completar la ficha</strong> de la aplicación (nombre, descripción, capturas de pantalla)</li>
+                            <li><strong>Subir la aplicación</strong> y establecer precios o modelo de monetización</li>
+                            <li><strong>Superar la revisión</strong> de Google y lanzar la aplicación</li>
+                        </ol>
+
+                        <h5>Requisitos Técnicos:</h5>
+                        <ul>
+                            <li><strong>Target SDK:</strong> Versión reciente de Android API</li>
+                            <li><strong>Firmado de aplicación:</strong> Certificados de seguridad</li>
+                            <li><strong>Políticas de privacidad:</strong> Declaración de permisos</li>
+                        </ul>
+                    </div>
+
+                    <h3>Publicación en Apple App Store</h3>
+                    <div class="ios-card">
+                        <h4><i class="bi bi-apple me-2"></i>Proceso para iOS</h4>
+                        <ol>
+                            <li><strong>Registrarse</strong> en el Apple Developer Program</li>
+                            <li><strong>Configurar la aplicación</strong> en Xcode y generar un archivo .ipa</li>
+                            <li><strong>Completar la ficha</strong> de la aplicación en App Store Connect</li>
+                            <li><strong>Subir la aplicación</strong> mediante Transporter o Xcode</li>
+                            <li><strong>Pasar la revisión</strong> de Apple y publicar la aplicación</li>
+                        </ol>
+
+                        <h5>Requisitos Técnicos:</h5>
+                        <ul>
+                            <li><strong>Human Interface Guidelines:</strong> Cumplimiento estricto</li>
+                            <li><strong>Provisioning Profiles:</strong> Certificados de desarrollo</li>
+                            <li><strong>Revisión manual:</strong> Proceso más estricto que Google</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-circle me-2"></i>Conclusión Desarrollo</h4>
+                        <p>El <strong>desarrollo de aplicaciones móviles</strong> implica la elección de las herramientas y tecnologías adecuadas para garantizar una experiencia óptima en Android e iOS. Siguiendo estas prácticas, los desarrolladores pueden crear aplicaciones <strong>eficientes, escalables y accesibles</strong>.</p>
+                    </div>
+                </section>
+
+                <!-- Consideraciones Comunes -->
+                <section id="consideraciones" class="content-section">
+                    <h1><i class="bi bi-list-check me-2"></i>4. Consideraciones Comunes</h1>
+                    
+                    <p>El desarrollo de aplicaciones para <strong>Android e iOS</strong> no solo implica seguir las directrices específicas de cada plataforma, sino que también requiere la implementación de <strong>buenas prácticas universales</strong> que mejoren la experiencia del usuario, el rendimiento y la accesibilidad.</p>
+
+                    <p>Independientemente del sistema operativo, hay aspectos esenciales a considerar para garantizar que la aplicación sea <strong>eficiente, intuitiva y escalable</strong>. Estas consideraciones incluyen usabilidad móvil, pruebas de usabilidad, optimización del rendimiento y localización.</p>
+                </section>
+
+                <!-- Usabilidad Móvil -->
+                <section id="usabilidad-movil" class="content-section">
+                    <h2><i class="bi bi-hand-index me-2"></i>4.1. Usabilidad Móvil: Interacción Óptima en Dispositivos Móviles</h2>
+                    
+                    <p>El diseño de una aplicación móvil debe garantizar que los usuarios puedan <strong>navegar e interactuar fácilmente</strong> con la interfaz, sin importar el tipo de dispositivo o la experiencia previa con tecnología.</p>
+
+                    <h3>Principios Clave de Usabilidad Móvil</h3>
+                    
+                    <h4>1. Diseño para Interacciones Táctiles</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-finger-index me-2"></i>Elementos Táctiles</h5>
+                        <ul>
+                            <li>Los botones y elementos interactivos deben ser <strong>lo suficientemente grandes</strong> para ser presionados sin errores</li>
+                            <li><strong>Tamaño mínimo recomendado:</strong> 48x48 dp en Android y 44x44 pt en iOS</li>
+                            <li>Espaciado adecuado entre elementos interactivos</li>
+                            <li>Feedback visual y háptico para confirmación</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code me-2"></i>Diseño Accesible en Android</h6>
+                            <div class="code-block">
+&lt;Button<br>
+&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width="wrap_content"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height="wrap_content"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;android:text="Continuar"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;android:minHeight="48dp" /&gt;
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>2. Optimización para Uso con Una Sola Mano</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-hand-thumbs-up me-2"></i>Zona de Alcance</h5>
+                        <ul>
+                            <li>La mayoría de los usuarios interactúan con sus teléfonos <strong>con una sola mano</strong></li>
+                            <li>Los elementos más importantes deben ubicarse en la <strong>zona de alcance fácil</strong></li>
+                            <li>Seguir el modelo de <strong>"zona de interacción cómoda"</strong></li>
+                            <li>Colocar botones esenciales en la parte inferior de la pantalla</li>
+                        </ul>
+                    </div>
+
+                    <h4>3. Evitar la Sobrecarga Cognitiva</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-lightning me-2"></i>Simplicidad</h5>
+                        <ul>
+                            <li>La interfaz debe ser <strong>simple</strong> y evitar elementos innecesarios</li>
+                            <li>La navegación debe ser <strong>clara y seguir un flujo lógico</strong></li>
+                            <li>Minimizar la cantidad de opciones por pantalla</li>
+                            <li>Usar patrones de diseño familiares</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Pruebas de Usabilidad -->
+                <section id="pruebas-usabilidad" class="content-section">
+                    <h2><i class="bi bi-people me-2"></i>4.2. Pruebas de Usabilidad: Validación con Usuarios Reales</h2>
+                    
+                    <p>Las pruebas de usabilidad son esenciales para identificar posibles problemas en la interacción del usuario <strong>antes del lanzamiento</strong> de la aplicación.</p>
+
+                    <h3>Tipos de Pruebas de Usabilidad</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="development-card">
+                                <h4><i class="bi bi-person-check me-2"></i>Pruebas con Usuarios Reales</h4>
+                                <ul>
+                                    <li>Observar interacciones en <strong>condiciones reales</strong></li>
+                                    <li>Identificar problemas de navegación</li>
+                                    <li>Evaluar accesibilidad</li>
+                                    <li>Detectar puntos de fricción</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="development-card">
+                                <h4><i class="bi bi-bar-chart me-2"></i>Pruebas A/B</h4>
+                                <ul>
+                                    <li>Comparar <strong>dos versiones</strong> de una pantalla</li>
+                                    <li>Determinar cuál funciona mejor</li>
+                                    <li>Optimizar conversion rates</li>
+                                    <li>Decisiones basadas en datos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="development-card">
+                                <h4><i class="bi bi-thermometer me-2"></i>Mapas de Calor</h4>
+                                <ul>
+                                    <li>Visualizar <strong>partes más interactuadas</strong></li>
+                                    <li>Herramientas como Firebase Analytics</li>
+                                    <li>Hotjar para análisis detallado</li>
+                                    <li>Optimizar layout basado en datos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-code-slash me-2"></i>Ejemplo de Prueba Automatizada con XCTest en iOS</h4>
+                        <div class="code-block">
+func testLoginButtonExists() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;let app = XCUIApplication()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;app.launch()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;XCTAssertTrue(app.buttons["Iniciar sesión"].exists)<br>
+}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Optimización -->
+                <section id="optimizacion" class="content-section">
+                    <h2><i class="bi bi-speedometer2 me-2"></i>4.3. Optimización y Rendimiento: Aplicaciones Rápidas y Eficientes</h2>
+                    
+                    <p>El rendimiento de una aplicación móvil es clave para su éxito, ya que una app lenta o con problemas de respuesta puede provocar una <strong>mala experiencia de usuario</strong> y una alta tasa de desinstalación.</p>
+
+                    <h3>Buenas Prácticas para Optimización de Rendimiento</h3>
+                    
+                    <h4>1. Reducir el Consumo de Memoria y CPU</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-cpu me-2"></i>Optimización de Recursos</h5>
+                        <ul>
+                            <li>Evitar <strong>operaciones innecesarias en el hilo principal</strong> de la aplicación</li>
+                            <li>Utilizar técnicas de <strong>lazy loading</strong> para cargar imágenes y datos solo cuando sea necesario</li>
+                            <li>Implementar patrones de recycling en listas</li>
+                            <li>Gestión eficiente de memoria</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code me-2"></i>Optimización en Android con Kotlin</h6>
+                            <div class="code-block">
+Glide.with(context)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.load(url)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.diskCacheStrategy(DiskCacheStrategy.ALL) // Mejora la carga de imágenes<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.into(imageView)
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>2. Minimización del Tamaño de la Aplicación</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-file-zip me-2"></i>Reducción de Tamaño</h5>
+                        <ul>
+                            <li>Comprimir imágenes y recursos para <strong>reducir el tamaño del APK o IPA</strong></li>
+                            <li>Usar <strong>ProGuard</strong> en Android y <strong>Bitcode</strong> en iOS para optimizar el código compilado</li>
+                            <li>Eliminar recursos no utilizados</li>
+                            <li>App Bundle para Android (entrega dinámica)</li>
+                        </ul>
+                    </div>
+
+                    <h4>3. Uso Eficiente de la Batería</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-battery-charging me-2"></i>Eficiencia Energética</h5>
+                        <ul>
+                            <li>Minimizar el uso de <strong>servicios en segundo plano</strong></li>
+                            <li>Implementar <strong>modo oscuro</strong> para reducir el consumo de energía en pantallas OLED</li>
+                            <li>Optimizar actualizaciones de ubicación</li>
+                            <li>Gestión inteligente de conexiones de red</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Localización -->
+                <section id="localizacion" class="content-section">
+                    <h2><i class="bi bi-globe me-2"></i>4.4. Localización: Adaptación a Diferentes Idiomas y Culturas</h2>
+                    
+                    <p>Una aplicación exitosa debe ser accesible a usuarios de diferentes partes del mundo, lo que implica <strong>traducir el contenido y adaptar la interfaz</strong> a diversas culturas y convenciones lingüísticas.</p>
+
+                    <h3>Aspectos Clave de la Localización</h3>
+                    
+                    <h4>1. Soporte para Múltiples Idiomas</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="android-card">
+                                <h5><i class="bi bi-translate me-2"></i>Android - strings.xml</h5>
+                                <p>En Android, se recomienda utilizar archivos <strong>strings.xml</strong> para facilitar la traducción.</p>
+                                <div class="code-block">
+&lt;!-- res/values/strings.xml --&gt;<br>
+&lt;string name="hello_message"&gt;Hello&lt;/string&gt;<br><br>
+&lt;!-- res/values-es/strings.xml --&gt;<br>
+&lt;string name="hello_message"&gt;Hola&lt;/string&gt;
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ios-card">
+                                <h5><i class="bi bi-translate me-2"></i>iOS - .strings</h5>
+                                <p>En iOS, se utilizan archivos <strong>.strings</strong> para definir diferentes idiomas.</p>
+                                <div class="code-block">
+let greeting = NSLocalizedString(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"hello_message", <br>
+&nbsp;&nbsp;&nbsp;&nbsp;comment: "Saludo al usuario"<br>
+)<br>
+label.text = greeting
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>2. Adaptación a la Dirección de Lectura</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-arrows-expand me-2"></i>Soporte RTL (Right-to-Left)</h5>
+                        <p>Las interfaces deben ajustarse a <strong>idiomas de lectura derecha a izquierda (RTL)</strong>, como el árabe o el hebreo.</p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Android RTL:</h6>
+                                <div class="code-block">
+&lt;application android:supportsRtl="true"&gt;
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>iOS RTL:</h6>
+                                <p>Se puede configurar desde Interface Builder o con Auto Layout automáticamente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>3. Uso de Formatos Regionales</h4>
+                    <div class="development-card">
+                        <h5><i class="bi bi-calendar-date me-2"></i>Formatos Culturales</h5>
+                        <ul>
+                            <li><strong>Fechas:</strong> DD/MM/YYYY vs MM/DD/YYYY</li>
+                            <li><strong>Monedas:</strong> Símbolos y posicionamiento específicos</li>
+                            <li><strong>Unidades de medida:</strong> Sistema métrico vs imperial</li>
+                            <li><strong>Números:</strong> Separadores decimales y de miles</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Seguridad -->
+                <section id="seguridad" class="content-section">
+                    <h2><i class="bi bi-shield-lock me-2"></i>4.5. Seguridad y Privacidad</h2>
+                    
+                    <p>Las aplicaciones móviles manejan <strong>datos personales y credenciales sensibles</strong>, por lo que es fundamental aplicar buenas prácticas de seguridad.</p>
+
+                    <h3>Principales Medidas de Seguridad en Aplicaciones Móviles</h3>
+                    
+                    <h4>1. Almacenamiento Seguro de Datos</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="security-card">
+                                <h5><i class="bi bi-android2 me-2"></i>Seguridad en Android</h5>
+                                <ul>
+                                    <li>Utilizar <strong>EncryptedSharedPreferences</strong></li>
+                                    <li><strong>Room Database con cifrado</strong></li>
+                                    <li>Android Keystore para claves criptográficas</li>
+                                    <li>Biometric API para autenticación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="security-card">
+                                <h5><i class="bi bi-apple me-2"></i>Seguridad en iOS</h5>
+                                <ul>
+                                    <li>Almacenar credenciales en <strong>Keychain</strong></li>
+                                    <li>Evitar UserDefaults para datos sensibles</li>
+                                    <li>TouchID/FaceID integration</li>
+                                    <li>App Transport Security (ATS)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>2. Uso de Autenticación Segura</h4>
+                    <div class="security-card">
+                        <h5><i class="bi bi-fingerprint me-2"></i>Autenticación Biométrica</h5>
+                        <ul>
+                            <li>Implementar autenticación biométrica con <strong>Face ID</strong> y <strong>Fingerprint API</strong></li>
+                            <li>OAuth 2.0 para autenticación con terceros</li>
+                            <li>JWT tokens con expiración adecuada</li>
+                            <li>Two-factor authentication (2FA)</li>
+                        </ul>
+
+                        <div class="example-box">
+                            <h6><i class="bi bi-code me-2"></i>Almacenamiento Seguro en iOS con Keychain</h6>
+                            <div class="code-block">
+let keychain = KeychainSwift()<br>
+keychain.set("user_password", forKey: "password")
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>3. Protección contra Ataques</h4>
+                    <div class="security-card">
+                        <h5><i class="bi bi-bug me-2"></i>Prevención de Vulnerabilidades</h5>
+                        <ul>
+                            <li><strong>Validar todas las entradas</strong> de usuario para evitar inyección de código malicioso</li>
+                            <li>Implementar <strong>certificado pinning</strong> para conexiones HTTPS</li>
+                            <li>Ofuscar código para prevenir reverse engineering</li>
+                            <li>Implementar detección de root/jailbreak</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-award me-2"></i>Conclusión Consideraciones</h4>
+                        <p>El desarrollo de aplicaciones móviles requiere la implementación de <strong>buenas prácticas comunes</strong> para garantizar usabilidad, rendimiento, seguridad y accesibilidad en cualquier plataforma. Siguiendo estas consideraciones, se pueden desarrollar aplicaciones <strong>más accesibles, seguras y eficientes</strong>.</p>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section id="casos-practicos" class="content-section">
+                    <h1><i class="bi bi-clipboard-check me-2"></i>Actividades Prácticas</h1>
+                    
+                    <div class="case-study-card">
+                        <h3><i class="bi bi-journal-text me-2"></i>Caso Práctico 19: Aplicación de Notas Multiplataforma</h3>
+                        
+                        <h4>Situación:</h4>
+                        <p>Estás desarrollando una <strong>aplicación de notas</strong> para ambos sistemas operativos, Android e iOS. Describe cómo diseñarías la interfaz principal para que se sienta nativa en cada plataforma, siguiendo las directrices de Material Design para Android y Human Interface Guidelines para iOS.</p>
+
+                        <h4>¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?</h4>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="android-card">
+                                    <h5><i class="bi bi-android2 me-2"></i>Diseño para Android</h5>
+                                    <ul>
+                                        <li><strong>Material Design:</strong> Uso de Material Cards para las notas</li>
+                                        <li><strong>FAB (Floating Action Button):</strong> Para crear nueva nota</li>
+                                        <li><strong>Navigation Drawer:</strong> Menú lateral deslizable</li>
+                                        <li><strong>Colores vibrantes:</strong> Paleta de Material Design</li>
+                                        <li><strong>Elevación y sombras:</strong> Jerarquía visual clara</li>
+                                        <li><strong>Bottom Navigation:</strong> Para diferentes categorías</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ios-card">
+                                    <h5><i class="bi bi-apple me-2"></i>Diseño para iOS</h5>
+                                    <ul>
+                                        <li><strong>Navigation Bar:</strong> Barra superior con título y botones</li>
+                                        <li><strong>Tab Bar:</strong> Navegación inferior con iconos nativos</li>
+                                        <li><strong>Table View:</strong> Lista de notas con swipe actions</li>
+                                        <li><strong>Colores del sistema:</strong> iOS system colors</li>
+                                        <li><strong>SF Symbols:</strong> Iconografía nativa de Apple</li>
+                                        <li><strong>Gestos nativos:</strong> Swipe, long press, 3D Touch</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-study-card">
+                        <h3><i class="bi bi-alarm me-2"></i>Caso Práctico 20: Función de Recordatorios</h3>
+                        
+                        <h4>Situación:</h4>
+                        <p>Necesitas implementar una nueva <strong>función de recordatorios</strong> en la aplicación de notas. Describe cómo abordarías el desarrollo de esta funcionalidad considerando las diferencias en el entorno de desarrollo para Android e iOS.</p>
+
+                        <h4>¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?</h4>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="android-card">
+                                    <h5><i class="bi bi-android2 me-2"></i>Implementación Android</h5>
+                                    <ul>
+                                        <li><strong>AlarmManager:</strong> Para programar notificaciones</li>
+                                        <li><strong>NotificationManager:</strong> Mostrar recordatorios</li>
+                                        <li><strong>WorkManager:</strong> Tareas programadas en background</li>
+                                        <li><strong>Room Database:</strong> Almacenamiento local de recordatorios</li>
+                                        <li><strong>Material TimePicker:</strong> Selección de hora nativa</li>
+                                        <li><strong>Firebase Cloud Messaging:</strong> Notificaciones remotas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ios-card">
+                                    <h5><i class="bi bi-apple me-2"></i>Implementación iOS</h5>
+                                    <ul>
+                                        <li><strong>UserNotifications Framework:</strong> Sistema de notificaciones nativo</li>
+                                        <li><strong>Core Data:</strong> Almacenamiento local persistente</li>
+                                        <li><strong>UIDatePicker:</strong> Selección de fecha/hora nativa</li>
+                                        <li><strong>Background App Refresh:</strong> Actualizaciones en segundo plano</li>
+                                        <li><strong>EventKit:</strong> Integración con Calendar app</li>
+                                        <li><strong>Apple Push Notifications:</strong> Notificaciones remotas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box mt-3">
+                            <h5><i class="bi bi-lightbulb me-2"></i>Consideraciones de Desarrollo</h5>
+                            <ul>
+                                <li><strong>Permisos:</strong> Solicitar permisos de notificación al usuario</li>
+                                <li><strong>Sincronización:</strong> Mantener recordatorios sincronizados entre dispositivos</li>
+                                <li><strong>Offline support:</strong> Funcionalidad sin conexión a internet</li>
+                                <li><strong>Accesibilidad:</strong> VoiceOver/TalkBack para usuarios con discapacidades</li>
+                                <li><strong>Personalización:</strong> Tipos de recordatorio, sonidos, repetición</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="navigation-cards">
+                    <div class="nav-card prev">
+                        <a href="tema10.html">
                             <i class="bi bi-arrow-left me-2"></i>
-                            Parte 1: Fundamentos
+                            <div><strong>Tema 10 - Parte 1</strong></div>
+                            <div>Diseño Android/iOS</div>
                         </a>
                     </div>
-                    <div class="col-4 text-center">
-                        <span class="text-muted">Parte 2 de 2 - Final</span>
-                    </div>
-                    <div class="col-4 text-end">
-                        <a href="tema11.html" class="btn btn-outline-primary">
-                            Tema 11: Tendencias
-                            <i class="bi bi-arrow-right ms-2"></i>
+                    <div class="nav-card next">
+                        <a href="tema11.html">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            <div><strong>Tema 11</strong></div>
+                            <div>Tendencias Avanzadas en HCI</div>
                         </a>
                     </div>
                 </div>
@@ -892,98 +1020,6 @@
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci10" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 10">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-mortarboard me-2"></i>
-                HCI Tema 10: Interfaces para Android e iOS - Parte 2
-            </p>
-            <small class="text-muted">Material de estudio complementario</small>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>

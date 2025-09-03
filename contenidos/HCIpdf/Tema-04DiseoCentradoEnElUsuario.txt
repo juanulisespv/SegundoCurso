@@ -1,0 +1,595 @@
+Diseño centrado en el usuario
+© Universitas Europaea IMF
+Indice
+Diseño centrado en el usuario
+3
+1. Design Thinking
+3
+Principios fundamentales
+3
+Fases del Design Thinking
+3
+1. Empatizar
+3
+2. Definir
+4
+3. Idear
+4
+4. Prototipar
+4
+5. Testear
+4
+Casos prácticos de Design Thinking
+5
+Beneficios del Design Thinking
+5
+2. Metodología de Diseño Centrado en el Usuario (UCD)
+5
+1. Análisis de Requisitos
+5
+Técnicas comunes:
+5
+Resultados esperados:
+6
+2. Diseño Conceptual
+6
+Técnicas utilizadas:
+6
+Colaboración:
+6
+Resultados esperados:
+6
+3. Diseño y Desarrollo
+6
+Pasos clave:
+6
+Enfoque en la iteración:
+6
+Herramientas comunes:
+7
+4. Evaluación
+7
+Beneficios del UCD
+7
+Ejemplo práctico
+7
+3. Método Lean UX
+7
+1. Declaración de Hipótesis
+8
+2. Prototipos Mínimos Viables (MVP)
+8
+3. Pruebas de Usuario Continuas
+8
+4. Aprender y Adaptarse
+8
+Ventajas del Lean UX
+9
+Aplicaciones del Método Lean UX
+9
+Conclusión
+9
+4. Métodos Ágiles
+9
+1. Sprints
+10
+2. Sprints de Diseño
+10
+3. Feedback Continuo
+10
+4. Colaboración Interdisciplinaria
+11
+Ventajas de los Métodos Ágiles
+11
+Desafíos y Soluciones en Métodos Ágiles
+11
+Ejemplo Práctico de Métodos Ágiles
+12
+Conclusión
+12
+Actividades prácticas
+13
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/13
+Diseño centrado en el usuario
+Aquí se detallan algunas metodologías clave:
+1. Design Thinking
+El 
+Design Thinking
+ es una metodología de diseño centrada en el ser humano que ha revolucionado la forma
+en que se abordan los problemas complejos. Este enfoque se utiliza no solo en el diseño de productos, sino
+también en servicios, procesos y estrategias organizacionales. Su principal objetivo es garantizar que las
+soluciones propuestas estén profundamente alineadas con las necesidades, deseos y comportamientos de los
+usuarios. A través de su estructura iterativa y no lineal, el Design Thinking fomenta la innovación, la empatía y
+la creatividad.
+Principios fundamentales
+El Design Thinking se basa en varios principios clave que lo diferencian de otros enfoques:
+Fases del Design Thinking
+El proceso de Design Thinking generalmente se divide en cinco fases principales: empatizar, definir, idear,
+prototipar y testear. Aunque estas fases suelen seguir un orden lógico, el proceso es flexible y permite volver a
+fases anteriores según sea necesario.
+1. Empatizar
+El diseño centrado en el usuario (UCD) consiste en una serie de metodologías que colocan
+al usuario en el centro del proceso de diseño. Este enfoque asegura que los productos y
+servicios sean desarrollados con una profunda comprensión de las necesidades, deseos y
+limitaciones de los usuarios.
+Centrado en el usuario
+: Las necesidades y perspectivas de las personas son el
+núcleo de todo el proceso.
+Colaboración interdisciplinaria
+: Involucra a equipos de diversas áreas para
+aprovechar múltiples perspectivas.
+Iteración constante
+: Reconoce que las soluciones iniciales rara vez son finales,
+permitiendo ajustes y mejoras continuas.
+Experimentación práctica
+: Promueve la creación de prototipos para aprender
+haciendo.
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La empatía es el punto de partida del Design Thinking y la clave para comprender a los usuarios. En esta
+fase, se busca obtener una visión profunda de las experiencias, emociones y necesidades del público
+objetivo.
+Técnicas comunes
+:
+Entrevistas
+: Hablar directamente con los usuarios para explorar sus motivaciones y desafíos.
+Observaciones
+: Estudiar cómo los usuarios interactúan con un producto o servicio en su
+entorno natural.
+Shadowing
+: Acompañar a los usuarios durante sus actividades para identificar puntos de dolor
+o áreas de mejora.
+Resultados esperados
+: La recopilación de datos cualitativos que revelen patrones, comportamientos
+y necesidades latentes.
+2. Definir
+Esta fase implica sintetizar la información recopilada para identificar el problema central que necesita ser
+resuelto. Una declaración clara del problema actúa como guía para las siguientes etapas.
+Ejemplo de declaración de problema
+: "Los estudiantes universitarios tienen dificultades para
+encontrar recursos de aprendizaje accesibles y organizados, lo que afecta su rendimiento académico."
+Herramientas útiles
+:
+Mapas de empatía para organizar insights de los usuarios.
+Definición de usuarios clave y sus necesidades específicas.
+3. Idear
+Con un problema bien definido, los equipos pasan a generar una amplia gama de ideas que podrían
+abordarlo. La creatividad y la ausencia de juicios críticos son esenciales en esta fase.
+Técnicas comunes
+:
+Brainstorming
+: Generar muchas ideas rápidamente, sin restricciones.
+Mapas de ideas
+: Conectar conceptos relacionados para explorar soluciones innovadoras.
+Resultados esperados
+: Una lista priorizada de ideas que sean viables, deseables y factibles.
+4. Prototipar
+El prototipado es una etapa práctica que transforma ideas abstractas en representaciones tangibles. Los
+prototipos pueden variar desde bocetos en papel hasta modelos interactivos.
+Tipos de prototipos
+:
+Baja fidelidad
+: Bocetos o maquetas rápidas para explorar conceptos.
+Alta fidelidad
+: Representaciones detalladas que simulan el producto final.
+Beneficios del prototipado
+:
+Identificar problemas antes de la implementación final.
+Involucrar a los usuarios y recoger sus impresiones de manera temprana.
+5. Testear
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+La fase de prueba es crucial para validar las soluciones y recopilar feedback directo de los usuarios. Los
+resultados de esta fase suelen llevar a iteraciones adicionales en el diseño.
+Métodos de prueba
+:
+Pruebas de usabilidad para evaluar la funcionalidad del prototipo.
+Grupos focales para recoger impresiones cualitativas sobre la experiencia del usuario.
+Resultados esperados
+: Una comprensión más clara de cómo los usuarios interactúan con la solución
+y qué ajustes son necesarios.
+Casos prácticos de Design Thinking
+El Design Thinking ha sido adoptado por empresas líderes en innovación, como IDEO, Apple y Google. Por
+ejemplo, en el sector salud, el Design Thinking se ha utilizado para rediseñar experiencias hospitalarias,
+desde la forma en que se informan los pacientes hasta cómo se estructuran los espacios para fomentar la
+comodidad y la confianza.
+Beneficios del Design Thinking
+Centrado en el usuario
+: Garantiza que las soluciones estén alineadas con las necesidades reales de
+las personas.
+Resolución creativa de problemas
+: Fomenta la generación de ideas innovadoras y disruptivas.
+Iteración continua
+: Reduce riesgos al permitir ajustes basados en pruebas y feedback.
+2. Metodología de Diseño Centrado en el Usuario (UCD)
+El Diseño Centrado en el Usuario (UCD, por sus siglas en inglés, 
+User-Centered Design
+) es un enfoque
+sistemático que coloca al usuario final en el centro de cada etapa del proceso de diseño. Su objetivo principal
+es desarrollar productos que sean funcionales, accesibles y alineados con las necesidades, objetivos y
+limitaciones de los usuarios. A diferencia de otros métodos que pueden priorizar la tecnología o los objetivos
+comerciales, el UCD garantiza que cada decisión de diseño esté informada por una profunda comprensión de
+las personas que utilizarán el sistema.
+El UCD se caracteriza por ser iterativo, lo que significa que el diseño evoluciona a medida que se recopila
+feedback de los usuarios. Esto permite mejorar continuamente la solución y abordar problemas antes de la
+implementación final. A continuación, se describen las principales fases del UCD:
+1. Análisis de Requisitos
+El análisis de requisitos es la fase inicial del UCD y se centra en identificar y documentar las necesidades de
+los usuarios. Este paso es esencial para garantizar que el producto responda a problemas reales y no a
+suposiciones de los diseñadores.
+Técnicas comunes:
+Entrevistas
+: Hablar directamente con los usuarios para comprender sus objetivos, frustraciones y
+expectativas.
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Observación contextual
+: Ver a los usuarios interactuar con sistemas actuales en su entorno natural.
+Cuestionarios y encuestas
+: Recopilar datos cuantitativos sobre preferencias y comportamientos.
+Análisis de tareas
+: Descomponer las tareas que los usuarios realizan para identificar áreas
+problemáticas o ineficiencias.
+Resultados esperados:
+Un conjunto claro de requisitos funcionales y no funcionales.
+Perfiles de usuario o 
+personas
+ que representen las características y necesidades de los diferentes
+grupos de usuarios.
+Mapas de experiencia que detallen cómo los usuarios interactúan con los sistemas existentes.
+2. Diseño Conceptual
+En esta etapa, se generan ideas de diseño que cumplen con los requisitos identificados. El diseño conceptual
+es una fase creativa donde se exploran múltiples soluciones antes de comprometerse con una dirección
+específica.
+Técnicas utilizadas:
+Bocetos y diagramas
+: Representaciones simples y rápidas de las ideas iniciales.
+Mapas de flujo de usuario
+: Diagramas que ilustran cómo un usuario típico navegará por el sistema.
+Wireframes de baja fidelidad
+: Esquemas básicos que muestran la estructura de la interfaz sin
+detalles visuales.
+Colaboración:
+En esta fase, es común involucrar a equipos interdisciplinarios para aprovechar perspectivas diversas,
+como diseñadores gráficos, ingenieros de software y expertos en contenido.
+Resultados esperados:
+Un conjunto de conceptos claros que representen posibles soluciones.
+Priorización de características clave basadas en las necesidades de los usuarios.
+3. Diseño y Desarrollo
+Una vez definido el diseño conceptual, este se transforma en una representación más detallada que incorpora
+los elementos visuales, funcionales y técnicos del sistema. Aquí es donde se da vida a las ideas iniciales.
+Pasos clave:
+Wireframes de alta fidelidad
+: Prototipos que incluyen colores, tipografía e interactividad básica.
+Maquetas interactivas
+: Versiones más avanzadas que simulan cómo funcionará la interfaz final.
+Desarrollo inicial
+: Construcción de la primera versión funcional del sistema o producto.
+Enfoque en la iteración:
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+A medida que se avanza en el desarrollo, se realizan pruebas continuas para ajustar detalles técnicos
+y mejorar la experiencia del usuario.
+Herramientas comunes:
+Herramientas de diseño como Figma, Sketch o Adobe XD para crear prototipos.
+Plataformas de desarrollo ágil que permitan integrar cambios rápidamente.
+4. Evaluación
+La fase de evaluación se centra en probar el producto con usuarios reales para garantizar que cumple con
+sus expectativas y necesidades. Esta etapa es fundamental para detectar problemas, recopilar feedback y
+realizar mejoras antes del lanzamiento final.
+Métodos de evaluación
+:
+Pruebas de usabilidad
+: Observar cómo los usuarios interactúan con el sistema para identificar
+áreas de mejora.
+Grupos focales
+: Recoger opiniones cualitativas sobre la experiencia general.
+Métricas cuantitativas
+: Evaluar la eficiencia, efectividad y satisfacción del usuario mediante
+indicadores como el tiempo de tarea o el porcentaje de éxito.
+Resultados esperados
+:
+Identificación de problemas de diseño que necesitan ser corregidos.
+Validación de que el sistema satisface los requisitos establecidos en las fases iniciales.
+Beneficios del UCD
+El enfoque UCD ofrece numerosos beneficios tanto para los usuarios como para las organizaciones:
+1
+. 
+Mejora de la satisfacción del usuario
+: Al diseñar productos que realmente resuelven problemas y
+son fáciles de usar.
+2
+. 
+Reducción de costos
+: Detectar y corregir problemas durante el diseño evita errores costosos en
+etapas posteriores.
+3
+. 
+Mayor competitividad
+: Los productos centrados en el usuario tienen más probabilidades de destacar
+en el mercado.
+Ejemplo práctico
+Un ejemplo clásico de UCD es el rediseño de una plataforma de comercio electrónico. En lugar de centrarse
+únicamente en aumentar las ventas, el equipo de diseño analiza cómo los usuarios navegan, encuentran
+productos y completan las compras. Esto lleva a mejoras como una barra de búsqueda optimizada,
+recomendaciones personalizadas y un proceso de pago simplificado, lo que resulta en una experiencia más
+satisfactoria y un aumento en la fidelidad del cliente.
+3. Método Lean UX
+Lean UX sigue un flujo ágil y dinámico, que se adapta a las necesidades específicas del proyecto. Estas son
+sus fases principales:
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1. Declaración de Hipótesis
+El primer paso es identificar los problemas o necesidades del usuario y formular hipótesis que guíen el diseño
+y desarrollo. Una hipótesis en Lean UX no es solo una idea vaga; debe ser clara, medible y enfocada.
+Ejemplo de hipótesis
+:
+"Creemos que ofrecer una opción de inicio de sesión social aumentará la tasa de registro en un 20 %
+porque simplifica el proceso para los usuarios."
+Componentes clave de una hipótesis
+:
+1
+. 
+Suposición
+: Qué se cree que es cierto sobre los usuarios o el producto.
+2
+. 
+Impacto esperado
+: Qué resultados se buscan lograr.
+3
+. 
+Medición
+: Cómo se evaluará el éxito.
+La claridad en esta etapa asegura que el equipo se enfoque en objetivos concretos y relevantes.
+2. Prototipos Mínimos Viables (MVP)
+Una vez formulada la hipótesis, el equipo desarrolla un Prototipo Mínimo Viable (MVP, por sus siglas en
+inglés), que es una versión simplificada del producto diseñada para validar o refutar la hipótesis.
+Características del MVP
+:
+Debe ser lo suficientemente funcional para probar las ideas esenciales.
+No requiere diseño o desarrollo completo; puede ser un wireframe, un mockup interactivo o
+incluso una simulación en papel.
+Beneficios del MVP
+:
+Reduce el riesgo al invertir menos tiempo y recursos en una solución completa.
+Permite recoger feedback temprano, lo que orienta el desarrollo futuro.
+3. Pruebas de Usuario Continuas
+Las pruebas de usuario en Lean UX son frecuentes, rápidas y enfocadas en validar hipótesis específicas.
+Métodos comunes de prueba
+:
+Pruebas moderadas
+: Un facilitador observa cómo los usuarios interactúan con el prototipo y
+recopila comentarios en tiempo real.
+Pruebas no moderadas
+: Herramientas como UserTesting permiten a los usuarios interactuar
+con el prototipo de forma autónoma y proporcionar retroalimentación.
+Beneficios
+:
+Las pruebas continuas permiten iterar rápidamente, ajustando el diseño según los resultados
+obtenidos.
+Este enfoque evita la acumulación de problemas que podrían surgir en fases más avanzadas.
+4. Aprender y Adaptarse
+La última fase implica analizar los resultados de las pruebas y decidir los próximos pasos. Si la hipótesis se
+valida, el equipo puede proceder con el desarrollo completo. Si no, se ajusta o se descarta en favor de una
+nueva dirección.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Preguntas clave para la reflexión
+:
+1
+. 
+¿Los resultados validan la hipótesis?
+2
+. 
+¿Qué aspectos funcionaron bien y cuáles necesitan ajustes?
+3
+. 
+¿Qué aprendimos sobre las necesidades del usuario?
+Esta etapa fomenta una mentalidad de aprendizaje continuo, esencial en entornos ágiles.
+Ventajas del Lean UX
+1
+. 
+Velocidad y eficiencia
+Al centrarse en hipótesis y MVP, Lean UX permite avanzar rápidamente sin comprometer la calidad del
+diseño.
+2
+. 
+Enfoque en el usuario
+La integración de feedback continuo asegura que el producto final esté alineado con las necesidades
+reales de los usuarios.
+3
+. 
+Flexibilidad
+Los ciclos iterativos permiten adaptarse a cambios en los requisitos o el mercado, minimizando el
+riesgo de desarrollar funciones innecesarias.
+4
+. 
+Colaboración mejorada
+Los equipos interdisciplinarios trabajan en conjunto, fomentando una comunicación fluida y un
+entendimiento compartido de los objetivos.
+Aplicaciones del Método Lean UX
+El Lean UX es particularmente útil en proyectos con alta incertidumbre o en mercados cambiantes. Por
+ejemplo, startups tecnológicas utilizan Lean UX para validar rápidamente ideas innovadoras sin gastar
+recursos excesivos.
+En un caso práctico, una aplicación de entrega de alimentos podría usar Lean UX para probar diferentes
+diseños de la página de inicio. Al desarrollar un MVP con dos opciones visuales y medir las tasas de
+conversión, el equipo puede identificar cuál resuena mejor con los usuarios y optimizar el diseño antes de
+lanzar la versión final.
+Conclusión
+El método Lean UX representa un cambio de paradigma en cómo se abordan el diseño y desarrollo de
+productos. Al priorizar la iteración rápida, la experimentación y el aprendizaje continuo, Lean UX no solo
+mejora la usabilidad del producto, sino que también optimiza los recursos del equipo. Este enfoque centrado
+en el usuario garantiza que las soluciones propuestas sean relevantes, eficientes y alineadas con las
+necesidades reales del mercado.
+4. Métodos Ágiles
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Los métodos ágiles suelen implementarse utilizando frameworks como 
+Scrum
+, 
+Kanban
+ o 
+XP (Extreme
+Programming)
+. Aunque cada framework tiene características únicas, comparten elementos comunes que los
+hacen efectivos:
+1. Sprints
+Un sprint es un periodo de tiempo corto (generalmente de 1 a 4 semanas) en el que el equipo trabaja en
+objetivos específicos. Al final de cada sprint, se entrega una versión funcional del producto o una
+característica que puede ser evaluada.
+Ejemplo:
+ En un proyecto de desarrollo de una aplicación móvil, un sprint puede centrarse exclusivamente en
+diseñar y probar la pantalla de inicio. Al finalizar el sprint, los usuarios pueden proporcionar comentarios
+específicos sobre su usabilidad y diseño.
+2. Sprints de Diseño
+Los 
+sprints de diseño
+ son una variante específica que se enfoca en resolver problemas de diseño
+rápidamente. Este concepto, popularizado por Google Ventures, permite a los equipos pasar de la
+identificación del problema a la validación de una solución en tan solo cinco días.
+3. Feedback Continuo
+Una de las mayores fortalezas de los métodos ágiles es su capacidad para integrar el feedback de los
+usuarios de forma iterativa. En lugar de esperar hasta el final del proyecto para evaluar el producto, los
+equipos ágiles recopilan comentarios en cada sprint y los utilizan para ajustar el diseño y desarrollo.
+Ventajas de los sprints
+:
+Permiten iterar rápidamente sobre ideas y funcionalidades.
+Integran feedback continuo del cliente y los usuarios, lo que garantiza que el
+producto evolucione en la dirección correcta.
+Reducen riesgos al dividir el trabajo en tareas más manejables.
+Fases de un sprint de diseño:
+1
+. 
+Comprender
+: Identificar claramente el problema que se necesita resolver.
+2
+. 
+Idear
+: Generar posibles soluciones mediante lluvia de ideas y técnicas creativas.
+3
+. 
+Decidir
+: Seleccionar la idea más prometedora para prototipar.
+4
+. 
+Prototipar
+: Crear una versión rápida y funcional de la solución.
+5
+. 
+Probar
+: Recoger feedback de usuarios reales y ajustar según sea necesario.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+4. Colaboración Interdisciplinaria
+En los métodos ágiles, los equipos interdisciplinarios son fundamentales. Diseñadores, desarrolladores,
+investigadores y gestores de producto trabajan juntos desde el inicio, compartiendo responsabilidades y
+conocimientos. Esta colaboración asegura que las soluciones sean técnicamente viables, visualmente
+atractivas y centradas en el usuario.
+Ventajas de los Métodos Ágiles
+1
+. 
+Adaptabilidad
+: Los métodos ágiles permiten responder rápidamente a cambios en los requisitos o el
+mercado.
+2
+. 
+Reducción de riesgos
+: Los ciclos cortos garantizan que los problemas se detecten y solucionen antes
+de que se conviertan en obstáculos mayores.
+3
+. 
+Mayor calidad
+: Al integrar pruebas frecuentes y feedback continuo, los productos evolucionan para
+satisfacer mejor las necesidades de los usuarios.
+4
+. 
+Participación del usuario
+: El feedback directo de los usuarios asegura que el diseño sea relevante y
+funcional.
+Desafíos y Soluciones en Métodos Ágiles
+A pesar de sus beneficios, los métodos ágiles pueden enfrentar ciertos desafíos:
+1
+. 
+Falta de documentación
+: Enfocarse demasiado en entregar rápidamente puede llevar a una
+documentación incompleta.
+Solución
+: Mantener documentación ligera pero clara para evitar malentendidos.
+Solución
+: Utilizar herramientas como Jira o Trello para gestionar tareas y mantener la alineación del
+equipo.
+Solución
+: Capacitar a los equipos y utilizar guías prácticas para implementar métodos ágiles
+correctamente.
+2
+. 
+Problemas de coordinación
+: En equipos grandes, la colaboración puede volverse caótica.
+Métodos para recolectar feedback
+:
+Pruebas de usabilidad con prototipos.
+Encuestas rápidas a usuarios.
+Revisión constante con el cliente o stakeholders.
+Ejemplo: Durante un sprint, un diseñador puede crear wireframes, un desarrollador los
+convierte en un prototipo funcional y un investigador prueba el prototipo con usuarios, todo
+en paralelo.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+3
+. 
+Inexperiencia con la agilidad
+: Adoptar un enfoque ágil sin una comprensión adecuada puede llevar a
+resultados inconsistentes.
+Ejemplo Práctico de Métodos Ágiles
+Un equipo de diseño que trabaja en una nueva aplicación de comercio electrónico podría utilizar métodos
+ágiles para dividir el proyecto en sprints. En el primer sprint, diseñan y prueban el flujo de registro de usuario.
+En el siguiente, iteran sobre el diseño del carrito de compras basado en el feedback de los usuarios,
+garantizando que cada componente se optimice antes de pasar a la siguiente fase.
+Conclusión
+Los métodos ágiles son una herramienta poderosa para desarrollar productos centrados en el usuario de
+manera eficiente y adaptable. Su integración con otras metodologías, como UCD o Lean UX, permite a los
+equipos iterar rápidamente, reducir riesgos y entregar productos que no solo son funcionales, sino que
+también ofrecen experiencias de usuario excepcionales.
+Documento solo para uso personal. Prohibido copiar o distribuir
+12/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Caso práctico 7
+Estás diseñando una aplicación para ayudar a las personas mayores a gestionar sus medicamentos.
+Utilizando la metodología de Design Thinking, describe cómo abordarías este proyecto.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Caso práctico 8
+Una empresa de logística desea mejorar su sistema de seguimiento de paquetes. Aplicando la metodología
+de UCD, específicamente a través del análisis de requisitos, diseño conceptual y evaluación, describe cómo
+llevarías a cabo este proceso.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+¿Cómo aplicarías las fases de Empatía, Definición, Ideación, Prototipado y Testeo en el
+desarrollo de esta aplicación?
+1.
+¿Cómo estructurarías el análisis de requisitos, el diseño conceptual y la evaluación para este
+proyecto?
+1.
+Documento solo para uso personal. Prohibido copiar o distribuir
+13/13
+Diseño centrado en el usuario
+idalumno:906687|unidad:4|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

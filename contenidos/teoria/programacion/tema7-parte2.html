@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 7: Core Patterns y Casos Prácticos | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #6f42c1 0%, #198754 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .pattern-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #6c757d;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            height: 100%;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .dao-example {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            color: #198754;
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #198754;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item active" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-puzzle-fill me-3"></i>
+                        Core Patterns en MVC
+                    </h1>
+                    <p class="lead mb-4">DAO • DTO • Repository • Service Layer • Casos Prácticos</p>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-book me-1"></i>Tema 7 - Parte 2
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-clock me-1"></i>40 min lectura
+                            </span>
+                            <span class="badge bg-light text-dark fs-6">
+                                <i class="bi bi-gear-fill me-1"></i>Patrones Avanzados
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Core Patterns
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#patron-dao">DAO Pattern</a>
+                                <a class="nav-link" href="#patron-dto">DTO Pattern</a>
+                                <a class="nav-link" href="#patron-repository">Repository Pattern</a>
+                                <a class="nav-link" href="#service-layer">Service Layer</a>
+                                <a class="nav-link" href="#caso-practico">Caso Práctico Completo</a>
+                                <a class="nav-link" href="#mejores-practicas">Mejores Prácticas</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- DAO Pattern -->
+                <section id="patron-dao" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-database me-2"></i>
+                        Data Access Object (DAO) Pattern
+                    </h2>
+                    
+                    <p class="lead">El patrón DAO <strong>abstrae y encapsula</strong> el acceso a fuentes de datos, proporcionando interfaz uniforme sin exponer detalles específicos.</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-info-circle me-2"></i>Propósito del DAO</h4>
+                        <p>Separar <strong>lógica de acceso a datos</strong> de la lógica de negocio, permitiendo cambiar fuente de datos sin modificar código de aplicación.</p>
+                    </div>
+
+                    <h3>Estructura del DAO Pattern</h3>
+                    <div class="dao-example">
+                        <h5><i class="bi bi-diagram-2 me-2"></i>Componentes Principales</h5>
+                        <ul>
+                            <li><strong>DAO Interface:</strong> Define operaciones disponibles</li>
+                            <li><strong>DAO Implementation:</strong> Implementa interfaz para fuente específica</li>
+                            <li><strong>Data Transfer Object:</strong> Transporta datos entre capas</li>
+                            <li><strong>Factory:</strong> Crea instancias DAO apropiadas</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Implementación DAO en Python:</h6>
+                        <pre>from abc import ABC, abstractmethod
+import sqlite3
+
+# Interfaz DAO
+class ProductoDAO(ABC):
+    @abstractmethod
+    def insertar(self, producto):
+        pass
+    
+    @abstractmethod
+    def obtener_por_id(self, id):
+        pass
+    
+    @abstractmethod
+    def obtener_todos(self):
+        pass
+    
+    @abstractmethod
+    def actualizar(self, producto):
+        pass
+    
+    @abstractmethod
+    def eliminar(self, id):
+        pass
+
+# Implementación para SQLite
+class ProductoDAOSQLite(ProductoDAO):
+    def __init__(self, conexion):
+        self.conexion = conexion
+    
+    def insertar(self, producto):
+        cursor = self.conexion.cursor()
+        cursor.execute(
+            "INSERT INTO productos (nombre, precio) VALUES (?, ?)",
+            (producto['nombre'], producto['precio'])
+        )
+        self.conexion.commit()
+        return cursor.lastrowid
+    
+    def obtener_todos(self):
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT id, nombre, precio FROM productos")
+        return [{"id": row[0], "nombre": row[1], "precio": row[2]} 
+                for row in cursor.fetchall()]</pre>
+                    </div>
+                </section>
+
+                <!-- DTO Pattern -->
+                <section id="patron-dto" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-box-seam me-2"></i>
+                        Data Transfer Object (DTO) Pattern
+                    </h2>
+
+                    <p>DTO es un <strong>objeto simple</strong> que transporta datos entre capas sin contener lógica de negocio, optimizando transferencia y reduciendo llamadas.</p>
+
+                    <h3>Características del DTO</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-check-circle me-2"></i>Ventajas</h5>
+                                <ul class="mb-0">
+                                    <li>Reduce llamadas entre capas</li>
+                                    <li>Tipo de datos específico por operación</li>
+                                    <li>Validación de datos centralizada</li>
+                                    <li>Menos acoplamiento entre capas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-exclamation-triangle me-2"></i>Cuándo Usar</h5>
+                                <ul class="mb-0">
+                                    <li>Sistemas distribuidos</li>
+                                    <li>APIs REST con muchos campos</li>
+                                    <li>Transferencias costosas de datos</li>
+                                    <li>Validación de entrada/salida</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>DTO en Python con Dataclasses:</h6>
+                        <pre>from dataclasses import dataclass
+from typing import Optional
+
+@dataclass
+class ProductoDTO:
+    nombre: str
+    precio: float
+    categoria: str
+    stock: int
+    id: Optional[int] = None
+    
+    def validar(self):
+        errores = []
+        if not self.nombre or len(self.nombre) < 2:
+            errores.append("Nombre debe tener al menos 2 caracteres")
+        
+        if self.precio <= 0:
+            errores.append("Precio debe ser mayor a 0")
+        
+        if self.stock < 0:
+            errores.append("Stock no puede ser negativo")
+        
+        return errores
+
+@dataclass
+class ProductoResponseDTO:
+    id: int
+    nombre: str
+    precio_con_iva: float
+    disponible: bool
+    
+    @classmethod
+    def from_producto(cls, producto):
+        return cls(
+            id=producto.id,
+            nombre=producto.nombre,
+            precio_con_iva=producto.precio * 1.21,
+            disponible=producto.stock > 0
+        )</pre>
+                    </div>
+                </section>
+
+                <!-- Repository Pattern -->
+                <section id="patron-repository" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-archive me-2"></i>
+                        Repository Pattern
+                    </h2>
+
+                    <p>Repository <strong>encapsula la lógica</strong> necesaria para acceder a fuentes de datos, proporcionando interfaz más orientada a objetos.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Repository vs DAO</h4>
+                        <p><strong>DAO:</strong> Enfoque tabla por tabla, operaciones CRUD básicas</p>
+                        <p class="mb-0"><strong>Repository:</strong> Enfoque orientado a objetos, consultas complejas de dominio</p>
+                    </div>
+
+                    <h3>Implementación Repository Pattern</h3>
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Repository Pattern en Python:</h6>
+                        <pre>from abc import ABC, abstractmethod
+from typing import List, Optional
+
+class IProductoRepository(ABC):
+    @abstractmethod
+    def obtener_por_categoria(self, categoria: str) -> List[Producto]:
+        pass
+    
+    @abstractmethod
+    def buscar_por_precio_rango(self, min_precio: float, max_precio: float) -> List[Producto]:
+        pass
+    
+    @abstractmethod
+    def obtener_productos_agotados(self) -> List[Producto]:
+        pass
+
+class ProductoRepository(IProductoRepository):
+    def __init__(self, dao: ProductoDAO):
+        self.dao = dao
+    
+    def obtener_por_categoria(self, categoria: str) -> List[Producto]:
+        productos = self.dao.obtener_todos()
+        return [p for p in productos if p.categoria == categoria]
+    
+    def buscar_por_precio_rango(self, min_precio: float, max_precio: float) -> List[Producto]:
+        productos = self.dao.obtener_todos()
+        return [p for p in productos 
+                if min_precio <= p.precio <= max_precio]
+    
+    def obtener_productos_agotados(self) -> List[Producto]:
+        productos = self.dao.obtener_todos()
+        return [p for p in productos if p.stock == 0]
+    
+    def obtener_productos_populares(self, limite: int = 10) -> List[Producto]:
+        # Lógica más compleja que trasciende CRUD básico
+        productos = self.dao.obtener_todos()
+        # Ordenar por algún criterio de popularidad
+        return sorted(productos, key=lambda p: p.ventas, reverse=True)[:limite]</pre>
+                    </div>
+                </section>
+
+                <!-- Service Layer -->
+                <section id="service-layer" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-layers me-2"></i>
+                        Service Layer Pattern
+                    </h2>
+
+                    <p>Service Layer <strong>encapsula la lógica de negocio</strong> y proporciona interfaz simple para operaciones complejas que pueden involucrar múltiples repositorios.</p>
+
+                    <h3>Responsabilidades del Service Layer</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-gear me-2"></i>Coordinación</h5>
+                                <ul class="mb-0">
+                                    <li>Orquestar operaciones complejas</li>
+                                    <li>Manejar transacciones</li>
+                                    <li>Aplicar reglas de negocio</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-shield me-2"></i>Abstracción</h5>
+                                <ul class="mb-0">
+                                    <li>Ocultar complejidad de datos</li>
+                                    <li>Proporcionar API simplificada</li>
+                                    <li>Validar entradas y salidas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Service Layer en Python:</h6>
+                        <pre>class ProductoService:
+    def __init__(self, producto_repo: ProductoRepository, 
+                 categoria_repo: CategoriaRepository):
+        self.producto_repo = producto_repo
+        self.categoria_repo = categoria_repo
+    
+    def crear_producto(self, producto_dto: ProductoDTO) -> ProductoResponseDTO:
+        # Validar DTO
+        errores = producto_dto.validar()
+        if errores:
+            raise ValueError(f"Errores de validación: {', '.join(errores)}")
+        
+        # Verificar que categoría existe
+        categoria = self.categoria_repo.obtener_por_nombre(producto_dto.categoria)
+        if not categoria:
+            raise ValueError("Categoría no encontrada")
+        
+        # Aplicar reglas de negocio
+        if producto_dto.precio < categoria.precio_minimo:
+            raise ValueError("Precio inferior al mínimo de categoría")
+        
+        # Crear producto
+        producto = Producto(
+            nombre=producto_dto.nombre,
+            precio=producto_dto.precio,
+            categoria=categoria,
+            stock=producto_dto.stock
+        )
+        
+        producto_creado = self.producto_repo.crear(producto)
+        
+        return ProductoResponseDTO.from_producto(producto_creado)
+    
+    def procesar_pedido(self, productos_ids: List[int], usuario_id: int):
+        # Operación compleja que involucra múltiples entidades
+        productos = [self.producto_repo.obtener_por_id(id) for id in productos_ids]
+        
+        # Verificar stock
+        for producto in productos:
+            if producto.stock == 0:
+                raise ValueError(f"Producto {producto.nombre} agotado")
+        
+        # Calcular total
+        total = sum(p.precio for p in productos)
+        
+        # Crear pedido (involucra otro repositorio)
+        pedido = self.pedido_repo.crear_pedido(usuario_id, productos, total)
+        
+        # Actualizar stock
+        for producto in productos:
+            producto.stock -= 1
+            self.producto_repo.actualizar(producto)
+        
+        return pedido</pre>
+                    </div>
+                </section>
+
+                <!-- Caso Práctico Completo -->
+                <section id="caso-practico" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-briefcase me-2"></i>
+                        Caso Práctico: Sistema de Gestión de Inventario
+                    </h2>
+
+                    <p>Implementaremos un <strong>sistema completo</strong> que integra todos los patrones para gestionar inventario de tienda.</p>
+
+                    <h3>Arquitectura del Sistema</h3>
+                    <div class="pattern-card">
+                        <h5><i class="bi bi-diagram-3 me-2"></i>Estructura Completa</h5>
+                        <pre>Controllers
+    ├── ProductoController
+    ├── CategoriaController
+    └── PedidoController
+
+Services
+    ├── ProductoService
+    ├── InventarioService
+    └── PedidoService
+
+Repositories
+    ├── ProductoRepository
+    ├── CategoriaRepository
+    └── PedidoRepository
+
+Models/DTOs
+    ├── Producto (Model)
+    ├── ProductoDTO
+    └── ProductoResponseDTO
+
+Data Access
+    ├── ProductoDAO
+    ├── CategoriaDAO
+    └── PedidoDAO</pre>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Controller Completo con MVC:</h6>
+                        <pre>from flask import Flask, request, render_template, jsonify
+
+class ProductoController:
+    def __init__(self, producto_service: ProductoService):
+        self.producto_service = producto_service
+    
+    def mostrar_productos(self):
+        """Vista para mostrar lista de productos"""
+        try:
+            productos = self.producto_service.obtener_todos()
+            return render_template('productos.html', productos=productos)
+        except Exception as e:
+            return render_template('error.html', mensaje=str(e))
+    
+    def crear_producto(self):
+        """Crear nuevo producto desde formulario"""
+        if request.method == 'POST':
+            try:
+                producto_dto = ProductoDTO(
+                    nombre=request.form['nombre'],
+                    precio=float(request.form['precio']),
+                    categoria=request.form['categoria'],
+                    stock=int(request.form['stock'])
+                )
+                
+                producto_creado = self.producto_service.crear_producto(producto_dto)
+                return redirect(url_for('productos.mostrar_productos'))
+                
+            except ValueError as e:
+                return render_template('crear_producto.html', error=str(e))
+        
+        return render_template('crear_producto.html')
+    
+    def api_productos(self):
+        """API REST para productos"""
+        try:
+            productos = self.producto_service.obtener_todos()
+            return jsonify([producto.__dict__ for producto in productos])
+        except Exception as e:
+            return jsonify({"error": str(e)}), 500
+
+# Configuración Flask
+app = Flask(__name__)
+
+# Inicializar dependencias
+conexion = sqlite3.connect('inventario.db')
+producto_dao = ProductoDAOSQLite(conexion)
+categoria_dao = CategoriaDAOSQLite(conexion)
+producto_repo = ProductoRepository(producto_dao)
+categoria_repo = CategoriaRepository(categoria_dao)
+producto_service = ProductoService(producto_repo, categoria_repo)
+
+# Instanciar controller
+producto_controller = ProductoController(producto_service)
+
+# Registrar rutas
+app.route('/productos/')(producto_controller.mostrar_productos)
+app.route('/productos/crear', methods=['GET', 'POST'])(producto_controller.crear_producto)
+app.route('/api/productos/')(producto_controller.api_productos)</pre>
+                    </div>
+                </section>
+
+                <!-- Mejores Prácticas -->
+                <section id="mejores-practicas" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-award me-2"></i>
+                        Mejores Prácticas y Consideraciones
+                    </h2>
+
+                    <h3>Principios de Diseño</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-unlock me-2"></i>Bajo Acoplamiento</h5>
+                                <ul class="mb-0">
+                                    <li>Depender de interfaces, no implementaciones</li>
+                                    <li>Usar inyección de dependencias</li>
+                                    <li>Evitar dependencias circulares</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="pattern-card">
+                                <h5><i class="bi bi-layers-fill me-2"></i>Alta Cohesión</h5>
+                                <ul class="mb-0">
+                                    <li>Cada clase una responsabilidad específica</li>
+                                    <li>Funciones relacionadas en mismo módulo</li>
+                                    <li>Separación clara entre capas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Gestión de Errores y Validaciones</h3>
+                    <div class="warning-box">
+                        <h4><i class="bi bi-shield-exclamation me-2"></i>Manejo de Errores por Capa</h4>
+                        <ul>
+                            <li><strong>Controller:</strong> Validar entrada, manejar errores HTTP</li>
+                            <li><strong>Service:</strong> Aplicar reglas de negocio, gestionar transacciones</li>
+                            <li><strong>Repository:</strong> Manejar errores de acceso a datos</li>
+                            <li><strong>DAO:</strong> Gestionar excepciones de base de datos</li>
+                        </ul>
+                    </div>
+
+                    <h3>Testing en Arquitectura MVC</h3>
+                    <div class="code-example">
+                        <h6><i class="bi bi-code me-2"></i>Unit Testing con Mocks:</h6>
+                        <pre>import unittest
+from unittest.mock import Mock, patch
+
+class TestProductoService(unittest.TestCase):
+    def setUp(self):
+        self.mock_repo = Mock(spec=ProductoRepository)
+        self.mock_categoria_repo = Mock(spec=CategoriaRepository)
+        self.service = ProductoService(self.mock_repo, self.mock_categoria_repo)
+    
+    def test_crear_producto_exitoso(self):
+        # Configurar mocks
+        categoria_mock = Mock()
+        categoria_mock.precio_minimo = 10.0
+        self.mock_categoria_repo.obtener_por_nombre.return_value = categoria_mock
+        
+        producto_creado = Mock()
+        self.mock_repo.crear.return_value = producto_creado
+        
+        # Crear DTO válido
+        dto = ProductoDTO("Producto Test", 50.0, "Electronics", 10)
+        
+        # Ejecutar
+        resultado = self.service.crear_producto(dto)
+        
+        # Verificar
+        self.mock_categoria_repo.obtener_por_nombre.assert_called_once_with("Electronics")
+        self.mock_repo.crear.assert_called_once()
+        self.assertIsNotNone(resultado)</pre>
+                    </div>
+
+                    <h3>Monitoreo y Performance</h3>
+                    <div class="dao-example">
+                        <h5><i class="bi bi-speedometer2 me-2"></i>Consideraciones de Rendimiento</h5>
+                        <ul>
+                            <li><strong>Caché en Service Layer:</strong> Reducir llamadas a BD</li>
+                            <li><strong>Lazy Loading:</strong> Cargar datos solo cuando necesario</li>
+                            <li><strong>Paginación:</strong> Manejar grandes volúmenes de datos</li>
+                            <li><strong>Connection Pooling:</strong> Optimizar conexiones a BD</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-trophy me-2"></i>Resumen de Beneficios</h4>
+                        <p>La implementación completa de MVC con Core Patterns proporciona:</p>
+                        <ul class="mb-0">
+                            <li><strong>Mantenibilidad:</strong> Código organizado y fácil de modificar</li>
+                            <li><strong>Testabilidad:</strong> Componentes aislados, fáciles de probar</li>
+                            <li><strong>Escalabilidad:</strong> Agregar funcionalidades sin impacto grande</li>
+                            <li><strong>Reutilización:</strong> Componentes independientes reutilizables</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema7.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 7 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema8.html" class="btn btn-outline-success">
+                            Tema 8
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion7" class="btn btn-success floating-quiz-btn" title="Quiz Tema 7">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 7: Core Patterns en MVC
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

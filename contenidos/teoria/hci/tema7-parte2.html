@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 7: Estructura y Navegación en Interfaces Web - Parte 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .container-fluid {
+            padding: 2rem 1rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(108, 117, 125, 0.05) 100%);
+            border: 1px solid #6c757d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .technique-card {
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1) 0%, rgba(13, 110, 253, 0.05) 100%);
+            border-left: 4px solid #0d6efd;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .navigation-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-card {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .nav-card.prev {
+            margin-right: auto;
+        }
+
+        .nav-card.next {
+            margin-left: auto;
+        }
+
+        .nav-card a {
+            display: block;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-card a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: static;
+                margin: 1rem 0;
+            }
+            
+            .navigation-cards {
+                flex-direction: column;
+            }
+            
+            .nav-card.prev,
+            .nav-card.next {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Temas HCI
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html"><strong>Tema 7: Estructura y Navegación</strong></a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web y Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Cuestionarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list-ul me-2"></i>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema7.html">← Parte 1: Principios</a>
+                        <a class="nav-link" href="#tecnicas-estructuracion">2. Técnicas de Estructuración</a>
+                        <a class="nav-link" href="#menu-principal" style="padding-left: 1.5rem;">2.1. Menú Principal</a>
+                        <a class="nav-link" href="#menus-secundarios" style="padding-left: 1.5rem;">2.2. Menús Secundarios</a>
+                        <a class="nav-link" href="#migas-pan" style="padding-left: 1.5rem;">2.3. Migas de Pan</a>
+                        <a class="nav-link" href="#navegacion-lateral" style="padding-left: 1.5rem;">2.4. Navegación Lateral</a>
+                        <a class="nav-link" href="#paginacion-scroll" style="padding-left: 1.5rem;">2.5. Paginación y Scroll</a>
+                        <a class="nav-link" href="#menu-hamburguesa" style="padding-left: 1.5rem;">2.6. Menú de Hamburguesa</a>
+                        <a class="nav-link" href="#busqueda-interna" style="padding-left: 1.5rem;">2.7. Búsqueda Interna</a>
+                        <a class="nav-link" href="#enlaces-contextuales" style="padding-left: 1.5rem;">2.8. Enlaces Contextuales</a>
+                        <a class="nav-link" href="#herramientas-metodos">3. Herramientas y Métodos</a>
+                        <a class="nav-link" href="#mapas-sitio" style="padding-left: 1.5rem;">3.1. Mapas de Sitio</a>
+                        <a class="nav-link" href="#wireframes-prototipos" style="padding-left: 1.5rem;">3.2. Wireframes y Prototipos</a>
+                        <a class="nav-link" href="#analisis-pruebas" style="padding-left: 1.5rem;">3.3. Análisis y Pruebas</a>
+                        <a class="nav-link" href="#casos-practicos">Casos Prácticos</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Técnicas de Estructuración -->
+                <section id="tecnicas-estructuracion" class="content-section">
+                    <h2><i class="bi bi-diagram-3 me-2"></i>2. Técnicas de Estructuración de la Navegación</h2>
+                    
+                    <p>El diseño de la navegación no solo implica definir principios generales, sino también seleccionar y aplicar técnicas específicas que faciliten la experiencia del usuario. La elección de la estructura de navegación dependerá del tipo de sitio web o aplicación, la cantidad de contenido y la forma en que los usuarios interactúan con la información.</p>
+                </section>
+
+                <!-- Menú Principal -->
+                <section id="menu-principal" class="content-section">
+                    <h2><i class="bi bi-menu-button-wide me-2"></i>2.1. Menú Principal</h2>
+                    
+                    <p>El menú principal es el punto central de la navegación en la mayoría de los sitios web y aplicaciones. Debe proporcionar acceso directo a las secciones más importantes y ser <strong>visible en todo momento o fácilmente accesible</strong>.</p>
+
+                    <h3>Formatos de Menú Principal</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-menu-button me-2"></i>Menú Horizontal Fijo</h4>
+                                <p>Se sitúa en la parte superior de la pantalla y permanece visible mientras el usuario navega</p>
+                                <ul>
+                                    <li>Ideal para sitios con pocas categorías principales</li>
+                                    <li>Siempre accesible</li>
+                                    <li>Ubicación familiar para usuarios</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-layout-sidebar me-2"></i>Menú Fijo Lateral</h4>
+                                <p>Se coloca a la izquierda o derecha y es útil cuando hay muchas secciones</p>
+                                <ul>
+                                    <li>Permite un acceso continuo</li>
+                                    <li>No desplaza el contenido principal</li>
+                                    <li>Ideal para navegación extensa</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-menu-up me-2"></i>Menú Emergente o Flotante</h4>
+                                <p>Aparece cuando el usuario lo necesita, mediante un ícono de activación</p>
+                                <ul>
+                                    <li>Reduce el uso de espacio en pantalla</li>
+                                    <li>Aparece bajo demanda</li>
+                                    <li>Maximiza área de contenido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-circle me-2"></i>Características Esenciales</h4>
+                        <p>Independientemente del formato, el menú principal debe ser <strong>claro, conciso y consistente</strong>, asegurando que todas las secciones sean fácilmente identificables.</p>
+                    </div>
+                </section>
+
+                <!-- Menús Secundarios -->
+                <section id="menus-secundarios" class="content-section">
+                    <h2><i class="bi bi-menu-down me-2"></i>2.2. Menús Secundarios o Dropdowns</h2>
+                    
+                    <p>Los menús secundarios permiten organizar mejor la información dentro del menú principal. Se despliegan al pasar el cursor (<strong>hover</strong>) o hacer clic sobre una categoría principal, mostrando subcategorías relacionadas.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-diagram-2 me-2"></i>Menús en Cascada</h4>
+                                <p><strong>Dropdown multi-nivel:</strong> Se utilizan cuando hay múltiples niveles de información</p>
+                                <ul>
+                                    <li>Evitar que sean demasiado profundos</li>
+                                    <li>Máximo 2-3 niveles recomendados</li>
+                                    <li>Pueden dificultar la navegación si son excesivos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-grid-3x3 me-2"></i>Menús Mega Dropdown</h4>
+                                <p>Versiones extendidas de los menús desplegables con contenido enriquecido</p>
+                                <ul>
+                                    <li>Agrupan subcategorías en un cuadro grande</li>
+                                    <li>Pueden incluir imágenes o enlaces adicionales</li>
+                                    <li>Comunes en sitios de comercio electrónico</li>
+                                    <li>Útiles en plataformas con mucho contenido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-exclamation-triangle me-2"></i>Consideración Importante</h4>
+                        <p>Estos menús deben implementarse con cuidado, asegurando que sean accesibles en dispositivos móviles y compatibles con la navegación por teclado.</p>
+                    </div>
+                </section>
+
+                <!-- Migas de Pan -->
+                <section id="migas-pan" class="content-section">
+                    <h2><i class="bi bi-signpost me-2"></i>2.3. Migas de Pan (Breadcrumbs)</h2>
+                    
+                    <p>Las <strong>migas de pan</strong> son una herramienta visual que muestra al usuario la jerarquía del sitio y la ruta que ha seguido. Generalmente, se presentan en la parte superior de la página y tienen el formato:</p>
+
+                    <div class="definition-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Formato Estándar</h4>
+                        <p><strong>Inicio > Categoría > Subcategoría > Página Actual</strong></p>
+                    </div>
+
+                    <p>Esta técnica es especialmente útil en sitios web con estructuras profundas, como <strong>tiendas en línea, sitios educativos y portales de noticias</strong>, ya que permite a los usuarios regresar fácilmente a niveles anteriores sin necesidad de usar el botón "atrás" del navegador.</p>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-shop me-2"></i>Ejemplo: E-commerce</h4>
+                        <p>En una tienda online: <br>
+                        <strong>Inicio > Electrónicos > Smartphones > iPhone > iPhone 15 Pro</strong><br>
+                        Permite al usuario volver directamente a "Smartphones" o "Electrónicos" con un solo clic.</p>
+                    </div>
+                </section>
+
+                <!-- Navegación Lateral -->
+                <section id="navegacion-lateral" class="content-section">
+                    <h2><i class="bi bi-layout-sidebar-inset me-2"></i>2.4. Navegación Lateral (Sidebar)</h2>
+                    
+                    <p>Las barras laterales son una forma eficaz de ofrecer navegación adicional dentro de una sección específica. Se pueden utilizar para:</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-collection me-2"></i>Categorías Relacionadas</h4>
+                                <p>Mostrar <strong>categorías relacionadas</strong> dentro de un mismo tema</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-star me-2"></i>Páginas Populares</h4>
+                                <p>Incluir enlaces a <strong>páginas populares o recientes</strong></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-funnel me-2"></i>Filtros de Búsqueda</h4>
+                                <p>Facilitar el acceso a <strong>filtros de búsqueda o navegación por facetas</strong> (común en e-commerce)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-arrows-collapse me-2"></i>Navegación Colapsable</h4>
+                        <p>Para no sobrecargar la interfaz, es recomendable que la navegación lateral sea <strong>colapsable</strong>, permitiendo a los usuarios expandir o contraer secciones según sea necesario.</p>
+                    </div>
+                </section>
+
+                <!-- Paginación y Scroll -->
+                <section id="paginacion-scroll" class="content-section">
+                    <h2><i class="bi bi-arrows-vertical me-2"></i>2.5. Paginación y Scroll Infinito</h2>
+                    
+                    <p>Cuando un sitio web presenta una gran cantidad de contenido (por ejemplo, blogs, tiendas en línea o redes sociales), es necesario estructurar la navegación de manera eficiente para facilitar la exploración.</p>
+
+                    <h3>Métodos de Navegación por Contenido</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-123 me-2"></i>Paginación Tradicional</h4>
+                                <p>Divide el contenido en páginas numeradas, permitiendo a los usuarios moverse entre ellas fácilmente</p>
+                                <ul>
+                                    <li>Mejor para orientación del usuario</li>
+                                    <li>Beneficioso para SEO</li>
+                                    <li>Control del usuario sobre navegación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-arrow-down-circle me-2"></i>Scroll Infinito</h4>
+                                <p>Carga automáticamente más contenido a medida que el usuario se desplaza hacia abajo</p>
+                                <ul>
+                                    <li>Común en redes sociales</li>
+                                    <li>Ideal para plataformas de contenido visual</li>
+                                    <li>Mejora experiencia en dispositivos móviles</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-plus-circle me-2"></i>Carga Bajo Demanda</h4>
+                                <p><strong>Load More:</strong> En lugar de scroll infinito, se ofrece un botón para cargar más contenido</p>
+                                <ul>
+                                    <li>Equilibra rendimiento y usabilidad</li>
+                                    <li>Control del usuario</li>
+                                    <li>Mejor rendimiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-graph-up me-2"></i>Comparación de Métodos</h4>
+                        <p>Cada método tiene ventajas y desventajas. La <strong>paginación</strong> es mejor para la orientación y el SEO, mientras que el <strong>scroll infinito</strong> puede mejorar la experiencia en dispositivos móviles. Instagram y Pinterest usan scroll infinito, mientras que Google usa paginación tradicional.</p>
+                    </div>
+                </section>
+
+                <!-- Menú de Hamburguesa -->
+                <section id="menu-hamburguesa" class="content-section">
+                    <h2><i class="bi bi-list me-2"></i>2.6. Menú de Hamburguesa (para dispositivos móviles)</h2>
+                    
+                    <p>En pantallas pequeñas, el espacio es limitado, por lo que los menús tradicionales pueden ocupar demasiado espacio visual. Para solucionar esto, se utiliza el <strong>menú de hamburguesa</strong>, representado con el ícono <strong>☰</strong>, que despliega la navegación al tocarlo.</p>
+
+                    <div class="technique-card">
+                        <h4><i class="bi bi-phone me-2"></i>Características del Menú Hamburguesa</h4>
+                        <ul>
+                            <li>Ahorra espacio en pantallas pequeñas</li>
+                            <li>Mantiene toda la funcionalidad de navegación</li>
+                            <li>Se ha convertido en un estándar reconocido</li>
+                            <li>Permite organizar opciones de manera jerárquica</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Recomendación</h4>
+                        <p>Aunque es una opción eficiente, se recomienda que las opciones más importantes sigan siendo accesibles sin necesidad de abrir el menú, como una barra de acceso rápido con iconos para funciones clave.</p>
+                    </div>
+                </section>
+
+                <!-- Búsqueda Interna -->
+                <section id="busqueda-interna" class="content-section">
+                    <h2><i class="bi bi-search me-2"></i>2.7. Búsqueda Interna</h2>
+                    
+                    <p>Cuando un sitio tiene un gran volumen de contenido, una barra de búsqueda eficiente puede ser la mejor opción de navegación. Algunos elementos clave en un sistema de búsqueda incluyen:</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-type me-2"></i>Autocompletado</h4>
+                                <p>Sugerencias a medida que el usuario escribe, facilitando la búsqueda y reduciendo errores</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-spellcheck me-2"></i>Corrección Ortográfica</h4>
+                                <p>Corrección de errores ortográficos para mejorar la precisión de los resultados</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-funnel me-2"></i>Filtros y Categorías</h4>
+                                <p>Permiten refinar los resultados según atributos específicos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-clock-history me-2"></i>Historial de Búsquedas</h4>
+                                <p>Historial de búsquedas recientes para facilitar el acceso a búsquedas previas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-bookmarks me-2"></i>Aplicaciones Ideales</h4>
+                        <p>La búsqueda interna es especialmente útil en <strong>tiendas en línea, sitios de documentación técnica y plataformas educativas</strong> donde los usuarios necesitan encontrar información específica rápidamente.</p>
+                    </div>
+                </section>
+
+                <!-- Enlaces Contextuales -->
+                <section id="enlaces-contextuales" class="content-section">
+                    <h2><i class="bi bi-link me-2"></i>2.8. Enlaces Contextuales</h2>
+                    
+                    <p>Además de los menús principales, la navegación puede integrarse dentro del contenido mediante <strong>enlaces contextuales</strong>. Estos permiten a los usuarios acceder a información relacionada sin interrumpir su flujo de lectura.</p>
+
+                    <h3>Tipos de Enlaces Contextuales</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-link-45deg me-2"></i>Hipervínculos en Texto</h4>
+                                <p>Hipervínculos dentro del texto que llevan a artículos relacionados</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-bookmark me-2"></i>Sugerencias de Lectura</h4>
+                                <p>Sugerencias de lectura al final de un artículo o publicación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-basket me-2"></i>Productos Relacionados</h4>
+                                <p>Productos relacionados en tiendas en línea</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-graph-up me-2"></i>Beneficio</h4>
+                        <p>Estos enlaces mejoran la <strong>retención de usuarios</strong>, ya que fomentan la exploración de más contenido dentro del sitio, aumentando el tiempo de permanencia y las oportunidades de conversión.</p>
+                    </div>
+                </section>
+
+                <!-- Conclusión Técnicas -->
+                <section class="content-section">
+                    <h3><i class="bi bi-check-circle me-2"></i>Conclusión de Técnicas</h3>
+                    
+                    <div class="definition-box">
+                        <h4><i class="bi bi-target me-2"></i>Selección de Técnicas</h4>
+                        <p>La elección de una técnica de navegación adecuada depende del tipo de sitio web, la cantidad de contenido y el comportamiento esperado de los usuarios. En sitios pequeños, un <strong>menú principal claro</strong> puede ser suficiente, mientras que en plataformas con mucho contenido se requieren estructuras más avanzadas.</p>
+                    </div>
+                    
+                    <p>Como <strong>menús desplegables, migas de pan, navegación lateral y búsqueda interna</strong>. Optimizar la navegación no solo mejora la experiencia del usuario, sino que también influye en la retención de visitantes, la accesibilidad y la optimización para motores de búsqueda (<strong>SEO</strong>). Implementar las técnicas adecuadas permitirá que los usuarios encuentren lo que buscan de manera rápida y sencilla, mejorando la eficiencia del sitio.</p>
+                </section>
+
+                <!-- Herramientas y Métodos -->
+                <section id="herramientas-metodos" class="content-section">
+                    <h2><i class="bi bi-tools me-2"></i>3. Herramientas y Métodos para Diseñar la Navegación</h2>
+                    
+                    <p>El diseño de la navegación no solo depende de la teoría y los principios fundamentales, sino que también requiere herramientas y métodos específicos que permitan planificar, prototipar y validar la usabilidad de las estructuras de navegación.</p>
+                </section>
+
+                <!-- Mapas de Sitio -->
+                <section id="mapas-sitio" class="content-section">
+                    <h2><i class="bi bi-diagram-2 me-2"></i>3.1. Mapas de Sitio: Visualización de la Estructura de Navegación</h2>
+                    
+                    <div class="definition-box">
+                        <h4><i class="bi bi-map me-2"></i>¿Qué es un Mapa de Sitio?</h4>
+                        <p>Un <strong>mapa de sitio</strong> es una representación gráfica de la estructura jerárquica de un sitio web. Su propósito es visualizar la relación entre las diferentes páginas y secciones, permitiendo a diseñadores y desarrolladores estructurar la navegación antes de la implementación.</p>
+                    </div>
+
+                    <h3>Beneficios del uso de mapas de sitio:</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-search me-2"></i>Identificación de Redundancias</h4>
+                                <p>Facilita la identificación de <strong>posibles redundancias</strong> o problemas en la organización del contenido</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-layers me-2"></i>Optimización de Jerarquía</h4>
+                                <p>Permite optimizar la <strong>jerarquía de navegación</strong>, reduciendo la cantidad de clics necesarios para acceder a la información</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-people me-2"></i>Comunicación del Equipo</h4>
+                                <p>Mejora la comunicación entre diseñadores, desarrolladores y clientes en la fase de planificación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-search-heart me-2"></i>Estrategias SEO</h4>
+                                <p>Es útil para estrategias de <strong>SEO</strong>, asegurando que los motores de búsqueda comprendan la estructura del sitio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Herramientas para crear mapas de sitio:</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-diagram-3 me-2"></i>XMind</h4>
+                                <p>Software de mapas conceptuales que permite visualizar jerarquías</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-flow-chart me-2"></i>Lucidchart</h4>
+                                <p>Plataforma para diagramas de flujo, útil para diseñar estructuras de navegación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-globe me-2"></i>Slickplan</h4>
+                                <p>Herramienta en línea especializada en la creación de mapas de sitio interactivos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-lightning me-2"></i>GlooMaps</h4>
+                                <p>Generador rápido de mapas de sitio con interfaz intuitiva</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-circle me-2"></i>Características de un Buen Mapa</h4>
+                        <p>Un buen mapa de sitio debe ser <strong>claro, organizado y flexible</strong>, permitiendo ajustes conforme evolucionan las necesidades del proyecto.</p>
+                    </div>
+                </section>
+
+                <!-- Wireframes y Prototipos -->
+                <section id="wireframes-prototipos" class="content-section">
+                    <h2><i class="bi bi-layout-wtf me-2"></i>3.2. Wireframes y Prototipos: Prueba de la Navegación Antes de la Implementación</h2>
+                    
+                    <p>Los <strong>wireframes</strong> y <strong>prototipos</strong> permiten simular la navegación antes del desarrollo completo del sitio web o aplicación. Estas representaciones visuales permiten evaluar la disposición de los elementos de navegación y su efectividad en términos de usabilidad.</p>
+
+                    <h3>Wireframes</h3>
+                    <div class="definition-box">
+                        <h4><i class="bi bi-grid me-2"></i>¿Qué son los Wireframes?</h4>
+                        <p>Los wireframes son bocetos o esquemas simplificados de una interfaz que representan la disposición de los elementos sin enfocarse en aspectos visuales como colores o imágenes.</p>
+                    </div>
+
+                    <p><strong>Se utilizan para:</strong></p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-menu-button-wide me-2"></i>Ubicación de Elementos</h4>
+                                <p>Definir la ubicación de menús y botones de navegación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-universal-access me-2"></i>Evaluación de Accesibilidad</h4>
+                                <p>Evaluar la accesibilidad y la jerarquía de información</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-pencil me-2"></i>Ajustes Estructurales</h4>
+                                <p>Realizar ajustes en la estructura sin necesidad de código</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Herramientas para crear wireframes:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-pencil-square me-2"></i>Balsamiq</h4>
+                                <p>Plataforma sencilla para bocetos rápidos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-people me-2"></i>Figma</h4>
+                                <p>Permite colaboración en tiempo real para la creación de estructuras navegacionales</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-palette me-2"></i>Adobe XD</h4>
+                                <p>Herramienta avanzada de diseño y prototipado</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-diagram-3 me-2"></i>Axure RP</h4>
+                                <p>Plataforma robusta para wireframes y flujos de navegación</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Prototipos</h3>
+                    <p>Los prototipos son versiones interactivas del diseño que permiten a los usuarios probar la navegación antes del desarrollo definitivo.</p>
+
+                    <p><strong>Se utilizan para:</strong></p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-cursor me-2"></i>Simular Experiencia</h4>
+                                <p>Simular la experiencia de usuario con interacciones reales</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-shield-check me-2"></i>Validar Diseño</h4>
+                                <p>Validar el diseño y la usabilidad antes de la programación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-chat-dots me-2"></i>Recibir Feedback</h4>
+                                <p>Recibir retroalimentación de usuarios y mejorar la navegación</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Herramientas para crear prototipos:</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-eye me-2"></i>InVision</h4>
+                                <p>Herramienta para crear prototipos interactivos sin código</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-link me-2"></i>Figma</h4>
+                                <p>Permite conectar wireframes y probar flujos de navegación</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-lightning-charge me-2"></i>Marvel App</h4>
+                                <p>Plataforma accesible para la creación de prototipos rápidos</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-shield-check me-2"></i>Importancia</h4>
+                        <p>Los <strong>wireframes y prototipos</strong> son esenciales para garantizar que la navegación sea efectiva antes de invertir recursos en la fase de desarrollo.</p>
+                    </div>
+                </section>
+
+                <!-- Análisis de Uso y Pruebas -->
+                <section id="analisis-pruebas" class="content-section">
+                    <h2><i class="bi bi-graph-up me-2"></i>3.3. Análisis de Uso y Pruebas de Usabilidad: Validación de la Experiencia del Usuario</h2>
+                    
+                    <p>Diseñar una navegación efectiva no es solo una cuestión de planificación, sino que requiere pruebas con usuarios reales para detectar problemas y optimizar la experiencia. Para ello, se utilizan diversas técnicas de <strong>análisis de uso y pruebas de usabilidad</strong>.</p>
+
+                    <h3>Pruebas A/B</h3>
+                    <p>Las pruebas A/B consisten en comparar dos versiones de un mismo sitio web con ligeras variaciones en la navegación para determinar cuál funciona mejor.</p>
+
+                    <div class="technique-card">
+                        <h4><i class="bi bi-bar-chart me-2"></i>Se puede evaluar:</h4>
+                        <ul>
+                            <li>Diferencias en la tasa de conversión entre dos menús diferentes</li>
+                            <li>La efectividad de enlaces contextuales o cambios en el diseño de navegación</li>
+                            <li>La retención de usuarios al modificar estructuras de menú o breadcrumbs</li>
+                        </ul>
+                    </div>
+
+                    <h4>Herramientas para pruebas A/B:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-google me-2"></i>Google Optimize</h4>
+                                <p>Plataforma integrada con Google Analytics para comparar versiones de una web</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-graph-up-arrow me-2"></i>Optimizely</h4>
+                                <p>Herramienta avanzada para pruebas A/B con seguimiento de métricas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Mapas de Calor (Heatmaps)</h3>
+                    <p>Los mapas de calor muestran visualmente cómo los usuarios interactúan con la navegación de un sitio web, indicando las zonas donde hacen clic con más frecuencia y aquellas que no reciben interacción.</p>
+
+                    <h4>Herramientas para mapas de calor:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-thermometer-half me-2"></i>Hotjar</h4>
+                                <p>Plataforma que permite visualizar clics y desplazamientos en una página</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-egg me-2"></i>Crazy Egg</h4>
+                                <p>Ofrece análisis detallado del comportamiento del usuario</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Pruebas de Usabilidad con Usuarios</h3>
+                    <p>Realizar pruebas con usuarios reales permite identificar problemas de navegación y mejorar la accesibilidad.</p>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-person-walking me-2"></i>Pruebas de Recorrido</h4>
+                                <p>Se asignan tareas específicas a los usuarios y se observa cómo navegan en el sitio</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-card-list me-2"></i>Card Sorting</h4>
+                                <p>Los usuarios organizan elementos de navegación en categorías, ayudando a definir una jerarquía intuitiva</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="technique-card">
+                                <h4><i class="bi bi-chat-square-text me-2"></i>Entrevistas y Encuestas</h4>
+                                <p>Se recopila información sobre la experiencia de navegación y posibles mejoras</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>Herramientas para realizar pruebas de usabilidad:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-person-check me-2"></i>UserTesting</h4>
+                                <p>Plataforma que permite obtener feedback de usuarios reales</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="tool-card">
+                                <h4><i class="bi bi-puzzle me-2"></i>Maze</h4>
+                                <p>Solución para pruebas de usabilidad y análisis de navegación</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusión Final -->
+                <section class="content-section">
+                    <h3><i class="bi bi-check-circle me-2"></i>Conclusión</h3>
+                    
+                    <div class="definition-box">
+                        <h4><i class="bi bi-target me-2"></i>Enfoque Integral</h4>
+                        <p>El diseño de la navegación debe ser respaldado por herramientas y métodos que permitan planificar, visualizar y evaluar su efectividad. La combinación de <strong>mapas de sitio, wireframes, prototipos y análisis de uso</strong> garantiza que la navegación sea clara, accesible y eficiente.</p>
+                    </div>
+                    
+                    <p>Implementar estas técnicas no solo mejora la experiencia del usuario, sino que también reduce la necesidad de modificaciones posteriores, optimizando los recursos en el desarrollo web y móvil.</p>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section id="casos-practicos" class="content-section">
+                    <h2><i class="bi bi-lightbulb me-2"></i>Casos Prácticos</h2>
+                    
+                    <!-- Caso Práctico 1 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-building me-2"></i>Caso Práctico 1: Rediseño de Sitio Web de Biblioteca Pública</h3>
+                        
+                        <h4>Situación</h4>
+                        <p>Estás rediseñando el sitio web de una biblioteca pública. La navegación actual es confusa, y los usuarios tienen dificultad para encontrar información sobre horarios, eventos y recursos disponibles. Describe cómo mejorarías la estructura de navegación para hacerla más intuitiva.</p>
+                        
+                        <h4>Análisis del Problema</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h5><i class="bi bi-exclamation-triangle me-2"></i>Problemas Identificados</h5>
+                                    <ul>
+                                        <li>Navegación confusa y poco intuitiva</li>
+                                        <li>Dificultad para encontrar información básica</li>
+                                        <li>Usuarios no pueden localizar horarios ni eventos</li>
+                                        <li>Recursos disponibles mal organizados</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h5><i class="bi bi-people me-2"></i>Usuarios Típicos</h5>
+                                    <ul>
+                                        <li>Estudiantes buscando recursos académicos</li>
+                                        <li>Familias interesadas en eventos infantiles</li>
+                                        <li>Adultos mayores consultando horarios</li>
+                                        <li>Investigadores buscando bases de datos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Solución Propuesta</h4>
+                        <div class="example-box">
+                            <h5><i class="bi bi-diagram-3 me-2"></i>Estructura de Navegación Mejorada</h5>
+                            <p><strong>Menú Principal Horizontal:</strong></p>
+                            <ul>
+                                <li><strong>Información Básica</strong> (Horarios, Ubicación, Contacto)</li>
+                                <li><strong>Recursos</strong> (Catálogo, Bases de Datos, Servicios Digitales)</li>
+                                <li><strong>Eventos y Actividades</strong> (Calendario, Programas, Talleres)</li>
+                                <li><strong>Servicios</strong> (Préstamos, Reservas, Ayuda)</li>
+                                <li><strong>Mi Cuenta</strong> (Login, Renovaciones, Historial)</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5><i class="bi bi-tools me-2"></i>Técnicas Implementadas</h5>
+                            <ul>
+                                <li><strong>Búsqueda prominente:</strong> Barra de búsqueda en la parte superior para localizar libros y recursos</li>
+                                <li><strong>Accesos rápidos:</strong> Enlaces directos a "Renovar préstamos", "Horarios de hoy", "Eventos esta semana"</li>
+                                <li><strong>Migas de pan:</strong> Para navegación en catálogos y bases de datos</li>
+                                <li><strong>Sidebar contextual:</strong> Filtros y categorías cuando se navega por recursos</li>
+                                <li><strong>Footer informativo:</strong> Información de contacto, horarios y enlaces útiles siempre visibles</li>
+                            </ul>
+                        </div>
+
+                        <h4>Resultados Esperados</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Acceso inmediato:</strong> Información crítica (horarios, contacto) accesible desde cualquier página</li>
+                                <li><strong>Búsqueda eficiente:</strong> Los usuarios pueden encontrar recursos específicos rápidamente</li>
+                                <li><strong>Descubrimiento de contenido:</strong> Eventos y actividades más visibles aumentan participación</li>
+                                <li><strong>Autoservicio:</strong> Los usuarios pueden gestionar sus préstamos y reservas de forma autónoma</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Caso Práctico 2 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-cart me-2"></i>Caso Práctico 2: Revisión de Navegación en E-commerce</h3>
+                        
+                        <h4>Situación</h4>
+                        <p>Un sitio de comercio electrónico necesita una revisión de su estructura de navegación debido a quejas sobre la dificultad para encontrar productos específicos y la falta de claridad en la navegación por categorías. ¿Cómo abordarías este problema?</p>
+                        
+                        <h4>Análisis del Problema</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h5><i class="bi bi-x-circle me-2"></i>Problemas Comunes en E-commerce</h5>
+                                    <ul>
+                                        <li>Categorías mal organizadas o solapadas</li>
+                                        <li>Filtros confusos o insuficientes</li>
+                                        <li>Búsqueda que no arroja resultados relevantes</li>
+                                        <li>Navegación compleja en dispositivos móviles</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h5><i class="bi bi-person-check me-2"></i>Necesidades del Usuario</h5>
+                                    <ul>
+                                        <li>Encontrar productos específicos rápidamente</li>
+                                        <li>Comparar productos similares</li>
+                                        <li>Navegar por categorías lógicas</li>
+                                        <li>Acceso fácil al carrito y checkout</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Estrategia de Mejora</h4>
+                        <div class="example-box">
+                            <h5><i class="bi bi-diagram-2 me-2"></i>Estructura de Navegación Optimizada</h5>
+                            <p><strong>Navegación Principal:</strong></p>
+                            <ul>
+                                <li><strong>Categorías por tipo de producto</strong> con mega menús que muestren subcategorías populares</li>
+                                <li><strong>Ofertas y promociones</strong> claramente destacadas</li>
+                                <li><strong>Marcas destacadas</strong> en menú secundario</li>
+                                <li><strong>Mi cuenta y carrito</strong> siempre visibles</li>
+                            </ul>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h5><i class="bi bi-tools me-2"></i>Mejoras Implementadas</h5>
+                            <ul>
+                                <li><strong>Búsqueda inteligente:</strong> Autocompletado, corrección ortográfica y sugerencias de productos</li>
+                                <li><strong>Filtros avanzados:</strong> Por precio, marca, valoración, disponibilidad en sidebar colapsable</li>
+                                <li><strong>Migas de pan:</strong> Para navegación por categorías y facilitar retroceso</li>
+                                <li><strong>Productos relacionados:</strong> Enlaces contextuales que sugieren productos complementarios</li>
+                                <li><strong>Navegación móvil:</strong> Menú hamburguesa con categorías principales accesibles</li>
+                                <li><strong>Accesos rápidos:</strong> Botones flotantes para carrito y búsqueda en móvil</li>
+                            </ul>
+                        </div>
+
+                        <h4>Métricas de Evaluación</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="technique-card">
+                                    <h4><i class="bi bi-graph-up me-2"></i>Métricas Cuantitativas</h4>
+                                    <ul>
+                                        <li>Tasa de conversión</li>
+                                        <li>Tiempo promedio en sitio</li>
+                                        <li>Páginas por sesión</li>
+                                        <li>Tasa de abandono del carrito</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="technique-card">
+                                    <h4><i class="bi bi-chat-quote me-2"></i>Feedback Cualitativo</h4>
+                                    <ul>
+                                        <li>Encuestas de satisfacción</li>
+                                        <li>Pruebas de usabilidad</li>
+                                        <li>Análisis de comentarios</li>
+                                        <li>Mapas de calor de interacción</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Resultados Esperados</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Búsqueda más eficiente:</strong> Los usuarios encuentran productos específicos en menos tiempo</li>
+                                <li><strong>Mayor descubrimiento:</strong> Navegación por categorías lleva a explorar más productos</li>
+                                <li><strong>Conversión mejorada:</strong> Proceso de compra más fluido reduce abandono del carrito</li>
+                                <li><strong>Experiencia móvil optimizada:</strong> Navegación táctil intuitiva en dispositivos móviles</li>
+                                <li><strong>Retención aumentada:</strong> Usuarios satisfechos regresan y recomiendan el sitio</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="definition-box">
+                        <h4><i class="bi bi-question-circle me-2"></i>Preguntas de Reflexión</h4>
+                        <ol>
+                            <li><strong>¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante para los usuarios de una biblioteca?</strong></li>
+                            <li><strong>¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra en un sitio de comercio electrónico?</strong></li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="navigation-cards">
+                    <div class="nav-card prev">
+                        <a href="tema7.html">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            <div><strong>Tema 7 - Parte 1</strong></div>
+                            <div>Principios de Navegación</div>
+                        </a>
+                    </div>
+                    <div class="nav-card next">
+                        <a href="tema8.html">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            <div><strong>Tema 8</strong></div>
+                            <div>Diseño Responsivo</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

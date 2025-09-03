@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Tema 5: Diseño GUI - Prototipos y Mockups - Parte 2 | Quiz App</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    
+    <style>
+        .content-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-left: 4px solid #28a745;
+            background: var(--bs-light);
+            border-radius: 0 0.375rem 0.375rem 0;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        
+        .programming-hero {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .visual-element {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .testing-method {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+        }
+        
+        .handoff-item {
+            background: #f8d7da;
+            border: 1px solid #dc3545;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .design-system {
+            background: #e7f3ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .color-palette {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 2px solid #333;
+        }
+        
+        .mockup-example {
+            background: #ffffff;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="../../../quiz-spa/index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación
+            </a>
+            
+            <span class="navbar-text">
+                Tema 5: Diseño GUI - Prototipos y Mockups - Parte 2
+            </span>
+            
+            <div class="navbar-nav ms-auto">
+                <button class="btn btn-outline-light me-2" id="theme-toggle">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+                <span class="navbar-text timer-display" id="timer-display">Teoría</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container-fluid">
+        <div class="programming-hero">
+            <div class="container">
+                <h1 class="display-4 mb-3">
+                    <i class="bi bi-palette me-3"></i>
+                    Diseño GUI - Prototipos y Mockups
+                </h1>
+                <p class="lead mb-4">Parte 2: Mockups • Sistemas de Diseño • Testing • Handoff a Desarrollo</p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-book me-1"></i>Tema 5 - Parte 2
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 me-2">
+                            <i class="bi bi-clock me-1"></i>40 min lectura
+                        </span>
+                        <span class="badge bg-light text-dark fs-6">
+                            <i class="bi bi-tools me-1"></i>Prácticas
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido - Parte 2
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#mockups">Mockups y Diseño Visual</a>
+                                <a class="nav-link" href="#sistemas-diseño">Sistemas de Diseño</a>
+                                <a class="nav-link" href="#prototipos-interactivos">Prototipos Interactivos</a>
+                                <a class="nav-link" href="#testing-usabilidad">Testing de Usabilidad</a>
+                                <a class="nav-link" href="#handoff">Handoff a Desarrollo</a>
+                                <a class="nav-link" href="#resumen">Resumen</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Mockups y Diseño Visual -->
+                <section id="mockups" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-image me-2"></i>
+                        Mockups y Diseño Visual
+                    </h2>
+                    
+                    <p class="lead">Los mockups transforman wireframes en <strong>diseños visuales finales</strong> con colores, tipografía e identidad de marca.</p>
+                    
+                    <h3>Elementos del Diseño Visual</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-palette me-2"></i>Color</h5>
+                                <p><strong>Comunica emociones y jerarquía</strong></p>
+                                <ul class="mb-0">
+                                    <li>Paleta primaria (2-3 colores)</li>
+                                    <li>Colores de acción (botones)</li>
+                                    <li>Estados (error, éxito, warning)</li>
+                                    <li>Accesibilidad (contraste WCAG)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-fonts me-2"></i>Tipografía</h5>
+                                <p><strong>Legibilidad y personalidad</strong></p>
+                                <ul class="mb-0">
+                                    <li>Máximo 2-3 fuentes</li>
+                                    <li>Jerarquía (H1, H2, body)</li>
+                                    <li>Espaciado y line-height</li>
+                                    <li>Responsive (rem, em)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-grid me-2"></i>Espaciado</h5>
+                                <p><strong>Organización y respiración visual</strong></p>
+                                <ul class="mb-0">
+                                    <li>Sistema de 8pt grid</li>
+                                    <li>Márgenes consistentes</li>
+                                    <li>Whitespace intencional</li>
+                                    <li>Agrupación por proximidad</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-emoji-smile me-2"></i>Iconografía</h5>
+                                <p><strong>Comunicación visual rápida</strong></p>
+                                <ul class="mb-0">
+                                    <li>Biblioteca consistente</li>
+                                    <li>Estilo uniforme (outline/fill)</li>
+                                    <li>Tamaños estandarizados</li>
+                                    <li>Significado universal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mockup-example">
+                        <h6><i class="bi bi-layout-text-window me-2"></i>Ejemplo de evolución: Wireframe → Mockup</h6>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-muted">Wireframe:</h6>
+                                <div style="border: 1px solid #999; padding: 10px; background: #f9f9f9;">
+                                    <div style="height: 20px; background: #ddd; margin-bottom: 10px;">[LOGO]</div>
+                                    <div style="height: 15px; background: #ddd; margin-bottom: 5px;">[Título]</div>
+                                    <div style="height: 10px; background: #ddd; width: 60%; margin-bottom: 10px;">[Descripción]</div>
+                                    <div style="height: 30px; background: #ddd; width: 100px;">[Botón]</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="text-primary">Mockup:</h6>
+                                <div style="border: 1px solid #007bff; padding: 15px; background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+                                    <div style="color: #007bff; font-weight: bold; margin-bottom: 10px;">✨ MiApp</div>
+                                    <div style="font-size: 18px; font-weight: bold; margin-bottom: 5px;">Bienvenido a la App</div>
+                                    <div style="color: #666; font-size: 14px; margin-bottom: 15px;">Gestiona tus tareas fácilmente</div>
+                                    <div style="background: #007bff; color: white; padding: 8px 16px; border-radius: 6px; display: inline-block;">Comenzar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sistemas de Diseño -->
+                <section id="sistemas-diseño" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-boxes me-2"></i>
+                        Sistemas de Diseño
+                    </h2>
+
+                    <p>Un sistema de diseño es una <strong>colección de componentes reutilizables</strong> y guías que aseguran consistencia en toda la aplicación.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-puzzle-fill me-2"></i>¿Por qué Sistemas de Diseño?</h4>
+                        <ul class="mb-0">
+                            <li><strong>Consistencia:</strong> Experiencia uniforme</li>
+                            <li><strong>Eficiencia:</strong> Reutilización de componentes</li>
+                            <li><strong>Escalabilidad:</strong> Crecer manteniendo coherencia</li>
+                            <li><strong>Colaboración:</strong> Lenguaje común diseño-desarrollo</li>
+                        </ul>
+                    </div>
+
+                    <h3>Componentes de un Sistema de Diseño</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-palette me-2"></i>Design Tokens</h5>
+                                <p><strong>Valores fundamentales reutilizables</strong></p>
+                                <div class="code-example">
+                                    <pre>// Colores
+primary: #007bff
+secondary: #6c757d
+success: #28a745
+
+// Espaciado  
+spacing-xs: 4px
+spacing-sm: 8px
+spacing-md: 16px</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-building-blocks me-2"></i>Componentes UI</h5>
+                                <p><strong>Elementos reutilizables</strong></p>
+                                <ul class="mb-0">
+                                    <li>Botones (primario, secundario)</li>
+                                    <li>Formularios (inputs, selects)</li>
+                                    <li>Navegación (navbar, breadcrumbs)</li>
+                                    <li>Feedback (alerts, tooltips)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-book me-2"></i>Documentación</h5>
+                                <p><strong>Guías de uso y patrones</strong></p>
+                                <ul class="mb-0">
+                                    <li>Cuándo usar cada componente</li>
+                                    <li>Variaciones permitidas</li>
+                                    <li>Ejemplos de implementación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-code me-2"></i>Implementación</h5>
+                                <p><strong>Código reutilizable</strong></p>
+                                <ul class="mb-0">
+                                    <li>CSS/SCSS variables</li>
+                                    <li>Componentes React/Vue</li>
+                                    <li>Storybook para documentar</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-star me-2"></i>Sistemas de Diseño Populares</h4>
+                        <p><strong>Material Design (Google):</strong> Principios de diseño físico</p>
+                        <p><strong>Human Interface Guidelines (Apple):</strong> Estándares iOS/macOS</p>
+                        <p class="mb-0"><strong>Fluent Design (Microsoft):</strong> Sistema Windows moderno</p>
+                    </div>
+                </section>
+
+                <!-- Prototipos Interactivos -->
+                <section id="prototipos-interactivos" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Prototipos Interactivos
+                    </h2>
+
+                    <p>Los prototipos interactivos permiten <strong>experimentar la interfaz</strong> antes de desarrollarla, validando flujos y comportamientos.</p>
+
+                    <h3>Tipos de Interactividad</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-mouse me-2"></i>Navegación Básica</h5>
+                                <p><strong>Clics y transiciones</strong></p>
+                                <ul class="mb-0">
+                                    <li>Links entre pantallas</li>
+                                    <li>Botones que cambian estado</li>
+                                    <li>Menús desplegables</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-lightning me-2"></i>Micro-interacciones</h5>
+                                <p><strong>Feedback visual inmediato</strong></p>
+                                <ul class="mb-0">
+                                    <li>Hover effects</li>
+                                    <li>Loading spinners</li>
+                                    <li>Animaciones de transición</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-input-cursor me-2"></i>Formularios Dinámicos</h5>
+                                <p><strong>Validación en tiempo real</strong></p>
+                                <ul class="mb-0">
+                                    <li>Validación mientras escribe</li>
+                                    <li>Campos condicionales</li>
+                                    <li>Autocompletado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-phone me-2"></i>Gestos Móviles</h5>
+                                <p><strong>Interacciones táctiles</strong></p>
+                                <ul class="mb-0">
+                                    <li>Swipe, pinch, scroll</li>
+                                    <li>Pull-to-refresh</li>
+                                    <li>Touch targets apropiados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-layers me-2"></i>Niveles de prototipado:</h6>
+                        <pre><strong>Clickable:</strong> Navegación básica entre pantallas
+<strong>Functional:</strong> Formularios que validan, búsquedas que filtran  
+<strong>Native:</strong> Prototipos que se sienten como app real
+<strong>Coded:</strong> HTML/CSS funcional, casi implementación</pre>
+                    </div>
+
+                    <h3>Herramientas para Prototipos Interactivos</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-cloud me-2"></i>Herramientas de Diseño</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Figma:</strong> Prototipos colaborativos</li>
+                                    <li><strong>Adobe XD:</strong> Animaciones avanzadas</li>
+                                    <li><strong>InVision:</strong> Especializado en prototipos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-code me-2"></i>Código Interactivo</h5>
+                                <ul class="mb-0">
+                                    <li><strong>CodePen:</strong> Prototipos web rápidos</li>
+                                    <li><strong>Framer:</strong> React components</li>
+                                    <li><strong>ProtoPie:</strong> Prototipos de sensores</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-clock me-2"></i>Fidelidad vs. Tiempo</h4>
+                        <p class="mb-0">Prototipos alta fidelidad toman <strong>mucho tiempo</strong>. Úsalos solo cuando necesites validar interacciones específicas o presentar a stakeholders importantes.</p>
+                    </div>
+                </section>
+
+                <!-- Testing de Usabilidad -->
+                <section id="testing-usabilidad" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-people me-2"></i>
+                        Testing de Usabilidad
+                    </h2>
+
+                    <p>El testing de usabilidad valida que el diseño <strong>funcione para usuarios reales</strong> en condiciones reales de uso.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-target me-2"></i>Objetivos del Testing</h4>
+                        <ul class="mb-0">
+                            <li><strong>Identificar problemas:</strong> Antes de desarrollar</li>
+                            <li><strong>Validar soluciones:</strong> ¿Resuelve el problema?</li>
+                            <li><strong>Optimizar flujos:</strong> Reducir fricción</li>
+                            <li><strong>Medir satisfacción:</strong> Experiencia del usuario</li>
+                        </ul>
+                    </div>
+
+                    <h3>Métodos de Testing</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-eye me-2"></i>Testing Moderado</h5>
+                                <p><strong>Observación directa</strong></p>
+                                <ul class="mb-0">
+                                    <li>5-8 usuarios representativos</li>
+                                    <li>Tareas específicas</li>
+                                    <li>Think-aloud protocol</li>
+                                    <li>Observación de comportamiento</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-laptop me-2"></i>Testing No Moderado</h5>
+                                <p><strong>Usuarios prueban independientemente</strong></p>
+                                <ul class="mb-0">
+                                    <li>Herramientas online</li>
+                                    <li>Más participantes</li>
+                                    <li>Datos cuantitativos</li>
+                                    <li>Menos sesgos del moderador</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-ab me-2"></i>A/B Testing</h5>
+                                <p><strong>Comparar variaciones</strong></p>
+                                <ul class="mb-0">
+                                    <li>Dos versiones simultáneas</li>
+                                    <li>Métricas de conversión</li>
+                                    <li>Decisiones basadas en datos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-speedometer me-2"></i>Testing Guerrilla</h5>
+                                <p><strong>Testing rápido e informal</strong></p>
+                                <ul class="mb-0">
+                                    <li>Cafeterías, espacios públicos</li>
+                                    <li>15-20 minutos por sesión</li>
+                                    <li>Feedback rápido</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-list-check me-2"></i>Plan de testing típico:</h6>
+                        <pre><strong>Preparación:</strong> Definir tareas clave a evaluar
+<strong>Reclutamiento:</strong> 5-8 usuarios del target
+<strong>Sesiones:</strong> 45-60 min por usuario
+<strong>Análisis:</strong> Identificar patrones de problemas
+<strong>Reporte:</strong> Priorizar issues por severidad
+<strong>Iteración:</strong> Rediseñar y volver a testear</pre>
+                    </div>
+
+                    <h3>Métricas de Usabilidad</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-stopwatch me-2"></i>Métricas de Eficiencia</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Task completion rate:</strong> % tareas completadas</li>
+                                    <li><strong>Time on task:</strong> Tiempo para completar</li>
+                                    <li><strong>Clicks to complete:</strong> Eficiencia navegación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="testing-method">
+                                <h5><i class="bi bi-heart me-2"></i>Métricas de Satisfacción</h5>
+                                <ul class="mb-0">
+                                    <li><strong>SUS Score:</strong> System Usability Scale</li>
+                                    <li><strong>NPS:</strong> Net Promoter Score</li>
+                                    <li><strong>CSAT:</strong> Customer Satisfaction</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Handoff a Desarrollo -->
+                <section id="handoff" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-arrow-right me-2"></i>
+                        Handoff a Desarrollo
+                    </h2>
+
+                    <p>El handoff es la <strong>transferencia de diseños</strong> desde diseñadores a desarrolladores con toda la información necesaria para implementar.</p>
+
+                    <h3>Especificaciones de Diseño</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="handoff-item">
+                                <h5><i class="bi bi-rulers me-2"></i>Medidas y Espaciado</h5>
+                                <ul class="mb-0">
+                                    <li>Dimensiones exactas (px, rem)</li>
+                                    <li>Márgenes y padding</li>
+                                    <li>Breakpoints responsive</li>
+                                    <li>Grillas y alineaciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="handoff-item">
+                                <h5><i class="bi bi-palette me-2"></i>Especificaciones Visuales</h5>
+                                <ul class="mb-0">
+                                    <li>Códigos de color (hex, RGB)</li>
+                                    <li>Fuentes y pesos</li>
+                                    <li>Sombras y efectos</li>
+                                    <li>Estados de interacción</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="handoff-item">
+                                <h5><i class="bi bi-download me-2"></i>Assets Exportados</h5>
+                                <ul class="mb-0">
+                                    <li>Iconos (SVG, PNG)</li>
+                                    <li>Imágenes optimizadas</li>
+                                    <li>Diferentes resoluciones</li>
+                                    <li>Formato apropiado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="handoff-item">
+                                <h5><i class="bi bi-play me-2"></i>Comportamientos</h5>
+                                <ul class="mb-0">
+                                    <li>Animaciones y transiciones</li>
+                                    <li>Micro-interacciones</li>
+                                    <li>Estados de carga</li>
+                                    <li>Manejo de errores</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-file-code me-2"></i>Ejemplo de especificación CSS:</h6>
+                        <pre>/* Botón Primario */
+.btn-primary {
+  background: #007bff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+}</pre>
+                    </div>
+
+                    <h3>Herramientas de Handoff</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-link me-2"></i>Inspección Automática</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Figma Dev Mode:</strong> CSS automático</li>
+                                    <li><strong>Zeplin:</strong> Specs detalladas</li>
+                                    <li><strong>Avocode:</strong> Export de código</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="design-system">
+                                <h5><i class="bi bi-chat me-2"></i>Colaboración</h5>
+                                <ul class="mb-0">
+                                    <li><strong>Figma Comments:</strong> Feedback directo</li>
+                                    <li><strong>Abstract:</strong> Version control diseño</li>
+                                    <li><strong>Notion:</strong> Documentación compartida</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-people me-2"></i>Colaboración Diseño-Desarrollo</h4>
+                        <p><strong>Comunicación continua</strong> es clave para implementar diseños fielmente:</p>
+                        <ul class="mb-0">
+                            <li>Revisiones de implementación regulares</li>
+                            <li>Sesiones de Q&A durante desarrollo</li>
+                            <li>Ajustes colaborativos cuando necesario</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Flujos de Usuario -->
+                <section id="flujos-usuario" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-diagram-2 me-2"></i>
+                        Diseño de Flujos de Usuario
+                    </h2>
+
+                    <p>Los flujos de usuario mapean <strong>todos los pasos</strong> que un usuario debe seguir para completar una tarea en el sistema.</p>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-route me-2"></i>Componentes de un Flujo</h4>
+                        <ul class="mb-0">
+                            <li><strong>Entry points:</strong> Cómo llega el usuario</li>
+                            <li><strong>Steps:</strong> Cada pantalla o acción</li>
+                            <li><strong>Decision points:</strong> Puntos de bifurcación</li>
+                            <li><strong>Exit points:</strong> Cómo termina el flujo</li>
+                        </ul>
+                    </div>
+
+                    <div class="code-example">
+                        <h6><i class="bi bi-cart me-2"></i>Ejemplo de flujo de compra:</h6>
+                        <pre>Landing Page → Búsqueda → Producto → Carrito → Login/Register
+     ↑              ↓          ↓         ↓           ↓
+   Social       Categorías   Related   Checkout    Pago → Confirmación
+   Media        Filtros      Items     Guest?      ↓         ↓
+                                        ↓         Email    Tracking</pre>
+                    </div>
+
+                    <h3>Optimización de Flujos</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-speedometer me-2"></i>Reducir Fricción</h5>
+                                <ul class="mb-0">
+                                    <li>Minimizar pasos requeridos</li>
+                                    <li>Auto-completar información</li>
+                                    <li>Guest checkout options</li>
+                                    <li>Validación progresiva</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="visual-element">
+                                <h5><i class="bi bi-signpost me-2"></i>Orientación Clara</h5>
+                                <ul class="mb-0">
+                                    <li>Progress indicators</li>
+                                    <li>Breadcrumbs útiles</li>
+                                    <li>CTAs (Call-to-Action) obvios</li>
+                                    <li>Estados de proceso claros</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-graph-down me-2"></i>Puntos de Abandono Comunes</h4>
+                        <ul class="mb-0">
+                            <li><strong>Registro obligatorio:</strong> 70% abandona si requiere registro</li>
+                            <li><strong>Formularios largos:</strong> Más de 3 campos reduce conversión</li>
+                            <li><strong>Checkout complejo:</strong> 69% abandona carrito por complejidad</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Resumen -->
+                <section id="resumen" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-check-all me-2"></i>
+                        Resumen del Tema 5
+                    </h2>
+
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-award me-2"></i>Conceptos Clave Aprendidos</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Diferencias entre UX y UI</li>
+                                    <li>Principios fundamentales de GUI</li>
+                                    <li>Wireframes y tipos de prototipos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="mb-0">
+                                    <li>Sistemas de diseño y componentes</li>
+                                    <li>Testing de usabilidad y métricas</li>
+                                    <li>Handoff efectivo a desarrollo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>El diseño GUI exitoso requiere <strong>proceso estructurado</strong>, validación constante con usuarios y colaboración estrecha entre diseño y desarrollo.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Puntos Clave para Recordar</h4>
+                        <ul class="mb-0">
+                            <li><strong>Usuario primero:</strong> Diseñar para necesidades reales, no preferencias personales</li>
+                            <li><strong>Iterar temprano:</strong> Cambios baratos en wireframes, costosos en código</li>
+                            <li><strong>Validar constantemente:</strong> Testing frecuente evita sorpresas</li>
+                            <li><strong>Sistemas escalables:</strong> Componentes reutilizables facilitan crecimiento</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h4><i class="bi bi-arrow-right me-2"></i>Preparación para Tema 6</h4>
+                        <p class="mb-0">En el siguiente tema exploraremos <strong>Modelado Conceptual Avanzado y Jerarquías</strong>, profundizando en arquitecturas complejas y patrones de diseño.</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema5.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Parte 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 5 de 12 - Parte 2</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema6.html" class="btn btn-outline-success">
+                            Tema 6
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion5" class="btn btn-success floating-quiz-btn" title="Quiz Tema 5">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 5: Diseño GUI - Prototipos y Mockups - Parte 2
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or default to light mode
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        // Add active class to current link
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

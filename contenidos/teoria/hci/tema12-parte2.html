@@ -1,1198 +1,556 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 12: Accesibilidad y Estándares de Calidad - Parte 2 (Final) | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 12: Accesibilidad y Estándares de Calidad - Parte 2 | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
+    <!-- CSS común del tema 12 -->
+    <link rel="stylesheet" href="tema12-styles.css">
     
     <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #28a745;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
-        
-        .sidebar {
-            position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        
-        .accessibility-hero {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .testing-method-card {
-            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .assistive-tech-showcase {
-            background: #f8f9fa;
-            border: 2px solid #dee2e6;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .assistive-tech-showcase:hover {
-            border-color: #28a745;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.15);
-        }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .compliance-level {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+
+        .navbar-brand {
             font-weight: bold;
-            margin: 0.25rem;
+            font-size: 1.5rem;
         }
-        
-        .level-basic { background: #d4edda; color: #155724; }
-        .level-enhanced { background: #fff3cd; color: #856404; }
-        .level-advanced { background: #f8d7da; color: #721c24; }
-        
-        .barrier-identification {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+
+        .container-fluid {
+            max-width: 1400px;
         }
-        
-        .solution-highlight {
-            background: #d1ecf1;
-            border: 1px solid #bee5eb;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+
+        .hero-section {
+            background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+            color: white;
+            padding: 4rem 0 2rem 0;
+            margin-bottom: 0;
         }
-        
-        .best-practice {
-            background: #d4edda;
-            border: 1px solid #c3e6cb;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-        }
-        
-        .legal-requirement {
-            background: #f8d7da;
-            border: 1px solid #f5c6cb;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-universal-access me-2"></i>
-                HCI Tema 12: Accesibilidad y Estándares - Parte 2 (Final)
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
-            </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-success text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido - Parte 2 (Final)
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link text-muted" href="tema12.html">
-                                    <i class="bi bi-arrow-left me-1"></i>
-                                    Volver Parte 1
-                                </a>
-                                <hr class="my-2">
-                                <a class="nav-link" href="#testing-methods">1. Testing Methods</a>
-                                <a class="nav-link" href="#assistive-tech">2. Assistive Technologies</a>
-                                <a class="nav-link" href="#legal-compliance">3. Legal Compliance</a>
-                                <a class="nav-link" href="#implementation">4. Implementation Strategies</a>
-                                <a class="nav-link" href="#quality-standards">5. Quality Standards</a>
-                                <a class="nav-link" href="#future-accessibility">6. Future of Accessibility</a>
-                            </nav>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1><i class="bi bi-gear-fill me-3"></i>Tema 12: Principios y Pautas Específicas</h1>
+                        <p class="lead">Parte 2: Implementación práctica de principios de diseño accesible y pautas específicas para crear interfaces inclusivas.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="accessibility-hero">
-                    <h1 class="display-5">Accesibilidad y Estándares de Calidad</h1>
-                    <p class="lead">Parte 2 (Final): Testing, Technologies, Compliance y Implementation</p>
-                    <div class="mt-3">
-                        <i class="bi bi-check-circle" style="font-size: 3rem; opacity: 0.7;"></i>
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list me-2"></i>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema12.html">← Parte 1: Normas y Estándares</a>
+                        <a class="nav-link active" href="#principios-practicas">2. Principios y Prácticas</a>
+                        <a class="nav-link" href="#pautas-especificas">3. Pautas Específicas</a>
+                        <a class="nav-link" href="#conclusion">Conclusión</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- 2. Principios y Prácticas para el Diseño Accesible -->
+                <div id="principios-practicas" class="content-section">
+                    <h2><i class="bi bi-compass me-2"></i>2. Principios y Prácticas para el Diseño Accesible</h2>
+                    <p>El diseño accesible busca garantizar que todas las personas, independientemente de sus capacidades físicas, cognitivas o sensoriales, puedan utilizar productos digitales sin barreras. Para lograr esto, se han establecido principios que facilitan la creación de interfaces más inclusivas y usables.</p>
+
+                    <div class="highlight-box">
+                        <h4>Fundamento de los Principios</h4>
+                        <p>Los estándares internacionales, como <strong>WCAG (Web Content Accessibility Guidelines)</strong>, establecen cuatro principios fundamentales para la accesibilidad: <strong>Percepción, Operabilidad, Comprensibilidad y Robustez</strong>. Estos principios guían el desarrollo de interfaces accesibles para personas con discapacidades visuales, auditivas, motrices y cognitivas.</p>
+                    </div>
+
+                    <h3>2.1 Percepción: Garantizar que el contenido sea visible y comprensible para todos los usuarios</h3>
+                    <div class="design-principle-card">
+                        <h4><i class="bi bi-eye me-2"></i>Principio de Percepción</h4>
+                        <p>El principio de <strong>percepción</strong> establece que la información y los elementos de la interfaz deben presentarse de manera que todos los usuarios puedan percibirlos de manera efectiva. Esto incluye garantizar que el contenido visual, auditivo y textual sea accesible para personas con diferentes tipos de discapacidades.</p>
+                    </div>
+
+                    <h4>Buenas prácticas para mejorar la percepción</h4>
+
+                    <div class="best-practice-card">
+                        <h5>1. Alternativas textuales para contenido visual</h5>
+                        <p>Todas las imágenes deben incluir una descripción en el atributo alt:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;img</span> <span class="attribute">src</span>=<span class="string">"grafico.png"</span> <span class="attribute">alt</span>=<span class="string">"Gráfico que muestra el crecimiento de ventas del 25% en 2023"</span><span class="keyword">&gt;</span>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>2. Contraste de color suficiente</h5>
+                        <p>Usar combinaciones de colores que cumplan con los estándares WCAG:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-good">
+                                    <strong>✓ Correcto:</strong> Texto negro sobre fondo blanco (21:1)
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-bad">
+                                    <strong>✗ Incorrecto:</strong> Texto gris claro sobre fondo blanco (2.5:1)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>3. Subtítulos para contenido multimedia</h5>
+                        <p>Los videos deben incluir subtítulos y transcripciones:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;video</span> <span class="attribute">controls</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;source</span> <span class="attribute">src</span>=<span class="string">"video.mp4"</span> <span class="attribute">type</span>=<span class="string">"video/mp4"</span><span class="keyword">&gt;</span>
+    <span class="keyword">&lt;track</span> <span class="attribute">kind</span>=<span class="string">"subtitles"</span> <span class="attribute">src</span>=<span class="string">"subtitulos.vtt"</span> <span class="attribute">srclang</span>=<span class="string">"es"</span> <span class="attribute">label</span>=<span class="string">"Español"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;/video&gt;</span>
+                        </div>
+                    </div>
+
+                    <h3>2.2 Operabilidad: Asegurar que todos los usuarios puedan interactuar con la interfaz</h3>
+                    <div class="design-principle-card">
+                        <h4><i class="bi bi-hand-index me-2"></i>Principio de Operabilidad</h4>
+                        <p>La <strong>operabilidad</strong> garantiza que todos los usuarios puedan navegar y usar las funcionalidades de la interfaz, independientemente de sus capacidades motoras o el dispositivo que utilicen.</p>
+                    </div>
+
+                    <h4>Buenas prácticas para mejorar la operabilidad</h4>
+
+                    <div class="best-practice-card">
+                        <h5>1. Navegación accesible por teclado</h5>
+                        <p>Todos los elementos interactivos deben ser accesibles sin ratón:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;a</span> <span class="attribute">href</span>=<span class="string">"inicio.html"</span> <span class="attribute">tabindex</span>=<span class="string">"1"</span><span class="keyword">&gt;</span>Inicio<span class="keyword">&lt;/a&gt;</span>
+<span class="keyword">&lt;a</span> <span class="attribute">href</span>=<span class="string">"contacto.html"</span> <span class="attribute">tabindex</span>=<span class="string">"2"</span><span class="keyword">&gt;</span>Contacto<span class="keyword">&lt;/a&gt;</span>
+                        </div>
+                        <p class="mt-2"><small>El atributo tabindex define el orden de navegación con el teclado.</small></p>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>2. Evitar contenido con movimiento que no se pueda detener</h5>
+                        <p>Las animaciones deben ofrecer la opción de pausa para personas con sensibilidad al movimiento:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;button</span> <span class="attribute">onclick</span>=<span class="string">"pausarAnimacion()"</span><span class="keyword">&gt;</span>Detener Animación<span class="keyword">&lt;/button&gt;</span>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>3. Proporcionar tiempo suficiente para completar tareas</h5>
+                        <p>Los formularios deben permitir ampliar el tiempo límite si el usuario lo necesita:</p>
+                        <div class="code-example">
+<span class="comment">// Implementación de mensaje de advertencia de tiempo</span>
+<span class="keyword">setTimeout</span>(<span class="keyword">function</span>() {
+    <span class="keyword">alert</span>(<span class="string">"Su sesión expirará en 1 minuto. ¿Desea extender el tiempo?"</span>);
+}, <span class="string">600000</span>); <span class="comment">// 10 minutos</span>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>4. Evitar elementos que puedan provocar ataques epilépticos</h5>
+                        <ul>
+                            <li>No usar parpadeos rápidos en contenido visual</li>
+                            <li>Se recomienda una frecuencia inferior a <strong>3 destellos por segundo</strong></li>
+                        </ul>
+                    </div>
+
+                    <h3>2.3 Comprensibilidad: Hacer que la interfaz sea clara y fácil de entender</h3>
+                    <div class="design-principle-card">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Principio de Comprensibilidad</h4>
+                        <p>El principio de <strong>comprensibilidad</strong> establece que el contenido y la navegación deben ser predecibles y fáciles de entender para todos los usuarios, incluyendo aquellos con discapacidades cognitivas o dificultades de aprendizaje.</p>
+                    </div>
+
+                    <h4>Buenas prácticas para mejorar la comprensibilidad</h4>
+
+                    <div class="best-practice-card">
+                        <h5>1. Uso de lenguaje claro y simple</h5>
+                        <p>Evitar jergas técnicas o frases complejas:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-bad">
+                                    <strong>✗ Incorrecto:</strong> "Ingrese sus credenciales para proceder con la autenticación."
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-good">
+                                    <strong>✓ Correcto:</strong> "Ingrese su usuario y contraseña para iniciar sesión."
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>2. Navegación consistente y predecible</h5>
+                        <ul>
+                            <li>La estructura de la página debe ser coherente en todas las secciones</li>
+                            <li>Los menús deben ubicarse en el mismo lugar en todas las páginas</li>
+                        </ul>
+                    </div>
+
+                    <h3>2.4 Robustez: Garantizar compatibilidad con tecnologías asistivas y futuras actualizaciones</h3>
+                    <div class="design-principle-card">
+                        <h4><i class="bi bi-shield-check me-2"></i>Principio de Robustez</h4>
+                        <p>La <strong>robustez</strong> asegura que el contenido funcione con diferentes tecnologías y dispositivos, incluyendo lectores de pantalla y otras herramientas asistivas.</p>
+                    </div>
+
+                    <h4>Buenas prácticas para mejorar la robustez</h4>
+
+                    <div class="best-practice-card">
+                        <h5>1. Código HTML válido y semántico</h5>
+                        <p>Usar elementos HTML apropiados para su propósito:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;button</span> <span class="attribute">type</span>=<span class="string">"submit"</span><span class="keyword">&gt;</span>Enviar<span class="keyword">&lt;/button&gt;</span>
+<span class="keyword">&lt;nav&gt;</span>
+    <span class="keyword">&lt;ul&gt;</span>
+        <span class="keyword">&lt;li&gt;&lt;a</span> <span class="attribute">href</span>=<span class="string">"inicio.html"</span><span class="keyword">&gt;</span>Inicio<span class="keyword">&lt;/a&gt;&lt;/li&gt;</span>
+    <span class="keyword">&lt;/ul&gt;</span>
+<span class="keyword">&lt;/nav&gt;</span>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>2. Garantizar compatibilidad con lectores de pantalla</h5>
+                        <p>Utilizar role y atributos ARIA cuando sea necesario:</p>
+                        <div class="code-example">
+<span class="keyword">&lt;button</span> <span class="attribute">role</span>=<span class="string">"button"</span> <span class="attribute">aria-label</span>=<span class="string">"Enviar formulario"</span><span class="keyword">&gt;</span>Enviar<span class="keyword">&lt;/button&gt;</span>
+                        </div>
+                    </div>
+
+                    <div class="best-practice-card">
+                        <h5>3. Realizar pruebas de accesibilidad con herramientas especializadas</h5>
+                        <ul>
+                            <li><span class="tech-badge">Google Lighthouse</span> Evalúa accesibilidad y rendimiento web</li>
+                            <li><span class="tech-badge">NVDA</span> Lector de pantalla gratuito (NonVisual Desktop Access)</li>
+                            <li><span class="tech-badge">WAVE</span> Web Accessibility Evaluation Tool</li>
+                        </ul>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-check-circle-fill text-success me-2"></i>Conclusión de Principios</h4>
+                        <p>Garantizar la accesibilidad en el diseño digital requiere aplicar <strong>buenas prácticas en percepción, operabilidad, comprensibilidad y robustez</strong>. Seguir estos principios permite que todas las personas, incluidas aquellas con discapacidades, puedan acceder y utilizar interfaces de manera equitativa.</p>
+                        <p>Aplicar estas estrategias no solo <strong>cumple con regulaciones internacionales como WCAG y ARIA</strong>, sino que también mejora la experiencia general del usuario, haciéndola más intuitiva y eficiente.</p>
                     </div>
                 </div>
 
-                <!-- 1. Testing Methods -->
-                <section id="testing-methods" class="content-section">
-                    <h2><i class="bi bi-bug me-2"></i>1. Testing Methods y Evaluation</h2>
-                    
-                    <p>La <strong>evaluación de accesibilidad</strong> requiere múltiples métodos y perspectivas para identificar barriers y validar que las interfaces son truly accessible.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="testing-method-card">
-                                <h5><i class="bi bi-robot me-2"></i>Automated Testing</h5>
-                                
-                                <h6>Herramientas Automated</h6>
-                                <ul class="small">
-                                    <li><strong>axe-core:</strong> Open-source accessibility testing engine
-                                        <ul>
-                                            <li>Integrated con development tools</li>
-                                            <li>CI/CD pipeline integration</li>
-                                            <li>Detects 57% of accessibility issues</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>WAVE (Web Accessibility Evaluation Tool):</strong> Browser extension
-                                        <ul>
-                                            <li>Visual feedback on web page</li>
-                                            <li>Identifies errors y warnings</li>
-                                            <li>Provides improvement suggestions</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Lighthouse Accessibility Audit:</strong> Built into Chrome DevTools
-                                        <ul>
-                                            <li>Performance impact assessment</li>
-                                            <li>WCAG compliance checking</li>
-                                            <li>Automated scoring system</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Pa11y:</strong> Command-line accessibility testing
-                                        <ul>
-                                            <li>Continuous integration support</li>
-                                            <li>HTML_CodeSniffer integration</li>
-                                            <li>Custom rule configuration</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="alert alert-warning mt-3">
-                                    <h6><i class="bi bi-exclamation-triangle me-2"></i>Limitations</h6>
-                                    <ul class="small mb-0">
-                                        <li>Only catch ~30% of accessibility problems</li>
-                                        <li>Cannot evaluate user experience quality</li>
-                                        <li>Miss context-dependent issues</li>
-                                        <li>False positives for complex widgets</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="testing-method-card">
-                                <h5><i class="bi bi-people me-2"></i>Manual Testing</h5>
-                                
-                                <h6>Expert Review Methods</h6>
-                                <ul class="small">
-                                    <li><strong>Heuristic evaluation:</strong> Accessibility specialists review interface
-                                        <ul>
-                                            <li>Based en established principles</li>
-                                            <li>Cost-effective early detection</li>
-                                            <li>Identifies design patterns issues</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Cognitive walkthroughs:</strong> Step-by-step task analysis
-                                        <ul>
-                                            <li>Focus en user goals y actions</li>
-                                            <li>Identifies learning barriers</li>
-                                            <li>Evaluates discoverability</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Screen reader testing:</strong> Navigate using assistive technology
-                                        <ul>
-                                            <li>Test con NVDA, JAWS, VoiceOver</li>
-                                            <li>Evaluate semantic structure</li>
-                                            <li>Check reading flow y comprehension</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Keyboard navigation testing:</strong> No-mouse interaction
-                                        <ul>
-                                            <li>All functionality accessible via keyboard</li>
-                                            <li>Focus indicators visible</li>
-                                            <li>Logical tab order maintained</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="alert alert-info mt-3">
-                                    <h6><i class="bi bi-lightbulb me-2"></i>Testing Checklist</h6>
-                                    <ul class="small mb-0">
-                                        <li>Navigate entire site using only keyboard</li>
-                                        <li>Test con screen reader enabled</li>
-                                        <li>Check color contrast en different lighting</li>
-                                        <li>Verify content at 200% zoom level</li>
-                                        <li>Test con voice control software</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-3">
-                        <div class="col-md-12">
-                            <div class="testing-method-card">
-                                <h5><i class="bi bi-heart me-2"></i>User Testing con Personas con Discapacidades</h5>
-                                
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>Benefits de User Testing</h6>
-                                        <ul class="small">
-                                            <li><strong>Real-world validation:</strong> How users actually interact con interfaces</li>
-                                            <li><strong>Uncovered issues:</strong> Problems que automated tools miss</li>
-                                            <li><strong>User preferences:</strong> Individual adaptation strategies</li>
-                                            <li><strong>Emotional responses:</strong> Frustration, empowerment, satisfaction</li>
-                                            <li><strong>Efficiency metrics:</strong> Task completion time y success rates</li>
-                                            <li><strong>Learning curve:</strong> How quickly users adapt to interface</li>
-                                        </ul>
-                                    </div>
-                                    
-                                    <div class="col-md-6">
-                                        <h6>Testing Best Practices</h6>
-                                        <ul class="small">
-                                            <li><strong>Recruit diverse participants:</strong> Different disabilities, experience levels, assistive technologies</li>
-                                            <li><strong>Accessible testing environment:</strong> Comfortable space, familiar technology, adequate time</li>
-                                            <li><strong>Realistic tasks:</strong> Based en actual use cases y user goals</li>
-                                            <li><strong>Observer training:</strong> Understanding disability etiquette y assistive technology</li>
-                                            <li><strong>Flexible methodology:</strong> Adapt testing procedures to participant needs</li>
-                                            <li><strong>Compensation:</strong> Fair payment para participants' time y expertise</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="alert alert-success mt-3">
-                                    <h6><i class="bi bi-people-fill me-2"></i>Nothing About Us, Without Us</h6>
-                                    <p class="small mb-0">El principio fundamental de disability rights: involve people with disabilities en all stages of design y development. Their lived experience y expertise are invaluable para creating truly accessible solutions.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <!-- 3. Pautas Específicas -->
+                <div id="pautas-especificas" class="content-section">
+                    <h2><i class="bi bi-list-check me-2"></i>3. Pautas Específicas</h2>
+                    <p>Las pautas específicas para el diseño accesible son prácticas concretas que facilitan la aplicación de los principios de <strong>Percepción, Operabilidad, Comprensibilidad y Robustez</strong> definidos en las <strong>WCAG (Web Content Accessibility Guidelines)</strong>. Estas pautas aseguran que las interfaces digitales sean accesibles para usuarios con discapacidades visuales, auditivas, motrices y cognitivas.</p>
 
-                <!-- 2. Assistive Technologies -->
-                <section id="assistive-tech" class="content-section">
-                    <h2><i class="bi bi-tools me-2"></i>2. Assistive Technologies</h2>
-                    
-                    <p>Las <strong>tecnologías asistivas</strong> help people con disabilities interact con digital interfaces. Understanding how they work is crucial para designing compatible interfaces.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-volume-up me-2 text-primary"></i>Screen Readers</h6>
-                                
-                                <h6>Popular Screen Readers</h6>
-                                <ul class="small">
-                                    <li><strong>NVDA (NonVisual Desktop Access):</strong> Free, open-source, Windows
-                                        <ul>
-                                            <li>Most popular free option globally</li>
-                                            <li>Excellent web browsing support</li>
-                                            <li>Active development community</li>
-                                            <li>Supports multiple languages</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>JAWS (Job Access With Speech):</strong> Commercial, Windows
-                                        <ul>
-                                            <li>Most feature-rich screen reader</li>
-                                            <li>Excellent application support</li>
-                                            <li>Advanced customization options</li>
-                                            <li>Professional training available</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>VoiceOver:</strong> Built into macOS y iOS
-                                        <ul>
-                                            <li>Seamless Apple ecosystem integration</li>
-                                            <li>Gesture-based mobile navigation</li>
-                                            <li>High-quality voice synthesis</li>
-                                            <li>No additional cost para Apple users</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>TalkBack:</strong> Built into Android
-                                        <ul>
-                                            <li>Global Android accessibility</li>
-                                            <li>Touch exploration features</li>
-                                            <li>Integration con Google services</li>
-                                            <li>Continuous feature improvements</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="best-practice">
-                                    <h6><i class="bi bi-lightbulb me-2"></i>Design Considerations</h6>
-                                    <ul class="small mb-0">
-                                        <li>Semantic HTML structure (headings, lists, landmarks)</li>
-                                        <li>Meaningful alt text para images</li>
-                                        <li>Proper form labels y instructions</li>
-                                        <li>ARIA labels para complex widgets</li>
-                                        <li>Logical reading order y focus management</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <h3>3.1 Contraste de Color: Garantizar la legibilidad del contenido</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-palette me-2"></i>Importancia del Contraste</h4>
+                        <p>El <strong>contraste de color</strong> es esencial para personas con baja visión o daltonismo. La WCAG 2.1 recomienda una relación de contraste mínima de <strong>4.5:1</strong> para texto normal y <strong>3:1</strong> para texto grande (≥ 18px o 14px en negrita).</p>
                         
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-search me-2 text-info"></i>Screen Magnifiers</h6>
-                                
-                                <h6>Magnification Software</h6>
-                                <ul class="small">
-                                    <li><strong>ZoomText:</strong> Comprehensive magnification y reading
-                                        <ul>
-                                            <li>2x to 60x magnification levels</li>
-                                            <li>Enhanced cursor y focus tracking</li>
-                                            <li>Color enhancement y contrast adjustment</li>
-                                            <li>Text-to-speech capabilities</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>MAGic:</strong> Professional magnification solution
-                                        <ul>
-                                            <li>Multiple viewing modes (lens, docked, full screen)</li>
-                                            <li>Advanced tracking options</li>
-                                            <li>Integration con screen readers</li>
-                                            <li>Customizable appearance settings</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Built-in OS magnifiers:</strong> Windows Magnifier, macOS Zoom
-                                        <ul>
-                                            <li>No additional software required</li>
-                                            <li>System-wide magnification</li>
-                                            <li>Keyboard shortcuts y gesture control</li>
-                                            <li>Integration con system accessibility features</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="best-practice">
-                                    <h6><i class="bi bi-lightbulb me-2"></i>Design Considerations</h6>
-                                    <ul class="small mb-0">
-                                        <li>Scalable interfaces that work at high zoom levels</li>
-                                        <li>Maintain functionality when magnified</li>
-                                        <li>Clear visual hierarchy y spacing</li>
-                                        <li>High contrast color schemes</li>
-                                        <li>Avoid horizontal scrolling at 200% zoom</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-3">
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-hand-index me-2 text-warning"></i>Alternative Input Devices</h6>
-                                
-                                <h6>Input Accommodation Technologies</h6>
-                                <ul class="small">
-                                    <li><strong>Switch devices:</strong> Para users con limited mobility
-                                        <ul>
-                                            <li>Single-switch, dual-switch configurations</li>
-                                            <li>Sip-and-puff switches</li>
-                                            <li>Head switches y eye-gaze activation</li>
-                                            <li>Scanning interface navigation</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Voice control:</strong> Speech recognition interfaces
-                                        <ul>
-                                            <li>Dragon NaturallySpeaking para desktop</li>
-                                            <li>Voice Control en macOS/iOS</li>
-                                            <li>Voice Access para Android</li>
-                                            <li>Windows Speech Recognition</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Eye tracking:</strong> Gaze-based interaction
-                                        <ul>
-                                            <li>Tobii eye trackers</li>
-                                            <li>PCEye systems</li>
-                                            <li>Calibration y accuracy considerations</li>
-                                            <li>Fatigue management features</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Alternative keyboards:</strong> Adapted input methods
-                                        <ul>
-                                            <li>Large key keyboards</li>
-                                            <li>One-handed keyboards</li>
-                                            <li>On-screen keyboards</li>
-                                            <li>Sticky keys y filter keys</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="solution-highlight">
-                                    <h6><i class="bi bi-gear me-2"></i>Interface Adaptations</h6>
-                                    <ul class="small mb-0">
-                                        <li>Large click targets (minimum 44px)</li>
-                                        <li>Dwell time settings para hover activation</li>
-                                        <li>Voice command recognition</li>
-                                        <li>Switch scanning compatibility</li>
-                                        <li>Eye tracking calibration zones</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <h5>Buenas prácticas para mejorar el contraste</h5>
                         
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-translate me-2 text-success"></i>Communication Aids</h6>
-                                
-                                <h6>Augmentative y Alternative Communication (AAC)</h6>
-                                <ul class="small">
-                                    <li><strong>Symbol-based communication:</strong> Picture exchange systems
-                                        <ul>
-                                            <li>Proloquo2Go y similar apps</li>
-                                            <li>Boardmaker symbol libraries</li>
-                                            <li>PECS (Picture Exchange Communication)</li>
-                                            <li>Customizable symbol vocabularies</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Text-to-speech:</strong> Converting text to spoken words
-                                        <ul>
-                                            <li>Natural-sounding voices</li>
-                                            <li>Multiple language support</li>
-                                            <li>Speed y pitch adjustment</li>
-                                            <li>Pronunciation customization</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Word prediction:</strong> Faster text input
-                                        <ul>
-                                            <li>Context-aware suggestions</li>
-                                            <li>Learning user vocabulary</li>
-                                            <li>Abbreviation expansion</li>
-                                            <li>Grammar y syntax support</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="solution-highlight">
-                                    <h6><i class="bi bi-chat me-2"></i>Interface Support</h6>
-                                    <ul class="small mb-0">
-                                        <li>Clear, simple language</li>
-                                        <li>Symbol support donde appropriate</li>
-                                        <li>Text-to-speech integration</li>
-                                        <li>Predictive text features</li>
-                                        <li>Multiple communication modalities</li>
-                                    </ul>
-                                </div>
+                        <h6>1. Usar combinaciones de colores accesibles</h6>
+                        <div class="code-example">
+<span class="attribute">body</span> {
+    <span class="keyword">color</span>: <span class="string">#000000</span>; <span class="comment">/* Texto negro */</span>
+    <span class="keyword">background-color</span>: <span class="string">#FFFFFF</span>; <span class="comment">/* Fondo blanco */</span>
+}
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-bad">✗ Incorrecto: Texto gris claro sobre fondo blanco</div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="contrast-example contrast-good">✓ Correcto: Texto negro sobre fondo amarillo claro</div>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- 3. Legal Compliance -->
-                <section id="legal-compliance" class="content-section">
-                    <h2><i class="bi bi-gavel me-2"></i>3. Legal Compliance y Standards</h2>
-                    
-                    <p>La <strong>compliance legal</strong> con accessibility standards is mandatory en many jurisdictions y organizations. Understanding requirements helps avoid lawsuits y ensures inclusive access.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="legal-requirement">
-                                <h6><i class="bi bi-flag-usa me-2"></i>United States</h6>
-                                
-                                <h6>Americans with Disabilities Act (ADA)</h6>
-                                <ul class="small">
-                                    <li><strong>Title II:</strong> State y local government services
-                                        <ul>
-                                            <li>All public services must be accessible</li>
-                                            <li>Includes websites y digital services</li>
-                                            <li>WCAG 2.1 Level AA compliance expected</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Title III:</strong> Public accommodations
-                                        <ul>
-                                            <li>Retail, hospitality, healthcare, education</li>
-                                            <li>Growing number of web accessibility lawsuits</li>
-                                            <li>No specific technical standards, but WCAG widely accepted</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <h6>Section 508 (Federal Government)</h6>
-                                <ul class="small">
-                                    <li><strong>Scope:</strong> All federal agencies y contractors</li>
-                                    <li><strong>Standards:</strong> Based en WCAG 2.1 Level AA</li>
-                                    <li><strong>Procurement:</strong> Accessibility requirements en all technology purchases</li>
-                                    <li><strong>Testing:</strong> Required validation before deployment</li>
-                                </ul>
-                                
-                                <div class="alert alert-danger small">
-                                    <strong>Legal Risk:</strong> Web accessibility lawsuits increased by 320% between 2018-2022. Average settlement costs range from $10,000 to $75,000.
+                        <h6>2. Evitar usar solo color para transmitir información</h6>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="code-example">
+<span class="comment">&lt;!-- ✗ Incorrecto --&gt;</span>
+<span class="keyword">&lt;p&gt;</span>Error: Este campo es obligatorio.<span class="keyword">&lt;/p&gt;</span>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="legal-requirement">
-                                <h6><i class="bi bi-globe-europe-africa me-2"></i>International Standards</h6>
-                                
-                                <h6>European Union</h6>
-                                <ul class="small">
-                                    <li><strong>EN 301 549:</strong> European accessibility standard
-                                        <ul>
-                                            <li>Based en WCAG 2.1 Level AA</li>
-                                            <li>Applies to public sector websites y mobile apps</li>
-                                            <li>Includes additional mobile y software requirements</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Web Accessibility Directive:</strong> Public sector requirement
-                                        <ul>
-                                            <li>All public sector websites must comply</li>
-                                            <li>Regular monitoring y reporting required</li>
-                                            <li>Accessibility statements mandatory</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>European Accessibility Act:</strong> Private sector (2025)
-                                        <ul>
-                                            <li>E-commerce, banking, transport, telecommunications</li>
-                                            <li>Harmonized accessibility requirements across EU</li>
-                                            <li>Product y service accessibility obligations</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <h6>Other International</h6>
-                                <ul class="small">
-                                    <li><strong>AODA (Ontario, Canada):</strong> Accessibility for Ontarians with Disabilities Act</li>
-                                    <li><strong>DDA (Australia):</strong> Disability Discrimination Act</li>
-                                    <li><strong>JIS X 8341 (Japan):</strong> National accessibility guidelines</li>
-                                    <li><strong>IS 14508 (Ireland):</strong> Public sector accessibility</li>
-                                </ul>
-                                
-                                <div class="alert alert-info small">
-                                    <strong>Global Trend:</strong> More countries adopting mandatory accessibility standards. By 2025, an estimated 40+ countries will have web accessibility legislation.
+                            <div class="col-md-6">
+                                <div class="code-example">
+<span class="comment">&lt;!-- ✓ Correcto --&gt;</span>
+<span class="keyword">&lt;p&gt;</span>
+    <span class="keyword">&lt;i</span> <span class="attribute">class</span>=<span class="string">"bi bi-exclamation-triangle"</span><span class="keyword">&gt;&lt;/i&gt;</span>
+    Error: Este campo es obligatorio.
+<span class="keyword">&lt;/p&gt;</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </section>
 
-                <!-- 4. Implementation Strategies -->
-                <section id="implementation" class="content-section">
-                    <h2><i class="bi bi-gear-fill me-2"></i>4. Implementation Strategies</h2>
-                    
-                    <p>Successful <strong>accessibility implementation</strong> requires systematic approach, team coordination, y continuous improvement processes.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="best-practice">
-                                <h6><i class="bi bi-diagram-3 me-2 text-success"></i>Organizational Strategy</h6>
-                                
-                                <h6>Building Accessibility Culture</h6>
-                                <ul class="small">
-                                    <li><strong>Leadership commitment:</strong> Executive support y resource allocation</li>
-                                    <li><strong>Team training:</strong> Developers, designers, content creators, QA</li>
-                                    <li><strong>Policy development:</strong> Accessibility guidelines y standards</li>
-                                    <li><strong>Procurement requirements:</strong> Vendor accessibility evaluations</li>
-                                    <li><strong>Budget allocation:</strong> Dedicated resources para accessibility initiatives</li>
-                                </ul>
-                                
-                                <h6>Accessibility Team Structure</h6>
-                                <ul class="small">
-                                    <li><strong>Accessibility champion:</strong> Dedicated specialist or advocate</li>
-                                    <li><strong>Design review:</strong> Accessibility evaluation en design phase</li>
-                                    <li><strong>Development integration:</strong> Accessibility testing en dev workflow</li>
-                                    <li><strong>Content review:</strong> Plain language y multimedia accessibility</li>
-                                    <li><strong>User testing coordination:</strong> Regular testing con disabled users</li>
-                                </ul>
-                                
-                                <h6>Success Metrics</h6>
-                                <ul class="small">
-                                    <li><strong>WCAG compliance scores:</strong> Automated y manual testing results</li>
-                                    <li><strong>User satisfaction:</strong> Feedback from users con disabilities</li>
-                                    <li><strong>Task completion rates:</strong> Success metrics para assistive technology users</li>
-                                    <li><strong>Issue resolution time:</strong> Speed of accessibility bug fixes</li>
-                                    <li><strong>Legal compliance:</strong> Audit results y regulatory approval</li>
-                                </ul>
-                            </div>
-                        </div>
+                    <h3>3.2 Texto Alternativo para Imágenes: Hacer contenido visual accesible</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-image me-2"></i>Buenas prácticas para el uso de alt en imágenes</h4>
                         
-                        <div class="col-md-6">
-                            <div class="best-practice">
-                                <h6><i class="bi bi-arrow-repeat me-2 text-primary"></i>Development Workflow</h6>
-                                
-                                <h6>Shift-Left Approach</h6>
-                                <ul class="small">
-                                    <li><strong>Design phase:</strong> Accessibility considerations en wireframes y prototypes</li>
-                                    <li><strong>Development phase:</strong> Semantic HTML, ARIA implementation, keyboard support</li>
-                                    <li><strong>Testing phase:</strong> Automated tools, manual testing, assistive technology validation</li>
-                                    <li><strong>Deployment phase:</strong> Final accessibility audit before launch</li>
-                                    <li><strong>Maintenance phase:</strong> Ongoing monitoring y user feedback integration</li>
-                                </ul>
-                                
-                                <h6>Quality Assurance Process</h6>
-                                <ul class="small">
-                                    <li><strong>Automated testing:</strong> Integration con CI/CD pipelines</li>
-                                    <li><strong>Manual testing:</strong> Screen reader y keyboard navigation testing</li>
-                                    <li><strong>User acceptance testing:</strong> Testing con actual assistive technology users</li>
-                                    <li><strong>Regression testing:</strong> Ensure accessibility maintained through updates</li>
-                                    <li><strong>Performance testing:</strong> Assistive technology compatibility y speed</li>
-                                </ul>
-                                
-                                <h6>Documentation y Training</h6>
-                                <ul class="small">
-                                    <li><strong>Accessibility guidelines:</strong> Team-specific implementation guides</li>
-                                    <li><strong>Component library:</strong> Pre-tested accessible UI components</li>
-                                    <li><strong>Testing procedures:</strong> Step-by-step testing protocols</li>
-                                    <li><strong>User personas:</strong> Disability-inclusive user research</li>
-                                    <li><strong>Training materials:</strong> Regular accessibility education programs</li>
-                                </ul>
+                        <div class="best-practice-card">
+                            <h5>1. Imágenes informativas</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;img</span> <span class="attribute">src</span>=<span class="string">"grafico-ventas.png"</span> <span class="attribute">alt</span>=<span class="string">"Gráfico de barras que muestra un incremento del 30% en las ventas del primer trimestre de 2023"</span><span class="keyword">&gt;</span>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- 5. Quality Standards -->
-                <section id="quality-standards" class="content-section">
-                    <h2><i class="bi bi-award me-2"></i>5. Quality Standards y Certification</h2>
-                    
-                    <p>Los <strong>quality standards</strong> provide frameworks para measuring y improving accessibility, ensuring consistent experiences across different platforms y contexts.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="compliance-level level-basic">
-                                <h6><i class="bi bi-check-circle me-2"></i>WCAG Level A</h6>
-                                <p class="small">Basic accessibility compliance</p>
-                                
-                                <h6>Key Requirements</h6>
-                                <ul class="small">
-                                    <li>Text alternatives para images</li>
-                                    <li>Keyboard accessibility</li>
-                                    <li>No seizure-inducing content</li>
-                                    <li>Basic semantic structure</li>
-                                    <li>Form labels y instructions</li>
-                                </ul>
-                                
-                                <div class="alert alert-light small mt-2">
-                                    <strong>Impact:</strong> Addresses most critical barriers pero may not provide optimal user experience para assistive technology users.
-                                </div>
+                        <div class="best-practice-card">
+                            <h5>2. Imágenes decorativas</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;img</span> <span class="attribute">src</span>=<span class="string">"decoracion.png"</span> <span class="attribute">alt</span>=<span class="string">""</span><span class="keyword">&gt;</span> <span class="comment">&lt;!-- alt vacío para imágenes decorativas --&gt;</span>
                             </div>
                         </div>
-                        
-                        <div class="col-md-4">
-                            <div class="compliance-level level-enhanced">
-                                <h6><i class="bi bi-award me-2"></i>WCAG Level AA</h6>
-                                <p class="small">Standard compliance level (recommended)</p>
-                                
-                                <h6>Additional Requirements</h6>
-                                <ul class="small">
-                                    <li>Color contrast ratio 4.5:1 (normal text)</li>
-                                    <li>Color contrast ratio 3:1 (large text)</li>
-                                    <li>Captions para pre-recorded video</li>
-                                    <li>Resizable text up to 200%</li>
-                                    <li>Focus indicators</li>
-                                    <li>Multiple ways to find content</li>
-                                    <li>Error identification y suggestions</li>
-                                </ul>
-                                
-                                <div class="alert alert-warning small mt-2">
-                                    <strong>Impact:</strong> Provides good accessibility para most users. This is the target level para most organizations y legal requirements.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="compliance-level level-advanced">
-                                <h6><i class="bi bi-trophy me-2"></i>WCAG Level AAA</h6>
-                                <p class="small">Enhanced accessibility (specialized contexts)</p>
-                                
-                                <h6>Enhanced Requirements</h6>
-                                <ul class="small">
-                                    <li>Color contrast ratio 7:1 (normal text)</li>
-                                    <li>Color contrast ratio 4.5:1 (large text)</li>
-                                    <li>Sign language interpretation</li>
-                                    <li>Extended audio descriptions</li>
-                                    <li>Reading level: lower secondary education</li>
-                                    <li>Context-sensitive help</li>
-                                    <li>No timing requirements</li>
-                                </ul>
-                                
-                                <div class="alert alert-danger small mt-2">
-                                    <strong>Impact:</strong> Optimal accessibility pero often impractical para general websites. Recommended para specialized applications (healthcare, education, government services).
-                                </div>
+
+                        <div class="best-practice-card">
+                            <h5>3. Imágenes complejas</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;img</span> <span class="attribute">src</span>=<span class="string">"infografia.png"</span> <span class="attribute">alt</span>=<span class="string">"Infografía sobre accesibilidad web"</span> <span class="attribute">longdesc</span>=<span class="string">"descripcion-detallada.html"</span><span class="keyword">&gt;</span>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Certification y Audit Processes</h5>
-                            
+
+                    <h3>3.3 Navegación por Teclado: Acceso sin necesidad de ratón</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-keyboard me-2"></i>Buenas prácticas para una navegación accesible</h4>
+                        
+                        <div class="best-practice-card">
+                            <h5>1. Orden lógico de tabulación</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">tabindex</span>=<span class="string">"1"</span> <span class="attribute">placeholder</span>=<span class="string">"Nombre"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"email"</span> <span class="attribute">tabindex</span>=<span class="string">"2"</span> <span class="attribute">placeholder</span>=<span class="string">"Email"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;button</span> <span class="attribute">type</span>=<span class="string">"submit"</span> <span class="attribute">tabindex</span>=<span class="string">"3"</span><span class="keyword">&gt;</span>Enviar<span class="keyword">&lt;/button&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>2. Indicadores visuales de foco</h5>
+                            <div class="code-example">
+<span class="attribute">button:focus</span> {
+    <span class="keyword">outline</span>: <span class="string">3px solid #007bff</span>;
+    <span class="keyword">outline-offset</span>: <span class="string">2px</span>;
+}
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>3. Evitar atajos de teclado que interfieran con tecnologías asistivas</h5>
+                            <p>Si se usan atajos, permitir su personalización.</p>
+                        </div>
+                    </div>
+
+                    <h3>3.4 Controles de Formulario: Etiquetas y validaciones claras</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-form-field me-2"></i>Formularios Accesibles</h4>
+                        <p>Los formularios deben ser fáciles de completar y comprender. Las personas con <strong>discapacidades cognitivas o visuales</strong> necesitan instrucciones claras y etiquetas bien definidas.</p>
+                        
+                        <h5>Buenas prácticas en formularios accesibles</h5>
+                        
+                        <div class="best-practice-card">
+                            <h5>1. Usar etiquetas (label) correctamente asociadas</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;label</span> <span class="attribute">for</span>=<span class="string">"email"</span><span class="keyword">&gt;</span>Correo Electrónico:<span class="keyword">&lt;/label&gt;</span>
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"email"</span> <span class="attribute">id</span>=<span class="string">"email"</span> <span class="attribute">required</span><span class="keyword">&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>2. Incluir instrucciones claras y mensajes de error comprensibles</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"password"</span> <span class="attribute">id</span>=<span class="string">"clave"</span><span class="keyword">&gt;</span>
+<span class="keyword">&lt;small&gt;</span>Debe contener al menos 8 caracteres.<span class="keyword">&lt;/small&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>3. Evitar placeholder como única indicación</h5>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="barrier-identification">
-                                        <h6><i class="bi bi-clipboard-check me-2"></i>Third-Party Audits</h6>
-                                        
-                                        <h6>Professional Audit Services</h6>
-                                        <ul class="small">
-                                            <li><strong>Comprehensive evaluation:</strong> Expert accessibility consultants</li>
-                                            <li><strong>Legal compliance verification:</strong> Meets regulatory requirements</li>
-                                            <li><strong>User testing inclusion:</strong> Testing con people con disabilities</li>
-                                            <li><strong>Detailed reporting:</strong> Prioritized issues y remediation guidance</li>
-                                            <li><strong>Ongoing support:</strong> Implementation assistance y re-testing</li>
-                                        </ul>
-                                        
-                                        <h6>Audit Process</h6>
-                                        <ul class="small">
-                                            <li><strong>Scoping:</strong> Define pages, features, y user journeys to test</li>
-                                            <li><strong>Automated testing:</strong> Initial scan con accessibility tools</li>
-                                            <li><strong>Manual evaluation:</strong> Expert review using assistive technologies</li>
-                                            <li><strong>User testing:</strong> Real user validation con assistive technology</li>
-                                            <li><strong>Reporting:</strong> Detailed findings con remediation priorities</li>
-                                            <li><strong>Remediation support:</strong> Technical guidance para fixes</li>
-                                        </ul>
+                                    <div class="code-example">
+<span class="comment">&lt;!-- ✗ Incorrecto --&gt;</span>
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">placeholder</span>=<span class="string">"Escriba su nombre"</span><span class="keyword">&gt;</span>
                                     </div>
                                 </div>
-                                
                                 <div class="col-md-6">
-                                    <div class="solution-highlight">
-                                        <h6><i class="bi bi-shield-check me-2"></i>Accessibility Statements</h6>
-                                        
-                                        <h6>Required Components</h6>
-                                        <ul class="small">
-                                            <li><strong>Commitment statement:</strong> Organization's accessibility commitment</li>
-                                            <li><strong>Standards conformance:</strong> WCAG version y conformance level</li>
-                                            <li><strong>Testing information:</strong> How accessibility was evaluated</li>
-                                            <li><strong>Known limitations:</strong> Current accessibility barriers</li>
-                                            <li><strong>Contact information:</strong> How users can report accessibility issues</li>
-                                            <li><strong>Feedback mechanism:</strong> Process para addressing accessibility concerns</li>
-                                        </ul>
-                                        
-                                        <h6>Statement Benefits</h6>
-                                        <ul class="small">
-                                            <li><strong>Legal protection:</strong> Demonstrates good faith effort</li>
-                                            <li><strong>User confidence:</strong> Shows commitment to accessibility</li>
-                                            <li><strong>Feedback channel:</strong> Direct user input para improvements</li>
-                                            <li><strong>Accountability:</strong> Public commitment to accessibility goals</li>
-                                            <li><strong>Transparency:</strong> Honest communication about current state</li>
-                                        </ul>
-                                        
-                                        <div class="alert alert-success small mt-2">
-                                            <strong>Best Practice:</strong> Update accessibility statements regularly as improvements are made y new barriers are discovered.
-                                        </div>
+                                    <div class="code-example">
+<span class="comment">&lt;!-- ✓ Correcto --&gt;</span>
+<span class="keyword">&lt;label</span> <span class="attribute">for</span>=<span class="string">"nombre"</span><span class="keyword">&gt;</span>Nombre:<span class="keyword">&lt;/label&gt;</span>
+<span class="keyword">&lt;input</span> <span class="attribute">type</span>=<span class="string">"text"</span> <span class="attribute">id</span>=<span class="string">"nombre"</span><span class="keyword">&gt;</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- 6. Future of Accessibility -->
-                <section id="future-accessibility" class="content-section">
-                    <h2><i class="bi bi-rocket me-2"></i>6. Future of Accessibility</h2>
-                    
-                    <p>El <strong>future of accessibility</strong> is shaped by emerging technologies, changing demographics, y evolving understanding of disability y inclusion.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-robot me-2 text-primary"></i>AI-Powered Accessibility</h6>
-                                
-                                <h6>Machine Learning Applications</h6>
-                                <ul class="small">
-                                    <li><strong>Automatic alt text generation:</strong> Computer vision para image description
-                                        <ul>
-                                            <li>Context-aware descriptions</li>
-                                            <li>Real-time image analysis</li>
-                                            <li>Multi-language support</li>
-                                            <li>Emotional y cultural context recognition</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Real-time captioning:</strong> Speech recognition para live events
-                                        <ul>
-                                            <li>Multi-speaker identification</li>
-                                            <li>Technical vocabulary adaptation</li>
-                                            <li>Multiple language translation</li>
-                                            <li>Speaker emotion y tone indication</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Predictive interfaces:</strong> Anticipating user needs
-                                        <ul>
-                                            <li>Adaptive UI based en user behavior</li>
-                                            <li>Personalized accessibility settings</li>
-                                            <li>Proactive assistance y suggestions</li>
-                                            <li>Context-aware accessibility features</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Natural language processing:</strong> Simplified content generation
-                                        <ul>
-                                            <li>Plain language translation</li>
-                                            <li>Reading level assessment</li>
-                                            <li>Concept explanation generation</li>
-                                            <li>Multi-format content adaptation</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="alert alert-info small">
-                                    <strong>Promise:</strong> AI can automate many accessibility features, pero human oversight y testing remain essential para quality y cultural appropriateness.
-                                </div>
+                        <div class="best-practice-card">
+                            <h5>4. Proporcionar validaciones accesibles</h5>
+                            <div class="code-example">
+<span class="attribute">document</span>.<span class="keyword">getElementById</span>(<span class="string">"email"</span>).<span class="keyword">addEventListener</span>(<span class="string">"input"</span>, <span class="keyword">function</span>() {
+    <span class="keyword">if</span> (!<span class="attribute">this</span>.<span class="keyword">value</span>.<span class="keyword">includes</span>(<span class="string">"@"</span>)) {
+        <span class="attribute">this</span>.<span class="keyword">setCustomValidity</span>(<span class="string">"Ingrese un correo válido."</span>);
+    } <span class="keyword">else</span> {
+        <span class="attribute">this</span>.<span class="keyword">setCustomValidity</span>(<span class="string">""</span>);
+    }
+});
                             </div>
                         </div>
+                    </div>
+
+                    <h3>3.5 Respuesta a Eventos: Permitir múltiples formas de interacción</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-cursor me-2"></i>Eventos Accesibles</h4>
+                        <p>Para garantizar accesibilidad, los eventos de interacción deben funcionar con diferentes dispositivos de entrada, como <strong>ratón, teclado y pantallas táctiles</strong>.</p>
                         
-                        <div class="col-md-6">
-                            <div class="assistive-tech-showcase">
-                                <h6><i class="bi bi-globe me-2 text-success"></i>Emerging Paradigms</h6>
-                                
-                                <h6>Next-Generation Interfaces</h6>
-                                <ul class="small">
-                                    <li><strong>Brain-computer interfaces:</strong> Direct neural control
-                                        <ul>
-                                            <li>Thought-controlled navigation</li>
-                                            <li>Paralysis bypass technology</li>
-                                            <li>Cognitive load monitoring</li>
-                                            <li>Mental state adaptive interfaces</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Ambient computing:</strong> Invisible, pervasive accessibility
-                                        <ul>
-                                            <li>Environment-aware adaptations</li>
-                                            <li>Seamless cross-device experiences</li>
-                                            <li>Context-sensitive assistance</li>
-                                            <li>Preemptive accessibility features</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Haptic feedback evolution:</strong> Touch y force feedback
-                                        <ul>
-                                            <li>Ultrasound haptics en air</li>
-                                            <li>Texture simulation para touch screens</li>
-                                            <li>Spatial audio y 3D sound</li>
-                                            <li>Multi-sensory feedback systems</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Biometric adaptation:</strong> Physiological responsive interfaces
-                                        <ul>
-                                            <li>Stress level interface adjustments</li>
-                                            <li>Fatigue detection y adaptation</li>
-                                            <li>Attention tracking y focus assistance</li>
-                                            <li>Health condition responsive design</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="alert alert-warning small">
-                                    <strong>Challenge:</strong> Emerging technologies must be designed with accessibility from the beginning, not retrofitted later.
-                                </div>
+                        <h5>Buenas prácticas para eventos accesibles</h5>
+                        
+                        <div class="best-practice-card">
+                            <h5>1. No depender solo del evento click</h5>
+                            <div class="code-example">
+<span class="attribute">document</span>.<span class="keyword">getElementById</span>(<span class="string">"boton"</span>).<span class="keyword">addEventListener</span>(<span class="string">"keydown"</span>, <span class="keyword">function</span>(event) {
+    <span class="keyword">if</span> (event.<span class="attribute">key</span> === <span class="string">"Enter"</span>) {
+        <span class="keyword">alert</span>(<span class="string">"Botón activado con teclado."</span>);
+    }
+});
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Global Accessibility Movement</h5>
-                            
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="best-practice">
-                                        <h6><i class="bi bi-people-fill me-2 text-success"></i>Disability Rights Evolution</h6>
-                                        
-                                        <ul class="small">
-                                            <li><strong>Nothing About Us, Without Us:</strong> Disability community involvement en design</li>
-                                            <li><strong>Social model of disability:</strong> Focus en removing environmental barriers</li>
-                                            <li><strong>Intersectionality:</strong> Multiple identity considerations (race, gender, age, disability)</li>
-                                            <li><strong>Global South inclusion:</strong> Accessibility en resource-constrained contexts</li>
-                                            <li><strong>Indigenous perspectives:</strong> Cultural approaches to disability y inclusion</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="solution-highlight">
-                                        <h6><i class="bi bi-building me-2 text-info"></i>Corporate Responsibility</h6>
-                                        
-                                        <ul class="small">
-                                            <li><strong>ESG reporting:</strong> Environmental, Social, Governance metrics include accessibility</li>
-                                            <li><strong>Brand reputation:</strong> Accessibility as competitive advantage</li>
-                                            <li><strong>Employee inclusion:</strong> Accessible workplace technologies</li>
-                                            <li><strong>Supply chain requirements:</strong> Vendor accessibility standards</li>
-                                            <li><strong>Innovation incentives:</strong> Accessibility-driven innovation programs</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="barrier-identification">
-                                        <h6><i class="bi bi-mortarboard me-2 text-warning"></i>Education y Awareness</h6>
-                                        
-                                        <ul class="small">
-                                            <li><strong>Design education:</strong> Accessibility en curriculum</li>
-                                            <li><strong>Developer training:</strong> Technical implementation skills</li>
-                                            <li><strong>Manager awareness:</strong> Business case para accessibility</li>
-                                            <li><strong>User empathy:</strong> Disability simulation y experience</li>
-                                            <li><strong>Community engagement:</strong> Partnerships con disability organizations</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Summary and Conclusions -->
-                <section class="content-section">
-                    <h2><i class="bi bi-bookmark-check me-2"></i>Resumen y Conclusiones</h2>
-                    
+                        <div class="best-practice-card">
+                            <h5>2. Usar role="button" en elementos no estándar</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;div</span> <span class="attribute">role</span>=<span class="string">"button"</span> <span class="attribute">tabindex</span>=<span class="string">"0"</span> <span class="attribute">onclick</span>=<span class="string">"accion()"</span> <span class="attribute">onkeypress</span>=<span class="string">"accion()"</span><span class="keyword">&gt;</span>
+    Hacer clic
+<span class="keyword">&lt;/div&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>3. Permitir comandos de voz</h5>
+                            <p>Algunas aplicaciones pueden integrar <strong>Web Speech API</strong> para facilitar la navegación por voz.</p>
+                        </div>
+                    </div>
+
+                    <h3>3.6 Animaciones y Movimiento: Minimizar efectos adversos en usuarios sensibles</h3>
+                    <div class="guideline-card">
+                        <h4><i class="bi bi-play-circle me-2"></i>Animaciones Accesibles</h4>
+                        <p>Las animaciones pueden causar molestias a personas con <strong>trastornos vestibulares o epilepsia fotosensible</strong>. Es importante permitir que los usuarios <strong>desactiven efectos visuales innecesarios</strong>.</p>
+                        
+                        <h5>Buenas prácticas para animaciones accesibles</h5>
+                        
+                        <div class="best-practice-card">
+                            <h5>1. Respetar las preferencias de los usuarios (prefers-reduced-motion)</h5>
+                            <div class="code-example">
+<span class="keyword">@media</span> (prefers-reduced-motion: reduce) {
+    * {
+        <span class="attribute">animation</span>: <span class="string">none</span>;
+        <span class="attribute">transition</span>: <span class="string">none</span>;
+    }
+}
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>2. Evitar parpadeos y destellos rápidos</h5>
+                            <p>Nunca usar más de <strong>tres destellos por segundo</strong> en animaciones.</p>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>3. Proporcionar opciones para desactivar efectos visuales</h5>
+                            <div class="code-example">
+<span class="keyword">&lt;button</span> <span class="attribute">onclick</span>=<span class="string">"desactivarAnimaciones()"</span><span class="keyword">&gt;</span>
+    Desactivar animaciones
+<span class="keyword">&lt;/button&gt;</span>
+                            </div>
+                        </div>
+
+                        <div class="best-practice-card">
+                            <h5>4. Evitar desplazamiento automático de contenido</h5>
+                            <p>No utilizar carruseles que avancen sin control del usuario.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conclusión -->
+                <div id="conclusion" class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>Conclusión</h2>
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-star-fill text-warning me-2"></i>Impacto del Diseño Accesible</h4>
+                        <p>Implementar pautas específicas de accesibilidad garantiza que las interfaces sean utilizables por <strong>todas las personas</strong>, incluyendo aquellas con discapacidades visuales, motoras, auditivas y cognitivas.</p>
+                        <p>El diseño accesible no solo <strong>cumple con estándares legales y técnicos</strong>, sino que también mejora la experiencia de usuario para todos. Adoptar prácticas como <strong>uso correcto del color, navegación por teclado, formularios accesibles, múltiples métodos de interacción y control de animaciones</strong> permite desarrollar plataformas <strong>más inclusivas, eficientes y usables</strong>.</p>
+                        <p>Siguiendo estas recomendaciones, se puede garantizar que la tecnología sea verdaderamente accesible para <strong>todas las personas</strong>.</p>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="best-practice">
-                                <h6><i class="bi bi-check-circle me-2"></i>Key Takeaways</h6>
-                                
+                            <div class="technique-list">
+                                <h5>Puntos Clave Recordar:</h5>
                                 <ul>
-                                    <li><strong>Accessibility is essential:</strong> Not optional feature, sino fundamental requirement para inclusive design</li>
-                                    <li><strong>Legal necessity:</strong> Compliance prevents lawsuits y ensures equal access rights</li>
-                                    <li><strong>Business value:</strong> Larger market reach, better SEO, improved usability para everyone</li>
-                                    <li><strong>Technical feasibility:</strong> Modern web standards make accessibility implementation straightforward</li>
-                                    <li><strong>Continuous process:</strong> Accessibility requires ongoing attention, not one-time implementation</li>
+                                    <li>Contraste mínimo de 4.5:1 para texto normal</li>
+                                    <li>Texto alternativo descriptivo para imágenes</li>
+                                    <li>Navegación completa por teclado</li>
                                 </ul>
                             </div>
                         </div>
-                        
                         <div class="col-md-6">
-                            <div class="solution-highlight">
-                                <h6><i class="bi bi-lightbulb me-2"></i>Action Steps</h6>
-                                
-                                <ol>
-                                    <li><strong>Start con awareness:</strong> Educate team about accessibility importance y user needs</li>
-                                    <li><strong>Assess current state:</strong> Audit existing interfaces para accessibility barriers</li>
-                                    <li><strong>Set standards:</strong> Adopt WCAG 2.1 Level AA as minimum requirement</li>
-                                    <li><strong>Integrate into workflow:</strong> Build accessibility into design y development processes</li>
-                                    <li><strong>Test regularly:</strong> Combine automated tools, manual testing, y user feedback</li>
-                                    <li><strong>Measure progress:</strong> Track improvements y maintain compliance over time</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-success mt-4">
-                        <h5><i class="bi bi-heart me-2"></i>Final Thought</h5>
-                        <p class="mb-0">
-                            <strong>Accessibility is about human dignity y equal participation en digital society.</strong> 
-                            When we design con accessibility en mind, we create better experiences para everyone. 
-                            The goal is not compliance alone, pero empowerment y inclusion for all users, 
-                            regardless of their abilities or the technologies they use to interact con digital interfaces.
-                        </p>
-                    </div>
-                </section>
-
-                <!-- Series Completion -->
-                <div class="text-center mt-5">
-                    <div class="alert alert-success border-success">
-                        <h4><i class="bi bi-trophy me-2"></i>¡Serie HCI Completada!</h4>
-                        <p>Has completado todos los 12 temas de Human-Computer Interaction. 
-                        Ahora tienes una comprensión comprehensiva de:</p>
-                        
-                        <div class="row text-start">
-                            <div class="col-md-6">
-                                <ul class="small">
-                                    <li>Fundamentos teóricos de HCI</li>
-                                    <li>Historia y evolución de interfaces</li>
-                                    <li>Principios de usabilidad y UX</li>
-                                    <li>Diseño centrado en el usuario</li>
-                                    <li>Prototipado y testing</li>
-                                    <li>Multimedia en interfaces</li>
+                            <div class="technique-list">
+                                <h5>Herramientas de Validación:</h5>
+                                <ul>
+                                    <li><span class="tech-badge">WAVE</span> Web Accessibility Evaluator</li>
+                                    <li><span class="tech-badge">axe</span> Accessibility Testing</li>
+                                    <li><span class="tech-badge">Lighthouse</span> Google Accessibility Audit</li>
                                 </ul>
                             </div>
-                            <div class="col-md-6">
-                                <ul class="small">
-                                    <li>Estructuras web y navegación</li>
-                                    <li>Diseño responsive y ágil</li>
-                                    <li>Implementación web y móvil</li>
-                                    <li>Desarrollo Android e iOS</li>
-                                    <li>Tendencias avanzadas (AI, VR, IoT)</li>
-                                    <li>Accesibilidad y estándares de calidad</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-3">
-                            <a href="../../../quiz-spa/index.html" class="btn btn-success btn-lg me-3">
-                                <i class="bi bi-house me-2"></i>
-                                Volver al Índice
-                            </a>
-                            <a href="../../../quiz-spa/index.html" class="btn btn-outline-success btn-lg">
-                                <i class="bi bi-question-circle me-2"></i>
-                                Practicar con Quiz
-                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Navigation Between Topics -->
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <a href="tema12.html" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            Parte 1: Fundamentos
-                        </a>
-                    </div>
-                    <div class="col-4 text-center">
-                        <span class="text-muted">Parte 2 de 2 - Final</span>
-                    </div>
-                    <div class="col-4 text-end">
-                        <span class="text-success">
-                            <i class="bi bi-check-circle me-2"></i>
-                            Serie Completada
-                        </span>
+                <!-- Navigation -->
+                <div class="navigation-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <a href="tema12.html" class="nav-card d-inline-block">
+                                    <h4><i class="bi bi-arrow-left-circle me-2"></i>Volver a Parte 1</h4>
+                                    <p class="mb-0">Normas y Estándares de Accesibilidad</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci12" class="btn btn-success floating-quiz-btn" title="Quiz Tema 12">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-universal-access me-2"></i>
-                HCI Tema 12: Accesibilidad y Estándares - Parte 2 (Final)
-            </p>
-            <small class="text-muted">¡Serie HCI completa! - Material de estudio complementario</small>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                observer.observe(section);
-            });
-            
-            // Celebrate completion
-            setTimeout(() => {
-                const completionAlert = document.querySelector('.alert-success.border-success');
-                if (completionAlert) {
-                    completionAlert.style.animation = 'pulse 2s infinite';
-                }
-            }, 2000);
-        });
-    </script>
 </body>
 </html>

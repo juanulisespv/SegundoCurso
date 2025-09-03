@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 8: Diseño Responsivo y Ágil - Parte 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .container-fluid {
+            padding: 2rem 1rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .agile-card {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .agile-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .implementation-card {
+            background: linear-gradient(135deg, rgba(111, 66, 193, 0.1) 0%, rgba(111, 66, 193, 0.05) 100%);
+            border-left: 4px solid #6f42c1;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .implementation-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .framework-card {
+            background: linear-gradient(135deg, rgba(253, 126, 20, 0.1) 0%, rgba(253, 126, 20, 0.05) 100%);
+            border-left: 4px solid #fd7e14;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.05) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(108, 117, 125, 0.05) 100%);
+            border: 1px solid #6c757d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .navigation-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-card {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .nav-card.prev {
+            margin-right: auto;
+        }
+
+        .nav-card.next {
+            margin-left: auto;
+        }
+
+        .nav-card a {
+            display: block;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-card a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: static;
+                margin: 1rem 0;
+            }
+            
+            .navigation-cards {
+                flex-direction: column;
+            }
+            
+            .nav-card.prev,
+            .nav-card.next {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Temas HCI
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html"><strong>Tema 8: Diseño Responsivo</strong></a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web y Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Cuestionarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list-ul me-2"></i>Contenido - Parte 2</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema8.html">← Parte 1: Principios Responsivos</a>
+                        <a class="nav-link" href="#metodologias-agiles">2. Metodologías Ágiles en Diseño</a>
+                        <a class="nav-link" href="#iteracion-rapida" style="padding-left: 1.5rem;">2.1. Iteración Rápida</a>
+                        <a class="nav-link" href="#colaboracion" style="padding-left: 1.5rem;">2.2. Colaboración</a>
+                        <a class="nav-link" href="#flexibilidad" style="padding-left: 1.5rem;">2.3. Flexibilidad</a>
+                        <a class="nav-link" href="#scrum-sprints" style="padding-left: 1.5rem;">2.4. Scrum y Sprints</a>
+                        <a class="nav-link" href="#testing-usabilidad" style="padding-left: 1.5rem;">2.5. Testing de Usabilidad</a>
+                        <a class="nav-link" href="#implementacion">3. Estrategias de Implementación</a>
+                        <a class="nav-link" href="#evaluacion-dispositivos" style="padding-left: 1.5rem;">3.1. Evaluación de Dispositivos</a>
+                        <a class="nav-link" href="#frameworks" style="padding-left: 1.5rem;">3.2. Frameworks</a>
+                        <a class="nav-link" href="#prototipado-rapido" style="padding-left: 1.5rem;">3.3. Prototipado Rápido</a>
+                        <a class="nav-link" href="#optimizacion-continua" style="padding-left: 1.5rem;">3.4. Optimización Continua</a>
+                        <a class="nav-link" href="#integracion-frontend" style="padding-left: 1.5rem;">3.5. Integración Frontend</a>
+                        <a class="nav-link" href="#casos-practicos">Casos Prácticos</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Metodologías Ágiles -->
+                <section id="metodologias-agiles" class="content-section">
+                    <h1><i class="bi bi-diagram-3 me-2"></i>2. Metodologías Ágiles en el Diseño de Interfaces</h1>
+                    
+                    <p class="lead">Las <strong>metodologías ágiles</strong> han revolucionado el desarrollo de software y, por extensión, el diseño de interfaces. Estas metodologías promueven un enfoque <strong>iterativo, colaborativo y flexible</strong> que se adapta perfectamente a las necesidades del diseño responsivo moderno.</p>
+
+                    <div class="definition-box">
+                        <h4><i class="bi bi-lightning me-2"></i>Agilidad en el Diseño</h4>
+                        <p>La aplicación de principios ágiles al diseño de interfaces permite <strong>responder rápidamente a cambios en los requisitos</strong>, incorporar feedback continuo de los usuarios y entregar valor de manera incremental a través de iteraciones cortas y enfocadas.</p>
+                    </div>
+
+                    <p>En el contexto del diseño responsivo, las metodologías ágiles son especialmente valiosas porque permiten <strong>probar y ajustar interfaces</strong> en múltiples dispositivos de manera continua, asegurando que la experiencia del usuario se optimice constantemente.</p>
+                </section>
+
+                <!-- Iteración Rápida -->
+                <section id="iteracion-rapida" class="content-section">
+                    <h2><i class="bi bi-arrow-repeat me-2"></i>2.1. Iteración Rápida y Desarrollo Incremental</h2>
+                    
+                    <p>La <strong>iteración rápida</strong> es uno de los pilares fundamentales de las metodologías ágiles aplicadas al diseño de interfaces. En lugar de desarrollar la interfaz completa antes de mostrarla a los usuarios, se crean <strong>versiones funcionales incrementales</strong> que se pueden probar y mejorar continuamente.</p>
+
+                    <h3>Características de la Iteración Rápida</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-clock me-2"></i>Ciclos Cortos</h4>
+                                <p>Sprints de 1-4 semanas que incluyen diseño, desarrollo y testing</p>
+                                <ul>
+                                    <li>Definición clara de objetivos por sprint</li>
+                                    <li>Entregables concretos al final de cada ciclo</li>
+                                    <li>Revisión y retrospectiva constante</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-chat-dots me-2"></i>Feedback Temprano</h4>
+                                <p>Recolección de comentarios desde las primeras versiones funcionales</p>
+                                <ul>
+                                    <li>Testing con usuarios reales desde etapas tempranas</li>
+                                    <li>Ajustes basados en datos de uso real</li>
+                                    <li>Validación de conceptos antes de inversión mayor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Colaboración -->
+                <section id="colaboracion" class="content-section">
+                    <h2><i class="bi bi-people me-2"></i>2.2. Colaboración entre Diseñadores y Desarrolladores</h2>
+                    
+                    <p>El <strong>trabajo colaborativo</strong> entre equipos multidisciplinarios es esencial en el diseño ágil. Los diseñadores de interfaces deben trabajar estrechamente con desarrolladores, especialistas en UX, y stakeholders para crear soluciones que sean tanto <strong>técnicamente viables como centradas en el usuario</strong>.</p>
+
+                    <h3>Prácticas de Colaboración Efectiva</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-calendar-check me-2"></i>Reuniones Diarias</h4>
+                                <p>Daily standups para sincronizar el trabajo y resolver bloqueos rápidamente</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-share me-2"></i>Herramientas Compartidas</h4>
+                                <p>Uso de herramientas colaborativas como Figma, Miro, y repositorios compartidos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-megaphone me-2"></i>Comunicación Constante</h4>
+                                <p>Canales abiertos de comunicación para resolver dudas y tomar decisiones rápidas</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flexibilidad -->
+                <section id="flexibilidad" class="content-section">
+                    <h2><i class="bi bi-shuffle me-2"></i>2.3. Flexibilidad y Priorización Dinámica</h2>
+                    
+                    <p>Las metodologías ágiles permiten <strong>adaptarse a cambios</strong> en los requisitos del proyecto sin comprometer los plazos ni la calidad. En el diseño de interfaces, esto se traduce en la capacidad de <strong>repriorizar características, modificar flujos de usuario y ajustar el diseño</strong> basándose en nueva información o feedback.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-list-ol me-2"></i>Product Backlog Dinámico</h4>
+                                <p>Lista priorizada de características que puede modificarse según necesidades cambiantes</p>
+                                <ul>
+                                    <li>Priorización basada en valor para el usuario</li>
+                                    <li>Reevaluación continua de requisitos</li>
+                                    <li>Flexibilidad para incorporar nuevas funcionalidades</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-speedometer me-2"></i>Respuesta a Cambios</h4>
+                                <p>Capacidad de pivotear rápidamente cuando los datos indican una dirección diferente</p>
+                                <ul>
+                                    <li>Análisis continuo de métricas de uso</li>
+                                    <li>Adaptación a feedback de stakeholders</li>
+                                    <li>Incorporación de tendencias del mercado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scrum y Sprints -->
+                <section id="scrum-sprints" class="content-section">
+                    <h2><i class="bi bi-diagram-2 me-2"></i>2.4. Scrum y Sprints de Diseño</h2>
+                    
+                    <p><strong>Scrum</strong> es una de las metodologías ágiles más populares y efectivas para el desarrollo de productos digitales. En el contexto del diseño de interfaces, los <strong>sprints de diseño</strong> permiten crear y validar prototipos de manera estructurada y eficiente.</p>
+
+                    <h3>Estructura de un Sprint de Diseño</h3>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-play-circle me-2"></i>Sprint Planning</h4>
+                                <p>Definir objetivos y alcance del sprint (1-4 semanas)</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-pencil me-2"></i>Daily Design Sync</h4>
+                                <p>Revisiones diarias del progreso y resolución de bloqueos</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-eye me-2"></i>Sprint Review</h4>
+                                <p>Presentación y validación de prototipos con stakeholders</p>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-arrow-clockwise me-2"></i>Retrospectiva</h4>
+                                <p>Evaluación del proceso y identificación de mejoras</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-target me-2"></i>Design Sprint de Google</h4>
+                        <p>Google ha popularizado el concepto de <strong>Design Sprint</strong>, un proceso de 5 días que incluye: Comprender → Idear → Decidir → Prototipar → Validar. Este enfoque es especialmente efectivo para resolver problemas complejos de diseño de interfaces de manera rápida y colaborativa.</p>
+                    </div>
+                </section>
+
+                <!-- Testing de Usabilidad -->
+                <section id="testing-usabilidad" class="content-section">
+                    <h2><i class="bi bi-search me-2"></i>2.5. Testing Continuo de Usabilidad</h2>
+                    
+                    <p>En el marco de las metodologías ágiles, el <strong>testing de usabilidad</strong> no es una actividad que se realiza solo al final del proyecto, sino un proceso <strong>continuo e integrado</strong> en cada sprint. Esto permite identificar y corregir problemas de manera temprana y económica.</p>
+
+                    <h3>Tipos de Testing Ágil</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-stopwatch me-2"></i>Testing Rápido</h4>
+                                <p>Sesiones cortas de testing (15-30 minutos) con prototipos de baja fidelidad</p>
+                                <ul>
+                                    <li>Guerrilla testing en espacios públicos</li>
+                                    <li>Remote testing con herramientas online</li>
+                                    <li>A/B testing continuo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="agile-card">
+                                <h4><i class="bi bi-graph-up me-2"></i>Métricas en Tiempo Real</h4>
+                                <p>Monitoreo constante del comportamiento del usuario</p>
+                                <ul>
+                                    <li>Analytics de uso y patrones de navegación</li>
+                                    <li>Heatmaps y grabaciones de sesiones</li>
+                                    <li>Feedback directo a través de encuestas cortas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Estrategias de Implementación -->
+                <section id="implementacion" class="content-section">
+                    <h1><i class="bi bi-gear me-2"></i>3. Estrategias de Implementación</h1>
+                    
+                    <p class="lead">La implementación exitosa del diseño responsivo requiere una combinación de <strong>estrategias técnicas, herramientas especializadas y procesos bien definidos</strong>. Desde la evaluación inicial de dispositivos hasta la integración final con el frontend, cada paso debe ser cuidadosamente planificado para garantizar una experiencia de usuario óptima.</p>
+                </section>
+
+                <!-- Evaluación de Dispositivos -->
+                <section id="evaluacion-dispositivos" class="content-section">
+                    <h2><i class="bi bi-devices me-2"></i>3.1. Evaluación y Testing en Múltiples Dispositivos</h2>
+                    
+                    <p>Antes de implementar cualquier diseño responsivo, es crucial realizar una <strong>evaluación exhaustiva de los dispositivos objetivo</strong>. Esto incluye no solo el análisis de tamaños de pantalla, sino también capacidades de procesamiento, velocidades de conexión y patrones de uso específicos.</p>
+
+                    <h3>Proceso de Evaluación</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-bar-chart me-2"></i>Análisis de Audiencia</h4>
+                                <p>Identificación de dispositivos más utilizados por la audiencia objetivo</p>
+                                <ul>
+                                    <li>Google Analytics para datos de dispositivos</li>
+                                    <li>Estudios de mercado específicos</li>
+                                    <li>Patrones de uso por demografía</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-phone-landscape me-2"></i>Testing de Dispositivos</h4>
+                                <p>Pruebas sistemáticas en dispositivos físicos y emuladores</p>
+                                <ul>
+                                    <li>Testing en dispositivos reales</li>
+                                    <li>Herramientas de emulación (BrowserStack, Sauce Labs)</li>
+                                    <li>Testing de rendimiento específico por dispositivo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-list-check me-2"></i>Validación Continua</h4>
+                                <p>Monitoreo constante del rendimiento en diferentes entornos</p>
+                                <ul>
+                                    <li>Métricas de carga por dispositivo</li>
+                                    <li>Análisis de abandono por plataforma</li>
+                                    <li>Feedback específico por tipo de dispositivo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Frameworks -->
+                <section id="frameworks" class="content-section">
+                    <h2><i class="bi bi-building me-2"></i>3.2. Frameworks y Librerías: Bootstrap, Tailwind CSS</h2>
+                    
+                    <p>Los <strong>frameworks de CSS</strong> proporcionan una base sólida para el desarrollo responsivo, ofreciendo sistemas de rejillas preconfigurados, componentes reutilizables y utilidades que aceleran significativamente el proceso de desarrollo.</p>
+
+                    <h3>Principales Frameworks</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-bootstrap me-2"></i>Bootstrap</h4>
+                                <p>Framework maduro con sistema de rejillas robusto y componentes predefinidos</p>
+                                <ul>
+                                    <li>Sistema de 12 columnas flexible</li>
+                                    <li>Componentes UI listos para usar</li>
+                                    <li>Excelente documentación y comunidad</li>
+                                    <li>Breakpoints predefinidos estándar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-wind me-2"></i>Tailwind CSS</h4>
+                                <p>Framework utility-first que ofrece máxima flexibilidad y personalización</p>
+                                <ul>
+                                    <li>Clases de utilidad atómicas</li>
+                                    <li>Customización completa del diseño</li>
+                                    <li>Optimización automática del CSS</li>
+                                    <li>Enfoque mobile-first nativo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4><i class="bi bi-code-slash me-2"></i>Comparación de Enfoques</h4>
+                        <p><strong>Bootstrap:</strong> Ideal para proyectos que requieren desarrollo rápido con componentes estándar.</p>
+                        <p><strong>Tailwind CSS:</strong> Perfecto para diseños únicos que requieren control granular sobre cada aspecto visual.</p>
+                    </div>
+                </section>
+
+                <!-- Prototipado Rápido -->
+                <section id="prototipado-rapido" class="content-section">
+                    <h2><i class="bi bi-box me-2"></i>3.3. Prototipado Rápido para Validación</h2>
+                    
+                    <p>El <strong>prototipado rápido</strong> es una técnica fundamental en el desarrollo ágil que permite crear <strong>versiones funcionales tempranas</strong> de la interfaz para validar conceptos, flujos de usuario y diseños responsivos antes de invertir en desarrollo completo.</p>
+
+                    <h3>Niveles de Prototipado</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-pencil me-2"></i>Baja Fidelidad</h4>
+                                <p>Wireframes y bocetos para validar estructura y flujo</p>
+                                <ul>
+                                    <li>Sketch rápido de layouts</li>
+                                    <li>Validación de arquitectura de información</li>
+                                    <li>Testing de conceptos básicos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-palette me-2"></i>Media Fidelidad</h4>
+                                <p>Prototipos interactivos con elementos visuales básicos</p>
+                                <ul>
+                                    <li>Interacciones funcionales</li>
+                                    <li>Testing de usabilidad</li>
+                                    <li>Validación de flujos completos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-gem me-2"></i>Alta Fidelidad</h4>
+                                <p>Prototipos que simulan la experiencia final del producto</p>
+                                <ul>
+                                    <li>Diseño visual completo</li>
+                                    <li>Micro-interacciones y animaciones</li>
+                                    <li>Testing de performance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Optimización Continua -->
+                <section id="optimizacion-continua" class="content-section">
+                    <h2><i class="bi bi-arrow-up-circle me-2"></i>3.4. Optimización Continua y Monitoreo</h2>
+                    
+                    <p>La <strong>optimización continua</strong> es un proceso que nunca termina en el diseño ágil. A través del <strong>monitoreo constante del rendimiento, análisis de métricas de usuario y testing A/B</strong>, se pueden identificar oportunidades de mejora y implementar cambios incrementales.</p>
+
+                    <h3>Herramientas y Métricas</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-graph-up me-2"></i>Análisis de Rendimiento</h4>
+                                <p>Monitoreo continuo de métricas clave de rendimiento</p>
+                                <ul>
+                                    <li>Google PageSpeed Insights</li>
+                                    <li>Lighthouse para auditorías automáticas</li>
+                                    <li>WebPageTest para análisis detallado</li>
+                                    <li>Core Web Vitals de Google</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-person-check me-2"></i>Experiencia de Usuario</h4>
+                                <p>Medición de la satisfacción y comportamiento del usuario</p>
+                                <ul>
+                                    <li>Hotjar para heatmaps y grabaciones</li>
+                                    <li>Google Analytics para patrones de uso</li>
+                                    <li>Encuestas de satisfacción (NPS, CSAT)</li>
+                                    <li>Testing A/B con Optimizely o Google Optimize</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integración Frontend -->
+                <section id="integracion-frontend" class="content-section">
+                    <h2><i class="bi bi-code-square me-2"></i>3.5. Integración con Desarrollo Frontend</h2>
+                    
+                    <p>La <strong>integración efectiva</strong> entre el diseño responsivo y el desarrollo frontend es crucial para el éxito del proyecto. Esto requiere una <strong>comunicación fluida entre diseñadores y desarrolladores</strong>, así como el uso de herramientas y procesos que faciliten la traducción del diseño a código funcional.</p>
+
+                    <h3>Mejores Prácticas de Integración</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-diagram-3 me-2"></i>Design Systems</h4>
+                                <p>Sistemas de diseño coherentes que facilitan la implementación</p>
+                                <ul>
+                                    <li>Tokens de diseño (colores, tipografías, espaciados)</li>
+                                    <li>Biblioteca de componentes reutilizables</li>
+                                    <li>Documentación técnica detallada</li>
+                                    <li>Herramientas como Storybook para desarrollo</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="implementation-card">
+                                <h4><i class="bi bi-git me-2"></i>Flujo de Trabajo</h4>
+                                <p>Procesos que aseguran calidad y consistencia</p>
+                                <ul>
+                                    <li>Handoff detallado con especificaciones técnicas</li>
+                                    <li>Revisiones de código con criterios de UX</li>
+                                    <li>Testing cross-browser automatizado</li>
+                                    <li>Deployment continuo con validación de QA</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-tools me-2"></i>Herramientas de Colaboración</h4>
+                        <p>Herramientas como <strong>Figma Dev Mode, Zeplin, Avocode</strong> facilitan la transición del diseño al código, proporcionando especificaciones automáticas, extracción de assets y código CSS generado automáticamente.</p>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section id="casos-practicos" class="content-section">
+                    <h1><i class="bi bi-journal-text me-2"></i>Casos Prácticos</h1>
+                    
+                    <!-- Caso 1 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-newspaper me-2"></i>Caso 1: Rediseño Responsivo de un Sitio Web de Noticias</h3>
+                        
+                        <h4>Situación Inicial</h4>
+                        <p>Un periódico digital con alto tráfico móvil (65% de las visitas desde dispositivos móviles) experimentaba una <strong>alta tasa de abandono</strong> (75% bounce rate en móviles) debido a una interfaz no optimizada para pantallas pequeñas.</p>
+
+                        <h4>Problemas Identificados</h4>
+                        <ul>
+                            <li><strong>Texto ilegible:</strong> Fuentes demasiado pequeñas en dispositivos móviles</li>
+                            <li><strong>Navegación compleja:</strong> Menús no adaptados para pantallas táctiles</li>
+                            <li><strong>Carga lenta:</strong> Imágenes de alta resolución sin optimización</li>
+                            <li><strong>Layout roto:</strong> Elementos que se superponían en pantallas pequeñas</li>
+                        </ul>
+
+                        <h4>Solución Implementada</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="responsive-card">
+                                    <h5><i class="bi bi-phone me-2"></i>Enfoque Mobile-First</h5>
+                                    <ul>
+                                        <li>Diseño inicial para pantallas de 320px</li>
+                                        <li>Progressive enhancement para pantallas mayores</li>
+                                        <li>Tipografía escalable con unidades relativas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="responsive-card">
+                                    <h5><i class="bi bi-menu-button-wide me-2"></i>Navegación Adaptativa</h5>
+                                    <ul>
+                                        <li>Menú hamburguesa para móviles</li>
+                                        <li>Navegación por categorías simplificada</li>
+                                        <li>Búsqueda prominente y funcional</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Resultados Obtenidos</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Reducción del 45% en bounce rate</strong> en dispositivos móviles</li>
+                                <li><strong>Aumento del 60% en tiempo promedio</strong> de sesión</li>
+                                <li><strong>Mejora del 35% en velocidad de carga</strong> gracias a optimización de imágenes</li>
+                                <li><strong>Incremento del 25% en páginas vistas</strong> por sesión</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Caso 2 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-kanban me-2"></i>Caso 2: Aplicación Web para Gestión de Proyectos con Metodología Ágil</h3>
+                        
+                        <h4>Contexto del Proyecto</h4>
+                        <p>Desarrollo de una aplicación web para gestión de proyectos destinada a equipos remotos, con la necesidad de funcionar eficientemente en <strong>laptops, tablets y smartphones</strong> para permitir trabajo desde cualquier ubicación.</p>
+
+                        <h4>Implementación de Metodología Ágil</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="agile-card">
+                                    <h5><i class="bi bi-calendar3 me-2"></i>Sprint Planning</h5>
+                                    <p>Sprints de 2 semanas con objetivos específicos</p>
+                                    <ul>
+                                        <li>Sprint 1-2: Arquitectura responsiva básica</li>
+                                        <li>Sprint 3-4: Funcionalidades core para móvil</li>
+                                        <li>Sprint 5-6: Optimización y testing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="agile-card">
+                                    <h5><i class="bi bi-people me-2"></i>Equipo Multidisciplinario</h5>
+                                    <p>Colaboración continua entre roles especializados</p>
+                                    <ul>
+                                        <li>UX Designer: Investigación y wireframes</li>
+                                        <li>UI Designer: Diseño visual responsivo</li>
+                                        <li>Frontend Developer: Implementación técnica</li>
+                                        <li>QA: Testing en múltiples dispositivos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="agile-card">
+                                    <h5><i class="bi bi-graph-up me-2"></i>Validación Continua</h5>
+                                    <p>Testing y mejora iterativa basada en feedback</p>
+                                    <ul>
+                                        <li>Testing semanal con usuarios beta</li>
+                                        <li>Análisis de métricas de uso</li>
+                                        <li>Ajustes basados en datos reales</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Características Responsivas Implementadas</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="implementation-card">
+                                    <h5><i class="bi bi-layout-three-columns me-2"></i>Layout Adaptativo</h5>
+                                    <ul>
+                                        <li>Dashboard de 3 columnas en desktop</li>
+                                        <li>Layout apilado en tablets</li>
+                                        <li>Navegación por tabs en móviles</li>
+                                        <li>Sidebar colapsable dinámico</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="implementation-card">
+                                    <h5><i class="bi bi-hand-index me-2"></i>Interacciones Táctiles</h5>
+                                    <ul>
+                                        <li>Gestos swipe para navegación móvil</li>
+                                        <li>Botones de tamaño mínimo 44px</li>
+                                        <li>Drag & drop adaptado para touch</li>
+                                        <li>Feedback visual inmediato</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Resultados del Enfoque Ágil</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Time-to-market reducido en 40%</strong> comparado con desarrollo waterfall</li>
+                                <li><strong>Satisfacción del usuario de 4.6/5</strong> en todas las plataformas</li>
+                                <li><strong>Adopción móvil del 78%</strong> entre los usuarios activos</li>
+                                <li><strong>Reducción del 50% en bugs reportados</strong> gracias al testing continuo</li>
+                                <li><strong>Flexibilidad para incorporar 12 nuevas características</strong> solicitadas durante el desarrollo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="navigation-cards">
+                    <div class="nav-card prev">
+                        <a href="tema8.html">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            <div><strong>Tema 8 - Parte 1</strong></div>
+                            <div>Principios Responsivos</div>
+                        </a>
+                    </div>
+                    <div class="nav-card next">
+                        <a href="tema9.html">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            <div><strong>Tema 9</strong></div>
+                            <div>Implementación Web y Móvil</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

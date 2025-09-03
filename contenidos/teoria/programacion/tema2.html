@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 2: Metodologías y Principios de Desarrollo | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .methodology-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .validation-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .code-example {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 1px solid #2196f3;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .warning-box {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
+            border: 1px solid #ff9800;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .scrum-ceremony {
+            background: #e8f5e8;
+            border: 1px solid #198754;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .waterfall-stage {
+            background: #f5f5f5;
+            border: 1px solid #999;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        
+        .comparison-table {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .validation-tool {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            height: 100%;
+        }
+        
+        .floating-quiz-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        
+        .nav-link {
+            color: #198754;
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            background-color: #198754;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item active" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">
+                        <i class="bi bi-gear-wide-connected me-3"></i>
+                        Metodologías y Principios de Desarrollo
+                    </h1>
+                    <p class="lead mb-4">Metodologías Ágiles • Scrum • Waterfall • Validación Temprana</p>
+                    <div class="row justify-content-center">
+                        <div class="col-auto">
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-book me-1"></i>Tema 2
+                            </span>
+                            <span class="badge bg-light text-dark fs-6 me-2">
+                                <i class="bi bi-clock me-1"></i>45 min lectura
+                            </span>
+                            <span class="badge bg-light text-dark fs-6">
+                                <i class="bi bi-lightning me-1"></i>Metodologías
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h6 class="mb-0">
+                                <i class="bi bi-list me-2"></i>Contenido del Tema
+                            </h6>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#metodologias-agiles">Metodologías Ágiles</a>
+                                <a class="nav-link" href="#scrum-detallado">Scrum Detallado</a>
+                                <a class="nav-link" href="#modelo-waterfall">Modelo Waterfall</a>
+                                <a class="nav-link" href="#validacion-temprana">Validación Temprana</a>
+                                <a class="nav-link" href="#herramientas-validacion">Herramientas</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <section id="introduccion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-play-circle me-2"></i>
+                        Introducción
+                    </h2>
+                    
+                    <p class="lead">Las metodologías y principios en el desarrollo de software son <strong>esenciales para garantizar</strong> proyectos organizados, eficientes y de alta calidad.</p>
+                    
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-lightbulb me-2"></i>Importancia de las Metodologías</h4>
+                        <p>Proporcionan un <strong>marco estructurado</strong> que ayuda a planificar, implementar y entregar software de manera predecible y controlada. Además, promueven buenas prácticas como:</p>
+                        <ul class="mb-0">
+                            <li>Colaboración eficiente en equipo</li>
+                            <li>Adaptabilidad a cambios de requisitos</li>
+                            <li>Identificación temprana de problemas</li>
+                            <li>Entrega de valor continua al cliente</li>
+                        </ul>
+                    </div>
+
+                    <h3>Papel de la Validación en la Calidad</h3>
+                    <p>La validación desempeña un papel <strong>crucial en garantizar la calidad</strong> del software, ya que asegura que el producto final cumpla con los requisitos definidos y satisfaga las necesidades del usuario.</p>
+
+                    <div class="validation-card">
+                        <h5><i class="bi bi-shield-check me-2"></i>Objetivos de la Validación</h5>
+                        <ul>
+                            <li><strong>Verificar funcionalidad:</strong> Cada componente funciona correctamente individual y conjuntamente</li>
+                            <li><strong>Garantizar fiabilidad:</strong> El sistema es seguro, eficiente y estable</li>
+                            <li><strong>Identificación temprana:</strong> Detectar errores en fases iniciales reduce costos</li>
+                            <li><strong>Cumplimiento de estándares:</strong> Técnicos, normativos y de usabilidad</li>
+                        </ul>
+                    </div>
+
+                    <h3>Relación entre Metodologías, Buenas Prácticas y Validación</h3>
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-diagram-3 me-2"></i>Integración Sistémica</h4>
+                        <p>Las <strong>metodologías proporcionan el marco</strong>, las buenas prácticas definen cómo trabajar dentro de ese marco, y la validación asegura que los resultados cumplan con los estándares de calidad requeridos.</p>
+                        <p class="mb-0">Sin metodologías, los proyectos corren el riesgo de sufrir <strong>retrasos, sobrecostos o fallos</strong> en el producto final.</p>
+                    </div>
+                </section>
+
+                <!-- Metodologías Ágiles -->
+                <section id="metodologias-agiles" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-lightning me-2"></i>
+                        Metodologías Ágiles
+                    </h2>
+
+                    <p>Las metodologías ágiles son enfoques de desarrollo que priorizan la <strong>flexibilidad, colaboración y entrega continua</strong> de valor al cliente.</p>
+
+                    <h3>Conceptos Básicos de las Metodologías Ágiles</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-star me-2"></i>Principios Fundamentales</h4>
+                        <p>Basadas en el <strong>Manifiesto Ágil</strong>, priorizan:</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Individuos e interacciones</strong> sobre procesos y herramientas</li>
+                                    <li><strong>Software funcionando</strong> sobre documentación exhaustiva</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Colaboración con el cliente</strong> sobre negociación contractual</li>
+                                    <li><strong>Respuesta ante el cambio</strong> sobre seguir un plan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Ventajas de las Metodologías Ágiles</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-speedometer2 me-2"></i>Entrega Rápida</h5>
+                                <p>Iteraciones cortas permiten entregas frecuentes de software funcional, proporcionando valor temprano al cliente.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-arrows-move me-2"></i>Adaptabilidad</h5>
+                                <p>Respuesta rápida a cambios en requisitos, tecnología o condiciones del mercado.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-people me-2"></i>Colaboración Mejorada</h5>
+                                <p>Comunicación continua entre equipos de desarrollo y stakeholders, reduciendo malentendidos.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-eye me-2"></i>Transparencia</h5>
+                                <p>Visibilidad constante del progreso del proyecto y identificación temprana de problemas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Limitaciones de las Metodologías Ágiles</h3>
+                    <div class="warning-box">
+                        <h4><i class="bi bi-exclamation-triangle me-2"></i>Desafíos Potenciales</h4>
+                        <ul>
+                            <li><strong>Dependencia del equipo:</strong> Requiere equipos experimentados y autoorganizados</li>
+                            <li><strong>Documentación limitada:</strong> Puede ser insuficiente para proyectos complejos</li>
+                            <li><strong>Dificultad en proyectos grandes:</strong> Escalabilidad puede ser un desafío</li>
+                            <li><strong>Resistencia al cambio:</strong> Organizaciones tradicionales pueden resistir adopción</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Scrum Detallado -->
+                <section id="scrum-detallado" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-people-fill me-2"></i>
+                        Introducción a Scrum
+                    </h2>
+
+                    <p>Scrum es un <strong>framework ágil</strong> que organiza el desarrollo en sprints cortos con roles específicos y ceremonias estructuradas.</p>
+
+                    <h3>Principios Fundamentales de Scrum</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-foundation me-2"></i>Base Conceptual</h4>
+                        <ul>
+                            <li><strong>Transparencia:</strong> Todos los aspectos del proceso son visibles para los responsables del resultado</li>
+                            <li><strong>Inspección:</strong> Evaluación frecuente de artefactos y progreso hacia objetivos</li>
+                            <li><strong>Adaptación:</strong> Ajustes basados en resultados de la inspección</li>
+                            <li><strong>Colaboración:</strong> Trabajo en equipo autoorganizado y multifuncional</li>
+                        </ul>
+                    </div>
+
+                    <h3>Roles Clave en Scrum</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-person-badge me-2"></i>Product Owner</h5>
+                                <p><strong>Responsabilidades:</strong></p>
+                                <ul class="mb-0">
+                                    <li>Gestionar el Product Backlog</li>
+                                    <li>Definir prioridades del producto</li>
+                                    <li>Representar voz del cliente</li>
+                                    <li>Aceptar o rechazar trabajo completado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-person-gear me-2"></i>Scrum Master</h5>
+                                <p><strong>Responsabilidades:</strong></p>
+                                <ul class="mb-0">
+                                    <li>Facilitar eventos de Scrum</li>
+                                    <li>Eliminar impedimentos del equipo</li>
+                                    <li>Entrenar al equipo en Scrum</li>
+                                    <li>Proteger al equipo de interrupciones</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="validation-card">
+                                <h5><i class="bi bi-people me-2"></i>Development Team</h5>
+                                <p><strong>Responsabilidades:</strong></p>
+                                <ul class="mb-0">
+                                    <li>Entregar incrementos de producto</li>
+                                    <li>Autoorganizarse para alcanzar objetivos</li>
+                                    <li>Estimar esfuerzo de tareas</li>
+                                    <li>Garantizar calidad del producto</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Ceremonias de Scrum</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="scrum-ceremony">
+                                <h5><i class="bi bi-calendar-plus me-2"></i>Sprint Planning</h5>
+                                <p><strong>Duración:</strong> Máximo 8 horas para sprint de 1 mes</p>
+                                <p><strong>Objetivo:</strong> Definir qué trabajo se puede realizar en el sprint y cómo se hará.</p>
+                                <ul class="mb-0">
+                                    <li>Seleccionar elementos del Product Backlog</li>
+                                    <li>Crear Sprint Goal</li>
+                                    <li>Estimar tareas y crear Sprint Backlog</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-ceremony">
+                                <h5><i class="bi bi-chat-dots me-2"></i>Daily Scrum</h5>
+                                <p><strong>Duración:</strong> Máximo 15 minutos</p>
+                                <p><strong>Objetivo:</strong> Sincronizar actividades y crear plan para próximas 24 horas.</p>
+                                <ul class="mb-0">
+                                    <li>¿Qué hice ayer?</li>
+                                    <li>¿Qué haré hoy?</li>
+                                    <li>¿Hay impedimentos?</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-ceremony">
+                                <h5><i class="bi bi-eye me-2"></i>Sprint Review</h5>
+                                <p><strong>Duración:</strong> Máximo 4 horas para sprint de 1 mes</p>
+                                <p><strong>Objetivo:</strong> Inspeccionar incremento y adaptar Product Backlog.</p>
+                                <ul class="mb-0">
+                                    <li>Demostrar trabajo completado</li>
+                                    <li>Obtener feedback de stakeholders</li>
+                                    <li>Revisar métricas y progreso</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="scrum-ceremony">
+                                <h5><i class="bi bi-arrow-counterclockwise me-2"></i>Sprint Retrospective</h5>
+                                <p><strong>Duración:</strong> Máximo 3 horas para sprint de 1 mes</p>
+                                <p><strong>Objetivo:</strong> Mejorar calidad y efectividad del equipo.</p>
+                                <ul class="mb-0">
+                                    <li>Identificar qué funcionó bien</li>
+                                    <li>Detectar áreas de mejora</li>
+                                    <li>Crear plan de acción</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modelo Waterfall -->
+                <section id="modelo-waterfall" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-water me-2"></i>
+                        Modelo Waterfall (Cascada)
+                    </h2>
+
+                    <p>El modelo Waterfall es un enfoque <strong>secuencial y lineal</strong> para el desarrollo de software, donde cada etapa debe completarse antes de pasar a la siguiente.</p>
+
+                    <h3>Etapas del Modelo Waterfall</h3>
+                    <div class="waterfall-flow">
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-clipboard-data me-2"></i>Recolección de Requisitos</h5>
+                            <p>Análisis exhaustivo y documentación completa de todos los requisitos del sistema. <strong>No se permite cambios</strong> una vez aprobados.</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-diagram-2 me-2"></i>Diseño del Sistema</h5>
+                            <p>Creación de arquitectura técnica detallada, diagramas de sistema e interfaces antes de cualquier implementación.</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-code me-2"></i>Implementación</h5>
+                            <p>Desarrollo del código siguiendo estrictamente las especificaciones de diseño sin desviaciones.</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-bug me-2"></i>Pruebas</h5>
+                            <p>Testing exhaustivo del sistema completo para verificar cumplimiento de todos los requisitos definidos inicialmente.</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-cloud-upload me-2"></i>Despliegue</h5>
+                            <p>Instalación del software en el entorno de producción y entrega al cliente final.</p>
+                        </div>
+                        <div class="text-center">
+                            <i class="bi bi-arrow-down fs-1 text-success"></i>
+                        </div>
+                        <div class="waterfall-stage">
+                            <h5><i class="bi bi-tools me-2"></i>Mantenimiento</h5>
+                            <p>Soporte continuo, corrección de errores y actualizaciones menores del sistema.</p>
+                        </div>
+                    </div>
+
+                    <h3>Ventajas y Limitaciones del Modelo Waterfall</h3>
+                    <div class="comparison-table">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="validation-card">
+                                    <h5><i class="bi bi-check-circle text-success me-2"></i>Ventajas</h5>
+                                    <ul>
+                                        <li><strong>Estructura clara:</strong> Fases bien definidas y predecibles</li>
+                                        <li><strong>Documentación completa:</strong> Especificaciones detalladas</li>
+                                        <li><strong>Fácil gestión:</strong> Progreso medible en cada etapa</li>
+                                        <li><strong>Ideal para requisitos estables:</strong> Proyectos con especificaciones fijas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="validation-card">
+                                    <h5><i class="bi bi-x-circle text-danger me-2"></i>Limitaciones</h5>
+                                    <ul>
+                                        <li><strong>Inflexibilidad:</strong> Difícil adaptarse a cambios</li>
+                                        <li><strong>Retroalimentación tardía:</strong> Cliente ve resultado al final</li>
+                                        <li><strong>Riesgo alto:</strong> Problemas detectados tarde son costosos</li>
+                                        <li><strong>No iterativo:</strong> No permite mejoras incrementales</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Validación Temprana -->
+                <section id="validacion-temprana" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-shield-check me-2"></i>
+                        Validación Temprana
+                    </h2>
+
+                    <p>La validación temprana es un <strong>concepto fundamental</strong> que busca identificar y corregir errores en las etapas más tempranas posibles del desarrollo.</p>
+
+                    <h3>Concepto y Beneficios</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-clock-history me-2"></i>¿Por qué Validar Temprano?</h4>
+                        <p>Detectar y corregir fallos en fases iniciales <strong>reduce significativamente</strong> los costos y el tiempo asociados a los ajustes posteriores.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Beneficios Económicos:</h6>
+                                <ul>
+                                    <li>Menor costo de corrección</li>
+                                    <li>Reducción de retrabajo</li>
+                                    <li>Optimización de recursos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Beneficios Técnicos:</h6>
+                                <ul>
+                                    <li>Mejor arquitectura del sistema</li>
+                                    <li>Código más limpio y mantenible</li>
+                                    <li>Integración más fluida</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Identificación de Errores en Etapas Iniciales</h3>
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-search me-2"></i>Estrategias de Detección Temprana</h4>
+                        <ul>
+                            <li><strong>Revisiones de código:</strong> Peer review antes de integrar cambios</li>
+                            <li><strong>Prototipado rápido:</strong> Validar conceptos antes de implementación completa</li>
+                            <li><strong>Testing unitario:</strong> Pruebas automáticas durante desarrollo</li>
+                            <li><strong>Validación de requisitos:</strong> Verificar entendimiento con stakeholders</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Herramientas de Validación -->
+                <section id="herramientas-validacion" class="content-section">
+                    <h2 class="text-success mb-4">
+                        <i class="bi bi-tools me-2"></i>
+                        Herramientas para Validación de Código en Python
+                    </h2>
+
+                    <p>Python ofrece un ecosistema rico en <strong>herramientas de validación</strong> que ayudan a mantener la calidad del código.</p>
+
+                    <h3>Linters y Análisis Estático</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="validation-tool">
+                                <h5><i class="bi bi-bug me-2"></i>pylint</h5>
+                                <p>Analizador estático que verifica errores, estilo de código y complejidad.</p>
+                                <div class="code-example">
+                                    <pre># Instalación y uso
+pip install pylint
+
+# Analizar archivo
+pylint mi_modulo.py
+
+# Generar reporte
+pylint --output-format=html mi_modulo.py > reporte.html</pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="validation-tool">
+                                <h5><i class="bi bi-check-square me-2"></i>flake8</h5>
+                                <p>Herramienta que combina PyFlakes, pycodestyle y mccabe para análisis integral.</p>
+                                <div class="code-example">
+                                    <pre># Instalación y uso
+pip install flake8
+
+# Verificar código
+flake8 mi_proyecto/
+
+# Configurar en setup.cfg
+[flake8]
+max-line-length = 88
+exclude = venv/,migrations/</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Herramientas de Formateo</h3>
+                    <div class="validation-tool">
+                        <h5><i class="bi bi-brush me-2"></i>black - Formateador Automático</h5>
+                        <p>Formateador de código que aplica un estilo consistente automáticamente.</p>
+                        <div class="code-example">
+                            <pre># Instalación
+pip install black
+
+# Formatear archivos
+black mi_archivo.py
+
+# Formatear proyecto completo
+black ./
+
+# Verificar sin modificar
+black --check ./</pre>
+                        </div>
+                    </div>
+
+                    <h3>Integración en Flujos de Trabajo Ágil</h3>
+                    <div class="methodology-card">
+                        <h4><i class="bi bi-gear-wide-connected me-2"></i>Automatización en CI/CD</h4>
+                        <p>Integrar herramientas de validación en pipelines de <strong>integración continua</strong>:</p>
+                        <div class="code-example">
+                            <h6>Ejemplo de pipeline con GitHub Actions:</h6>
+                            <pre># .github/workflows/validate.yml
+name: Code Validation
+on: [push, pull_request]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    
+    - name: Install dependencies
+      run: |
+        pip install pylint flake8 black pytest
+    
+    - name: Run linting
+      run: |
+        flake8 src/
+        pylint src/
+    
+    - name: Check formatting
+      run: black --check src/
+    
+    - name: Run tests
+      run: pytest tests/</pre>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-trophy me-2"></i>Beneficios de la Validación Automatizada</h4>
+                        <ul class="mb-0">
+                            <li><strong>Consistencia:</strong> Aplicación uniforme de estándares en todo el proyecto</li>
+                            <li><strong>Eficiencia:</strong> Detección automática de problemas sin intervención manual</li>
+                            <li><strong>Calidad:</strong> Código más limpio, legible y mantenible</li>
+                            <li><strong>Colaboración:</strong> Facilita revisiones de código y trabajo en equipo</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema1.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 1
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 2 de 12</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="tema3.html" class="btn btn-outline-success">
+                            Tema 3
+                            <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Quiz Button -->
+    <a href="../../../quiz-spa/index.html?theme=programacion2" class="btn btn-success floating-quiz-btn" title="Quiz Tema 2">
+        <i class="bi bi-question-circle"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">
+                <i class="bi bi-code-slash me-2"></i>
+                Programación Tema 2: Metodologías y Principios de Desarrollo
+            </p>
+            <small class="text-muted">Material de estudio complementario</small>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', currentTheme);
+            updateThemeToggleIcon(currentTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,1012 +1,500 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 11: Tendencias Avanzadas en HCI - Parte 1 | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 11: Tendencias Avanzadas en HCI | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #9c27b0;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2c3e50;
+            --background-light: #f8f9fa;
         }
-        
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0 2rem 0;
+            margin-bottom: 0;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container-fluid {
+            max-width: 1400px;
+        }
+
         .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
             overflow-y: auto;
         }
-        
-        .future-tech-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 1.5rem;
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-dark);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            padding-left: 1rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
         }
-        
-        .future-tech-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-            opacity: 0;
+
+        .sidebar .nav-link:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.05);
         }
-        
-        .future-tech-card:hover::before {
-            opacity: 1;
-            top: -100%;
-            right: -100%;
+
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
         }
-        
-        .future-tech-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(156, 39, 176, 0.3);
-        }
-        
-        .ai-demo-container {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            border-radius: 15px;
+
+        .content-section {
+            margin-bottom: 3rem;
             padding: 2rem;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-        
-        .vr-ar-showcase {
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-            border-radius: 15px;
-            padding: 1.5rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .voice-ui-card {
-            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-            border-radius: 12px;
-            padding: 1rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .implementation-example {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
-            overflow-x: auto;
-            border: 1px solid #444;
-        }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 2rem;
+
+        .content-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
             margin-bottom: 1.5rem;
         }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 12px;
-            height: 12px;
-            background: #9c27b0;
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px #9c27b0;
+
+        .technology-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
         }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 5px;
-            top: 1.5rem;
-            width: 2px;
-            height: calc(100% + 0.5rem);
-            background: linear-gradient(to bottom, #9c27b0, transparent);
+
+        .technology-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
         }
-        
-        .timeline-item:last-child::after {
-            display: none;
+
+        .technology-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
-        
-        .interaction-paradigm {
-            background: #f8f9fa;
-            border-left: 4px solid #17a2b8;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .emerging-tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+
+        .feature-card {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9ff 100%);
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem;
             margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .applications-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #f8f9fa 100%);
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .challenge-card {
+            background: linear-gradient(135deg, #ffe6e6 0%, #f8f9fa 100%);
+            border-left: 5px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .challenge-card h5 {
+            color: #dc3545;
+            margin-bottom: 0.8rem;
+        }
+
+        .tech-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+            display: inline-block;
+        }
+
+        .navigation-section {
+            background: var(--background-light);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            color: var(--primary-color);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-stars me-2"></i>
-                HCI Tema 11: Tendencias Avanzadas - Parte 1
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
-            </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido - Parte 1
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link" href="#introduccion">1. Introducción</a>
-                                <a class="nav-link" href="#ai-machine-learning">2. AI y Machine Learning</a>
-                                <a class="nav-link" href="#realidad-virtual-aumentada">3. VR y AR</a>
-                                <a class="nav-link" href="#interfaces-voz">4. Interfaces de Voz</a>
-                                <hr class="my-2">
-                                <a class="nav-link text-success" href="tema11-parte2.html">
-                                    <i class="bi bi-arrow-right me-1"></i>
-                                    Continuar Parte 2
-                                </a>
-                            </nav>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1><i class="bi bi-rocket-fill me-3"></i>Tema 11: Tendencias Avanzadas en HCI</h1>
+                        <p class="lead">Explora las tecnologías emergentes que están revolucionando la interacción humano-computadora: Realidad Aumentada, Realidad Virtual y más.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h1 class="display-5 text-primary">Tendencias Avanzadas en HCI</h1>
-                    <p class="lead">Parte 1: AI, VR/AR y Interfaces de Nueva Generación</p>
-                    <div class="alert alert-info">
-                        <i class="bi bi-lightbulb me-2"></i>
-                        Exploramos las tecnologías emergentes que están redefiniendo la interacción humano-computadora.
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list me-2"></i>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link active" href="#introduccion">Introducción</a>
+                        <a class="nav-link" href="#realidad-aumentada">1. Realidad Aumentada (AR)</a>
+                        <a class="nav-link" href="#realidad-virtual">2. Realidad Virtual (VR)</a>
+                        <a class="nav-link text-muted" href="tema11-parte2.html">→ Parte 2: Otras Tendencias</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <div id="introduccion" class="content-section">
+                    <h2><i class="bi bi-stars me-2"></i>Introducción</h2>
+                    <p>El campo de la <strong>Interacción Humano-Computadora (HCI)</strong> ha experimentado avances significativos en los últimos años, impulsados por la rápida evolución de la tecnología y la creciente demanda de interfaces más intuitivas, inmersivas y accesibles.</p>
+
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-lightbulb-fill text-warning me-2"></i>Objetivo de HCI</h4>
+                        <p>La HCI se centra en mejorar la comunicación entre los usuarios y los sistemas computacionales, optimizando la experiencia de uso a través de innovaciones en <strong>hardware, software y modelos de interacción</strong>.</p>
+                    </div>
+
+                    <p>En este contexto, tecnologías como la <strong>Realidad Aumentada (AR)</strong> y la <strong>Realidad Virtual (VR)</strong> han emergido como herramientas clave que están revolucionando la forma en que interactuamos con la información y el entorno digital.</p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h5><i class="bi bi-layers-half me-2"></i>Realidad Aumentada</h5>
+                                <p><strong>Superpone elementos digitales</strong> al mundo real, combinando lo físico con lo virtual.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-card">
+                                <h5><i class="bi bi-headset-vr me-2"></i>Realidad Virtual</h5>
+                                <p><strong>Crea entornos virtuales</strong> completamente inmersivos sin limitaciones del espacio físico.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>Ambas tecnologías están transformando sectores como la <strong>educación, el entretenimiento, la medicina y el comercio</strong>, permitiendo experiencias más naturales y envolventes.</p>
+                </div>
+
+                <!-- 1. Realidad Aumentada -->
+                <div id="realidad-aumentada" class="content-section">
+                    <h2><i class="bi bi-camera-fill me-2"></i>1. Realidad Aumentada (AR)</h2>
+                    
+                    <h3>1.1 Definición y Principios</h3>
+                    <p>La <strong>Realidad Aumentada (AR)</strong> es una tecnología que <strong>superpone elementos digitales</strong> sobre el mundo real, permitiendo a los usuarios interactuar con información virtual sin perder la conexión con su entorno físico.</p>
+
+                    <div class="highlight-box">
+                        <h4>Diferencia clave con VR</h4>
+                        <p>A diferencia de la Realidad Virtual (VR), que sumerge completamente al usuario en un entorno digital, la AR <strong>combina lo real con lo virtual</strong>, ofreciendo experiencias interactivas en tiempo real.</p>
+                    </div>
+
+                    <h4>Métodos de integración digital:</h4>
+                    <ul>
+                        <li><strong>Superposición de gráficos en tiempo real</strong> sobre la imagen capturada por una cámara</li>
+                        <li><strong>Reconocimiento de objetos y espacios</strong> para mostrar datos relevantes en la vista del usuario</li>
+                        <li><strong>Interacción con modelos 3D</strong> colocados en el mundo real mediante dispositivos como smartphones, tablets o gafas de AR</li>
+                    </ul>
+
+                    <h3>1.2 Aplicaciones de la Realidad Aumentada en HCI</h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="applications-box">
+                                <h5><i class="bi bi-book me-2"></i>Educación y Formación</h5>
+                                <ul>
+                                    <li>Modelos 3D interactivos para anatomía</li>
+                                    <li>Reconstrucciones históricas inmersivas</li>
+                                    <li>Laboratorios virtuales seguros</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="applications-box">
+                                <h5><i class="bi bi-gear me-2"></i>Industria y Mantenimiento</h5>
+                                <ul>
+                                    <li>Instrucciones paso a paso superpuestas</li>
+                                    <li>Diagnóstico de equipos en tiempo real</li>
+                                    <li>Entrenamiento de técnicos especialistas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="applications-box">
+                                <h5><i class="bi bi-cart me-2"></i>Comercio y Retail</h5>
+                                <ul>
+                                    <li>Prueba virtual de productos</li>
+                                    <li>Visualización de muebles en el hogar</li>
+                                    <li>Información interactiva de productos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="applications-box">
+                                <h5><i class="bi bi-geo-alt me-2"></i>Navegación y Turismo</h5>
+                                <ul>
+                                    <li>Google Lens y AR en Google Maps</li>
+                                    <li>Información contextual en sitios históricos</li>
+                                    <li>Reconstrucciones virtuales en museos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>1.3 Herramientas y Tecnologías en AR</h3>
+                    
+                    <div class="technology-card">
+                        <h4>Frameworks y SDKs</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span class="tech-badge">ARKit (Apple)</span>
+                                <p><small>Desarrollo AR para dispositivos iOS</small></p>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="tech-badge">ARCore (Google)</span>
+                                <p><small>Experiencias AR en dispositivos Android</small></p>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="tech-badge">Vuforia</span>
+                                <p><small>Reconocimiento de imágenes y objetos</small></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="technology-card">
+                        <h4>Dispositivos de Realidad Aumentada</h4>
+                        <ul>
+                            <li><strong>Microsoft HoloLens:</strong> Gafas AR para entornos industriales y educativos</li>
+                            <li><strong>Magic Leap:</strong> Dispositivo AR con alta interacción tridimensional</li>
+                            <li><strong>Smartphones y Tablets:</strong> Dispositivos más accesibles para experiencias AR</li>
+                        </ul>
+                    </div>
+
+                    <div class="technology-card">
+                        <h4>Motores de Desarrollo</h4>
+                        <p><strong>Unity y Unreal Engine:</strong> Plataformas que permiten crear entornos de AR interactivos con gráficos avanzados, adaptados a diferentes necesidades en la interacción humano-computadora.</p>
+                    </div>
+
+                    <h3>1.4 Desafíos en el Desarrollo de AR</h3>
+
+                    <div class="challenge-card">
+                        <h5>Precisión y Reconocimiento del Entorno</h5>
+                        <ul>
+                            <li>Alineación correcta de elementos digitales con el mundo real</li>
+                            <li>Algoritmos avanzados de visión computacional</li>
+                            <li>Impacto de iluminación y variabilidad del entorno</li>
+                        </ul>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Rendimiento y Procesamiento</h5>
+                        <ul>
+                            <li>Alto poder de procesamiento requerido</li>
+                            <li>Optimización del consumo de batería</li>
+                            <li>Eficiencia de gráficos en dispositivos móviles</li>
+                        </ul>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Interfaz y Usabilidad</h5>
+                        <ul>
+                            <li>Superposición intuitiva sin sobrecarga de información</li>
+                            <li>Interfaces naturales con gestos y comandos de voz</li>
+                            <li>Interacciones fluidas y eficientes</li>
+                        </ul>
                     </div>
                 </div>
 
-                <!-- 1. Introducción -->
-                <section id="introduccion" class="content-section">
-                    <h2><i class="bi bi-rocket me-2"></i>1. Introducción a las Tendencias Emergentes</h2>
+                <!-- 2. Realidad Virtual -->
+                <div id="realidad-virtual" class="content-section">
+                    <h2><i class="bi bi-headset-vr me-2"></i>2. Realidad Virtual (VR)</h2>
                     
-                    <p>Las <strong>tendencias avanzadas en HCI</strong> representan el futuro de la interacción humano-computadora, transformando cómo las personas interactúan con la tecnología y redefiniendo las posibilidades de la experiencia digital.</p>
-                    
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h5>Evolución de las Interfaces</h5>
-                            
-                            <div class="timeline-item">
-                                <h6><strong>1960s-1970s:</strong> Command Line Interfaces</h6>
-                                <p class="small">Interacción basada en texto, requiring technical knowledge. Usuarios expertos solamente.</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h6><strong>1980s-1990s:</strong> Graphical User Interfaces (GUI)</h6>
-                                <p class="small">Windows, icons, menus, pointers (WIMP). Democratización del computing.</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h6><strong>2000s-2010s:</strong> Touch & Mobile Interfaces</h6>
-                                <p class="small">Direct manipulation, multi-touch, gestures. Computing becomes ubiquitous.</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h6><strong>2010s-2020s:</strong> Voice & AI-Powered Interfaces</h6>
-                                <p class="small">Natural language processing, smart assistants, predictive interfaces.</p>
-                            </div>
-                            
-                            <div class="timeline-item">
-                                <h6><strong>2020s-Future:</strong> Ambient & Immersive Computing</h6>
-                                <p class="small">AR/VR, brain-computer interfaces, ambient intelligence, seamless integration.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Paradigmas Emergentes de Interacción</h5>
-                            
-                            <div class="emerging-tech-grid">
-                                <div class="interaction-paradigm">
-                                    <h6><i class="bi bi-brain me-2 text-info"></i>Natural User Interfaces (NUI)</h6>
-                                    <ul class="small">
-                                        <li>Gesture recognition y body tracking</li>
-                                        <li>Eye tracking y gaze-based interaction</li>
-                                        <li>Voice commands y conversational AI</li>
-                                        <li>Facial expression recognition</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="interaction-paradigm">
-                                    <h6><i class="bi bi-globe me-2 text-success"></i>Ambient Intelligence</h6>
-                                    <ul class="small">
-                                        <li>Context-aware computing</li>
-                                        <li>Invisible interfaces</li>
-                                        <li>Proactive system behavior</li>
-                                        <li>IoT ecosystem integration</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="interaction-paradigm">
-                                    <h6><i class="bi bi-cpu me-2 text-warning"></i>Brain-Computer Interfaces</h6>
-                                    <ul class="small">
-                                        <li>Neural signal processing</li>
-                                        <li>Thought-controlled interfaces</li>
-                                        <li>Cognitive augmentation</li>
-                                        <li>Accessibility applications</li>
-                                    </ul>
-                                </div>
-                                
-                                <div class="interaction-paradigm">
-                                    <h6><i class="bi bi-person-check me-2 text-danger"></i>Adaptive Interfaces</h6>
-                                    <ul class="small">
-                                        <li>Machine learning personalization</li>
-                                        <li>Dynamic UI reconfiguration</li>
-                                        <li>Predictive user assistance</li>
-                                        <li>Emotional state recognition</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    <h3>2.1 Definición y Principios de la Realidad Virtual</h3>
+                    <p>La <strong>Realidad Virtual (VR)</strong> crea <strong>entornos virtuales completamente inmersivos</strong> en los que los usuarios pueden interactuar sin las limitaciones del espacio físico, proporcionando experiencias digitales que simulan la presencia en mundos alternativos.</p>
 
-                <!-- 2. AI y Machine Learning -->
-                <section id="ai-machine-learning" class="content-section">
-                    <h2><i class="bi bi-robot me-2"></i>2. AI y Machine Learning en HCI</h2>
-                    
-                    <p>La <strong>inteligencia artificial</strong> está transformando HCI desde reactive interfaces hacia predictive y adaptive systems que aprenden de user behavior y se adaptan automáticamente.</p>
-                    
-                    <div class="ai-demo-container">
-                        <h5><i class="bi bi-stars me-2"></i>AI-Powered Interface Features</h5>
-                        
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <h6>Predictive Interfaces</h6>
-                                <ul class="small">
-                                    <li><strong>Smart autocomplete:</strong> Predice user input basado en context</li>
-                                    <li><strong>Preloading content:</strong> Anticipa próximas acciones del usuario</li>
-                                    <li><strong>Dynamic suggestions:</strong> Recommendations basadas en behavior patterns</li>
-                                    <li><strong>Contextual shortcuts:</strong> Actions sugeridas based on current task</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Predictive Text System
-class PredictiveInput {
-  // Real-time text predictions based on context
-  // User behavior analysis and personalization
-  // Debounced API calls for performance
-  
-  fetchPredictions(text, context) {
-    // ML-powered predictions with user context
-    // Session history and behavioral patterns
-  }
-}
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <h6>Adaptive Interfaces</h6>
-                                <ul class="small">
-                                    <li><strong>Layout optimization:</strong> Reorganiza UI basado en usage patterns</li>
-                                    <li><strong>Personalized navigation:</strong> Shortcuts a features más usadas</li>
-                                    <li><strong>Content prioritization:</strong> Muestra información más relevante first</li>
-                                    <li><strong>Accessibility adaptation:</strong> Adjusts para user capabilities</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Adaptive Layout System
-class AdaptiveLayoutManager {
-  constructor() {
-    this.userProfile = new UserProfile();
-    this.analyticsCollector = new AnalyticsCollector();
-    this.layoutOptimizer = new LayoutOptimizer();
-  }
-
-  async optimizeLayout() {
-    const userBehavior = await this.analyticsCollector
-      .getRecentBehavior(30); // Last 30 days
-    
-    const preferences = this.userProfile.getPreferences();
-    const deviceCapabilities = this.detectDeviceCapabilities();
-    
-    const optimizedLayout = this.layoutOptimizer.calculate({
-      behavior: userBehavior,
-      preferences: preferences,
-      device: deviceCapabilities,
-      contextualFactors: {
-        timeOfDay: new Date().getHours(),
-        dayOfWeek: new Date().getDay(),
-        location: await this.getUserLocation()
-      }
-    });
-    
-    this.applyLayoutChanges(optimizedLayout);
-  }
-
-  applyLayoutChanges(layout) {
-    // Reorganize navigation based on usage frequency
-    this.reorganizeNavigation(layout.navigationPriority);
-    
-    // Adjust content density
-    this.adjustContentDensity(layout.contentDensity);
-    
-    // Update widget positions
-    this.repositionWidgets(layout.widgetPositions);
-    
-    // Apply accessibility optimizations
-    this.applyAccessibilityOptimizations(layout.a11y);
-  }
-}
-                                </div>
-                            </div>
-                        </div>
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-eye-fill me-2"></i>Inmersión Total</h4>
+                        <p>A diferencia de la AR que combina elementos digitales con el mundo real, la VR <strong>sumerge completamente</strong> al usuario en un entorno digital controlado, bloqueando las percepciones del mundo físico.</p>
                     </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Machine Learning en UX</h5>
-                            
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="future-tech-card">
-                                        <h6><i class="bi bi-graph-up me-2"></i>Behavioral Analytics</h6>
-                                        <ul class="small">
-                                            <li><strong>User journey mapping:</strong> Automatic flow analysis</li>
-                                            <li><strong>Friction detection:</strong> Identifies usability bottlenecks</li>
-                                            <li><strong>Conversion optimization:</strong> A/B testing automation</li>
-                                            <li><strong>Churn prediction:</strong> Proactive retention strategies</li>
-                                        </ul>
-                                        
-                                        <div class="small mt-2">
-                                            <strong>Example:</strong> Hotjar uses ML para analyze user sessions y automatically identify problematic interface areas.
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="future-tech-card">
-                                        <h6><i class="bi bi-person-gear me-2"></i>Personalization Engines</h6>
-                                        <ul class="small">
-                                            <li><strong>Content curation:</strong> Personalized information feeds</li>
-                                            <li><strong>UI customization:</strong> Adaptive interface elements</li>
-                                            <li><strong>Feature recommendation:</strong> Suggests relevant functionality</li>
-                                            <li><strong>Learning paths:</strong> Personalized user onboarding</li>
-                                        </ul>
-                                        
-                                        <div class="small mt-2">
-                                            <strong>Example:</strong> Netflix interface adapts completely based on viewing history, showing different categories y artwork para each user.
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="future-tech-card">
-                                        <h6><i class="bi bi-shield-check me-2"></i>Intelligent Assistance</h6>
-                                        <ul class="small">
-                                            <li><strong>Contextual help:</strong> Smart tooltip systems</li>
-                                            <li><strong>Error prevention:</strong> Predictive validation</li>
-                                            <li><strong>Task completion:</strong> Guided workflows</li>
-                                            <li><strong>Smart defaults:</strong> Intelligent form pre-filling</li>
-                                        </ul>
-                                        
-                                        <div class="small mt-2">
-                                            <strong>Example:</strong> Google Docs uses ML para suggest text completions, detect grammar errors, y provide smart formatting.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- 3. Realidad Virtual y Aumentada -->
-                <section id="realidad-virtual-aumentada" class="content-section">
-                    <h2><i class="bi bi-vr me-2"></i>3. Realidad Virtual y Aumentada</h2>
-                    
-                    <p><strong>VR y AR</strong> están creando nuevos paradigmas de interacción que van más allá de las pantallas tradicionales, ofereciendo experiences immersive y spatially-aware interfaces.</p>
-                    
+                    <h3>2.2 Aplicaciones de la Realidad Virtual en HCI</h3>
+
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="vr-ar-showcase">
-                                <h6><i class="bi bi-headset-vr me-2"></i>Virtual Reality (VR)</h6>
-                                
-                                <h6>Immersive Interface Design</h6>
-                                <ul class="small">
-                                    <li><strong>Spatial UI:</strong> 3D interface elements en virtual space</li>
-                                    <li><strong>Natural gestures:</strong> Hand tracking y body movement</li>
-                                    <li><strong>Haptic feedback:</strong> Touch sensations en virtual objects</li>
-                                    <li><strong>Eye tracking:</strong> Gaze-based selection y foveated rendering</li>
-                                    <li><strong>Voice integration:</strong> Multimodal interaction combining voice + gesture</li>
-                                </ul>
-                                
-                                <h6>VR Design Principles</h6>
-                                <ul class="small">
-                                    <li><strong>Comfort first:</strong> Prevent motion sickness</li>
-                                    <li><strong>Intuitive metaphors:</strong> Leverage real-world understanding</li>
-                                    <li><strong>Presence maintenance:</strong> Keep users immersed</li>
-                                    <li><strong>Accessibility:</strong> Accommodate different physical abilities</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// WebXR VR Interface
-navigator.xr.requestSession('immersive-vr').then(session => {
-  const canvas = document.createElement('canvas');
-  const gl = canvas.getContext('webgl', { xrCompatible: true });
-  
-  session.updateRenderState({ baseLayer: new XRWebGLLayer(session, gl) });
-  
-  const referenceSpace = session.requestReferenceSpace('local');
-  
-  function render(time, frame) {
-    const pose = frame.getViewerPose(referenceSpace);
-    
-    if (pose) {
-      // Render for each eye
-      pose.views.forEach(view => {
-        const viewport = session.renderState.baseLayer
-          .getViewport(view);
-        
-        gl.viewport(viewport.x, viewport.y, 
-                   viewport.width, viewport.height);
-        
-        // Render 3D UI elements
-        renderVRInterface(view.projectionMatrix, 
-                         view.transform);
-      });
-    }
-    
-    session.requestAnimationFrame(render);
-  }
-  
-  session.requestAnimationFrame(render);
-});
-                                </div>
+                            <div class="applications-box">
+                                <h5><i class="bi bi-controller me-2"></i>Entretenimiento y Videojuegos</h5>
+                                <p>Experiencias inmersivas que transportan a los jugadores a mundos virtuales con interacción natural y presencia física.</p>
                             </div>
                         </div>
-                        
                         <div class="col-md-6">
-                            <div class="vr-ar-showcase">
-                                <h6><i class="bi bi-phone me-2"></i>Augmented Reality (AR)</h6>
-                                
-                                <h6>Mixed Reality Interfaces</h6>
-                                <ul class="small">
-                                    <li><strong>Overlay interfaces:</strong> Digital content sobre real world</li>
-                                    <li><strong>Spatial anchoring:</strong> Persistent virtual objects</li>
-                                    <li><strong>Gesture recognition:</strong> Air tap, manipulation gestures</li>
-                                    <li><strong>Object recognition:</strong> Context-aware digital overlays</li>
-                                    <li><strong>Real-time tracking:</strong> Camera-based world understanding</li>
-                                </ul>
-                                
-                                <h6>AR Design Challenges</h6>
-                                <ul class="small">
-                                    <li><strong>World alignment:</strong> Accurate digital-physical registration</li>
-                                    <li><strong>Occlusion handling:</strong> Virtual objects behind real objects</li>
-                                    <li><strong>Lighting consistency:</strong> Realistic virtual object appearance</li>
-                                    <li><strong>Performance optimization:</strong> Real-time rendering constraints</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// WebXR AR Interface
-navigator.xr.requestSession('immersive-ar').then(session => {
-  // Setup AR session
-  const canvas = document.createElement('canvas');
-  const gl = canvas.getContext('webgl', { xrCompatible: true });
-  
-  session.updateRenderState({ 
-    baseLayer: new XRWebGLLayer(session, gl) 
-  });
-  
-  const referenceSpace = session.requestReferenceSpace('local');
-  
-  // AR-specific features
-  session.requestHitTestSource({ space: referenceSpace })
-    .then(hitTestSource => {
-      function render(time, frame) {
-        const pose = frame.getViewerPose(referenceSpace);
-        
-        if (pose) {
-          const hitTestResults = frame.getHitTestResults(hitTestSource);
-          
-          // Process hit test para object placement
-          hitTestResults.forEach(hit => {
-            const hitPose = hit.getPose(referenceSpace);
-            renderARObject(hitPose.transform.matrix);
-          });
-          
-          // Render AR interface elements
-          pose.views.forEach(view => {
-            renderARInterface(view);
-          });
-        }
-        
-        session.requestAnimationFrame(render);
-      }
-      
-      session.requestAnimationFrame(render);
-    });
-});
-                                </div>
+                            <div class="applications-box">
+                                <h5><i class="bi bi-person-workspace me-2"></i>Entrenamiento Profesional</h5>
+                                <p>Simulaciones seguras para pilotos, cirujanos y técnicos especializados sin riesgos reales.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Casos de Uso Emergentes</h5>
-                            
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <div class="card border-primary">
-                                        <div class="card-header bg-primary text-white">
-                                            <h6 class="mb-0">Education</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li>Virtual laboratories</li>
-                                                <li>Historical reconstructions</li>
-                                                <li>3D anatomy visualization</li>
-                                                <li>Collaborative virtual spaces</li>
-                                                <li>Skill-based training simulations</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-3">
-                                    <div class="card border-success">
-                                        <div class="card-header bg-success text-white">
-                                            <h6 class="mb-0">Healthcare</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li>Surgical planning y guidance</li>
-                                                <li>Therapy y rehabilitation</li>
-                                                <li>Medical training</li>
-                                                <li>Pain management</li>
-                                                <li>Mental health treatment</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-3">
-                                    <div class="card border-warning">
-                                        <div class="card-header bg-warning text-dark">
-                                            <h6 class="mb-0">Industry</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li>Assembly line guidance</li>
-                                                <li>Equipment maintenance</li>
-                                                <li>Quality control</li>
-                                                <li>Remote assistance</li>
-                                                <li>Training simulations</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-3">
-                                    <div class="card border-info">
-                                        <div class="card-header bg-info text-white">
-                                            <h6 class="mb-0">Entertainment</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li>Immersive gaming</li>
-                                                <li>Virtual concerts</li>
-                                                <li>Social VR spaces</li>
-                                                <li>Interactive storytelling</li>
-                                                <li>Virtual tourism</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- 4. Interfaces de Voz -->
-                <section id="interfaces-voz" class="content-section">
-                    <h2><i class="bi bi-mic me-2"></i>4. Interfaces de Voz y Conversacionales</h2>
-                    
-                    <p>Las <strong>interfaces de voz</strong> representan un shift fundamental hacia interacciones más naturales, permitiendo hands-free operation y accessibility para usuarios con motor disabilities.</p>
-                    
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="voice-ui-card">
-                                <h6><i class="bi bi-chat-dots me-2"></i>Conversational Design Principles</h6>
-                                
-                                <h6>Natural Language Understanding</h6>
-                                <ul class="small">
-                                    <li><strong>Intent recognition:</strong> Understand user goals from speech</li>
-                                    <li><strong>Entity extraction:</strong> Identify key information pieces</li>
-                                    <li><strong>Context maintenance:</strong> Remember conversation state</li>
-                                    <li><strong>Ambiguity resolution:</strong> Handle unclear requests</li>
-                                </ul>
-                                
-                                <h6>Dialogue Management</h6>
-                                <ul class="small">
-                                    <li><strong>Turn-taking:</strong> Manage conversation flow</li>
-                                    <li><strong>Error recovery:</strong> Handle misunderstandings gracefully</li>
-                                    <li><strong>Confirmation strategies:</strong> Verify critical actions</li>
-                                    <li><strong>Escalation paths:</strong> Fallback to human assistance</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Voice Interface Implementation
-class VoiceInterface {
-  constructor() {
-    this.recognition = new webkitSpeechRecognition();
-    this.synthesis = new SpeechSynthesisUtterance();
-    this.intentClassifier = new IntentClassifier();
-    this.conversationState = new ConversationState();
-  }
-
-  setupVoiceRecognition() {
-    this.recognition.continuous = true;
-    this.recognition.interimResults = true;
-    this.recognition.lang = 'es-ES';
-    
-    this.recognition.onresult = (event) => {
-      const transcript = event.results[event.results.length - 1][0].transcript;
-      
-      if (event.results[event.results.length - 1].isFinal) {
-        this.processVoiceCommand(transcript);
-      } else {
-        // Show interim results
-        this.showInterimFeedback(transcript);
-      }
-    };
-    
-    this.recognition.onerror = (event) => {
-      this.handleVoiceError(event.error);
-    };
-  }
-
-  async processVoiceCommand(transcript) {
-    try {
-      // Extract intent y entities
-      const intent = await this.intentClassifier.classify(transcript);
-      const entities = await this.extractEntities(transcript);
-      
-      // Update conversation context
-      this.conversationState.addTurn({
-        type: 'user',
-        transcript: transcript,
-        intent: intent,
-        entities: entities,
-        timestamp: Date.now()
-      });
-      
-      // Generate response
-      const response = await this.generateResponse(intent, entities);
-      
-      // Execute action if needed
-      if (response.action) {
-        await this.executeAction(response.action);
-      }
-      
-      // Provide voice feedback
-      this.speak(response.message);
-      
-    } catch (error) {
-      this.handleError(error);
-    }
-  }
-}
-                                </div>
+                            <div class="applications-box">
+                                <h5><i class="bi bi-heart-pulse me-2"></i>Medicina y Terapia</h5>
+                                <p>Tratamiento de fobias, rehabilitación física y terapias psicológicas en entornos controlados.</p>
                             </div>
                         </div>
-                        
                         <div class="col-md-6">
-                            <div class="voice-ui-card">
-                                <h6><i class="bi bi-soundwave me-2"></i>Advanced Voice Features</h6>
-                                
-                                <h6>Multimodal Interaction</h6>
-                                <ul class="small">
-                                    <li><strong>Voice + gesture:</strong> Combined input modalities</li>
-                                    <li><strong>Voice + visual:</strong> Screen-based confirmations</li>
-                                    <li><strong>Voice + haptic:</strong> Tactile feedback para voice commands</li>
-                                    <li><strong>Adaptive modality:</strong> Switch based on context</li>
-                                </ul>
-                                
-                                <h6>Emotional Intelligence</h6>
-                                <ul class="small">
-                                    <li><strong>Sentiment analysis:</strong> Detect user emotional state</li>
-                                    <li><strong>Empathetic responses:</strong> Adjust tone based on mood</li>
-                                    <li><strong>Stress detection:</strong> Recognize frustration patterns</li>
-                                    <li><strong>Personality adaptation:</strong> Match user communication style</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Emotional Voice Analysis
-class EmotionalVoiceAnalyzer {
-  constructor() {
-    this.audioContext = new AudioContext();
-    this.analyzer = this.audioContext.createAnalyser();
-    this.emotionClassifier = new EmotionClassifier();
-  }
-
-  async analyzeEmotionalState(audioData) {
-    // Extract audio features
-    const features = this.extractAudioFeatures(audioData);
-    
-    // Analyze prosodic features
-    const prosodics = {
-      pitch: this.calculatePitch(features),
-      energy: this.calculateEnergy(features),
-      rhythm: this.calculateRhythm(features),
-      spectralCentroid: this.calculateSpectralCentroid(features)
-    };
-    
-    // Classify emotion
-    const emotion = await this.emotionClassifier.predict({
-      prosodics: prosodics,
-      linguistic: await this.analyzeLinguisticContent(audioData),
-      contextual: this.getContextualFactors()
-    });
-    
-    return {
-      primaryEmotion: emotion.primary,
-      confidence: emotion.confidence,
-      arousal: emotion.arousal, // High/Low energy
-      valence: emotion.valence, // Positive/Negative
-      recommendations: this.generateResponseStrategy(emotion)
-    };
-  }
-
-  generateResponseStrategy(emotion) {
-    if (emotion.primary === 'frustration') {
-      return {
-        tone: 'calm_supportive',
-        pace: 'slower',
-        actions: ['offer_help', 'simplify_options'],
-        escalation: 'human_agent_available'
-      };
-    }
-    
-    if (emotion.primary === 'excitement') {
-      return {
-        tone: 'enthusiastic',
-        pace: 'matched',
-        actions: ['provide_advanced_options', 'suggest_features'],
-        escalation: null
-      };
-    }
-    
-    // Default neutral response
-    return {
-      tone: 'professional_friendly',
-      pace: 'normal',
-      actions: ['standard_response'],
-      escalation: null
-    };
-  }
-}
-                                </div>
+                            <div class="applications-box">
+                                <h5><i class="bi bi-building me-2"></i>Diseño y Arquitectura</h5>
+                                <p>Visualización tridimensional de proyectos antes de su construcción física.</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Mixed Reality Interaction Patterns</h5>
-                            
-                            <div class="alert alert-warning">
-                                <h6><i class="bi bi-exclamation-triangle me-2"></i>Design Considerations para Mixed Reality</h6>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>Spatial Considerations</h6>
-                                        <ul class="small">
-                                            <li><strong>Depth perception:</strong> Clear visual hierarchy en 3D space</li>
-                                            <li><strong>Collision detection:</strong> Prevent virtual objects from intersecting</li>
-                                            <li><strong>Occlusion management:</strong> Handle real objects blocking virtual ones</li>
-                                            <li><strong>Scale consistency:</strong> Maintain realistic object proportions</li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Interaction Challenges</h6>
-                                        <ul class="small">
-                                            <li><strong>Precision limitations:</strong> Hand tracking accuracy issues</li>
-                                            <li><strong>Fatigue management:</strong> Avoid gorilla arm syndrome</li>
-                                            <li><strong>Context switching:</strong> Seamless real-virtual transitions</li>
-                                            <li><strong>Social acceptance:</strong> Public use considerations</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- Continue to Part 2 -->
-                <div class="text-center mt-5">
-                    <div class="alert alert-primary">
-                        <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 2</h5>
-                        <p>En la siguiente parte cubriremos: Brain-Computer Interfaces, IoT, Wearables y Accessibility Avanzada.</p>
-                        <a href="tema11-parte2.html" class="btn btn-primary btn-lg">
-                            <i class="bi bi-arrow-right me-2"></i>
-                            Ir a Parte 2
-                        </a>
+                    <h3>2.3 Herramientas y Tecnologías en VR</h3>
+
+                    <div class="technology-card">
+                        <h4>Dispositivos VR (Headsets y Controladores)</h4>
+                        <p>Sistemas completos que incluyen visores, auriculares y controladores de movimiento para experiencias inmersivas totales.</p>
+                    </div>
+
+                    <div class="technology-card">
+                        <h4>Software de Simulación</h4>
+                        <p>Plataformas especializadas que crean entornos virtuales realistas con física avanzada y interacción natural.</p>
+                    </div>
+
+                    <h3>2.4 Desafíos en el Desarrollo de VR</h3>
+
+                    <div class="challenge-card">
+                        <h5>Motion Sickness (Mareo por Movimiento)</h5>
+                        <p>Desconexión entre el movimiento visual y la percepción física del equilibrio, que puede causar náuseas y malestar en los usuarios.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Costos de Hardware y Accesibilidad</h5>
+                        <p>Los dispositivos VR especializados requieren alta inversión, limitando el acceso masivo a estas tecnologías.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Interacción y Control Natural</h5>
+                        <p>Desarrollo de interfaces intuitivas que permitan movimientos naturales y controles eficientes en entornos virtuales.</p>
                     </div>
                 </div>
 
-                <!-- Navigation Between Topics -->
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <a href="tema10.html" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            Tema 10: Android/iOS
-                        </a>
-                    </div>
-                    <div class="col-4 text-center">
-                        <span class="text-muted">Parte 1 de 3</span>
-                    </div>
-                    <div class="col-4 text-end">
-                        <a href="tema11-parte2.html" class="btn btn-outline-primary">
-                            Parte 2
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
+                <!-- Navigation to Part 2 -->
+                <div class="navigation-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <a href="tema11-parte2.html" class="nav-card d-inline-block">
+                                    <h4><i class="bi bi-arrow-right-circle me-2"></i>Continuar con Parte 2</h4>
+                                    <p class="mb-0">Interfaces Cerebro-Computadora, Interacciones Gestuales e IA</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci11" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 11">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-stars me-2"></i>
-                HCI Tema 11: Tendencias Avanzadas - Parte 1
-            </p>
-            <small class="text-muted">Material de estudio complementario</small>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>

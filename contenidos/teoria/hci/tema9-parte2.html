@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 9: Implementación de Interfaces Web y Móviles - Parte 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --bg-light: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .container-fluid {
+            padding: 2rem 1rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+        }
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .sidebar .nav-link {
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .content-section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section h3 {
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .js-card {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid #ffc107;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .js-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .framework-card {
+            background: linear-gradient(135deg, rgba(111, 66, 193, 0.1) 0%, rgba(111, 66, 193, 0.05) 100%);
+            border-left: 4px solid #6f42c1;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .best-practice-card {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .best-practice-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.05) 100%);
+            border: 2px solid var(--secondary-color);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(25, 135, 84, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+            border: 1px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-box {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1) 0%, rgba(255, 193, 7, 0.05) 100%);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, rgba(108, 117, 125, 0.1) 0%, rgba(108, 117, 125, 0.05) 100%);
+            border: 1px solid #6c757d;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .navigation-cards {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 3rem;
+            gap: 1rem;
+        }
+
+        .nav-card {
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .nav-card.prev {
+            margin-right: auto;
+        }
+
+        .nav-card.next {
+            margin-left: auto;
+        }
+
+        .nav-card a {
+            display: block;
+            background: white;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .nav-card a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                position: static;
+                margin: 1rem 0;
+            }
+            
+            .navigation-cards {
+                flex-direction: column;
+            }
+            
+            .nav-card.prev,
+            .nav-card.next {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Temas HCI
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo</a></li>
+                            <li><a class="dropdown-item" href="tema9.html"><strong>Tema 9: Implementación Web/Móvil</strong></a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Cuestionarios</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list-ul me-2"></i>Contenido - Parte 2</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema9.html">← Parte 1: HTML5 y CSS3</a>
+                        <a class="nav-link" href="#javascript">3. JavaScript</a>
+                        <a class="nav-link" href="#interactividad-dom" style="padding-left: 1.5rem;">3.1. Interactividad y DOM</a>
+                        <a class="nav-link" href="#eventos" style="padding-left: 1.5rem;">3.2. Eventos</a>
+                        <a class="nav-link" href="#ajax" style="padding-left: 1.5rem;">3.3. AJAX y Carga Asíncrona</a>
+                        <a class="nav-link" href="#frameworks-js" style="padding-left: 1.5rem;">3.4. Frameworks JavaScript</a>
+                        <a class="nav-link" href="#frameworks-mobile">4. Frameworks Móviles</a>
+                        <a class="nav-link" href="#react-native" style="padding-left: 1.5rem;">4.1. React Native</a>
+                        <a class="nav-link" href="#ionic" style="padding-left: 1.5rem;">4.2. Ionic</a>
+                        <a class="nav-link" href="#flutter" style="padding-left: 1.5rem;">4.3. Flutter</a>
+                        <a class="nav-link" href="#consideraciones">5. Consideraciones de Implementación</a>
+                        <a class="nav-link" href="#accesibilidad" style="padding-left: 1.5rem;">5.1. Accesibilidad</a>
+                        <a class="nav-link" href="#rendimiento" style="padding-left: 1.5rem;">5.2. Rendimiento</a>
+                        <a class="nav-link" href="#pruebas" style="padding-left: 1.5rem;">5.3. Pruebas</a>
+                        <a class="nav-link" href="#seguridad" style="padding-left: 1.5rem;">5.4. Seguridad</a>
+                        <a class="nav-link" href="#escalabilidad" style="padding-left: 1.5rem;">5.5. Escalabilidad</a>
+                        <a class="nav-link" href="#casos-practicos">Casos Prácticos</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- JavaScript -->
+                <section id="javascript" class="content-section">
+                    <h1><i class="bi bi-braces me-2"></i>3. JavaScript: Interactividad y Funcionalidad Dinámica</h1>
+                    
+                    <p class="lead"><strong>JavaScript</strong> es el lenguaje de programación que aporta vida e interactividad a las páginas web. Es el componente que permite <strong>manipular el contenido dinámicamente, responder a las acciones del usuario y crear experiencias web ricas e interactivas</strong> sin necesidad de recargar la página completa.</p>
+
+                    <div class="definition-box">
+                        <h4><i class="bi bi-cpu me-2"></i>Papel de JavaScript en Interfaces Modernas</h4>
+                        <p>JavaScript actúa como el <strong>motor de interactividad</strong> que conecta la estructura HTML con los estilos CSS, permitiendo crear aplicaciones web dinámicas que rivalizan con aplicaciones nativas en términos de funcionalidad y experiencia de usuario.</p>
+                    </div>
+                </section>
+
+                <!-- Interactividad y DOM -->
+                <section id="interactividad-dom" class="content-section">
+                    <h2><i class="bi bi-diagram-2 me-2"></i>3.1. Interactividad y Manipulación del DOM</h2>
+                    
+                    <p>El <strong>DOM (Document Object Model)</strong> es la representación en memoria de la estructura HTML de una página web. JavaScript permite <strong>interactuar con el DOM para modificar contenido, estilos y estructura</strong> de manera dinámica en respuesta a las acciones del usuario.</p>
+
+                    <h3>Operaciones Fundamentales del DOM</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-search me-2"></i>Seleccionar Elementos</h4>
+                                <div class="code-block">
+// Por ID<br>
+const elemento = document.getElementById('miElemento');<br><br>
+// Por clase<br>
+const elementos = document.getElementsByClassName('miClase');<br><br>
+// Por selector CSS<br>
+const elem = document.querySelector('.mi-clase');
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-pencil me-2"></i>Modificar Contenido</h4>
+                                <div class="code-block">
+// Cambiar texto<br>
+elemento.textContent = 'Nuevo texto';<br><br>
+// Cambiar HTML<br>
+elemento.innerHTML = '&lt;strong&gt;Texto en negrita&lt;/strong&gt;';<br><br>
+// Cambiar atributos<br>
+elemento.setAttribute('src', 'nueva-imagen.jpg');
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-plus-circle me-2"></i>Agregar/Eliminar</h4>
+                                <div class="code-block">
+// Crear nuevo elemento<br>
+const nuevoElemento = document.createElement('div');<br><br>
+// Agregar elemento<br>
+contenedor.appendChild(nuevoElemento);<br><br>
+// Eliminar elemento<br>
+elemento.remove();
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Eventos -->
+                <section id="eventos" class="content-section">
+                    <h2><i class="bi bi-hand-index me-2"></i>3.2. Eventos en JavaScript</h2>
+                    
+                    <p>Los <strong>eventos</strong> son acciones que ocurren en la página web (clicks, movimientos del ratón, pulsaciones de teclado, etc.) y que JavaScript puede <strong>detectar y responder</strong> para crear interacciones dinámicas con el usuario.</p>
+
+                    <h3>Sistema de Eventos Moderno</h3>
+                    <div class="js-card">
+                        <h4><i class="bi bi-cursor me-2"></i>Ejemplo de Manejo de Eventos</h4>
+                        <div class="code-block">
+// Event listener moderno<br>
+const boton = document.getElementById('miBoton');<br>
+boton.addEventListener('click', function(evento) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;evento.preventDefault(); // Prevenir comportamiento por defecto<br>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('Botón clickeado!');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;// Lógica adicional aquí<br>
+});
+                        </div>
+                    </div>
+
+                    <h3>Tipos de Eventos Más Comunes</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="js-card">
+                                <h4><i class="bi bi-mouse me-2"></i>Eventos de Ratón</h4>
+                                <ul>
+                                    <li><code>click</code>: Click del ratón</li>
+                                    <li><code>mouseover</code>: Ratón sobre elemento</li>
+                                    <li><code>mouseout</code>: Ratón fuera del elemento</li>
+                                    <li><code>mousemove</code>: Movimiento del ratón</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="js-card">
+                                <h4><i class="bi bi-keyboard me-2"></i>Eventos de Teclado</h4>
+                                <ul>
+                                    <li><code>keydown</code>: Tecla presionada</li>
+                                    <li><code>keyup</code>: Tecla liberada</li>
+                                    <li><code>keypress</code>: Tecla presionada (caracteres)</li>
+                                    <li><code>input</code>: Cambio en campo de entrada</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="js-card">
+                                <h4><i class="bi bi-ui-checks me-2"></i>Eventos de Formulario</h4>
+                                <ul>
+                                    <li><code>submit</code>: Envío de formulario</li>
+                                    <li><code>change</code>: Cambio en campo</li>
+                                    <li><code>focus</code>: Campo recibe foco</li>
+                                    <li><code>blur</code>: Campo pierde foco</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="js-card">
+                                <h4><i class="bi bi-window me-2"></i>Eventos de Ventana</h4>
+                                <ul>
+                                    <li><code>load</code>: Página completamente cargada</li>
+                                    <li><code>resize</code>: Redimensión de ventana</li>
+                                    <li><code>scroll</code>: Desplazamiento de página</li>
+                                    <li><code>beforeunload</code>: Antes de cerrar página</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AJAX -->
+                <section id="ajax" class="content-section">
+                    <h2><i class="bi bi-cloud-download me-2"></i>3.3. AJAX y Carga Asíncrona de Datos</h2>
+                    
+                    <p><strong>AJAX</strong> (Asynchronous JavaScript and XML) permite realizar <strong>peticiones al servidor de manera asíncrona</strong> sin recargar toda la página, lo que resulta en interfaces más rápidas y una mejor experiencia de usuario.</p>
+
+                    <h3>Fetch API Moderno</h3>
+                    <div class="js-card">
+                        <h4><i class="bi bi-download me-2"></i>Ejemplo de Petición con Fetch API</h4>
+                        <div class="code-block">
+// Petición GET básica<br>
+fetch('https://api.ejemplo.com/datos')<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.then(response => response.json())<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.then(data => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Datos recibidos:', data);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Actualizar interfaz con los datos<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actualizarInterfaz(data);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;.catch(error => {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error:', error);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;});
+                        </div>
+                    </div>
+
+                    <h3>Ventajas de usar AJAX</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-speedometer me-2"></i>Mejor Rendimiento</h4>
+                                <p>Actualización parcial de contenido sin recargar toda la página</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-person-check me-2"></i>Mejor UX</h4>
+                                <p>Interfaz más fluida y responsive sin interrupciones</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="js-card">
+                                <h4><i class="bi bi-arrow-down-up me-2"></i>Menos Ancho de Banda</h4>
+                                <p>Transferencia solo de los datos necesarios</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Frameworks JavaScript -->
+                <section id="frameworks-js" class="content-section">
+                    <h2><i class="bi bi-boxes me-2"></i>3.4. Frameworks y Bibliotecas de JavaScript</h2>
+                    
+                    <p>Los <strong>frameworks de JavaScript</strong> proporcionan estructuras y herramientas que simplifican el desarrollo de aplicaciones web complejas, ofreciendo patrones de diseño probados y optimizaciones de rendimiento.</p>
+
+                    <h3>Principales Frameworks</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-react me-2"></i>React.js</h4>
+                                <p>Biblioteca de Facebook para construir interfaces de usuario</p>
+                                <ul>
+                                    <li>Componentes reutilizables</li>
+                                    <li>Virtual DOM para rendimiento óptimo</li>
+                                    <li>Ecosistema extenso</li>
+                                    <li>JSX para sintaxis familiar</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-triangle me-2"></i>Vue.js</h4>
+                                <p>Framework progresivo y fácil de aprender</p>
+                                <ul>
+                                    <li>Curva de aprendizaje suave</li>
+                                    <li>Sintaxis de template intuitiva</li>
+                                    <li>Reactividad incorporada</li>
+                                    <li>Excelente documentación</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-shield me-2"></i>Angular</h4>
+                                <p>Framework completo de Google para aplicaciones empresariales</p>
+                                <ul>
+                                    <li>Arquitectura robusta y escalable</li>
+                                    <li>TypeScript por defecto</li>
+                                    <li>Inyección de dependencias</li>
+                                    <li>CLI poderosa para desarrollo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Frameworks Móviles -->
+                <section id="frameworks-mobile" class="content-section">
+                    <h1><i class="bi bi-phone me-2"></i>4. Frameworks para Desarrollo Móvil</h1>
+                    
+                    <p>El desarrollo de aplicaciones móviles ha evolucionado hacia enfoques <strong>multiplataforma</strong> que permiten crear aplicaciones nativas utilizando tecnologías web. Estos frameworks reducen significativamente el tiempo y costo de desarrollo al permitir <strong>una sola base de código para múltiples plataformas</strong>.</p>
+                </section>
+
+                <!-- React Native -->
+                <section id="react-native" class="content-section">
+                    <h2><i class="bi bi-phone-flip me-2"></i>4.1. React Native</h2>
+                    
+                    <p><strong>React Native</strong>, desarrollado por Facebook, permite crear aplicaciones móviles nativas utilizando React y JavaScript. Las aplicaciones resultantes son <strong>verdaderamente nativas</strong>, no aplicaciones web empaquetadas.</p>
+
+                    <h3>Ventajas de React Native</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-arrows-angle-expand me-2"></i>Desarrollo Multiplataforma</h4>
+                                <ul>
+                                    <li>Una base de código para iOS y Android</li>
+                                    <li>Compartir hasta 95% del código</li>
+                                    <li>Desarrollo simultáneo para ambas plataformas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-lightning me-2"></i>Rendimiento Nativo</h4>
+                                <ul>
+                                    <li>Componentes nativos reales</li>
+                                    <li>Acceso a APIs nativas del dispositivo</li>
+                                    <li>Performance similar a apps nativas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ionic -->
+                <section id="ionic" class="content-section">
+                    <h2><i class="bi bi-lightning-charge me-2"></i>4.2. Ionic</h2>
+                    
+                    <p><strong>Ionic</strong> es un framework que permite desarrollar aplicaciones móviles híbridas utilizando <strong>tecnologías web estándar (HTML, CSS, JavaScript)</strong>. Las aplicaciones se ejecutan en un WebView nativo, proporcionando acceso a funcionalidades del dispositivo.</p>
+
+                    <h3>Características de Ionic</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-palette me-2"></i>Componentes UI Pre-diseñados</h4>
+                                <ul>
+                                    <li>Biblioteca extensa de componentes móviles</li>
+                                    <li>Estilos nativos para iOS y Android</li>
+                                    <li>Temas personalizables</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-tools me-2"></i>Herramientas de Desarrollo</h4>
+                                <ul>
+                                    <li>Ionic CLI para scaffolding</li>
+                                    <li>Live reload durante desarrollo</li>
+                                    <li>Capacitor para acceso nativo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Flutter -->
+                <section id="flutter" class="content-section">
+                    <h2><i class="bi bi-butterfly me-2"></i>4.3. Flutter</h2>
+                    
+                    <p><strong>Flutter</strong>, desarrollado por Google, utiliza el lenguaje <strong>Dart</strong> para crear aplicaciones nativas compiladas para móvil, web y escritorio desde una sola base de código.</p>
+
+                    <h3>Ventajas Distintivas de Flutter</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-brush me-2"></i>Control Visual Completo</h4>
+                                <ul>
+                                    <li>Renderizado personalizado pixel-perfect</li>
+                                    <li>Widgets personalizados sin limitaciones</li>
+                                    <li>Animaciones fluidas de 60fps</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="framework-card">
+                                <h4><i class="bi bi-speedometer2 me-2"></i>Hot Reload</h4>
+                                <ul>
+                                    <li>Cambios instantáneos durante desarrollo</li>
+                                    <li>Mantiene estado de la aplicación</li>
+                                    <li>Productividad de desarrollo muy alta</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Consideraciones -->
+                <section id="consideraciones" class="content-section">
+                    <h1><i class="bi bi-gear-wide-connected me-2"></i>5. Consideraciones para la Implementación</h1>
+                    
+                    <p>El éxito de una aplicación web o móvil no solo depende de su funcionalidad y diseño, sino también de aspectos fundamentales como <strong>rendimiento, accesibilidad, seguridad y compatibilidad</strong> con distintos dispositivos y navegadores.</p>
+                </section>
+
+                <!-- Accesibilidad -->
+                <section id="accesibilidad" class="content-section">
+                    <h2><i class="bi bi-universal-access me-2"></i>5.1. Accesibilidad y Usabilidad</h2>
+                    
+                    <p>La <strong>accesibilidad web</strong> garantiza que las interfaces sean utilizables por personas con discapacidades, mientras que la <strong>usabilidad</strong> se enfoca en crear experiencias intuitivas para todos los usuarios.</p>
+
+                    <h3>Principios de Accesibilidad</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-eye me-2"></i>Perceptible</h4>
+                                <ul>
+                                    <li>Textos alternativos para imágenes</li>
+                                    <li>Contraste de color adecuado</li>
+                                    <li>Subtítulos para contenido multimedia</li>
+                                    <li>Texto redimensionable hasta 200%</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-hand-index me-2"></i>Operable</h4>
+                                <ul>
+                                    <li>Navegación completa por teclado</li>
+                                    <li>Tiempo suficiente para leer contenido</li>
+                                    <li>Sin contenido que cause convulsiones</li>
+                                    <li>Elementos interactivos de tamaño adecuado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-lightbulb me-2"></i>Comprensible</h4>
+                                <ul>
+                                    <li>Texto legible y comprensible</li>
+                                    <li>Funcionalidad predecible</li>
+                                    <li>Ayuda para evitar errores</li>
+                                    <li>Etiquetas e instrucciones claras</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-shield-check me-2"></i>Robusto</h4>
+                                <ul>
+                                    <li>Compatible con tecnologías asistivas</li>
+                                    <li>Código HTML válido y semántico</li>
+                                    <li>Funciona en diferentes navegadores</li>
+                                    <li>Mantiene funcionalidad en diferentes dispositivos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Rendimiento -->
+                <section id="rendimiento" class="content-section">
+                    <h2><i class="bi bi-speedometer me-2"></i>5.2. Rendimiento y Optimización</h2>
+                    
+                    <p>El <strong>rendimiento</strong> es crucial para mantener a los usuarios comprometidos. Las aplicaciones lentas resultan en alta tasa de abandono y mala experiencia de usuario.</p>
+
+                    <h3>Estrategias de Optimización</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-file-zip me-2"></i>Optimización de Recursos</h4>
+                                <ul>
+                                    <li>Compresión de imágenes (WebP, AVIF)</li>
+                                    <li>Minificación de CSS y JavaScript</li>
+                                    <li>Compresión GZIP/Brotli</li>
+                                    <li>Eliminación de código no utilizado</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-hourglass me-2"></i>Técnicas de Carga</h4>
+                                <ul>
+                                    <li>Lazy loading para imágenes y componentes</li>
+                                    <li>Code splitting para JavaScript</li>
+                                    <li>Preload de recursos críticos</li>
+                                    <li>Service workers para caché inteligente</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pruebas -->
+                <section id="pruebas" class="content-section">
+                    <h2><i class="bi bi-bug me-2"></i>5.3. Pruebas y Depuración</h2>
+                    
+                    <p>Las <strong>pruebas sistemáticas</strong> garantizan que la aplicación funcione correctamente en diferentes escenarios y dispositivos.</p>
+
+                    <h3>Tipos de Pruebas</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-gear me-2"></i>Pruebas Unitarias</h4>
+                                <p>Testing de componentes individuales</p>
+                                <ul>
+                                    <li>Jest para JavaScript</li>
+                                    <li>Mocha y Chai</li>
+                                    <li>Testing Library</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-layers me-2"></i>Pruebas de Integración</h4>
+                                <p>Testing de interacción entre componentes</p>
+                                <ul>
+                                    <li>Cypress para E2E</li>
+                                    <li>Selenium WebDriver</li>
+                                    <li>Playwright</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-person-check me-2"></i>Pruebas de Usuario</h4>
+                                <p>Testing con usuarios reales</p>
+                                <ul>
+                                    <li>Testing de usabilidad</li>
+                                    <li>A/B testing</li>
+                                    <li>Heat mapping</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Seguridad -->
+                <section id="seguridad" class="content-section">
+                    <h2><i class="bi bi-shield-lock me-2"></i>5.4. Seguridad</h2>
+                    
+                    <p>La <strong>seguridad</strong> debe ser considerada desde el inicio del desarrollo para proteger tanto la aplicación como los datos de los usuarios.</p>
+
+                    <h3>Medidas de Seguridad Esenciales</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-lock me-2"></i>Protección de Datos</h4>
+                                <ul>
+                                    <li>HTTPS obligatorio en producción</li>
+                                    <li>Validación de entrada de datos</li>
+                                    <li>Sanitización de contenido HTML</li>
+                                    <li>Encriptación de datos sensibles</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-person-badge me-2"></i>Autenticación y Autorización</h4>
+                                <ul>
+                                    <li>Autenticación robusta (2FA cuando sea posible)</li>
+                                    <li>JWT tokens con expiración</li>
+                                    <li>Control de acceso basado en roles</li>
+                                    <li>Rate limiting para APIs</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Escalabilidad -->
+                <section id="escalabilidad" class="content-section">
+                    <h2><i class="bi bi-arrow-up-right-circle me-2"></i>5.5. Mantenimiento y Escalabilidad</h2>
+                    
+                    <p>El <strong>mantenimiento y la escalabilidad</strong> determinan la capacidad de crecimiento y adaptación a nuevas necesidades de la aplicación.</p>
+
+                    <h3>Estrategias para Garantizar Escalabilidad</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-boxes me-2"></i>Arquitectura Modular</h4>
+                                <ul>
+                                    <li>Componentes reutilizables y desacoplados</li>
+                                    <li>Separación clara de responsabilidades</li>
+                                    <li>APIs bien definidas entre módulos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="best-practice-card">
+                                <h4><i class="bi bi-cloud me-2"></i>Infraestructura Escalable</h4>
+                                <ul>
+                                    <li>Bases de datos NoSQL (MongoDB, Firebase)</li>
+                                    <li>Servicios en la nube (AWS, Google Cloud, Azure)</li>
+                                    <li>Integración continua (CI/CD)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section id="casos-practicos" class="content-section">
+                    <h1><i class="bi bi-journal-text me-2"></i>Casos Prácticos</h1>
+                    
+                    <!-- Caso 1 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-leaf me-2"></i>Caso Práctico 1: Sitio Web para Empresa de Productos Orgánicos</h3>
+                        
+                        <h4>Situación</h4>
+                        <p>Una pequeña empresa de productos orgánicos necesita un sitio web que sea <strong>intuitivo, accesible y visualmente atractivo</strong> para mostrar sus productos, historia de la empresa y facilitar el contacto con clientes potenciales.</p>
+
+                        <h4>Implementación con HTML5, CSS3 y JavaScript</h4>
+                        
+                        <h5>Características de HTML5 Utilizadas</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-diagram-3 me-2"></i>Estructura Semántica</h6>
+                                    <ul>
+                                        <li><code>&lt;header&gt;</code>: Logo y navegación principal</li>
+                                        <li><code>&lt;section&gt;</code>: Diferentes categorías de productos</li>
+                                        <li><code>&lt;article&gt;</code>: Artículos del blog sobre agricultura orgánica</li>
+                                        <li><code>&lt;aside&gt;</code>: Testimonios de clientes y certificaciones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-ui-checks me-2"></i>Formularios Mejorados</h6>
+                                    <ul>
+                                        <li><code>type="email"</code>: Validación automática de email de contacto</li>
+                                        <li><code>type="tel"</code>: Campo optimizado para números telefónicos</li>
+                                        <li><code>required</code>: Validación nativa de campos obligatorios</li>
+                                        <li><code>placeholder</code>: Texto de ayuda en campos</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Características de CSS3 Utilizadas</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-palette me-2"></i>Estilos Visuales</h6>
+                                    <ul>
+                                        <li>Gradientes verdes que reflejan la naturaleza orgánica</li>
+                                        <li>Border-radius para elementos suaves y naturales</li>
+                                        <li>Box-shadow para profundidad visual</li>
+                                        <li>Google Fonts para tipografía amigable</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-grid-3x3 me-2"></i>Layout Responsivo</h6>
+                                    <ul>
+                                        <li>CSS Grid para galería de productos</li>
+                                        <li>Flexbox para navegación adaptable</li>
+                                        <li>Media queries para móviles y tablets</li>
+                                        <li>Variables CSS para consistencia de colores</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5>Características de JavaScript Utilizadas</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-images me-2"></i>Galería Interactiva</h6>
+                                    <ul>
+                                        <li>Lightbox para visualización de imágenes de productos</li>
+                                        <li>Filtrado dinámico por categorías</li>
+                                        <li>Animaciones suaves con CSS transitions</li>
+                                        <li>Lazy loading para optimizar carga de imágenes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-envelope me-2"></i>Funcionalidad de Contacto</h6>
+                                    <ul>
+                                        <li>Validación en tiempo real de formularios</li>
+                                        <li>Envío asíncrono con Fetch API</li>
+                                        <li>Feedback visual para el usuario</li>
+                                        <li>Integración con Google Maps para ubicación</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Resultados Obtenidos</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Mejora del 85% en tiempo de carga</strong> comparado con sitio anterior</li>
+                                <li><strong>Aumento del 60% en consultas</strong> a través del formulario de contacto</li>
+                                <li><strong>95% de compatibilidad</strong> en dispositivos móviles según Google Mobile Test</li>
+                                <li><strong>Puntuación de 90/100</strong> en PageSpeed Insights</li>
+                                <li><strong>Cumplimiento WCAG 2.1 AA</strong> para accesibilidad</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Caso 2 -->
+                    <div class="case-study">
+                        <h3><i class="bi bi-heart-pulse me-2"></i>Caso Práctico 2: Aplicación Móvil de Fitness Multiplataforma</h3>
+                        
+                        <h4>Contexto del Proyecto</h4>
+                        <p>Desarrollo de una aplicación móvil de fitness que debe funcionar tanto en <strong>Android como en iOS</strong>, incluyendo seguimiento de ejercicios, planes de entrenamiento personalizados, y sincronización con dispositivos wearables.</p>
+
+                        <h4>Selección de Framework y Herramientas</h4>
+                        
+                        <h5>Framework Principal: React Native</h5>
+                        <div class="framework-card">
+                            <h6><i class="bi bi-phone-flip me-2"></i>Justificación de Elección</h6>
+                            <ul>
+                                <li><strong>Desarrollo multiplataforma:</strong> Una base de código para iOS y Android</li>
+                                <li><strong>Performance nativo:</strong> Componentes nativos reales, no WebView</li>
+                                <li><strong>Ecosistema robusto:</strong> Amplia comunidad y librerías disponibles</li>
+                                <li><strong>Hot reload:</strong> Desarrollo rápido con cambios en tiempo real</li>
+                            </ul>
+                        </div>
+
+                        <h5>Herramientas y Tecnologías Complementarias</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-database me-2"></i>Backend y Datos</h6>
+                                    <ul>
+                                        <li><strong>Firebase:</strong> Base de datos en tiempo real y autenticación</li>
+                                        <li><strong>Redux:</strong> Gestión de estado global de la aplicación</li>
+                                        <li><strong>AsyncStorage:</strong> Almacenamiento local para datos offline</li>
+                                        <li><strong>Health Connect:</strong> Integración con datos de salud</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-palette me-2"></i>UI/UX y Animaciones</h6>
+                                    <ul>
+                                        <li><strong>React Native Elements:</strong> Componentes UI consistentes</li>
+                                        <li><strong>Lottie:</strong> Animaciones complejas y fluidas</li>
+                                        <li><strong>React Navigation:</strong> Navegación nativa optimizada</li>
+                                        <li><strong>Styled Components:</strong> Estilos modulares y reutilizables</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Implementación de Funcionalidades Clave</h4>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-activity me-2"></i>Seguimiento de Ejercicios</h6>
+                                    <ul>
+                                        <li>Timer nativo con notificaciones push</li>
+                                        <li>Acelerómetro para detección de movimiento</li>
+                                        <li>Gráficos de progreso con Victory Charts</li>
+                                        <li>Sincronización automática con la nube</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-person-gear me-2"></i>Planes Personalizados</h6>
+                                    <ul>
+                                        <li>Algoritmo de recomendación basado en IA</li>
+                                        <li>Adaptación según progreso del usuario</li>
+                                        <li>Integración con calendario nativo</li>
+                                        <li>Recordatorios inteligentes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-smartwatch me-2"></i>Dispositivos Wearables</h6>
+                                    <ul>
+                                        <li>Bluetooth Low Energy para conexión</li>
+                                        <li>Sincronización de datos de ritmo cardíaco</li>
+                                        <li>Compatibilidad con Apple Watch y Wear OS</li>
+                                        <li>APIs nativas para sensores de salud</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Herramientas de Desarrollo y Testing</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-tools me-2"></i>Desarrollo</h6>
+                                    <ul>
+                                        <li><strong>Expo CLI:</strong> Desarrollo rápido con herramientas integradas</li>
+                                        <li><strong>Flipper:</strong> Debugging avanzado para React Native</li>
+                                        <li><strong>CodePush:</strong> Actualizaciones OTA (Over The Air)</li>
+                                        <li><strong>Fastlane:</strong> Automatización de builds y deploy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="framework-card">
+                                    <h6><i class="bi bi-bug me-2"></i>Testing</h6>
+                                    <ul>
+                                        <li><strong>Jest:</strong> Testing unitario de componentes</li>
+                                        <li><strong>Detox:</strong> Testing E2E automatizado</li>
+                                        <li><strong>Firebase Test Lab:</strong> Testing en dispositivos reales</li>
+                                        <li><strong>Sentry:</strong> Monitoreo de errores en producción</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h4>Resultados de la Implementación</h4>
+                        <div class="highlight-box">
+                            <ul>
+                                <li><strong>Reducción del 70% en tiempo de desarrollo</strong> comparado con desarrollo nativo separado</li>
+                                <li><strong>Compartir 92% del código</strong> entre plataformas iOS y Android</li>
+                                <li><strong>Performance de 60 FPS</strong> en animaciones y transiciones</li>
+                                <li><strong>Rating promedio de 4.7/5</strong> en App Store y Google Play</li>
+                                <li><strong>Tiempo de arranque < 2 segundos</strong> en dispositivos promedio</li>
+                                <li><strong>Compatibilidad con 95% de dispositivos</strong> Android (API 21+) e iOS (12+)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conclusión -->
+                <section class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>Conclusión</h2>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-award me-2"></i>Implementación Exitosa de Interfaces</h4>
+                        <p>Las consideraciones para la implementación de interfaces web y móviles van más allá del desarrollo inicial. Aspectos como <strong>accesibilidad, rendimiento, pruebas, seguridad y escalabilidad</strong> son esenciales para garantizar una experiencia de usuario óptima y una aplicación robusta.</p>
+                        <p>Siguiendo estas mejores prácticas y utilizando herramientas adecuadas, es posible desarrollar <strong>interfaces eficientes, accesibles y seguras</strong> que se adapten a las necesidades cambiantes del mercado y los usuarios.</p>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="navigation-cards">
+                    <div class="nav-card prev">
+                        <a href="tema9.html">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            <div><strong>Tema 9 - Parte 1</strong></div>
+                            <div>HTML5 y CSS3</div>
+                        </a>
+                    </div>
+                    <div class="nav-card next">
+                        <a href="tema10.html">
+                            <i class="bi bi-arrow-right me-2"></i>
+                            <div><strong>Tema 10</strong></div>
+                            <div>Interfaces Android e iOS</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 12: Empaquetado, Despliegue y Releases - Programación</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 0;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #dee2e6, transparent);
+            height: 2px;
+            margin: 3rem 0;
+        }
+        .concept-card {
+            border-left: 4px solid #667eea;
+            background-color: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .concept-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .highlight-box {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 5px solid #2196f3;
+        }
+        .nav-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .nav-buttons .btn {
+            margin: 5px;
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .quiz-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+        }
+        .quiz-button:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+            color: white;
+        }
+        .back-button {
+            background: linear-gradient(45deg, #3742fa, #2f3542);
+            color: white;
+            border: none;
+        }
+        .back-button:hover {
+            background: linear-gradient(45deg, #2f3542, #3742fa);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(47, 53, 66, 0.4);
+            color: white;
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .process-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .icon-large {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e83e8c;
+            font-family: 'Courier New', monospace;
+        }
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+        .alert-custom {
+            border-radius: 10px;
+            border: none;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        .alert-info-custom {
+            background: linear-gradient(45deg, #e3f2fd, #f1f8e9);
+            color: #0d47a1;
+        }
+        .alert-warning-custom {
+            background: linear-gradient(45deg, #fff3e0, #f3e5f5);
+            color: #e65100;
+        }
+        .breadcrumb-custom {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .breadcrumb-custom .breadcrumb-item a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .breadcrumb-custom .breadcrumb-item.active {
+            color: #f8f9fa;
+        }
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-top: 4px solid #6c757d;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .deployment-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 3rem;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #667eea;
+            border-radius: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: #dee2e6;
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .version-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #667eea;
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item active" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/index.html">Quiz</a>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light" id="theme-toggle" title="Alternar tema">
+                    <i class="bi bi-sun-fill"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-rocket me-3"></i>
+                        Empaquetado, Despliegue y Releases
+                    </h1>
+                    <p class="lead mb-4">
+                        Domina el proceso completo de distribución de software: desde el empaquetado con setuptools y PyInstaller hasta el despliegue en la nube y gestión profesional de versiones.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-box me-2"></i>Empaquetado Python
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fab fa-docker me-2"></i>Docker & Nginx
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-cloud me-2"></i>Despliegue en la Nube
+                        </span>
+                        <span class="badge bg-light text-dark fs-6 px-3 py-2">
+                            <i class="fas fa-code-branch me-2"></i>GitFlow & SemVer
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="fas fa-ship display-1 text-white opacity-75"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card">
+                        <div class="card-header bg-success text-white">
+                            <h5 class="mb-0">
+                                <i class="bi bi-list-ul me-2"></i>
+                                Índice del Tema
+                            </h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <nav class="nav nav-pills flex-column">
+                                <a class="nav-link" href="#introduccion">Introducción</a>
+                                <a class="nav-link" href="#empaquetado-distribucion">Empaquetado</a>
+                                <a class="nav-link" href="#despliegue-aplicaciones">Despliegue</a>
+                                <a class="nav-link" href="#estrategias-despliegue">Estrategias</a>
+                                <a class="nav-link" href="#gestion-versiones">Gestión de Versiones</a>
+                                <a class="nav-link" href="#ejercicios">Ejercicios</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content -->
+            <div class="col-lg-9">
+        
+        <!-- Introducción -->
+        <section id="introduccion" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-play-circle me-3"></i>
+                Introducción al Empaquetado, Despliegue y Gestión de Releases
+            </h2>
+            
+            <div class="alert alert-info-custom">
+                <h5><i class="fas fa-lightbulb me-2"></i>Procesos Fundamentales</h5>
+                <p class="mb-0">En el desarrollo de software, los procesos de <strong>empaquetado, despliegue y gestión de versiones</strong> son fundamentales para garantizar que una aplicación pueda ser distribuida, instalada y mantenida de manera eficiente. Implementar buenas prácticas permite trabajar más eficientemente y asegurar entrega de software de alta calidad.</p>
+            </div>
+
+            <!-- Definiciones -->
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h4 class="text-center">Empaquetado</h4>
+                    <p><strong>Objetivo:</strong> Preparación del software en formato adecuado para distribución, incluyendo dependencias y configuraciones necesarias.</p>
+                    <ul>
+                        <li><strong>setuptools:</strong> Crear paquetes Python</li>
+                        <li><strong>PyInstaller:</strong> Generar ejecutables</li>
+                        <li><strong>Dependencias:</strong> Gestión automática</li>
+                        <li><strong>Distribución:</strong> Formatos estándar</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h4 class="text-center">Despliegue</h4>
+                    <p><strong>Objetivo:</strong> Proceso de instalar y configurar aplicación en entorno de producción o prueba.</p>
+                    <ul>
+                        <li><strong>Servidores locales:</strong> Configuración tradicional</li>
+                        <li><strong>Nube:</strong> AWS, Heroku, Google Cloud</li>
+                        <li><strong>Contenedores:</strong> Docker para portabilidad</li>
+                        <li><strong>Escalabilidad:</strong> Gestión automática de recursos</li>
+                    </ul>
+                </div>
+
+                <div class="process-card">
+                    <div class="icon-large text-center">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h4 class="text-center">Gestión de Versiones</h4>
+                    <p><strong>Objetivo:</strong> Control de cambios en código fuente y asignación de números de versión mediante estrategias como SemVer.</p>
+                    <ul>
+                        <li><strong>SemVer:</strong> Versionado semántico</li>
+                        <li><strong>GitFlow:</strong> Gestión de ramas</li>
+                        <li><strong>Releases:</strong> Publicación controlada</li>
+                        <li><strong>Changelog:</strong> Documentación de cambios</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Importancia en el Ciclo de Vida -->
+            <div class="highlight-box">
+                <h4><i class="fas fa-star me-2"></i>Importancia en el Ciclo de Vida del Software</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-share-alt text-primary me-2"></i>Facilitar la Distribución</h5>
+                        <p>Permiten empaquetar aplicaciones con todas sus dependencias para evitar errores de instalación.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-shield-alt text-success me-2"></i>Garantizar Estabilidad</h5>
+                        <p>Un despliegue bien gestionado reduce riesgos en producción y permite mejor administración de recursos.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-tools text-warning me-2"></i>Optimizar Mantenimiento</h5>
+                        <p>La gestión de versiones asegura control preciso sobre cambios, facilitando mejoras sin afectar estabilidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beneficios de Estrategia Eficiente -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-thumbs-up me-2"></i>
+                    Beneficios de una Estrategia Eficiente
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-bug text-danger me-2"></i>Reducción de Errores en Producción</h4>
+                            <ul>
+                                <li><strong>Detección temprana:</strong> Pruebas automatizadas en pipeline CI/CD</li>
+                                <li><strong>Implementación gradual:</strong> Canary Releases o Blue-Green Deployment</li>
+                                <li><strong>Rollback eficiente:</strong> Retroceso rápido a versión estable</li>
+                                <li><strong>Historial documentado:</strong> Control estructurado con GitFlow</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="concept-card p-4 h-100">
+                            <h4><i class="fas fa-expand-arrows-alt text-info me-2"></i>Escalabilidad y Automatización</h4>
+                            <ul>
+                                <li><strong>Despliegues automáticos:</strong> Docker, Kubernetes, Jenkins</li>
+                                <li><strong>Balanceo de carga:</strong> Escalabilidad automática en la nube</li>
+                                <li><strong>Versionado semántico:</strong> Gestión de actualizaciones y dependencias</li>
+                                <li><strong>Compatibilidad:</strong> Evitar cambios disruptivos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Empaquetado de Aplicaciones Python -->
+        <section id="empaquetado" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-box me-3"></i>
+                Empaquetado de Aplicaciones Python
+            </h2>
+
+            <!-- setuptools -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-cogs me-2"></i>
+                    Creación de Distribuciones con setuptools
+                </h3>
+
+                <div class="highlight-box">
+                    <h4>¿Qué es setuptools?</h4>
+                    <p><strong>setuptools</strong> es la herramienta estándar en Python para <strong>crear paquetes, gestionar dependencias y facilitar la distribución</strong> de software. Permite crear paquetes instalables mediante pip, definir dependencias y metadatos, y facilitar distribución en PyPI.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-file-code me-2"></i>Configuración de setup.py</h4>
+                        <p>El archivo <code>setup.py</code> define metadatos como nombre, versión y dependencias del paquete:</p>
+                        <pre><code>from setuptools import setup, find_packages
+
+setup(
+    name="mi_paquete",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=[
+        "requests",  # Dependencias necesarias
+        "numpy"
+    ],
+    author="Tu Nombre",
+    description="Un paquete de ejemplo en Python",
+)</code></pre>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-cog me-2"></i>Configuración con setup.cfg</h4>
+                        <p>Desde Python 3.8, se recomienda usar <code>setup.cfg</code> para configuraciones declarativas:</p>
+                        <pre><code>[metadata]
+name = mi_paquete
+version = 1.0.0
+author = Tu Nombre
+description = Un paquete de ejemplo en Python
+
+[options]
+packages = find:
+install_requires =
+    requests
+    numpy</code></pre>
+                    </div>
+                </div>
+
+                <!-- Distribución en PyPI -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-upload me-2"></i>Distribución de Paquetes en PyPI</h4>
+                    <div class="deployment-timeline">
+                        <div class="timeline-item">
+                            <h5>1. Crear el paquete</h5>
+                            <pre><code>python setup.py sdist bdist_wheel</code></pre>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>2. Subir el paquete a PyPI con Twine</h5>
+                            <pre><code>twine upload dist/*</code></pre>
+                        </div>
+                        <div class="timeline-item">
+                            <h5>3. Instalar el paquete desde PyPI</h5>
+                            <pre><code>pip install mi_paquete</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PyInstaller -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-file-archive me-2"></i>
+                    Generación de Ejecutables con PyInstaller
+                </h3>
+
+                <div class="alert alert-warning-custom">
+                    <h5><i class="fas fa-info-circle me-2"></i>¿Por qué PyInstaller?</h5>
+                    <p class="mb-0">Cuando se desarrolla un programa en Python, muchas veces se necesita distribuirlo a usuarios que no tienen Python instalado. <strong>PyInstaller</strong> convierte scripts de Python en <strong>ejecutables independientes</strong> para Windows, Linux y macOS, facilitando distribución sin requerir instalación manual de dependencias.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-magic me-2"></i>Propósito de PyInstaller</h4>
+                        <ul>
+                            <li>Ejecutar aplicaciones Python sin instalar Python</li>
+                            <li>Incluir todas las dependencias en el ejecutable</li>
+                            <li>Generar versiones portables de programas</li>
+                            <li>Análisis automático de dependencias</li>
+                        </ul>
+                        
+                        <h5>Instalación:</h5>
+                        <pre><code>pip install pyinstaller</code></pre>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-desktop me-2"></i>Creación de Ejecutables</h4>
+                        <p>Para generar un ejecutable básico:</p>
+                        <pre><code>pyinstaller --onefile mi_programa.py</code></pre>
+                        
+                        <h5>Plataformas Soportadas:</h5>
+                        <ul>
+                            <li><strong>Windows:</strong> Genera archivos .exe</li>
+                            <li><strong>Linux:</strong> Crea ejecutables ELF</li>
+                            <li><strong>macOS:</strong> Permite crear archivos .app</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Opciones Avanzadas -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-sliders-h me-2"></i>Opciones Avanzadas</h4>
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-image text-primary me-2"></i>Iconos Personalizados</h5>
+                            <pre><code>pyinstaller --onefile --icon=icono.ico mi_programa.py</code></pre>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-file text-success me-2"></i>Archivos Adicionales</h5>
+                            <p>Incluir imágenes, bases de datos, configuraciones en archivos .spec:</p>
+                            <pre><code>a = Analysis(['mi_programa.py'], 
+         datas=[('config.json', '.')])</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pruebas y Validación -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-check-double me-2"></i>
+                    Pruebas y Validación de Paquetes
+                </h3>
+
+                <p class="lead">Una vez empaquetado con setuptools o convertido en ejecutable con PyInstaller, es fundamental <strong>validar el correcto funcionamiento</strong> antes de distribuir.</p>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-vial me-2"></i>Verificación del Funcionamiento</h4>
+                        <p>Después de empaquetar, se deben realizar pruebas para verificar:</p>
+                        <ul>
+                            <li><strong>Instalación correcta</strong> con <code>pip install paquete.whl</code></li>
+                            <li><strong>Dependencias configuradas</strong> en requirements.txt</li>
+                            <li><strong>Funciones operativas</strong> con PyTest o unittest</li>
+                        </ul>
+                        
+                        <div class="bg-light p-3 rounded">
+                            <h6>Ejemplo de Prueba:</h6>
+                            <pre><code>pip install dist/mi_paquete.whl
+python -c "import mi_paquete; mi_paquete.funcion_principal()"</code></pre>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-flask me-2"></i>Entornos de Prueba</h4>
+                        <p>Probar en <strong>entornos aislados</strong> para evitar conflictos:</p>
+                        <ul>
+                            <li><strong>Entornos virtuales:</strong> venv o conda</li>
+                            <li><strong>Contenedores Docker:</strong> Validación en distintos sistemas</li>
+                        </ul>
+                        
+                        <div class="bg-light p-3 rounded">
+                            <h6>Entorno Virtual:</h6>
+                            <pre><code>python -m venv test_env
+source test_env/bin/activate
+pip install mi_paquete.whl</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automatización -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-robot me-2"></i>Automatización con CI/CD</h4>
+                    <p>Para evitar pruebas manuales, automatizar tests y generación de paquetes:</p>
+                    <pre><code>name: Test and Build Package
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Run Tests
+        run: pytest
+      - name: Build Package
+        run: python setup.py sdist bdist_wheel</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Despliegue de Aplicaciones -->
+        <section id="despliegue" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-cloud-upload-alt me-3"></i>
+                Despliegue de Aplicaciones
+            </h2>
+
+            <!-- Docker y Contenedores -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fab fa-docker me-2"></i>
+                    Docker y Contenedores
+                </h3>
+
+                <div class="alert alert-info-custom">
+                    <h5><i class="fas fa-lightbulb me-2"></i>¿Por qué Docker?</h5>
+                    <p class="mb-0">Los <strong>contenedores Docker</strong> son más ligeros que las máquinas virtuales, proporcionan mayor portabilidad, escalabilidad y tiempo de arranque más rápido, consumiendo menos recursos del sistema.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-box-open me-2"></i>Contenedores vs Máquinas Virtuales</h4>
+                        <div class="concept-card p-3">
+                            <h5 class="text-primary">Ventajas de Docker:</h5>
+                            <ul>
+                                <li><strong>Portabilidad:</strong> Ejecutar en cualquier sistema</li>
+                                <li><strong>Escalabilidad:</strong> Fácil gestión de múltiples instancias</li>
+                                <li><strong>Arranque rápido:</strong> Segundos vs minutos</li>
+                                <li><strong>Menor consumo de recursos:</strong> Comparten kernel del SO</li>
+                                <li><strong>Gestión de dependencias:</strong> Entorno aislado y controlado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-file-code me-2"></i>Creación de Dockerfile</h4>
+                        <p>El archivo <code>Dockerfile</code> define cómo construir la imagen del contenedor:</p>
+                        <pre><code>FROM python:3.9-slim
+
+# Instalar dependencias del sistema
+RUN apt-get update && apt-get install -y \
+    gcc \
+    && rm -rf /var/lib/apt/lists/*
+
+# Configurar directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de dependencias
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar código de la aplicación
+COPY . .
+
+# Exponer puerto
+EXPOSE 5000
+
+# Comando por defecto
+CMD ["python", "app.py"]</code></pre>
+
+                        <h5>Comandos esenciales:</h5>
+                        <pre><code>docker build -t mi_app .
+docker run -p 5000:5000 mi_app</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nginx como Proxy -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-server me-2"></i>
+                    Nginx como Servidor Web y Proxy Inverso
+                </h3>
+
+                <div class="highlight-box">
+                    <h4>Funciones de Nginx</h4>
+                    <p><strong>Nginx</strong> es un servidor web y proxy inverso que puede manejar <strong>múltiples solicitudes concurrentes</strong>, mejorar rendimiento, redirigir tráfico HTTP/HTTPS, proporcionar seguridad adicional y estabilidad en aplicaciones web.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-cogs me-2"></i>Configuración Básica</h4>
+                        <p>Archivo de configuración típico <code>/etc/nginx/sites-available/mi_app</code>:</p>
+                        <pre><code>server {
+    listen 80;
+    server_name mi_dominio.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location /static/ {
+        alias /var/www/mi_app/static/;
+        expires 1y;
+    }
+}</code></pre>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-shield-alt me-2"></i>Configuración con SSL</h4>
+                        <p>Para HTTPS con certificados SSL:</p>
+                        <pre><code>server {
+    listen 443 ssl;
+    server_name mi_dominio.com;
+
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/private.key;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        # Headers adicionales para SSL
+        proxy_set_header X-Forwarded-Proto https;
+    }
+}
+
+# Redirección HTTP a HTTPS
+server {
+    listen 80;
+    server_name mi_dominio.com;
+    return 301 https://$server_name$request_uri;
+}</code></pre>
+                    </div>
+                </div>
+
+                <div class="tools-grid mt-4">
+                    <div class="tool-card">
+                        <h5><i class="fas fa-tachometer-alt text-primary me-2"></i>Mejora de Rendimiento</h5>
+                        <ul>
+                            <li>Manejo de miles de conexiones concurrentes</li>
+                            <li>Balanceo de carga entre servidores</li>
+                            <li>Caché de contenido estático</li>
+                            <li>Compresión gzip</li>
+                        </ul>
+                    </div>
+                    <div class="tool-card">
+                        <h5><i class="fas fa-lock text-success me-2"></i>Seguridad Mejorada</h5>
+                        <ul>
+                            <li>Protección contra ataques DDoS</li>
+                            <li>Ocultación de información del servidor backend</li>
+                            <li>Filtrado de solicitudes maliciosas</li>
+                            <li>Configuración SSL/TLS robusta</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Despliegue en la Nube -->
+            <div class="mb-5">
+                <h3 class="text-primary mb-4">
+                    <i class="fas fa-cloud me-2"></i>
+                    Despliegue en la Nube
+                </h3>
+
+                <!-- Heroku -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-cube text-purple me-2"></i>Heroku - Platform as a Service (PaaS)</h4>
+                    <p>Heroku es una <strong>plataforma que simplifica el despliegue</strong> gestionando automáticamente infraestructura, escalabilidad e integración con bases de datos y servicios de monitoreo.</p>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5><i class="fas fa-upload me-2"></i>Configuración y Despliegue</h5>
+                            <div class="deployment-timeline">
+                                <div class="timeline-item">
+                                    <h6>1. Instalar Heroku CLI</h6>
+                                    <pre><code>npm install -g heroku</code></pre>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6>2. Crear aplicación</h6>
+                                    <pre><code>heroku create mi-app-web</code></pre>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6>3. Configurar Procfile</h6>
+                                    <pre><code>web: gunicorn app:app</code></pre>
+                                </div>
+                                <div class="timeline-item">
+                                    <h6>4. Desplegar</h6>
+                                    <pre><code>git push heroku main</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5><i class="fas fa-database me-2"></i>Integración con PostgreSQL</h5>
+                            <p>Heroku ofrece complementos (addons) para servicios externos como bases de datos:</p>
+                            <pre><code># Agregar PostgreSQL
+heroku addons:create heroku-postgresql:hobby-dev
+
+# Ver información de conexión
+heroku config:get DATABASE_URL</code></pre>
+                            
+                            <div class="alert alert-info-custom mt-3">
+                                <p class="mb-0"><strong>Beneficios de Heroku:</strong> No necesitas configurar servidores, maneja automáticamente escalabilidad, integración simple con GitHub para despliegue automático.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AWS -->
+                <div class="mb-4">
+                    <h4><i class="fab fa-aws text-warning me-2"></i>Amazon Web Services (AWS)</h4>
+                    <p>AWS ofrece diversas opciones para desplegar aplicaciones Python, desde servidores virtuales hasta servicios completamente gestionados.</p>
+
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-server text-primary me-2"></i>EC2 (Elastic Compute Cloud)</h5>
+                            <p><strong>Servidores virtuales escalables</strong> donde puedes instalar y configurar aplicaciones manualmente:</p>
+                            <ul>
+                                <li>Control total sobre el entorno</li>
+                                <li>Configuración personalizada</li>
+                                <li>Escalabilidad horizontal y vertical</li>
+                                <li>Diferentes tipos de instancia (CPU, memoria, almacenamiento)</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-magic text-success me-2"></i>Elastic Beanstalk</h5>
+                            <p><strong>PaaS de AWS</strong> que gestiona automáticamente infraestructura:</p>
+                            <ul>
+                                <li>Despliegue con un solo comando</li>
+                                <li>Gestión automática de escalabilidad</li>
+                                <li>Monitoreo integrado</li>
+                                <li>Integración con otros servicios AWS</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-hdd text-info me-2"></i>S3 (Simple Storage Service)</h5>
+                            <p><strong>Almacenamiento</strong> para archivos estáticos y backups:</p>
+                            <ul>
+                                <li>Archivos CSS, JavaScript, imágenes</li>
+                                <li>Copias de seguridad de bases de datos</li>
+                                <li>Logs de aplicación</li>
+                                <li>Alta disponibilidad y durabilidad</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estrategias de Despliegue -->
+            <div class="mb-5">
+                <h3 class="text-danger mb-4">
+                    <i class="fas fa-chess me-2"></i>
+                    Estrategias de Despliegue Seguro y Automatizado
+                </h3>
+
+                <!-- CI/CD -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-sync-alt me-2"></i>CI/CD (Integración y Despliegue Continuo)</h4>
+                    <p>Permite <strong>actualizar aplicaciones automáticamente</strong> cuando el código ha sido probado y validado, reduciendo errores humanos y tiempo de despliegue.</p>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="tool-card">
+                                <h5><i class="fab fa-github text-dark me-2"></i>GitHub Actions</h5>
+                                <ul>
+                                    <li>Integración nativa con GitHub</li>
+                                    <li>Workflows personalizables</li>
+                                    <li>Soporte para múltiples lenguajes</li>
+                                    <li>Marketplace de acciones predefinidas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="tool-card">
+                                <h5><i class="fab fa-gitlab text-warning me-2"></i>GitLab CI/CD</h5>
+                                <ul>
+                                    <li>Pipelines definidos en .gitlab-ci.yml</li>
+                                    <li>Runners propios o compartidos</li>
+                                    <li>Integración con Docker Registry</li>
+                                    <li>Despliegue a múltiples entornos</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="tool-card">
+                                <h5><i class="fas fa-cogs text-info me-2"></i>Jenkins</h5>
+                                <ul>
+                                    <li>Servidor de automatización robusto</li>
+                                    <li>Amplio ecosistema de plugins</li>
+                                    <li>Integración con Docker y Kubernetes</li>
+                                    <li>Pipelines como código (Jenkinsfile)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monitoreo -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-chart-line me-2"></i>Monitoreo de Aplicaciones en Producción</h4>
+                    <p>Una vez en producción, es fundamental <strong>monitorear en tiempo real</strong> métricas como CPU, memoria, tiempo de respuesta de API, errores y logs.</p>
+
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-fire text-danger me-2"></i>Prometheus</h5>
+                            <p>Sistema de monitoreo y alertas open-source:</p>
+                            <ul>
+                                <li>Recolección de métricas en tiempo real</li>
+                                <li>Consultas con PromQL</li>
+                                <li>Alertas configurables</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-chart-bar text-primary me-2"></i>Grafana</h5>
+                            <p>Visualización de métricas y dashboards:</p>
+                            <ul>
+                                <li>Dashboards interactivos</li>
+                                <li>Integración con múltiples fuentes</li>
+                                <li>Alertas visuales</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-eye text-success me-2"></i>New Relic / Datadog</h5>
+                            <p>Soluciones completas de APM (Application Performance Monitoring):</p>
+                            <ul>
+                                <li>Monitoreo de rendimiento</li>
+                                <li>Trazabilidad de errores</li>
+                                <li>Análisis de experiencia de usuario</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Estrategias de Rollback -->
+                <div class="mb-4">
+                    <h4><i class="fas fa-undo me-2"></i>Manejo de Errores y Estrategias de Rollback</h4>
+                    <p>Para minimizar riesgos durante despliegues, se emplean estrategias que permiten <strong>retroceder rápidamente</strong> a versiones estables.</p>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="concept-card p-4 h-100">
+                                <h5><i class="fas fa-exchange-alt text-primary me-2"></i>Blue-Green Deployment</h5>
+                                <p>Mantener dos entornos idénticos (Blue y Green), uno en producción y otro de preparación:</p>
+                                <ul>
+                                    <li>Despliegue en entorno inactivo</li>
+                                    <li>Pruebas completas antes del switch</li>
+                                    <li>Cambio instantáneo de tráfico</li>
+                                    <li>Rollback inmediato si hay problemas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="concept-card p-4 h-100">
+                                <h5><i class="fas fa-percentage text-warning me-2"></i>Canary Releases</h5>
+                                <p>Liberar nueva versión gradualmente a un subconjunto de usuarios:</p>
+                                <ul>
+                                    <li>5% de usuarios ven nueva versión</li>
+                                    <li>Monitoreo de métricas y errores</li>
+                                    <li>Incremento gradual si todo funciona</li>
+                                    <li>Rollback rápido ante problemas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <h5><i class="fas fa-flag text-info me-2"></i>Feature Flags</h5>
+                        <p>Controlar activación de funcionalidades sin redesplegar código:</p>
+                        <pre><code>if feature_flags.is_enabled('nueva_funcionalidad'):
+    # Ejecutar nueva funcionalidad
+    nueva_funcion()
+else:
+    # Mantener comportamiento anterior
+    funcion_anterior()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Gestión de Versiones y Releases -->
+        <section id="versiones" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-tags me-3"></i>
+                Gestión de Versiones y Releases
+            </h2>
+
+            <!-- SemVer -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-sort-numeric-up me-2"></i>
+                    SemVer (Semantic Versioning)
+                </h3>
+
+                <div class="highlight-box">
+                    <h4>Estructura del Versionado Semántico</h4>
+                    <p>SemVer utiliza un formato <strong>MAJOR.MINOR.PATCH</strong> que comunica claramente el tipo de cambios en cada release.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <h4><i class="fas fa-layer-group me-2"></i>Reglas de Incremento</h4>
+                        <div class="tools-grid">
+                            <div class="tool-card">
+                                <h5><span class="version-badge">MAJOR</span></h5>
+                                <p><strong>Cambios incompatibles</strong> que requieren modificar código existente:</p>
+                                <ul>
+                                    <li>Eliminar funciones públicas</li>
+                                    <li>Cambiar nombre de métodos</li>
+                                    <li>Modificar estructura de datos</li>
+                                    <li>Cambiar comportamiento de API</li>
+                                </ul>
+                                <div class="bg-light p-2 rounded">
+                                    <code>1.4.2 → 2.0.0</code>
+                                </div>
+                            </div>
+                            <div class="tool-card">
+                                <h5><span class="version-badge" style="background: #28a745;">MINOR</span></h5>
+                                <p><strong>Nuevas funcionalidades</strong> compatibles con versiones anteriores:</p>
+                                <ul>
+                                    <li>Agregar nuevas funciones</li>
+                                    <li>Nuevas opciones en métodos existentes</li>
+                                    <li>Mejoras de rendimiento</li>
+                                    <li>Funcionalidades opcionales</li>
+                                </ul>
+                                <div class="bg-light p-2 rounded">
+                                    <code>1.4.2 → 1.5.0</code>
+                                </div>
+                            </div>
+                            <div class="tool-card">
+                                <h5><span class="version-badge" style="background: #ffc107; color: #212529;">PATCH</span></h5>
+                                <p><strong>Correcciones de errores</strong> sin cambiar funcionalidad:</p>
+                                <ul>
+                                    <li>Fixes de bugs</li>
+                                    <li>Correcciones de seguridad</li>
+                                    <li>Mejoras menores de rendimiento</li>
+                                    <li>Actualización de documentación</li>
+                                </ul>
+                                <div class="bg-light p-2 rounded">
+                                    <code>1.4.2 → 1.4.3</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4><i class="fas fa-tags me-2"></i>Versiones Especiales</h4>
+                        <div class="concept-card p-3">
+                            <h5>Pre-releases:</h5>
+                            <ul>
+                                <li><code>1.0.0-alpha.1</code></li>
+                                <li><code>1.0.0-beta.2</code></li>
+                                <li><code>1.0.0-rc.1</code></li>
+                            </ul>
+                            
+                            <h5 class="mt-3">Build metadata:</h5>
+                            <ul>
+                                <li><code>1.0.0+20230515</code></li>
+                                <li><code>1.0.0+build.123</code></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitFlow -->
+            <div class="mb-5">
+                <h3 class="text-warning mb-4">
+                    <i class="fas fa-project-diagram me-2"></i>
+                    GitFlow - Modelo de Flujo de Trabajo
+                </h3>
+
+                <div class="alert alert-info-custom">
+                    <h5><i class="fas fa-info-circle me-2"></i>¿Qué es GitFlow?</h5>
+                    <p class="mb-0">GitFlow es un <strong>modelo de flujo de trabajo</strong> que utiliza ramas estructuradas para facilitar colaboración en equipos grandes y permitir gestión eficiente de funcionalidades y versiones estables.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-code-branch me-2"></i>Estructura de Ramas</h4>
+                        <div class="deployment-timeline">
+                            <div class="timeline-item">
+                                <h5><strong>main</strong> (o master)</h5>
+                                <p>Código en producción, siempre estable</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5><strong>develop</strong></h5>
+                                <p>Integración de nuevas funcionalidades</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5><strong>feature/</strong></h5>
+                                <p>Desarrollo de funcionalidades específicas</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5><strong>release/</strong></h5>
+                                <p>Preparación para nueva versión</p>
+                            </div>
+                            <div class="timeline-item">
+                                <h5><strong>hotfix/</strong></h5>
+                                <p>Correcciones urgentes en producción</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-workflow me-2"></i>Proceso de Trabajo</h4>
+                        <div class="concept-card p-3">
+                            <h5>1. Desarrollo de Feature:</h5>
+                            <pre><code>git checkout develop
+git checkout -b feature/nueva-funcionalidad
+# Desarrollo...
+git checkout develop
+git merge feature/nueva-funcionalidad</code></pre>
+
+                            <h5>2. Preparación de Release:</h5>
+                            <pre><code>git checkout develop
+git checkout -b release/v1.5.0
+# Ajustes finales...
+git checkout main
+git merge release/v1.5.0
+git tag v1.5.0</code></pre>
+
+                            <h5>3. Hotfix Urgente:</h5>
+                            <pre><code>git checkout main
+git checkout -b hotfix/v1.5.1
+# Fix crítico...
+git checkout main
+git merge hotfix/v1.5.1
+git tag v1.5.1</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Etiquetas y Trazabilidad -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-tag me-2"></i>Etiquetas (Tags) y Trazabilidad</h4>
+                    <p>Las etiquetas git permiten marcar versiones específicas del código y proporcionar <strong>trazabilidad completa</strong> hacia versiones anteriores.</p>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h5>Gestión de Tags:</h5>
+                            <pre><code># Crear tag anotado
+git tag -a v1.0.0 -m "Release v1.0.0"
+
+# Listar tags
+git tag --list
+
+# Push tags al repositorio
+git push origin v1.0.0
+git push origin --tags</code></pre>
+                        </div>
+                        <div class="col-lg-6">
+                            <h5>Beneficios:</h5>
+                            <ul>
+                                <li><strong>Trazabilidad:</strong> Localizar código exacto de cada versión</li>
+                                <li><strong>Rollback:</strong> Volver a versión específica rápidamente</li>
+                                <li><strong>Documentación:</strong> Histórico de cambios detallado</li>
+                                <li><strong>Automatización:</strong> Triggers para CI/CD basados en tags</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Publicación de Releases -->
+            <div class="mb-5">
+                <h3 class="text-danger mb-4">
+                    <i class="fas fa-rocket me-2"></i>
+                    Publicación y Gestión de Releases
+                </h3>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fab fa-github me-2"></i>GitHub Releases</h4>
+                        <p>GitHub proporciona una interfaz para <strong>gestionar releases</strong> con etiquetas, archivos binarios y documentación detallada.</p>
+                        
+                        <div class="concept-card p-3">
+                            <h5>Crear Release en GitHub:</h5>
+                            <ol>
+                                <li>Ir a "Releases" en el repositorio</li>
+                                <li>Click en "Create a new release"</li>
+                                <li>Seleccionar tag (ej: v1.0.0)</li>
+                                <li>Escribir título y descripción</li>
+                                <li>Adjuntar archivos binarios si es necesario</li>
+                                <li>Marcar como pre-release si corresponde</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fab fa-gitlab me-2"></i>GitLab Releases</h4>
+                        <p>GitLab ofrece funcionalidades similares con integración avanzada a CI/CD.</p>
+                        
+                        <div class="concept-card p-3">
+                            <h5>Automatización con GitLab CI:</h5>
+                            <pre><code>release:
+  stage: release
+  script:
+    - echo "Creating release"
+  release:
+    tag_name: '$CI_COMMIT_TAG'
+    description: 'Release $CI_COMMIT_TAG'
+    assets:
+      links:
+        - name: 'Binary'
+          url: '$CI_PROJECT_URL/-/jobs/$CI_JOB_ID/artifacts/raw/dist/app'
+  only:
+    - tags</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Changelog -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-list-alt me-2"></i>Documentación con Changelog</h4>
+                    <p>Un <strong>changelog</strong> documenta todos los cambios importantes entre versiones de manera clara y estructurada.</p>
+                    
+                    <div class="bg-light p-4 rounded">
+                        <h5>Ejemplo de CHANGELOG.md:</h5>
+                        <pre><code># Changelog
+
+## [1.2.0] - 2023-05-15
+
+### Added
+- Nueva funcionalidad de exportación a PDF
+- Soporte para autenticación OAuth2
+- API endpoint para gestión de usuarios
+
+### Changed
+- Mejorado rendimiento de consultas a base de datos
+- Actualizada interfaz de usuario con nuevo diseño
+
+### Fixed
+- Corregido error en validación de formularios
+- Solucionado problema de memoria en procesamiento de archivos
+
+### Security
+- Actualizada dependencia requests a versión 2.31.0
+- Implementada validación adicional en endpoints públicos</code></pre>
+                    </div>
+                </div>
+
+                <!-- Proceso de Validación -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-clipboard-check me-2"></i>Proceso de Validación Antes del Release</h4>
+                    <p>Antes de publicar un release, se deben realizar <strong>pruebas exhaustivas</strong> para minimizar riesgos:</p>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h5><i class="fas fa-vial text-primary me-2"></i>Pruebas Unitarias</h5>
+                            <ul>
+                                <li>Ejecutar suite completa de tests</li>
+                                <li>Cobertura mínima del 80%</li>
+                                <li>Validación de casos edge</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-link text-success me-2"></i>Pruebas de Integración</h5>
+                            <ul>
+                                <li>Verificar interacción entre componentes</li>
+                                <li>Testing de APIs externas</li>
+                                <li>Validación de base de datos</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-eye text-warning me-2"></i>Revisión Manual</h5>
+                            <ul>
+                                <li>Code review por otro desarrollador</li>
+                                <li>Verificación de documentación</li>
+                                <li>Testing de flujos de usuario críticos</li>
+                            </ul>
+                        </div>
+                        <div class="tool-card">
+                            <h5><i class="fas fa-puzzle-piece text-info me-2"></i>Compatibilidad</h5>
+                            <ul>
+                                <li>Pruebas con versiones anteriores</li>
+                                <li>Validación de dependencias</li>
+                                <li>Testing en diferentes entornos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automatización -->
+                <div class="mt-4">
+                    <h4><i class="fas fa-robot me-2"></i>Automatización del Proceso</h4>
+                    <p>La automatización minimiza errores humanos y asegura consistencia en cada release:</p>
+                    
+                    <div class="bg-light p-4 rounded">
+                        <h5>GitHub Actions para Release Automático:</h5>
+                        <pre><code>name: Release
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+          
+      - name: Install dependencies
+        run: |
+          pip install setuptools wheel twine
+          
+      - name: Run tests
+        run: pytest
+        
+      - name: Build package
+        run: python setup.py sdist bdist_wheel
+        
+      - name: Publish to PyPI
+        run: twine upload dist/*
+        env:
+          TWINE_USERNAME: __token__
+          TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
+          
+      - name: Create GitHub Release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Ejercicios Prácticos -->
+        <section id="ejercicios" class="mb-5">
+            <h2 class="text-primary mb-4">
+                <i class="fas fa-laptop-code me-3"></i>
+                Ejercicios Prácticos
+            </h2>
+
+            <!-- Ejercicio 1 -->
+            <div class="mb-5">
+                <h3 class="text-success mb-4">
+                    <i class="fas fa-tasks me-2"></i>
+                    Ejercicio 1: Empaquetado y Despliegue de Aplicación Web en la Nube
+                </h3>
+
+                <div class="alert alert-warning-custom">
+                    <h5><i class="fas fa-target me-2"></i>Objetivo del Ejercicio</h5>
+                    <p class="mb-0">Desarrollar una aplicación web en Python con Flask que incluya autenticación de usuarios, gestión de datos con base de datos, y API REST. Empaquetarla usando setuptools, crear ejecutable con PyInstaller, contenerizarla con Docker y desplegarla en Heroku y AWS Elastic Beanstalk. Implementar GitFlow y crear changelog completo con GitHub Releases.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-list-ol me-2"></i>Especificaciones Técnicas</h4>
+                        <ul>
+                            <li><strong>Framework:</strong> Flask con autenticación de usuarios</li>
+                            <li><strong>Base de datos:</strong> SQLite para desarrollo, PostgreSQL para producción</li>
+                            <li><strong>API REST:</strong> Endpoints para CRUD de recursos</li>
+                            <li><strong>Empaquetado:</strong> setuptools con setup.py configurado</li>
+                            <li><strong>Ejecutable:</strong> PyInstaller para distribución offline</li>
+                            <li><strong>Contenedor:</strong> Docker con Dockerfile optimizado</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4><i class="fas fa-cloud me-2"></i>Plataformas de Despliegue</h4>
+                        <ul>
+                            <li><strong>Heroku:</strong> Configuración con Procfile y addon PostgreSQL</li>
+                            <li><strong>AWS Elastic Beanstalk:</strong> Despliegue con archivo .zip</li>
+                            <li><strong>GitFlow:</strong> Ramas feature, develop, main estructuradas</li>
+                            <li><strong>Versionado:</strong> SemVer con tags git</li>
+                            <li><strong>Documentación:</strong> Changelog detallado</li>
+                            <li><strong>Automatización:</strong> GitHub Releases con Actions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="concept-card p-4 mt-4">
+                    <h5><i class="fas fa-clipboard-list me-2"></i>Entregables Esperados:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Aplicación Flask funcionando localmente</li>
+                                <li>Paquete instalable (.whl) con setuptools</li>
+                                <li>Ejecutable generado con PyInstaller</li>
+                                <li>Imagen Docker construida y probada</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>Aplicación desplegada en Heroku (con URL funcional)</li>
+                                <li>Repositorio con GitFlow implementado</li>
+                                <li>Changelog.md completo con historial</li>
+                                <li>GitHub Release con documentación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ejercicio 2 -->
+            <div class="mb-5">
+                <h3 class="text-info mb-4">
+                    <i class="fas fa-tasks me-2"></i>
+                    Ejercicio 2: API REST en AWS con Gestión Completa de Versiones
+                </h3>
+
+                <div class="alert alert-info-custom">
+                    <h5><i class="fas fa-rocket me-2"></i>Objetivo Avanzado</h5>
+                    <p class="mb-0">Crear una <strong>API REST robusta</strong> usando Flask con autenticación JWT, base de datos PostgreSQL, empaquetada con setuptools, contenerizada con Docker, desplegada en AWS Elastic Beanstalk con RDS, implementando versionado SemVer y gestión de releases con GitHub.</p>
+                </div>
+
+                <div class="process-grid">
+                    <div class="process-card">
+                        <h4><i class="fas fa-code me-2"></i>Desarrollo</h4>
+                        <ul>
+                            <li><strong>Flask API:</strong> Endpoints RESTful</li>
+                            <li><strong>JWT:</strong> Autenticación segura</li>
+                            <li><strong>PostgreSQL:</strong> Base de datos relacional</li>
+                            <li><strong>Validación:</strong> Esquemas de datos</li>
+                            <li><strong>Testing:</strong> Cobertura completa</li>
+                        </ul>
+                    </div>
+                    <div class="process-card">
+                        <h4><i class="fas fa-box me-2"></i>Empaquetado</h4>
+                        <ul>
+                            <li><strong>setuptools:</strong> Paquete instalable</li>
+                            <li><strong>requirements.txt:</strong> Dependencias</li>
+                            <li><strong>Docker:</strong> Imagen optimizada</li>
+                            <li><strong>Docker Compose:</strong> Orquestación local</li>
+                        </ul>
+                    </div>
+                    <div class="process-card">
+                        <h4><i class="fab fa-aws me-2"></i>Despliegue AWS</h4>
+                        <ul>
+                            <li><strong>Elastic Beanstalk:</strong> Gestión automática</li>
+                            <li><strong>RDS PostgreSQL:</strong> Base de datos gestionada</li>
+                            <li><strong>Load Balancer:</strong> Alta disponibilidad</li>
+                            <li><strong>CloudWatch:</strong> Monitoreo y logs</li>
+                        </ul>
+                    </div>
+                    <div class="process-card">
+                        <h4><i class="fas fa-code-branch me-2"></i>Gestión de Versiones</h4>
+                        <ul>
+                            <li><strong>SemVer:</strong> Versionado semántico estricto</li>
+                            <li><strong>GitFlow:</strong> Ramas organizadas</li>
+                            <li><strong>GitHub Releases:</strong> Documentación automática</li>
+                            <li><strong>CI/CD:</strong> Pipeline automatizado</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box mt-4">
+                    <h4><i class="fas fa-trophy me-2"></i>Criterios de Evaluación</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5>Funcionalidad (30%):</h5>
+                            <ul>
+                                <li>API funcional con todos los endpoints</li>
+                                <li>Autenticación JWT implementada</li>
+                                <li>Integración con PostgreSQL exitosa</li>
+                                <li>Pruebas unitarias pasando</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Despliegue y Versionado (70%):</h5>
+                            <ul>
+                                <li>Despliegue exitoso en AWS con URL funcional</li>
+                                <li>Imagen Docker optimizada y probada</li>
+                                <li>GitFlow correctamente implementado</li>
+                                <li>Releases documentados con changelog</li>
+                                <li>Pipeline CI/CD automatizado</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resumen Final -->
+        <section id="resumen" class="mb-5">
+            <div class="highlight-box">
+                <h3><i class="fas fa-graduation-cap me-3"></i>Resumen del Tema</h3>
+                <p><strong>El empaquetado, despliegue y gestión de releases</strong> son procesos fundamentales que garantizan la distribución eficiente y mantenimiento profesional del software. <strong>setuptools</strong> permite crear paquetes Python estándar, <strong>PyInstaller</strong> genera ejecutables independientes, <strong>Docker</strong> proporciona portabilidad y escalabilidad, las plataformas de nube como <strong>Heroku y AWS</strong> simplifican el despliegue, <strong>SemVer</strong> estandariza el versionado, <strong>GitFlow</strong> organiza el desarrollo colaborativo, y las <strong>pruebas automatizadas con CI/CD</strong> aseguran calidad en cada release.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-box text-primary me-2"></i>Empaquetado</h5>
+                        <p>setuptools, PyInstaller, distribución PyPI</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-cloud text-success me-2"></i>Despliegue</h5>
+                        <p>Docker, Nginx, Heroku, AWS, CI/CD</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5><i class="fas fa-code-branch text-warning me-2"></i>Versionado</h5>
+                        <p>SemVer, GitFlow, GitHub Releases</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="container my-4">
+        <div class="card">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-4 text-start">
+                        <a href="tema11.html" class="btn btn-outline-success">
+                            <i class="bi bi-arrow-left me-2"></i>
+                            Tema 11
+                        </a>
+                    </div>
+                    <div class="col-4 text-center">
+                        <small class="text-muted">Tema 12 de 12</small>
+                    </div>
+                    <div class="col-4 text-end">
+                        <a href="../../../index.html" class="btn btn-outline-success">
+                            Inicio
+                            <i class="bi bi-house ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Load saved theme or default to light
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            html.setAttribute('data-bs-theme', savedTheme);
+            updateThemeToggleIcon(savedTheme);
+            
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = html.getAttribute('data-bs-theme');
+                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+                
+                html.setAttribute('data-bs-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeToggleIcon(newTheme);
+            });
+            
+            function updateThemeToggleIcon(theme) {
+                const icon = themeToggle.querySelector('i');
+                if (theme === 'light') {
+                    icon.className = 'bi bi-sun-fill';
+                } else {
+                    icon.className = 'bi bi-moon-stars-fill';
+                }
+            }
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            });
+            
+            // Intersection Observer for active navigation highlighting
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -20% 0px',
+                threshold: 0
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const id = entry.target.getAttribute('id');
+                    const navLink = document.querySelector(`a[href="#${id}"]`);
+                    
+                    if (entry.isIntersecting) {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        if (navLink) {
+                            navLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('section[id]').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

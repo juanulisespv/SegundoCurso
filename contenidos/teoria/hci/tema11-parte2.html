@@ -1,1134 +1,566 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 11: Tendencias Avanzadas - Parte 2 | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 11: Tendencias Avanzadas en HCI - Parte 2 | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
     <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #9c27b0;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
+        :root {
+            --primary-color: #198754;
+            --secondary-color: #20c997;
+            --accent-color: #ffc107;
+            --text-dark: #2c3e50;
+            --background-light: #f8f9fa;
         }
-        
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #9c27b0 0%, #673ab7 100%);
+            color: white;
+            padding: 4rem 0 2rem 0;
+            margin-bottom: 0;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container-fluid {
+            max-width: 1400px;
+        }
+
         .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
             overflow-y: auto;
         }
-        
-        .bci-demo-container {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 2rem;
+
+        .sidebar h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
             margin-bottom: 1rem;
-            position: relative;
-            overflow: hidden;
+            font-weight: 600;
         }
-        
-        .iot-showcase {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            border-radius: 15px;
-            padding: 1.5rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        
-        .wearable-card {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            border-radius: 12px;
-            padding: 1rem;
-            color: #333;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .accessibility-advanced {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            border-radius: 12px;
-            padding: 1.5rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-        
-        .implementation-example {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 8px;
-            padding: 1rem;
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85rem;
-            margin: 0.5rem 0;
-            overflow-x: auto;
-            border: 1px solid #444;
-        }
-        
-        .future-impact-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            transform: perspective(1000px) rotateX(0deg);
+
+        .sidebar .nav-link {
+            color: var(--text-dark);
+            padding: 0.5rem 0;
+            border-left: 3px solid transparent;
+            padding-left: 1rem;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
         }
-        
-        .future-impact-card:hover {
-            transform: perspective(1000px) rotateX(5deg);
-            box-shadow: 0 10px 25px rgba(156, 39, 176, 0.3);
+
+        .sidebar .nav-link:hover {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.05);
         }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+
+        .sidebar .nav-link.active {
+            color: var(--primary-color);
+            border-left-color: var(--primary-color);
+            background-color: rgba(25, 135, 84, 0.1);
+            font-weight: 600;
         }
-        
-        .brain-wave-animation {
-            position: relative;
-            overflow: hidden;
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-        
-        .brain-wave-animation::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: brainWave 3s infinite;
+
+        .content-section h2 {
+            color: #9c27b0;
+            border-bottom: 3px solid #673ab7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
-        
-        @keyframes brainWave {
-            0% { left: -100%; }
-            100% { left: 100%; }
+
+        .content-section h3 {
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
         }
-        
-        .device-ecosystem {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+
+        .technology-card {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .technology-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+
+        .bci-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
             margin: 1rem 0;
         }
-        
-        .ethical-consideration {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
+
+        .gesture-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .ai-card {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .conversational-card {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .challenge-card {
+            background: linear-gradient(135deg, #ffe6e6 0%, #f8f9fa 100%);
+            border-left: 5px solid #dc3545;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .challenge-card h5 {
+            color: #dc3545;
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.1) 100%);
+            border: 1px solid #9c27b0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .applications-list {
+            background: linear-gradient(135deg, #fff3cd 0%, #f8f9fa 100%);
+            border-left: 5px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .navigation-section {
+            background: var(--background-light);
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            color: var(--primary-color);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+
+        .tech-badge {
+            background: #9c27b0;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-stars me-2"></i>
-                HCI Tema 11: Tendencias Avanzadas - Parte 2
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
-            </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido - Parte 2
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link text-muted" href="tema11.html">
-                                    <i class="bi bi-arrow-left me-1"></i>
-                                    Parte 1: AI, VR/AR
-                                </a>
-                                <hr class="my-2">
-                                <a class="nav-link" href="#brain-computer">5. Brain-Computer Interfaces</a>
-                                <a class="nav-link" href="#iot-ambient">6. IoT y Ambient Computing</a>
-                                <a class="nav-link" href="#wearables">7. Wearables y Ubicuous Computing</a>
-                                <a class="nav-link" href="#accessibility-advanced">8. Accessibility Avanzada</a>
-                                <hr class="my-2">
-                                <a class="nav-link text-success" href="tema11-parte3.html">
-                                    <i class="bi bi-arrow-right me-1"></i>
-                                    Continuar Parte 3
-                                </a>
-                            </nav>
-                        </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <h1><i class="bi bi-cpu-fill me-3"></i>Tema 11: Otras Tendencias Avanzadas</h1>
+                        <p class="lead">Parte 2: Interfaces Cerebro-Computadora, Interacciones Gestuales, IA e Interfaces Conversacionales</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h1 class="display-5 text-primary">Tendencias Avanzadas en HCI</h1>
-                    <p class="lead">Parte 2: BCI, IoT, Wearables y Accessibility del Futuro</p>
-                    <div class="alert alert-info">
-                        <i class="bi bi-cpu me-2"></i>
-                        Exploramos las interfaces más avanzadas y el futuro de la accessibility technology.
-                    </div>
+    <!-- Main Content -->
+    <div class="container-fluid py-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <h5><i class="bi bi-list me-2"></i>Contenido</h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link" href="tema11.html">← Parte 1: AR y VR</a>
+                        <a class="nav-link active" href="#introduccion">Introducción</a>
+                        <a class="nav-link" href="#bci">3.1 Interfaz Cerebro-Computadora</a>
+                        <a class="nav-link" href="#interacciones-gestuales">3.2 Interacciones Gestuales</a>
+                        <a class="nav-link" href="#ia-interfaces">3.3 IA en Interfaces</a>
+                        <a class="nav-link" href="#interfaces-conversacionales">3.4 Interfaces Conversacionales</a>
+                        <a class="nav-link text-muted" href="tema11-parte3.html">→ Parte 3: Casos Prácticos</a>
+                    </nav>
                 </div>
+            </div>
 
-                <!-- 5. Brain-Computer Interfaces -->
-                <section id="brain-computer" class="content-section">
-                    <h2><i class="bi bi-cpu me-2"></i>5. Brain-Computer Interfaces (BCI)</h2>
-                    
-                    <p>Los <strong>Brain-Computer Interfaces</strong> representan el próximo salto evolutivo en HCI, permitiendo direct communication between the brain y computing systems sin intermediate physical actions.</p>
-                    
-                    <div class="bci-demo-container brain-wave-animation">
-                        <h5><i class="bi bi-lightning me-2"></i>Neural Interface Technologies</h5>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Types of BCI Systems</h6>
-                                <ul class="small">
-                                    <li><strong>Invasive BCI:</strong> Electrodes implanted directly en brain tissue
-                                        <ul>
-                                            <li>High signal resolution y accuracy</li>
-                                            <li>Direct cortical recordings</li>
-                                            <li>Surgical risks involved</li>
-                                            <li>Used para paralyzed patients</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Semi-invasive BCI:</strong> Electrodes placed beneath skull but outside brain
-                                        <ul>
-                                            <li>Better signal quality than non-invasive</li>
-                                            <li>Lower risk than invasive</li>
-                                            <li>ECoG (Electrocorticography) technique</li>
-                                            <li>Balance between performance y safety</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Non-invasive BCI:</strong> External sensors (EEG, fNIRS)
-                                        <ul>
-                                            <li>No surgical procedure required</li>
-                                            <li>Lower signal resolution</li>
-                                            <li>Consumer-friendly approach</li>
-                                            <li>Widely accessible technology</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <h6>Neural Signal Processing</h6>
-                                <div class="implementation-example">
-// BCI Signal Processing Pipeline
-class BCIProcessor {
-  constructor() {
-    this.filters = new SignalFilters();
-    this.featureExtractor = new FeatureExtractor();
-    this.classifier = new NeuralClassifier();
-    this.calibrationData = new CalibrationManager();
-  }
+            <!-- Content -->
+            <div class="col-lg-9">
+                <!-- Introducción -->
+                <div id="introduccion" class="content-section">
+                    <h2><i class="bi bi-lightbulb me-2"></i>3. Otras Tendencias Avanzadas en HCI</h2>
+                    <p>Además de la <strong>Realidad Aumentada (AR)</strong> y la <strong>Realidad Virtual (VR)</strong>, el campo de la Interacción Humano-Computadora (HCI) sigue evolucionando con el desarrollo de nuevas tecnologías que transforman la manera en que los humanos interactúan con los sistemas digitales.</p>
 
-  async processRealTimeSignal(rawEEGData) {
-    // 1. Preprocessing: Remove artifacts
-    const filteredSignal = this.filters.applyBandpassFilter(
-      rawEEGData, 
-      { lowFreq: 8, highFreq: 30 } // Alpha/Beta bands
-    );
-    
-    // 2. Artifact removal (eye blinks, muscle movement)
-    const cleanSignal = await this.filters.removeArtifacts(
-      filteredSignal,
-      { method: 'ICA', components: 64 }
-    );
-    
-    // 3. Feature extraction
-    const features = this.featureExtractor.extract({
-      signal: cleanSignal,
-      windowSize: 1000, // 1 second window
-      overlap: 0.5,
-      methods: ['PSD', 'CSP', 'wavelet']
-    });
-    
-    // 4. Classification
-    const intention = await this.classifier.predict(features);
-    
-    // 5. Apply user-specific calibration
-    const calibratedResult = this.calibrationData
-      .applyCalibratedThresholds(intention);
-    
-    return {
-      rawIntention: intention,
-      calibratedIntention: calibratedResult,
-      confidence: calibratedResult.confidence,
-      timestamp: Date.now(),
-      signalQuality: this.assessSignalQuality(cleanSignal)
-    };
-  }
-
-  // Motor imagery classification
-  async classifyMotorImagery(eegSignal) {
-    const spatialFilters = this.trainCSPFilters(eegSignal);
-    const filteredChannels = this.applyCSP(eegSignal, spatialFilters);
-    
-    return this.classifier.classifyMovement({
-      leftHand: filteredChannels.leftMotorCortex,
-      rightHand: filteredChannels.rightMotorCortex,
-      feet: filteredChannels.motorFeet,
-      tongue: filteredChannels.motorTongue
-    });
-  }
-}
-                                </div>
-                            </div>
-                        </div>
+                    <div class="highlight-box">
+                        <h4><i class="bi bi-target me-2"></i>Objetivo de las Nuevas Tendencias</h4>
+                        <p>Estas innovaciones buscan hacer las interfaces <strong>más naturales, intuitivas y eficientes</strong>, reduciendo la barrera entre el usuario y la máquina.</p>
                     </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>BCI Applications y User Experience</h5>
-                            
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card border-danger">
-                                        <div class="card-header bg-danger text-white">
-                                            <h6 class="mb-0">Medical Applications</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li><strong>Paralysis restoration:</strong> Control external devices with thought</li>
-                                                <li><strong>Communication aids:</strong> Type with brain signals para ALS patients</li>
-                                                <li><strong>Prosthetic control:</strong> Neural-controlled artificial limbs</li>
-                                                <li><strong>Stroke rehabilitation:</strong> Brain plasticity training</li>
-                                                <li><strong>Depression treatment:</strong> Neurofeedback therapy</li>
-                                            </ul>
-                                            
-                                            <div class="small mt-2 text-muted">
-                                                <strong>Case Study:</strong> Neuralink patient can control computer cursor directly with thought, achieving 8.0 bits per second typing speed.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="card border-warning">
-                                        <div class="card-header bg-warning text-dark">
-                                            <h6 class="mb-0">Gaming & Entertainment</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li><strong>Mental commands:</strong> Control games with concentration</li>
-                                                <li><strong>Emotional feedback:</strong> Games adapt to player mood</li>
-                                                <li><strong>Cognitive training:</strong> Brain fitness applications</li>
-                                                <li><strong>Virtual environments:</strong> Thought-controlled VR navigation</li>
-                                                <li><strong>Social gaming:</strong> Brain-to-brain communication experiments</li>
-                                            </ul>
-                                            
-                                            <div class="small mt-2 text-muted">
-                                                <strong>Example:</strong> NeuroSky headsets enable concentration-based gaming where focus levels control in-game elements.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-4">
-                                    <div class="card border-success">
-                                        <div class="card-header bg-success text-white">
-                                            <h6 class="mb-0">Productivity & Work</h6>
-                                        </div>
-                                        <div class="card-body">
-                                            <ul class="small">
-                                                <li><strong>Mental workload monitoring:</strong> Detect cognitive overload</li>
-                                                <li><strong>Attention tracking:</strong> Focus-aware applications</li>
-                                                <li><strong>Stress detection:</strong> Automatic break recommendations</li>
-                                                <li><strong>Flow state optimization:</strong> Enhance deep work periods</li>
-                                                <li><strong>Fatigue management:</strong> Prevent cognitive exhaustion</li>
-                                            </ul>
-                                            
-                                            <div class="small mt-2 text-muted">
-                                                <strong>Research:</strong> Microsoft studies show BCI can predict task difficulty y automatically adjust interface complexity.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- 6. IoT y Ambient Computing -->
-                <section id="iot-ambient" class="content-section">
-                    <h2><i class="bi bi-house-gear me-2"></i>6. IoT y Ambient Computing</h2>
-                    
-                    <p><strong>Internet of Things (IoT)</strong> y Ambient Computing crean ecosystems of interconnected devices que provide seamless, context-aware experiences sin explicit user commands.</p>
-                    
-                    <div class="iot-showcase">
-                        <h5><i class="bi bi-diagram-3 me-2"></i>Ambient Intelligence Ecosystem</h5>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Context-Aware Computing</h6>
-                                <ul class="small">
-                                    <li><strong>Location awareness:</strong> GPS, beacons, indoor positioning</li>
-                                    <li><strong>Activity recognition:</strong> Machine learning from sensor data</li>
-                                    <li><strong>Social context:</strong> Who's present, meeting status</li>
-                                    <li><strong>Environmental factors:</strong> Light, temperature, noise levels</li>
-                                    <li><strong>Temporal patterns:</strong> Daily routines y preferences</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Ambient Computing Context Engine
-class AmbientContextEngine {
-  constructor() {
-    this.sensors = new SensorNetwork();
-    this.ml = new MLContextClassifier();
-    this.deviceOrchestrator = new DeviceOrchestrator();
-  }
-
-  async analyzeContext() {
-    // Gather all available context
-    const context = await this.gatherContextData();
-    
-    // Classify current situation
-    const situation = await this.ml.classifySituation(context);
-    
-    // Predict user needs
-    const predictions = await this.predictUserNeeds(situation);
-    
-    // Orchestrate appropriate responses
-    return this.orchestrateResponse(predictions);
-  }
-
-  async gatherContextData() {
-    return {
-      location: await this.sensors.getLocation(),
-      time: {
-        hour: new Date().getHours(),
-        dayOfWeek: new Date().getDay(),
-        season: this.calculateSeason()
-      },
-      environment: {
-        temperature: await this.sensors.getTemperature(),
-        lighting: await this.sensors.getLightLevel(),
-        noise: await this.sensors.getNoiseLevel(),
-        airQuality: await this.sensors.getAirQuality()
-      },
-      devices: {
-        available: await this.sensors.getAvailableDevices(),
-        active: await this.sensors.getActiveDevices(),
-        userProximity: await this.sensors.getUserProximity()
-      },
-      social: {
-        peoplePresent: await this.sensors.detectPeople(),
-        meetingStatus: await this.calendar.getCurrentMeeting(),
-        communicationMode: await this.detectCommunicationContext()
-      },
-      user: {
-        activity: await this.sensors.getActivity(),
-        mood: await this.sensors.estimateMood(),
-        healthMetrics: await this.sensors.getHealthData(),
-        preferences: await this.profile.getCurrentPreferences()
-      }
-    };
-  }
-}
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <h6>Proactive System Behavior</h6>
-                                <ul class="small">
-                                    <li><strong>Anticipatory actions:</strong> Prepare before user requests</li>
-                                    <li><strong>Seamless handoffs:</strong> Transfer tasks between devices</li>
-                                    <li><strong>Invisible interfaces:</strong> Actions without explicit UI</li>
-                                    <li><strong>Learning routines:</strong> Adapt to user patterns</li>
-                                    <li><strong>Graceful failures:</strong> Fallback strategies when prediction fails</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Proactive Action System
-class ProactiveActionSystem {
-  constructor() {
-    this.patternRecognizer = new PatternRecognizer();
-    this.actionPredictor = new ActionPredictor();
-    this.deviceController = new DeviceController();
-  }
-
-  async executeProactiveActions() {
-    // Analyze current situation
-    const currentContext = await this.analyzeCurrentContext();
-    
-    // Predict likely next actions
-    const predictions = await this.actionPredictor
-      .predictNextActions(currentContext);
-    
-    // Execute high-confidence, low-risk actions
-    for (const prediction of predictions) {
-      if (prediction.confidence > 0.8 && prediction.risk < 0.2) {
-        await this.executeSafeAction(prediction);
-      }
-    }
-  }
-
-  async executeSafeAction(prediction) {
-    switch (prediction.type) {
-      case 'prepare_device':
-        // Pre-warm frequently used devices
-        await this.deviceController.prepareDevice(
-          prediction.device,
-          { priority: 'background' }
-        );
-        break;
-        
-      case 'preload_content':
-        // Fetch likely needed data
-        await this.contentManager.preloadContent(
-          prediction.content,
-          { timeout: 30000 }
-        );
-        break;
-        
-      case 'adjust_environment':
-        // Optimize environmental conditions
-        await this.environmentController.optimizeForActivity(
-          prediction.activity
-        );
-        break;
-        
-      case 'prepare_communication':
-        // Setup communication channels
-        await this.communicationManager.prepareChannels(
-          prediction.contacts,
-          prediction.medium
-        );
-        break;
-    }
-  }
-}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Smart Home Ecosystem</h5>
-                            
-                            <div class="device-ecosystem">
-                                <div class="card">
-                                    <div class="card-header bg-info text-white">
-                                        <h6 class="mb-0"><i class="bi bi-lightbulb me-1"></i> Smart Lighting</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="small">
-                                            <li>Circadian rhythm adaptation</li>
-                                            <li>Activity-based adjustment</li>
-                                            <li>Mood-responsive coloring</li>
-                                            <li>Energy optimization</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="card">
-                                    <div class="card-header bg-success text-white">
-                                        <h6 class="mb-0"><i class="bi bi-thermometer me-1"></i> Climate Control</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="small">
-                                            <li>Predictive temperature control</li>
-                                            <li>Occupancy-based zones</li>
-                                            <li>Weather integration</li>
-                                            <li>Health condition consideration</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="card">
-                                    <div class="card-header bg-warning text-dark">
-                                        <h6 class="mb-0"><i class="bi bi-shield-check me-1"></i> Security Systems</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="small">
-                                            <li>Behavioral authentication</li>
-                                            <li>Anomaly detection</li>
-                                            <li>Trusted device networks</li>
-                                            <li>Privacy-preserving monitoring</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="card">
-                                    <div class="card-header bg-primary text-white">
-                                        <h6 class="mb-0"><i class="bi bi-speaker me-1"></i> Audio Systems</h6>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="small">
-                                            <li>Spatial audio adaptation</li>
-                                            <li>Noise cancellation zones</li>
-                                            <li>Voice isolation technology</li>
-                                            <li>Content-aware mixing</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 7. Wearables y Ubiquitous Computing -->
-                <section id="wearables" class="content-section">
-                    <h2><i class="bi bi-smartwatch me-2"></i>7. Wearables y Ubiquitous Computing</h2>
-                    
-                    <p><strong>Wearable technology</strong> está evolucionando hacia invisible, always-on interfaces que provide continuous health monitoring, seamless notifications, y context-aware assistance.</p>
-                    
+                    <p>En esta sección exploraremos algunas de las tendencias más avanzadas en HCI, incluyendo:</p>
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="wearable-card">
-                                <h6><i class="bi bi-heart-pulse me-2"></i>Next-Generation Wearables</h6>
-                                
-                                <h6>Health Monitoring Evolution</h6>
-                                <ul class="small">
-                                    <li><strong>Continuous biomarkers:</strong> Blood glucose, hydration, stress hormones</li>
-                                    <li><strong>Early disease detection:</strong> Pattern recognition para health anomalies</li>
-                                    <li><strong>Mental health tracking:</strong> Depression, anxiety indicators</li>
-                                    <li><strong>Sleep optimization:</strong> Deep sleep enhancement through feedback</li>
-                                    <li><strong>Nutrition guidance:</strong> Real-time dietary recommendations</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Advanced Health Wearable Interface
-class HealthWearableInterface {
-  constructor() {
-    this.sensors = new BioSensorArray();
-    this.ai = new HealthAI();
-    this.notifications = new ContextualNotifications();
-    this.privacy = new HealthPrivacyManager();
-  }
-
-  async monitorContinuousHealth() {
-    const healthMetrics = await this.sensors.getMultiMetrics({
-      heartRate: { sampling: 'continuous', accuracy: 'high' },
-      bloodOxygen: { sampling: 'every_5min' },
-      skinTemperature: { sampling: 'continuous' },
-      galvanicSkinResponse: { sampling: 'continuous' },
-      accelerometer: { sampling: '100hz' },
-      gyroscope: { sampling: '100hz' },
-      ambientLight: { sampling: 'every_1min' },
-      environmentalSound: { sampling: 'continuous', privacy: 'local_only' }
-    });
-
-    // AI analysis para health insights
-    const healthInsights = await this.ai.analyzeHealthTrends({
-      current: healthMetrics,
-      historical: await this.getHealthHistory(30), // 30 days
-      demographics: await this.getUserDemographics(),
-      lifestyle: await this.getLifestyleFactors()
-    });
-
-    // Contextual recommendations
-    if (healthInsights.recommendations.length > 0) {
-      await this.deliverContextualGuidance(healthInsights);
-    }
-
-    return healthInsights;
-  }
-
-  async deliverContextualGuidance(insights) {
-    for (const recommendation of insights.recommendations) {
-      // Determine best delivery method
-      const deliveryMethod = await this.determineOptimalDelivery({
-        urgency: recommendation.urgency,
-        userContext: await this.getCurrentUserContext(),
-        deviceAvailability: await this.getAvailableDevices(),
-        privacy: recommendation.privacyLevel
-      });
-
-      await this.notifications.deliver({
-        content: recommendation,
-        method: deliveryMethod,
-        timing: 'optimal'
-      });
-    }
-  }
-}
-                                </div>
-                            </div>
+                            <ul>
+                                <li><strong>Interfaz Cerebro-Computadora (BCI)</strong></li>
+                                <li><strong>Interacciones Gestuales y Haptics</strong></li>
+                            </ul>
                         </div>
-                        
                         <div class="col-md-6">
-                            <div class="wearable-card">
-                                <h6><i class="bi bi-eye me-2"></i>Smart Glasses & Contact Lenses</h6>
-                                
-                                <h6>Augmented Vision Technology</h6>
-                                <ul class="small">
-                                    <li><strong>Heads-up displays:</strong> Information overlay en field of vision</li>
-                                    <li><strong>Object recognition:</strong> Real-time identification y labeling</li>
-                                    <li><strong>Translation overlays:</strong> Live text translation en foreign languages</li>
-                                    <li><strong>Navigation assistance:</strong> AR directions en real world</li>
-                                    <li><strong>Social cues:</strong> Facial recognition y context</li>
-                                </ul>
-                                
-                                <h6>Contact Lens Computing</h6>
-                                <ul class="small">
-                                    <li><strong>Micro displays:</strong> Minimal visual interface</li>
-                                    <li><strong>Health monitoring:</strong> Intraocular pressure, glucose levels</li>
-                                    <li><strong>Gesture control:</strong> Eye movement commands</li>
-                                    <li><strong>Privacy protection:</strong> Invisible computing layer</li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Smart Contact Lens Interface
-class SmartContactLensInterface {
-  constructor() {
-    this.eyeTracker = new EyeMovementTracker();
-    this.microDisplay = new ContactLensMicroDisplay();
-    this.healthSensors = new IntraocularSensors();
-    this.gestureRecognizer = new EyeGestureRecognizer();
-  }
-
-  async initializeLensInterface() {
-    // Calibrate eye tracking
-    await this.eyeTracker.calibrate({
-      duration: 30000, // 30 second calibration
-      points: 9, // 9-point calibration
-      validation: true
-    });
-
-    // Setup gesture recognition
-    this.gestureRecognizer.defineGestures({
-      'double_blink': { action: 'select', threshold: 0.3 },
-      'long_blink': { action: 'back', threshold: 1.0 },
-      'left_glance': { action: 'previous', threshold: 0.5 },
-      'right_glance': { action: 'next', threshold: 0.5 },
-      'up_glance': { action: 'menu', threshold: 0.4 },
-      'circular_motion': { action: 'zoom', threshold: 0.7 }
-    });
-
-    // Start continuous monitoring
-    this.startContinuousMonitoring();
-  }
-
-  async renderMinimalInterface(content) {
-    // Ultra-low power display
-    await this.microDisplay.render({
-      content: content,
-      opacity: this.calculateOptimalOpacity(),
-      position: this.calculateOptimalPosition(),
-      duration: this.calculateOptimalDuration(),
-      brightness: this.adaptToBrightness()
-    });
-  }
-
-  calculateOptimalOpacity() {
-    const ambientLight = this.sensors.getAmbientLight();
-    const userActivity = this.sensors.getCurrentActivity();
-    
-    // Reduce opacity during focused tasks
-    if (userActivity === 'reading' || userActivity === 'driving') {
-      return 0.1;
-    }
-    
-    // Adapt to lighting conditions
-    return Math.max(0.2, Math.min(0.8, ambientLight / 1000));
-  }
-}
-                                </div>
-                            </div>
+                            <ul>
+                                <li><strong>Inteligencia Artificial en Interfaces</strong></li>
+                                <li><strong>Interfaz Conversacional</strong></li>
+                            </ul>
                         </div>
-                    </div>
-                </section>
-
-                <!-- 8. Accessibility Avanzada -->
-                <section id="accessibility-advanced" class="content-section">
-                    <h2><i class="bi bi-universal-access me-2"></i>8. Accessibility Avanzada</h2>
-                    
-                    <p>Las <strong>tecnologías de accessibility avanzada</strong> utilizan AI, sensors, y adaptive interfaces para create truly inclusive experiences que accommodate the full spectrum of human capabilities.</p>
-                    
-                    <div class="accessibility-advanced">
-                        <h5><i class="bi bi-person-hearts me-2"></i>Universal Access Technologies</h5>
-                        
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Cognitive Accessibility</h6>
-                                <ul class="small">
-                                    <li><strong>Adaptive complexity:</strong> Interface simplification based on cognitive load
-                                        <ul>
-                                            <li>Real-time complexity adjustment</li>
-                                            <li>Cognitive load detection through biometrics</li>
-                                            <li>Simplified language generation</li>
-                                            <li>Visual complexity reduction</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Memory assistance:</strong> Context-aware reminders y prompts
-                                        <ul>
-                                            <li>Task continuation prompts</li>
-                                            <li>Progress visualization</li>
-                                            <li>Step-by-step guidance</li>
-                                            <li>Error prevention strategies</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Attention management:</strong> Focus-supporting interface design
-                                        <ul>
-                                            <li>Distraction minimization</li>
-                                            <li>Attention restoration cues</li>
-                                            <li>Priority-based information presentation</li>
-                                            <li>Cognitive break suggestions</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Cognitive Accessibility Engine
-class CognitiveAccessibilityEngine {
-  constructor() {
-    this.cognitiveMonitor = new CognitiveLoadMonitor();
-    this.interfaceAdapter = new InterfaceAdapter();
-    this.memoryAssistant = new MemoryAssistant();
-  }
-
-  async adaptForCognitiveNeeds() {
-    const cognitiveState = await this.cognitiveMonitor
-      .assessCurrentState();
-    
-    if (cognitiveState.overload > 0.7) {
-      // High cognitive load - simplify interface
-      await this.interfaceAdapter.simplify({
-        removeNonEssential: true,
-        increaseWhitespace: true,
-        simplifyLanguage: true,
-        highlightPrimaryActions: true,
-        reduceChoices: true
-      });
-    }
-    
-    if (cognitiveState.attentionSpan < 0.3) {
-      // Low attention - provide focus aids
-      await this.interfaceAdapter.enhanceFocus({
-        minimizeDistractions: true,
-        provideProgressIndicators: true,
-        breakTaskIntoSteps: true,
-        offerBreakReminders: true
-      });
-    }
-    
-    // Memory assistance
-    if (cognitiveState.memoryIssues) {
-      await this.memoryAssistant.provide({
-        contextualReminders: true,
-        visualCues: true,
-        repetitionPrompts: true,
-        progressSaving: true
-      });
-    }
-  }
-}
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6">
-                                <h6>Motor y Sensory Accessibility</h6>
-                                <ul class="small">
-                                    <li><strong>Alternative input methods:</strong> 
-                                        <ul>
-                                            <li>Eye tracking para cursor control</li>
-                                            <li>Head movement navigation</li>
-                                            <li>Breath-controlled interfaces</li>
-                                            <li>Single-switch access</li>
-                                            <li>Voice-only operation modes</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Adaptive feedback systems:</strong>
-                                        <ul>
-                                            <li>Haptic feedback alternatives</li>
-                                            <li>Audio description automation</li>
-                                            <li>Visual indicator enhancement</li>
-                                            <li>Multi-sensory redundancy</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>Personalized assistance:</strong>
-                                        <ul>
-                                            <li>AI-powered screen readers</li>
-                                            <li>Real-time sign language translation</li>
-                                            <li>Predictive text para motor disabilities</li>
-                                            <li>Cognitive prosthetics</li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                
-                                <div class="implementation-example">
-// Universal Access Controller
-class UniversalAccessController {
-  constructor() {
-    this.capabilityDetector = new UserCapabilityDetector();
-    this.inputAdapters = new InputAdapterRegistry();
-    this.outputAdapters = new OutputAdapterRegistry();
-    this.aiAssistant = new AccessibilityAI();
-  }
-
-  async adaptInterfaceForUser() {
-    // Detect user capabilities
-    const capabilities = await this.capabilityDetector.assess({
-      motor: await this.assessMotorCapabilities(),
-      vision: await this.assessVisionCapabilities(),
-      hearing: await this.assessHearingCapabilities(),
-      cognitive: await this.assessCognitiveCapabilities()
-    });
-
-    // Configure optimal input methods
-    const inputConfig = await this.configureInputMethods(capabilities);
-    
-    // Configure optimal output methods
-    const outputConfig = await this.configureOutputMethods(capabilities);
-    
-    // Apply adaptations
-    await this.applyAdaptations(inputConfig, outputConfig);
-  }
-
-  async configureInputMethods(capabilities) {
-    const methods = [];
-    
-    if (capabilities.motor.handControl < 0.5) {
-      // Limited hand control
-      methods.push('eye_tracking', 'head_movement', 'voice_control');
-    }
-    
-    if (capabilities.motor.fineMotor < 0.3) {
-      // Fine motor difficulties
-      methods.push('large_targets', 'gesture_recognition', 'switch_control');
-    }
-    
-    if (capabilities.vision.lowVision) {
-      // Vision impairment
-      methods.push('high_contrast', 'screen_magnification', 'voice_navigation');
-    }
-    
-    return this.inputAdapters.configure(methods);
-  }
-}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h5>Ethical Considerations en Advanced HCI</h5>
-                            
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="ethical-consideration">
-                                        <h6><i class="bi bi-shield-exclamation me-2 text-warning"></i>Privacy y Data Protection</h6>
-                                        <ul class="small">
-                                            <li><strong>Biometric data security:</strong> Neural patterns, health data protection</li>
-                                            <li><strong>Behavioral profiling limits:</strong> Consent para deep behavioral analysis</li>
-                                            <li><strong>Data minimization:</strong> Collect only necessary information</li>
-                                            <li><strong>User control:</strong> Granular privacy settings</li>
-                                            <li><strong>Anonymization:</strong> Protect individual identity en datasets</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="ethical-consideration">
-                                        <h6><i class="bi bi-people me-2 text-info"></i>Equity y Inclusion</h6>
-                                        <ul class="small">
-                                            <li><strong>Digital divide:</strong> Ensure advanced technologies don't exclude populations</li>
-                                            <li><strong>Cultural sensitivity:</strong> Adapt interfaces para different cultural contexts</li>
-                                            <li><strong>Economic accessibility:</strong> Affordable versions of advanced technologies</li>
-                                            <li><strong>Age inclusivity:</strong> Design para all age groups</li>
-                                            <li><strong>Diverse representation:</strong> Inclusive AI training data</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="ethical-consideration">
-                                        <h6><i class="bi bi-brain me-2 text-primary"></i>Cognitive Enhancement Ethics</h6>
-                                        <ul class="small">
-                                            <li><strong>Enhancement vs. treatment:</strong> Define ethical boundaries</li>
-                                            <li><strong>Cognitive equality:</strong> Fair access to enhancement technologies</li>
-                                            <li><strong>Dependency risks:</strong> Prevent over-reliance on AI assistance</li>
-                                            <li><strong>Human agency:</strong> Maintain user autonomy y decision-making</li>
-                                            <li><strong>Long-term effects:</strong> Unknown consequences of cognitive modification</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-md-6">
-                                    <div class="ethical-consideration">
-                                        <h6><i class="bi bi-robot me-2 text-success"></i>AI Transparency y Control</h6>
-                                        <ul class="small">
-                                            <li><strong>Explainable AI:</strong> Users understand how decisions are made</li>
-                                            <li><strong>Algorithm auditing:</strong> Regular bias y fairness checks</li>
-                                            <li><strong>User override:</strong> Always allow manual control</li>
-                                            <li><strong>Algorithmic accountability:</strong> Clear responsibility chains</li>
-                                            <li><strong>Manipulation prevention:</strong> Protect against persuasive design abuse</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Continue to Part 3 -->
-                <div class="text-center mt-5">
-                    <div class="alert alert-primary">
-                        <h5><i class="bi bi-arrow-right me-2"></i>Continúa en la Parte 3</h5>
-                        <p>En la parte final cubriremos: Quantum Interfaces, Sustainability, Future Research Directions y Implementation Strategies.</p>
-                        <a href="tema11-parte3.html" class="btn btn-primary btn-lg">
-                            <i class="bi bi-arrow-right me-2"></i>
-                            Ir a Parte 3 (Final)
-                        </a>
                     </div>
                 </div>
 
-                <!-- Navigation Between Parts -->
-                <div class="row mt-5">
-                    <div class="col-4">
-                        <a href="tema11.html" class="btn btn-outline-secondary">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            Parte 1: AI & VR/AR
-                        </a>
+                <!-- 3.1 Interfaz Cerebro-Computadora (BCI) -->
+                <div id="bci" class="content-section">
+                    <h2><i class="bi bi-brain me-2"></i>3.1 Interfaz Cerebro-Computadora (BCI)</h2>
+                    
+                    <h3>¿Qué es la Interfaz Cerebro-Computadora?</h3>
+                    <div class="bci-card">
+                        <h4><i class="bi bi-cpu me-2"></i>Definición</h4>
+                        <p>La <strong>Interfaz Cerebro-Computadora (BCI)</strong> es una tecnología que permite la <strong>comunicación directa entre el cerebro humano y un dispositivo computacional</strong>, sin necesidad de intermediarios físicos como teclados, ratones o pantallas táctiles.</p>
                     </div>
-                    <div class="col-4 text-center">
-                        <span class="text-muted">Parte 2 de 3</span>
+
+                    <p>Este tipo de interfaz funciona capturando <strong>señales eléctricas del cerebro</strong> mediante dispositivos como:</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span class="tech-badge">Electroencefalogramas (EEG)</span>
+                        </div>
+                        <div class="col-md-6">
+                            <span class="tech-badge">Implantes neuronales</span>
+                        </div>
                     </div>
-                    <div class="col-4 text-end">
-                        <a href="tema11-parte3.html" class="btn btn-outline-primary">
-                            Parte 3 (Final)
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
+                    <p class="mt-2">Interpretando estas señales y traduciéndolas en comandos para controlar una computadora, una prótesis o cualquier otro sistema digital.</p>
+
+                    <h3>Aplicaciones de BCI en HCI</h3>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-universal-access me-2"></i>1. Accesibilidad para personas con discapacidades</h5>
+                        <ul>
+                            <li>Permite que personas con parálisis o movilidad reducida puedan controlar dispositivos electrónicos mediante el pensamiento</li>
+                            <li>Sistemas como <strong>Neuralink</strong>, desarrollado por Elon Musk, buscan integrar implantes cerebrales para restaurar funciones motoras</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-joystick me-2"></i>2. Control de dispositivos sin interacción física</h5>
+                        <ul>
+                            <li>BCI puede utilizarse para controlar <strong>drones, robots o software</strong> con solo pensar en una acción específica</li>
+                            <li>Sistemas de control para entornos industriales y domóticos</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-controller me-2"></i>3. Neurogaming y entretenimiento</h5>
+                        <ul>
+                            <li>Videojuegos controlados directamente por la actividad cerebral</li>
+                            <li>Experiencias más inmersivas en entretenimiento digital</li>
+                        </ul>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-heart-pulse me-2"></i>4. Medicina y neurociencia</h5>
+                        <ul>
+                            <li>Rehabilitación para entrenar pacientes con lesiones cerebrales</li>
+                            <li>Ayuda a recuperar funciones cognitivas y motoras</li>
+                        </ul>
+                    </div>
+
+                    <h3>Desafíos de BCI</h3>
+                    <div class="challenge-card">
+                        <h5>Precisión y procesamiento de señales cerebrales</h5>
+                        <p>Los sistemas actuales aún tienen una tasa de error significativa y requieren calibraciones constantes.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Privacidad y ética</h5>
+                        <p>La lectura de señales cerebrales plantea interrogantes sobre la privacidad y el uso indebido de datos neuronales.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Costo y accesibilidad</h5>
+                        <p>Actualmente, la mayoría de las tecnologías BCI son costosas y están en etapas experimentales.</p>
+                    </div>
+                </div>
+
+                <!-- 3.2 Interacciones Gestuales y Haptics -->
+                <div id="interacciones-gestuales" class="content-section">
+                    <h2><i class="bi bi-hand-index me-2"></i>3.2 Interacciones Gestuales y Haptics</h2>
+                    
+                    <h3>Interacciones Gestuales</h3>
+                    <div class="gesture-card">
+                        <h4>Definición</h4>
+                        <p>Las <strong>interacciones gestuales</strong> permiten a los usuarios controlar dispositivos mediante movimientos de las manos, los ojos o el cuerpo, eliminando la necesidad de teclados o pantallas táctiles.</p>
+                    </div>
+
+                    <h4>Ejemplos de interacciones gestuales en HCI</h4>
+
+                    <div class="technology-card">
+                        <h5><i class="bi bi-phone me-2"></i>1. Control por gestos en dispositivos móviles y computadoras</h5>
+                        <ul>
+                            <li>Sistemas como <strong>Leap Motion</strong> y <strong>Kinect de Microsoft</strong> permiten controlar interfaces mediante movimientos de las manos sin necesidad de contacto físico</li>
+                            <li>Dispositivos móviles han implementado control por gestos para responder llamadas o navegar entre aplicaciones sin tocar la pantalla</li>
+                        </ul>
+                    </div>
+
+                    <div class="technology-card">
+                        <h5><i class="bi bi-eye me-2"></i>2. Seguimiento ocular y control mediante la mirada</h5>
+                        <ul>
+                            <li>Tecnologías como <strong>Tobii Eye Tracker</strong> permiten controlar interfaces con el movimiento de los ojos</li>
+                            <li>Se están desarrollando interfaces que detectan la dirección de la mirada para facilitar la navegación en realidad virtual</li>
+                        </ul>
+                    </div>
+
+                    <div class="technology-card">
+                        <h5><i class="bi bi-headset-vr me-2"></i>3. Realidad Extendida (XR) con interacción por gestos</h5>
+                        <ul>
+                            <li>Gafas de AR y VR como <strong>HoloLens y Oculus Quest</strong> incluyen sensores de seguimiento de manos</li>
+                            <li>Interactuar con objetos virtuales sin necesidad de controles físicos</li>
+                        </ul>
+                    </div>
+
+                    <h3>Haptics y Retroalimentación Táctil</h3>
+                    <p>La <strong>tecnología háptica</strong> permite que los dispositivos generen <strong>sensaciones táctiles o vibraciones</strong> para mejorar la experiencia del usuario en interfaces digitales.</p>
+
+                    <h4>Ejemplos de Haptics en HCI</h4>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="applications-list">
+                                <h5><i class="bi bi-hand-thumbs-up me-2"></i>Guantes hápticos para VR</h5>
+                                <p>Dispositivos como <strong>HaptX Gloves</strong> permiten sentir texturas y presión en entornos de realidad virtual, mejorando la inmersión.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="applications-list">
+                                <h5><i class="bi bi-phone-vibrate me-2"></i>Feedback háptico en smartphones</h5>
+                                <p>La vibración en los teléfonos móviles al tocar la pantalla mejora la percepción del usuario sobre la interacción.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-gear-wide-connected me-2"></i>Aplicaciones médicas y robóticas</h5>
+                        <p>Se están desarrollando prótesis avanzadas con retroalimentación háptica para que los usuarios puedan sentir el entorno a través de sensores.</p>
+                    </div>
+
+                    <h3>Desafíos de las Interacciones Gestuales y Haptics</h3>
+                    <div class="challenge-card">
+                        <h5>Precisión en el reconocimiento de gestos</h5>
+                        <p>Los sistemas deben interpretar correctamente los movimientos del usuario.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Fatiga del usuario</h5>
+                        <p>Interactuar solo con gestos puede ser incómodo en sesiones prolongadas.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Costos de implementación</h5>
+                        <p>Sensores y dispositivos hápticos avanzados aún son costosos para el mercado masivo.</p>
+                    </div>
+                </div>
+
+                <!-- 3.3 Inteligencia Artificial en Interfaces -->
+                <div id="ia-interfaces" class="content-section">
+                    <h2><i class="bi bi-robot me-2"></i>3.3 Inteligencia Artificial en Interfaces</h2>
+                    
+                    <div class="ai-card">
+                        <h4>Revolución IA en Interfaces</h4>
+                        <p>La <strong>Inteligencia Artificial (IA)</strong> está revolucionando las interfaces de usuario al permitir <strong>experiencias personalizadas y adaptativas</strong>.</p>
+                    </div>
+
+                    <h3>Aplicaciones de IA en HCI</h3>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-chat-dots me-2"></i>1. Asistentes virtuales y chatbots</h5>
+                        <p>Sistemas como <strong>Siri, Alexa y Google Assistant</strong> permiten interactuar with la tecnología mediante lenguaje natural.</p>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-graph-up-arrow me-2"></i>2. Interfaz predictiva y adaptativa</h5>
+                        <p>Las interfaces pueden aprender del comportamiento del usuario y anticiparse a sus necesidades.</p>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-emoji-smile me-2"></i>3. Reconocimiento facial y de emociones</h5>
+                        <p>La IA puede analizar expresiones faciales para personalizar la experiencia en juegos, educación o asistencia médica.</p>
+                    </div>
+                </div>
+
+                <!-- 3.4 Interfaz Conversacional -->
+                <div id="interfaces-conversacionales" class="content-section">
+                    <h2><i class="bi bi-chat-left-text me-2"></i>3.4 Interfaz Conversacional</h2>
+                    
+                    <div class="conversational-card">
+                        <h4>Mejorando Accesibilidad y Eficiencia</h4>
+                        <p>Las <strong>interfaces conversacionales</strong>, como los chatbots y asistentes de voz, han mejorado la accesibilidad y la eficiencia en la interacción con sistemas digitales.</p>
+                    </div>
+
+                    <h3>Ejemplos de Interfaz Conversacional</h3>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-mic me-2"></i>1. Asistentes de voz</h5>
+                        <p><strong>Google Assistant, Alexa y Siri</strong> permiten controlar dispositivos con comandos de voz.</p>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-shop me-2"></i>2. Chatbots en comercio y servicio al cliente</h5>
+                        <p>Empresas usan chatbots impulsados por IA para brindar atención automática a clientes en sitios web y aplicaciones.</p>
+                    </div>
+
+                    <div class="applications-list">
+                        <h5><i class="bi bi-universal-access me-2"></i>3. Accesibilidad para personas con discapacidades</h5>
+                        <p>Los asistentes de voz permiten a personas con movilidad reducida interactuar con la tecnología sin necesidad de interfaces táctiles o físicas.</p>
+                    </div>
+
+                    <h3>Desafíos de las Interfaces Conversacionales</h3>
+                    <div class="challenge-card">
+                        <h5>Comprensión del lenguaje natural</h5>
+                        <p>Mejorar la capacidad de los sistemas para interpretar <strong>acentos, entonaciones y jerga</strong>.</p>
+                    </div>
+
+                    <div class="challenge-card">
+                        <h5>Privacidad y seguridad</h5>
+                        <p>Evitar el almacenamiento no autorizado de conversaciones de los usuarios.</p>
+                    </div>
+                </div>
+
+                <!-- Conclusión -->
+                <div class="content-section">
+                    <h2><i class="bi bi-check-circle me-2"></i>Conclusión</h2>
+                    <div class="highlight-box">
+                        <p>Las <strong>tendencias avanzadas en HCI</strong> están transformando la interacción entre humanos y tecnología, ofreciendo nuevas formas de comunicación que son <strong>más intuitivas, inmersivas y accesibles</strong>.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li>La <strong>Interfaz Cerebro-Computadora (BCI)</strong> tiene el potencial de eliminar la necesidad de dispositivos físicos</li>
+                                <li>Las <strong>Interacciones Gestuales y Haptics</strong> mejoran la naturalidad en la interacción con entornos digitales</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li>La <strong>Inteligencia Artificial</strong> está haciendo que las interfaces sean más personalizadas y eficientes</li>
+                                <li>Las <strong>Interfaces Conversacionales</strong> han democratizado el acceso a la tecnología</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p>A medida que estas tecnologías sigan evolucionando, la HCI continuará expandiendo sus límites, facilitando interacciones <strong>más humanas y naturales</strong> en todos los ámbitos de la vida digital.</p>
+                </div>
+
+                <!-- Navigation -->
+                <div class="navigation-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="tema11.html" class="nav-card d-inline-block w-100">
+                                    <h5><i class="bi bi-arrow-left-circle me-2"></i>Parte 1</h5>
+                                    <p class="mb-0">Realidad Aumentada y Virtual</p>
+                                </a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="tema11-parte3.html" class="nav-card d-inline-block w-100">
+                                    <h5><i class="bi bi-arrow-right-circle me-2"></i>Parte 3</h5>
+                                    <p class="mb-0">Casos Prácticos y Actividades</p>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci11" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 11">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-stars me-2"></i>
-                HCI Tema 11: Tendencias Avanzadas - Parte 2
-            </p>
-            <small class="text-muted">Material de estudio complementario</small>
-        </div>
-    </footer>
-
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
-                observer.observe(section);
-            });
-        });
-    </script>
 </body>
 </html>

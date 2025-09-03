@@ -1,620 +1,449 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI - Tema 1: Introducción a HCI | Contenido Teórico</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 1: Introducción a HCI | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    <style>
-        :root {
-            --hci-primary: #6f42c1;
-            --hci-secondary: #8b5cf6;
-        }
-        
-        .content-header {
-            background: linear-gradient(135deg, var(--hci-primary), var(--hci-secondary));
-            color: white;
-            padding: 2rem 0;
-        }
-        
-        .section-card {
-            border-left: 4px solid var(--hci-primary);
-            margin-bottom: 1.5rem;
-            transition: all 0.3s ease;
-        }
-        
-        .section-card:hover {
-            box-shadow: 0 4px 12px rgba(111, 66, 193, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        .index-item {
-            border: 1px solid #e9ecef;
-            border-radius: 0.5rem;
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .index-item:hover {
-            background: rgba(111, 66, 193, 0.1);
-            border-color: var(--hci-primary);
-        }
-        
-        .quiz-link {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1050;
-        }
-        
-        .content-section {
-            scroll-margin-top: 100px;
-        }
-        
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(111, 66, 193, 0.3);
-            border-radius: 0.5rem;
-            padding: 1.5rem;
-            margin: 1rem 0;
-        }
-    </style>
+    <!-- CSS común del tema 1 -->
+    <link rel="stylesheet" href="hci-common-styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background: var(--hci-primary);">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand fw-bold" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-display me-2"></i>
-                HCI - Tema 1: Introducción
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <button class="btn btn-outline-light me-2" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
-                <a href="../quiz/hci-tema1-quiz.html" class="btn btn-warning">
-                    <i class="bi bi-question-circle me-2"></i>
-                    Hacer Quiz
-                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">HCI: Temas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item active" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo y Ágil</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web y Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad y Estándares</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/">
+                            <i class="bi bi-question-circle-fill me-1"></i>Quiz
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Header -->
-    <div class="content-header">
-        <div class="container text-center">
-            <h1 class="display-4 mb-3">Introducción a HCI</h1>
-            <p class="lead">Human-Computer Interaction: Fundamentos y Conceptos Básicos</p>
-            <div class="mt-4">
-                <span class="badge bg-light text-dark me-2">Tema 1</span>
-                <span class="badge bg-light text-dark me-2">12 secciones</span>
-                <span class="badge bg-light text-dark">Tiempo estimado: 45 min</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Content -->
-    <div class="container my-5">
-        <div class="row">
-            <!-- Sidebar with Index -->
-            <div class="col-lg-3">
-                <div class="card position-sticky" style="top: 20px;">
-                    <div class="card-header" style="background: var(--hci-primary); color: white;">
-                        <h5 class="mb-0">
-                            <i class="bi bi-list me-2"></i>
-                            Índice
-                        </h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="list-group list-group-flush">
-                            <a href="#introduccion" class="list-group-item list-group-item-action">
-                                1. Introducción
-                            </a>
-                            <a href="#definicion" class="list-group-item list-group-item-action">
-                                2. ¿Qué es HCI?
-                            </a>
-                            <a href="#historia" class="list-group-item list-group-item-action">
-                                3. Historia y Evolución
-                            </a>
-                            <a href="#principios" class="list-group-item list-group-item-action">
-                                4. Principios Fundamentales
-                            </a>
-                            <a href="#areas" class="list-group-item list-group-item-action">
-                                5. Áreas de Aplicación
-                            </a>
-                            <a href="#metodologias" class="list-group-item list-group-item-action">
-                                6. Metodologías
-                            </a>
-                            <a href="#usabilidad" class="list-group-item list-group-item-action">
-                                7. Usabilidad
-                            </a>
-                            <a href="#accesibilidad" class="list-group-item list-group-item-action">
-                                8. Accesibilidad
-                            </a>
-                            <a href="#tendencias" class="list-group-item list-group-item-action">
-                                9. Tendencias Actuales
-                            </a>
-                            <a href="#herramientas" class="list-group-item list-group-item-action">
-                                10. Herramientas
-                            </a>
-                            <a href="#casos" class="list-group-item list-group-item-action">
-                                11. Casos de Estudio
-                            </a>
-                            <a href="#resumen" class="list-group-item list-group-item-action">
-                                12. Resumen
-                            </a>
-                        </div>
-                    </div>
+    <!-- Sección Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1><i class="bi bi-person-workspace me-3"></i>Introducción a HCI</h1>
+                    <p class="lead">Fundamentos de la Interacción Humano-Computadora: Principios, Diseño Centrado en el Usuario y Aplicaciones Prácticas</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-lg-9">
-                <!-- Introducción -->
-                <section id="introduccion" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-play-circle me-2" style="color: var(--hci-primary);"></i>
-                                1. Introducción
-                            </h2>
-                            <p class="lead">
-                                La Interacción Humano-Computadora (HCI) es una disciplina multidisciplinaria que se enfoca en el diseño de interfaces de computadora y estudia la interacción entre humanos y computadoras.
-                            </p>
-                            <div class="highlight-box">
-                                <h5><i class="bi bi-lightbulb me-2"></i>Concepto Clave</h5>
-                                <p class="mb-0">HCI combina conocimientos de ciencias de la computación, psicología, diseño, ergonomía y muchas otras disciplinas para crear sistemas más usables y accesibles.</p>
-                            </div>
-                        </div>
+    <!-- Contenido Principal -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <h5><i class="bi bi-list-ul me-2"></i>Contenidos</h5>
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#que-es-hci">¿Qué es HCI?</a>
+                            <a class="nav-link" href="#principios-fundamentales">Principios Fundamentales</a>
+                            <a class="nav-link" href="#diseno-centrado-usuario">Diseño Centrado en el Usuario</a>
+                            <a class="nav-link" href="#aplicaciones-practicas">Aplicaciones Prácticas</a>
+                            <a class="nav-link" href="#casos-practicos">Casos Prácticos</a>
+                        </nav>
                     </div>
-                </section>
+                </div>
 
-                <!-- Definición -->
-                <section id="definicion" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-question-circle me-2" style="color: var(--hci-primary);"></i>
-                                2. ¿Qué es HCI?
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <p>HCI se define como el estudio del diseño, evaluación e implementación de sistemas informáticos interactivos para uso humano y el estudio de los principales fenómenos que los rodean.</p>
-                                    
-                                    <h5>Componentes principales:</h5>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <strong>Humano:</strong> Usuario con sus capacidades, limitaciones y preferencias
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Computadora:</strong> Sistema tecnológico con el que interactúa
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Interacción:</strong> Proceso de comunicación bidireccional
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card bg-light">
-                                        <div class="card-body text-center">
-                                            <i class="bi bi-diagram-3 display-4 mb-3" style="color: var(--hci-primary);"></i>
-                                            <h6>Enfoque Multidisciplinario</h6>
-                                            <small class="text-muted">Combina múltiples campos de estudio</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Contenido -->
+                <div class="col-lg-9">
+                    <!-- Sección 1: ¿Qué es HCI? -->
+                    <section id="que-es-hci" class="content-section">
+                        <h2><i class="bi bi-question-circle me-2"></i>¿Qué es HCI?</h2>
+                        
+                        <h3>1.1 Definición</h3>
+                        <div class="definition-box">
+                            <p><strong>La Interacción Humano-Computadora (HCI)</strong> es un campo interdisciplinario dedicado al estudio y diseño de interfaces que permiten a los usuarios interactuar con sistemas computacionales de manera efectiva y satisfactoria.</p>
                         </div>
-                    </div>
-                </section>
+                        
+                        <p>En esencia, HCI se centra en optimizar la comunicación entre humanos y máquinas, asegurando que las tecnologías sean no solo funcionales sino también intuitivas y accesibles.</p>
+                        
+                        <p>El objetivo principal de HCI es mejorar la <strong>usabilidad</strong>, lo que implica hacer que los sistemas sean fáciles de aprender, eficientes de usar, y memorables para usuarios que no lo utilizan con frecuencia. La importancia de HCI se ha amplificado en la era digital, donde prácticamente todos los productos tecnológicos, desde aplicaciones móviles hasta sistemas de control en aviones, dependen de estos principios para su éxito operacional y aceptación por parte del usuario.</p>
 
-                <!-- Historia -->
-                <section id="historia" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-clock-history me-2" style="color: var(--hci-primary);"></i>
-                                3. Historia y Evolución
-                            </h2>
-                            <div class="timeline">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h5>Décadas de 1960-70</h5>
-                                        <p>Primeras interfaces de línea de comandos. Los usuarios necesitaban conocimientos técnicos especializados.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>Décadas de 1980-90</h5>
-                                        <p>Aparición de interfaces gráficas (GUI). Democratización del uso de computadoras.</p>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                        <h5>Décadas de 2000-10</h5>
-                                        <p>Interfaces táctiles y móviles. Interacción natural y ubicua.</p>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5>Actualidad</h5>
-                                        <p>IA, realidad virtual/aumentada, interfaces conversacionales.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Principios -->
-                <section id="principios" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-gear me-2" style="color: var(--hci-primary);"></i>
-                                4. Principios Fundamentales
-                            </h2>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="card h-100 border-0 bg-light">
-                                        <div class="card-body">
-                                            <h6 class="card-title">
-                                                <i class="bi bi-eye me-2"></i>Visibilidad
-                                            </h6>
-                                            <p class="card-text small">Los usuarios deben poder ver claramente qué acciones son posibles y el estado actual del sistema.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card h-100 border-0 bg-light">
-                                        <div class="card-body">
-                                            <h6 class="card-title">
-                                                <i class="bi bi-chat me-2"></i>Feedback
-                                            </h6>
-                                            <p class="card-text small">El sistema debe proporcionar información clara sobre el resultado de las acciones del usuario.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card h-100 border-0 bg-light">
-                                        <div class="card-body">
-                                            <h6 class="card-title">
-                                                <i class="bi bi-arrow-left-right me-2"></i>Consistencia
-                                            </h6>
-                                            <p class="card-text small">Elementos similares deben funcionar de manera similar en todo el sistema.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card h-100 border-0 bg-light">
-                                        <div class="card-body">
-                                            <h6 class="card-title">
-                                                <i class="bi bi-shield-check me-2"></i>Control
-                                            </h6>
-                                            <p class="card-text small">Los usuarios deben sentir que controlan la interacción y pueden deshacer acciones.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Áreas de Aplicación -->
-                <section id="areas" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-diagram-3 me-2" style="color: var(--hci-primary);"></i>
-                                5. Áreas de Aplicación
-                            </h2>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Interfaces Web</h5>
-                                    <ul>
-                                        <li>Sitios web responsivos</li>
-                                        <li>Aplicaciones web</li>
-                                        <li>E-commerce</li>
-                                        <li>Redes sociales</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Aplicaciones Móviles</h5>
-                                    <ul>
-                                        <li>iOS y Android</li>
-                                        <li>Interfaces táctiles</li>
-                                        <li>Gestos naturales</li>
-                                        <li>Contexto de uso</li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4">
-                                    <h5>Sistemas Especializados</h5>
-                                    <ul>
-                                        <li>Interfaces médicas</li>
-                                        <li>Sistemas industriales</li>
-                                        <li>Videojuegos</li>
-                                        <li>Realidad virtual/aumentada</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Metodologías -->
-                <section id="metodologias" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-flow-chart me-2" style="color: var(--hci-primary);"></i>
-                                6. Metodologías de HCI
-                            </h2>
-                            <div class="highlight-box">
-                                <h5>Diseño Centrado en el Usuario (DCU)</h5>
-                                <p>Metodología que pone al usuario en el centro del proceso de diseño.</p>
-                                <div class="row mt-3">
-                                    <div class="col-sm-3 text-center">
-                                        <i class="bi bi-search display-6 mb-2" style="color: var(--hci-primary);"></i>
-                                        <h6>Investigar</h6>
-                                    </div>
-                                    <div class="col-sm-3 text-center">
-                                        <i class="bi bi-pencil-square display-6 mb-2" style="color: var(--hci-primary);"></i>
-                                        <h6>Diseñar</h6>
-                                    </div>
-                                    <div class="col-sm-3 text-center">
-                                        <i class="bi bi-hammer display-6 mb-2" style="color: var(--hci-primary);"></i>
-                                        <h6>Prototipar</h6>
-                                    </div>
-                                    <div class="col-sm-3 text-center">
-                                        <i class="bi bi-check-circle display-6 mb-2" style="color: var(--hci-primary);"></i>
-                                        <h6>Evaluar</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Usabilidad -->
-                <section id="usabilidad" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-speedometer2 me-2" style="color: var(--hci-primary);"></i>
-                                7. Usabilidad
-                            </h2>
-                            <p>La usabilidad mide qué tan fácil es para los usuarios utilizar una interfaz.</p>
-                            
-                            <h5>Los 5 Componentes de Jakob Nielsen:</h5>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="card border-0 bg-light">
-                                        <div class="card-body p-3">
-                                            <h6><i class="bi bi-lightning me-2"></i>Eficiencia</h6>
-                                            <small>Rapidez para completar tareas</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 bg-light">
-                                        <div class="card-body p-3">
-                                            <h6><i class="bi bi-heart me-2"></i>Satisfacción</h6>
-                                            <small>Agradable de usar</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 bg-light">
-                                        <div class="card-body p-3">
-                                            <h6><i class="bi bi-graduation-cap me-2"></i>Aprendizaje</h6>
-                                            <small>Fácil de aprender</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="card border-0 bg-light">
-                                        <div class="card-body p-3">
-                                            <h6><i class="bi bi-memory me-2"></i>Memorabilidad</h6>
-                                            <small>Fácil de recordar</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="card border-0 bg-light">
-                                        <div class="card-body p-3">
-                                            <h6><i class="bi bi-exclamation-triangle me-2"></i>Errores</h6>
-                                            <small>Minimización de errores y recuperación fácil</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Accesibilidad -->
-                <section id="accesibilidad" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-universal-access me-2" style="color: var(--hci-primary);"></i>
-                                8. Accesibilidad
-                            </h2>
-                            <p>Diseño de productos, dispositivos, servicios o entornos para personas con discapacidades.</p>
-                            
-                            <div class="row mt-3">
-                                <div class="col-md-3 text-center">
-                                    <i class="bi bi-eye-slash display-5 mb-2" style="color: var(--hci-primary);"></i>
-                                    <h6>Visual</h6>
-                                    <small class="text-muted">Contraste, tamaño, colores</small>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <i class="bi bi-ear display-5 mb-2" style="color: var(--hci-primary);"></i>
-                                    <h6>Auditiva</h6>
-                                    <small class="text-muted">Subtítulos, alertas visuales</small>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <i class="bi bi-hand-index display-5 mb-2" style="color: var(--hci-primary);"></i>
-                                    <h6>Motora</h6>
-                                    <small class="text-muted">Navegación por teclado</small>
-                                </div>
-                                <div class="col-md-3 text-center">
-                                    <i class="bi bi-brain display-5 mb-2" style="color: var(--hci-primary);"></i>
-                                    <h6>Cognitiva</h6>
-                                    <small class="text-muted">Simplicidad, claridad</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Tendencias -->
-                <section id="tendencias" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-rocket me-2" style="color: var(--hci-primary);"></i>
-                                9. Tendencias Actuales
-                            </h2>
-                            <div class="row g-4">
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-robot display-4 mb-3" style="color: var(--hci-primary);"></i>
-                                        <h5>Inteligencia Artificial</h5>
-                                        <p class="small">Chatbots, asistentes virtuales, personalización automática</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-vr display-4 mb-3" style="color: var(--hci-primary);"></i>
-                                        <h5>Realidad Extendida</h5>
-                                        <p class="small">VR, AR, interfaces inmersivas, metaverso</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="text-center">
-                                        <i class="bi bi-mic display-4 mb-3" style="color: var(--hci-primary);"></i>
-                                        <h5>Interfaces Naturales</h5>
-                                        <p class="small">Voz, gestos, reconocimiento facial</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Herramientas -->
-                <section id="herramientas" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-tools me-2" style="color: var(--hci-primary);"></i>
-                                10. Herramientas de HCI
-                            </h2>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-diagram-3 me-2"></i>Este campo combina elementos de diversas disciplinas:</h4>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h5>Diseño y Prototipado</h5>
-                                    <ul>
-                                        <li><strong>Figma:</strong> Diseño colaborativo</li>
-                                        <li><strong>Sketch:</strong> Diseño de interfaces</li>
-                                        <li><strong>Adobe XD:</strong> Prototipado interactivo</li>
-                                        <li><strong>InVision:</strong> Prototipado y colaboración</li>
-                                    </ul>
+                                    <div class="principle-card">
+                                        <h4><i class="bi bi-brain me-2"></i>Psicología cognitiva</h4>
+                                        <p>Para entender cómo los usuarios piensan, aprenden y perciben la información.</p>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <h5>Evaluación y Testing</h5>
-                                    <ul>
-                                        <li><strong>Hotjar:</strong> Mapas de calor</li>
-                                        <li><strong>UserTesting:</strong> Tests con usuarios</li>
-                                        <li><strong>Google Analytics:</strong> Métricas de uso</li>
-                                        <li><strong>A/B Testing:</strong> Comparación de variantes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Casos de Estudio -->
-                <section id="casos" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-graph-up me-2" style="color: var(--hci-primary);"></i>
-                                11. Casos de Estudio
-                            </h2>
-                            <div class="accordion" id="casosAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#caso1">
-                                            <i class="bi bi-apple me-2"></i>Apple iPhone (2007)
-                                        </button>
-                                    </h2>
-                                    <div id="caso1" class="accordion-collapse collapse" data-bs-parent="#casosAccordion">
-                                        <div class="accordion-body">
-                                            <strong>Revolución de la interfaz táctil:</strong> Eliminó teclados físicos, introdujo gestos multi-touch, diseño minimalista e intuitivo.
-                                        </div>
+                                    <div class="principle-card">
+                                        <h4><i class="bi bi-cpu me-2"></i>Ciencias de la computación</h4>
+                                        <p>Para desarrollar algoritmos y estructuras de datos que soporten interfaces eficientes.</p>
                                     </div>
                                 </div>
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#caso2">
-                                            <i class="bi bi-google me-2"></i>Google Search
-                                        </button>
-                                    </h2>
-                                    <div id="caso2" class="accordion-collapse collapse" data-bs-parent="#casosAccordion">
-                                        <div class="accordion-body">
-                                            <strong>Simplicidad extrema:</strong> Interfaz minimalista, búsqueda instantánea, resultados relevantes con PageRank.
-                                        </div>
+                                <div class="col-md-6">
+                                    <div class="principle-card">
+                                        <h4><i class="bi bi-palette me-2"></i>Diseño gráfico</h4>
+                                        <p>Para crear interfaces visualmente atractivas y funcionales.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="principle-card">
+                                        <h4><i class="bi bi-person-check me-2"></i>Ergonomía</h4>
+                                        <p>Para asegurar que el diseño físico de los dispositivos o interfaces no cause daño o incomodidad al usuario.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
 
-                <!-- Resumen -->
-                <section id="resumen" class="content-section">
-                    <div class="card section-card">
-                        <div class="card-body">
-                            <h2 class="h3 mb-4">
-                                <i class="bi bi-bookmark-check me-2" style="color: var(--hci-primary);"></i>
-                                12. Resumen del Tema
-                            </h2>
-                            <div class="highlight-box">
-                                <h5>Puntos Clave:</h5>
-                                <ul class="mb-3">
-                                    <li>HCI es una disciplina multidisciplinaria enfocada en la interacción humano-computadora</li>
-                                    <li>Los principios fundamentales incluyen visibilidad, feedback, consistencia y control</li>
-                                    <li>La usabilidad se mide por eficiencia, satisfacción, aprendizaje, memorabilidad y errores</li>
-                                    <li>Las tendencias actuales incluyen IA, realidad extendida e interfaces naturales</li>
-                                    <li>El diseño centrado en el usuario es la metodología principal</li>
+                        <h3>1.2 Historia y Evolución</h3>
+                        <p>La historia de la HCI es una narrativa de innovación y adaptación a las necesidades cambiantes de los usuarios:</p>
+                        
+                        <div class="timeline-section">
+                            <div class="timeline-item">
+                                <h4>1.2.1 Primeros desarrollos (1960-1980)</h4>
+                                <p>Este período marcó el inicio de las interacciones humanas con computadoras a través de interfaces de línea de comandos. Sin embargo, hubo avances significativos:</p>
+                                <ul>
+                                    <li><strong>Sistemas de tiempo compartido:</strong> Introdujeron la idea de que múltiples usuarios podían interactuar con una computadora simultáneamente, cambiando la dinámica de la computación de un modelo centralizado a uno más interactivo.</li>
+                                    <li><strong>El primer mouse:</strong> Douglas Engelbart desarrolló este dispositivo en 1963, que fue una revolución en la manera en que los usuarios podían interactuar con el ordenador, pasando de comandos escritos a acciones físicas más intuitivas.</li>
                                 </ul>
-                                
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <a href="#" onclick="window.open('../../../quiz-spa/index.html#hci-1', '_blank')" class="btn btn-primary">
-                                        <i class="bi bi-question-circle me-2"></i>
-                                        Practicar con Quiz
-                                    </a>
-                                    <a href="hci-tema2.html" class="btn btn-outline-primary">
-                                        Siguiente Tema
-                                        <i class="bi bi-arrow-right ms-2"></i>
-                                    </a>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>1.2.2 Aparición de interfaces gráficas (1980-2000)</h4>
+                                <p>La década de 1980 vio un cambio paradigmático con la introducción de las Interfaces Gráficas de Usuario (GUI):</p>
+                                <ul>
+                                    <li><strong>Apple Macintosh y Microsoft Windows:</strong> Estos sistemas operativos popularizaron las GUIs, permitiendo a los usuarios interactuar con computadoras a través de iconos, ventanas y un puntero, haciendo el uso de la computadora mucho más accesible para el público general.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h4>1.2.3 Innovaciones recientes (2000 en adelante)</h4>
+                                <p>El nuevo milenio trajo consigo una explosión de nuevas formas de interacción:</p>
+                                <ul>
+                                    <li><strong>Dispositivos móviles:</strong> La introducción del iPhone en 2007 y el posterior boom de los smartphones y tablets exigieron un diseño de interfaces que fuera responsivo y adaptable a diferentes tamaños y contextos de uso.</li>
+                                    <li><strong>Interacción háptica y de voz:</strong> La HCI se expandió a interfaces que no solo responden al tacto sino también a la voz, con dispositivos como los altavoces inteligentes de Amazon Echo o Google Home.</li>
+                                    <li><strong>Realidad aumentada (AR) y realidad virtual (VR):</strong> Estas tecnologías han añadido nuevas dimensiones a la interacción, permitiendo experiencias inmersivas que combinan lo digital y lo físico en formas previamente inimaginables.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>La evolución de HCI muestra una tendencia clara hacia interfaces más humanas, donde la tecnología no solo responde a comandos directos sino que anticipa y facilita la interacción basándose en la comprensión del comportamiento humano. Esta disciplina continúa avanzando con la integración de inteligencia artificial, que permite interfaces más inteligentes y personalizadas, reflejando una transición de sistemas reactivos a sistemas proactivos que anticipan las necesidades del usuario.</p>
+                        </div>
+
+                        <div class="example-box">
+                            <p><strong>En resumen:</strong> HCI no es solo sobre hacer que las computadoras sean más fáciles de usar; es sobre crear experiencias que sean significativas, inclusivas y que enriquezcan la interacción humana con la tecnología.</p>
+                        </div>
+                    </section>
+
+                    <!-- Sección 2: Principios Fundamentales -->
+                    <section id="principios-fundamentales" class="content-section">
+                        <h2><i class="bi bi-gear-fill me-2"></i>Principios Fundamentales de HCI</h2>
+
+                        <h3>2.1 Usabilidad</h3>
+                        <p>La usabilidad es quizás uno de los pilares más críticos de la HCI. Se refiere a la facilidad con la que un usuario puede aprender y utilizar un sistema para lograr sus objetivos. Los componentes clave de la usabilidad incluyen:</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-mortarboard me-2"></i>Facilidad de aprendizaje</h4>
+                                    <p>Los sistemas deben ser intuitivos desde el primer uso, permitiendo a los usuarios nuevos entender cómo operar sin necesidad de ayuda extensiva.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> La interfaz de Spotify permite a los usuarios navegar por su vasta biblioteca musical con un mínimo de instrucciones.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-speedometer2 me-2"></i>Eficiencia</h4>
+                                    <p>Una vez que los usuarios han aprendido el sistema, deben ser capaces de realizar tareas rápidamente.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> En Amazon, la eficiencia se ve en cómo se simplifica el proceso de compra con 'carritos de compra' y 'comprar ahora'.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-memory me-2"></i>Memorabilidad</h4>
+                                    <p>Para usuarios que no interactúan con el sistema con frecuencia, la capacidad de recordar cómo usarlo es crucial.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> Google, con su diseño limpio y centrado en la búsqueda, permite que incluso usuarios ocasionales recuerden su funcionamiento.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-shield-check me-2"></i>Bajo nivel de errores</h4>
+                                    <p>Los sistemas deben diseñarse para minimizar errores humanos, incluyendo confirmaciones y facilidades para recuperación.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-emoji-smile me-2"></i>Satisfacción</h4>
+                                    <p>Más allá de la funcionalidad, los usuarios deben disfrutar de la experiencia de uso. Esto incluye aspectos estéticos y la sensación de control y competencia que el usuario obtiene al usar el sistema.</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+
+                        <h3>2.2 Accesibilidad</h3>
+                        <p>La accesibilidad en HCI asegura que las interfaces sean utilizables por personas con una amplia gama de capacidades:</p>
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-universal-access me-2"></i>Compatibilidad con tecnologías asistivas</h4>
+                                    <p>Soporte para lectores de pantalla y controles por voz.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> VoiceOver en dispositivos Apple.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-people me-2"></i>Diseño inclusivo</h4>
+                                    <p>Considerar diversas capacidades desde el inicio del diseño.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-check-circle me-2"></i>Normativas y estándares</h4>
+                                    <p>Adherirse a normas como WCAG.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>2.3 Feedback</h3>
+                        <p>El feedback es esencial para una buena interacción humano-computadora:</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-lightning-fill me-2"></i>Feedback inmediato</h4>
+                                    <p>Las acciones de los usuarios deben ser reconocidas inmediatamente por el sistema.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> Notificación instantánea al enviar un correo en Gmail.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-clarity me-2"></i>Claridad en el feedback</h4>
+                                    <p>El sistema debe comunicar claramente qué ha sucedido, especialmente si hay errores.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-bullseye me-2"></i>Feedback contextual</h4>
+                                    <p>El feedback debe ser relevante para la tarea en curso.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-arrow-repeat me-2"></i>Feedback continuo</h4>
+                                    <p>Para tareas que requieren tiempo, como descargas o procesamiento de datos.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>Estos principios fundamentales de HCI no solo hacen que las tecnologías sean más fáciles de usar sino que también abren la puerta a una mayor inclusión, permitiendo que una gama más amplia de personas pueda beneficiarse de las herramientas digitales.</p>
+                        </div>
+                    </section>
+
+                    <!-- Sección 3: Diseño Centrado en el Usuario -->
+                    <section id="diseno-centrado-usuario" class="content-section">
+                        <h2><i class="bi bi-person-hearts me-2"></i>Diseño Centrado en el Usuario (UCD)</h2>
+
+                        <h3>3.1 Principios clave del UCD</h3>
+                        <p>El Diseño Centrado en el Usuario (UCD) es una metodología de diseño que pone al usuario final en el centro del proceso de desarrollo de productos. Los principios clave incluyen:</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-search me-2"></i>Investigación del usuario</h4>
+                                    <p>Recopilación de datos sobre quiénes son los usuarios, qué necesitan y cuáles son sus limitaciones.</p>
+                                    <div class="example-box">
+                                        <strong>Métodos:</strong> Entrevistas, encuestas, observaciones en contexto y análisis de datos de uso.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-diagram-2 me-2"></i>Prototipado e iteración</h4>
+                                    <p>Creación de prototipos tempranos y rápidos para evaluación con usuarios reales.</p>
+                                    <div class="example-box">
+                                        <strong>Herramientas:</strong> Figma, InVision para prototipos interactivos.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-people-fill me-2"></i>Participación activa del usuario</h4>
+                                    <p>Involucrar a los usuarios a lo largo de todo el proceso de desarrollo.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-arrow-clockwise me-2"></i>Evaluación continua</h4>
+                                    <p>Evaluación constante del producto para seguir mejorándolo incluso después del lanzamiento.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>3.2 Herramientas y Técnicas</h3>
+                        <p>El UCD utiliza una variedad de herramientas y técnicas para asegurar que el diseño cumpla con las necesidades de los usuarios:</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-person-square me-2"></i>Personas</h4>
+                                    <p>Personajes ficticios que representan diferentes segmentos de la audiencia objetivo, basados en datos reales.</p>
+                                    <div class="example-box">
+                                        <strong>Ejemplo:</strong> "Ana, 35 años, madre de dos, quien valora la rapidez y seguridad en transacciones online."
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-map me-2"></i>Mapas de experiencia</h4>
+                                    <p>Diagramas que detallan la interacción del usuario con el producto a lo largo del tiempo.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-grid me-2"></i>Wireframes y prototipos</h4>
+                                    <p>Los wireframes son esquemas básicos de estructura, mientras que los prototipos son más detallados y pueden ser interactivos.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-clipboard-check me-2"></i>Pruebas de usabilidad</h4>
+                                    <p>Observar a usuarios mientras usan el producto para identificar problemas de diseño.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>El UCD no solo mejora la usabilidad y la satisfacción del usuario sino que también puede llevar a productos más innovadores y exitosos en el mercado, ya que están hechos a medida de las necesidades reales de los usuarios. En sectores como la salud, educación o comercio electrónico, aplicar UCD puede resultar en interfaces más intuitivas, accesibles y efectivas.</p>
+                        </div>
+                    </section>
+
+                    <!-- Sección 4: Aplicaciones Prácticas -->
+                    <section id="aplicaciones-practicas" class="content-section">
+                        <h2><i class="bi bi-gear-wide-connected me-2"></i>Aplicaciones Prácticas de HCI</h2>
+
+                        <div class="application-grid">
+                            <div class="application-card">
+                                <div class="icon">
+                                    <i class="bi bi-mortarboard-fill"></i>
+                                </div>
+                                <h3>4.1 Educación</h3>
+                                <p>La HCI en la educación ha transformado la manera en que los estudiantes aprenden y cómo los educadores enseñan:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Plataformas de aprendizaje en línea:</strong> Como Moodle, Canvas o Coursera</li>
+                                    <li><strong>Aulas inteligentes:</strong> Pizarras interactivas, AR para aprendizaje práctico</li>
+                                    <li><strong>Herramientas de asistencia:</strong> Software de texto a voz, interfaces adaptativas</li>
+                                </ul>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="icon">
+                                    <i class="bi bi-heart-pulse-fill"></i>
+                                </div>
+                                <h3>4.2 Salud</h3>
+                                <p>En el sector de la salud, la HCI ha sido instrumental para mejorar la seguridad del paciente:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Interfaz de dispositivos médicos:</strong> Monitores de signos vitales, bombas de infusión</li>
+                                    <li><strong>Aplicaciones de salud móvil:</strong> MyFitnessPal, apps de monitoreo de glucosa</li>
+                                    <li><strong>Sistemas EHR:</strong> Registros electrónicos de salud</li>
+                                </ul>
+                            </div>
+
+                            <div class="application-card">
+                                <div class="icon">
+                                    <i class="bi bi-shop"></i>
+                                </div>
+                                <h3>4.3 Comercio electrónico</h3>
+                                <p>El comercio electrónico ha sido una de las áreas donde la HCI ha tenido un impacto más visible:</p>
+                                <ul class="feature-list">
+                                    <li><strong>Optimización del sitio web:</strong> Amazon, eBay con interfaces que minimicen tiempo de carga</li>
+                                    <li><strong>Interacción y feedback:</strong> Chatbots, sistemas de asistencia en tiempo real</li>
+                                    <li><strong>Accesibilidad:</strong> Opciones de contraste alto, navegación por voz</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <p>En cada uno de estos sectores, la HCI no solo busca hacer que la interacción con la tecnología sea más fácil y eficiente sino también más inclusiva, segura y adaptada a las necesidades específicas de los usuarios.</p>
+                        </div>
+                    </section>
+
+                    <!-- Sección 5: Casos Prácticos -->
+                    <section id="casos-practicos" class="content-section">
+                        <h2><i class="bi bi-lightbulb me-2"></i>Casos Prácticos</h2>
+
+                        <div class="case-study-card">
+                            <h4><i class="bi bi-clipboard-check me-2"></i>Caso práctico 1</h4>
+                            <p><strong>Escenario:</strong> Imagina que estás diseñando una aplicación de gestión de tareas para estudiantes universitarios.</p>
+                            
+                            <div class="question-section">
+                                <h5><i class="bi bi-question-circle me-2"></i>¿Cómo aplicarías los principios de diseño centrado en el usuario para asegurarte de que la aplicación sea intuitiva y útil?</h5>
+                                <p><strong>Considera:</strong></p>
+                                <ol class="question-list">
+                                    <li>¿Qué investigación harías para entender las necesidades de los estudiantes?</li>
+                                    <li>¿Cómo crearías personas representativas?</li>
+                                    <li>¿Qué tipo de prototipos desarrollarías?</li>
+                                    <li>¿Cómo evaluarías la usabilidad de tu diseño?</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="case-study-card">
+                            <h4><i class="bi bi-shop me-2"></i>Caso práctico 2</h4>
+                            <p><strong>Escenario:</strong> Una empresa quiere rediseñar su sitio web de comercio electrónico para mejorar la experiencia de compra de los clientes.</p>
+                            
+                            <div class="question-section">
+                                <h5><i class="bi bi-question-circle me-2"></i>¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural para mejorar la usabilidad?</h5>
+                                <p><strong>Considera:</strong></p>
+                                <ol class="question-list">
+                                    <li>¿Qué elementos harías más visibles en la página principal?</li>
+                                    <li>¿Cómo mejorarías la navegación del sitio?</li>
+                                    <li>¿Qué feedback proporcionarías durante el proceso de compra?</li>
+                                    <li>¿Cómo garantizarías la accesibilidad para todos los usuarios?</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
@@ -646,32 +475,76 @@
         </a>
     </div>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        // Theme toggle functionality
-        document.getElementById('theme-toggle').addEventListener('click', function() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-bs-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-bs-theme', newTheme);
-            
-            const icon = this.querySelector('i');
-            icon.className = newTheme === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
-        });
+    <!-- Footer Navigation -->
+    <footer class="footer-navigation">
+        <div class="container">
+            <div class="footer-nav-content">
+                <div class="nav-button disabled">
+                    <i class="bi bi-chevron-left"></i>
+                    Tema Anterior
+                </div>
+                <div class="nav-center">
+                    <a href="../../../index.html" class="nav-link">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="../../../quiz-spa/" class="nav-link">
+                        <i class="bi bi-question-circle-fill"></i> Quiz
+                    </a>
+                </div>
+                <a href="tema2.html" class="nav-button">
+                    Tema Siguiente
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-        // Smooth scrolling for index links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navegación activa en sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
+            
+            // Función para activar enlace
+            function setActiveLink(id) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Observador de intersección para scroll automático
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        setActiveLink(entry.target.id);
+                    }
+                });
+            }, {
+                threshold: [0.5],
+                rootMargin: '-100px 0px -50% 0px'
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Smooth scroll para enlaces del sidebar
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
     </script>

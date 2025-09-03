@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="es" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 5: Diseño GUI - Prototipos y Mockups | Programación</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bs-success: #198754;
+            --bs-success-rgb: 25, 135, 84;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .content-section:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .ui-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 1px solid #dee2e6;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .mockup-card {
+            background: #e7f3ff;
+            border: 1px solid #0066cc;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .framework-card {
+            background: #f0f8ff;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .integration-card {
+            background: #e8f5e8;
+            border: 1px solid #28a745;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 1rem;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+        }
+        
+        .nav-link.active {
+            background-color: var(--bs-success) !important;
+        }
+        
+        .btn-outline-success:hover {
+            background-color: var(--bs-success);
+            border-color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link {
+            color: var(--bs-body-color);
+            border-radius: 8px;
+            margin: 2px 0;
+            padding: 8px 12px;
+            transition: all 0.2s;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(var(--bs-success-rgb), 0.1);
+            color: var(--bs-success);
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: var(--bs-success);
+            color: white;
+        }
+
+        [data-bs-theme="dark"] .ui-card,
+        [data-bs-theme="dark"] .mockup-card,
+        [data-bs-theme="dark"] .framework-card,
+        [data-bs-theme="dark"] .integration-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-bs-theme="dark"] .code-snippet {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <i class="bi bi-code-slash me-2"></i>
+                Curso Programación
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Teoría
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Metodologías</a></li>
+                            <li><a class="dropdown-item" href="tema3.html">Tema 3: Requisitos</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño</a></li>
+                            <li><a class="dropdown-item active" href="tema5.html">Tema 5: GUI</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Modelado Avanzado</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Patrón MVC</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: APIs y Datos</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: API Manager</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Testing</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Multiplataforma</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Empaquetado</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-secondary btn-sm ms-2" id="theme-toggle">
+                            <i class="bi bi-sun"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">Diseño GUI - Prototipos y Mockups</h1>
+                    <p class="lead mb-4">
+                        Punto de interacción entre usuario y sistema que debe ser eficiente, intuitivo y agradable. 
+                        Incluye elementos visuales e interactivos que facilitan la comunicación con el software.
+                    </p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-window"></i> Interfaces de Usuario
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-palette"></i> Mockups
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-code-square"></i> Frameworks Python
+                        </span>
+                        <span class="badge bg-light text-success px-3 py-2">
+                            <i class="bi bi-arrow-repeat"></i> Integración
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center">
+                    <i class="bi bi-window-desktop text-light" style="font-size: 8rem; opacity: 0.3;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3">
+                <div class="sidebar">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold text-success mb-3">
+                                <i class="bi bi-list"></i> Contenido
+                            </h6>
+                            <nav class="nav flex-column">
+                                <a class="nav-link" href="#introduccion-ui">1. Introducción al Diseño UI</a>
+                                <a class="nav-link" href="#mockups">2. Creación de Mockups</a>
+                                <a class="nav-link" href="#frameworks-python">3. Frameworks Python</a>
+                                <a class="nav-link" href="#integracion">4. Integración Prototipos</a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Introducción al Diseño UI -->
+                <section id="introduccion-ui" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-window"></i> 1. Introducción al Diseño de Interfaces de Usuario (UI)
+                    </h2>
+                    
+                    <div class="ui-card">
+                        <h4 class="fw-bold mb-3"><i class="bi bi-info-circle"></i> ¿Qué es una Interfaz de Usuario?</h4>
+                        <p>
+                            Una <strong>Interfaz de Usuario (UI)</strong> es el punto de interacción entre el usuario 
+                            y un sistema. Incluye todos los elementos visuales e interactivos como botones, menús, 
+                            cuadros de texto y diseño visual general.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Objetivos Principales:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-hand-index text-primary" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Facilitar Interacción</h6>
+                                    <small>Interfaz clara y accesible para lograr objetivos</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Garantizar Usabilidad</h6>
+                                    <small>Elementos fáciles de entender y utilizar</small>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="text-center p-3 border rounded">
+                                    <i class="bi bi-palette text-info" style="font-size: 2rem;"></i>
+                                    <h6 class="mt-2">Atractivo Visual</h6>
+                                    <small>Diseños agradables que reflejen identidad</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">UI vs UX: Diferencias Clave</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-window"></i> UI (User Interface)
+                                    </h5>
+                                    <p class="small">
+                                        Se centra en el <strong>diseño visual</strong> y elementos interactivos del sistema.
+                                    </p>
+                                    <ul class="small">
+                                        <li><strong>Pregunta:</strong> ¿Cómo se ve? ¿Cómo se utiliza?</li>
+                                        <li><strong>Enfoque:</strong> Diseño visual, botones, colores</li>
+                                        <li><strong>Objetivo:</strong> Interfaces atractivas y funcionales</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-person-heart"></i> UX (User Experience)
+                                    </h5>
+                                    <p class="small">
+                                        Se enfoca en la <strong>experiencia general</strong> del usuario al interactuar con el sistema.
+                                    </p>
+                                    <ul class="small">
+                                        <li><strong>Pregunta:</strong> ¿Es intuitivo? ¿Es satisfactorio?</li>
+                                        <li><strong>Enfoque:</strong> Percepción, satisfacción, facilidad</li>
+                                        <li><strong>Objetivo:</strong> Experiencias positivas completas</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="fw-bold mt-4 mb-3">Principios Básicos del Diseño UI</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card border-info">
+                                <div class="card-body">
+                                    <h6 class="card-title text-info">
+                                        <i class="bi bi-grid"></i> Consistencia
+                                    </h6>
+                                    <p class="small">
+                                        <strong>Visual:</strong> Uniformidad en colores, tipografías, iconos<br>
+                                        <strong>Funcional:</strong> Elementos interactivos funcionan coherentemente
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-warning">
+                                <div class="card-body">
+                                    <h6 class="card-title text-warning">
+                                        <i class="bi bi-person-check"></i> Centrado en Usuario
+                                    </h6>
+                                    <p class="small">
+                                        Enfocarse en necesidades, expectativas y comportamientos. 
+                                        Investigación y validación con usuarios reales.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h6 class="card-title text-success">
+                                        <i class="bi bi-subtract"></i> Simplicidad
+                                    </h6>
+                                    <p class="small">
+                                        "Menos es más". Eliminar elementos innecesarios, 
+                                        elementos interactivos reconocibles y claros.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-success">
+                        <h6 class="fw-bold">
+                            <i class="bi bi-target"></i> Relación con Calidad:
+                        </h6>
+                        <ul class="mb-0">
+                            <li><strong>Usabilidad:</strong> Completar tareas de manera eficiente</li>
+                            <li><strong>Accesibilidad:</strong> Cumplir estándares WCAG para inclusividad</li>
+                            <li><strong>Estética:</strong> Diseño atractivo que refuerce identidad de marca</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Creación de Mockups -->
+                <section id="mockups" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-palette"></i> 2. Creación de Mockups para Diseños GUI
+                    </h2>
+
+                    <!-- Definición de Mockups -->
+                    <div class="mockup-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-image"></i> 2.1. Definición y Objetivos
+                        </h4>
+                        <p>
+                            Un <strong>mockup</strong> es una representación visual detallada de una interfaz que muestra 
+                            el diseño y estructura del sistema. Refleja aspecto final en términos de colores, tipografía 
+                            y disposición, pero sin interacción directa.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Diferencias Clave:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-pencil"></i> Wireframes
+                                        </h6>
+                                        <p class="small">
+                                            Bocetos básicos que muestran disposición sin detalles visuales. 
+                                            Se centran en estructura y flujo.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-image"></i> Mockups
+                                        </h6>
+                                        <p class="small">
+                                            Diseño visual detallado con colores, tipografía y estilo, 
+                                            pero sin funcionalidad interactiva.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-play-circle"></i> Prototipos
+                                        </h6>
+                                        <p class="small">
+                                            Modelos interactivos que simulan funcionalidad 
+                                            como producto final.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Ventajas de los Mockups:</h5>
+                        <ul>
+                            <li><strong>Visualización temprana:</strong> Ver sistema antes de invertir en desarrollo</li>
+                            <li><strong>Facilitan comunicación:</strong> Puente entre diseñadores, desarrolladores y stakeholders</li>
+                            <li><strong>Mejoran decisiones:</strong> Ajustes basados en retroalimentación temprana</li>
+                            <li><strong>Aceleran desarrollo:</strong> Referencia directa para desarrolladores</li>
+                            <li><strong>Atractivo visual:</strong> Visualizar diseño final para aprobaciones</li>
+                        </ul>
+                    </div>
+
+                    <!-- Herramientas para Mockups -->
+                    <div class="mockup-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-tools"></i> 2.2. Herramientas para Crear Mockups
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-primary">
+                                            <i class="bi bi-figma"></i> Figma
+                                        </h5>
+                                        <p class="small">
+                                            Herramienta basada en la nube para UI, prototipos y mockups colaborativos.
+                                        </p>
+                                        
+                                        <h6 class="fw-bold">Características:</h6>
+                                        <ul class="small">
+                                            <li><strong>Colaboración tiempo real:</strong> Equipos trabajan simultáneamente</li>
+                                            <li><strong>Basada en nube:</strong> Funciona en navegador, autoguarda</li>
+                                            <li><strong>Diseño interactivo:</strong> Prototipos enlazando pantallas</li>
+                                            <li><strong>Bibliotecas compartidas:</strong> Componentes reutilizables</li>
+                                            <li><strong>Integraciones:</strong> Jira, Slack, FigJam</li>
+                                        </ul>
+
+                                        <h6 class="fw-bold mt-2">Ejemplo Pantalla Login:</h6>
+                                        <div class="code-snippet small">
+1. Crear proyecto (1440x900 px)
+2. Dibujar cuadro formulario
+3. Añadir campos "Usuario" y "Contraseña"
+4. Incluir botón "Iniciar Sesión"
+5. Aplicar colores y tipografía
+6. Conectar con página de inicio
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-warning">
+                                            <i class="bi bi-pencil-square"></i> Balsamiq
+                                        </h5>
+                                        <p class="small">
+                                            Especializada en wireframes y mockups con enfoque minimalista y sencillo.
+                                        </p>
+                                        
+                                        <h6 class="fw-bold">Características:</h6>
+                                        <ul class="small">
+                                            <li><strong>Interfaz intuitiva:</strong> Imita bocetos a mano</li>
+                                            <li><strong>Biblioteca predefinida:</strong> Botones, menús listos</li>
+                                            <li><strong>Colaboración:</strong> Compartir con comentarios</li>
+                                            <li><strong>Exportación:</strong> PDF, PNG para presentaciones</li>
+                                            <li><strong>Accesibilidad:</strong> Escritorio y en línea</li>
+                                        </ul>
+
+                                        <h6 class="fw-bold mt-2">Ejemplo Página Registro:</h6>
+                                        <div class="code-snippet small">
+1. Nuevo archivo wireframe
+2. Cuadro formulario centrado
+3. Etiquetas: "Nombre", "Email", "Contraseña"
+4. Cuadros entrada para cada campo
+5. Botón "Registrar"
+6. Enlazar con página confirmación
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Buenas Prácticas -->
+                    <div class="mockup-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-star"></i> 2.3. Buenas Prácticas en Mockups
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card border-info">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-info">
+                                            <i class="bi bi-layers"></i> Organización y Jerarquía
+                                        </h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Jerarquía visual:</strong> Elementos importantes más prominentes</li>
+                                            <li><strong>Agrupación lógica:</strong> Elementos relacionados juntos</li>
+                                            <li><strong>Orden secuencial:</strong> Flujo esperado de interacción</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-warning">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-warning">
+                                            <i class="bi bi-palette2"></i> Colores y Tipografías
+                                        </h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Paleta limitada:</strong> Reforzar identidad visual</li>
+                                            <li><strong>Contraste:</strong> Destacar elementos interactivos</li>
+                                            <li><strong>Fuentes claras:</strong> Máximo 2-3 tipografías</li>
+                                            <li><strong>Tamaños adecuados:</strong> Títulos, subtítulos, texto</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-arrow-right-circle"></i> Interacciones y Navegación
+                                        </h6>
+                                        <ul class="small mb-0">
+                                            <li><strong>Indicadores visuales:</strong> Iconos para acciones</li>
+                                            <li><strong>Flujo navegación:</strong> Conexiones entre pantallas</li>
+                                            <li><strong>Feedback visual:</strong> Estados activos, hover, deshabilitados</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Frameworks Python -->
+                <section id="frameworks-python" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-code-square"></i> 3. Frameworks para GUIs en Python
+                    </h2>
+
+                    <!-- Introducción a Python GUI -->
+                    <div class="framework-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-python"></i> 3.1. Desarrollo de Interfaces en Python
+                        </h4>
+                        <p>
+                            Python es versátil y accesible para desarrollo de GUIs gracias a su amplia variedad 
+                            de bibliotecas y frameworks, desde aplicaciones simples hasta complejas.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Ventajas de Python para GUIs:</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Simplicidad:</strong> Sintaxis clara, reduce complejidad</li>
+                                    <li><strong>Comunidad activa:</strong> Tutoriales y documentación</li>
+                                    <li><strong>Bibliotecas especializadas:</strong> Tkinter, PyQt, Kivy</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><strong>Portabilidad:</strong> Multiplataforma (Windows, macOS, Linux)</li>
+                                    <li><strong>Integración:</strong> Fácil conexión con otras tecnologías</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-3">Casos de Uso Comunes:</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-app text-primary" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Apps Escritorio</h6>
+                                    <small>Editores, calculadoras, gestores</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-bar-chart text-info" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Visualización</h6>
+                                    <small>Gráficos e informes interactivos</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-mortarboard text-warning" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Software Educativo</h6>
+                                    <small>Apps interactivas enseñanza</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-2 border rounded">
+                                    <i class="bi bi-gear text-success" style="font-size: 1.5rem;"></i>
+                                    <h6 class="mt-2">Gestión Sistemas</h6>
+                                    <small>Configuraciones empresariales</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tkinter -->
+                    <div class="framework-card">
+                        <h4 class="fw-bold text-warning mb-3">
+                            <i class="bi bi-window-plus"></i> 3.2. Tkinter: Diseño GUI Básico
+                        </h4>
+                        <p>
+                            <strong>Tkinter</strong> es la biblioteca estándar de Python para GUIs. Integrada en instalación 
+                            estándar, no requiere instalación adicional. Ideal para proyectos básicos o principiantes.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Características:</h6>
+                                <ul class="small">
+                                    <li><strong>Fácil de usar:</strong> Sintaxis sencilla e intuitiva</li>
+                                    <li><strong>Multiplataforma:</strong> Windows, macOS, Linux</li>
+                                    <li><strong>Extensible:</strong> Personalizar y combinar widgets</li>
+                                    <li><strong>Documentación completa:</strong> Abundantes ejemplos</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Widgets Básicos:</h6>
+                                <ul class="small">
+                                    <li><strong>Label:</strong> Mostrar texto o imágenes estáticas</li>
+                                    <li><strong>Entry:</strong> Ingresar información del usuario</li>
+                                    <li><strong>Button:</strong> Elementos interactivos para acciones</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mt-3">Ejemplo Básico:</h6>
+                        <div class="code-snippet">
+import tkinter as tk
+
+ventana = tk.Tk()
+tk.Label(ventana, text="Ingrese su nombre:").pack()
+entrada = tk.Entry(ventana)
+entrada.pack()
+tk.Button(ventana, text="Enviar", 
+          command=lambda: print("¡Hola, " + entrada.get() + "!")).pack()
+ventana.mainloop()
+                        </div>
+                    </div>
+
+                    <!-- PyQt -->
+                    <div class="framework-card">
+                        <h4 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-gear-wide-connected"></i> 3.3. PyQt: Desarrollo Avanzado
+                        </h4>
+                        <p>
+                            <strong>PyQt</strong> es un conjunto de herramientas poderosas basado en biblioteca Qt. 
+                            Ideal para crear aplicaciones multiplataforma profesionales con interfaces complejas.
+                        </p>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Características:</h6>
+                                <ul class="small">
+                                    <li><strong>Flexibilidad:</strong> Diseño desde cero o con Qt Designer</li>
+                                    <li><strong>Widgets avanzados:</strong> Tablas, gráficos, menús</li>
+                                    <li><strong>Multiplataforma:</strong> Una app para múltiples SO</li>
+                                    <li><strong>Profesional:</strong> Nivel empresarial</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Widgets Avanzados:</h6>
+                                <ul class="small">
+                                    <li><strong>QTableWidget:</strong> Datos tabulares</li>
+                                    <li><strong>QChart:</strong> Visualización de datos</li>
+                                    <li><strong>QMenu:</strong> Menús contextuales</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h6 class="fw-bold mt-3">Ejemplo Gestor de Tareas:</h6>
+                        <div class="code-snippet">
+from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidget, QVBoxLayout, QPushButton, QWidget
+
+class GestorTareas(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setWindowTitle("Gestor de Tareas")
+        self.layout = QVBoxLayout()
+        self.tareas = QListWidget()
+        self.layout.addWidget(self.tareas)
+        self.boton = QPushButton("Añadir tarea")
+        self.boton.clicked.connect(self.agregar_tarea)
+        self.layout.addWidget(self.boton)
+        container = QWidget()
+        container.setLayout(self.layout)
+        self.setCentralWidget(container)
+    
+    def agregar_tarea(self):
+        self.tareas.addItem("Nueva tarea")
+
+app = QApplication([])
+ventana = GestorTareas()
+ventana.show()
+app.exec_()
+                        </div>
+                    </div>
+
+                    <!-- Comparativa -->
+                    <div class="framework-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-arrow-left-right"></i> 3.4. Comparativa: Tkinter vs PyQt
+                        </h4>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead class="table-success">
+                                    <tr>
+                                        <th>Aspecto</th>
+                                        <th>Tkinter</th>
+                                        <th>PyQt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Facilidad de uso</strong></td>
+                                        <td>Sencillo e intuitivo para principiantes</td>
+                                        <td>Curva aprendizaje pronunciada, más complejo</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Diseños avanzados</strong></td>
+                                        <td>Limitado, ideal para proyectos básicos</td>
+                                        <td>Amplia gama widgets, GUIs profesionales</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Instalación</strong></td>
+                                        <td>Preinstalado con Python</td>
+                                        <td>Requiere instalación adicional</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Uso recomendado</strong></td>
+                                        <td>Proyectos pequeños y educativos</td>
+                                        <td>Aplicaciones empresariales profesionales</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Integración de Prototipos -->
+                <section id="integracion" class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-arrow-repeat"></i> 4. Integración de Prototipos y GUIs
+                    </h2>
+
+                    <!-- De Mockups al Código -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-code-slash"></i> 4.1. De Mockups al Código
+                        </h4>
+                        <p>
+                            La transición de mockups al desarrollo es crucial. Los mockups guían el desarrollo 
+                            proporcionando referencia clara que asegura que el producto refleje expectativas del cliente.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Cómo Guían los Mockups:</h5>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-image"></i> Referencia Visual
+                                        </h6>
+                                        <p class="small">
+                                            Disposición, colores, tipografías. Modelo concreto 
+                                            para replicar en código.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-puzzle"></i> Componentes
+                                        </h6>
+                                        <p class="small">
+                                            Identificar elementos como widgets: 
+                                            botones, menús, formularios.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h6 class="card-title">
+                                            <i class="bi bi-arrow-right"></i> Flujo Navegación
+                                        </h6>
+                                        <p class="small">
+                                            Conexiones entre pantallas, estructura 
+                                            de navegación y funcionalidad.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <h6 class="fw-bold">
+                                <i class="bi bi-people"></i> Comunicación Diseñadores-Desarrolladores:
+                            </h6>
+                            <ul class="mb-0">
+                                <li><strong>Alineación objetivos:</strong> Garantizar traducción correcta de intenciones</li>
+                                <li><strong>Resolución problemas:</strong> Limitaciones técnicas vs diseño</li>
+                                <li><strong>Iteración eficiente:</strong> Cambios rápidos manteniendo expectativas</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Validación con Usuarios -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-info mb-3">
+                            <i class="bi bi-people-fill"></i> 4.2. Validación de Interfaces
+                        </h4>
+                        <p>
+                            Asegurar que la GUI sea intuitiva, eficiente y cumpla expectativas mediante 
+                            <strong>pruebas de usabilidad</strong> y mejoras iterativas.
+                        </p>
+                        
+                        <h5 class="fw-bold mt-3">Pasos en Pruebas de Usabilidad:</h5>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-primary rounded-circle p-2 mb-2">1</div>
+                                    <h6>Definir Objetivos</h6>
+                                    <small>Verificar proceso específico (ej: registro)</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-info rounded-circle p-2 mb-2">2</div>
+                                    <h6>Seleccionar Usuarios</h6>
+                                    <small>Participantes representativos del público objetivo</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-warning rounded-circle p-2 mb-2">3</div>
+                                    <h6>Observar Interacción</h6>
+                                    <small>Completar tareas comentando experiencias</small>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="text-center p-3 border rounded">
+                                    <div class="badge bg-success rounded-circle p-2 mb-2">4</div>
+                                    <h6>Retroalimentación</h6>
+                                    <small>Recolectar percepciones intuitivas/difíciles</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold mt-4">Estrategias de Mejora:</h5>
+                        <ul>
+                            <li><strong>Ajustar ubicación:</strong> Botones y menús según dificultades observadas</li>
+                            <li><strong>Simplificar procesos:</strong> Formularios o procesos largos</li>
+                            <li><strong>Indicaciones visuales:</strong> Mensajes de error claros, feedback instantáneo</li>
+                        </ul>
+                    </div>
+
+                    <!-- Herramientas de Colaboración -->
+                    <div class="integration-card">
+                        <h4 class="fw-bold text-success mb-3">
+                            <i class="bi bi-link-45deg"></i> 4.3. Herramientas de Colaboración
+                        </h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card border-primary">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-primary">
+                                            <i class="bi bi-figma"></i> Integraciones Figma
+                                        </h6>
+                                        <ul class="small">
+                                            <li><strong>Exportación diseños:</strong> Imágenes, SVGs, estilos CSS</li>
+                                            <li><strong>Inspección diseño:</strong> Dimensiones, colores, tipografías</li>
+                                            <li><strong>Integraciones directas:</strong> Jira, Slack, GitHub</li>
+                                            <li><strong>Colaboración tiempo real:</strong> Cambios inmediatamente visibles</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-success">
+                                            <i class="bi bi-git"></i> Control de Versiones
+                                        </h6>
+                                        <ul class="small">
+                                            <li><strong>Ramas específicas:</strong> Para diseño de GUI sin afectar principal</li>
+                                            <li><strong>Revisión código:</strong> GitHub/GitLab para validar implementaciones</li>
+                                            <li><strong>Trazabilidad:</strong> Vincular cambios con tareas de diseño</li>
+                                            <li><strong>Historial:</strong> Gestionar modificaciones GUI</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Casos Prácticos -->
+                <section class="content-section">
+                    <h2 class="fw-bold text-success mb-4">
+                        <i class="bi bi-lightbulb"></i> Casos Prácticos
+                    </h2>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <h5 class="card-title text-primary">
+                                        <i class="bi bi-calendar-check"></i> Sistema Reservas Gimnasio
+                                    </h5>
+                                    <h6 class="fw-bold">Funcionalidades GUI:</h6>
+                                    <ul class="small">
+                                        <li>Vista calendario con clases disponibles</li>
+                                        <li>Formulario registro (nombre, horario)</li>
+                                        <li>Área consulta clases reservadas</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Proceso de Diseño:</h6>
+                                    <ol class="small">
+                                        <li>Mockup con Figma/Balsamiq</li>
+                                        <li>Validación con usuarios</li>
+                                        <li>Implementación Tkinter/PyQt</li>
+                                        <li>Pruebas usabilidad iterativas</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card border-success">
+                                <div class="card-body">
+                                    <h5 class="card-title text-success">
+                                        <i class="bi bi-cart"></i> Portal Tienda Electrónica
+                                    </h5>
+                                    <h6 class="fw-bold">Funcionalidades GUI:</h6>
+                                    <ul class="small">
+                                        <li>Página productos con filtros (categoría, precio)</li>
+                                        <li>Carrito compras gestión pedidos</li>
+                                        <li>Formulario compra (envío, pago)</li>
+                                    </ul>
+                                    <h6 class="fw-bold">Enfoque Iterativo:</h6>
+                                    <ol class="small">
+                                        <li>Prototipos interactivos funcionales</li>
+                                        <li>Integración PyQt para robustez</li>
+                                        <li>Comunicación stakeholders mejorada</li>
+                                        <li>Validación continua con usuarios</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation -->
+                <div class="d-flex justify-content-between mt-5 pt-4 border-top">
+                    <a href="tema4.html" class="btn btn-outline-success">
+                        <i class="bi bi-arrow-left"></i> Tema 4: Modelado Conceptual
+                    </a>
+                    <a href="../../../quiz-spa/index.html" class="btn btn-success">
+                        <i class="bi bi-trophy"></i> Realizar Quiz
+                    </a>
+                    <a href="tema6.html" class="btn btn-outline-success">
+                        Tema 6: Modelado Avanzado <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h6 class="fw-bold text-success">Diseño GUI - Prototipos y Mockups</h6>
+                    <p class="text-muted small mb-0">
+                        Creación de interfaces visuales que faciliten la interacción usuario-sistema, 
+                        desde mockups hasta implementación con frameworks Python.
+                    </p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <small class="text-muted">
+                        <i class="bi bi-book"></i> Material de Estudio - EUniv<br>
+                        <i class="bi bi-clock"></i> Programación - Tema 5
+                    </small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+
+        themeToggle.addEventListener('click', function() {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.className = 'bi bi-moon';
+            } else {
+                icon.className = 'bi bi-sun';
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 100;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link based on scroll position
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    const activeLink = document.querySelector(`.sidebar .nav-link[href="#${id}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section[id]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

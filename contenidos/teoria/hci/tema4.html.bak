@@ -349,30 +349,7 @@
         </div>
     </div>
 
-
-    <!-- Footer Navigation -->
-    <footer class="footer-navigation">
-        <div class="container">
-            <div class="footer-nav-content">
-                <a href="tema3.html" class="nav-button">
-                    <i class="bi bi-chevron-left"></i>
-                    Tema Anterior
-                </a>
-                <div class="nav-center">
-                    <a href="../../../index.html" class="nav-link">
-                        <i class="bi bi-house-fill"></i> Inicio
-                    </a>
-                    <a href="../../../quiz-spa/" class="nav-link">
-                        <i class="bi bi-question-circle-fill"></i> Quiz
-                    </a>
-                </div>
-                <a href="tema5.html" class="nav-button">
-                    Tema Siguiente
-                    <i class="bi bi-chevron-right"></i>
-                </a>
-            </div>
-        </div>
-    </footer>    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Navegación activa en sidebar
         document.addEventListener('DOMContentLoaded', function() {

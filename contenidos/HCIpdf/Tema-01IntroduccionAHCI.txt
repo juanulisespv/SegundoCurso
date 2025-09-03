@@ -1,0 +1,344 @@
+Introducción a HCI
+© Universitas Europaea IMF
+Indice
+Introducción a HCI
+3
+1. ¿Qué es HCI?
+3
+1.1 Definición
+3
+1.2 Historia y Evolución
+3
+1.2.1 Primeros desarrollos (1960-1980)
+3
+1.2.2 Aparición de interfaces gráficas (1980-2000)
+4
+1.2.3 Innovaciones recientes (2000 en adelante)
+4
+2. Principios Fundamentales de HCI
+4
+2.1 Usabilidad
+4
+2.2 Accesibilidad
+5
+2.3. Feedback
+5
+3. Diseño Centrado en el Usuario (UCD)
+6
+3.1 Principios clave del UCD
+6
+3.2 Herramientas y Técnicas
+7
+4. Aplicaciones Prácticas de HCI
+8
+4.1 Educación
+8
+4.2 Salud
+9
+4.3 Comercio electrónico
+9
+Actividades prácticas
+11
+Documento solo para uso personal. Prohibido copiar o distribuir
+2/11
+Introducción a HCI
+1. ¿Qué es HCI?
+1.1 Definición
+La Interacción Humano-Computadora (HCI) es un campo interdisciplinario dedicado al estudio y diseño de
+interfaces que permiten a los usuarios interactuar con sistemas computacionales de manera efectiva y
+satisfactoria. En esencia, HCI se centra en optimizar la comunicación entre humanos y máquinas, asegurando
+que las tecnologías sean no solo funcionales sino también intuitivas y accesibles.
+El objetivo principal de HCI es mejorar la usabilidad, lo que implica hacer que los sistemas sean fáciles de
+aprender, eficientes de usar, y memorables para usuarios que no lo utilizan con frecuencia. La importancia de
+HCI se ha amplificado en la era digital, donde prácticamente todos los productos tecnológicos, desde
+aplicaciones móviles hasta sistemas de control en aviones, dependen de estos principios para su éxito
+operacional y aceptación por parte del usuario.
+1.2 Historia y Evolución
+La historia de la HCI es una narrativa de innovación y adaptación a las necesidades cambiantes de los
+usuarios:
+1.2.1 Primeros desarrollos (1960-1980)
+Este período marcó el inicio de las interacciones humanas con computadoras a través de interfaces de línea
+de comandos. Sin embargo, hubo avances significativos:
+Sistemas de tiempo compartido
+: Introdujeron la idea de que múltiples usuarios podían interactuar
+con una computadora simultáneamente, cambiando la dinámica de la computación de un modelo
+centralizado a uno más interactivo.
+El primer mouse
+: Douglas Engelbart desarrolló este dispositivo en 1963, que fue una revolución en la
+manera en que los usuarios podían interactuar con el ordenador, pasando de comandos escritos a
+acciones físicas más intuitivas.
+Este campo combina elementos de diversas disciplinas, incluyendo:
+Psicología cognitiva
+: Para entender cómo los usuarios piensan, aprenden y
+perciben la información.
+Ciencias de la computación
+: Para desarrollar algoritmos y estructuras de datos
+que soporten interfaces eficientes.
+Diseño gráfico
+: Para crear interfaces visualmente atractivas y funcionales.
+Ergonomía
+: Para asegurar que el diseño físico de los dispositivos o interfaces no
+cause daño o incomodidad al usuario.
+Documento solo para uso personal. Prohibido copiar o distribuir
+3/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+1.2.2 Aparición de interfaces gráficas (1980-2000)
+La década de 1980 vio un cambio paradigmático con la introducción de las Interfaces Gráficas de Usuario
+(GUI):
+Apple Macintosh y Microsoft Windows
+: Estos sistemas operativos popularizaron las GUIs,
+permitiendo a los usuarios interactuar con computadoras a través de iconos, ventanas y un puntero,
+haciendo el uso de la computadora mucho más accesible para el público general.
+1.2.3 Innovaciones recientes (2000 en adelante)
+El nuevo milenio trajo consigo una explosión de nuevas formas de interacción:
+Dispositivos móviles
+: La introducción del iPhone en 2007 y el posterior boom de los smartphones y
+tablets exigieron un diseño de interfaces que fuera responsivo y adaptable a diferentes tamaños y
+contextos de uso.
+Interacción háptica y de voz
+: La HCI se expandió a interfaces que no solo responden al tacto sino
+también a la voz, con dispositivos como los altavoces inteligentes de Amazon Echo o Google Home.
+Realidad aumentada (AR) y realidad virtual (VR)
+: Estas tecnologías han añadido nuevas
+dimensiones a la interacción, permitiendo experiencias inmersivas que combinan lo digital y lo físico en
+formas previamente inimaginables.
+La evolución de HCI muestra una tendencia clara hacia interfaces más humanas, donde la tecnología no solo
+responde a comandos directos sino que anticipa y facilita la interacción basándose en la comprensión del
+comportamiento humano. Esta disciplina continúa avanzando con la integración de inteligencia artificial, que
+permite interfaces más inteligentes y personalizadas, reflejando una transición de sistemas reactivos a
+sistemas proactivos que anticipan las necesidades del usuario.
+En resumen, HCI no es solo sobre hacer que las computadoras sean más fáciles de usar; es sobre crear
+experiencias que sean significativas, inclusivas y que enriquezcan la interacción humana con la tecnología.
+2. Principios Fundamentales de HCI
+2.1 Usabilidad
+La usabilidad es quizás uno de los pilares más críticos de la HCI. Se refiere a la facilidad con la que un
+usuario puede aprender y utilizar un sistema para lograr sus objetivos. Los componentes clave de la
+usabilidad incluyen:
+Facilidad de aprendizaje
+Los sistemas deben ser intuitivos desde el primer uso, permitiendo a los usuarios nuevos entender cómo
+operar sin necesidad de ayuda extensiva. Un ejemplo es la interfaz de Spotify, que permite a los usuarios
+navegar por su vasta biblioteca musical con un mínimo de instrucciones.
+Documento solo para uso personal. Prohibido copiar o distribuir
+4/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Eficiencia
+Una vez que los usuarios han aprendido el sistema, deben ser capaces de realizar tareas rápidamente.
+Esto se logra con diseños que minimizan el número de pasos necesarios para completar una acción. Por
+ejemplo, en aplicaciones de comercio electrónico como Amazon, la eficiencia se ve en cómo se simplifica
+el proceso de compra con 'carritos de compra' y 'comprar ahora'.
+Memorabilidad
+Para usuarios que no interactúan con el sistema con frecuencia, la capacidad de recordar cómo usarlo es
+crucial. Esto implica diseñar interfaces donde las acciones más comunes sean fáciles de recordar. Google,
+con su diseño limpio y centrado en la búsqueda, es un ejemplo donde incluso usuarios ocasionales pueden
+recordar su funcionamiento.
+Bajo nivel de errores
+Los sistemas deben diseñarse para minimizar errores humanos. Esto incluye interfaces que previenen
+errores (como confirmaciones de acciones importantes) y facilitan la recuperación de errores cometidos
+(como botones de 'deshacer').
+Satisfacción
+Más allá de la funcionalidad, los usuarios deben disfrutar de la experiencia de uso. Esto puede incluir
+aspectos estéticos, pero también se refiere a la sensación de control y competencia que el usuario obtiene
+al usar el sistema.
+2.2 Accesibilidad
+La accesibilidad en HCI asegura que las interfaces sean utilizables por personas con una amplia gama de
+capacidades:
+Compatibilidad con tecnologías asistivas
+: Esto incluye soporte para lectores de pantalla, que son
+cruciales para usuarios con discapacidades visuales, y controles por voz para aquellos con limitaciones
+motoras. Un ejemplo es la integración de VoiceOver en dispositivos Apple.
+Diseño inclusivo
+: Considerar diversas capacidades desde el inicio del diseño significa no solo adaptar
+para discapacidades conocidas sino también pensar en el envejecimiento de la población, limitaciones
+temporales o situaciones contextuales (como usar un dispositivo en entornos ruidosos o con manos
+ocupadas).
+Normativas y estándares
+: Adherirse a normas como las WCAG (Web Content Accessibility Guidelines)
+ayuda a asegurar que los sitios web y aplicaciones sean accesibles. Esto incluye tener textos alternativos
+para imágenes, subtítulos para contenido en video, y estructuras de navegación claras.
+2.3. Feedback
+Documento solo para uso personal. Prohibido copiar o distribuir
+5/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+El feedback es esencial para una buena interacción humano-computadora:
+Feedback inmediato
+Las acciones de los usuarios deben ser reconocidas inmediatamente por el sistema. Esto puede ser a
+través de cambios visuales, sonidos o vibraciones en dispositivos táctiles. Por ejemplo, cuando se envía un
+correo en Gmail, aparece una notificación instantánea confirmando el envío.
+Claridad en el feedback
+El sistema debe comunicar claramente qué ha sucedido, especialmente si hay errores o acciones
+inesperadas. Un buen ejemplo es cómo los sistemas operativos modernos muestran mensajes claros de
+error con instrucciones sobre cómo proceder.
+Feedback contextual
+El feedback debe ser relevante para la tarea en curso. En videojuegos, por ejemplo, el feedback debe no
+solo informar sobre el éxito o fracaso de una acción sino también ofrecer indicaciones sobre cómo mejorar
+la próxima vez.
+Feedback continuo
+Para tareas que requieren tiempo, como la descarga de archivos o el procesamiento de datos, el feedback
+continuo (barras de progreso, animaciones, etc.) ayuda a mantener al usuario informado y paciente.
+Estos principios fundamentales de HCI no solo hacen que las tecnologías sean más fáciles de usar sino que
+también abren la puerta a una mayor inclusión, permitiendo que una gama más amplia de personas pueda
+beneficiarse de las herramientas digitales. Además, al enfocarse en estos elementos, los diseñadores y
+desarrolladores pueden crear productos que no solo funcionan bien sino que también se sienten bien de usar,
+promoviendo así una relación más positiva entre los usuarios y la tecnología.
+3. Diseño Centrado en el Usuario (UCD)
+3.1 Principios clave del UCD
+El Diseño Centrado en el Usuario (UCD) es una metodología de diseño que pone al usuario final en el centro
+del proceso de desarrollo de productos. Los principios clave incluyen:
+Investigación del usuario
+Este es el primer paso crítico donde se recopilan datos sobre quiénes son los usuarios, qué necesitan,
+cuáles son sus limitaciones y cómo interactúan con productos similares. Métodos como entrevistas,
+encuestas, observaciones en contexto, y análisis de datos de uso son fundamentales. Por ejemplo, en el
+desarrollo de una aplicación de salud, se podría realizar una investigación para comprender cómo
+diferentes grupos de edad interactúan con dispositivos de monitoreo de salud.
+Documento solo para uso personal. Prohibido copiar o distribuir
+6/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Prototipado e iteración
+UCD promueve la creación de prototipos tempranos y rápidos que pueden ser evaluados por usuarios
+reales. Esto permite recoger feedback valioso para refinar el diseño antes de incurrir en costos de
+desarrollo elevados. Herramientas como Figma o InVision facilitan la creación de prototipos interactivos
+que pueden simular la experiencia del usuario final.
+Participación activa del usuario
+Involucrar a los usuarios a lo largo de todo el proceso de desarrollo no solo mejora el diseño sino que
+también aumenta la aceptación del producto final. Esto puede incluir sesiones de pruebas de usabilidad,
+donde usuarios potenciales prueban el producto y proporcionan retroalimentación directa sobre sus
+experiencias y dificultades.
+Evaluación continua
+Incluso después del lanzamiento, el UCD aboga por la evaluación constante del producto para seguir
+mejorándolo. Esto puede implicar actualizaciones basadas en el uso real y el feedback continuo de los
+usuarios.
+3.2 Herramientas y Técnicas
+El UCD utiliza una variedad de herramientas y técnicas para asegurar que el diseño cumpla con las
+necesidades de los usuarios:
+Personas
+Son personajes ficticios que representan diferentes segmentos de la audiencia objetivo, basados en datos
+reales de investigación. Personas ayudan a los equipos de diseño a mantenerse enfocados en las
+necesidades y comportamientos de los usuarios reales. Por ejemplo, una persona para un sitio de
+comercio electrónico podría ser "Ana, 35 años, madre de dos, quien valora la rapidez en encontrar
+productos y la seguridad en las transacciones".
+Mapas de experiencia
+Estos diagramas detallan la interacción del usuario con el producto o servicio a lo largo del tiempo,
+identificando puntos de dolor y oportunidades para mejorar la experiencia. Son útiles para visualizar cómo
+un usuario podría pasar de descubrir un producto a convertirse en un cliente habitual.
+Wireframes y prototipos
+Los wireframes son esquemas básicos que representan la estructura de una página web o aplicación,
+mientras que los prototipos son más detallados y pueden ser interactivos, permitiendo pruebas más
+realistas. Ambas herramientas ayudan a conceptualizar y validar ideas de diseño antes de la fase de
+desarrollo.
+Documento solo para uso personal. Prohibido copiar o distribuir
+7/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Pruebas de usabilidad
+Esencial en UCD, estas pruebas implican observar a usuarios mientras usan el producto para identificar
+problemas de diseño, confusión o ineficiencias. Las pruebas pueden ser moderadas o no, realizadas en
+laboratorio o de forma remota.
+Análisis de tareas
+Descomponer las tareas que los usuarios necesitan realizar en el sistema para entender mejor los flujos de
+trabajo y optimizarlos. Esto puede incluir diagramas de flujo de tareas.
+Técnicas de evaluación heurística
+Expertos en HCI evalúan el diseño contra un conjunto de principios de usabilidad establecidos para
+identificar posibles problemas sin necesidad de pruebas con usuarios.
+El UCD no solo mejora la usabilidad y la satisfacción del usuario sino que también puede llevar a productos
+más innovadores y exitosos en el mercado, ya que están hechos a medida de las necesidades reales de los
+usuarios. Al adoptar un enfoque iterativo y participativo, el diseño centrado en el usuario asegura que los
+productos evolucionen junto con las expectativas y cambios en los comportamientos de los usuarios. En
+sectores como la salud, educación o comercio electrónico, aplicar UCD puede resultar en interfaces más
+intuitivas, accesibles y efectivas, mejorando tanto la experiencia del usuario como el rendimiento del negocio.
+4. Aplicaciones Prácticas de HCI
+4.1 Educación
+La HCI en la educación ha transformado la manera en que los estudiantes aprenden y cómo los educadores
+enseñan, adaptándose a diferentes estilos de aprendizaje y necesidades:
+Plataformas de aprendizaje en línea
+Como Moodle, Canvas o Coursera, estas plataformas utilizan HCI para crear entornos de aprendizaje que
+son interactivos, accesibles y adaptativos. El diseño de interfaces amigables facilita la navegación, mientras
+que las herramientas de feedback inmediato, como quizzes interactivos o foros de discusión, refuerzan el
+aprendizaje. Además, la personalización de contenidos basada en el progreso del estudiante ejemplifica la
+aplicación de HCI para mejorar la retención y comprensión.
+Aulas inteligentes
+Tecnologías como pizarras interactivas, aplicaciones de realidad aumentada para aprendizaje práctico (por
+ejemplo, disección virtual en biología), y sistemas de respuesta en tiempo real permiten una interacción
+más rica entre estudiantes y contenido educativo. Aquí, HCI se centra en interfaces que promuevan la
+colaboración y el engagement.
+Documento solo para uso personal. Prohibido copiar o distribuir
+8/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Herramientas de asistencia
+Para estudiantes con necesidades especiales, HCI ha facilitado el desarrollo de software que puede
+convertir texto a voz, adaptar la interfaz para discapacidades visuales o motoras, o proporcionar feedback
+táctil para estudiantes con dificultades auditivas.
+4.2 Salud
+En el sector de la salud, la HCI ha sido instrumental para mejorar la seguridad del paciente, la eficacia del
+tratamiento y la experiencia del usuario tanto para pacientes como para profesionales de la salud:
+Interfaz de dispositivos médicos
+: Sistemas como los monitores de signos vitales, bombas de infusión, y
+aparatos de diagnóstico por imagen utilizan interfaces diseñadas para ser intuitivas y reducir errores
+médicos. Por ejemplo, interfaces con indicadores claros de estado y alarmas visuales y auditivas ayudan a
+los profesionales a reaccionar rápidamente ante cambios en la condición del paciente.
+Aplicaciones de salud móvil
+: Apps como MyFitnessPal o aplicaciones de monitoreo de glucosa para
+diabéticos emplean HCI para crear interfaces que no solo sean fáciles de usar sino que también ofrezcan
+feedback personalizado sobre la salud y el bienestar. La usabilidad aquí es crítica, ya que errores en el
+ingreso de datos o en la interpretación de la información pueden tener consecuencias directas en la salud
+del usuario.
+Sistemas de registros electrónicos de salud (EHR)
+: La integración de HCI en EHRs busca facilitar el
+acceso a la información del paciente, mejorar la precisión de los registros y asegurar que la información se
+presente de manera que sea útil para la toma de decisiones clínicas.
+4.3 Comercio electrónico
+El comercio electrónico ha sido una de las áreas donde la HCI ha tenido un impacto más visible, centrándose
+en maximizar la conversión y la satisfacción del cliente:
+Optimización del sitio web
+: Sitios como Amazon o eBay utilizan principios de HCI para diseñar interfaces
+que minimicen el tiempo de carga, faciliten la búsqueda de productos, y ofrezcan una experiencia de
+compra fluida. Esto incluye la utilización de recomendaciones personalizadas basadas en el
+comportamiento del usuario, diseños responsivos para múltiples dispositivos, y procesos de checkout
+simplificados.
+Interacción y feedback
+: Los sitios de comercio electrónico emplean HCI para proporcionar feedback
+instantáneo sobre la disponibilidad de productos, el estado de la compra, y para manejar errores o
+problemas en el proceso de compra. Chatbots y sistemas de asistencia en tiempo real son ejemplos de
+cómo se mejora la experiencia del usuario a través de la interacción directa.
+Accesibilidad
+: La HCI también se aplica para asegurar que todos los usuarios, independientemente de
+sus capacidades físicas, puedan realizar compras en línea. Esto incluye opciones de contraste alto,
+navegación por voz, y descripciones de imágenes para usuarios con discapacidades visuales.
+Documento solo para uso personal. Prohibido copiar o distribuir
+9/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+En cada uno de estos sectores, la HCI no solo busca hacer que la interacción con la tecnología sea más fácil
+y eficiente sino también más inclusiva, segura y adaptada a las necesidades específicas de los usuarios. A
+través de la aplicación de estos principios, se logra una mejora tangible en la calidad de vida, la educación, la
+atención médica y las experiencias de compra, demostrando el rol pivotal de la HCI en la innovación
+tecnológica del siglo XXI.
+Documento solo para uso personal. Prohibido copiar o distribuir
+10/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A
+Actividades prácticas
+Caso práctico 1
+Imagina que estás diseñando una aplicación de gestión de tareas para estudiantes universitarios.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+Caso práctico 2
+Una empresa quiere rediseñar su sitio web de comercio electrónico para mejorar la experiencia de compra de
+los clientes.
+Procesando respuesta, no cierres el navegador, este proceso podría tardar unos segundos
+¿Cómo aplicarías los principios de diseño centrado en el usuario para asegurarte de que la
+aplicación sea intuitiva y útil?
+¿Cuáles son tres principios de diseño centrado en el usuario que utilizarías y cómo los
+aplicarías en este contexto?
+1.
+¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural para mejorar la
+usabilidad?
+¿Cómo podrías aplicar estos conceptos para que la experiencia de compra sea más intuitiva?
+1.
+Documento solo para uso personal. Prohibido copiar o distribuir
+11/11
+Introducción a HCI
+idalumno:906687|unidad:1|codcurso:INF25E07|varp:391|dominioMoodle:N/A|alumnoMoodle:N/A

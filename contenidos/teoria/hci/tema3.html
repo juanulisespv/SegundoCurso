@@ -1,977 +1,1057 @@
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="light">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI Tema 3: Interfaces de Usuario y Usabilidad | Quiz App</title>
-    
-    <!-- Bootstrap 5 CSS -->
+    <title>Tema 3: Interfaces de Usuario y Usabilidad | Teoría</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="../../../quiz-spa/styles.css">
-    
-    <style>
-        .content-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border-left: 4px solid #6f42c1;
-            background: var(--bs-light);
-            border-radius: 0 0.375rem 0.375rem 0;
-        }
-        
-        .sidebar {
-            position: sticky;
-            top: 20px;
-            max-height: calc(100vh - 40px);
-            overflow-y: auto;
-        }
-        
-        .usability-principle {
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        
-        .usability-principle:hover {
-            border-color: #6f42c1;
-            box-shadow: 0 4px 8px rgba(111, 66, 193, 0.1);
-        }
-        
-        .interface-type {
-            border-left: 4px solid;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: var(--bs-light);
-        }
-        
-        .floating-quiz-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        
-        .comparison-table th {
-            background-color: #6f42c1;
-            color: white;
-        }
-        
-        .metric-card {
-            border-top: 4px solid;
-            transition: transform 0.2s;
-        }
-        
-        .metric-card:hover {
-            transform: translateY(-3px);
-        }
-    </style>
+    <link rel="stylesheet" href="hci-common-styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="../../../quiz-spa/index.html">
-                <i class="bi bi-arrow-left me-2"></i>
-                Quiz App
+            <a class="navbar-brand fw-bold" href="../../../index.html">
+                <i class="bi bi-mortarboard-fill me-2"></i>Curso HCI
             </a>
-            
-            <span class="navbar-text">
-                <i class="bi bi-book me-2"></i>
-                HCI Tema 3: Interfaces de Usuario y Usabilidad
-            </span>
-            
-            <div class="navbar-nav ms-auto">
-                <a href="../../../quiz-spa/index.html" class="btn btn-outline-light me-2 btn-sm">
-                    <i class="bi bi-list me-1"></i>
-                    Índice
-                </a>
-                <button class="btn btn-outline-light" id="theme-toggle">
-                    <i class="bi bi-sun-fill"></i>
-                </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">HCI: Temas</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="tema1.html">Tema 1: Introducción a HCI</a></li>
+                            <li><a class="dropdown-item" href="tema2.html">Tema 2: Historia de HCI</a></li>
+                            <li><a class="dropdown-item active" href="tema3.html">Tema 3: Interfaces de Usuario y Usabilidad</a></li>
+                            <li><a class="dropdown-item" href="tema4.html">Tema 4: Diseño Centrado en el Usuario</a></li>
+                            <li><a class="dropdown-item" href="tema5.html">Tema 5: Prototipado de Interfaces</a></li>
+                            <li><a class="dropdown-item" href="tema6.html">Tema 6: Multimedia en HCI</a></li>
+                            <li><a class="dropdown-item" href="tema7.html">Tema 7: Estructura y Navegación</a></li>
+                            <li><a class="dropdown-item" href="tema8.html">Tema 8: Diseño Responsivo y Ágil</a></li>
+                            <li><a class="dropdown-item" href="tema9.html">Tema 9: Implementación Web y Móvil</a></li>
+                            <li><a class="dropdown-item" href="tema10.html">Tema 10: Interfaces Android e iOS</a></li>
+                            <li><a class="dropdown-item" href="tema11.html">Tema 11: Tendencias Avanzadas</a></li>
+                            <li><a class="dropdown-item" href="tema12.html">Tema 12: Accesibilidad y Estándares</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../../quiz-spa/">
+                            <i class="bi bi-question-circle-fill me-1"></i>Quiz
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="sidebar">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h6 class="mb-0">
-                                <i class="bi bi-list me-2"></i>
-                                Contenido
-                            </h6>
-                        </div>
-                        <div class="card-body p-0">
-                            <nav class="nav flex-column">
-                                <a class="nav-link" href="#introduccion">1. Introducción</a>
-                                <a class="nav-link" href="#definiciones">2. Definiciones Clave</a>
-                                <a class="nav-link" href="#tipos-interfaces">3. Tipos de Interfaces</a>
-                                <a class="nav-link" href="#usabilidad">4. Usabilidad</a>
-                                <a class="nav-link" href="#principios">5. Principios de Usabilidad</a>
-                                <a class="nav-link" href="#metricas">6. Métricas de Usabilidad</a>
-                                <a class="nav-link" href="#evaluacion">7. Evaluación de Usabilidad</a>
-                                <a class="nav-link" href="#metodologias">8. Metodologías de Evaluación</a>
-                                <a class="nav-link" href="#herramientas">9. Herramientas de Evaluación</a>
-                                <a class="nav-link" href="#casos-estudio">10. Casos de Estudio</a>
-                                <a class="nav-link" href="#buenas-practicas">11. Buenas Prácticas</a>
-                                <a class="nav-link" href="#resumen">12. Resumen</a>
-                            </nav>
-                        </div>
-                    </div>
+    <!-- Hero -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center hero-content">
+                    <h1><i class="bi bi-ui-checks me-3"></i>Interfaces de Usuario y Usabilidad</h1>
+                    <p class="lead">Principios fundamentales para crear interfaces efectivas, eficientes y satisfactorias</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Main Content -->
-            <div class="col-md-9">
-                <!-- Header -->
-                <div class="text-center mb-5">
-                    <h1 class="display-5 text-primary">Interfaces de Usuario y Usabilidad</h1>
-                    <p class="lead">Fundamentos del diseño de interfaces centradas en el usuario</p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="sidebar">
+                        <h5><i class="bi bi-list-ul me-2"></i>Contenidos</h5>
+                        <nav class="nav flex-column">
+                            <a class="nav-link" href="#introduccion">Introducción</a>
+                            <a class="nav-link" href="#principios-basicos">1. Principios Básicos</a>
+                            <a class="nav-link" href="#facilidad-aprendizaje" style="padding-left: 1.5rem;">1.1. Facilidad de Aprendizaje</a>
+                            <a class="nav-link" href="#eficiencia" style="padding-left: 1.5rem;">1.2. Eficiencia</a>
+                            <a class="nav-link" href="#memorabilidad" style="padding-left: 1.5rem;">1.3. Memorabilidad</a>
+                            <a class="nav-link" href="#gestion-errores" style="padding-left: 1.5rem;">1.4. Gestión de Errores</a>
+                            <a class="nav-link" href="#satisfaccion" style="padding-left: 1.5rem;">1.5. Satisfacción</a>
+                            <a class="nav-link" href="#elementos-diseno">2. Elementos de Diseño</a>
+                            <a class="nav-link" href="#navegacion" style="padding-left: 1.5rem;">2.1. Navegación</a>
+                            <a class="nav-link" href="#consistencia" style="padding-left: 1.5rem;">2.2. Consistencia</a>
+                            <a class="nav-link" href="#feedback" style="padding-left: 1.5rem;">2.3. Feedback</a>
+                            <a class="nav-link" href="#affordances" style="padding-left: 1.5rem;">2.4. Affordances</a>
+                            <a class="nav-link" href="#visibilidad" style="padding-left: 1.5rem;">2.5. Visibilidad</a>
+                            <a class="nav-link" href="#espacio-blanco" style="padding-left: 1.5rem;">2.6. Espacio en Blanco</a>
+                            <a class="nav-link" href="#accesibilidad">3. Accesibilidad</a>
+                            <a class="nav-link" href="#flexibilidad">4. Flexibilidad</a>
+                            <a class="nav-link" href="#casos-practicos">5. Casos Prácticos</a>
+                        </nav>
+                    </div>
                 </div>
 
-                <!-- 1. Introducción -->
-                <section id="introduccion" class="content-section">
-                    <h2><i class="bi bi-play-circle me-2"></i>1. Introducción</h2>
-                    <p>Las <strong>Interfaces de Usuario (UI)</strong> son el punto de contacto entre los humanos y las computadoras. La <strong>usabilidad</strong> determina qué tan efectiva, eficiente y satisfactoria es esa interacción.</p>
-                    
-                    <div class="alert alert-primary">
-                        <i class="bi bi-lightbulb me-2"></i>
-                        <strong>Concepto Central:</strong> Una interfaz no es solo lo que se ve, sino cómo se comporta y cómo el usuario la experimenta.
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5>¿Qué estudiaremos?</h5>
+                <!-- Content -->
+                <div class="col-lg-9">
+                    <!-- Introducción -->
+                    <section id="introduccion" class="content-section">
+                        <h2><i class="bi bi-info-circle me-2"></i>Introducción a Interfaces y Usabilidad</h2>
+                        
+                        <p>La <strong>usabilidad</strong> es uno de los pilares fundamentales en el diseño de interfaces de usuario (UI), ya que define la calidad de la interacción entre los usuarios y un sistema, aplicación o producto digital. Una interfaz usable no solo facilita el cumplimiento de tareas, sino que también minimiza la frustración del usuario y maximiza su satisfacción.</p>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-lightbulb me-2"></i>Concepto Clave</h4>
+                            <p>La usabilidad va más allá de la funcionalidad básica, centrándose en cómo los usuarios perciben y experimentan el sistema. Desde el punto de vista del <strong>diseño centrado en el usuario (UCD)</strong>, implica comprender las necesidades, expectativas y limitaciones de los usuarios para crear sistemas que se adapten a ellos.</p>
+                        </div>
+
+                        <p>Este enfoque permite que las tecnologías no solo sean funcionales, sino también accesibles, intuitivas y agradables de usar, lo que resulta esencial en un mundo donde la tecnología forma parte integral de la vida cotidiana.</p>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-target me-2"></i>Retos Fundamentales</h4>
+                            <p>Uno de los primeros retos en el diseño de interfaces usables es garantizar que el sistema sea comprensible desde el primer contacto. Los usuarios, especialmente los nuevos, deben ser capaces de aprender rápidamente cómo navegar y realizar tareas dentro de una interfaz.</p>
                             <ul>
-                                <li>Tipos y evolución de interfaces</li>
-                                <li>Principios fundamentales de usabilidad</li>
-                                <li>Métodos de evaluación</li>
-                                <li>Métricas y herramientas</li>
+                                <li><strong>Facilidad de aprendizaje:</strong> Impacto directo en la percepción inicial del usuario</li>
+                                <li><strong>Eficiencia:</strong> Rapidez con la que usuarios experimentados completan tareas</li>
+                                <li><strong>Memorabilidad:</strong> Permitir recordar el uso después de períodos de inactividad</li>
+                                <li><strong>Prevención de errores:</strong> Minimizar errores y ofrecer soluciones claras</li>
+                                <li><strong>Satisfacción:</strong> Experiencia estéticamente agradable y positiva</li>
                             </ul>
                         </div>
-                        <div class="col-md-6">
-                            <div class="card bg-light">
-                                <div class="card-body">
-                                    <h6><i class="bi bi-target me-2"></i>Objetivo</h6>
-                                    <p class="mb-0">Comprender cómo crear interfaces que sean intuitivas, eficientes y agradables de usar.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- 2. Definiciones Clave -->
-                <section id="definiciones" class="content-section">
-                    <h2><i class="bi bi-book me-2"></i>2. Definiciones Clave</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card border-primary">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0">Interfaz de Usuario (UI)</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="mb-2"><strong>Definición:</strong> El conjunto de elementos a través de los cuales las personas interactúan con un dispositivo o aplicación.</p>
-                                    <p class="mb-0"><strong>Incluye:</strong> Elementos visuales, controles, retroalimentación, comportamiento del sistema.</p>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Principios Básicos -->
+                    <section id="principios-basicos" class="content-section">
+                        <h2><i class="bi bi-diagram-3 me-2"></i>1. Principios Básicos de Usabilidad</h2>
                         
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0">Usabilidad</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="mb-2"><strong>ISO 9241-11:</strong> "Grado en que un producto puede ser usado por usuarios específicos para lograr objetivos específicos con efectividad, eficiencia y satisfacción."</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-warning">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0">Experiencia de Usuario (UX)</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="mb-0">La experiencia total que tiene una persona al usar un producto, incluyendo aspectos emocionales, perceptuales y de comportamiento.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-info">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0">Accesibilidad</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p class="mb-0">Capacidad de una interfaz para ser utilizada por personas con diferentes habilidades y en diferentes contextos.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                        <p>Los principios básicos de usabilidad establecen el marco fundamental para evaluar y diseñar interfaces efectivas. Estos cinco principios son esenciales para crear experiencias de usuario exitosas.</p>
 
-                <!-- 3. Tipos de Interfaces -->
-                <section id="tipos-interfaces" class="content-section">
-                    <h2><i class="bi bi-grid me-2"></i>3. Tipos de Interfaces</h2>
-                    
-                    <div class="interface-type" style="border-left-color: #dc3545;">
-                        <h5><i class="bi bi-terminal me-2"></i>Interfaces de Línea de Comandos (CLI)</h5>
                         <div class="row">
-                            <div class="col-md-8">
-                                <p><strong>Características:</strong> Interacción basada en texto, comandos escritos, alta eficiencia para usuarios expertos.</p>
-                                <p><strong>Ventajas:</strong> Rápida, precisa, automatizable, consume pocos recursos.</p>
-                                <p><strong>Desventajas:</strong> Curva de aprendizaje alta, no intuitiva para principiantes.</p>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-mortarboard me-2"></i>Facilidad de Aprendizaje</h4>
+                                    <p>Los usuarios nuevos pueden aprender rápidamente a usar la interfaz desde su primer contacto</p>
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="card bg-dark text-light">
-                                    <div class="card-body">
-                                        <code>$ ls -la<br>$ git commit -m "Update"<br>$ npm install</code>
-                                    </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-speedometer2 me-2"></i>Eficiencia</h4>
+                                    <p>Los usuarios experimentados pueden completar tareas de manera rápida y efectiva</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-memory me-2"></i>Memorabilidad</h4>
+                                    <p>Los usuarios recuerdan cómo usar la interfaz después de períodos de inactividad</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-exclamation-triangle me-2"></i>Gestión de Errores</h4>
+                                    <p>Los errores son minimizados y la recuperación es fácil y clara</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-heart me-2"></i>Satisfacción</h4>
+                                    <p>Los usuarios disfrutan usar la interfaz y tienen experiencias positivas</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="interface-type" style="border-left-color: #198754;">
-                        <h5><i class="bi bi-window me-2"></i>Interfaces Gráficas (GUI)</h5>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p><strong>Características:</strong> Elementos visuales, mouse, ventanas, iconos, menús (paradigma WIMP).</p>
-                                <p><strong>Ventajas:</strong> Intuitiva, fácil de aprender, retroalimentación visual inmediata.</p>
-                                <p><strong>Desventajas:</strong> Puede ser menos eficiente para tareas repetitivas.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card border-success">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-window-desktop display-6 text-success"></i>
-                                        <p class="small mt-2 mb-0">Windows, Icons, Menus, Pointer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="interface-type" style="border-left-color: #0d6efd;">
-                        <h5><i class="bi bi-hand-index me-2"></i>Interfaces Táctiles (Touch)</h5>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p><strong>Características:</strong> Interacción directa con los dedos, gestos, multitouch.</p>
-                                <p><strong>Ventajas:</strong> Natural, directa, no requiere dispositivos adicionales.</p>
-                                <p><strong>Gestos comunes:</strong> Tap, swipe, pinch, rotate, long press.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card border-primary">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-phone display-6 text-primary"></i>
-                                        <p class="small mt-2 mb-0">Smartphones, Tablets, Kioscos</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="interface-type" style="border-left-color: #6f42c1;">
-                        <h5><i class="bi bi-mic me-2"></i>Interfaces de Voz (VUI)</h5>
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p><strong>Características:</strong> Comandos hablados, respuestas audibles, procesamiento de lenguaje natural.</p>
-                                <p><strong>Ventajas:</strong> Manos libres, accesible, natural para humanos.</p>
-                                <p><strong>Ejemplos:</strong> Alexa, Siri, Google Assistant, sistemas de navegación por voz.</p>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card border-purple">
-                                    <div class="card-body text-center">
-                                        <i class="bi bi-soundwave display-6" style="color: #6f42c1;"></i>
-                                        <p class="small mt-2 mb-0">Asistentes Virtuales</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- 4. Usabilidad -->
-                <section id="usabilidad" class="content-section">
-                    <h2><i class="bi bi-speedometer2 me-2"></i>4. Usabilidad</h2>
-                    
-                    <div class="alert alert-info">
-                        <h5><i class="bi bi-info-circle me-2"></i>Definición de Jakob Nielsen</h5>
-                        <p class="mb-2">"La usabilidad es un atributo de calidad que evalúa qué tan fácil de usar son las interfaces de usuario."</p>
-                        <p class="mb-0">Se compone de <strong>5 componentes clave</strong>:</p>
-                    </div>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="metric-card card h-100" style="border-top-color: #dc3545;">
-                                <div class="card-body">
-                                    <h6 class="card-title text-danger">
-                                        <i class="bi bi-lightning me-2"></i>1. Aprendizaje (Learnability)
-                                    </h6>
-                                    <p class="card-text">¿Qué tan fácil es para los usuarios realizar tareas básicas la primera vez que encuentran el diseño?</p>
-                                    <small class="text-muted">Métrica: Tiempo para completar una tarea por primera vez</small>
-                                </div>
-                            </div>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-building me-2"></i>Impacto Organizacional</h4>
+                            <p>La usabilidad no solo beneficia al usuario final, sino que también tiene implicaciones económicas y estratégicas para las organizaciones. Los sistemas usables tienden a requerir menos soporte técnico, aumentar la productividad del usuario y fomentar la lealtad hacia el producto. Por esta razón, comprender y aplicar los principios básicos de usabilidad es una habilidad esencial para diseñadores, desarrolladores y cualquier persona involucrada en la creación de productos digitales.</p>
                         </div>
-                        
-                        <div class="col-md-6">
-                            <div class="metric-card card h-100" style="border-top-color: #198754;">
-                                <div class="card-body">
-                                    <h6 class="card-title text-success">
-                                        <i class="bi bi-speedometer me-2"></i>2. Eficiencia (Efficiency)
-                                    </h6>
-                                    <p class="card-text">Una vez que los usuarios han aprendido el diseño, ¿qué tan rápido pueden realizar tareas?</p>
-                                    <small class="text-muted">Métrica: Tiempo para completar tareas por usuario experimentado</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="metric-card card h-100" style="border-top-color: #0d6efd;">
-                                <div class="card-body">
-                                    <h6 class="card-title text-primary">
-                                        <i class="bi bi-arrow-repeat me-2"></i>3. Recordabilidad (Memorability)
-                                    </h6>
-                                    <p class="card-text">Cuando los usuarios regresan al diseño después de un período sin usarlo, ¿qué tan fácil pueden restablecer la competencia?</p>
-                                    <small class="text-muted">Métrica: Tiempo para retomar eficiencia después de ausencia</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="metric-card card h-100" style="border-top-color: #ffc107;">
-                                <div class="card-body">
-                                    <h6 class="card-title text-warning">
-                                        <i class="bi bi-exclamation-triangle me-2"></i>4. Errores (Errors)
-                                    </h6>
-                                    <p class="card-text">¿Cuántos errores cometen los usuarios, qué tan severos son estos errores y qué tan fácil se recuperan de los errores?</p>
-                                    <small class="text-muted">Métrica: Número y gravedad de errores, tiempo de recuperación</small>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-12">
-                            <div class="metric-card card" style="border-top-color: #6f42c1;">
-                                <div class="card-body">
-                                    <h6 class="card-title" style="color: #6f42c1;">
-                                        <i class="bi bi-emoji-smile me-2"></i>5. Satisfacción (Satisfaction)
-                                    </h6>
-                                    <p class="card-text">¿Qué tan agradable es usar el diseño?</p>
-                                    <small class="text-muted">Métrica: Encuestas de satisfacción, análisis emocional, retención de usuarios</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- 5. Principios de Usabilidad -->
-                <section id="principios" class="content-section">
-                    <h2><i class="bi bi-list-check me-2"></i>5. Principios de Usabilidad</h2>
-                    
-                    <h5 class="mb-3">Las 10 Heurísticas de Nielsen</h5>
-                    
-                    <div class="usability-principle">
-                        <h6><i class="bi bi-eye me-2 text-primary"></i>1. Visibilidad del Estado del Sistema</h6>
-                        <p>El sistema siempre debe mantener informados a los usuarios sobre qué está ocurriendo, a través de retroalimentación apropiada dentro de un tiempo razonable.</p>
-                        <div class="small text-muted">
-                            <strong>Ejemplo:</strong> Barras de progreso en descargas, indicadores de carga, breadcrumbs de navegación.
-                        </div>
-                    </div>
-                    
-                    <div class="usability-principle">
-                        <h6><i class="bi bi-globe me-2 text-success"></i>2. Correspondencia entre el Sistema y el Mundo Real</h6>
-                        <p>El sistema debe hablar el idioma de los usuarios, con palabras, frases y conceptos familiares, en lugar de jerga del sistema.</p>
-                        <div class="small text-muted">
-                            <strong>Ejemplo:</strong> Íconos de carpetas para organización, papelera de reciclaje para eliminar archivos.
-                        </div>
-                    </div>
-                    
-                    <div class="usability-principle">
-                        <h6><i class="bi bi-hand-index me-2 text-warning"></i>3. Control y Libertad del Usuario</h6>
-                        <p>Los usuarios a menudo eligen funciones del sistema por error y necesitarán una "salida de emergencia" claramente marcada.</p>
-                        <div class="small text-muted">
-                            <strong>Ejemplo:</strong> Botones de "Deshacer" y "Rehacer", cancelar procesos en curso.
-                        </div>
-                    </div>
-                    
-                    <div class="usability-principle">
-                        <h6><i class="bi bi-check-circle me-2 text-info"></i>4. Consistencia y Estándares</h6>
-                        <p>Los usuarios no deberían tener que preguntarse si diferentes palabras, situaciones o acciones significan lo mismo.</p>
-                        <div class="small text-muted">
-                            <strong>Ejemplo:</strong> Mismos iconos para mismas funciones, ubicaciones consistentes de menús.
-                        </div>
-                    </div>
-                    
-                    <div class="usability-principle">
-                        <h6><i class="bi bi-shield-check me-2 text-danger"></i>5. Prevención de Errores</h6>
-                        <p>Mejor que buenos mensajes de error es un diseño cuidadoso que evite que ocurra un problema en primer lugar.</p>
-                        <div class="small text-muted">
-                            <strong>Ejemplo:</strong> Validación en tiempo real, confirmaciones antes de eliminar, deshabilitar opciones no válidas.
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 6. Métricas de Usabilidad -->
-                <section id="metricas" class="content-section">
-                    <h2><i class="bi bi-graph-up me-2"></i>6. Métricas de Usabilidad</h2>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-striped comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Categoría</th>
-                                    <th>Métrica</th>
-                                    <th>Descripción</th>
-                                    <th>Cómo Medirla</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td rowspan="3"><strong>Efectividad</strong></td>
-                                    <td>Tasa de Completación</td>
-                                    <td>% de tareas completadas exitosamente</td>
-                                    <td>Tareas completadas / Tareas intentadas</td>
-                                </tr>
-                                <tr>
-                                    <td>Precisión</td>
-                                    <td>% de tareas completadas sin errores</td>
-                                    <td>Tareas sin errores / Total de tareas</td>
-                                </tr>
-                                <tr>
-                                    <td>Calidad de Resultado</td>
-                                    <td>Grado de cumplimiento del objetivo</td>
-                                    <td>Evaluación cualitativa del resultado</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3"><strong>Eficiencia</strong></td>
-                                    <td>Tiempo de Tarea</td>
-                                    <td>Tiempo promedio para completar una tarea</td>
-                                    <td>Cronometraje directo</td>
-                                </tr>
-                                <tr>
-                                    <td>Número de Clics/Pasos</td>
-                                    <td>Acciones necesarias para completar tarea</td>
-                                    <td>Conteo de interacciones</td>
-                                </tr>
-                                <tr>
-                                    <td>Eficiencia Relativa</td>
-                                    <td>Comparación con un experto</td>
-                                    <td>Tiempo usuario / Tiempo experto</td>
-                                </tr>
-                                <tr>
-                                    <td rowspan="3"><strong>Satisfacción</strong></td>
-                                    <td>Rating de Satisfacción</td>
-                                    <td>Puntuación subjetiva del usuario</td>
-                                    <td>Escalas Likert, SUS (System Usability Scale)</td>
-                                </tr>
-                                <tr>
-                                    <td>Net Promoter Score</td>
-                                    <td>Disposición a recomendar el sistema</td>
-                                    <td>Escala 0-10: "¿Recomendarías este sistema?"</td>
-                                </tr>
-                                <tr>
-                                    <td>Análisis Emocional</td>
-                                    <td>Respuesta emocional durante uso</td>
-                                    <td>Observación, entrevistas, biometría</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <!-- 7. Evaluación de Usabilidad -->
-                <section id="evaluacion" class="content-section">
-                    <h2><i class="bi bi-clipboard-check me-2"></i>7. Evaluación de Usabilidad</h2>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card border-primary h-100">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0"><i class="bi bi-people me-2"></i>Métodos con Usuarios</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Testing de Usabilidad</h6>
-                                    <ul class="small">
-                                        <li><strong>Thinking Aloud:</strong> Usuario verbaliza mientras usa el sistema</li>
-                                        <li><strong>Task-based Testing:</strong> Tareas específicas cronometradas</li>
-                                        <li><strong>A/B Testing:</strong> Comparación entre versiones</li>
-                                        <li><strong>Guerrilla Testing:</strong> Pruebas rápidas en espacios públicos</li>
-                                    </ul>
-                                    
-                                    <h6 class="mt-3">Observación</h6>
-                                    <ul class="small">
-                                        <li><strong>Eye Tracking:</strong> Seguimiento ocular</li>
-                                        <li><strong>Analytics:</strong> Comportamiento real de usuarios</li>
-                                        <li><strong>Heatmaps:</strong> Mapas de calor de interacción</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- Facilidad de Aprendizaje -->
+                    <section id="facilidad-aprendizaje" class="content-section">
+                        <h2><i class="bi bi-mortarboard me-2"></i>1.1. Facilidad de Aprendizaje (Learnability)</h2>
                         
-                        <div class="col-md-6">
-                            <div class="card border-success h-100">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-search me-2"></i>Métodos sin Usuarios</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Evaluación Heurística</h6>
-                                    <ul class="small">
-                                        <li><strong>Inspección por expertos</strong> usando las 10 heurísticas</li>
-                                        <li><strong>3-5 evaluadores</strong> independientes</li>
-                                        <li><strong>Identificación de problemas</strong> y clasificación por severidad</li>
-                                    </ul>
-                                    
-                                    <h6 class="mt-3">Cognitive Walkthrough</h6>
-                                    <ul class="small">
-                                        <li><strong>Simula el proceso cognitivo</strong> del usuario</li>
-                                        <li><strong>Pregunta clave:</strong> "¿El usuario sabrá qué hacer?"</li>
-                                        <li><strong>Enfoque en aprendizaje</strong> por exploración</li>
-                                    </ul>
-                                    
-                                    <h6 class="mt-3">Análisis de Tareas</h6>
-                                    <ul class="small">
-                                        <li><strong>Descomposición</strong> de tareas complejas</li>
-                                        <li><strong>Identificación de cuellos</strong> de botella</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                        <p>La <strong>facilidad de aprendizaje</strong> es uno de los principios fundamentales de la usabilidad y se refiere a la capacidad de los usuarios para comprender cómo utilizar una interfaz desde su primer contacto con ella. Este principio es especialmente crítico para los nuevos usuarios, ya que su experiencia inicial puede determinar si continúan utilizando el sistema o lo abandonan.</p>
 
-                <!-- 8. Metodologías de Evaluación -->
-                <section id="metodologias" class="content-section">
-                    <h2><i class="bi bi-diagram-3 me-2"></i>8. Metodologías de Evaluación</h2>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0"><i class="bi bi-clock me-2"></i>Evaluación Formativa</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p><strong>Cuándo:</strong> Durante el proceso de diseño</p>
-                                    <p><strong>Objetivo:</strong> Mejorar el diseño</p>
-                                    <ul class="small">
-                                        <li>Prototipos de baja fidelidad</li>
-                                        <li>Sketches y wireframes</li>
-                                        <li>Pruebas iterativas frecuentes</li>
-                                        <li>Feedback rápido y cambios ágiles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card">
-                                <div class="card-header bg-info text-white">
-                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Evaluación Sumativa</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p><strong>Cuándo:</strong> Al final del desarrollo</p>
-                                    <p><strong>Objetivo:</strong> Validar el diseño final</p>
-                                    <ul class="small">
-                                        <li>Producto completamente funcional</li>
-                                        <li>Métricas cuantitativas precisas</li>
-                                        <li>Comparación con benchmarks</li>
-                                        <li>Certificación de usabilidad</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4">
-                        <h5>Proceso de Evaluación Recomendado</h5>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="text-center p-3 border rounded">
-                                    <i class="bi bi-1-circle display-6 text-primary"></i>
-                                    <h6 class="mt-2">Planificación</h6>
-                                    <small>Definir objetivos, métricas, usuarios objetivo</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center p-3 border rounded">
-                                    <i class="bi bi-2-circle display-6 text-success"></i>
-                                    <h6 class="mt-2">Preparación</h6>
-                                    <small>Crear escenarios, tareas, ambiente de prueba</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center p-3 border rounded">
-                                    <i class="bi bi-3-circle display-6 text-warning"></i>
-                                    <h6 class="mt-2">Ejecución</h6>
-                                    <small>Realizar pruebas, recopilar datos</small>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="text-center p-3 border rounded">
-                                    <i class="bi bi-4-circle display-6 text-info"></i>
-                                    <h6 class="mt-2">Análisis</h6>
-                                    <small>Interpretar resultados, priorizar problemas</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                        <h3>Patrones Familiares y Expectativas</h3>
+                        <p>Los usuarios tienden a asociar ciertos elementos con funciones específicas basadas en sus experiencias previas. Una interfaz fácil de aprender debe proporcionar pistas claras y utilizar patrones de diseño familiares.</p>
 
-                <!-- 9. Herramientas de Evaluación -->
-                <section id="herramientas" class="content-section">
-                    <h2><i class="bi bi-tools me-2"></i>9. Herramientas de Evaluación</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <div class="card border-primary h-100">
-                                <div class="card-header bg-primary text-white">
-                                    <h6 class="mb-0">Analytics</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="small mb-0">
-                                        <li><strong>Google Analytics:</strong> Comportamiento web</li>
-                                        <li><strong>Hotjar:</strong> Heatmaps y recordings</li>
-                                        <li><strong>Mixpanel:</strong> Eventos y conversiones</li>
-                                        <li><strong>Adobe Analytics:</strong> Análisis avanzado</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="example-box">
+                            <h4><i class="bi bi-envelope me-2"></i>Ejemplo: Iconos Reconocibles</h4>
+                            <p>Un icono con forma de sobre generalmente se asocia con correo electrónico o mensajes. Diseñar una interfaz que refleje estas expectativas comunes reduce la curva de aprendizaje, permitiendo a los usuarios adaptarse rápidamente.</p>
                         </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card border-success h-100">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0">Testing</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="small mb-0">
-                                        <li><strong>UserTesting.com:</strong> Remote testing</li>
-                                        <li><strong>Maze:</strong> Prototype testing</li>
-                                        <li><strong>Optimal Workshop:</strong> Card sorting, tree testing</li>
-                                        <li><strong>UsabilityHub:</strong> Five second tests</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-4">
-                            <div class="card border-warning h-100">
-                                <div class="card-header bg-warning text-dark">
-                                    <h6 class="mb-0">Prototipado</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="small mb-0">
-                                        <li><strong>Figma:</strong> Prototipos interactivos</li>
-                                        <li><strong>InVision:</strong> Clickable prototypes</li>
-                                        <li><strong>Marvel:</strong> Simple prototyping</li>
-                                        <li><strong>Principle:</strong> Microinteracciones</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
-                <!-- 10. Casos de Estudio -->
-                <section id="casos-estudio" class="content-section">
-                    <h2><i class="bi bi-file-earmark-text me-2"></i>10. Casos de Estudio</h2>
-                    
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-check-circle me-2"></i>Caso de Éxito: Amazon</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Problema Original</h6>
-                                    <p class="small">Proceso de compra complejo, carritos abandonados, navegación confusa.</p>
-                                    
-                                    <h6>Soluciones Implementadas</h6>
-                                    <ul class="small">
-                                        <li><strong>One-Click Purchase:</strong> Compra en un solo clic</li>
-                                        <li><strong>Recomendaciones:</strong> "Customers who bought this..."</li>
-                                        <li><strong>Reviews:</strong> Opiniones de otros usuarios</li>
-                                        <li><strong>Wishlist:</strong> Guardar para después</li>
-                                    </ul>
-                                    
-                                    <h6>Resultados</h6>
-                                    <div class="alert alert-success small p-2">
-                                        <strong>35% aumento</strong> en conversiones<br>
-                                        <strong>25% reducción</strong> en abandonos de carrito
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-danger">
-                                <div class="card-header bg-danger text-white">
-                                    <h6 class="mb-0"><i class="bi bi-x-circle me-2"></i>Caso de Fracaso: Microsoft Clippy</h6>
-                                </div>
-                                <div class="card-body">
-                                    <h6>Intención Original</h6>
-                                    <p class="small">Asistente inteligente para ayudar a usuarios de Office con sugerencias proactivas.</p>
-                                    
-                                    <h6>Problemas Identificados</h6>
-                                    <ul class="small">
-                                        <li><strong>Interrupciones:</strong> Aparecía sin ser solicitado</li>
-                                        <li><strong>Sugerencias irrelevantes:</strong> No entendía el contexto</li>
-                                        <li><strong>Dificultad para desactivar:</strong> Proceso complejo</li>
-                                        <li><strong>Ocupaba espacio:</strong> Interfaz visual intrusiva</li>
-                                    </ul>
-                                    
-                                    <h6>Lecciones Aprendidas</h6>
-                                    <div class="alert alert-danger small p-2">
-                                        <strong>El usuario debe tener control</strong><br>
-                                        <strong>La ayuda debe ser contextual</strong><br>
-                                        <strong>Menos puede ser más</strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 11. Buenas Prácticas -->
-                <section id="buenas-practicas" class="content-section">
-                    <h2><i class="bi bi-award me-2"></i>11. Buenas Prácticas</h2>
-                    
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <div class="card border-success">
-                                <div class="card-header bg-success text-white">
-                                    <h6 class="mb-0"><i class="bi bi-check-lg me-2"></i>Qué SÍ hacer</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>Conoce a tus usuarios:</strong> Investigación previa</li>
-                                        <li><strong>Mantén la simplicidad:</strong> "Don't make me think"</li>
-                                        <li><strong>Sé consistente:</strong> Mismos patrones, mismas funciones</li>
-                                        <li><strong>Proporciona feedback:</strong> El usuario debe saber qué pasa</li>
-                                        <li><strong>Permite errores:</strong> Deshacer y rehacer</li>
-                                        <li><strong>Usa convenciones:</strong> No reinventes lo que funciona</li>
-                                        <li><strong>Agrupa relacionados:</strong> Ley de proximidad</li>
-                                        <li><strong>Jerarquía visual:</strong> Guía la atención</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="col-md-6">
-                            <div class="card border-danger">
-                                <div class="card-header bg-danger text-white">
-                                    <h6 class="mb-0"><i class="bi bi-x-lg me-2"></i>Qué NO hacer</h6>
-                                </div>
-                                <div class="card-body">
-                                    <ul class="mb-0">
-                                        <li><strong>No sobrecargues:</strong> Evita la saturación visual</li>
-                                        <li><strong>No uses jerga técnica:</strong> Lenguaje del usuario</li>
-                                        <li><strong>No ocultes funciones importantes:</strong> Visibilidad</li>
-                                        <li><strong>No uses colores únicamente:</strong> Accesibilidad</li>
-                                        <li><strong>No ignores estándares:</strong> Convenciones establecidas</li>
-                                        <li><strong>No diseñes para ti:</strong> Diseña para el usuario</li>
-                                        <li><strong>No omitas validación:</strong> Prueba siempre</li>
-                                        <li><strong>No asumas conocimiento:</strong> Guía al usuario</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4">
-                        <div class="alert alert-warning">
-                            <h6><i class="bi bi-exclamation-triangle me-2"></i>Regla de Oro</h6>
-                            <p class="mb-0"><strong>"El usuario siempre tiene la razón, incluso cuando no la tiene."</strong> Si los usuarios no pueden usar tu interfaz, el problema es de la interfaz, no de los usuarios.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 12. Resumen -->
-                <section id="resumen" class="content-section">
-                    <h2><i class="bi bi-check-circle me-2"></i>12. Resumen</h2>
-                    
-                    <div class="alert alert-success">
-                        <h5><i class="bi bi-lightbulb me-2"></i>Puntos Clave: Interfaces y Usabilidad</h5>
+                        <h3>Herramientas para Facilitar el Aprendizaje</h3>
                         <div class="row">
                             <div class="col-md-6">
-                                <h6>Interfaces de Usuario</h6>
-                                <ul>
-                                    <li>Evolucionan desde CLI hasta VR/AR</li>
-                                    <li>Cada tipo tiene ventajas específicas</li>
-                                    <li>El contexto determina la mejor opción</li>
-                                </ul>
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-play-circle me-2"></i>Onboarding Interactivo</h4>
+                                    <p>Guías paso a paso que explican las características clave de la interfaz y muestran cómo realizar las acciones más importantes.</p>
+                                </div>
                             </div>
                             <div class="col-md-6">
-                                <h6>Usabilidad</h6>
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-tag me-2"></i>Etiquetas Descriptivas</h4>
+                                    <p>Uso de etiquetas claras, menús desplegables intuitivos y estructuras jerárquicas que minimizan la información a retener.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-check-circle me-2"></i>Optimización Continua</h4>
+                            <p>Las pruebas de usabilidad desempeñan un papel clave en este aspecto, ya que permiten identificar barreras que puedan estar dificultando el aprendizaje. Los diseñadores pueden iterar en el diseño basándose en los resultados, optimizando la experiencia inicial del usuario.</p>
+                        </div>
+                    </section>
+
+                    <!-- Eficiencia -->
+                    <section id="eficiencia" class="content-section">
+                        <h2><i class="bi bi-speedometer2 me-2"></i>1.2. Eficiencia (Efficiency)</h2>
+                        
+                        <p>La eficiencia en el diseño de interfaces mide la capacidad de los usuarios experimentados para completar tareas de manera rápida y efectiva. Este principio se centra en reducir el tiempo y el esfuerzo necesario para lograr los objetivos deseados, especialmente en sistemas utilizados con frecuencia.</p>
+
+                        <h3>Minimización de Pasos</h3>
+                        <p>Una interfaz eficiente debe estar diseñada para que las tareas comunes puedan realizarse en el menor número de pasos posible.</p>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-chat-dots me-2"></i>Ejemplo: Aplicación de Mensajería</h4>
+                            <p>Enviar un mensaje debería implicar solo unos pocos clics: seleccionar un contacto, escribir el texto y presionar "enviar". Agregar pasos innecesarios o confusos puede frustrar a los usuarios y disminuir la eficiencia del sistema.</p>
+                        </div>
+
+                        <h3>Herramientas para Mejorar la Eficiencia</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-keyboard me-2"></i>Atajos</h4>
+                                    <p>Combinaciones de teclas en software de escritorio o gestos en aplicaciones móviles permiten a los usuarios realizar acciones rápidamente. Estas características son valiosas para usuarios experimentados.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-grid me-2"></i>Disposición Lógica</h4>
+                                    <p>Botones, menús y campos de entrada organizados de manera lógica y accesible para no perder tiempo buscando opciones.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-graph-up me-2"></i>Beneficios Organizacionales</h4>
+                            <p>La eficiencia no solo beneficia a los usuarios, sino también a las organizaciones. Un sistema eficiente aumenta la productividad, reduce los costos asociados al soporte técnico y mejora la percepción general del producto.</p>
+                        </div>
+                    </section>
+
+                    <!-- Memorabilidad -->
+                    <section id="memorabilidad" class="content-section">
+                        <h2><i class="bi bi-memory me-2"></i>1.3. Memorabilidad (Memorability)</h2>
+                        
+                        <p>La <strong>memorabilidad</strong> evalúa la capacidad de los usuarios para recordar cómo utilizar una interfaz después de un período de inactividad. Este principio es especialmente importante para sistemas o aplicaciones que los usuarios no emplean de manera constante pero que deben poder retomar sin necesidad de volver a aprender desde cero.</p>
+
+                        <h3>Importancia del Reconocimiento vs. Recuerdo</h3>
+                        <p>Una interfaz memorable prioriza el <strong>reconocimiento</strong> sobre el <strong>recuerdo</strong>. En lugar de obligar a los usuarios a recordar información específica, los elementos de la interfaz deben proporcionar pistas visuales o contextuales que faciliten su reconocimiento.</p>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-grid-3x3-gap me-2"></i>Ejemplo: Menús vs. Comandos</h4>
+                            <p>Un menú visual es más memorable que una línea de comandos porque permite a los usuarios <strong>reconocer</strong> las opciones disponibles en lugar de tener que <strong>recordar</strong> comandos específicos.</p>
+                        </div>
+
+                        <h3>Estrategias para Mejorar la Memorabilidad</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-palette me-2"></i>Convenciones Visuales</h4>
+                                    <p>Usar iconos, colores y disposiciones que sigan estándares establecidos en la industria, facilitando la familiaridad inmediata.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-diagram-2 me-2"></i>Arquitectura Coherente</h4>
+                                    <p>Mantener patrones de navegación consistentes y estructuras lógicas que permitan a los usuarios encontrar información fácilmente.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-clock-history me-2"></i>Factores que Afectan la Memorabilidad</h4>
+                            <ul>
+                                <li><strong>Consistencia:</strong> Elementos similares deben comportarse de manera similar</li>
+                                <li><strong>Familiaridad:</strong> Uso de patrones conocidos del mundo real o de otras aplicaciones</li>
+                                <li><strong>Simplicidad:</strong> Reducir la carga cognitiva eliminando elementos innecesarios</li>
+                                <li><strong>Retroalimentación:</strong> Proporcionar confirmación clara de las acciones realizadas</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Gestión de Errores -->
+                    <section id="gestion-errores" class="content-section">
+                        <h2><i class="bi bi-exclamation-triangle me-2"></i>1.4. Gestión de Errores (Error Management)</h2>
+                        
+                        <p>La gestión de errores se enfoca en dos aspectos fundamentales: <strong>minimizar la probabilidad de errores</strong> y <strong>facilitar la recuperación</strong> cuando los errores ocurren. Un diseño que maneja bien los errores no solo previene problemas sino que también guía a los usuarios hacia soluciones efectivas.</p>
+
+                        <h3>Prevención de Errores</h3>
+                        <p>El diseño preventivo es la primera línea de defensa contra los errores del usuario. Las interfaces deben anticipar posibles confusiones y proporcionar mecanismos para evitarlas.</p>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="example-box">
+                                    <h4><i class="bi bi-check-square me-2"></i>Validación en Tiempo Real</h4>
+                                    <p>Los formularios pueden validar datos mientras el usuario escribe, proporcionando retroalimentación inmediata sobre errores de formato o campos obligatorios.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="example-box">
+                                    <h4><i class="bi bi-shield-check me-2"></i>Confirmaciones de Acción</h4>
+                                    <p>Para acciones irreversibles como eliminar archivos o cancelar transacciones, mostrar diálogos de confirmación que soliciten verificación explícita.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Facilitación de la Recuperación</h3>
+                        <p>Cuando los errores son inevitables, la interfaz debe proporcionar información clara sobre qué ocurrió y cómo solucionarlo.</p>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-tools me-2"></i>Elementos de Recuperación Efectiva</h4>
+                            <ul>
+                                <li><strong>Mensajes descriptivos:</strong> Explicaciones claras sobre qué causó el error</li>
+                                <li><strong>Sugerencias de solución:</strong> Pasos específicos para resolver el problema</li>
+                                <li><strong>Deshacer acciones:</strong> Permitir revertir cambios cuando sea posible</li>
+                                <li><strong>Estado del sistema:</strong> Información sobre el estado actual y opciones disponibles</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-exclamation-circle me-2"></i>Ejemplo: Formulario de Registro</h4>
+                            <p>Si un usuario ingresa una contraseña que no cumple con los requisitos, en lugar de simplemente mostrar "Error de contraseña", la interfaz debería especificar: "La contraseña debe tener al menos 8 caracteres, incluir al menos una letra mayúscula y un número."</p>
+                        </div>
+                    </section>
+
+                    <!-- Satisfacción -->
+                    <section id="satisfaccion" class="content-section">
+                        <h2><i class="bi bi-heart me-2"></i>1.5. Satisfacción (Satisfaction)</h2>
+                        
+                        <p>La <strong>satisfacción</strong> se refiere a la experiencia emocional positiva que los usuarios tienen al interactuar con una interfaz. Este principio va más allá de la funcionalidad básica, considerando aspectos estéticos, emocionales y de bienestar del usuario.</p>
+
+                        <h3>Componentes de la Satisfacción</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-eye me-2"></i>Diseño Visual</h4>
+                                    <p>Una interfaz atractiva, equilibrada y estéticamente agradable contribuye significativamente a la satisfacción del usuario.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-emoji-smile me-2"></i>Experiencia Emocional</h4>
+                                    <p>La interfaz debe generar emociones positivas y evitar frustraciones innecesarias durante la interacción.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-award me-2"></i>Sensación de Logro</h4>
+                                    <p>Los usuarios deben sentir que pueden completar sus objetivos de manera exitosa y con confianza.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Factores que Influyen en la Satisfacción</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-star me-2"></i>Elementos Clave</h4>
+                            <ul>
+                                <li><strong>Claridad visual:</strong> Jerarquía visual clara, tipografía legible, contrastes adecuados</li>
+                                <li><strong>Feedback apropiado:</strong> Respuestas del sistema que confirmen las acciones del usuario</li>
+                                <li><strong>Personalización:</strong> Opciones para adaptar la interfaz a preferencias individuales</li>
+                                <li><strong>Rendimiento:</strong> Tiempos de respuesta rápidos y fluidez en las transiciones</li>
+                                <li><strong>Accesibilidad:</strong> Diseño inclusivo que funcione para usuarios con diferentes capacidades</li>
+                            </ul>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-music-note me-2"></i>Ejemplo: Aplicación de Música</h4>
+                            <p>Una aplicación de música que no solo reproduce canciones sino que también ofrece una experiencia visual atractiva, transiciones suaves entre pistas, opciones de personalización de la interfaz y feedback claro sobre el estado de reproducción genera mayor satisfacción del usuario.</p>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-graph-up-arrow me-2"></i>Medición de la Satisfacción</h4>
+                            <p>La satisfacción puede medirse tanto cuantitativamente (tiempo en la aplicación, tasa de retención, puntuaciones de usabilidad) como cualitativamente (entrevistas, encuestas de experiencia del usuario, análisis de comentarios). Ambos enfoques son complementarios para obtener una comprensión completa de la experiencia del usuario.</p>
+                        </div>
+                    </section>
+
+                    <!-- Elementos de Diseño -->
+                    <section id="elementos-diseno" class="content-section">
+                        <h2><i class="bi bi-palette me-2"></i>2. Elementos de Diseño de Interfaces</h2>
+                        
+                        <p>Los elementos de diseño de interfaces constituyen los componentes fundamentales que estructuran la experiencia del usuario. Cada elemento debe ser cuidadosamente considerado para crear interfaces coherentes, funcionales y atractivas que faciliten la interacción efectiva.</p>
+
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-compass me-2"></i>Navegación</h4>
+                                    <p>Sistema de orientación que permite a los usuarios moverse eficientemente por la interfaz</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-grid-3x3 me-2"></i>Consistencia</h4>
+                                    <p>Uniformidad en patrones, comportamientos y elementos visuales a lo largo de la interfaz</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-chat-dots me-2"></i>Feedback</h4>
+                                    <p>Respuestas del sistema que informan al usuario sobre el estado y resultado de sus acciones</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-hand-index me-2"></i>Affordances</h4>
+                                    <p>Pistas visuales que sugieren cómo interactuar con los elementos de la interfaz</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-eye me-2"></i>Visibilidad</h4>
+                                    <p>Hacer que la información y opciones importantes sean claramente perceptibles</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-square me-2"></i>Espacio en Blanco</h4>
+                                    <p>Uso estratégico del espacio vacío para mejorar la legibilidad y organización</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-puzzle me-2"></i>Integración de Elementos</h4>
+                            <p>El éxito de una interfaz no depende de elementos aislados, sino de cómo estos se combinan para crear una experiencia cohesiva. La armonía entre navegación, feedback, consistencia y otros elementos determina la calidad general de la interfaz.</p>
+                        </div>
+                    </section>
+
+                    <!-- Navegación -->
+                    <section id="navegacion" class="content-section">
+                        <h2><i class="bi bi-compass me-2"></i>2.1. Navegación</h2>
+                        
+                        <p>La <strong>navegación</strong> es el sistema que permite a los usuarios orientarse y moverse eficientemente dentro de una interfaz. Un sistema de navegación bien diseñado debe responder a tres preguntas fundamentales: "¿Dónde estoy?", "¿Dónde he estado?" y "¿Dónde puedo ir?"</p>
+
+                        <h3>Principios de Navegación Efectiva</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-geo-alt me-2"></i>Orientación</h4>
+                                    <p>Los usuarios deben poder identificar su ubicación actual en todo momento mediante breadcrumbs, destacado de sección activa o indicadores visuales claros.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-arrow-left-right me-2"></i>Opciones Claras</h4>
+                                    <p>Todas las rutas disponibles deben ser evidentes, con etiquetas descriptivas y organización lógica de las opciones de navegación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Tipos de Navegación</h3>
+                        <div class="example-box">
+                            <h4><i class="bi bi-list me-2"></i>Navegación Principal</h4>
+                            <p><strong>Menús horizontales:</strong> Ideales para sitios web con pocas secciones principales.<br>
+                            <strong>Menús laterales:</strong> Apropiados para aplicaciones con muchas opciones o jerarquías complejas.<br>
+                            <strong>Navegación por pestañas:</strong> Efectiva para contenido relacionado que los usuarios necesitan alternar frecuentemente.</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-phone me-2"></i>Consideraciones Móviles</h4>
+                            <p>En dispositivos móviles, la navegación debe adaptarse a pantallas más pequeñas y métodos de interacción táctiles. Los menús hamburguesa, navegación inferior y gestos de deslizamiento son estrategias comunes que deben implementarse cuidadosamente para mantener la usabilidad.</p>
+                        </div>
+                    </section>
+
+                    <!-- Consistencia -->
+                    <section id="consistencia" class="content-section">
+                        <h2><i class="bi bi-grid-3x3 me-2"></i>2.2. Consistencia</h2>
+                        
+                        <p>La <strong>consistencia</strong> se refiere a la uniformidad en patrones de diseño, comportamientos de elementos y convenciones visuales a lo largo de toda la interfaz. Una interfaz consistente reduce la carga cognitiva del usuario y mejora la predictibilidad del sistema.</p>
+
+                        <h3>Tipos de Consistencia</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-palette2 me-2"></i>Visual</h4>
+                                    <p>Colores, tipografías, espaciado y elementos gráficos que siguen un patrón uniforme en toda la interfaz.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-gear me-2"></i>Funcional</h4>
+                                    <p>Elementos similares se comportan de manera similar, manteniendo patrones de interacción predecibles.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-translate me-2"></i>Terminológica</h4>
+                                    <p>Uso coherente del lenguaje, etiquetas y terminología específica en toda la aplicación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-mouse me-2"></i>Ejemplo: Botones de Acción</h4>
+                            <p>Si los botones primarios son azules y redondeados en una página, deben mantener el mismo estilo en toda la aplicación. Cambiar arbitrariamente a botones rojos y rectangulares confundiría a los usuarios sobre la jerarquía e importancia de las acciones.</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-building me-2"></i>Consistencia Externa</h4>
+                            <p>Además de la consistencia interna, las interfaces deben considerar las convenciones establecidas en la industria y plataforma. Seguir estándares conocidos facilita que los usuarios transfieran su conocimiento de otras aplicaciones.</p>
+                        </div>
+                    </section>
+
+                    <!-- Feedback -->
+                    <section id="feedback" class="content-section">
+                        <h2><i class="bi bi-chat-dots me-2"></i>2.3. Feedback</h2>
+                        
+                        <p>El <strong>feedback</strong> es la respuesta que el sistema proporciona al usuario sobre el estado y resultado de sus acciones. Un feedback efectivo reduce la incertidumbre del usuario y mejora la confianza en el sistema.</p>
+
+                        <h3>Tipos de Feedback</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-clock me-2"></i>Inmediato</h4>
+                                    <p>Respuestas instantáneas a acciones del usuario como cambios de color al hacer hover, animaciones de clic o confirmaciones visuales.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-hourglass me-2"></i>Progresivo</h4>
+                                    <p>Indicadores de progreso para tareas que requieren tiempo, como barras de carga, spinners o contadores de progreso.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-upload me-2"></i>Ejemplo: Subida de Archivos</h4>
+                            <p>Durante la subida de un archivo, el sistema debe proporcionar:<br>
+                            • <strong>Confirmación inicial:</strong> "Iniciando subida..."<br>
+                            • <strong>Progreso:</strong> Barra que muestra el porcentaje completado<br>
+                            • <strong>Confirmación final:</strong> "Archivo subido exitosamente" o mensaje de error específico</p>
+                        </div>
+
+                        <h3>Características del Feedback Efectivo</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-check-circle me-2"></i>Principios Clave</h4>
+                            <ul>
+                                <li><strong>Inmediatez:</strong> Las respuestas deben ser rápidas para mantener la sensación de control directo</li>
+                                <li><strong>Claridad:</strong> Mensajes comprensibles que expliquen claramente qué ha ocurrido</li>
+                                <li><strong>Relevancia:</strong> Información apropiada para el contexto y nivel de detalle necesario</li>
+                                <li><strong>Modalidad apropiada:</strong> Visual, auditiva o táctil según el contexto de uso</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Affordances -->
+                    <section id="affordances" class="content-section">
+                        <h2><i class="bi bi-hand-index me-2"></i>2.4. Affordances</h2>
+                        
+                        <p>Las <strong>affordances</strong> son las propiedades percibidas de un elemento que sugieren cómo puede ser utilizado. En el diseño de interfaces, se refieren a las pistas visuales, táctiles o auditivas que indican la funcionalidad de los elementos.</p>
+
+                        <h3>Tipos de Affordances</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-eye-fill me-2"></i>Perceptuales</h4>
+                                    <p>Pistas visuales como sombreado, bordes elevados o efectos de profundidad que sugieren que un elemento es clickeable.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-book me-2"></i>Cognitivas</h4>
+                                    <p>Convenciones aprendidas como el uso de iconos familiares (lupa para búsqueda, casa para inicio) que comunican función.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-cursor me-2"></i>Ejemplo: Botones vs. Enlaces</h4>
+                            <p><strong>Botones:</strong> Apariencia elevada, bordes definidos, efectos de hover que sugieren que pueden ser presionados.<br>
+                            <strong>Enlaces:</strong> Texto subrayado o con color diferenciado que indica navegación a otra página o sección.</p>
+                        </div>
+
+                        <h3>Affordances Falsas y Problemáticas</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-exclamation-triangle me-2"></i>Errores Comunes</h4>
+                            <ul>
+                                <li><strong>Affordances falsas:</strong> Elementos que parecen interactivos pero no lo son</li>
+                                <li><strong>Affordances ocultas:</strong> Funcionalidades disponibles sin pistas visuales claras</li>
+                                <li><strong>Affordances ambiguas:</strong> Elementos cuya función no es clara o sugieren múltiples acciones</li>
+                            </ul>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-lightbulb me-2"></i>Diseño Intuitivo</h4>
+                            <p>Las affordances efectivas hacen que las interfaces sean intuitivas, reduciendo la necesidad de explicaciones o tutoriales. Los usuarios deben poder inferir naturalmente cómo interactuar con cada elemento basándose en su apariencia y comportamiento.</p>
+                        </div>
+                    </section>
+
+                    <!-- Visibilidad -->
+                    <section id="visibilidad" class="content-section">
+                        <h2><i class="bi bi-eye me-2"></i>2.5. Visibilidad</h2>
+                        
+                        <p>La <strong>visibilidad</strong> se refiere a hacer que la información y opciones importantes sean claramente perceptibles para el usuario. Este principio asegura que las funciones críticas no pasen desapercibidas y que la información esencial esté disponible cuando se necesite.</p>
+
+                        <h3>Principios de Visibilidad Efectiva</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-stack me-2"></i>Jerarquía Visual</h4>
+                                    <p>Organizar elementos según su importancia usando tamaño, color, contraste y posicionamiento para guiar la atención del usuario.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-bullseye me-2"></i>Información Contextual</h4>
+                                    <p>Mostrar la información relevante en el momento y lugar apropiados, evitando sobrecargar la interfaz.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-envelope-open me-2"></i>Ejemplo: Aplicación de Email</h4>
+                            <p>En una aplicación de correo electrónico:<br>
+                            • <strong>Emails no leídos:</strong> Destacados en negrita o con indicadores visuales<br>
+                            • <strong>Botones de acción:</strong> "Responder", "Reenviar" claramente visibles<br>
+                            • <strong>Estado de conexión:</strong> Indicador visible del estado de sincronización</p>
+                        </div>
+
+                        <h3>Estrategias para Mejorar la Visibilidad</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-brightness-high me-2"></i>Técnicas Efectivas</h4>
+                            <ul>
+                                <li><strong>Contraste adecuado:</strong> Entre texto y fondo para garantizar legibilidad</li>
+                                <li><strong>Agrupación visual:</strong> Elementos relacionados agrupados mediante espaciado, bordes o colores</li>
+                                <li><strong>Indicadores de estado:</strong> Badges, notificaciones o cambios visuales que comunican información importante</li>
+                                <li><strong>Posicionamiento estratégico:</strong> Elementos importantes en áreas de alta visibilidad (esquina superior derecha, centro)</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Espacio en Blanco -->
+                    <section id="espacio-blanco" class="content-section">
+                        <h2><i class="bi bi-square me-2"></i>2.6. Espacio en Blanco</h2>
+                        
+                        <p>El <strong>espacio en blanco</strong> (o espacio negativo) se refiere al área vacía alrededor y entre los elementos de diseño. Lejos de ser espacio "desperdiciado", es una herramienta fundamental para mejorar la legibilidad, organización y estética de la interfaz.</p>
+
+                        <h3>Funciones del Espacio en Blanco</h3>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-eye-slash me-2"></i>Reducir Fatiga Visual</h4>
+                                    <p>Proporciona descanso visual y evita la sobrecarga de información que puede abrumar al usuario.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-collection me-2"></i>Agrupar Elementos</h4>
+                                    <p>Crea relaciones visuales entre elementos relacionados y separa conceptos diferentes.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-zoom-in me-2"></i>Dirigir Atención</h4>
+                                    <p>Destaca elementos importantes al proporcionarles más espacio circundante.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="example-box">
+                            <h4><i class="bi bi-google me-2"></i>Ejemplo: Google Search</h4>
+                            <p>La página principal de Google utiliza abundante espacio en blanco para:<br>
+                            • <strong>Enfocar atención:</strong> En la barra de búsqueda como elemento principal<br>
+                            • <strong>Crear simplicidad:</strong> Evitar distracciones innecesarias<br>
+                            • <strong>Mejorar usabilidad:</strong> Hacer que la acción principal (buscar) sea obvia</p>
+                        </div>
+
+                        <h3>Tipos de Espacio en Blanco</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-arrows-expand me-2"></i>Clasificación por Uso</h4>
+                            <ul>
+                                <li><strong>Micro espacios:</strong> Entre palabras, líneas y elementos pequeños</li>
+                                <li><strong>Macro espacios:</strong> Entre secciones principales, columnas o bloques de contenido</li>
+                                <li><strong>Espacios activos:</strong> Que dirigen la atención hacia elementos específicos</li>
+                                <li><strong>Espacios pasivos:</strong> Que proporcionan descanso visual sin dirigir atención particular</li>
+                            </ul>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-balance-scale me-2"></i>Equilibrio en el Diseño</h4>
+                            <p>El uso efectivo del espacio en blanco requiere equilibrio: muy poco resulta en interfaces abarrotadas y confusas, mientras que demasiado puede hacer que el contenido parezca disperso o incompleto. El objetivo es crear ritmo visual y facilitar la comprensión del contenido.</p>
+                        </div>
+                    </section>
+
+                    <!-- Accesibilidad -->
+                    <section id="accesibilidad" class="content-section">
+                        <h2><i class="bi bi-universal-access me-2"></i>3. Accesibilidad en Interfaces</h2>
+                        
+                        <p>La <strong>accesibilidad</strong> en el diseño de interfaces se refiere a la práctica de crear sistemas usables por el mayor número posible de personas, independientemente de sus capacidades físicas, sensoriales o cognitivas. Una interfaz accesible beneficia no solo a usuarios con discapacidades, sino que mejora la experiencia para todos los usuarios.</p>
+
+                        <h3>Principios Fundamentales de Accesibilidad</h3>
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-eye me-2"></i>Perceptible</h4>
+                                    <p>La información debe presentarse de manera que los usuarios puedan percibirla</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-hand-pointer me-2"></i>Operable</h4>
+                                    <p>Los componentes de la interfaz deben ser operables para todos los usuarios</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-lightbulb me-2"></i>Comprensible</h4>
+                                    <p>La información y operación de la interfaz debe ser comprensible</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-gear me-2"></i>Robusto</h4>
+                                    <p>El contenido debe ser robusto para diferentes tecnologías de asistencia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Implementación Práctica</h3>
+                        <div class="example-box">
+                            <h4><i class="bi bi-palette me-2"></i>Contraste de Colores</h4>
+                            <p>Las WCAG (Web Content Accessibility Guidelines) establecen ratios mínimos de contraste:<br>
+                            • <strong>Texto normal:</strong> Ratio mínimo de 4.5:1<br>
+                            • <strong>Texto grande:</strong> Ratio mínimo de 3:1<br>
+                            • <strong>Elementos de interfaz:</strong> Ratio mínimo de 3:1</p>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-tools me-2"></i>Herramientas de Accesibilidad</h4>
+                            <ul>
+                                <li><strong>Lectores de pantalla:</strong> Software que convierte texto en voz para usuarios con discapacidades visuales</li>
+                                <li><strong>Navegación por teclado:</strong> Permitir usar toda la interfaz sin mouse</li>
+                                <li><strong>Subtítulos y transcripciones:</strong> Para contenido multimedia</li>
+                                <li><strong>Texto alternativo:</strong> Descripciones de imágenes para lectores de pantalla</li>
+                            </ul>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-award me-2"></i>Beneficios Universales</h4>
+                            <p>Las mejoras de accesibilidad often benefician a todos los usuarios. Por ejemplo, los subtítulos ayudan en entornos ruidosos, las descripciones alternativas mejoran el SEO, y la navegación por teclado es útil para usuarios que prefieren atajos de teclado.</p>
+                        </div>
+                    </section>
+
+                    <!-- Flexibilidad -->
+                    <section id="flexibilidad" class="content-section">
+                        <h2><i class="bi bi-arrows-expand me-2"></i>4. Flexibilidad y Adaptabilidad</h2>
+                        
+                        <p>La <strong>flexibilidad</strong> en el diseño de interfaces se refiere a la capacidad del sistema para adaptarse a diferentes usuarios, contextos de uso y preferencias personales. Una interfaz flexible proporciona múltiples formas de realizar tareas y se ajusta a diversos escenarios de uso.</p>
+
+                        <h3>Dimensiones de la Flexibilidad</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-person me-2"></i>Personalización</h4>
+                                    <p>Permitir a los usuarios adaptar la interfaz según sus preferencias, como temas oscuros/claros, tamaño de fuente o distribución de elementos.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="principle-card">
+                                    <h4><i class="bi bi-phone-landscape me-2"></i>Adaptación Contextual</h4>
+                                    <p>La interfaz se adapta automáticamente según el dispositivo, tamaño de pantalla, o condiciones de uso (modo offline, conexión lenta).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3>Estrategias de Implementación</h3>
+                        <div class="example-box">
+                            <h4><i class="bi bi-grid me-2"></i>Ejemplo: Dashboard Personalizable</h4>
+                            <p>Un dashboard de análiticas que permite a los usuarios:<br>
+                            • <strong>Reorganizar widgets:</strong> Arrastrar y soltar componentes<br>
+                            • <strong>Personalizar vistas:</strong> Elegir métricas relevantes para su rol<br>
+                            • <strong>Adaptarse al dispositivo:</strong> Layout responsive que funciona en desktop y móvil</p>
+                        </div>
+
+                        <h3>Equilibrio entre Flexibilidad y Simplicidad</h3>
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-balance-circle me-2"></i>Consideraciones de Diseño</h4>
+                            <ul>
+                                <li><strong>Configuración por defecto:</strong> Opciones predeterminadas que funcionen bien para la mayoría</li>
+                                <li><strong>Personalización progresiva:</strong> Permitir ajustes graduales sin abrumar con opciones</li>
+                                <li><strong>Presets y plantillas:</strong> Configuraciones predefinidas para diferentes tipos de usuarios</li>
+                                <li><strong>Atajos para expertos:</strong> Funcionalidades avanzadas accesibles pero no prominentes</li>
+                            </ul>
+                        </div>
+
+                        <div class="definition-box">
+                            <h4><i class="bi bi-cpu me-2"></i>Adaptación Inteligente</h4>
+                            <p>Las interfaces modernas pueden utilizar machine learning para adaptar automáticamente el contenido y funcionalidades basándose en patrones de uso del usuario, creando experiencias verdaderamente personalizadas sin requerir configuración manual explícita.</p>
+                        </div>
+                    </section>
+
+                    <!-- Casos Prácticos -->
+                    <section id="casos-practicos" class="content-section">
+                        <h2><i class="bi bi-puzzle me-2"></i>5. Casos Prácticos</h2>
+                        
+                        <p>Los siguientes casos prácticos ilustran cómo aplicar los principios de usabilidad y elementos de diseño en situaciones reales. Cada caso presenta desafíos específicos que requieren soluciones thoughtful basadas en los conceptos estudiados.</p>
+
+                        <!-- Caso Práctico 1 -->
+                        <div class="case-study">
+                            <h3><i class="bi bi-cart me-2"></i>Caso Práctico 1: Rediseño de E-commerce</h3>
+                            
+                            <div class="case-scenario">
+                                <h4><i class="bi bi-info-circle me-2"></i>Escenario</h4>
+                                <p>Una tienda online de productos electrónicos ha recibido quejas de usuarios sobre la dificultad para encontrar productos y completar compras. Los datos analíticos muestran alta tasa de abandono del carrito de compras (78%) y bajo tiempo de permanencia en el sitio.</p>
+                                
+                                <p><strong>Problemas identificados:</strong></p>
                                 <ul>
-                                    <li>5 componentes: aprendizaje, eficiencia, recordabilidad, errores, satisfacción</li>
-                                    <li>Medible a través de métricas específicas</li>
-                                    <li>Mejora con evaluación constante</li>
+                                    <li>Navegación confusa con demasiadas categorías en el menú principal</li>
+                                    <li>Proceso de checkout de 7 pasos con campos obligatorios poco claros</li>
+                                    <li>Falta de feedback durante el proceso de compra</li>
+                                    <li>Búsqueda que no muestra resultados relevantes</li>
+                                    <li>Diseño no responsive que funciona mal en móviles</li>
                                 </ul>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h6><i class="bi bi-arrow-right me-2"></i>Principios Fundamentales</h6>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h6 class="text-primary">Para el Usuario</h6>
-                                    <ul class="small">
-                                        <li>Simplicidad</li>
-                                        <li>Consistencia</li>
-                                        <li>Claridad</li>
-                                        <li>Control</li>
-                                    </ul>
+
+                            <div class="case-solution">
+                                <h4><i class="bi bi-lightbulb me-2"></i>Aplicación de Principios</h4>
+                                
+                                <div class="solution-item">
+                                    <h5>Facilidad de Aprendizaje</h5>
+                                    <p>Simplificar la navegación principal a 6 categorías claras, implementar breadcrumbs y añadir onboarding visual para nuevos usuarios que explique las funciones clave.</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <h6 class="text-success">Para el Diseñador</h6>
-                                    <ul class="small">
-                                        <li>Investigar usuarios</li>
-                                        <li>Iterar y probar</li>
-                                        <li>Medir resultados</li>
-                                        <li>Seguir estándares</li>
-                                    </ul>
+
+                                <div class="solution-item">
+                                    <h5>Eficiencia</h5>
+                                    <p>Reducir el checkout a 3 pasos, permitir checkout como invitado, e implementar autocompletado de direcciones. Añadir funcionalidad de "compra rápida" para usuarios registrados.</p>
                                 </div>
-                                <div class="col-md-4">
-                                    <h6 class="text-warning">Para el Negocio</h6>
-                                    <ul class="small">
-                                        <li>Menor soporte técnico</li>
-                                        <li>Mayor satisfacción</li>
-                                        <li>Mejor conversión</li>
-                                        <li>Ventaja competitiva</li>
-                                    </ul>
+
+                                <div class="solution-item">
+                                    <h5>Feedback</h5>
+                                    <p>Implementar indicadores de progreso en checkout, confirmaciones visuales para acciones (añadir al carrito), y notificaciones de estado de pedidos en tiempo real.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Consistencia</h5>
+                                    <p>Estandarizar botones de acción (mismo color y estilo), mantener terminología uniforme ("Carrito" vs "Cesta"), y aplicar sistema de colores coherente.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Accesibilidad</h5>
+                                    <p>Mejorar contraste de colores, añadir texto alternativo a imágenes de productos, permitir navegación completa por teclado, y implementar compatibilidad con lectores de pantalla.</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-4 text-center">
-                        <a href="../../../quiz-spa/index.html?theme=hci3" class="btn btn-success btn-lg">
-                            <i class="bi bi-question-circle me-2"></i>
-                            Realizar Quiz del Tema 3
-                        </a>
-                    </div>
-                </section>
 
-                <!-- Navigation Between Topics -->
-                <div class="row mt-5">
-                    <div class="col-6">
-                        <a href="tema2.html" class="btn btn-outline-primary">
-                            <i class="bi bi-arrow-left me-2"></i>
-                            Tema 2: Historia de HCI
-                        </a>
-                    </div>
-                    <div class="col-6 text-end">
-                        <a href="tema4.html" class="btn btn-outline-primary">
-                            Tema 4: Diseño Centrado en el Usuario
-                            <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
+                            <div class="case-questions">
+                                <h4><i class="bi bi-question-circle me-2"></i>Preguntas de Análisis</h4>
+                                <ol>
+                                    <li>¿Cómo medirías el éxito de las mejoras implementadas? ¿Qué métricas utilizarías?</li>
+                                    <li>¿Qué elementos de flexibilidad añadirías para adaptar la experiencia a diferentes tipos de usuarios (compradores frecuentes vs ocasionales)?</li>
+                                    <li>¿Cómo podrías utilizar el espacio en blanco de manera efectiva para reducir la sensación de sobrecarga en las páginas de productos?</li>
+                                    <li>Diseña un sistema de affordances claras para los botones de acción más importantes (comprar, añadir al carrito, comparar).</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <!-- Caso Práctico 2 -->
+                        <div class="case-study">
+                            <h3><i class="bi bi-hospital me-2"></i>Caso Práctico 2: Sistema de Gestión Hospitalaria</h3>
+                            
+                            <div class="case-scenario">
+                                <h4><i class="bi bi-info-circle me-2"></i>Escenario</h4>
+                                <p>Un hospital necesita implementar un nuevo sistema de gestión de pacientes que será utilizado por médicos, enfermeras, administrativos y personal técnico. El sistema debe manejar historiales médicos, programación de citas, gestión de medicamentos y comunicación entre departamentos.</p>
+                                
+                                <p><strong>Requerimientos específicos:</strong></p>
+                                <ul>
+                                    <li>Uso en situaciones de alta presión y urgencias médicas</li>
+                                    <li>Acceso rápido a información crítica del paciente</li>
+                                    <li>Diferentes niveles de acceso según el rol del usuario</li>
+                                    <li>Compatibilidad con equipos médicos y sistemas existentes</li>
+                                    <li>Cumplimiento estricto de normativas de privacidad (HIPAA)</li>
+                                    <li>Funcionalidad tanto en computadoras de escritorio como tablets móviles</li>
+                                </ul>
+                            </div>
+
+                            <div class="case-solution">
+                                <h4><i class="bi bi-lightbulb me-2"></i>Aplicación de Principios</h4>
+                                
+                                <div class="solution-item">
+                                    <h5>Memorabilidad</h5>
+                                    <p>Usar iconografía médica estándar (cruz roja para emergencias, pastilla para medicamentos), mantener layout consistente entre diferentes módulos, y implementar patrones de navegación familiares del mundo médico.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Gestión de Errores</h5>
+                                    <p>Implementar validaciones críticas (dosis de medicamentos, alergias del paciente), confirmaciones dobles para acciones irreversibles, y mensajes de error específicos que no comprometan la seguridad del paciente.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Visibilidad</h5>
+                                    <p>Dashboard con información crítica del paciente siempre visible, códigos de colores para niveles de urgencia (rojo = crítico, amarillo = atención), y alertas prominentes para alergias o condiciones especiales.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Flexibilidad</h5>
+                                    <p>Interfaces personalizables por rol (médico vs enfermera vs administrativo), múltiples vistas de los mismos datos (lista, timeline, gráficos), y configuraciones rápidas para diferentes especialidades médicas.</p>
+                                </div>
+
+                                <div class="solution-item">
+                                    <h5>Satisfacción</h5>
+                                    <p>Flujos de trabajo optimizados que reduzcan tiempo administrativo, feedback positivo al completar tareas importantes, y diseño limpio que reduzca stress visual en entornos ya tensionantes.</p>
+                                </div>
+                            </div>
+
+                            <div class="case-questions">
+                                <h4><i class="bi bi-question-circle me-2"></i>Preguntas de Análisis</h4>
+                                <ol>
+                                    <li>¿Cómo balancearías la necesidad de mostrar información completa del paciente con la simplicidad de la interfaz?</li>
+                                    <li>¿Qué estrategias implementarías para asegurar que el sistema sea eficiente durante emergencias médicas?</li>
+                                    <li>Diseña un sistema de navegación que permita acceso rápido a diferentes secciones del historial médico de un paciente.</li>
+                                    <li>¿Cómo manejarías los diferentes niveles de accesibilidad considerando que algunos usuarios pueden trabajar con guantes médicos o en condiciones de poca luz?</li>
+                                    <li>Propón un sistema de feedback que informe sobre el estado de sincronización de datos críticos entre diferentes departamentos.</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-clipboard-check me-2"></i>Metodología de Análisis</h4>
+                            <p>Para abordar estos casos prácticos de manera efectiva:</p>
+                            <ol>
+                                <li><strong>Identifica los usuarios principales</strong> y sus necesidades específicas</li>
+                                <li><strong>Prioriza los principios de usabilidad</strong> según el contexto de uso</li>
+                                <li><strong>Considera las limitaciones técnicas y organizacionales</strong></li>
+                                <li><strong>Diseña soluciones iterativas</strong> que puedan probarse y mejorarse</li>
+                                <li><strong>Evalúa el impacto</strong> de cada decisión de diseño en la experiencia general</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- Casos Prácticos -->
+                    <section id="casos-practicos" class="content-section">
+                        <h2><i class="bi bi-lightbulb-fill me-2"></i>Casos Prácticos</h2>
+
+                        <div class="case-study">
+                            <h4><i class="bi bi-clock me-2"></i>Caso Práctico 5</h4>
+                            <p><strong>Diseña una nueva aplicación para la gestión del tiempo que debe ser extremadamente fácil de usar.</strong></p>
+                            
+                            <div class="case-questions">
+                                <h5>Preguntas de análisis:</h5>
+                                <ol>
+                                    <li>Considerando los principios básicos de usabilidad, describe cómo diseñarías la interfaz para maximizar la facilidad de aprendizaje y la eficiencia.</li>
+                                    <li>¿Cómo incorporarías los principios de "facilidad de aprendizaje" y "eficiencia" en el diseño de tu aplicación?</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="case-study">
+                            <h4><i class="bi bi-newspaper me-2"></i>Caso Práctico 6</h4>
+                            <p><strong>Estás rediseñando una página web de noticias para mejorar su usabilidad.</strong></p>
+                            
+                            <div class="case-questions">
+                                <h5>Preguntas de análisis:</h5>
+                                <ol>
+                                    <li>¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad para mejorar la experiencia del usuario?</li>
+                                    <li>¿De qué maneras puedes asegurar que los usuarios reciban feedback adecuado, experimenten consistencia visual y funcional, y tengan una visibilidad clara de la información en tu diseño?</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="highlight-box">
+                            <h4><i class="bi bi-info-circle me-2"></i>Instrucciones para el análisis</h4>
+                            <p>Para resolver estos casos prácticos, considera:</p>
+                            <ul>
+                                <li>Los cinco principios básicos de usabilidad</li>
+                                <li>La importancia del diseño centrado en el usuario</li>
+                                <li>Los elementos de diseño para la usabilidad</li>
+                                <li>La aplicación práctica de conceptos teóricos</li>
+                                <li>La evaluación de efectividad, eficiencia y satisfacción</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Navegación entre temas -->
+                    <div class="nav-cards">
+                        <div class="nav-card prev">
+                            <a href="tema2-parte2.html">
+                                <div class="card-label">Tema anterior</div>
+                                <div class="card-title">Tema 2: Historia de HCI</div>
+                            </a>
+                        </div>
+                        <div class="nav-card next">
+                            <a href="tema4.html">
+                                <div class="card-label">Siguiente tema</div>
+                                <div class="card-title">Tema 4: Diseño Centrado en el Usuario</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Quiz Button -->
-    <a href="../../../quiz-spa/index.html?theme=hci3" class="btn btn-primary floating-quiz-btn" title="Quiz Tema 3">
-        <i class="bi bi-question-circle"></i>
-    </a>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-light py-4 mt-5">
-        <div class="container text-center">
-            <p class="mb-0">
-                <i class="bi bi-mortarboard me-2"></i>
-                HCI Tema 3: Interfaces de Usuario y Usabilidad
-            </p>
-            <small class="text-muted">Material de estudio complementario</small>
+    <!-- Footer Navigation -->
+    <footer class="footer-navigation">
+        <div class="container">
+            <div class="footer-nav-content">
+                <a href="tema2.html" class="nav-button">
+                    <i class="bi bi-chevron-left"></i>
+                    Tema Anterior
+                </a>
+                <div class="nav-center">
+                    <a href="../../../index.html" class="nav-link">
+                        <i class="bi bi-house-fill"></i> Inicio
+                    </a>
+                    <a href="../../../quiz-spa/" class="nav-link">
+                        <i class="bi bi-question-circle-fill"></i> Quiz
+                    </a>
+                </div>
+                <a href="tema4.html" class="nav-button">
+                    Tema Siguiente
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </div>
         </div>
     </footer>
 
-    <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Custom Scripts -->
     <script>
+        // Navegación activa en sidebar
         document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.sidebar .nav-link');
             
-            // Check for saved theme preference or default to light mode
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            html.setAttribute('data-bs-theme', currentTheme);
-            updateThemeToggleIcon(currentTheme);
-            
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = html.getAttribute('data-bs-theme');
-                const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-                
-                html.setAttribute('data-bs-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeToggleIcon(newTheme);
-            });
-            
-            function updateThemeToggleIcon(theme) {
-                const icon = themeToggle.querySelector('i');
-                if (theme === 'light') {
-                    icon.className = 'bi bi-sun-fill';
-                } else {
-                    icon.className = 'bi bi-moon-stars-fill';
-                }
-            }
-            
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+            function setActiveLink(id) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + id) {
+                        link.classList.add('active');
                     }
                 });
-            });
-            
-            // Highlight current section in sidebar
-            const observerOptions = {
-                rootMargin: '-20% 0px -70% 0px',
-                threshold: 0
-            };
+            }
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    const id = entry.target.getAttribute('id');
-                    const navLink = document.querySelector(`a[href="#${id}"]`);
-                    
-                    if (entry.isIntersecting) {
-                        // Remove active class from all links
-                        document.querySelectorAll('.nav-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        // Add active class to current link
-                        if (navLink) {
-                            navLink.classList.add('active');
-                        }
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                        setActiveLink(entry.target.id);
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: [0.5],
+                rootMargin: '-100px 0px -50% 0px'
+            });
             
-            // Observe all sections
-            document.querySelectorAll('section[id]').forEach(section => {
+            sections.forEach(section => {
                 observer.observe(section);
+            });
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href').startsWith('#')) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ 
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                }
             });
         });
     </script>
