@@ -1,5 +1,5 @@
 {
-  "name": "quiz-educativo",
+  "name": "curso-universitario",
   "version": 2,
   "public": true,
   "builds": [
@@ -23,11 +23,11 @@
     },
     {
       "src": "/",
-      "dest": "/quiz-spa/index.html"
+      "dest": "/index.html"
     },
     {
       "src": "/(.*)",
-      "dest": "/quiz-spa/$1"
+      "dest": "/$1"
     }
   ]
 }

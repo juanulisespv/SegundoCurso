@@ -1,6 +1,6 @@
-# Quiz Educativo
+# 🎓 Curso Universitario - HCI y Programación
 
-Aplicación SPA para quizzes educativos con detección automática de temas y despliegue híbrido.
+Plataforma educativa interactiva que cubre dos áreas fundamentales: **Interfaz Humano-Computador (HCI)** y **Programación de Software**.
 
 🌐 **Repositorio**: https://github.com/juanulisespv/SegundoCurso
 
@@ -15,9 +15,28 @@ Aplicación SPA para quizzes educativos con detección automática de temas y de
 3. **Configuración automática**: Vercel detectará la configuración
 4. **Deploy**: ¡Tu app estará online en 30 segundos!
 
-URL ejemplo: `https://segundo-curso.vercel.app/quiz-spa/`
+URL ejemplo: `https://segundo-curso.vercel.app/`
 
-## 📱 Desarrollo Local
+## 🌟 Características Principales
+
+### 📱 Interfaz Humano-Computador (HCI)
+- ✅ **12 temas completos** con navegación consistente
+- ✅ **Diseño responsive** adaptado a todos los dispositivos  
+- ✅ **Navegación footer/header** estandarizada en todos los temas
+- ✅ **CSS común** (hci-common-styles.css) para consistencia visual
+- ✅ **Bootstrap 5.3.0** para componentes modernos
+
+### � Programación de Software
+- ✅ **12 temas estructurados** sobre metodologías de desarrollo
+- ✅ **Contenido actualizado** sobre patrones de diseño, APIs y testing
+- ✅ **Navegación intuitiva** entre conceptos relacionados
+- ✅ **Ejemplos prácticos** y casos de uso
+
+### 🎯 Funcionalidades Adicionales
+- 🧩 **Quiz interactivo** con sistema SPA
+- 📚 **Actividades prácticas** organizadas por tema
+- 🔄 **Navegación prev/next** entre temas relacionados
+- 📱 **Diseño mobile-first** optimizado para cualquier dispositivo
 
 ```bash
 # Clonar repositorio
