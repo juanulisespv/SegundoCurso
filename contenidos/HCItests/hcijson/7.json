@@ -117,7 +117,7 @@
           "text": "Añadir más imágenes."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 6,
@@ -140,7 +140,7 @@
           "text": "Agregar más páginas al sitio."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 7,
@@ -163,7 +163,7 @@
           "text": "Proveer acceso a las secciones principales del sitio."
         }
       ],
-      "answer": "B"
+      "answer": "D"
     },
     {
       "number": 8,
@@ -278,7 +278,7 @@
           "text": "La navegación debe ser complicada."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 13,
@@ -301,7 +301,7 @@
           "text": "Solo en sitios de comercio electrónico."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 14,
@@ -324,7 +324,7 @@
           "text": "La estructura jerárquica del sitio."
         }
       ],
-      "answer": "B"
+      "answer": "D"
     },
     {
       "number": 15,
@@ -370,7 +370,7 @@
           "text": "Reducir la velocidad de carga."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 17,
@@ -439,7 +439,7 @@
           "text": "Aumentar el número de enlaces."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 20,

@@ -108,11 +108,12 @@
   border: 2px solid var(--bs-border-color);
   color: var(--bs-dark);
   margin-bottom: 0.75rem;
-  padding: 1rem;
+  padding: 1.25rem;
   text-align: left;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  font-size: 1.1rem;
 }
 
 .option-btn:hover {
@@ -186,6 +187,18 @@
   border-color: var(--bs-secondary);
 }
 
+[data-bs-theme="dark"] .option-btn.correct {
+  background: var(--success-color) !important;
+  border-color: var(--success-color) !important;
+  color: white !important;
+}
+
+[data-bs-theme="dark"] .option-btn.incorrect {
+  background: var(--danger-color) !important;
+  border-color: var(--danger-color) !important;
+  color: white !important;
+}
+
 [data-bs-theme="dark"] .quiz-card {
   background: var(--bs-card-bg);
   border-color: var(--bs-border-color);
@@ -198,8 +211,8 @@
   }
   
   .option-btn {
-    padding: 0.75rem;
-    font-size: 0.9rem;
+    padding: 1rem;
+    font-size: 1rem;
   }
   
   .question-card {

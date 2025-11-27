@@ -94,7 +94,7 @@
           "text": "Inútiles en el diseño de interfaces."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 5,
@@ -163,7 +163,7 @@
           "text": "Asegurar que el producto se vea terminado."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 8,
@@ -209,7 +209,7 @@
           "text": "Identificar y documentar las necesidades del usuario a través de investigaciones."
         }
       ],
-      "answer": "B"
+      "answer": "D"
     },
     {
       "number": 10,
@@ -301,7 +301,7 @@
           "text": "No tener un plan de acción."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 14,
@@ -324,7 +324,7 @@
           "text": "Es un requisito legal."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 15,
@@ -347,7 +347,7 @@
           "text": "Reducir el tiempo de producción."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 16,
@@ -370,7 +370,7 @@
           "text": "No hay diferencias significativas entre ambos."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 17,
@@ -462,7 +462,7 @@
           "text": "No tiene importancia en el proceso de diseño."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     }
   ]
 }

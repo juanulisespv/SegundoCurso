@@ -48,7 +48,7 @@
           "text": "«Solo en aplicaciones médicas.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 3,
@@ -209,7 +209,7 @@
           "text": "«Solo la falta de contenido.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 10,
@@ -232,7 +232,7 @@
           "text": "«Solo la velocidad de procesamiento.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 11,
@@ -255,7 +255,7 @@
           "text": "«Solo en aplicaciones de negocios.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 12,
@@ -301,7 +301,7 @@
           "text": "«Solo en aplicaciones de juegos.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 14,
@@ -347,7 +347,7 @@
           "text": "«Solo en aplicaciones de entretenimiento.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 16,
@@ -370,7 +370,7 @@
           "text": "«Solo en aplicaciones de juegos.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 17,
@@ -393,7 +393,7 @@
           "text": "«Solo para juegos de computadora.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 18,
@@ -416,7 +416,7 @@
           "text": "«No es inmersiva.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 19,

@@ -94,7 +94,7 @@
           "text": "La rigidez de los elementos de la interfaz."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 5,
@@ -186,7 +186,7 @@
           "text": "Sin opciones de personalización."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 9,
@@ -278,7 +278,7 @@
           "text": "Que el usuario no necesite ayuda."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 13,
@@ -324,7 +324,7 @@
           "text": "Que solo los elementos decorativos deben ser visibles."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 15,
@@ -370,7 +370,7 @@
           "text": "Exclusivamente basada en comandos de texto."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 17,
@@ -416,7 +416,7 @@
           "text": "La rapidez con la que los usuarios pueden realizar tareas una vez que han aprendido a usar el sistema."
         }
       ],
-      "answer": "B"
+      "answer": "D"
     },
     {
       "number": 19,
@@ -439,7 +439,7 @@
           "text": "La retroalimentación de los usuarios al desarrollador."
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 20,
@@ -462,7 +462,7 @@
           "text": "Solo debe aplicarse a los iconos."
         }
       ],
-      "answer": "B"
+      "answer": "C"
     }
   ]
 }

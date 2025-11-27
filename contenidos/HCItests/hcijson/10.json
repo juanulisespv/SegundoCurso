@@ -71,7 +71,7 @@
           "text": "«El IDE oficial para desarrollar aplicaciones Android.»"
         }
       ],
-      "answer": "B"
+      "answer": "D"
     },
     {
       "number": 4,
@@ -117,7 +117,7 @@
           "text": "«Solo aplicaciones web.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 6,
@@ -140,7 +140,7 @@
           "text": "«Solo para aplicaciones de música.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 7,
@@ -209,7 +209,7 @@
           "text": "«Solo aplicaciones de escritorio.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 10,
@@ -301,7 +301,7 @@
           "text": "«Solo en aplicaciones de escritorio.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 14,
@@ -370,7 +370,7 @@
           "text": "«Solo aplicaciones de entretenimiento.»"
         }
       ],
-      "answer": "B"
+      "answer": "A"
     },
     {
       "number": 17,
@@ -439,7 +439,7 @@
           "text": "«Solo para dispositivos grandes.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     },
     {
       "number": 20,
@@ -462,7 +462,7 @@
           "text": "«Solo para aplicaciones de viajes.»"
         }
       ],
-      "answer": "B"
+      "answer": "C"
     }
   ]
 }
