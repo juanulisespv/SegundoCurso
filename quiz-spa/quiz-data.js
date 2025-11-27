@@ -53,7 +53,7 @@ const QUIZ_DATA = {
               "text": "La optimización algorítmica."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 3,
@@ -214,7 +214,7 @@ const QUIZ_DATA = {
               "text": "Prevención de errores."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 10,
@@ -260,7 +260,7 @@ const QUIZ_DATA = {
               "text": "La autonomía del diseñador."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 12,
@@ -398,7 +398,7 @@ const QUIZ_DATA = {
               "text": "Porque reduce los costos de soporte técnico."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 18,
@@ -421,7 +421,7 @@ const QUIZ_DATA = {
               "text": "La pantalla de bienvenida de un software."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 19,
@@ -444,7 +444,7 @@ const QUIZ_DATA = {
               "text": "La durabilidad del hardware."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 20,
@@ -467,7 +467,7 @@ const QUIZ_DATA = {
               "text": "Aumentar la velocidad de desarrollo."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         }
       ]
     },
@@ -521,7 +521,7 @@ const QUIZ_DATA = {
               "text": "Permitió jugar videojuegos en línea."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 3,
@@ -544,7 +544,7 @@ const QUIZ_DATA = {
               "text": "La limitación a interfaces 2D."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 4,
@@ -567,7 +567,7 @@ const QUIZ_DATA = {
               "text": "Facilitar la interacción natural a través del habla."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 5,
@@ -636,7 +636,7 @@ const QUIZ_DATA = {
               "text": "Juegos de consola de la década de 1980."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 8,
@@ -751,7 +751,7 @@ const QUIZ_DATA = {
               "text": "La comercialización de la realidad virtual."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 13,
@@ -797,7 +797,7 @@ const QUIZ_DATA = {
               "text": "Se centró en la programación de computadoras."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 15,
@@ -820,7 +820,7 @@ const QUIZ_DATA = {
               "text": "Google Glass."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 16,
@@ -1035,7 +1035,7 @@ const QUIZ_DATA = {
               "text": "La rigidez de los elementos de la interfaz."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 5,
@@ -1127,7 +1127,7 @@ const QUIZ_DATA = {
               "text": "Sin opciones de personalización."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 9,
@@ -1219,7 +1219,7 @@ const QUIZ_DATA = {
               "text": "Que el usuario no necesite ayuda."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 13,
@@ -1265,7 +1265,7 @@ const QUIZ_DATA = {
               "text": "Que solo los elementos decorativos deben ser visibles."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 15,
@@ -1311,7 +1311,7 @@ const QUIZ_DATA = {
               "text": "Exclusivamente basada en comandos de texto."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 17,
@@ -1357,7 +1357,7 @@ const QUIZ_DATA = {
               "text": "La rapidez con la que los usuarios pueden realizar tareas una vez que han aprendido a usar el sistema."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 19,
@@ -1380,7 +1380,7 @@ const QUIZ_DATA = {
               "text": "La retroalimentación de los usuarios al desarrollador."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 20,
@@ -1403,7 +1403,7 @@ const QUIZ_DATA = {
               "text": "Solo debe aplicarse a los iconos."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         }
       ]
     },
@@ -1503,7 +1503,7 @@ const QUIZ_DATA = {
               "text": "Inútiles en el diseño de interfaces."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 5,
@@ -1572,7 +1572,7 @@ const QUIZ_DATA = {
               "text": "Asegurar que el producto se vea terminado."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 8,
@@ -1618,7 +1618,7 @@ const QUIZ_DATA = {
               "text": "Identificar y documentar las necesidades del usuario a través de investigaciones."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 10,
@@ -1710,7 +1710,7 @@ const QUIZ_DATA = {
               "text": "No tener un plan de acción."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 14,
@@ -1733,7 +1733,7 @@ const QUIZ_DATA = {
               "text": "Es un requisito legal."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 15,
@@ -1756,7 +1756,7 @@ const QUIZ_DATA = {
               "text": "Reducir el tiempo de producción."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 16,
@@ -1779,7 +1779,7 @@ const QUIZ_DATA = {
               "text": "No hay diferencias significativas entre ambos."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 17,
@@ -1871,7 +1871,7 @@ const QUIZ_DATA = {
               "text": "No tiene importancia en el proceso de diseño."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         }
       ]
     },
@@ -1948,7 +1948,7 @@ const QUIZ_DATA = {
               "text": "Una versión del producto que permite probar interacciones y funcionalidades."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 4,
@@ -2086,7 +2086,7 @@ const QUIZ_DATA = {
               "text": "Análisis de datos de usuario."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 10,
@@ -2132,7 +2132,7 @@ const QUIZ_DATA = {
               "text": "Edición de video."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 12,
@@ -2155,7 +2155,7 @@ const QUIZ_DATA = {
               "text": "Para aumentar el costo del proyecto."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 13,
@@ -2178,7 +2178,7 @@ const QUIZ_DATA = {
               "text": "Un tipo de marketing digital."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 14,
@@ -2201,7 +2201,7 @@ const QUIZ_DATA = {
               "text": "Ignorar las opiniones de los usuarios."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 15,
@@ -2247,7 +2247,7 @@ const QUIZ_DATA = {
               "text": "Solo para diseño de impresión."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 17,
@@ -2270,7 +2270,7 @@ const QUIZ_DATA = {
               "text": "Evita la necesidad de diseño gráfico."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 18,
@@ -2370,7 +2370,7 @@ const QUIZ_DATA = {
               "text": "Balancear el contenido multimedia con la funcionalidad y la usabilidad."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 2,
@@ -2416,7 +2416,7 @@ const QUIZ_DATA = {
               "text": "Confirmar acciones, alertar sobre errores o notificaciones, mejorando la accesibilidad."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 4,
@@ -2485,7 +2485,7 @@ const QUIZ_DATA = {
               "text": "Solo en plataformas de streaming."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 7,
@@ -2577,7 +2577,7 @@ const QUIZ_DATA = {
               "text": "Evitar la necesidad de texto."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 11,
@@ -2669,7 +2669,7 @@ const QUIZ_DATA = {
               "text": "Solo para usuarios con conexiones de alta velocidad."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 15,
@@ -2715,7 +2715,7 @@ const QUIZ_DATA = {
               "text": "Es solo para profesionales del diseño."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -2930,7 +2930,7 @@ const QUIZ_DATA = {
               "text": "Añadir más imágenes."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 6,
@@ -2953,7 +2953,7 @@ const QUIZ_DATA = {
               "text": "Agregar más páginas al sitio."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 7,
@@ -2976,7 +2976,7 @@ const QUIZ_DATA = {
               "text": "Proveer acceso a las secciones principales del sitio."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 8,
@@ -3091,7 +3091,7 @@ const QUIZ_DATA = {
               "text": "La navegación debe ser complicada."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 13,
@@ -3114,7 +3114,7 @@ const QUIZ_DATA = {
               "text": "Solo en sitios de comercio electrónico."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 14,
@@ -3137,7 +3137,7 @@ const QUIZ_DATA = {
               "text": "La estructura jerárquica del sitio."
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 15,
@@ -3183,7 +3183,7 @@ const QUIZ_DATA = {
               "text": "Reducir la velocidad de carga."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -3206,7 +3206,7 @@ const QUIZ_DATA = {
               "text": "Reducir la cantidad de contenido visible."
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 18,
@@ -3252,7 +3252,7 @@ const QUIZ_DATA = {
               "text": "Aumentar el número de enlaces."
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 20,
@@ -3375,7 +3375,7 @@ const QUIZ_DATA = {
               "text": "«Que el diseño se adapte al contenido, no al revés.»"
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 5,
@@ -3513,7 +3513,7 @@ const QUIZ_DATA = {
               "text": "«Evitar la colaboración.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 11,
@@ -3559,7 +3559,7 @@ const QUIZ_DATA = {
               "text": "«Que no haya cambios en el diseño.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 13,
@@ -3582,7 +3582,7 @@ const QUIZ_DATA = {
               "text": "«Evitar el feedback del usuario.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 14,
@@ -3605,7 +3605,7 @@ const QUIZ_DATA = {
               "text": "«Solo diseño visual.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 15,
@@ -3628,7 +3628,7 @@ const QUIZ_DATA = {
               "text": "«Aumentar el peso del sitio.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 16,
@@ -3651,7 +3651,7 @@ const QUIZ_DATA = {
               "text": "«Usar la misma interfaz para todos.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -3720,7 +3720,7 @@ const QUIZ_DATA = {
               "text": "«La velocidad de desarrollo sin cambios.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 20,
@@ -3820,7 +3820,7 @@ const QUIZ_DATA = {
               "text": "«Crear aplicaciones híbridas usando tecnologías web.»"
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 4,
@@ -3843,7 +3843,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de correo electrónico.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 5,
@@ -3935,7 +3935,7 @@ const QUIZ_DATA = {
               "text": "«Probar interacciones y rendimiento en interfaces reales.»"
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 9,
@@ -3958,7 +3958,7 @@ const QUIZ_DATA = {
               "text": "«Ser exclusivo para móviles.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 10,
@@ -4004,7 +4004,7 @@ const QUIZ_DATA = {
               "text": "«Solo aplicaciones complejas.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 12,
@@ -4096,7 +4096,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones móviles.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 16,
@@ -4165,7 +4165,7 @@ const QUIZ_DATA = {
               "text": "«Solo en navegadores antiguos.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 19,
@@ -4188,7 +4188,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de juegos.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 20,
@@ -4288,7 +4288,7 @@ const QUIZ_DATA = {
               "text": "«El IDE oficial para desarrollar aplicaciones Android.»"
             }
           ],
-          "answer": "B"
+          "answer": "D"
         },
         {
           "number": 4,
@@ -4334,7 +4334,7 @@ const QUIZ_DATA = {
               "text": "«Solo aplicaciones web.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 6,
@@ -4357,7 +4357,7 @@ const QUIZ_DATA = {
               "text": "«Solo para aplicaciones de música.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 7,
@@ -4426,7 +4426,7 @@ const QUIZ_DATA = {
               "text": "«Solo aplicaciones de escritorio.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 10,
@@ -4518,7 +4518,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de escritorio.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 14,
@@ -4587,7 +4587,7 @@ const QUIZ_DATA = {
               "text": "«Solo aplicaciones de entretenimiento.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -4656,7 +4656,7 @@ const QUIZ_DATA = {
               "text": "«Solo para dispositivos grandes.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 20,
@@ -4679,7 +4679,7 @@ const QUIZ_DATA = {
               "text": "«Solo para aplicaciones de viajes.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         }
       ]
     },
@@ -4733,7 +4733,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones médicas.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 3,
@@ -4894,7 +4894,7 @@ const QUIZ_DATA = {
               "text": "«Solo la falta de contenido.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 10,
@@ -4917,7 +4917,7 @@ const QUIZ_DATA = {
               "text": "«Solo la velocidad de procesamiento.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 11,
@@ -4940,7 +4940,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de negocios.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 12,
@@ -4986,7 +4986,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de juegos.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 14,
@@ -5032,7 +5032,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de entretenimiento.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 16,
@@ -5055,7 +5055,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de juegos.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -5078,7 +5078,7 @@ const QUIZ_DATA = {
               "text": "«Solo para juegos de computadora.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 18,
@@ -5101,7 +5101,7 @@ const QUIZ_DATA = {
               "text": "«No es inmersiva.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 19,
@@ -5201,7 +5201,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones médicas.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 3,
@@ -5362,7 +5362,7 @@ const QUIZ_DATA = {
               "text": "«Solo la falta de contenido.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 10,
@@ -5385,7 +5385,7 @@ const QUIZ_DATA = {
               "text": "«Solo la velocidad de procesamiento.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 11,
@@ -5408,7 +5408,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de negocios.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 12,
@@ -5454,7 +5454,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de juegos.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 14,
@@ -5500,7 +5500,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de entretenimiento.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 16,
@@ -5523,7 +5523,7 @@ const QUIZ_DATA = {
               "text": "«Solo en aplicaciones de juegos.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 17,
@@ -5546,7 +5546,7 @@ const QUIZ_DATA = {
               "text": "«Solo para juegos de computadora.»"
             }
           ],
-          "answer": "B"
+          "answer": "A"
         },
         {
           "number": 18,
@@ -5569,7 +5569,7 @@ const QUIZ_DATA = {
               "text": "«No es inmersiva.»"
             }
           ],
-          "answer": "B"
+          "answer": "C"
         },
         {
           "number": 19,
@@ -11239,6 +11239,3 @@ const QUIZ_DATA = {
     }
   }
 };
-
-// Export for use in main app
-window.QUIZ_DATA = QUIZ_DATA;
