@@ -406,7 +406,7 @@ class QuizSPA {
             </div>
             
             <div class="card-body p-4">
-              <p class="lead mb-4">${question.question}</p>
+              <p class="lead fs-4 mb-4">${question.question}</p>
               
               <div class="options-container">
                 ${question.options.map(option => `
