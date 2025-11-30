@@ -8,12 +8,13 @@ import json
 import os
 
 def convert_jsons_to_js():
-    base_path = "/Users/uli/Documents/github/euniv/2"
+    # Use current working directory or relative path
+    base_path = os.getcwd()
     
     # Paths to JSON directories
     json_paths = {
-        'hci': f"{base_path}/contenidos/HCItests/hcijson",
-        'programacion': f"{base_path}/contenidos/programaciontests/programacionjson"
+        'hci': os.path.join(base_path, "contenidos/HCItests/hcijson"),
+        'programacion': os.path.join(base_path, "contenidos/programaciontests/programacionjson")
     }
     
     # Collect all data
@@ -56,7 +57,7 @@ window.QUIZ_DATA = QUIZ_DATA;
 """
     
     # Write to quiz-spa directory
-    output_path = f"{base_path}/quiz-spa/quiz-data.js"
+    output_path = os.path.join(base_path, "quiz-spa/quiz-data.js")
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(js_content)
     

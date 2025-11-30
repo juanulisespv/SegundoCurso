@@ -10771,466 +10771,466 @@ const QUIZ_DATA = {
     },
     "12": {
       "subject": "programacion",
-      "theme": 11,
-      "source": "contenidos/programaciontests/11.txt",
+      "theme": 12,
+      "source": "contenidos/programaciontests/12.txt",
       "count": 20,
       "questions": [
         {
           "number": 1,
-          "question": "¿Qué es la accesibilidad en diseño UI?",
+          "question": "¿Cuál es el propósito principal de un changelog en la gestión de versiones de software?",
           "options": [
             {
               "key": "A",
-              "text": "Considerar a usuarios con discapacidades para que usen el sistema efectivamente."
+              "text": "Registrar únicamente los errores corregidos en una versión."
             },
             {
               "key": "B",
-              "text": "Usar una paleta de colores exclusiva de la marca."
+              "text": "Documentar cambios realizados en cada versión, incluyendo nuevas funcionalidades, correcciones y mejoras."
             },
             {
               "key": "C",
-              "text": "Incrementar la complejidad visual para mostrar modernidad."
+              "text": "Reemplazar la documentación técnica de la aplicación."
             },
             {
               "key": "D",
-              "text": "Limitar la interfaz a resoluciones específicas."
+              "text": "Eliminar versiones anteriores del software una vez publicada una nueva."
             }
           ],
-          "answer": "A"
+          "answer": "B"
         },
         {
           "number": 2,
-          "question": "¿Qué herramienta automatiza pruebas en múltiples dispositivos reales?",
+          "question": "¿Cuál es una de las principales ventajas del uso de CI/CD en el despliegue de software?",
           "options": [
             {
               "key": "A",
-              "text": "BrowserStack"
+              "text": "Elimina completamente la necesidad de pruebas antes del despliegue en producción."
             },
             {
               "key": "B",
-              "text": "GIMP"
+              "text": "Permite realizar despliegues manuales más eficientes sin necesidad de automatización."
             },
             {
               "key": "C",
-              "text": "SQLite"
+              "text": "Automatiza la integración y el despliegue del código, asegurando entregas rápidas y confiables."
             },
             {
               "key": "D",
-              "text": "Notepad"
+              "text": "Solo se puede aplicar en proyectos pequeños sin impacto en entornos empresariales."
             }
           ],
-          "answer": "A"
+          "answer": "C"
         },
         {
           "number": 3,
-          "question": "¿Qué es un diseño responsive?",
+          "question": "¿Qué estrategia de despliegue permite mantener una versión estable en producción mientras se prueba una nueva en paralelo?",
           "options": [
             {
               "key": "A",
-              "text": "Que la aplicación se adapte automáticamente a distintos tamaños de pantalla."
+              "text": "Blue-Green Deployment"
             },
             {
               "key": "B",
-              "text": "Crear versiones distintas por cada navegador sin compartir código."
+              "text": "Feature Flags"
             },
             {
               "key": "C",
-              "text": "Usar únicamente imágenes para todo el contenido."
+              "text": "Canary Releases"
             },
             {
               "key": "D",
-              "text": "Evitar CSS moderno."
+              "text": "Rolling Updates"
             }
           ],
           "answer": "A"
         },
         {
           "number": 4,
-          "question": "¿Qué permite Media Queries?",
+          "question": "¿Cuál de las siguientes prácticas ayuda a mejorar la escalabilidad y automatización en el despliegue de software?",
           "options": [
             {
               "key": "A",
-              "text": "Definir estilos específicos según el ancho del dispositivo."
+              "text": "Realizar despliegues manuales sin herramientas de automatización para mayor control."
             },
             {
               "key": "B",
-              "text": "Ejecutar código Python en el navegador."
+              "text": "Evitar el uso de contenedores y balanceadores de carga para simplificar la infraestructura."
             },
             {
               "key": "C",
-              "text": "Reemplazar JavaScript para interacción."
+              "text": "Eliminar la integración continua y realizar pruebas solo en producción."
             },
             {
               "key": "D",
-              "text": "Almacenar datos del usuario localmente."
+              "text": "Utilizar herramientas como Docker, Kubernetes y Jenkins para automatizar y escalar despliegues."
             }
           ],
-          "answer": "A"
+          "answer": "D"
         },
         {
           "number": 5,
-          "question": "¿Cuál es una ventaja de usar emuladores en pruebas móviles?",
+          "question": "¿Cuál es una de las principales ventajas de usar contenedores Docker en comparación con máquinas virtuales?",
           "options": [
             {
               "key": "A",
-              "text": "Probar múltiples dispositivos sin hardware físico."
+              "text": "Son más ligeros, consumen menos recursos y se inician más rápido."
             },
             {
               "key": "B",
-              "text": "Reproducir exacto consumo de batería real."
+              "text": "Requieren un sistema operativo completo para cada contenedor."
             },
             {
               "key": "C",
-              "text": "Evitar pruebas en dispositivos reales siempre."
+              "text": "Permiten ejecutar múltiples aplicaciones en un solo entorno sin necesidad de aislamiento."
             },
             {
               "key": "D",
-              "text": "Sustituir monitoreo en producción."
+              "text": "No ofrecen compatibilidad con entornos en la nube."
             }
           ],
           "answer": "A"
         },
         {
           "number": 6,
-          "question": "¿Qué es Appium?",
+          "question": "¿Qué comando se utiliza para generar un ejecutable con PyInstaller en un solo archivo?",
           "options": [
             {
               "key": "A",
-              "text": "Herramienta compatible con Android e iOS para automatización de pruebas móviles."
+              "text": "python setup.py install"
             },
             {
               "key": "B",
-              "text": "Un gestor de bases de datos NoSQL."
+              "text": "pip install pyinstaller"
             },
             {
               "key": "C",
-              "text": "Un framework de UI para Python."
+              "text": "pyinstaller --onefile mi_programa.py"
             },
             {
               "key": "D",
-              "text": "Un linter de código."
+              "text": "twine upload dist/*"
             }
           ],
-          "answer": "A"
+          "answer": "C"
         },
         {
           "number": 7,
-          "question": "¿Qué aspecto es clave en validación multiplataforma?",
+          "question": "¿Cuál de las siguientes opciones describe correctamente la diferencia entre Heroku y AWS Elastic Beanstalk?",
           "options": [
             {
               "key": "A",
-              "text": "Probar en distintos navegadores, OS y tamaños de pantalla."
+              "text": "AWS Elastic Beanstalk solo se usa para almacenamiento de archivos, mientras que Heroku despliega aplicaciones."
             },
             {
               "key": "B",
-              "text": "Optimizar solo para la última versión de un navegador."
+              "text": "Heroku permite más personalización en la configuración de servidores que AWS Elastic Beanstalk."
             },
             {
               "key": "C",
-              "text": "Evitar pruebas en dispositivos móviles."
+              "text": "AWS Elastic Beanstalk está diseñado para proyectos pequeños, mientras que Heroku es más escalable."
             },
             {
               "key": "D",
-              "text": "Reducir el número de pruebas por costo."
+              "text": "Heroku es una solución más sencilla y automatizada para despliegues rápidos, mientras que AWS Elastic Beanstalk ofrece mayor control sobre la infraestructura."
             }
           ],
-          "answer": "A"
+          "answer": "D"
         },
         {
           "number": 8,
-          "question": "¿Cuál es la principal ventaja del desarrollo nativo?",
+          "question": "¿Cuál es el propósito principal de setuptools en Python?",
           "options": [
             {
               "key": "A",
-              "text": "Mejor rendimiento y acceso total a funcionalidades del dispositivo."
+              "text": "Ejecutar pruebas unitarias en proyectos Python."
             },
             {
               "key": "B",
-              "text": "Menos esfuerzo para soportar múltiples plataformas."
+              "text": "Facilitar la creación, empaquetado y distribución de paquetes Python."
             },
             {
               "key": "C",
-              "text": "Menor costo de mantenimiento siempre."
+              "text": "Optimizar el rendimiento del código en aplicaciones de alto nivel."
             },
             {
               "key": "D",
-              "text": "No requiere pruebas en dispositivos reales."
+              "text": "Desplegar aplicaciones web en servidores remotos."
             }
           ],
-          "answer": "A"
+          "answer": "B"
         },
         {
           "number": 9,
-          "question": "¿Qué es Buildozer?",
+          "question": "¿Cuál es el propósito principal de PyInstaller en el desarrollo de aplicaciones en Python?",
           "options": [
             {
               "key": "A",
-              "text": "Herramienta para empaquetar apps Kivy en APK."
+              "text": "Convertir scripts de Python en ejecutables independientes para distintas plataformas."
             },
             {
               "key": "B",
-              "text": "Servicio de hosting web."
+              "text": "Mejorar el rendimiento del código Python en entornos de producción."
             },
             {
               "key": "C",
-              "text": "Un linter de Python."
+              "text": "Administrar paquetes y dependencias de un proyecto en Python."
             },
             {
               "key": "D",
-              "text": "Un sistema de base de datos."
+              "text": "Realizar pruebas automatizadas en aplicaciones web desarrolladas en Python."
             }
           ],
           "answer": "A"
         },
         {
           "number": 10,
-          "question": "¿Qué principio busca la simplicidad en UI?",
+          "question": "¿Cuál es una de las principales ventajas del uso de PaaS (Platform as a Service) en el despliegue de aplicaciones?",
           "options": [
             {
               "key": "A",
-              "text": "Eliminar elementos innecesarios y priorizar lo que aporta valor."
+              "text": "Permite administrar manualmente cada servidor y su configuración."
             },
             {
               "key": "B",
-              "text": "Incluir la mayor cantidad de elementos posibles."
+              "text": "Facilita el despliegue de aplicaciones sin preocuparse por la gestión de infraestructura."
             },
             {
               "key": "C",
-              "text": "Diseñar con tipografías múltiples sin criterio."
+              "text": "Requiere configurar y mantener los servidores desde cero."
             },
             {
               "key": "D",
-              "text": "Aumentar los pasos para realizar tareas simples."
+              "text": "Solo se puede utilizar para aplicaciones web pequeñas."
             }
           ],
-          "answer": "A"
+          "answer": "B"
         },
         {
           "number": 11,
-          "question": "¿Qué herramienta ayuda a evaluar accesibilidad en sitios web?",
+          "question": "¿Qué se debe hacer antes de publicar una nueva versión de software para garantizar su estabilidad?",
           "options": [
             {
               "key": "A",
-              "text": "WAVE"
+              "text": "Ejecutar pruebas unitarias, de integración y validaciones para detectar errores antes del lanzamiento."
             },
             {
               "key": "B",
-              "text": "Photoshop"
+              "text": "Eliminar todas las versiones anteriores y empezar desde cero en cada actualización."
             },
             {
               "key": "C",
-              "text": "Notepad"
+              "text": "Publicar directamente la nueva versión sin revisiones para ahorrar tiempo."
             },
             {
               "key": "D",
-              "text": "Excel"
+              "text": "Realizar cambios en producción sin probar en entornos de prueba."
             }
           ],
           "answer": "A"
         },
         {
           "number": 12,
-          "question": "¿Por qué es importante la comunicación diseñador-desarrollador?",
+          "question": "¿Cuál es la estructura correcta de una versión en SemVer?",
           "options": [
             {
               "key": "A",
-              "text": "Para garantizar que las intenciones visuales y funcionales se traduzcan correctamente en el producto final."
+              "text": "PATCH.MINOR.MAJOR"
             },
             {
               "key": "B",
-              "text": "Para que los diseñadores hagan todo el código."
+              "text": "MINOR.PATCH.MAJOR"
             },
             {
               "key": "C",
-              "text": "Para eliminar pruebas de usabilidad."
+              "text": "VERSION-BUILD-PATCH"
             },
             {
               "key": "D",
-              "text": "Para reducir la documentación de diseño."
+              "text": "MAJOR.MINOR.PATCH"
             }
           ],
-          "answer": "A"
+          "answer": "D"
         },
         {
           "number": 13,
-          "question": "¿Qué ventaja aporta usar Material Design o Bootstrap?",
+          "question": "¿Qué tipo de rama en GitFlow se utiliza para corregir errores críticos en producción?",
           "options": [
             {
               "key": "A",
-              "text": "Ofrecen componentes y patrones que aceleran el desarrollo y mejoran la consistencia."
+              "text": "feature/*"
             },
             {
               "key": "B",
-              "text": "Obligan a usar un diseño anticuado."
+              "text": "release/*"
             },
             {
               "key": "C",
-              "text": "Eliminan la necesidad de tests de compatibilidad."
+              "text": "hotfix/*"
             },
             {
               "key": "D",
-              "text": "Siempre solucionan problemas de accesibilidad por sí solos."
+              "text": "develop"
             }
           ],
-          "answer": "A"
+          "answer": "C"
         },
         {
           "number": 14,
-          "question": "¿Qué es un sistema de grillas en Bootstrap?",
+          "question": "¿Cuál es el comando utilizado para subir un paquete a PyPI después de haberlo empaquetado?",
           "options": [
             {
               "key": "A",
-              "text": "Un mecanismo que facilita layouts adaptativos mediante columnas y filas."
+              "text": "pip install paquete"
             },
             {
               "key": "B",
-              "text": "Una base de datos integrada en el framework."
+              "text": "python setup.py install"
             },
             {
               "key": "C",
-              "text": "Un sistema de autenticación."
+              "text": "twine upload dist/*"
             },
             {
               "key": "D",
-              "text": "Un conjunto de pruebas automatizadas."
+              "text": "python -m pip upload paquete"
             }
           ],
-          "answer": "A"
+          "answer": "C"
         },
         {
           "number": 15,
-          "question": "¿Qué herramienta permite probar apps en múltiples navegadores y dispositivos?",
+          "question": "¿Cuál es una ventaja de automatizar las pruebas y el empaquetado de un software con GitHub Actions o GitLab CI/CD?",
           "options": [
             {
               "key": "A",
-              "text": "BrowserStack"
+              "text": "Permite eliminar la necesidad de realizar pruebas en diferentes entornos antes del despliegue."
             },
             {
               "key": "B",
-              "text": "Word"
+              "text": "Evita que el software tenga errores en producción sin necesidad de pruebas previas."
             },
             {
               "key": "C",
-              "text": "Excel"
+              "text": "Reemplaza completamente la revisión manual del código por parte de los desarrolladores."
             },
             {
               "key": "D",
-              "text": "Paint"
+              "text": "Garantiza que cada cambio en el código se valide automáticamente antes de generar un paquete final."
             }
           ],
-          "answer": "A"
+          "answer": "D"
         },
         {
           "number": 16,
-          "question": "¿Cuál es una buena práctica para accesibilidad visual?",
+          "question": "¿Cuál es el propósito principal del empaquetado en el desarrollo de software?",
           "options": [
             {
               "key": "A",
-              "text": "Usar contrastes adecuados entre texto y fondo."
+              "text": "Preparar el software con todas sus dependencias y configuraciones necesarias para su distribución."
             },
             {
               "key": "B",
-              "text": "Reducir el tamaño de fuente al máximo."
+              "text": "Realizar pruebas de usabilidad y experiencia de usuario en la aplicación."
             },
             {
               "key": "C",
-              "text": "Usar colores similares para elementos clave."
+              "text": "Gestionar las ramas de desarrollo en un sistema de control de versiones como Git."
             },
             {
               "key": "D",
-              "text": "Eliminar etiquetas alternativas en imágenes."
+              "text": "Implementar medidas de seguridad para evitar ataques en producción."
             }
           ],
           "answer": "A"
         },
         {
           "number": 17,
-          "question": "¿Qué aporta la validación multiplataforma al usuario final?",
+          "question": "¿Cuándo se debe incrementar el número de versión MAJOR en Semantic Versioning (SemVer)?",
           "options": [
             {
               "key": "A",
-              "text": "Experiencias coherentes y funcionales en diferentes dispositivos."
+              "text": "Cuando se corrige un error menor sin afectar la funcionalidad existente."
             },
             {
               "key": "B",
-              "text": "Mayor consumo de batería sin beneficio."
+              "text": "Cuando se realizan cambios incompatibles con versiones anteriores."
             },
             {
               "key": "C",
-              "text": "Interfaz exclusiva para un solo dispositivo."
+              "text": "Cuando se agrega una nueva funcionalidad sin romper la compatibilidad."
             },
             {
               "key": "D",
-              "text": "Eliminar pruebas de compatibilidad."
+              "text": "Cuando se actualizan dependencias sin modificar la funcionalidad del software."
             }
           ],
-          "answer": "A"
+          "answer": "B"
         },
         {
           "number": 18,
-          "question": "¿Qué práctica ayuda a reducir problemas de compatibilidad en web?",
+          "question": "¿Cuál es la función principal de Nginx cuando se usa como servidor proxy inverso en una aplicación Python?",
           "options": [
             {
               "key": "A",
-              "text": "Diseño responsive y pruebas en distintos navegadores."
+              "text": "Ejecutar el código Python directamente sin necesidad de un servidor de aplicaciones."
             },
             {
               "key": "B",
-              "text": "Optimizar solo para un navegador moderno."
+              "text": "Convertir la aplicación en una API REST sin necesidad de cambios en el código."
             },
             {
               "key": "C",
-              "text": "Evitar el uso de frameworks CSS."
+              "text": "Redirigir solicitudes HTTP a la aplicación, mejorar la gestión de tráfico y la seguridad."
             },
             {
               "key": "D",
-              "text": "Usar tablas HTML para todo el layout."
+              "text": "Almacenar datos en una base de datos y gestionar conexiones de usuarios."
             }
           ],
-          "answer": "A"
+          "answer": "C"
         },
         {
           "number": 19,
-          "question": "¿Qué ventaja ofrecen emuladores?",
+          "question": "¿Por qué es recomendable probar un paquete en un entorno virtual antes de su distribución?",
           "options": [
             {
               "key": "A",
-              "text": "Permiten pruebas rápidas en múltiples configuraciones sin hardware físico."
+              "text": "Para asegurarse de que el paquete no contiene errores de sintaxis en el código."
             },
             {
               "key": "B",
-              "text": "Simulan exactamente el comportamiento de hardware real en todos los aspectos."
+              "text": "Para evitar conflictos con otras bibliotecas y validar su instalación en un entorno aislado."
             },
             {
               "key": "C",
-              "text": "Reemplazan por completo la necesidad de pruebas en dispositivos reales."
+              "text": "Porque los paquetes solo pueden instalarse en entornos virtuales y no en el sistema principal."
             },
             {
               "key": "D",
-              "text": "Reducen la necesidad de testeo de rendimiento."
+              "text": "Para garantizar que el paquete sea compatible con todas las versiones de Python automáticamente."
             }
           ],
-          "answer": "A"
+          "answer": "B"
         },
         {
           "number": 20,
-          "question": "¿Qué debe priorizarse en una UI accesible?",
+          "question": "¿Cuál es la principal ventaja de utilizar GitFlow en la gestión de versiones?",
           "options": [
             {
               "key": "A",
-              "text": "Claridad, contraste, navegación sencilla y soporte para lectores de pantalla."
+              "text": "Facilita la organización del desarrollo mediante el uso de ramas específicas para cada fase del proyecto."
             },
             {
               "key": "B",
-              "text": "Uso exclusivo de iconografía sin texto."
+              "text": "Elimina la necesidad de utilizar ramas en el desarrollo de software."
             },
             {
               "key": "C",
-              "text": "Complejidad visual para impresionar al usuario."
+              "text": "Permite trabajar con un solo repositorio sin necesidad de fusionar cambios."
             },
             {
               "key": "D",
-              "text": "Reducir la estructura semántica HTML."
+              "text": "Evita el uso de etiquetas (tags) en el control de versiones."
             }
           ],
           "answer": "A"
@@ -11239,3 +11239,6 @@ const QUIZ_DATA = {
     }
   }
 };
+
+// Export for use in main app
+window.QUIZ_DATA = QUIZ_DATA;
