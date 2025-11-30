@@ -23,19 +23,19 @@ class QuizSPA {
       },
       programacion: {
         name: 'Programación',
-        color: '#28a745', 
+        color: '#28a745',
         icon: 'bi-code-slash',
         basePath: '../contenidos/programaciontests/programacionjson/',
         themes: [] // Will be populated dynamically
       }
     };
-    
+
     // Current state
     this.currentView = 'home';
     this.currentSubject = null;
     this.currentTheme = null;
     this.quizData = null;
-    
+
     // Quiz state
     this.questions = [];
     this.currentQuestionIndex = 0;
@@ -45,40 +45,40 @@ class QuizSPA {
     this.timerInterval = null;
     this.isCompleted = false;
     this.failedQuestions = [];
-    
+
     // DOM elements
     this.mainContent = document.getElementById('main-content');
     this.navTitle = document.getElementById('nav-title');
     this.timerDisplay = document.getElementById('timer-display');
     this.progressBar = document.getElementById('progress-bar');
-    
+
     this.init();
   }
-  
+
   async init() {
     this.setupEventListeners();
-    
+
     // Cargar datos embebidos si están disponibles
     QuizDataManager.loadEmbeddedData();
-    
+
     await this.discoverThemes();
-    
+
     // Check for URL parameters to auto-start quiz
     this.checkUrlParams();
   }
-  
+
   checkUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const themeParam = urlParams.get('theme');
-    
+
     if (themeParam) {
       // Parse theme parameter (format: hci10, programacion5, etc.)
       const match = themeParam.match(/^(hci|programacion)(\d+)$/);
-      
+
       if (match) {
         const subjectKey = match[1];
         const themeId = parseInt(match[2]);
-        
+
         // Verify that the subject and theme exist
         const subject = this.subjects[subjectKey];
         if (subject && subject.themes.find(theme => theme.id === themeId)) {
@@ -92,19 +92,19 @@ class QuizSPA {
         console.warn(`Invalid theme parameter format: ${themeParam}`);
       }
     }
-    
+
     // Default behavior: show home
     this.showHome();
   }
-  
+
   async discoverThemes() {
     console.log('Discovering available themes...');
     console.log('Environment:', QuizDataManager.isStaticEnvironment() ? 'Static (Vercel/GitHub)' : 'Local');
-    
+
     for (const [subjectKey, subject] of Object.entries(this.subjects)) {
       // Try to get themes from embedded data first
       const embeddedThemes = QuizDataManager.getAvailableThemes(subjectKey, subject.basePath);
-      
+
       if (embeddedThemes) {
         // Use embedded data (for static deployment)
         subject.themes = embeddedThemes;
@@ -113,10 +113,10 @@ class QuizSPA {
         // Fallback to dynamic discovery (for local development)
         const themes = [];
         const promises = [];
-        
+
         for (let i = 1; i <= 12; i++) {
           const jsonPath = `${subject.basePath}${i}.json`;
-          
+
           promises.push(
             fetch(jsonPath, { method: 'HEAD' })
               .then(response => {
@@ -133,10 +133,10 @@ class QuizSPA {
               .catch(() => ({ id: i, exists: false }))
           );
         }
-        
+
         // Wait for all checks to complete
         const results = await Promise.all(promises);
-        
+
         // Add only existing themes
         results.forEach(result => {
           if (result.exists) {
@@ -147,25 +147,25 @@ class QuizSPA {
             });
           }
         });
-        
+
         subject.themes = themes.sort((a, b) => a.id - b.id);
         console.log(`Discovered ${themes.length} themes for ${subjectKey} via dynamic detection`);
       }
     }
   }
-  
+
   setupEventListeners() {
     // Navigation home
     document.getElementById('nav-home').addEventListener('click', (e) => {
       e.preventDefault();
       this.showHome();
     });
-    
+
     // Theme toggle
     document.getElementById('theme-toggle').addEventListener('click', () => {
       this.toggleTheme();
     });
-    
+
     // Prevent accidental page exit during quiz
     window.addEventListener('beforeunload', (e) => {
       if (this.currentView === 'quiz' && !this.isCompleted && this.currentQuestionIndex > 0) {
@@ -175,13 +175,13 @@ class QuizSPA {
       }
     });
   }
-  
+
   showHome() {
     this.currentView = 'home';
     this.navTitle.textContent = 'Selecciona un tema';
     this.stopTimer();
     this.updateProgress(0);
-    
+
     // Show loading if themes are not yet discovered
     if (Object.values(this.subjects).some(subject => subject.themes.length === 0)) {
       this.mainContent.innerHTML = `
@@ -192,7 +192,7 @@ class QuizSPA {
       `;
       return;
     }
-    
+
     const homeHTML = `
       <div class="row">
         <div class="col-12 text-center mb-4">
@@ -286,7 +286,7 @@ class QuizSPA {
         </div>
       </div>
     `;
-    
+
     // Check if no themes were found
     const totalThemes = Object.values(this.subjects).reduce((total, subject) => total + subject.themes.length, 0);
     if (totalThemes === 0) {
@@ -314,10 +314,10 @@ class QuizSPA {
         </div>
       `;
     }
-    
+
     this.mainContent.innerHTML = homeHTML;
   }
-  
+
   async refreshThemes() {
     // Show loading
     this.mainContent.innerHTML = `
@@ -326,29 +326,29 @@ class QuizSPA {
         <p class="lead">Actualizando temas disponibles...</p>
       </div>
     `;
-    
+
     // Reset themes
     Object.values(this.subjects).forEach(subject => {
       subject.themes = [];
     });
-    
+
     // Rediscover themes
     await this.discoverThemes();
-    
+
     // Show updated home
     this.showHome();
   }
-  
+
   async startQuiz(subjectKey, themeId) {
     this.currentView = 'quiz';
     this.currentSubject = subjectKey;
     this.currentTheme = themeId;
-    
+
     const subject = this.subjects[subjectKey];
     const theme = subject.themes[themeId - 1];
-    
+
     this.navTitle.innerHTML = `<i class="${subject.icon} me-2"></i>${subject.name} - ${theme.name}`;
-    
+
     // Show loading
     this.mainContent.innerHTML = `
       <div class="text-center py-5">
@@ -356,21 +356,27 @@ class QuizSPA {
         <p class="lead">Cargando preguntas...</p>
       </div>
     `;
-    
+
     try {
       // Load questions using the hybrid data manager
-      this.quizData = await QuizDataManager.loadQuizData(subjectKey, themeId, subject.basePath);
+      const rawQuizData = await QuizDataManager.loadQuizData(subjectKey, themeId, subject.basePath);
+
+      // Deep clone to avoid modifying shared state and allow randomization
+      this.quizData = JSON.parse(JSON.stringify(rawQuizData));
       this.questions = this.quizData.questions;
-      
+
       if (!this.questions || this.questions.length === 0) {
         throw new Error('No se encontraron preguntas en el archivo JSON');
       }
-      
+
+      // Randomize options for each question
+      this.randomizeOptions(this.questions);
+
       // Shuffle questions for different order each time
       this.questions = shuffleArray(this.questions);
-      
+
       console.log(`Cargadas ${this.questions.length} preguntas para ${this.quizData.subject} tema ${this.quizData.theme} (orden aleatorio)`);
-      
+
       // Reset quiz state
       this.currentQuestionIndex = 0;
       this.userAnswers = [];
@@ -378,20 +384,44 @@ class QuizSPA {
       this.failedQuestions = [];
       this.isCompleted = false;
       this.startTime = Date.now();
-      
+
       this.startTimer();
       this.renderQuestion();
-      
+
     } catch (error) {
       console.error('Error loading quiz:', error);
       this.showError('Error al cargar las preguntas. Asegúrate de que el servidor HTTP esté ejecutándose.');
     }
   }
-  
+
+  randomizeOptions(questions) {
+    questions.forEach(question => {
+      // Find the text of the correct answer
+      const correctOption = question.options.find(o => o.key === question.answer);
+      if (!correctOption) return;
+
+      const correctText = correctOption.text;
+
+      // Shuffle options
+      question.options = shuffleArray(question.options);
+
+      // Reassign keys (A, B, C, D...) based on new position
+      question.options.forEach((opt, index) => {
+        opt.key = String.fromCharCode(65 + index);
+      });
+
+      // Update the answer to match the new key of the correct option
+      const newCorrectOption = question.options.find(o => o.text === correctText);
+      if (newCorrectOption) {
+        question.answer = newCorrectOption.key;
+      }
+    });
+  }
+
   renderQuestion() {
     const question = this.questions[this.currentQuestionIndex];
     if (!question) return;
-    
+
     const questionHTML = `
       <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -421,9 +451,9 @@ class QuizSPA {
         </div>
       </div>
     `;
-    
+
     this.mainContent.innerHTML = questionHTML;
-    
+
     // Add event listeners to option buttons
     const optionButtons = this.mainContent.querySelectorAll('.option-btn');
     optionButtons.forEach(button => {
@@ -432,19 +462,19 @@ class QuizSPA {
         this.selectAnswer(selectedKey, e.target);
       });
     });
-    
+
     this.updateProgress();
   }
-  
+
   selectAnswer(selectedKey, buttonElement) {
     const question = this.questions[this.currentQuestionIndex];
     const correctKey = question.answer;
     const isCorrect = selectedKey === correctKey;
-    
+
     // Disable all option buttons
     const allOptions = this.mainContent.querySelectorAll('.option-btn');
     allOptions.forEach(btn => btn.disabled = true);
-    
+
     // Apply feedback styling
     allOptions.forEach(btn => {
       const optionKey = btn.getAttribute('data-option');
@@ -454,7 +484,7 @@ class QuizSPA {
         btn.classList.add('incorrect');
       }
     });
-    
+
     // Record answer
     this.userAnswers.push({
       questionIndex: this.currentQuestionIndex,
@@ -462,44 +492,44 @@ class QuizSPA {
       correct: correctKey,
       isCorrect: isCorrect
     });
-    
+
     if (isCorrect) {
       this.correctAnswers++;
     } else {
       this.failedQuestions.push(question);
     }
-    
+
     // Auto-advance after 3 seconds
     setTimeout(() => {
       this.nextQuestion();
     }, 3000);
   }
-  
+
   nextQuestion() {
     this.currentQuestionIndex++;
-    
+
     if (this.currentQuestionIndex >= this.questions.length) {
       this.finishQuiz();
     } else {
       this.renderQuestion();
     }
   }
-  
+
   finishQuiz() {
     this.isCompleted = true;
     this.stopTimer();
-    
+
     const totalTime = Date.now() - this.startTime;
     const minutes = Math.floor(totalTime / 60000);
     const seconds = Math.floor((totalTime % 60000) / 1000);
     const percentage = Math.round((this.correctAnswers / this.questions.length) * 100);
-    
+
     let badgeClass = 'success';
     if (percentage < 60) badgeClass = 'danger';
     else if (percentage < 80) badgeClass = 'warning';
-    
+
     const subject = this.subjects[this.currentSubject];
-    
+
     const resultsHTML = `
       <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -554,27 +584,30 @@ class QuizSPA {
         </div>
       </div>
     `;
-    
+
     this.mainContent.innerHTML = resultsHTML;
-    
+
     // Add event listeners to action buttons
     const repeatButton = this.mainContent.querySelector('[data-action="repeat-failed"]');
     const restartButton = this.mainContent.querySelector('[data-action="restart"]');
-    
+
     if (repeatButton) {
       repeatButton.addEventListener('click', () => this.repeatFailedQuestions());
     }
-    
+
     if (restartButton) {
       restartButton.addEventListener('click', () => this.restartQuiz());
     }
-    
+
     this.updateProgress(100);
   }
-  
+
   repeatFailedQuestions() {
     if (this.failedQuestions.length === 0) return;
-    
+
+    // Randomize options again for better practice
+    this.randomizeOptions(this.failedQuestions);
+
     // Shuffle failed questions for different order
     this.questions = shuffleArray([...this.failedQuestions]);
     this.currentQuestionIndex = 0;
@@ -583,12 +616,15 @@ class QuizSPA {
     this.failedQuestions = [];
     this.isCompleted = false;
     this.startTime = Date.now();
-    
+
     this.startTimer();
     this.renderQuestion();
   }
-  
+
   restartQuiz() {
+    // Randomize options again for new attempt
+    this.randomizeOptions(this.quizData.questions);
+
     // Shuffle questions again for different order
     this.questions = shuffleArray([...this.quizData.questions]);
     this.currentQuestionIndex = 0;
@@ -597,11 +633,11 @@ class QuizSPA {
     this.failedQuestions = [];
     this.isCompleted = false;
     this.startTime = Date.now();
-    
+
     this.startTimer();
     this.renderQuestion();
   }
-  
+
   startTimer() {
     this.timerInterval = setInterval(() => {
       const elapsed = Date.now() - this.startTime;
@@ -610,14 +646,14 @@ class QuizSPA {
       this.timerDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     }, 1000);
   }
-  
+
   stopTimer() {
     if (this.timerInterval) {
       clearInterval(this.timerInterval);
       this.timerInterval = null;
     }
   }
-  
+
   updateProgress(percentage = null) {
     if (percentage !== null) {
       this.progressBar.style.width = `${percentage}%`;
@@ -628,17 +664,17 @@ class QuizSPA {
       this.progressBar.setAttribute('aria-valuenow', progress);
     }
   }
-  
+
   toggleTheme() {
     const html = document.documentElement;
     const currentTheme = html.getAttribute('data-bs-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     html.setAttribute('data-bs-theme', newTheme);
-    
+
     const themeIcon = document.querySelector('#theme-toggle i');
     themeIcon.className = newTheme === 'dark' ? 'bi bi-moon-fill' : 'bi bi-sun-fill';
   }
-  
+
   showError(message) {
     const errorHTML = `
       <div class="row justify-content-center">
@@ -659,13 +695,13 @@ class QuizSPA {
         </div>
       </div>
     `;
-    
+
     this.mainContent.innerHTML = errorHTML;
   }
 }
 
 // Initialize app when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('Initializing Quiz SPA...');
   window.app = new QuizSPA();
 });
