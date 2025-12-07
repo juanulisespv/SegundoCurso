@@ -1,0 +1,15 @@
+Caso práctico 3
+Investiga el impacto del libro "The Design of Everyday Things" de Donald Norman en el campo de la HCI.
+
+¿Cómo este libro influenció la manera en que los diseñadores piensan sobre las interfaces y la interacción usuario-computadora?
+
+¿Cuáles son tres conceptos clave introducidos por Norman que cambiaron la perspectiva del diseño de interfaces?
+
+ 
+
+"The Design of Everyday Things" ha sido fundamental en la formación del pensamiento moderno sobre diseño de interfaces y HCI. Aquí están tres conceptos clave de Norman:
+
+Affordances: Norman popularizó el término "affordances" en el contexto del diseño, sugiriendo que los objetos deben comunicar claramente cómo pueden ser usados. Esto influyó en que los diseñadores crearan interfaces donde los botones parecen presionables, los deslizadores invitan a ser movidos, etc., haciendo las interacciones más intuitivas y menos dependientes de instrucciones explícitas.
+Modelos Mentales: El libro resaltó la importancia de alinear el diseño con los modelos mentales de los usuarios, es decir, la idea preconcebida que tienen los usuarios sobre cómo debería funcionar algo. Esto llevó a diseñadores a enfocarse en interfaces que se comportan de manera que el usuario espera, reduciendo la curva de aprendizaje y mejorando la usabilidad.
+Errores en el Diseño: Norman introdujo la idea de que los errores son parte del uso humano y que el diseño debe anticipar y manejar estos errores. Este concepto llevó a diseños que previenen errores, como confirmaciones de acciones importantes, o que facilitan la corrección de errores, como interfaces que permiten fácilmente deshacer acciones.
+Estos conceptos han guiado a los diseñadores a crear productos que no solo son funcionales sino también intuitivos y humanos, cambiando fundamentalmente el enfoque del diseño de interfaces hacia una mayor empatía con el usuario.

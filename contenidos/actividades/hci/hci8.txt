@@ -1,0 +1,10 @@
+Caso práctico 8
+Una empresa de logística desea mejorar su sistema de seguimiento de paquetes. Aplicando la metodología de UCD, específicamente a través del análisis de requisitos, diseño conceptual y evaluación, describe cómo llevarías a cabo este proceso.
+
+¿Cómo estructurarías el análisis de requisitos, el diseño conceptual y la evaluación para este proyecto?
+
+Análisis de Requisitos: Recolectaría datos a través de encuestas y análisis de tareas con clientes y empleados de logística para entender qué información necesitan, cómo la consumen y qué problemas encuentran con el sistema actual.
+Definiría requisitos funcionales (como notificaciones en tiempo real) y no funcionales (como accesibilidad para usuarios con discapacidades visuales).
+Diseño Conceptual: Desarrollaría bocetos o wireframes que reflejen diferentes formas de visualizar y interactuar con la información de seguimiento, como mapas interactivos, cronologías de entrega o alertas personalizables. Presentaría estos conceptos a grupos de usuarios para validar la dirección del diseño, asegurando que se alinee con las necesidades identificadas.
+Evaluación: Crearía prototipos interactivos y realizaría sesiones de prueba donde usuarios reales intentan seguir un paquete a través del sistema. Se observaría la facilidad de uso, la comprensión de la información y la satisfacción del usuario. Basado en las pruebas, se ajustaría el diseño, tal vez añadiendo más opciones de visualización o simplificando la interfaz para usuarios menos técnicos.
+Este proceso de UCD asegura que el nuevo sistema de seguimiento de paquetes sea intuitivo, informativo y accesible para todos los usuarios involucrados en el ciclo de entrega.

@@ -1,0 +1,21 @@
+Caso práctico 11
+Estás desarrollando una aplicación educativa para enseñar idiomas que utiliza gráficos, audio y video para enriquecer la experiencia de aprendizaje. Describe cómo integrarías estos elementos multimedia para maximizar la efectividad del aprendizaje.
+
+
+¿Cómo aplicarías gráficos, audio y video en tu aplicación para hacer el aprendizaje de idiomas más interactivo y efectivo?
+
+Para una aplicación educativa de idiomas, la integración de multimedia sería así:
+
+Gráficos:
+
+Visualización de Vocabulario: Utilizaría ilustraciones o infografías para representar palabras y conceptos, facilitando la asociación visual con el vocabulario nuevo. Por ejemplo, imágenes de objetos cotidianos para aprender sustantivos.
+Interacción: Implementaría gráficos interactivos donde los usuarios puedan tocar o arrastrar elementos para construir frases, lo que refuerza la comprensión y memorización a través de la acción.
+Audio:
+
+Pronunciación: Proveería clips de audio con pronunciaciones nativas para cada palabra o frase enseñada, permitiendo a los usuarios escuchar y repetir, lo cual es clave para el aprendizaje de idiomas.
+Conversaciones Simuladas: Crearía escenarios de diálogo con voces reales donde los usuarios puedan escuchar y responder, mejorando tanto su comprensión auditiva como su capacidad de hablar.
+Video:
+
+Lecciones en Contexto: Usaría videos cortos que muestran situaciones reales donde se aplica el lenguaje, por ejemplo, en un restaurante, en una tienda, ayudando a los usuarios a entender el uso del idioma en contextos culturales específicos.
+Feedback Visual: Incorporaría videos de instructores dando feedback sobre la pronunciación o el uso de frases, lo que añade una dimensión personal y motivacional al aprendizaje.
+Esta combinación de elementos multimedia no solo hace el aprendizaje más dinámico y atractivo sino que también aborda diferentes estilos de aprendizaje, mejorando la retención y la capacidad de aplicar el idioma en la práctica

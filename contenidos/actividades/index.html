@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades - Curso Universitario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <div class="mb-4">
+            <a href="../../index.html" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left me-2"></i>Volver al Inicio
+            </a>
+        </div>
+
+        <h1 class="text-center mb-5 fw-bold">Centro de Actividades</h1>
+
+        <div class="row justify-content-center">
+            <!-- HCI Activities -->
+            <div class="col-md-5 mb-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="card-body">
+                        <div class="icon-box text-primary">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h3 class="card-title">HCI</h3>
+                        <p class="card-text text-muted">Ejercicios prácticos de Interfaz Humano-Computador.</p>
+                        <a href="hci/index.html" class="btn btn-primary btn-lg mt-3 rounded-pill px-4">
+                            Ver Actividades <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programming Activities -->
+            <div class="col-md-5 mb-4">
+                <div class="card h-100 p-4 text-center">
+                    <div class="card-body">
+                        <div class="icon-box text-danger">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3 class="card-title">Programación</h3>
+                        <p class="card-text text-muted">Ejercicios de programación y desarrollo de software.</p>
+                        <!-- Placeholder link or logic if programming index doesn't exist yet -->
+                        <button class="btn btn-outline-danger btn-lg mt-3 rounded-pill px-4" disabled>
+                            Próximamente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+Caso práctico 4
+Explora la transición desde las interfaces de línea de comandos (CLI) a las interfaces gráficas de usuario (GUI) en los años 80 y 90.
+
+¿Qué factores contribuyeron a este cambio y cómo afectó la accesibilidad de la computación?
+
+¿Cuáles fueron las principales razones para el cambio de CLI a GUI y cómo esto democratizó el uso de la tecnología?
+
+ 
+
+El cambio de las interfaces de línea de comandos a las interfaces gráficas de usuario en las décadas de 1980 y 1990 fue impulsado por varios factores:
+
+Usabilidad y Acceso: Las GUIs, introducidas por sistemas como el Xerox Star y popularizadas con el Apple Macintosh, ofrecieron una forma más intuitiva y accesible de interactuar con computadoras. La adopción de elementos visuales como iconos, ventanas y menús permitió a usuarios no técnicos acceder y usar computadoras sin la necesidad de memorizar comandos textuales.
+Avances en Hardware: El aumento en la capacidad de los computadores personales, con más memoria y poder de procesamiento, hizo posible las interfaces gráficas sin comprometer significativamente el rendimiento. Esto, combinado con el desarrollo de pantallas de alta resolución, habilitó la creación de interfaces más visuales y ricas.
+Democratización de la Tecnología: Este cambio hizo que la computación fuera más accesible al público general, no solo a profesionales o entusiastas de la informática. La GUI permitió a personas de diferentes edades, habilidades y campos de estudio interactuar con la tecnología, expandiendo así la base de usuarios y promoviendo la computación personal en hogares, escuelas y oficinas.
+La transición a GUIs no solo simplificó el uso de computadoras sino que también abrió la puerta a nuevas aplicaciones y formas de trabajo, contribuyendo a la revolución digital y a la accesibilidad de la información y la productividad para una audiencia mucho más amplia.

@@ -1,0 +1,11 @@
+Caso práctico 7
+Estás diseñando una aplicación para ayudar a las personas mayores a gestionar sus medicamentos. Utilizando la metodología de Design Thinking, describe cómo abordarías este proyecto.
+
+¿Cómo aplicarías las fases de Empatía, Definición, Ideación, Prototipado y Testeo en el desarrollo de esta aplicación?
+
+Empatía: Realizaría entrevistas con personas mayores, cuidadores y farmacéuticos para entender las dificultades que enfrentan al gestionar medicamentos. Observación participante en hogares o centros de día para ver en acción sus rutinas diarias y las barreras que encuentran.
+Definición: Sintetizaría toda la información recogida para definir claramente el problema. Podríamos formular una declaración de problema como: "Necesitamos una solución que ayude a las personas mayores a recordar y administrar sus medicamentos de manera simple y accesible."
+Ideación: Organizaría una sesión de brainstorming con especialistas en geriatría, diseñadores y desarrolladores, donde se generarían ideas como recordatorios auditivos y visuales, interfaces de usuario con texto grande y contrastes altos, o integración con sistemas de recordatorio de citas médicas.
+Prototipado: Crearía prototipos de baja fidelidad, quizás comenzando con bocetos a mano, luego avanzando a wireframes y finalmente a prototipos interactivos en plataformas como Figma. Estos prototipos podrían incluir características como un calendario de medicación, alertas audibles, y una interfaz simplificada.
+Testeo: Testearía los prototipos con un grupo de personas mayores en diferentes condiciones de accesibilidad tecnológica. Recolectaría feedback sobre la usabilidad, la claridad de las instrucciones y la efectividad de los recordatorios. Basado en este feedback, se iteraría sobre el diseño hasta alcanzar una solución que sea verdaderamente centrada en el usuario.
+Este enfoque asegura que la aplicación se adapte no solo a las necesidades funcionales sino también a las capacidades y preferencias de su público objetivo.
