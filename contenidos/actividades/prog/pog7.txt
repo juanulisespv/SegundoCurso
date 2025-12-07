@@ -1,0 +1,85 @@
+Ejercicio 7. Creación y Representación de un Modelo Conceptual para un Sistema de Gestión de Reservas en un Restaurante
+Un restaurante desea implementar un sistema para gestionar las reservas de sus clientes. El sistema debe permitir:
+
+Registrar clientes con su nombre, correo electrónico y número de teléfono.
+Permitir a los clientes realizar reservas especificando fecha, hora, número de personas y preferencia de mesa.
+Gestionar la disponibilidad de las mesas, considerando el número de personas.
+Asignar un empleado (mesero) a las reservas para atenderlas.
+
+Identifica las clases principales, atributos y métodos necesarios para el sistema.
+Crea un diagrama UML que represente las clases y sus relaciones (asociación, composición, herencia).
+Explica cómo se implementarían las clases y relaciones en Python.
+1. Identificación de Clases, Atributos y Métodos:
+
+Cliente:
+
+Atributos: idCliente, nombre, correo, telefono.
+Métodos: registrarse(), consultarReservas().
+Reserva:
+Atributos: idReserva, fecha, hora, numPersonas, mesa, empleado.
+Métodos: crearReserva(), cancelarReserva().
+Mesa:
+Atributos: idMesa, numAsientos, disponible.
+Métodos: actualizarDisponibilidad().
+Empleado:
+Atributos: idEmpleado, nombre, cargo.
+Métodos: asignarReserva().
+2. Diagrama UML:
+
+
+
+3. Implementación en Python:
+
+class Cliente:
+
+    def __init__(self, idCliente, nombre, correo, telefono):
+
+        self.idCliente = idCliente
+
+        self.nombre = nombre
+
+        self.correo = correo
+
+        self.telefono = telefono
+
+ 
+
+class Mesa:
+
+    def __init__(self, idMesa, numAsientos, disponible):
+
+        self.idMesa = idMesa
+
+        self.numAsientos = numAsientos
+
+        self.disponible = disponible
+
+ 
+
+class Reserva:
+
+    def __init__(self, idReserva, fecha, hora, numPersonas, mesa, empleado):
+
+        self.idReserva = idReserva
+
+        self.fecha = fecha
+
+        self.hora = hora
+
+        self.numPersonas = numPersonas
+
+        self.mesa = mesa
+
+        self.empleado = empleado
+
+ 
+
+class Empleado:
+
+    def __init__(self, idEmpleado, nombre, cargo):
+
+        self.idEmpleado = idEmpleado
+
+        self.nombre = nombre
+
+        self.cargo = cargo

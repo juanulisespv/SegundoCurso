@@ -1,0 +1,22 @@
+Ejercicio 2. Análisis de Modelos de Ciclo de Vida para un Proyecto de Gestión Escolar
+Una institución educativa desea desarrollar un sistema de gestión escolar que permita gestionar estudiantes, cursos y calificaciones. El sistema debe garantizar la seguridad de los datos, ser accesible en navegadores web y cumplir con regulaciones locales de protección de datos. 
+
+
+Como parte del equipo de desarrollo, se te pide: 
+
+Describir las actividades principales de la fase de análisis y diseño en el modelo seleccionado. 
+Justificar tu elección del modelo, destacando ventajas y posibles limitaciones para este caso. 
+Analizar las características del proyecto y seleccionar un modelo de ciclo de vida adecuado (cascada, espiral, incremental o ágil). 
+1. Modelo Seleccionado: El modelo en espiral es adecuado, ya que el sistema necesita alta seguridad y cumplimiento normativo. Este modelo permite identificar y gestionar riesgos en cada iteración. 
+
+2. Justificación: Ventajas: 
+
+Gestión de riesgos en cada iteración. 
+Flexibilidad para incorporar cambios durante el desarrollo. 
+Limitaciones: 
+Costos más altos debido al análisis continuo. 
+Requiere personal con experiencia en gestión de riesgos. 
+3. Actividades: 
+
+Análisis: Identificar requisitos funcionales como la gestión de estudiantes y cursos, y no funcionales como la seguridad y escalabilidad. Realizar entrevistas con los administradores escolares. 
+Diseño: Crear diagramas de clases para las entidades principales (estudiantes, cursos). Diseñar un mockup de la interfaz para la gestión de calificaciones. 

@@ -1,0 +1,97 @@
+Ejercicio 23. Empaquetado y Despliegue de una Aplicación Web en la Nube
+Una empresa de tecnología ha desarrollado una aplicación web en Python con Flask que permite a los usuarios administrar sus tareas diarias. La aplicación incluye autenticación de usuarios, almacenamiento en bases de datos y una API REST para gestionar las tareas.
+
+El equipo de desarrollo necesita preparar la aplicación para su distribución y despliegue en la nube, asegurando que sea fácil de instalar, escalar y actualizar.
+
+
+Empaquetar la aplicación en un paquete Python utilizando setuptools y generar un ejecutable con PyInstaller.
+Configurar Docker para contenerizar la aplicación y facilitar su despliegue en cualquier entorno.
+Desplegar la aplicación en Heroku o AWS Elastic Beanstalk para que sea accesible desde internet.
+Gestionar las versiones del software usando GitFlow y crear una release documentada con un changelog en GitHub Releases.
+1. Empaquetado de la Aplicación
+
+Para distribuir la aplicación, se configura setup.py en la raíz del proyecto:
+
+from setuptools import setup, find_packages
+
+ 
+
+setup(
+
+    name="gestor_tareas",
+
+    version="1.0.0",
+
+    packages=find_packages(),
+
+    install_requires=["Flask", "SQLAlchemy"],
+
+    entry_points={"console_scripts": ["gestor_tareas=app:main"]},
+
+)
+
+Luego, se crea un ejecutable con PyInstaller:
+
+pyinstaller --onefile --name gestor_tareas app.py
+
+Esto genera un archivo ejecutable en la carpeta dist/.
+
+ 
+
+2. Configuración de Docker
+
+Se crea un Dockerfile para la aplicación:
+
+FROM python:3.9
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+
+Para construir y ejecutar la imagen Docker:
+
+docker build -t gestor_tareas .
+
+docker run -p 5000:5000 gestor_tareas
+
+ 
+
+3. Despliegue en la Nube (Heroku o AWS Elastic Beanstalk)
+
+Para desplegar en Heroku:
+
+heroku login
+
+heroku create gestor-tareas
+
+git push heroku main
+
+heroku open
+
+Para desplegar en AWS Elastic Beanstalk:
+
+eb init -p python-3.9 gestor-tareas
+
+eb create gestor-tareas-env
+
+ 
+
+4. Gestión de Versiones y Releases
+
+Se utiliza GitFlow para gestionar ramas:
+
+git flow init
+
+git flow release start v1.0.0
+
+git flow release finish v1.0.0
+
+Luego, se crea una release en GitHub Releases, adjuntando un changelog con las nuevas funcionalidades.
+
+Siguiendo estos pasos, la aplicación estará lista para ser instalada, desplegada y mantenida en producción con una estrategia clara de empaquetado, despliegue y versionado.

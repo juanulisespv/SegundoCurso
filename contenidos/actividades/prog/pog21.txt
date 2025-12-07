@@ -1,0 +1,32 @@
+Ejercicio 21. Validación de una Aplicación Multiplataforma para Reservas de Viajes
+Una agencia de viajes ha desarrollado una aplicación multiplataforma que permite a los usuarios:
+
+Buscar y reservar vuelos y hoteles desde dispositivos móviles (Android/iOS) y navegadores web.
+Realizar pagos en línea a través de tarjetas de crédito y plataformas como PayPal.
+Recibir notificaciones sobre cambios en sus reservas.
+Acceder a sus itinerarios sin conexión mediante almacenamiento en caché.
+El equipo de desarrollo necesita garantizar que la aplicación funcione correctamente en distintos dispositivos, sistemas operativos y navegadores. Para ello, han solicitado una estrategia de validación multiplataforma.
+
+
+Definir las pruebas de compatibilidad necesarias en web y dispositivos móviles.
+Planificar el uso de emuladores y pruebas en dispositivos reales.
+Determinar herramientas y metodologías para evaluar rendimiento y consumo de recursos.
+Implementar pruebas automatizadas con Appium o Selenium.
+1. Pruebas de Compatibilidad en Web y Móvil
+
+Pruebas en navegadores: Validar el funcionamiento en Chrome, Firefox, Safari y Edge para asegurar que los elementos gráficos y formularios sean consistentes.
+Pruebas en dispositivos móviles: Evaluar la interfaz y experiencia de usuario en Android (Samsung, Xiaomi, Google Pixel) y iOS (iPhone, iPad).
+Pruebas de resolución y diseño responsivo: Utilizar Google Lighthouse para evaluar la adaptación del diseño en diferentes tamaños de pantalla.
+2. Uso de Emuladores y Pruebas en Dispositivos Reales
+
+Emuladores: Android Studio Emulator y Xcode Simulator para simular la aplicación en distintos modelos sin necesidad de hardware físico.
+Dispositivos reales: Probar la aplicación en smartphones y tablets para detectar diferencias en rendimiento y comportamiento de los sensores (GPS, cámara).
+3. Evaluación de Rendimiento y Consumo de Recursos
+
+Tiempo de carga y respuesta: Medir con herramientas como JMeter y Firebase Performance Monitoring.
+Consumo de batería y memoria: Evaluar en dispositivos reales con Android Profiler y Xcode Instruments.
+4. Pruebas Automatizadas con Appium y Selenium
+
+Automatizar pruebas de UI en la web con Selenium para validar el flujo de reservas en diferentes navegadores.
+Automatizar pruebas móviles con Appium para simular toques, deslizamientos y validación de formularios.
+Esta estrategia garantiza que la aplicación de reservas sea compatible, rápida y accesible en múltiples plataformas. Con pruebas en emuladores, dispositivos reales y herramientas de automatización, se mejora la experiencia del usuario y se previenen errores antes del lanzamiento.

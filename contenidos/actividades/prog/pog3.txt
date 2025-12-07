@@ -1,0 +1,39 @@
+Ejercicio 3. Aplicación de Metodologías Ágiles y Principios de Desarrollo para un Proyecto de Software Educativo
+Una institución educativa desea desarrollar una plataforma web que permita a los estudiantes acceder a recursos educativos, participar en foros de discusión y enviar tareas para revisión. Los requisitos iniciales incluyen: 
+
+Registro y autenticación de usuarios. 
+Gestión de contenido por parte de los profesores. 
+Interacción entre estudiantes y profesores mediante foros y mensajería. 
+Función de subida y calificación de tareas. 
+El cliente ha pedido entregas frecuentes para evaluar el progreso y ajustar funcionalidades según el feedback recibido. También solicita que el equipo de desarrollo siga estándares de calidad y mantenga el código bien documentado. 
+
+
+Proponer una metodología de desarrollo adecuada para este proyecto, justificando su elección. 
+Identificar las buenas prácticas y herramientas que el equipo debería usar para garantizar la calidad del código y la validación temprana. 
+Detallar cómo integrarías las ceremonias de Scrum en el flujo de trabajo del equipo. 
+Propuesta de Solución 
+
+1. Metodología Propuesta: 
+
+ 
+Para este proyecto, la metodología Scrum es ideal. Justificación: 
+
+Permite trabajar en incrementos funcionales (por ejemplo, desarrollar primero el registro de usuarios). 
+Facilita adaptarse a los cambios en los requisitos mediante sprints cortos. 
+Promueve la colaboración constante entre el cliente y el equipo. 
+2. Buenas Prácticas y Herramientas: 
+
+Buenas Prácticas:  
+Aplicar PEP8 para asegurar un código limpio y consistente. 
+Seguir principios como DRY (evitar duplicar código) y KISS (mantener el diseño simple). 
+Herramientas:  
+Linters como pylint y flake8 para detectar errores de estilo y problemas de lógica. 
+Pruebas unitarias con pytest para validar cada funcionalidad desarrollada. 
+Sistemas de integración continua (GitHub Actions) para ejecutar validaciones automáticas al subir cambios al repositorio. 
+3. Integración de Ceremonias Scrum: 
+
+Sprint Planning: Antes de cada sprint, definir objetivos claros, como implementar el módulo de foros o la subida de tareas. 
+Reuniones Diarias: Breves encuentros para sincronizar al equipo, identificar bloqueos y planificar el día. 
+Sprint Review: Mostrar al cliente las funcionalidades completadas y recopilar feedback para priorizar ajustes. 
+Retrospectiva: Reflexionar sobre qué funcionó bien y qué debe mejorarse para aumentar la eficiencia del equipo en el siguiente sprint. 
+Esta solución garantiza un desarrollo ágil, enfocado en la calidad, con entregas frecuentes y alineado con las expectativas del cliente. 

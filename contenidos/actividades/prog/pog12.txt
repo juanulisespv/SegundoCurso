@@ -1,0 +1,77 @@
+Ejercicio 12. Implementación de una Jerarquía con Herencia y Polimorfismo
+Implementa en Python una jerarquía de clases basada en la siguiente estructura: 
+
+Clase base: Empleado con atributos nombre y salario, y un método calcular_pago(). 
+Clases derivadas:  
+Gerente, cuyo salario incluye un bono del 20%. 
+Desarrollador, cuyo salario incluye un bono del 10%. 
+
+Escribe el código en Python respetando la herencia y el polimorfismo. 
+Crea instancias de Gerente y Desarrollador, asignando un salario base de 3000€, e imprime sus respectivos salarios finales. 
+Ejemplo de salida esperada: 
+
+Gerente: Salario final = 3600€ 
+
+Desarrollador: Salario final = 3300€ 
+
+1. Código en Python respetando la herencia y el polimorfismo 
+
+La implementación en Python debe seguir los principios de la programación orientada a objetos (POO), usando herencia para reutilizar código y polimorfismo para sobrescribir métodos en las subclases. 
+
+class Empleado: 
+
+    def __init__(self, nombre, salario): 
+
+        self.nombre = nombre 
+
+        self.salario = salario 
+
+ 
+
+    def calcular_pago(self): 
+
+        return self.salario  # Método base que será sobrescrito en las subclases 
+
+ 
+
+class Gerente(Empleado): 
+
+    def calcular_pago(self): 
+
+        return self.salario * 1.2  # Bono del 20% 
+
+ 
+
+class Desarrollador(Empleado): 
+
+    def calcular_pago(self): 
+
+        return self.salario * 1.1  # Bono del 10% 
+
+Aquí, Empleado es la superclase, mientras que Gerente y Desarrollador heredan de ella y sobrescriben el método calcular_pago() para aplicar los bonos correspondientes. 
+
+ 
+
+2. Creación de instancias y cálculo del salario final 
+
+Ahora, creamos instancias de Gerente y Desarrollador con un salario base de 3000€ y verificamos que el cálculo del salario funcione correctamente. 
+
+# Creación de objetos 
+
+empleado1 = Gerente("Laura", 3000) 
+
+empleado2 = Desarrollador("Carlos", 3000) 
+
+ 
+
+# Impresión de salarios finales 
+
+print(f"Gerente: Salario final = {empleado1.calcular_pago()}€") 
+
+print(f"Desarrollador: Salario final = {empleado2.calcular_pago()}€") 
+
+Salida esperada: 
+
+Gerente: Salario final = 3600€ 
+
+Desarrollador: Salario final = 3300€ 

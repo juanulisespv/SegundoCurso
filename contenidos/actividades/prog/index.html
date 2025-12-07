@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades Programación II - Curso Universitario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Prism CSS for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #27ae60;
+            --accent-color: #f39c12;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f6f3 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 50px;
+        }
+
+        .header-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 0;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-card {
+            background: white;
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            background: var(--secondary-color);
+            color: white;
+            font-weight: 600;
+            border-bottom: none;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .scenario-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .solution-section {
+            display: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #dee2e6;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .solution-content {
+            background: #fdfefe;
+            border-radius: 8px;
+            padding: 20px;
+            color: #2c3e50;
+            border: 1px solid #e0e0e0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn-reveal {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 25px;
+            transition: all 0.3s;
+        }
+
+        .btn-reveal:hover {
+            background-color: #1e8449;
+            transform: scale(1.05);
+            color: white;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-btn:hover {
+            opacity: 1;
+            color: white;
+        }
+
+        .tema-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+        }
+
+        /* Code block styling */
+        pre {
+            border-radius: 6px;
+            margin: 1.5em 0;
+        }
+
+        code {
+            font-family: 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header-section">
+        <div class="container">
+            <div class="mb-3">
+                <a href="../../../index.html" class="back-btn">
+                    <i class="bi bi-arrow-left me-2"></i>Volver al Inicio
+                </a>
+            </div>
+            <h1 class="display-5 fw-bold">
+                <i class="bi bi-code-slash me-3"></i>Actividades Programación II
+            </h1>
+            <p class="lead mb-0 opacity-75">Ejercicios prácticos con código y despliegue</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="activities-container">
+            <!-- Activities will be injected here -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="data.js"></script>
+    <script>
+        // Simple Markdown Parser for Code Blocks
+        function parseMarkdown(text) {
+            // Replace ```language ... ``` with <pre><code>...</code></pre>
+            // We use a regex that matches ```(lang)?\n(content)\n```
+            return text.replace(/```(\w+)?\n([\s\S]*?)```/g, function (match, lang, code) {
+                const language = lang || 'python';
+                return `<pre><code class="language-${language}">${code.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`;
+            }).replace(/\n/g, '<br>');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('activities-container');
+
+            // Group data by Tema
+            const activitiesByTema = {};
+
+            progData.forEach(activity => {
+                if (!activitiesByTema[activity.tema]) {
+                    activitiesByTema[activity.tema] = [];
+                }
+                activitiesByTema[activity.tema].push(activity);
+            });
+
+            // Sort themes numerically
+            Object.keys(activitiesByTema).sort((a, b) => parseInt(a) - parseInt(b)).forEach(tema => {
+                const temaSection = document.createElement('div');
+                temaSection.className = 'mb-5';
+                temaSection.innerHTML = `<h3 class="mb-4 text-secondary border-bottom pb-2">Tema ${tema}</h3>`;
+
+                const row = document.createElement('div');
+                row.className = 'row';
+
+                activitiesByTema[tema].forEach(activity => {
+                    const col = document.createElement('div');
+                    col.className = 'col-lg-12 mb-4'; // Full width for code readability
+
+                    // Parse answer
+                    const parsedAnswer = parseMarkdown(activity.answer);
+
+                    col.innerHTML = `
+                        <div class="card activity-card h-100">
+                            <div class="card-header">
+                                <span>${activity.title}</span>
+                                <span class="tema-badge">Tema ${activity.tema}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="scenario-box">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    <strong>Escenario:</strong><br>
+                                    ${activity.scenario}
+                                </div>
+
+                                <div class="text-center mt-4">
+                                    <button class="btn btn-reveal" onclick="toggleSolution('${activity.id}')">
+                                        <i class="bi bi-eye me-2"></i>Ver Solución
+                                    </button>
+                                </div>
+
+                                <div id="sol-${activity.id}" class="solution-section">
+                                    <div class="solution-content">
+                                        ${parsedAnswer}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    row.appendChild(col);
+                });
+
+                temaSection.appendChild(row);
+                container.appendChild(temaSection);
+            });
+
+            // Re-highlight code after insertion
+            Prism.highlightAll();
+        });
+
+        function toggleSolution(id) {
+            const solutionDiv = document.getElementById(`sol-${id}`);
+            const btn = solutionDiv.previousElementSibling.querySelector('button');
+
+            if (solutionDiv.style.display === 'block') {
+                solutionDiv.style.display = 'none';
+                btn.innerHTML = '<i class="bi bi-eye me-2"></i>Ver Solución';
+            } else {
+                solutionDiv.style.display = 'block';
+                btn.innerHTML = '<i class="bi bi-eye-slash me-2"></i>Ocultar Solución';
+            }
+        }
+    </script>
+</body>
+
+</html>

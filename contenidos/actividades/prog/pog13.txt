@@ -1,0 +1,146 @@
+Ejercicio 13. Implementación de MVC en una Aplicación Web con Flask
+Un equipo de desarrollo está construyendo un sistema de gestión de tareas basado en el patrón Model-View-Controller (MVC). Se te ha asignado la tarea de diseñar la estructura del sistema en Flask, asegurando la separación de responsabilidades. 
+
+Objetivo: 
+Implementar una aplicación web sencilla que permita: 
+
+Agregar nuevas tareas. 
+Ver la lista de tareas registradas. 
+Marcar tareas como completadas. 
+
+Tareas a realizar: 
+
+Definir el modelo (Task). Debe contener un ID, un nombre de tarea y un estado (pendiente o completado). 
+Implementar el controlador. Debe gestionar las solicitudes de los usuarios y comunicarse con el modelo. 
+Crear la vista. Debe mostrar la lista de tareas y permitir agregar nuevas. 
+Para implementar MVC en Flask, la aplicación se dividirá en tres componentes: 
+
+Modelo (model.py) - Gestión de Datos 
+
+tasks = []  # Simulación de una base de datos en memoria 
+
+ 
+
+class Task: 
+
+    def __init__(self, id, nombre): 
+
+        self.id = id 
+
+        self.nombre = nombre 
+
+        self.estado = "pendiente" 
+
+ 
+
+    def completar(self): 
+
+        self.estado = "completado" 
+
+ 
+
+Controlador (app.py) - Lógica de Negocio 
+
+from flask import Flask, render_template, request, redirect 
+
+from model import Task, tasks 
+
+ 
+
+app = Flask(__name__) 
+
+ 
+
+@app.route('/') 
+
+def mostrar_tareas(): 
+
+    return render_template("index.html", tasks=tasks) 
+
+ 
+
+@app.route('/agregar', methods=['POST']) 
+
+def agregar_tarea(): 
+
+    nombre = request.form['nombre'] 
+
+    nueva_tarea = Task(len(tasks) + 1, nombre) 
+
+    tasks.append(nueva_tarea) 
+
+    return redirect('/') 
+
+ 
+
+@app.route('/completar/<int:id>') 
+
+def completar_tarea(id): 
+
+    for task in tasks: 
+
+        if task.id == id: 
+
+            task.completar() 
+
+    return redirect('/') 
+
+ 
+
+if __name__ == '__main__': 
+
+    app.run(debug=True) 
+
+ 
+
+Vista (templates/index.html) - Presentación 
+
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+    <title>Gestor de Tareas</title> 
+
+</head> 
+
+<body> 
+
+    <h1>Lista de Tareas</h1> 
+
+    <form action="/agregar" method="post"> 
+
+        <input type="text" name="nombre" placeholder="Nueva tarea" required> 
+
+        <button type="submit">Agregar</button> 
+
+    </form> 
+
+    <ul> 
+
+        {% for task in tasks %} 
+
+            <li>{{ task.nombre }} - {{ task.estado }} 
+
+                <a href="/completar/{{ task.id }}">[Marcar como completada]</a> 
+
+            </li> 
+
+        {% endfor %} 
+
+    </ul> 
+
+</body> 
+
+</html> 
+
+ 
+
+Esta implementación sigue la estructura MVC: 
+
+Modelo: Maneja los datos (Task). 
+
+Vista: Renderiza la lista de tareas (index.html). 
+
+Controlador: Gestiona la lógica de negocio (app.py). 

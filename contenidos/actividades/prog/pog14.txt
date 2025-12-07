@@ -1,0 +1,84 @@
+Ejercicio 14. Análisis y Diseño de una Aplicación Web con el Patrón MVC
+Una empresa de gestión de eventos desea desarrollar una aplicación web que permita a los usuarios registrarse en eventos, ver la lista de eventos disponibles y gestionar sus inscripciones. 
+
+El equipo de desarrollo ha decidido implementar el patrón Model-View-Controller (MVC) para garantizar una estructura modular y escalable. Como analista del proyecto, tu tarea es diseñar la arquitectura de la aplicación sin necesidad de programar código, identificando cómo se distribuirán las responsabilidades en cada componente de MVC. 
+
+
+Definir el Modelo (Model). ¿Qué entidades y atributos deben manejarse en la aplicación? 
+Diseñar la Vista (View). ¿Qué pantallas y elementos visuales necesita el usuario para interactuar con la aplicación? 
+Especificar el Controlador (Controller). ¿Qué lógica de negocio debe implementarse para conectar la vista con el modelo? 
+Explicar cómo la implementación de MVC mejora la organización y mantenimiento del sistema. 
+Para aplicar MVC en esta aplicación, la solución se estructura en los siguientes componentes: 
+
+Modelo (Model) - Gestión de Datos 
+
+El modelo se encarga de gestionar la información relacionada con los eventos y usuarios. Para este caso, se identifican dos entidades principales: 
+
+Usuario (id_usuario, nombre, email, eventos_inscritos) 
+
+Evento (id_evento, nombre_evento, fecha, capacidad, inscritos) 
+
+Cada usuario puede registrarse en múltiples eventos, por lo que se debe manejar una relación entre ambas entidades. 
+
+ 
+
+Vista (View) - Interfaz de Usuario 
+
+La vista es la interfaz con la que interactúan los usuarios. Debe contener las siguientes pantallas: 
+
+Página de inicio: Muestra los eventos disponibles. 
+
+Página de registro: Permite a los usuarios inscribirse en eventos. 
+
+Panel de usuario: Lista los eventos en los que el usuario está inscrito. 
+
+Vista de administración: Permite a los organizadores gestionar los eventos. 
+
+Los elementos visuales clave incluyen: 
+
+Formularios para inscripción. 
+
+Listados de eventos con capacidad y número de inscritos. 
+
+Botones de acción (Registrar, Cancelar inscripción). 
+
+ 
+
+3. Controlador (Controller) - Lógica de Negocio 
+
+El controlador gestiona la comunicación entre la vista y el modelo, ejecutando la lógica de negocio. Las funciones clave incluyen: 
+
+Registrar usuario en un evento: 
+
+Validar que el usuario no esté inscrito previamente. 
+Verificar que el evento tenga plazas disponibles. 
+Guardar la inscripción en la base de datos. 
+Mostrar eventos disponibles: 
+
+Obtener eventos desde el modelo y enviarlos a la vista. 
+
+Cancelar inscripción de un usuario: 
+
+Eliminar la relación entre el usuario y el evento en la base de datos. 
+
+ 
+
+4. Beneficios de Usar MVC en Este Proyecto 
+
+El uso del patrón MVC en esta aplicación ofrece múltiples ventajas: 
+
+Separación de responsabilidades: 
+
+Los datos (Model), la interfaz (View) y la lógica de negocio (Controller) están claramente diferenciados. 
+
+Mantenibilidad: 
+
+Se pueden actualizar o agregar nuevas funcionalidades sin afectar toda la aplicación. 
+
+Escalabilidad: 
+
+Si la aplicación crece, se pueden integrar nuevas vistas o modelos sin modificar el controlador principal. 
+
+Reutilización: 
+
+Los componentes del modelo pueden ser reutilizados en diferentes partes del sistema. 

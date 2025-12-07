@@ -1,0 +1,95 @@
+Ejercicio 11. Análisis de un Diagrama UML
+A continuación, se presenta un diagrama de clases UML que representa una jerarquía de clases en un sistema de gestión de vehículos: 
+
+
+
+¿Qué tipo de relación existe entre la clase Vehiculo y las clases Coche y Moto? Justifica tu respuesta. 
+Si se quisiera implementar este modelo en Python, ¿qué palabra clave se utilizaría para establecer la herencia? 
+¿Cómo aplicarías el polimorfismo en este modelo para que cada tipo de vehículo muestre su propia información al llamar obtener_info()? 
+1. ¿Qué tipo de relación existe entre la clase Vehiculo y las clases Coche y Moto? Justifica tu respuesta. 
+
+La relación entre Vehiculo y sus subclases Coche y Moto es una relación de herencia. En UML, esto se representa con una línea con un triángulo apuntando a la superclase Vehiculo, lo que indica que Coche y Moto heredan sus atributos y métodos. 
+
+Esta relación es adecuada porque un Coche y una Moto son tipos específicos de Vehiculo (relación "es un"), lo que permite reutilizar atributos comunes (marca, modelo, año) y definir comportamientos compartidos en la superclase. 
+
+ 
+
+2. Si se quisiera implementar este modelo en Python, ¿qué palabra clave se utilizaría para establecer la herencia? 
+
+En Python, la herencia se establece utilizando la palabra clave class Subclase(Superclase). Para este caso, la implementación básica sería: 
+
+class Vehiculo: 
+
+    def __init__(self, marca, modelo, año): 
+
+        self.marca = marca 
+
+        self.modelo = modelo 
+
+        self.año = año 
+
+ 
+
+class Coche(Vehiculo): 
+
+    def __init__(self, marca, modelo, año, num_puertas): 
+
+        super().__init__(marca, modelo, año) 
+
+        self.num_puertas = num_puertas 
+
+ 
+
+class Moto(Vehiculo): 
+
+    def __init__(self, marca, modelo, año, cilindrada): 
+
+        super().__init__(marca, modelo, año) 
+
+        self.cilindrada = cilindrada 
+
+La función super() permite llamar al constructor de la clase padre Vehiculo y reutilizar su lógica en Coche y Moto. 
+
+ 
+
+3. ¿Cómo aplicarías el polimorfismo en este modelo para que cada tipo de vehículo muestre su propia información al llamar obtener_info()? 
+
+El polimorfismo permite que Coche y Moto sobrescriban el método obtener_info() de Vehiculo, personalizando su comportamiento en cada subclase. 
+
+Implementación en Python: 
+
+class Vehiculo: 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año})" 
+
+ 
+
+class Coche(Vehiculo): 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año}) - {self.num_puertas} puertas" 
+
+ 
+
+class Moto(Vehiculo): 
+
+    def obtener_info(self): 
+
+        return f"{self.marca} {self.modelo} ({self.año}) - {self.cilindrada}cc" 
+
+ 
+
+# Uso del polimorfismo 
+
+vehiculo1 = Coche("Toyota", "Corolla", 2022, 4) 
+
+vehiculo2 = Moto("Honda", "CBR600RR", 2021, 600) 
+
+ 
+
+print(vehiculo1.obtener_info())  # Toyota Corolla (2022) - 4 puertas 
+
+print(vehiculo2.obtener_info())  # Honda CBR600RR (2021) - 600cc

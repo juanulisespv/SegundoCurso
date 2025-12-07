@@ -255,6 +255,13 @@ class QuizSPA {
                               <i class="bi bi-clipboard-check me-1"></i>Actividades
                             </a>
                             ` : ''}
+                            ${key === 'programacion' ? `
+                            <a href="../contenidos/actividades/prog/index.html" 
+                               class="btn btn-sm btn-outline-success"
+                               title="Actividades del Tema ${theme.id}">
+                              <i class="bi bi-code-slash me-1"></i>Actividades
+                            </a>
+                            ` : ''}
                           </div>
                         </div>
                       </div>
