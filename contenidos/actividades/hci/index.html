@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +27,7 @@
             color: white;
             padding: 40px 0;
             margin-bottom: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .activity-card {
@@ -91,8 +92,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .btn-reveal {
@@ -124,13 +132,14 @@
         }
 
         .tema-badge {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255, 255, 255, 0.2);
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.85em;
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <div class="header-section">
@@ -150,7 +159,7 @@
     <!-- Main Content -->
     <div class="container">
         <!-- Filters/Navigation could go here -->
-        
+
         <div id="activities-container">
             <!-- Activities will be injected here -->
         </div>
@@ -161,10 +170,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('activities-container');
-            
+
             // Group data by Tema for better organization
             const activitiesByTema = {};
-            
+
             hciData.forEach(activity => {
                 if (!activitiesByTema[activity.tema]) {
                     activitiesByTema[activity.tema] = [];
@@ -173,18 +182,18 @@
             });
 
             // Iterate through themes and render
-            Object.keys(activitiesByTema).sort().forEach(tema => {
+            Object.keys(activitiesByTema).sort((a, b) => parseInt(a) - parseInt(b)).forEach(tema => {
                 const temaSection = document.createElement('div');
                 temaSection.className = 'mb-5';
                 temaSection.innerHTML = `<h3 class="mb-4 text-secondary border-bottom pb-2">Tema ${tema}</h3>`;
-                
+
                 const row = document.createElement('div');
                 row.className = 'row';
-                
+
                 activitiesByTema[tema].forEach(activity => {
                     const col = document.createElement('div');
                     col.className = 'col-lg-6 mb-4';
-                    
+
                     // Format questions list
                     const questionsHtml = activity.questions.map(q => `
                         <li class="d-flex text-start">
@@ -229,7 +238,7 @@
                     `;
                     row.appendChild(col);
                 });
-                
+
                 temaSection.appendChild(row);
                 container.appendChild(temaSection);
             });
@@ -238,7 +247,7 @@
         function toggleSolution(id) {
             const solutionDiv = document.getElementById(`sol-${id}`);
             const btn = solutionDiv.previousElementSibling.querySelector('button');
-            
+
             if (solutionDiv.style.display === 'block') {
                 solutionDiv.style.display = 'none';
                 btn.innerHTML = '<i class="bi bi-eye me-2"></i>Ver Solución';
@@ -249,4 +258,5 @@
         }
     </script>
 </body>
+
 </html>
