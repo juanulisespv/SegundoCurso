@@ -1,0 +1,32 @@
+Caso Práctico 18
+Tu equipo está desarrollando una aplicación móvil de fitness que debe funcionar tanto en Android como en iOS. Describe cómo utilizarías frameworks y herramientas para asegurar una implementación eficiente y coherente en ambas plataformas. ¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación de fitness y cómo los aplicarías?
+
+¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación de fitness y cómo los aplicarías?
+
+Para desarrollar una aplicación de fitness multiplataforma:
+
+React Native:
+
+Elegiría React Native para escribir el código una vez y compilarlo para ambas plataformas. Su principio de "escribe una vez, corre en todas partes" permite una rápida iteración y desarrollo.
+
+Aprovecharía componentes nativos de Android e iOS para asegurar que la interfaz se sienta nativa en cada sistema operativo, manteniendo la coherencia visual y de comportamiento.
+
+Expo:
+
+Utilizaría Expo para simplificar la configuración y el desarrollo inicial, permitiendo acceso a muchas funcionalidades nativas sin necesidad de configuración adicional de SDKs específicos para cada plataforma.
+
+Librerías y APIs:
+
+Integraría librerías específicas para fitness como react-native-fitness para interactuar con sensores de movimiento y datos de salud de los dispositivos.
+
+Usaría APIs para sincronización de datos en la nube, permitiendo a los usuarios acceder a su historial de ejercicios desde cualquier dispositivo.
+
+Pruebas y Desempeño:
+
+Aplicaría pruebas en emuladores y dispositivos reales para asegurar que la aplicación sea eficiente y funcional en diferentes dispositivos y versiones del sistema operativo.
+
+Optimizaría el rendimiento para que la aplicación maneje bien las gráficas de progreso y los datos de ejercicio, especialmente en dispositivos de gama baja.
+
+ 
+
+Este enfoque permitiría una implementación rápida y eficiente, manteniendo la calidad de la experiencia de usuario a través de ambas plataformas.

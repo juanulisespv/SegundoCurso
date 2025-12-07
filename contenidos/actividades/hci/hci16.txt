@@ -1,0 +1,12 @@
+Caso Práctico 16
+Tu equipo está desarrollando una aplicación web para gestionar proyectos utilizando metodologías ágiles. Describe cómo integrarías principios de diseño ágil en el proceso de desarrollo y diseño de esta aplicación. ¿Qué metodologías ágiles aplicarías para el diseño y desarrollo de tu aplicación de gestión de proyectos?
+
+¿Qué metodologías ágiles aplicarías para el diseño y desarrollo de tu aplicación de gestión de proyectos?
+Para desarrollar una aplicación de gestión de proyectos siguiendo metodologías ágiles:
+
+Iteración Rápida: Implementaría sprints de diseño y desarrollo donde cada iteración se enfoca en características específicas, permitiendo feedback y ajustes continuos. Esto asegura que el producto evolucione según las necesidades del usuario.
+Colaboración y Feedback: Fomentaría un entorno colaborativo entre diseñadores, desarrolladores y usuarios finales mediante sesiones regulares de revisión donde se presentan prototipos y se discuten mejoras. Priorización: Utilizaría técnicas como la matriz de prioridad para decidir qué características desarrollar primero, basándonos en valor para el usuario y esfuerzo de implementación, asegurando que la aplicación crezca en la dirección más útil.
+Prototipado Rápido: Crearía prototipos de baja a alta fidelidad con herramientas como Figma o Sketch para validar conceptos de diseño rápidamente, ajustando según el feedback recibido.
+Flexibilidad: Mantendría el diseño y la arquitectura del software flexible para adaptarse a cambios en los requisitos o nuevas ideas que surjan del feedback de los usuarios o el mercado.
+Evaluación Continua: Realizaría pruebas de usabilidad en cada sprint para asegurar que las mejoras en la interfaz realmente beneficien al usuario y corrijan problemas detectados.
+Este enfoque ágil permitiría que la aplicación se adapte dinámicamente a las necesidades de los usuarios, mejorando constantemente la experiencia de gestión de proyectos.

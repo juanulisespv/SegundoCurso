@@ -1,0 +1,20 @@
+
+Caso Práctico 20
+Necesitas implementar una nueva función de recordatorios en la aplicación de notas. Describe cómo abordarías el desarrollo de esta funcionalidad considerando las diferencias en el entorno de desarrollo para Android e iOS. ¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?
+
+
+¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?
+
+Para implementar la funcionalidad de recordatorios:
+
+Android:
+
+Desarrollo: Usaría Android Studio con Java o Kotlin para programar la funcionalidad. Implementaría servicios de fondo para notificaciones push usando AlarmManager o WorkManager para recordatorios.
+Interfaz: Añadiría un diálogo de fecha y hora para establecer recordatorios, siguiendo el estilo de Material Design con botones de confirmación y cancelación claros.
+Notificaciones: Utilizaría el sistema de notificaciones de Android para enviar recordatorios, personalizando las vistas de notificación para que se adapten al diseño de la app.
+iOS:
+
+Desarrollo: Trabajaría en Xcode con Swift para integrar la funcionalidad de recordatorios. Usaría UserNotifications para manejar notificaciones locales, permitiendo a los usuarios establecer recordatorios dentro de la aplicación.
+Interfaz: Implementaría una vista de selección de fecha y hora usando los controles nativos de iOS, como UIDatePicker, para mantener la coherencia con el sistema operativo.
+Notificaciones: Configuraría notificaciones que se muestren en el Centro de Notificaciones de iOS, asegurando que estas notificaciones sigan las directrices de diseño de Apple para una experiencia integrada.
+En ambos casos, la funcionalidad sería similar en términos de funcionalidad pero adaptada a las prácticas y herramientas de cada plataforma, garantizando una experiencia de usuario nativa y coherente.

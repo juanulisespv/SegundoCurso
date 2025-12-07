@@ -205,6 +205,10 @@ class QuizSPA {
               <i class="bi bi-book me-2"></i>
               Contenido Teórico
             </a>
+            <a href="../contenidos/actividades/index.html" class="btn btn-outline-success me-2">
+              <i class="bi bi-clipboard-check me-2"></i>
+              Actividades Prácticas
+            </a>
             <button class="btn btn-outline-secondary btn-sm" onclick="app.refreshThemes()">
               <i class="bi bi-arrow-clockwise me-2"></i>
               Actualizar Temas
@@ -244,6 +248,13 @@ class QuizSPA {
                                title="Contenido Teórico del Tema ${theme.id}">
                               <i class="bi bi-book me-1"></i>Teoría
                             </a>
+                            ${key === 'hci' ? `
+                            <a href="../contenidos/actividades/hci/index.html" 
+                               class="btn btn-sm btn-outline-success"
+                               title="Actividades del Tema ${theme.id}">
+                              <i class="bi bi-clipboard-check me-1"></i>Actividades
+                            </a>
+                            ` : ''}
                           </div>
                         </div>
                       </div>

@@ -1,0 +1,16 @@
+Caso Práctico 23
+Estás rediseñando un sitio web de noticias para mejorar su accesibilidad. El sitio tiene problemas con el contraste de colores, la navegación solo por ratón y la falta de alternativas textuales para contenido multimedia. Describe cómo abordarías estos problemas siguiendo las WCAG 2.1.
+
+
+¿Qué pasos tomarías para hacer que el sitio web de noticias sea más accesible según las WCAG 2.1?
+
+
+Para mejorar la accesibilidad del sitio web de noticias siguiendo las WCAG 2.1, tomaría los siguientes pasos:
+
+Contraste de Colores: Evaluaría y ajustaría el esquema de colores para asegurar que todos los textos y elementos interactivos tengan un contraste suficiente (al menos 4.5:1 para texto normal y 3:1 para texto grande, según WCAG 2.1). Utilizaría herramientas como Contrast Checker para validar.
+Navegación por Teclado: Aseguraría que todos los elementos interactivos sean accesibles mediante el teclado. Esto incluye añadir tabindex para enlaces y botones, y verificar que el orden de tabulación sea lógico. También implementaría un foco visible para el usuario.
+Alternativas Textuales: Proveería texto alternativo (alt text) para todas las imágenes, asegurando que describa adecuadamente el contenido visual. Para videos y audios, añadiría subtítulos y transcripciones, respectivamente, permitiendo a los usuarios con discapacidades auditivas o visuales acceder al contenido.
+ARIA Roles y Atributos: Implementaría ARIA (Accessible Rich Internet Applications) para mejorar la accesibilidad de los componentes dinámicos, como menús desplegables o carruseles, para que sean reconocidos y navegables por tecnologías asistivas.
+Accesibilidad de Formularios: Añadiría etiquetas claras y descriptivas para cada campo de formulario, y aseguraría que las indicaciones de error sean accesibles tanto visualmente como para lectores de pantalla.
+Pruebas de Accesibilidad: Realizaría pruebas manuales con usuarios con discapacidades y utilizaría herramientas automáticas como WAVE o Axe para identificar problemas de accesibilidad, corrigiéndolos según sea necesario.
+Estos pasos contribuirían a hacer el sitio web de noticias mucho más inclusivo, permitiendo a una audiencia más amplia acceder y disfrutar del contenido de manera efectiva.

@@ -125,5 +125,125 @@ const hciData = [
             "¿Cómo utilizarías elementos multimedia para captar la atención?"
         ],
         answer: "**Gráficos:** Fotografías inmersivas y mapas interactivos.\n\n**Audio:** Ambientes sonoros y narración de historias.\n\n**Video:** Clips de destinos y testimonios de viajeros."
+    },
+    {
+        id: "hci13",
+        tema: 7,
+        title: "Caso Práctico 13",
+        scenario: "Estás rediseñando el sitio web de una biblioteca pública con navegación confusa.",
+        questions: [
+            "¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante?"
+        ],
+        answer: "**Menú Principal Simplificado:** Etiquetas claras como 'Horarios', 'Eventos'.\n\n**Submenús Organizados:** Categorizar recursos y eventos.\n\n**Migas de Pan:** Para mostrar ruta de navegación.\n\n**Búsqueda Interna Mejorada:** Autocompletado y filtros."
+    },
+    {
+        id: "hci14",
+        tema: 7,
+        title: "Caso Práctico 14",
+        scenario: "Un sitio de comercio electrónico necesita una revisión de su estructura de navegación.",
+        questions: [
+            "¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra?"
+        ],
+        answer: "**Categorías Claras y Jerárquicas:** Rediseñar categorías principales y subcategorías.\n\n**Filtros de Navegación:** Permitir refinar por precio, marca, etc.\n\n**Navegación Lateral:** Para filtros visibles.\n\n**Búsqueda Inteligente:** Sugerencias basadas en historial."
+    },
+    {
+        id: "hci15",
+        tema: 8,
+        title: "Caso Práctico 15",
+        scenario: "Estás desarrollando un sitio web de noticias accesible en móviles y desktops.",
+        questions: [
+            "¿Cuáles son las prácticas clave del diseño responsivo que implementarías?"
+        ],
+        answer: "**Grillas Flexibles:** CSS Grid y Flexbox para ajuste fluido.\n\n**Imágenes Adaptativas:** Uso de atributo srcset.\n\n**Media Queries:** Ajustar diseño según ancho de pantalla.\n\n**Diseño Móvil Primero:** Priorizar experiencia móvil."
+    },
+    {
+        id: "hci16",
+        tema: 8,
+        title: "Caso Práctico 16",
+        scenario: "Tu equipo está desarrollando una aplicación web para gestionar proyectos utilizando metodologías ágiles.",
+        questions: [
+            "¿Qué metodologías ágiles aplicarías para el diseño y desarrollo?"
+        ],
+        answer: "**Iteración Rápida:** Sprints de diseño y desarrollo.\n\n**Colaboración y Feedback:** Sesiones regulares de revisión.\n\n**Prototipado Rápido:** Validar conceptos rápidamente.\n\n**Evaluación Continua:** Pruebas de usabilidad en cada sprint."
+    },
+    {
+        id: "hci17",
+        tema: 9,
+        title: "Caso Práctico 17",
+        scenario: "Estás desarrollando un sitio web para una pequeña empresa de productos orgánicos.",
+        questions: [
+            "¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz efectiva?"
+        ],
+        answer: "**HTML5:** Elementos semánticos y formularios mejorados.\n\n**CSS3:** Sombras, gradientes, animaciones, Flexbox y Grid.\n\n**JavaScript:** Funcionalidades interactivas (carruseles, filtros) y AJAX."
+    },
+    {
+        id: "hci18",
+        tema: 9,
+        title: "Caso Práctico 18",
+        scenario: "Tu equipo está desarrollando una aplicación móvil de fitness para Android e iOS.",
+        questions: [
+            "¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación?"
+        ],
+        answer: "**React Native:** Para desarrollo multiplataforma eficiente.\n\n**Expo:** Para simplificar configuración.\n\n**Librerías y APIs:** Específicas para fitness y sincronización en la nube.\n\n**Pruebas:** En emuladores y dispositivos reales."
+    },
+    {
+        id: "hci19",
+        tema: 10,
+        title: "Caso Práctico 19",
+        scenario: "Estás desarrollando una aplicación de notas para Android e iOS.",
+        questions: [
+            "¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?"
+        ],
+        answer: "**Android (Material Design):** Sombras, elevaciones, FAB, barra de navegación inferior.\n\n**iOS (HIG):** Diseño plano, minimalista, tab bar, gestos estándar."
+    },
+    {
+        id: "hci20",
+        tema: 10,
+        title: "Caso Práctico 20",
+        scenario: "Necesitas implementar una nueva función de recordatorios en la aplicación de notas.",
+        questions: [
+            "¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?"
+        ],
+        answer: "**Android:** AlarmManager/WorkManager, diálogos Material, notificaciones nativas.\n\n**iOS:** UserNotifications, UIDatePicker, integración con Centro de Notificaciones."
+    },
+    {
+        id: "hci21",
+        tema: 11,
+        title: "Caso Práctico 21",
+        scenario: "Una empresa de turismo quiere ofrecer una experiencia de realidad aumentada (AR).",
+        questions: [
+            "¿Qué tecnologías y métodos utilizarías para crear una experiencia de AR eficaz?"
+        ],
+        answer: "**Tecnologías:** ARKit (iOS), ARCore (Android), Unity/Unreal.\n\n**Métodos:** Reconocimiento de imagen, visualización de modelos 3D inmersivos."
+    },
+    {
+        id: "hci22",
+        tema: 11,
+        title: "Caso Práctico 22",
+        scenario: "Diseñar una experiencia educativa de VR sobre el cuerpo humano.",
+        questions: [
+            "¿Qué consideraciones y tecnologías emplearías?"
+        ],
+        answer: "**Tecnologías:** Oculus/HTC Vive, Unity/Unreal.\n\n**Consideraciones:** Modelos anatómicos precisos, interacción inmersiva, narración educativa, confort del usuario."
+    },
+    {
+        id: "hci23",
+        tema: 12,
+        title: "Caso Práctico 23",
+        scenario: "Rediseñar un sitio web de noticias para mejorar su accesibilidad según WCAG 2.1.",
+        questions: [
+            "¿Qué pasos tomarías para hacer que el sitio sea más accesible?"
+        ],
+        answer: "**Contraste:** Ajustar colores (ratio 4.5:1).\n\n**Teclado:** Navegación completa por teclado.\n\n**Alt Text:** Para imágenes.\n\n**ARIA:** Para componentes dinámicos."
+    },
+    {
+        id: "hci24",
+        tema: 12,
+        title: "Caso Práctico 24",
+        scenario: "Una aplicación móvil de salud necesita ser accesible para discapacidades visuales y auditivas.",
+        questions: [
+            "¿Qué estrategias de diseño y desarrollo usarías?"
+        ],
+        answer: "**Visual:** Alto contraste, soporte para lectores de pantalla.\n\n**Auditiva:** Transcripciones y alertas visuales/vibración.\n\n**Interacción:** Botones grandes, soporte gestual."
     }
 ];

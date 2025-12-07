@@ -1,0 +1,11 @@
+Caso Práctico 14
+Un sitio de comercio electrónico necesita una revisión de su estructura de navegación debido a quejas sobre la dificultad para encontrar productos específicos y la falta de claridad en la navegación por categorías. ¿Cómo abordarías este problema?
+
+
+¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra en un sitio de comercio electrónico?
+Para mejorar la navegación en el sitio de comercio electrónico: Categorías Claras y Jerárquicas: Rediseñaría las categorías principales para ser más intuitivas y específicas (por ejemplo, "Electrónica", "Moda", "Hogar"). Cada categoría principal tendría subcategorías que guiaran al usuario hacia productos específicos.
+
+Filtros de Navegación: Implementaría filtros avanzados en las páginas de categorías y resultados de búsqueda, permitiendo a los usuarios refinar su búsqueda por precio, marca, color, tamaño, etc., lo que reduce el tiempo para encontrar productos específicos.
+Navegación Lateral: Utilizaría una barra lateral para filtros en vistas de categoría, manteniendo la navegación principal en la parte superior, asegurando así que los usuarios siempre puedan ver y ajustar sus criterios de búsqueda. Paginación y Scroll Infinito: Ofrecería opciones tanto de paginación como de scroll infinito para ver más productos, permitiendo a los usuarios elegir la experiencia de navegación que prefieran.
+Búsqueda Inteligente: Mejoraría la herramienta de búsqueda interna para sugerir productos basados en términos de búsqueda similares o en el historial de compras del usuario.
+Estas mejoras harían que la navegación por el sitio de comercio electrónico sea más eficiente, mejorando la satisfacción del cliente y posiblemente aumentando las ventas al facilitar el acceso a los productos deseados.

@@ -1,0 +1,21 @@
+Caso Práctico 19
+Estás desarrollando una aplicación de notas para ambos sistemas operativos, Android e iOS. Describe cómo diseñarías la interfaz principal para que se sienta nativa en cada plataforma, siguiendo las directrices de Material Design para Android y Human Interface Guidelines para iOS. ¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?
+
+
+¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?
+
+Para diseñar la interfaz de una aplicación de notas que se sienta nativa en ambos sistemas:
+
+Android (Material Design):
+
+Interfaz: Usaría un diseño basado en Material Design con sombras, elevaciones y transiciones fluidas para dar profundidad y feedback visual. La paleta de colores sería vibrante pero con opciones para temas oscuros.
+Navegación: Implementaría una barra de navegación inferior con iconos claros para acceso rápido a funciones como "Notas", "Archivadas", y "Papelera". Usaría la navegación "hacia atrás" con el botón de regreso.
+Componentes: Utilizaría componentes de Material Design como Floating Action Button (FAB) para añadir una nueva nota, y listas expandibles para organizar las notas por categorías.
+iOS (Human Interface Guidelines):
+
+Interfaz: Seguiría un diseño más minimalista y plano con animaciones sutiles y transiciones naturales. La interfaz sería limpia, con un uso estratégico del espacio blanco y una tipografía clara.
+Navegación: Emplearía una tab bar en la parte inferior con etiquetas de texto bajo los iconos para "Notas", "Archivadas", "Papelera". El gesto de deslizar para regresar sería estándar.
+Componentes: En lugar de un FAB, usaría un botón de "+" en la parte superior derecha o integrado en la barra de navegación para añadir notas, y las listas serían más simples, sin la expansión que se ve en Android.
+ 
+
+Estas diferencias aseguran que la aplicación de notas se sienta intuitiva y familiar para los usuarios de cada plataforma, respetando las convenciones de diseño y las expectativas de interacción de cada sistema operativo.
