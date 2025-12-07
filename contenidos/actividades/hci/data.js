@@ -1,249 +1,242 @@
 const hciData = [
     {
-        id: "hci1",
-        tema: 1,
-        title: "Caso práctico 1",
-        scenario: "Imagina que estás diseñando una aplicación de gestión de tareas para estudiantes universitarios.",
-        questions: [
-            "¿Cómo aplicarías los principios de diseño centrado en el usuario para asegurarte de que la aplicación sea intuitiva y útil?",
-            "¿Cuáles son tres principios de diseño centrado en el usuario que utilizarías y cómo los aplicarías en este contexto?"
+        "id": "hci1",
+        "tema": 1,
+        "title": "Caso práctico 1",
+        "scenario": "Imagina que estás diseñando una aplicación de gestión de tareas para estudiantes universitarios.\n\n\n1. ¿Cómo aplicarías los principios de diseño centrado en el usuario para asegurarte de que la aplicación sea intuitiva y útil?\n\n¿Cuáles son tres principios de diseño centrado en el usuario que utilizarías y cómo los aplicarías en este contexto?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "Para diseñar una aplicación de gestión de tareas para estudiantes universitarios utilizando principios de UCD, podríamos aplicar los siguientes:\n\n**Empatía y Comprensión del Usuario:** Realizaríamos entrevistas y observaciones con estudiantes para entender sus rutinas, cómo gestionan actualmente sus tareas, y qué frustraciones o necesidades tienen.\n\n**Iteración y Prototipado:** Desarrollaríamos prototipos iniciales que podrían ser simples wireframes hasta evolucionar a mockups interactivos. Estos se someterían a pruebas de usuario.\n\n**Evaluación y Feedback Continuo:** Después de lanzar una versión beta de la aplicación, estableceríamos mecanismos para recibir feedback constante."
+        "answer": "Para diseñar una aplicación de gestión de tareas para estudiantes universitarios utilizando principios de UCD, podríamos aplicar los siguientes:\n\nEmpatía y Comprensión del Usuario: Realizaríamos entrevistas y observaciones con estudiantes para entender sus rutinas, cómo gestionan actualmente sus tareas, y qué frustraciones o necesidades tienen. Esto nos ayudaría a diseñar una interfaz que responda específicamente a sus hábitos y desafíos, como la integración con calendarios académicos o recordatorios específicos para fechas de exámenes.\n\nIteración y Prototipado: Desarrollaríamos prototipos iniciales que podrían ser simples wireframes hasta evolucionar a mockups interactivos. Estos se someterían a pruebas de usuario donde los estudiantes interactuarían con la aplicación, proporcionando feedback sobre la usabilidad. Este proceso iterativo nos permitiría ajustar la interfaz basándonos en cómo los usuarios realzan tareas comunes, como priorizar tareas o compartir listas de estudio.\n\nEvaluación y Feedback Continuo: Después de lanzar una versión beta de la aplicación, estableceríamos mecanismos para recibir feedback constante, como encuestas dentro de la app o análisis de uso. Este feedback sería crucial para hacer ajustes que mejorasen la eficiencia y la satisfacción del usuario, asegurando que la aplicación evolucione con las necesidades cambiantes de los estudiantes, como la gestión de proyectos grupales o la adaptación a diferentes semestres.\n\nEstos principios aseguran que la aplicación no solo sea funcional sino que también se ajuste a las necesidades únicas de los estudiantes universitarios, facilitando una gestión de tareas más efectiva y menos estresante."
     },
     {
-        id: "hci2",
-        tema: 1,
-        title: "Caso práctico 2",
-        scenario: "Una empresa quiere rediseñar su sitio web de comercio electrónico para mejorar la experiencia de compra de los clientes.",
-        questions: [
-            "¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural para mejorar la usabilidad?",
-            "¿Cómo podrías aplicar estos conceptos para que la experiencia de compra sea más intuitiva?"
+        "id": "hci2",
+        "tema": 1,
+        "title": "Caso práctico 2",
+        "scenario": "Una empresa quiere rediseñar su sitio web de comercio electrónico para mejorar la experiencia de compra de los clientes.\n\n¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural para mejorar la usabilidad?\n\n¿Cómo podrías aplicar estos conceptos para que la experiencia de compra sea más intuitiva?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "Para mejorar la experiencia de compra en el sitio web de comercio electrónico, aplicaríamos:\n\n**Affordances:** Los botones de 'Añadir al Carrito' deberían tener un diseño que claramente invite al clic.\n\n**Visibilidad:** Aseguraríamos que los elementos críticos como el carrito de compras y el menú de navegación sean fácilmente visibles.\n\n**Mapeo Natural:** El diseño del checkout debería reflejar el proceso de compra en el mundo real: carrito, revisión, envío, pago."
+        "answer": "Para mejorar la experiencia de compra en el sitio web de comercio electrónico, aplicaríamos:\n\nAffordances: Los botones de \"Añadir al Carrito\" deberían tener un diseño que claramente invite al clic, como resaltarse al pasar el cursor sobre ellos o tener un color contrastante. Las imágenes de los productos podrían ser interactivas, permitiendo al usuario ver más detalles o diferentes ángulos, sugiriendo que se puede interactuar con ellas.\nVisibilidad: Aseguraríamos que los elementos críticos como el carrito de compras, el menú de navegación, y las opciones de filtro por precio o categoría sean fácilmente visibles. Usaríamos indicadores claros de estado, como un contador en el icono del carrito que muestra el número de ítems añadidos, para guiar al usuario durante su viaje de compra.\nMapeo Natural: El diseño del checkout debería reflejar el proceso de compra en el mundo real: ver el carrito, revisión de productos, dirección de envío, método de pago, y confirmación. Cada paso estaría claramente delineado para que el usuario entienda fácilmente cómo avanzar a través del proceso. Los campos de formulario seguirían un flujo lógico, con botones de \"Siguiente\" o \"Anterior\" que mapeen la secuencia de acciones.\nEstos conceptos ayudarían a crear una experiencia de usuario más intuitiva, reduciendo la curva de aprendizaje y mejorando la satisfacción del cliente al hacer compras en línea."
     },
     {
-        id: "hci3",
-        tema: 2,
-        title: "Caso práctico 3",
-        scenario: "Investiga el impacto del libro 'The Design of Everyday Things' de Donald Norman en el campo de la HCI.",
-        questions: [
-            "¿Cómo este libro influenció la manera en que los diseñadores piensan sobre las interfaces y la interacción usuario-computadora?",
-            "¿Cuáles son tres conceptos clave introducidos por Norman que cambiaron la perspectiva del diseño de interfaces?"
+        "id": "hci3",
+        "tema": 2,
+        "title": "Caso práctico 3",
+        "scenario": "Investiga el impacto del libro \"The Design of Everyday Things\" de Donald Norman en el campo de la HCI.\n\n¿Cómo este libro influenció la manera en que los diseñadores piensan sobre las interfaces y la interacción usuario-computadora?\n\n¿Cuáles son tres conceptos clave introducidos por Norman que cambiaron la perspectiva del diseño de interfaces?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "\"The Design of Everyday Things\" ha sido fundamental en la formación del pensamiento moderno sobre diseño de interfaces. Conceptos clave:\n\n**Affordances:** Los objetos deben comunicar claramente cómo pueden ser usados.\n\n**Modelos Mentales:** Alinear el diseño con los modelos mentales de los usuarios.\n\n**Errores en el Diseño:** El diseño debe anticipar y manejar los errores humanos."
+        "answer": "\"The Design of Everyday Things\" ha sido fundamental en la formación del pensamiento moderno sobre diseño de interfaces y HCI. Aquí están tres conceptos clave de Norman:\n\nAffordances: Norman popularizó el término \"affordances\" en el contexto del diseño, sugiriendo que los objetos deben comunicar claramente cómo pueden ser usados. Esto influyó en que los diseñadores crearan interfaces donde los botones parecen presionables, los deslizadores invitan a ser movidos, etc., haciendo las interacciones más intuitivas y menos dependientes de instrucciones explícitas.\nModelos Mentales: El libro resaltó la importancia de alinear el diseño con los modelos mentales de los usuarios, es decir, la idea preconcebida que tienen los usuarios sobre cómo debería funcionar algo. Esto llevó a diseñadores a enfocarse en interfaces que se comportan de manera que el usuario espera, reduciendo la curva de aprendizaje y mejorando la usabilidad.\nErrores en el Diseño: Norman introdujo la idea de que los errores son parte del uso humano y que el diseño debe anticipar y manejar estos errores. Este concepto llevó a diseños que previenen errores, como confirmaciones de acciones importantes, o que facilitan la corrección de errores, como interfaces que permiten fácilmente deshacer acciones.\nEstos conceptos han guiado a los diseñadores a crear productos que no solo son funcionales sino también intuitivos y humanos, cambiando fundamentalmente el enfoque del diseño de interfaces hacia una mayor empatía con el usuario."
     },
     {
-        id: "hci4",
-        tema: 2,
-        title: "Caso práctico 4",
-        scenario: "Explora la transición desde las interfaces de línea de comandos (CLI) a las interfaces gráficas de usuario (GUI) en los años 80 y 90.",
-        questions: [
-            "¿Qué factores contribuyeron a este cambio y cómo afectó la accesibilidad de la computación?",
-            "¿Cuáles fueron las principales razones para el cambio de CLI a GUI y cómo esto democratizó el uso de la tecnología?"
+        "id": "hci4",
+        "tema": 2,
+        "title": "Caso práctico 4",
+        "scenario": "Explora la transición desde las interfaces de línea de comandos (CLI) a las interfaces gráficas de usuario (GUI) en los años 80 y 90.\n\n¿Qué factores contribuyeron a este cambio y cómo afectó la accesibilidad de la computación?\n\n¿Cuáles fueron las principales razones para el cambio de CLI a GUI y cómo esto democratizó el uso de la tecnología?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "El cambio de CLI a GUI fue impulsado por:\n\n**Usabilidad y Acceso:** Las GUIs ofrecieron una forma más intuitiva de interactuar con computadoras mediante elementos visuales.\n\n**Avances en Hardware:** El aumento en capacidad de procesamiento permitió interfaces gráficas sin comprometer rendimiento.\n\n**Democratización de la Tecnología:** Hizo la computación accesible al público general, no solo a expertos."
+        "answer": "El cambio de las interfaces de línea de comandos a las interfaces gráficas de usuario en las décadas de 1980 y 1990 fue impulsado por varios factores:\n\nUsabilidad y Acceso: Las GUIs, introducidas por sistemas como el Xerox Star y popularizadas con el Apple Macintosh, ofrecieron una forma más intuitiva y accesible de interactuar con computadoras. La adopción de elementos visuales como iconos, ventanas y menús permitió a usuarios no técnicos acceder y usar computadoras sin la necesidad de memorizar comandos textuales.\nAvances en Hardware: El aumento en la capacidad de los computadores personales, con más memoria y poder de procesamiento, hizo posible las interfaces gráficas sin comprometer significativamente el rendimiento. Esto, combinado con el desarrollo de pantallas de alta resolución, habilitó la creación de interfaces más visuales y ricas.\nDemocratización de la Tecnología: Este cambio hizo que la computación fuera más accesible al público general, no solo a profesionales o entusiastas de la informática. La GUI permitió a personas de diferentes edades, habilidades y campos de estudio interactuar con la tecnología, expandiendo así la base de usuarios y promoviendo la computación personal en hogares, escuelas y oficinas.\nLa transición a GUIs no solo simplificó el uso de computadoras sino que también abrió la puerta a nuevas aplicaciones y formas de trabajo, contribuyendo a la revolución digital y a la accesibilidad de la información y la productividad para una audiencia mucho más amplia."
     },
     {
-        id: "hci5",
-        tema: 3,
-        title: "Caso práctico 5",
-        scenario: "Estás diseñando un panel de control para operadores de tráfico aéreo.",
-        questions: [
-            "¿Cómo utilizarías la Ley de Fitts y la Ley de Hick para optimizar la interfaz?",
-            "¿De qué manera estos principios pueden ayudar a reducir el tiempo de reacción y los errores?"
+        "id": "hci5",
+        "tema": 3,
+        "title": "Caso práctico 6",
+        "scenario": "Estás rediseñando una página web de noticias para mejorar su usabilidad.\n\n¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad para mejorar la experiencia del usuario?\n\n¿De qué maneras puedes asegurar que los usuarios reciban feedback adecuado, experimenten consistencia visual y funcional, y tengan una visibilidad clara de la información en tu diseño?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "Para un panel de control de tráfico aéreo:\n\n**Ley de Fitts:** Haríamos los botones de emergencia o acciones frecuentes más grandes y cercanos al cursor para reducir el tiempo de movimiento.\n\n**Ley de Hick:** Simplificaríamos las opciones disponibles en menús críticos para reducir el tiempo de decisión, evitando sobrecarga cognitiva en momentos de alta presión."
+        "answer": "Para mejorar la usabilidad de la página web de noticias, estos conceptos se aplicarían de la siguiente manera:\n\nFeedback: Interacciones Claras: Al hacer clic en artículos, los usuarios recibirían feedback visual (cambio de color del texto o fondo del enlace) y, posiblemente, feedback auditivo para usuarios con discapacidad visual. Al cargar páginas o realizar búsquedas, mostraríamos indicadores de carga o mensajes de estado.\n\nConsistencia: Estilo Uniforme: Mantendría una paleta de colores y tipografía uniforme a través de toda la página, asegurando que los botones, enlaces y secciones de noticias tengan el mismo estilo para reducir la curva de aprendizaje.\n\nComportamiento Esperado: Las funciones como el scroll infinito para más noticias o la paginación deberían comportarse de manera consistente, permitiendo a los usuarios predecir cómo interactuar con la interfaz.\n\nVisibilidad: Estructura Clara: La disposición de la página sería intuitiva, con títulos de noticias destacados, una barra de navegación siempre visible, y secciones claras para diferentes categorías de noticias.\n\nElementos Destacados: Usaría contrastes y tamaños de fuente para destacar lo más importante, como las noticias de última hora o las más leídas, asegurando que la información clave sea inmediatamente visible.\n\nEstas prácticas harían que los usuarios se sientan más cómodos al navegar, entendiendo rápidamente cómo funciona la página y encontrando fácilmente el contenido que desean leer."
     },
     {
-        id: "hci6",
-        tema: 3,
-        title: "Caso práctico 6",
-        scenario: "Estás rediseñando una página web de noticias para mejorar su usabilidad.",
-        questions: [
-            "¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad para mejorar la experiencia del usuario?",
-            "¿De qué maneras puedes asegurar o mejorar estos aspectos?"
+        "id": "hci6",
+        "tema": 3,
+        "title": "Caso práctico 6",
+        "scenario": "Estás rediseñando una página web de noticias para mejorar su usabilidad.\n\n¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad para mejorar la experiencia del usuario?\n\n¿De qué maneras puedes asegurar que los usuarios reciban feedback adecuado, experimenten consistencia visual y funcional, y tengan una visibilidad clara de la información en tu diseño?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "Para mejorar la usabilidad:\n\n**Feedback:** Interacciones claras, como cambios de color al hacer clic o indicadores de carga.\n\n**Consistencia:** Mantener una paleta de colores y tipografía uniforme.\n\n**Visibilidad:** Estructura clara con títulos destacados y navegación siempre visible."
+        "answer": "Para mejorar la usabilidad de la página web de noticias, estos conceptos se aplicarían de la siguiente manera:\n\nFeedback: Interacciones Claras: Al hacer clic en artículos, los usuarios recibirían feedback visual (cambio de color del texto o fondo del enlace) y, posiblemente, feedback auditivo para usuarios con discapacidad visual. Al cargar páginas o realizar búsquedas, mostraríamos indicadores de carga o mensajes de estado.\n\nConsistencia: Estilo Uniforme: Mantendría una paleta de colores y tipografía uniforme a través de toda la página, asegurando que los botones, enlaces y secciones de noticias tengan el mismo estilo para reducir la curva de aprendizaje.\n\nComportamiento Esperado: Las funciones como el scroll infinito para más noticias o la paginación deberían comportarse de manera consistente, permitiendo a los usuarios predecir cómo interactuar con la interfaz.\n\nVisibilidad: Estructura Clara: La disposición de la página sería intuitiva, con títulos de noticias destacados, una barra de navegación siempre visible, y secciones claras para diferentes categorías de noticias.\n\nElementos Destacados: Usaría contrastes y tamaños de fuente para destacar lo más importante, como las noticias de última hora o las más leídas, asegurando que la información clave sea inmediatamente visible.\n\nEstas prácticas harían que los usuarios se sientan más cómodos al navegar, entendiendo rápidamente cómo funciona la página y encontrando fácilmente el contenido que desean leer."
     },
     {
-        id: "hci7",
-        tema: 4,
-        title: "Caso práctico 7",
-        scenario: "Estás diseñando una aplicación para ayudar a las personas mayores a gestionar sus medicamentos. Utilizando Design Thinking.",
-        questions: [
-            "¿Cómo aplicarías las fases de Empatía, Definición, Ideación, Prototipado y Testeo?"
+        "id": "hci7",
+        "tema": 4,
+        "title": "Caso práctico 7",
+        "scenario": "Estás diseñando una aplicación para ayudar a las personas mayores a gestionar sus medicamentos. Utilizando la metodología de Design Thinking, describe cómo abordarías este proyecto.\n\n¿Cómo aplicarías las fases de Empatía, Definición, Ideación, Prototipado y Testeo en el desarrollo de esta aplicación?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Empatía:** Entrevistas y observación de personas mayores.\n\n**Definición:** Definir el problema (e.g., recordar medicamentos).\n\n**Ideación:** Brainstorming de soluciones (recordatorios auditivos, texto grande).\n\n**Prototipado:** Desde bocetos hasta prototipos interactivos.\n\n**Testeo:** Probar con usuarios reales y ajustar basado en feedback."
+        "answer": "Empatía: Realizaría entrevistas con personas mayores, cuidadores y farmacéuticos para entender las dificultades que enfrentan al gestionar medicamentos. Observación participante en hogares o centros de día para ver en acción sus rutinas diarias y las barreras que encuentran.\nDefinición: Sintetizaría toda la información recogida para definir claramente el problema. Podríamos formular una declaración de problema como: \"Necesitamos una solución que ayude a las personas mayores a recordar y administrar sus medicamentos de manera simple y accesible.\"\nIdeación: Organizaría una sesión de brainstorming con especialistas en geriatría, diseñadores y desarrolladores, donde se generarían ideas como recordatorios auditivos y visuales, interfaces de usuario con texto grande y contrastes altos, o integración con sistemas de recordatorio de citas médicas.\nPrototipado: Crearía prototipos de baja fidelidad, quizás comenzando con bocetos a mano, luego avanzando a wireframes y finalmente a prototipos interactivos en plataformas como Figma. Estos prototipos podrían incluir características como un calendario de medicación, alertas audibles, y una interfaz simplificada.\nTesteo: Testearía los prototipos con un grupo de personas mayores en diferentes condiciones de accesibilidad tecnológica. Recolectaría feedback sobre la usabilidad, la claridad de las instrucciones y la efectividad de los recordatorios. Basado en este feedback, se iteraría sobre el diseño hasta alcanzar una solución que sea verdaderamente centrada en el usuario.\nEste enfoque asegura que la aplicación se adapte no solo a las necesidades funcionales sino también a las capacidades y preferencias de su público objetivo."
     },
     {
-        id: "hci8",
-        tema: 4,
-        title: "Caso práctico 8",
-        scenario: "Una empresa de logística desea mejorar su sistema de seguimiento de paquetes. Aplicando UCD.",
-        questions: [
-            "¿Cómo estructurarías el análisis de requisitos, el diseño conceptual y la evaluación?"
+        "id": "hci8",
+        "tema": 4,
+        "title": "Caso práctico 8",
+        "scenario": "Una empresa de logística desea mejorar su sistema de seguimiento de paquetes. Aplicando la metodología de UCD, específicamente a través del análisis de requisitos, diseño conceptual y evaluación, describe cómo llevarías a cabo este proceso.\n\n¿Cómo estructurarías el análisis de requisitos, el diseño conceptual y la evaluación para este proyecto?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Análisis de Requisitos:** Encuestas y análisis de tareas para entender necesidades.\n\n**Diseño Conceptual:** Bocetos y wireframes validados con usuarios.\n\n**Evaluación:** Prototipos interactivos probados con usuarios reales para medir facilidad de uso."
+        "answer": "Análisis de Requisitos: Recolectaría datos a través de encuestas y análisis de tareas con clientes y empleados de logística para entender qué información necesitan, cómo la consumen y qué problemas encuentran con el sistema actual.\nDefiniría requisitos funcionales (como notificaciones en tiempo real) y no funcionales (como accesibilidad para usuarios con discapacidades visuales).\nDiseño Conceptual: Desarrollaría bocetos o wireframes que reflejen diferentes formas de visualizar y interactuar con la información de seguimiento, como mapas interactivos, cronologías de entrega o alertas personalizables. Presentaría estos conceptos a grupos de usuarios para validar la dirección del diseño, asegurando que se alinee con las necesidades identificadas.\nEvaluación: Crearía prototipos interactivos y realizaría sesiones de prueba donde usuarios reales intentan seguir un paquete a través del sistema. Se observaría la facilidad de uso, la comprensión de la información y la satisfacción del usuario. Basado en las pruebas, se ajustaría el diseño, tal vez añadiendo más opciones de visualización o simplificando la interfaz para usuarios menos técnicos.\nEste proceso de UCD asegura que el nuevo sistema de seguimiento de paquetes sea intuitivo, informativo y accesible para todos los usuarios involucrados en el ciclo de entrega."
     },
     {
-        id: "hci9",
-        tema: 5,
-        title: "Caso práctico 9",
-        scenario: "Estás encargado de diseñar una nueva aplicación de fitness.",
-        questions: [
-            "Describe cómo utilizarías diferentes técnicas de prototipado para desarrollar esta aplicación.",
-            "¿Qué técnicas usarías y en qué etapa?"
+        "id": "hci9",
+        "tema": 5,
+        "title": "Caso práctico 9",
+        "scenario": "Estás encargado de diseñar una nueva aplicación de fitness que permita a los usuarios registrar sus ejercicios, seguir sus progresos y unirse a desafíos con amigos.\n\nDescribe cómo utilizarías diferentes técnicas de prototipado para desarrollar esta aplicación.\n\n¿Qué técnicas de prototipado (bocetos, wireframes, mockups, prototipos interactivos) usarías y en qué etapa del proceso de diseño?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Bocetos (Sketching):** En la fase de ideación para explorar layouts.\n\n**Wireframes:** Para estructura y flujo de navegación.\n\n**Mockups:** Alta fidelidad para diseño visual.\n\n**Prototipos Interactivos:** Para pruebas de usabilidad y validación de interacciones."
+        "answer": "Para el desarrollo de la aplicación de fitness, utilizaría las siguientes técnicas de prototipado:\n\nBocetos (Sketching): En la fase inicial de ideación, haría bocetos a mano alzada para explorar posibles layouts y flujos de usuario. Estos bocetos me ayudarían a visualizar rápidamente varias ideas sin invertir mucho tiempo, permitiendo una lluvia de ideas amplia sobre cómo podría estructurarse la aplicación.\nWireframes: Una vez identificada una dirección prometedora, crearía wireframes digitales en herramientas como Balsamiq o Figma para definir la estructura y la disposición de los elementos en cada pantalla. Esto proporcionaría una visión clara de la arquitectura de información y flujo de usuario, asegurando que la navegación sea intuitiva.\nMockups: Con el esqueleto definido, avanzaría hacia mockups en alta fidelidad usando herramientas como Adobe XD o Sketch para añadir el diseño visual, colores, tipografías y elementos gráficos. Este paso es crucial para comunicar cómo se verá la aplicación, permitiendo feedback sobre la estética y la primera impresión del diseño.\nPrototipos Interactivos: Finalmente, desarrollaría un prototipo interactivo en Figma o InVision, donde los usuarios puedan navegar por la aplicación como si fuera real. Esto permitiría pruebas de usabilidad donde los usuarios podrían interactuar con las funcionalidades principales, como registrar ejercicios o unirse a desafíos, para validar la interacción y recoger feedback detallado sobre la experiencia de usuario.\nCada técnica se usa en un momento específico para abordar diferentes aspectos del diseño, desde la conceptualización hasta la validación de la experiencia de usuario."
     },
     {
-        id: "hci10",
-        tema: 5,
-        title: "Caso práctico 10",
-        scenario: "Tu equipo está trabajando en una plataforma de e-learning accesible en múltiples dispositivos.",
-        questions: [
-            "¿Cómo abordarías el prototipado para asegurar una experiencia uniforme en desktops, tablets y smartphones?"
+        "id": "hci10",
+        "tema": 5,
+        "title": "Caso práctico 10",
+        "scenario": "Tu equipo está trabajando en una plataforma de e-learning que necesita ser accesible en múltiples dispositivos.\n\n¿Cómo abordarías el prototipado para asegurar una experiencia uniforme y usable en desktops, tablets y smartphones?\n\n¿Cuáles son las herramientas y métodos que utilizarías para crear un prototipo que responda bien a distintos tamaños de pantalla?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Herramientas de Diseño Responsivo:** Usar Figma para crear diseños que se adaptan.\n\n**Prototipos Interactivos:** Probar interacciones en diferentes resoluciones con Adobe XD.\n\n**Pruebas con Emuladores:** Verificar funcionalidad en distintos dispositivos."
+        "answer": "Para garantizar una experiencia de e-learning uniforme y usable en diferentes dispositivos:\n\nHerramientas de Diseño Responsivo: Utilizaría herramientas como Figma, que soporta el diseño responsivo, permitiendo crear una única maqueta que se adapta automáticamente a diferentes tamaños de pantalla. Esto me permitiría visualizar cómo se comporta el diseño en dispositivos desde desktops hasta smartphones.\nPrototipos Interactivos con Focalización en la Responsividad: Crearía prototipos interactivos con Adobe XD, que ofrece excelentes capacidades para diseñar y probar interacciones en diferentes resoluciones. Aquí, probaría cómo se adaptan elementos como los menús de navegación, las áreas de contenido y las áreas de interacción (como arrastrar y soltar para actividades interactivas) en cada dispositivo.\nPruebas de Usuario con Emuladores: Realizaría pruebas de usabilidad utilizando emuladores de dispositivos dentro de las herramientas de diseño o plataformas como BrowserStack para simular la experiencia real en diferentes dispositivos. Esto aseguraría que no solo la apariencia sino también la funcionalidad y la interacción sean consistentes y efectivas.\nIteración Basada en Feedback: Basándome en el feedback obtenido de las pruebas, ajustaría los diseños en las fases de wireframe y mockup para mejorar la adaptabilidad y usabilidad, asegurando que las transiciones entre vistas sean suaves y que todos los contenidos sean legibles y accesibles en cualquier dispositivo.\n \n\nEste enfoque metodológico y el uso de herramientas especializadas aseguran que el diseño sea inclusivo y funcional en el ecosistema multi-dispositivo."
     },
     {
-        id: "hci11",
-        tema: 6,
-        title: "Caso práctico 11",
-        scenario: "Estás desarrollando una aplicación educativa para enseñar idiomas.",
-        questions: [
-            "¿Cómo integrarías gráficos, audio y video para maximizar la efectividad del aprendizaje?"
+        "id": "hci11",
+        "tema": 6,
+        "title": "Caso práctico 11",
+        "scenario": "Estás desarrollando una aplicación educativa para enseñar idiomas que utiliza gráficos, audio y video para enriquecer la experiencia de aprendizaje. Describe cómo integrarías estos elementos multimedia para maximizar la efectividad del aprendizaje.\n\n\n¿Cómo aplicarías gráficos, audio y video en tu aplicación para hacer el aprendizaje de idiomas más interactivo y efectivo?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Gráficos:** Visualización de vocabulario e interacciones táctiles.\n\n**Audio:** Pronunciación nativa y conversaciones simuladas.\n\n**Video:** Lecciones en contexto real y feedback visual de instructores."
+        "answer": "Para una aplicación educativa de idiomas, la integración de multimedia sería así:\n\nGráficos:\n\nVisualización de Vocabulario: Utilizaría ilustraciones o infografías para representar palabras y conceptos, facilitando la asociación visual con el vocabulario nuevo. Por ejemplo, imágenes de objetos cotidianos para aprender sustantivos.\nInteracción: Implementaría gráficos interactivos donde los usuarios puedan tocar o arrastrar elementos para construir frases, lo que refuerza la comprensión y memorización a través de la acción.\nAudio:\n\nPronunciación: Proveería clips de audio con pronunciaciones nativas para cada palabra o frase enseñada, permitiendo a los usuarios escuchar y repetir, lo cual es clave para el aprendizaje de idiomas.\nConversaciones Simuladas: Crearía escenarios de diálogo con voces reales donde los usuarios puedan escuchar y responder, mejorando tanto su comprensión auditiva como su capacidad de hablar.\nVideo:\n\nLecciones en Contexto: Usaría videos cortos que muestran situaciones reales donde se aplica el lenguaje, por ejemplo, en un restaurante, en una tienda, ayudando a los usuarios a entender el uso del idioma en contextos culturales específicos.\nFeedback Visual: Incorporaría videos de instructores dando feedback sobre la pronunciación o el uso de frases, lo que añade una dimensión personal y motivacional al aprendizaje.\nEsta combinación de elementos multimedia no solo hace el aprendizaje más dinámico y atractivo sino que también aborda diferentes estilos de aprendizaje, mejorando la retención y la capacidad de aplicar el idioma en la práctica"
     },
     {
-        id: "hci12",
-        tema: 6,
-        title: "Caso práctico 12",
-        scenario: "Imagina que estás diseñando un sitio web para una agencia de viajes.",
-        questions: [
-            "¿Cómo utilizarías elementos multimedia para captar la atención?"
+        "id": "hci12",
+        "tema": 6,
+        "title": "Caso práctico 12",
+        "scenario": "Imagina que estás diseñando un sitio web para una agencia de viajes que quiere destacar destinos exóticos.\n\n¿Cómo utilizarías elementos multimedia para captar la atención y convencer a los usuarios de visitar estos destinos?\n\n¿Qué estrategias de uso de gráficos, audio y video aplicarías para incrementar el engagement y la persuasión en el sitio web?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Gráficos:** Fotografías inmersivas y mapas interactivos.\n\n**Audio:** Ambientes sonoros y narración de historias.\n\n**Video:** Clips de destinos y testimonios de viajeros."
+        "answer": "Para un sitio web de viajes enfocado en destinos exóticos, la estrategia multimedia sería:\n\nGráficos:\n\nFotografías Inmersivas: Usaría imágenes de alta calidad que muestren la belleza y singularidad de cada destino, con galerías interactivas donde los usuarios puedan explorar diferentes vistas o tiempos del día.\nMapas Interactivos: Incluiría mapas con puntos de interés que, al ser seleccionados, muestran imágenes o información adicional, ayudando a los usuarios a planificar y visualizar sus viajes.\nAudio:\n\nAmbientes Sonoros: Proveería pistas de audio que capturan los sonidos característicos de cada destino, como el canto de aves en la selva o el murmullo del mar, para transportar al usuario emocionalmente al lugar.\nNarración: Contaría historias o leyendas locales a través de narraciones de voz, creando una conexión cultural y emocional con el destino.\nVideo:\n\nVídeos de Destinos: Presentaría videos cortos y cautivadores que no solo muestran los paisajes sino también la vida cotidiana, la cultura y las actividades disponibles, haciendo que los destinos parezcan más accesibles y reales.\nTestimonios de Viajeros: Integraría videos de clientes que ya han visitado los destinos, compartiendo sus experiencias, lo cual actúa como un testimonio persuasivo.\nLa combinación de estos elementos multimedia transformaría el sitio web en una experiencia sensorial que no solo informa sino que también inspira y motiva a los visitantes a emprender su siguiente aventura."
     },
     {
-        id: "hci13",
-        tema: 7,
-        title: "Caso Práctico 13",
-        scenario: "Estás rediseñando el sitio web de una biblioteca pública con navegación confusa.",
-        questions: [
-            "¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante?"
+        "id": "hci13",
+        "tema": 7,
+        "title": "Caso Práctico 13",
+        "scenario": "Estás rediseñando el sitio web de una biblioteca pública. La navegación actual es confusa, y los usuarios tienen dificultad para encontrar información sobre horarios, eventos y recursos disponibles. Describe cómo mejorarías la estructura de navegación para hacerla más intuitiva.\n\n\n¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante para los usuarios de una biblioteca?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Menú Principal Simplificado:** Etiquetas claras como 'Horarios', 'Eventos'.\n\n**Submenús Organizados:** Categorizar recursos y eventos.\n\n**Migas de Pan:** Para mostrar ruta de navegación.\n\n**Búsqueda Interna Mejorada:** Autocompletado y filtros."
+        "answer": "Para mejorar la navegación del sitio web de la biblioteca, propondría lo siguiente:\n\nMenú Principal Simplificado: Implementaría un menú principal con etiquetas claras como \"Horarios\", \"Eventos\", \"Recursos\", \"Contacto\", y \"Sobre Nosotros\". Cada etiqueta debería llevar directamente a la información más relevante de esa categoría.\n\nSubmenús Organizados: Bajo \"Recursos\", habría submenús para libros, eBooks, revistas, y bases de datos. \"Eventos\" podría tener submenús por tipo de evento (lecturas, talleres, exposiciones). Esto organiza la información de manera lógica, facilitando la búsqueda. Migas de Pan (Breadcrumbs): Añadiría migas de pan para mostrar la ruta de navegación y permitir a los usuarios volver fácilmente a páginas anteriores. Por ejemplo, \"Inicio > Eventos > Talleres > Taller de Escritura Creativa\".\nBúsqueda Interna Mejorada: Incluiría una barra de búsqueda con sugerencias de autocompletado y filtros específicos para cada sección (por ejemplo, filtrar eventos por fecha o tipo).\nDiseño Responsivo: Aseguraría que la navegación sea accesible y clara en dispositivos móviles, usando un menú de hamburguesa para ahorrar espacio en pantallas pequeñas.\nEste enfoque no solo haría la información más accesible sino que también mejoraría la experiencia de usuario al proporcionar una estructura de navegación clara y orientada a las necesidades más comunes de los visitantes de la biblioteca."
     },
     {
-        id: "hci14",
-        tema: 7,
-        title: "Caso Práctico 14",
-        scenario: "Un sitio de comercio electrónico necesita una revisión de su estructura de navegación.",
-        questions: [
-            "¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra?"
+        "id": "hci14",
+        "tema": 7,
+        "title": "Caso Práctico 14",
+        "scenario": "Un sitio de comercio electrónico necesita una revisión de su estructura de navegación debido a quejas sobre la dificultad para encontrar productos específicos y la falta de claridad en la navegación por categorías. ¿Cómo abordarías este problema?\n\n\n¿Qué estrategias de navegación implementarías para mejorar la experiencia de compra en un sitio de comercio electrónico?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Categorías Claras y Jerárquicas:** Rediseñar categorías principales y subcategorías.\n\n**Filtros de Navegación:** Permitir refinar por precio, marca, etc.\n\n**Navegación Lateral:** Para filtros visibles.\n\n**Búsqueda Inteligente:** Sugerencias basadas en historial."
+        "answer": "Para mejorar la navegación en el sitio de comercio electrónico: Categorías Claras y Jerárquicas: Rediseñaría las categorías principales para ser más intuitivas y específicas (por ejemplo, \"Electrónica\", \"Moda\", \"Hogar\"). Cada categoría principal tendría subcategorías que guiaran al usuario hacia productos específicos.\n\nFiltros de Navegación: Implementaría filtros avanzados en las páginas de categorías y resultados de búsqueda, permitiendo a los usuarios refinar su búsqueda por precio, marca, color, tamaño, etc., lo que reduce el tiempo para encontrar productos específicos.\nNavegación Lateral: Utilizaría una barra lateral para filtros en vistas de categoría, manteniendo la navegación principal en la parte superior, asegurando así que los usuarios siempre puedan ver y ajustar sus criterios de búsqueda. Paginación y Scroll Infinito: Ofrecería opciones tanto de paginación como de scroll infinito para ver más productos, permitiendo a los usuarios elegir la experiencia de navegación que prefieran.\nBúsqueda Inteligente: Mejoraría la herramienta de búsqueda interna para sugerir productos basados en términos de búsqueda similares o en el historial de compras del usuario.\nEstas mejoras harían que la navegación por el sitio de comercio electrónico sea más eficiente, mejorando la satisfacción del cliente y posiblemente aumentando las ventas al facilitar el acceso a los productos deseados."
     },
     {
-        id: "hci15",
-        tema: 8,
-        title: "Caso Práctico 15",
-        scenario: "Estás desarrollando un sitio web de noticias accesible en móviles y desktops.",
-        questions: [
-            "¿Cuáles son las prácticas clave del diseño responsivo que implementarías?"
+        "id": "hci15",
+        "tema": 8,
+        "title": "Caso Práctico 15",
+        "scenario": "Estás desarrollando un sitio web de noticias que debe ser accesible tanto en dispositivos móviles como en computadoras de escritorio. Describe cómo aplicarías principios de diseño responsivo para asegurar una experiencia consistente y agradable en todas las plataformas. ¿Cuáles son las prácticas clave del diseño responsivo que implementarías en este sitio de noticias?\n\n¿Cuáles son las prácticas clave del diseño responsivo que implementarías en este sitio de noticias?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Grillas Flexibles:** CSS Grid y Flexbox para ajuste fluido.\n\n**Imágenes Adaptativas:** Uso de atributo srcset.\n\n**Media Queries:** Ajustar diseño según ancho de pantalla.\n\n**Diseño Móvil Primero:** Priorizar experiencia móvil."
+        "answer": "Para asegurar una experiencia de usuario consistente y agradable en un sitio de noticias, aplicaría:\n\nGrillas Flexibles: Utilizaría CSS Grid y Flexbox para crear una disposición de contenido que se ajuste fluidamente a diferentes tamaños de pantalla. Esto permitiría que los artículos se realineen automáticamente.\nImágenes Adaptativas: Implementaría imágenes responsivas con el atributo srcset en HTML5 para que el sitio cargue la imagen correcta basada en el tamaño del dispositivo, mejorando el rendimiento.\nMedia Queries: Emplearía media queries para ajustar el diseño según el ancho de la pantalla. Por ejemplo, cambiaría la disposición de la barra lateral de noticias destacadas a una vista apilada en dispositivos móviles.\nDiseño Móvil Primero: Comenzaría el diseño con la experiencia móvil en mente, asegurando que la navegación y el contenido sean accesibles en pantallas pequeñas, y luego expandiendo para pantallas más grandes.\nDesempeño y Velocidad: Optimizaría el sitio para cargar rápidamente en conexiones móviles, reduciendo el uso de scripts pesados y comprimiendo recursos.\nInterfaz Táctil: Aseguraría que los elementos interactivos sean lo suficientemente grandes para ser fácilmente tocados en móviles, y que la navegación sea intuitiva para usuarios táctiles.\nEste enfoque proporcionaría a los lectores una experiencia de lectura cohesiva y eficiente, independientemente del dispositivo usado."
     },
     {
-        id: "hci16",
-        tema: 8,
-        title: "Caso Práctico 16",
-        scenario: "Tu equipo está desarrollando una aplicación web para gestionar proyectos utilizando metodologías ágiles.",
-        questions: [
-            "¿Qué metodologías ágiles aplicarías para el diseño y desarrollo?"
+        "id": "hci16",
+        "tema": 8,
+        "title": "Caso Práctico 16",
+        "scenario": "Tu equipo está desarrollando una aplicación web para gestionar proyectos utilizando metodologías ágiles. Describe cómo integrarías principios de diseño ágil en el proceso de desarrollo y diseño de esta aplicación. ¿Qué metodologías ágiles aplicarías para el diseño y desarrollo de tu aplicación de gestión de proyectos?\n\n¿Qué metodologías ágiles aplicarías para el diseño y desarrollo de tu aplicación de gestión de proyectos?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Iteración Rápida:** Sprints de diseño y desarrollo.\n\n**Colaboración y Feedback:** Sesiones regulares de revisión.\n\n**Prototipado Rápido:** Validar conceptos rápidamente.\n\n**Evaluación Continua:** Pruebas de usabilidad en cada sprint."
+        "answer": "Para desarrollar una aplicación de gestión de proyectos siguiendo metodologías ágiles:\n\nIteración Rápida: Implementaría sprints de diseño y desarrollo donde cada iteración se enfoca en características específicas, permitiendo feedback y ajustes continuos. Esto asegura que el producto evolucione según las necesidades del usuario.\nColaboración y Feedback: Fomentaría un entorno colaborativo entre diseñadores, desarrolladores y usuarios finales mediante sesiones regulares de revisión donde se presentan prototipos y se discuten mejoras. Priorización: Utilizaría técnicas como la matriz de prioridad para decidir qué características desarrollar primero, basándonos en valor para el usuario y esfuerzo de implementación, asegurando que la aplicación crezca en la dirección más útil.\nPrototipado Rápido: Crearía prototipos de baja a alta fidelidad con herramientas como Figma o Sketch para validar conceptos de diseño rápidamente, ajustando según el feedback recibido.\nFlexibilidad: Mantendría el diseño y la arquitectura del software flexible para adaptarse a cambios en los requisitos o nuevas ideas que surjan del feedback de los usuarios o el mercado.\nEvaluación Continua: Realizaría pruebas de usabilidad en cada sprint para asegurar que las mejoras en la interfaz realmente beneficien al usuario y corrijan problemas detectados.\nEste enfoque ágil permitiría que la aplicación se adapte dinámicamente a las necesidades de los usuarios, mejorando constantemente la experiencia de gestión de proyectos."
     },
     {
-        id: "hci17",
-        tema: 9,
-        title: "Caso Práctico 17",
-        scenario: "Estás desarrollando un sitio web para una pequeña empresa de productos orgánicos.",
-        questions: [
-            "¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz efectiva?"
+        "id": "hci17",
+        "tema": 9,
+        "title": "Caso Práctico 17",
+        "scenario": "Estás desarrollando un sitio web para una pequeña empresa de productos orgánicos. Necesitas implementar una interfaz que sea intuitiva, accesible y visualmente atractiva. Describe cómo utilizarías HTML5, CSS3 y JavaScript para lograrlo. ¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz web efectiva para esta empresa?\n\n¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz web efectiva para esta empresa?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**HTML5:** Elementos semánticos y formularios mejorados.\n\n**CSS3:** Sombras, gradientes, animaciones, Flexbox y Grid.\n\n**JavaScript:** Funcionalidades interactivas (carruseles, filtros) y AJAX."
+        "answer": "HTML5:\n\nUtilizaría elementos semánticos como <header>, <nav>, <section>, <article>, y <footer> para mejorar la estructura y SEO, facilitando la navegación para usuarios y motores de búsqueda.\n\nImplementaría formularios mejorados con tipos de input específicos (como email y tel) para una mejor validación y experiencia de usuario.\n\nCSS3:\n\nAplicaría estilos avanzados como sombras (box-shadow, text-shadow), gradientes y animaciones para hacer la interfaz más dinámica y atractiva, manteniendo un tema de diseño que respalde la identidad de productos orgánicos.\n\nUsaría Flexbox y Grid para layouts responsivos que se adapten bien en dispositivos móviles y de escritorio, asegurando una distribución clara y accesible del contenido.\n\nEmplearía media queries para ajustar el diseño según el dispositivo, garantizando la accesibilidad y usabilidad.\n\nJavaScript:\n\nImplementaría funcionalidades interactivas como carruseles de productos, filtros dinámicos para la tienda en línea, y validaciones de formulario en tiempo real para mejorar la experiencia del usuario.\n\nUsaría AJAX para cargar contenido adicional sin recargar la página, mejorando la velocidad y la interacción, especialmente útil en la navegación por catálogos de productos.\n\n \n\nEsta combinación aseguraría una interfaz que no solo sea estética sino también funcional, accesible y optimizada para una amplia variedad de usuarios."
     },
     {
-        id: "hci18",
-        tema: 9,
-        title: "Caso Práctico 18",
-        scenario: "Tu equipo está desarrollando una aplicación móvil de fitness para Android e iOS.",
-        questions: [
-            "¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación?"
+        "id": "hci18",
+        "tema": 9,
+        "title": "Caso Práctico 18",
+        "scenario": "Tu equipo está desarrollando una aplicación móvil de fitness que debe funcionar tanto en Android como en iOS. Describe cómo utilizarías frameworks y herramientas para asegurar una implementación eficiente y coherente en ambas plataformas. ¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación de fitness y cómo los aplicarías?\n\n¿Qué frameworks y herramientas elegirías para desarrollar esta aplicación de fitness y cómo los aplicarías?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**React Native:** Para desarrollo multiplataforma eficiente.\n\n**Expo:** Para simplificar configuración.\n\n**Librerías y APIs:** Específicas para fitness y sincronización en la nube.\n\n**Pruebas:** En emuladores y dispositivos reales."
+        "answer": "Para desarrollar una aplicación de fitness multiplataforma:\n\nReact Native:\n\nElegiría React Native para escribir el código una vez y compilarlo para ambas plataformas. Su principio de \"escribe una vez, corre en todas partes\" permite una rápida iteración y desarrollo.\n\nAprovecharía componentes nativos de Android e iOS para asegurar que la interfaz se sienta nativa en cada sistema operativo, manteniendo la coherencia visual y de comportamiento.\n\nExpo:\n\nUtilizaría Expo para simplificar la configuración y el desarrollo inicial, permitiendo acceso a muchas funcionalidades nativas sin necesidad de configuración adicional de SDKs específicos para cada plataforma.\n\nLibrerías y APIs:\n\nIntegraría librerías específicas para fitness como react-native-fitness para interactuar con sensores de movimiento y datos de salud de los dispositivos.\n\nUsaría APIs para sincronización de datos en la nube, permitiendo a los usuarios acceder a su historial de ejercicios desde cualquier dispositivo.\n\nPruebas y Desempeño:\n\nAplicaría pruebas en emuladores y dispositivos reales para asegurar que la aplicación sea eficiente y funcional en diferentes dispositivos y versiones del sistema operativo.\n\nOptimizaría el rendimiento para que la aplicación maneje bien las gráficas de progreso y los datos de ejercicio, especialmente en dispositivos de gama baja.\n\n \n\nEste enfoque permitiría una implementación rápida y eficiente, manteniendo la calidad de la experiencia de usuario a través de ambas plataformas."
     },
     {
-        id: "hci19",
-        tema: 10,
-        title: "Caso Práctico 19",
-        scenario: "Estás desarrollando una aplicación de notas para Android e iOS.",
-        questions: [
-            "¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?"
+        "id": "hci19",
+        "tema": 10,
+        "title": "Caso Práctico 19",
+        "scenario": "Estás desarrollando una aplicación de notas para ambos sistemas operativos, Android e iOS. Describe cómo diseñarías la interfaz principal para que se sienta nativa en cada plataforma, siguiendo las directrices de Material Design para Android y Human Interface Guidelines para iOS. ¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?\n\n\n¿Cuáles serían las diferencias clave en el diseño de la interfaz para Android vs. iOS?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Android (Material Design):** Sombras, elevaciones, FAB, barra de navegación inferior.\n\n**iOS (HIG):** Diseño plano, minimalista, tab bar, gestos estándar."
+        "answer": "Para diseñar la interfaz de una aplicación de notas que se sienta nativa en ambos sistemas:\n\nAndroid (Material Design):\n\nInterfaz: Usaría un diseño basado en Material Design con sombras, elevaciones y transiciones fluidas para dar profundidad y feedback visual. La paleta de colores sería vibrante pero con opciones para temas oscuros.\nNavegación: Implementaría una barra de navegación inferior con iconos claros para acceso rápido a funciones como \"Notas\", \"Archivadas\", y \"Papelera\". Usaría la navegación \"hacia atrás\" con el botón de regreso.\nComponentes: Utilizaría componentes de Material Design como Floating Action Button (FAB) para añadir una nueva nota, y listas expandibles para organizar las notas por categorías.\niOS (Human Interface Guidelines):\n\nInterfaz: Seguiría un diseño más minimalista y plano con animaciones sutiles y transiciones naturales. La interfaz sería limpia, con un uso estratégico del espacio blanco y una tipografía clara.\nNavegación: Emplearía una tab bar en la parte inferior con etiquetas de texto bajo los iconos para \"Notas\", \"Archivadas\", \"Papelera\". El gesto de deslizar para regresar sería estándar.\nComponentes: En lugar de un FAB, usaría un botón de \"+\" en la parte superior derecha o integrado en la barra de navegación para añadir notas, y las listas serían más simples, sin la expansión que se ve en Android.\n \n\nEstas diferencias aseguran que la aplicación de notas se sienta intuitiva y familiar para los usuarios de cada plataforma, respetando las convenciones de diseño y las expectativas de interacción de cada sistema operativo."
     },
     {
-        id: "hci20",
-        tema: 10,
-        title: "Caso Práctico 20",
-        scenario: "Necesitas implementar una nueva función de recordatorios en la aplicación de notas.",
-        questions: [
-            "¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?"
+        "id": "hci20",
+        "tema": 10,
+        "title": "",
+        "scenario": "Caso Práctico 20\nNecesitas implementar una nueva función de recordatorios en la aplicación de notas. Describe cómo abordarías el desarrollo de esta funcionalidad considerando las diferencias en el entorno de desarrollo para Android e iOS. ¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?\n\n\n¿Cómo implementarías los recordatorios en la aplicación de notas para Android e iOS?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Android:** AlarmManager/WorkManager, diálogos Material, notificaciones nativas.\n\n**iOS:** UserNotifications, UIDatePicker, integración con Centro de Notificaciones."
+        "answer": "Para implementar la funcionalidad de recordatorios:\n\nAndroid:\n\nDesarrollo: Usaría Android Studio con Java o Kotlin para programar la funcionalidad. Implementaría servicios de fondo para notificaciones push usando AlarmManager o WorkManager para recordatorios.\nInterfaz: Añadiría un diálogo de fecha y hora para establecer recordatorios, siguiendo el estilo de Material Design con botones de confirmación y cancelación claros.\nNotificaciones: Utilizaría el sistema de notificaciones de Android para enviar recordatorios, personalizando las vistas de notificación para que se adapten al diseño de la app.\niOS:\n\nDesarrollo: Trabajaría en Xcode con Swift para integrar la funcionalidad de recordatorios. Usaría UserNotifications para manejar notificaciones locales, permitiendo a los usuarios establecer recordatorios dentro de la aplicación.\nInterfaz: Implementaría una vista de selección de fecha y hora usando los controles nativos de iOS, como UIDatePicker, para mantener la coherencia con el sistema operativo.\nNotificaciones: Configuraría notificaciones que se muestren en el Centro de Notificaciones de iOS, asegurando que estas notificaciones sigan las directrices de diseño de Apple para una experiencia integrada.\nEn ambos casos, la funcionalidad sería similar en términos de funcionalidad pero adaptada a las prácticas y herramientas de cada plataforma, garantizando una experiencia de usuario nativa y coherente."
     },
     {
-        id: "hci21",
-        tema: 11,
-        title: "Caso Práctico 21",
-        scenario: "Una empresa de turismo quiere ofrecer una experiencia de realidad aumentada (AR).",
-        questions: [
-            "¿Qué tecnologías y métodos utilizarías para crear una experiencia de AR eficaz?"
+        "id": "hci21",
+        "tema": 11,
+        "title": "Caso Práctico 21",
+        "scenario": "Una empresa de turismo quiere ofrecer una experiencia inmersiva a sus clientes antes de que reserven sus viajes. Estás encargado de diseñar una aplicación utilizando realidad aumentada (AR) para que los usuarios puedan visualizar destinos turísticos en su entorno actual. Describe cómo implementarías esta solución.\n\n\n¿Qué tecnologías y métodos utilizarías para crear una experiencia de AR eficaz para los destinos turísticos?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Tecnologías:** ARKit (iOS), ARCore (Android), Unity/Unreal.\n\n**Métodos:** Reconocimiento de imagen, visualización de modelos 3D inmersivos."
+        "answer": "Para implementar una aplicación de AR para visualizar destinos turísticos:\n\nTecnologías:\n\nARKit para iOS y ARCore para Android serían las bases para la detección de planos y posicionamiento de objetos virtuales en el entorno real.\nUnity o Unreal Engine como plataforma de desarrollo para crear experiencias AR interactivas, permitiendo una rápida iteración y diseño de escenas complejas.\nMétodos:\n\nReconocimiento de Imagen: Utilizaría reconocimiento de imagen para que los usuarios puedan escanear una foto o un folleto de un destino y ver una reconstrucción aumentada en 3D frente a ellos.\nVisualización de Destinos: Crearía modelos 3D de destinos turísticos que se superpondrían en el entorno del usuario, como si se transportaran a ese lugar. Estos modelos incluirían puntos de interés, información cultural y hasta vistas de 360 grados.\nInteracción: Permitiría a los usuarios interactuar con los destinos, por ejemplo, tocando un edificio para ver información adicional, o girando alrededor para ver el destino desde diferentes ángulos.\nIntegración con Realidad: Aseguraría que la luz, las sombras y la física del mundo real se imiten en los modelos virtuales para una mayor inmersión.\nAccesibilidad: Incluiría descripciones de voz o texto para usuarios con discapacidades visuales, asegurando que la experiencia sea inclusiva.\nEsta solución no solo proporcionaría una vista previa inmersiva de los destinos sino que también podría aumentar el compromiso y la confianza de los usuarios en sus elecciones de viaje."
     },
     {
-        id: "hci22",
-        tema: 11,
-        title: "Caso Práctico 22",
-        scenario: "Diseñar una experiencia educativa de VR sobre el cuerpo humano.",
-        questions: [
-            "¿Qué consideraciones y tecnologías emplearías?"
+        "id": "hci22",
+        "tema": 11,
+        "title": "Caso Práctico 22",
+        "scenario": "Una universidad quiere ofrecer a sus estudiantes una nueva forma de aprender mediante la realidad virtual (VR). Tu tarea es diseñar una experiencia educativa donde los estudiantes puedan explorar el cuerpo humano en VR. Describe cómo abordarías este desafío.\n\n\n¿Qué consideraciones y tecnologías emplearías para desarrollar una experiencia educativa de VR sobre el cuerpo humano?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Tecnologías:** Oculus/HTC Vive, Unity/Unreal.\n\n**Consideraciones:** Modelos anatómicos precisos, interacción inmersiva, narración educativa, confort del usuario."
+        "answer": "Para diseñar una experiencia educativa de VR sobre el cuerpo humano:\n\nTecnologías:\n\nOculus Rift, HTC Vive, o dispositivos similares para proporcionar una experiencia de inmersión completa.\nUnity o Unreal Engine para el desarrollo, dado que ambos permiten la creación de ambientes VR detallados y educativos.\nConsideraciones:\n\nModelado y Anatomía: Trabajaría con expertos en anatomía para crear modelos 3D precisos y detallados de sistemas corporales, órganos y células. Estos modelos serían interactivos, permitiendo descomposición en capas o sistemas.\nInteracción: Permitiría a los estudiantes \"viajar\" dentro del cuerpo humano, interactuar con órganos mediante controladores VR para entender su funcionamiento, y tal vez incluso simular procesos biológicos o enfermedades.\nEducación y Feedback: Implementaría narraciones de profesores o guías virtuales que expliquen lo que los estudiantes están viendo, con opciones para preguntas y respuestas en la experiencia.\nComodidad y Uso: Consideraría el confort para sesiones prolongadas, evitando mareos con movimientos suaves y ofreciendo descansos o puntos de referencia visuales.\nEvaluación: Incorporaría métodos de evaluación dentro de la VR, como mini-quizzes o tareas interactivas, para comprobar la comprensión del estudiante.\nAccesibilidad: Aseguraría que la experiencia sea accesible, con opciones para usuarios con diferentes necesidades, como controles simplificados o asistencia de voz.\nEsta solución transformaría el aprendizaje de la anatomía en una experiencia interactiva y memorable, potencialmente mejorando la retención de información y el interés en la ciencia biológica."
     },
     {
-        id: "hci23",
-        tema: 12,
-        title: "Caso Práctico 23",
-        scenario: "Rediseñar un sitio web de noticias para mejorar su accesibilidad según WCAG 2.1.",
-        questions: [
-            "¿Qué pasos tomarías para hacer que el sitio sea más accesible?"
+        "id": "hci23",
+        "tema": 12,
+        "title": "Caso Práctico 23",
+        "scenario": "Estás rediseñando un sitio web de noticias para mejorar su accesibilidad. El sitio tiene problemas con el contraste de colores, la navegación solo por ratón y la falta de alternativas textuales para contenido multimedia. Describe cómo abordarías estos problemas siguiendo las WCAG 2.1.\n\n\n¿Qué pasos tomarías para hacer que el sitio web de noticias sea más accesible según las WCAG 2.1?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Contraste:** Ajustar colores (ratio 4.5:1).\n\n**Teclado:** Navegación completa por teclado.\n\n**Alt Text:** Para imágenes.\n\n**ARIA:** Para componentes dinámicos."
+        "answer": "Para mejorar la accesibilidad del sitio web de noticias siguiendo las WCAG 2.1, tomaría los siguientes pasos:\n\nContraste de Colores: Evaluaría y ajustaría el esquema de colores para asegurar que todos los textos y elementos interactivos tengan un contraste suficiente (al menos 4.5:1 para texto normal y 3:1 para texto grande, según WCAG 2.1). Utilizaría herramientas como Contrast Checker para validar.\nNavegación por Teclado: Aseguraría que todos los elementos interactivos sean accesibles mediante el teclado. Esto incluye añadir tabindex para enlaces y botones, y verificar que el orden de tabulación sea lógico. También implementaría un foco visible para el usuario.\nAlternativas Textuales: Proveería texto alternativo (alt text) para todas las imágenes, asegurando que describa adecuadamente el contenido visual. Para videos y audios, añadiría subtítulos y transcripciones, respectivamente, permitiendo a los usuarios con discapacidades auditivas o visuales acceder al contenido.\nARIA Roles y Atributos: Implementaría ARIA (Accessible Rich Internet Applications) para mejorar la accesibilidad de los componentes dinámicos, como menús desplegables o carruseles, para que sean reconocidos y navegables por tecnologías asistivas.\nAccesibilidad de Formularios: Añadiría etiquetas claras y descriptivas para cada campo de formulario, y aseguraría que las indicaciones de error sean accesibles tanto visualmente como para lectores de pantalla.\nPruebas de Accesibilidad: Realizaría pruebas manuales con usuarios con discapacidades y utilizaría herramientas automáticas como WAVE o Axe para identificar problemas de accesibilidad, corrigiéndolos según sea necesario.\nEstos pasos contribuirían a hacer el sitio web de noticias mucho más inclusivo, permitiendo a una audiencia más amplia acceder y disfrutar del contenido de manera efectiva."
     },
     {
-        id: "hci24",
-        tema: 12,
-        title: "Caso Práctico 24",
-        scenario: "Una aplicación móvil de salud necesita ser accesible para discapacidades visuales y auditivas.",
-        questions: [
-            "¿Qué estrategias de diseño y desarrollo usarías?"
+        "id": "hci24",
+        "tema": 12,
+        "title": "Caso Práctico 24",
+        "scenario": "Una aplicación móvil de salud necesita ser accesible para todas las personas, incluyendo aquellas con discapacidades visuales y auditivas. Describe cómo diseñarías esta aplicación para cumplir con los estándares de accesibilidad.\n\n\n¿Qué estrategias de diseño y desarrollo usarías para asegurar que la aplicación de salud sea accesible?",
+        "questions": [
+            "Consulte el escenario."
         ],
-        answer: "**Visual:** Alto contraste, soporte para lectores de pantalla.\n\n**Auditiva:** Transcripciones y alertas visuales/vibración.\n\n**Interacción:** Botones grandes, soporte gestual."
+        "answer": "Para diseñar una aplicación de salud accesible:\n\nInterfaz Visual: Aseguraría un alto contraste en todos los elementos de la UI, permitiendo al usuario ajustar el modo oscuro o claro según su preferencia. Utilizaría tipografías claras y escalables.\nAccesibilidad para Discapacidades Visuales: Implementaría VoiceOver (iOS) y TalkBack (Android) compatibilidad, con descripciones de pantalla para todos los elementos interactivos. Usaría etiquetas ARIA para mejorar la navegación con lectores de pantalla.\nAccesibilidad Auditiva: Proveería transcripciones para todos los contenidos de audio, incluidos los recordatorios de salud o las guías de ejercicios. Las notificaciones importantes podrían incluir vibraciones o alertas visuales.\nInteracción y Navegación: Garantizaría que toda la navegación pueda realizarse por teclado o gestos táctiles, incluyendo la capacidad de ajustar el tamaño de los botones y espaciar adecuadamente los elementos interactivos para facilitar el toque.\nFeedback Háptico y Auditivo: Incluiría retroalimentación háptica para confirmar acciones y proporcionar información sin necesidad de feedback visual, útil para usuarios con discapacidades visuales.\nConsistencia y Simplicidad: Mantendría la interfaz lo más simple y consistente posible, siguiendo las pautas de diseño de cada plataforma (Material Design para Android, Human Interface Guidelines para iOS) para que los patrones de interacción sean predecibles.\nPruebas y Validación: Realizaría pruebas con usuarios con diferentes discapacidades para asegurar que la aplicación es usable y efectiva, ajustando el diseño según el feedback recibido.\nEstas estrategias harían que la aplicación de salud no solo fuera accesible sino también más inclusiva, asegurando que todos los usuarios puedan beneficiarse de sus funcionalidades."
     }
 ];
