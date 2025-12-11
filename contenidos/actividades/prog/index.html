@@ -203,6 +203,9 @@
                     // Parse answer using marked
                     const parsedAnswer = marked.parse(activity.answer);
 
+                    // Parse scenario using marked
+                    const parsedScenario = marked.parse(activity.scenario);
+
                     col.innerHTML = `
                         <div class="card activity-card h-100">
                             <div class="card-header">
@@ -213,7 +216,7 @@
                                 <div class="scenario-box">
                                     <i class="bi bi-info-circle me-2"></i>
                                     <strong>Escenario:</strong><br>
-                                    ${activity.scenario}
+                                    ${parsedScenario}
                                 </div>
 
                                 <div class="text-center mt-4">

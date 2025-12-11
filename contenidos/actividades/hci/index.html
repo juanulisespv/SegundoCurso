@@ -7,6 +7,7 @@
     <title>Actividades HCI - Curso Universitario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         :root {
             --primary-color: #2c3e50;
@@ -202,8 +203,9 @@
                         </li>
                     `).join('');
 
-                    // Format answer with bolding
-                    const formattedAnswer = activity.answer.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n\n/g, '<br><br>');
+                    // Format answer with marked
+                    const formattedAnswer = marked.parse(activity.answer);
+                    const formattedScenario = marked.parse(activity.scenario);
 
                     col.innerHTML = `
                         <div class="card activity-card h-100">
@@ -214,7 +216,7 @@
                             <div class="card-body">
                                 <div class="scenario-box">
                                     <i class="bi bi-info-circle me-2"></i>
-                                    "${activity.scenario}"
+                                    ${formattedScenario}
                                 </div>
                                 
                                 <ul class="list-unstyled questions-list">
