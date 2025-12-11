@@ -1,22 +1,24 @@
-Caso Práctico 22
+# Caso Práctico 22
+
+## Contexto
 Una universidad quiere ofrecer a sus estudiantes una nueva forma de aprender mediante la realidad virtual (VR). Tu tarea es diseñar una experiencia educativa donde los estudiantes puedan explorar el cuerpo humano en VR. Describe cómo abordarías este desafío.
 
+## Tareas
+- **¿Qué consideraciones y tecnologías emplearías** para desarrollar una experiencia educativa de VR sobre el cuerpo humano?
 
-¿Qué consideraciones y tecnologías emplearías para desarrollar una experiencia educativa de VR sobre el cuerpo humano?
-
-
+## Solución Propuesta
 Para diseñar una experiencia educativa de VR sobre el cuerpo humano:
 
-Tecnologías:
+### 1. Tecnologías
+- **Hardware**: Oculus Rift, HTC Vive, o dispositivos similares para proporcionar una experiencia de inmersión completa.
+- **Motores**: Unity o Unreal Engine para el desarrollo, dado que ambos permiten la creación de ambientes VR detallados y educativos.
 
-Oculus Rift, HTC Vive, o dispositivos similares para proporcionar una experiencia de inmersión completa.
-Unity o Unreal Engine para el desarrollo, dado que ambos permiten la creación de ambientes VR detallados y educativos.
-Consideraciones:
+### 2. Consideraciones
+- **Modelado y Anatomía**: Trabajaría con expertos en anatomía para crear modelos 3D precisos y detallados de sistemas corporales, órganos y células. Estos modelos serían interactivos, permitiendo descomposición en capas o sistemas.
+- **Interacción**: Permitiría a los estudiantes "viajar" dentro del cuerpo humano, interactuar con órganos mediante controladores VR para entender su funcionamiento, y tal vez incluso simular procesos biológicos o enfermedades.
+- **Educación y Feedback**: Implementaría narraciones de profesores o guías virtuales que expliquen lo que los estudiantes están viendo, con opciones para preguntas y respuestas en la experiencia.
+- **Comodidad y Uso**: Consideraría el confort para sesiones prolongadas, evitando mareos con movimientos suaves y ofreciendo descansos o puntos de referencia visuales.
+- **Evaluación**: Incorporaría métodos de evaluación dentro de la VR, como mini-quizzes o tareas interactivas, para comprobar la comprensión del estudiante.
+- **Accesibilidad**: Aseguraría que la experiencia sea accesible, con opciones para usuarios con diferentes necesidades, como controles simplificados o asistencia de voz.
 
-Modelado y Anatomía: Trabajaría con expertos en anatomía para crear modelos 3D precisos y detallados de sistemas corporales, órganos y células. Estos modelos serían interactivos, permitiendo descomposición en capas o sistemas.
-Interacción: Permitiría a los estudiantes "viajar" dentro del cuerpo humano, interactuar con órganos mediante controladores VR para entender su funcionamiento, y tal vez incluso simular procesos biológicos o enfermedades.
-Educación y Feedback: Implementaría narraciones de profesores o guías virtuales que expliquen lo que los estudiantes están viendo, con opciones para preguntas y respuestas en la experiencia.
-Comodidad y Uso: Consideraría el confort para sesiones prolongadas, evitando mareos con movimientos suaves y ofreciendo descansos o puntos de referencia visuales.
-Evaluación: Incorporaría métodos de evaluación dentro de la VR, como mini-quizzes o tareas interactivas, para comprobar la comprensión del estudiante.
-Accesibilidad: Aseguraría que la experiencia sea accesible, con opciones para usuarios con diferentes necesidades, como controles simplificados o asistencia de voz.
 Esta solución transformaría el aprendizaje de la anatomía en una experiencia interactiva y memorable, potencialmente mejorando la retención de información y el interés en la ciencia biológica.

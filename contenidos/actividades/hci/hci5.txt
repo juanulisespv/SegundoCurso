@@ -1,20 +1,26 @@
-Caso práctico 6
+# Caso práctico 6
+
+## Contexto
 Estás rediseñando una página web de noticias para mejorar su usabilidad.
 
-¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad para mejorar la experiencia del usuario?
+## Tareas
+- **¿Cómo aplicarías conceptos como feedback, consistencia y visibilidad** para mejorar la experiencia del usuario?
+- **¿De qué maneras puedes asegurar** que los usuarios reciban feedback adecuado, experimenten consistencia visual y funcional, y tengan una visibilidad clara de la información en tu diseño?
 
-¿De qué maneras puedes asegurar que los usuarios reciban feedback adecuado, experimenten consistencia visual y funcional, y tengan una visibilidad clara de la información en tu diseño?
-
+## Solución Propuesta
 Para mejorar la usabilidad de la página web de noticias, estos conceptos se aplicarían de la siguiente manera:
 
-Feedback: Interacciones Claras: Al hacer clic en artículos, los usuarios recibirían feedback visual (cambio de color del texto o fondo del enlace) y, posiblemente, feedback auditivo para usuarios con discapacidad visual. Al cargar páginas o realizar búsquedas, mostraríamos indicadores de carga o mensajes de estado.
+### 1. Feedback
+**Interacciones Claras**: Al hacer clic en artículos, los usuarios recibirían feedback visual (cambio de color del texto o fondo del enlace) y, posiblemente, feedback auditivo para usuarios con discapacidad visual. Al cargar páginas o realizar búsquedas, mostraríamos indicadores de carga o mensajes de estado.
 
-Consistencia: Estilo Uniforme: Mantendría una paleta de colores y tipografía uniforme a través de toda la página, asegurando que los botones, enlaces y secciones de noticias tengan el mismo estilo para reducir la curva de aprendizaje.
+### 2. Consistencia
+**Estilo Uniforme**: Mantendría una paleta de colores y tipografía uniforme a través de toda la página, asegurando que los botones, enlaces y secciones de noticias tengan el mismo estilo para reducir la curva de aprendizaje.
 
-Comportamiento Esperado: Las funciones como el scroll infinito para más noticias o la paginación deberían comportarse de manera consistente, permitiendo a los usuarios predecir cómo interactuar con la interfaz.
+**Comportamiento Esperado**: Las funciones como el scroll infinito para más noticias o la paginación deberían comportarse de manera consistente, permitiendo a los usuarios predecir cómo interactuar con la interfaz.
 
-Visibilidad: Estructura Clara: La disposición de la página sería intuitiva, con títulos de noticias destacados, una barra de navegación siempre visible, y secciones claras para diferentes categorías de noticias.
+### 3. Visibilidad
+**Estructura Clara**: La disposición de la página sería intuitiva, con títulos de noticias destacados, una barra de navegación siempre visible, y secciones claras para diferentes categorías de noticias.
 
-Elementos Destacados: Usaría contrastes y tamaños de fuente para destacar lo más importante, como las noticias de última hora o las más leídas, asegurando que la información clave sea inmediatamente visible.
+**Elementos Destacados**: Usaría contrastes y tamaños de fuente para destacar lo más importante, como las noticias de última hora o las más leídas, asegurando que la información clave sea inmediatamente visible.
 
 Estas prácticas harían que los usuarios se sientan más cómodos al navegar, entendiendo rápidamente cómo funciona la página y encontrando fácilmente el contenido que desean leer.

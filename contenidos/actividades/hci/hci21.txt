@@ -1,20 +1,23 @@
-Caso Práctico 21
+# Caso Práctico 21
+
+## Contexto
 Una empresa de turismo quiere ofrecer una experiencia inmersiva a sus clientes antes de que reserven sus viajes. Estás encargado de diseñar una aplicación utilizando realidad aumentada (AR) para que los usuarios puedan visualizar destinos turísticos en su entorno actual. Describe cómo implementarías esta solución.
 
+## Tareas
+- **¿Qué tecnologías y métodos utilizarías** para crear una experiencia de AR eficaz para los destinos turísticos?
 
-¿Qué tecnologías y métodos utilizarías para crear una experiencia de AR eficaz para los destinos turísticos?
-
+## Solución Propuesta
 Para implementar una aplicación de AR para visualizar destinos turísticos:
 
-Tecnologías:
+### 1. Tecnologías
+- **ARKit/ARCore**: ARKit para iOS y ARCore para Android serían las bases para la detección de planos y posicionamiento de objetos virtuales en el entorno real.
+- **Motores Gráficos**: Unity o Unreal Engine como plataforma de desarrollo para crear experiencias AR interactivas, permitiendo una rápida iteración y diseño de escenas complejas.
 
-ARKit para iOS y ARCore para Android serían las bases para la detección de planos y posicionamiento de objetos virtuales en el entorno real.
-Unity o Unreal Engine como plataforma de desarrollo para crear experiencias AR interactivas, permitiendo una rápida iteración y diseño de escenas complejas.
-Métodos:
+### 2. Métodos
+- **Reconocimiento de Imagen**: Utilizaría reconocimiento de imagen para que los usuarios puedan escanear una foto o un folleto de un destino y ver una reconstrucción aumentada en 3D frente a ellos.
+- **Visualización de Destinos**: Crearía modelos 3D de destinos turísticos que se superpondrían en el entorno del usuario, como si se transportaran a ese lugar. Estos modelos incluirían puntos de interés, información cultural y hasta vistas de 360 grados.
+- **Interacción**: Permitiría a los usuarios interactuar con los destinos, por ejemplo, tocando un edificio para ver información adicional, o girando alrededor para ver el destino desde diferentes ángulos.
+- **Integración con Realidad**: Aseguraría que la luz, las sombras y la física del mundo real se imiten en los modelos virtuales para una mayor inmersión.
+- **Accesibilidad**: Incluiría descripciones de voz o texto para usuarios con discapacidades visuales, asegurando que la experiencia sea inclusiva.
 
-Reconocimiento de Imagen: Utilizaría reconocimiento de imagen para que los usuarios puedan escanear una foto o un folleto de un destino y ver una reconstrucción aumentada en 3D frente a ellos.
-Visualización de Destinos: Crearía modelos 3D de destinos turísticos que se superpondrían en el entorno del usuario, como si se transportaran a ese lugar. Estos modelos incluirían puntos de interés, información cultural y hasta vistas de 360 grados.
-Interacción: Permitiría a los usuarios interactuar con los destinos, por ejemplo, tocando un edificio para ver información adicional, o girando alrededor para ver el destino desde diferentes ángulos.
-Integración con Realidad: Aseguraría que la luz, las sombras y la física del mundo real se imiten en los modelos virtuales para una mayor inmersión.
-Accesibilidad: Incluiría descripciones de voz o texto para usuarios con discapacidades visuales, asegurando que la experiencia sea inclusiva.
 Esta solución no solo proporcionaría una vista previa inmersiva de los destinos sino que también podría aumentar el compromiso y la confianza de los usuarios en sus elecciones de viaje.

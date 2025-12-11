@@ -1,26 +1,25 @@
-Caso práctico 12
+# Caso práctico 12
+
+## Contexto
 Imagina que estás diseñando un sitio web para una agencia de viajes que quiere destacar destinos exóticos.
 
-¿Cómo utilizarías elementos multimedia para captar la atención y convencer a los usuarios de visitar estos destinos?
+## Tareas
+- **¿Cómo utilizarías elementos multimedia para captar la atención** y convencer a los usuarios de visitar estos destinos?
+- **¿Qué estrategias de uso de gráficos, audio y video aplicarías** para incrementar el engagement y la persuasión en el sitio web?
 
-¿Qué estrategias de uso de gráficos, audio y video aplicarías para incrementar el engagement y la persuasión en el sitio web?
-
- 
-
+## Solución Propuesta
 Para un sitio web de viajes enfocado en destinos exóticos, la estrategia multimedia sería:
 
-Gráficos:
+### 1. Gráficos
+- **Fotografías Inmersivas**: Usaría imágenes de alta calidad que muestren la belleza y singularidad de cada destino, con galerías interactivas donde los usuarios puedan explorar diferentes vistas o tiempos del día.
+- **Mapas Interactivos**: Incluiría mapas con puntos de interés que, al ser seleccionados, muestran imágenes o información adicional, ayudando a los usuarios a planificar y visualizar sus viajes.
 
-Fotografías Inmersivas: Usaría imágenes de alta calidad que muestren la belleza y singularidad de cada destino, con galerías interactivas donde los usuarios puedan explorar diferentes vistas o tiempos del día.
-Mapas Interactivos: Incluiría mapas con puntos de interés que, al ser seleccionados, muestran imágenes o información adicional, ayudando a los usuarios a planificar y visualizar sus viajes.
-Audio:
+### 2. Audio
+- **Ambientes Sonoros**: Proveería pistas de audio que capturan los sonidos característicos de cada destino, como el canto de aves en la selva o el murmullo del mar, para transportar al usuario emocionalmente al lugar.
+- **Narración**: Contaría historias o leyendas locales a través de narraciones de voz, creando una conexión cultural y emocional con el destino.
 
-Ambientes Sonoros: Proveería pistas de audio que capturan los sonidos característicos de cada destino, como el canto de aves en la selva o el murmullo del mar, para transportar al usuario emocionalmente al lugar.
-Narración: Contaría historias o leyendas locales a través de narraciones de voz, creando una conexión cultural y emocional con el destino.
-Video:
+### 3. Video
+- **Vídeos de Destinos**: Presentaría videos cortos y cautivadores que no solo muestran los paisajes sino también la vida cotidiana, la cultura y las actividades disponibles, haciendo que los destinos parezcan más accesibles y reales.
+- **Testimonios de Viajeros**: Integraría videos de clientes que ya han visitado los destinos, compartiendo sus experiencias, lo cual actúa como un testimonio persuasivo.
 
-Vídeos de Destinos: Presentaría videos cortos y cautivadores que no solo muestran los paisajes sino también la vida cotidiana, la cultura y las actividades disponibles, haciendo que los destinos parezcan más accesibles y reales.
-Testimonios de Viajeros: Integraría videos de clientes que ya han visitado los destinos, compartiendo sus experiencias, lo cual actúa como un testimonio persuasivo.
 La combinación de estos elementos multimedia transformaría el sitio web en una experiencia sensorial que no solo informa sino que también inspira y motiva a los visitantes a emprender su siguiente aventura.
-
- 

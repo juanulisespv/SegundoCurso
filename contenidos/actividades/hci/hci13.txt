@@ -1,13 +1,27 @@
-Caso Práctico 13
+# Caso Práctico 13
+
+## Contexto
 Estás rediseñando el sitio web de una biblioteca pública. La navegación actual es confusa, y los usuarios tienen dificultad para encontrar información sobre horarios, eventos y recursos disponibles. Describe cómo mejorarías la estructura de navegación para hacerla más intuitiva.
 
+## Tareas
+- **¿Cómo estructurarías la navegación** para facilitar el acceso a la información más relevante para los usuarios de una biblioteca?
 
-¿Cómo estructurarías la navegación para facilitar el acceso a la información más relevante para los usuarios de una biblioteca?
+## Solución Propuesta
 Para mejorar la navegación del sitio web de la biblioteca, propondría lo siguiente:
 
-Menú Principal Simplificado: Implementaría un menú principal con etiquetas claras como "Horarios", "Eventos", "Recursos", "Contacto", y "Sobre Nosotros". Cada etiqueta debería llevar directamente a la información más relevante de esa categoría.
+### 1. Menú Principal Simplificado
+Implementaría un menú principal con etiquetas claras como "Horarios", "Eventos", "Recursos", "Contacto", y "Sobre Nosotros". Cada etiqueta debería llevar directamente a la información más relevante de esa categoría.
 
-Submenús Organizados: Bajo "Recursos", habría submenús para libros, eBooks, revistas, y bases de datos. "Eventos" podría tener submenús por tipo de evento (lecturas, talleres, exposiciones). Esto organiza la información de manera lógica, facilitando la búsqueda. Migas de Pan (Breadcrumbs): Añadiría migas de pan para mostrar la ruta de navegación y permitir a los usuarios volver fácilmente a páginas anteriores. Por ejemplo, "Inicio > Eventos > Talleres > Taller de Escritura Creativa".
-Búsqueda Interna Mejorada: Incluiría una barra de búsqueda con sugerencias de autocompletado y filtros específicos para cada sección (por ejemplo, filtrar eventos por fecha o tipo).
-Diseño Responsivo: Aseguraría que la navegación sea accesible y clara en dispositivos móviles, usando un menú de hamburguesa para ahorrar espacio en pantallas pequeñas.
+### 2. Submenús Organizados
+Bajo "Recursos", habría submenús para libros, eBooks, revistas, y bases de datos. "Eventos" podría tener submenús por tipo de evento (lecturas, talleres, exposiciones). Esto organiza la información de manera lógica, facilitando la búsqueda.
+
+### 3. Migas de Pan (Breadcrumbs)
+Añadiría migas de pan para mostrar la ruta de navegación y permitir a los usuarios volver fácilmente a páginas anteriores. Por ejemplo, "Inicio > Eventos > Talleres > Taller de Escritura Creativa".
+
+### 4. Búsqueda Interna Mejorada
+Incluiría una barra de búsqueda con sugerencias de autocompletado y filtros específicos para cada sección (por ejemplo, filtrar eventos por fecha o tipo).
+
+### 5. Diseño Responsivo
+Aseguraría que la navegación sea accesible y clara en dispositivos móviles, usando un menú de hamburguesa para ahorrar espacio en pantallas pequeñas.
+
 Este enfoque no solo haría la información más accesible sino que también mejoraría la experiencia de usuario al proporcionar una estructura de navegación clara y orientada a las necesidades más comunes de los visitantes de la biblioteca.

@@ -1,16 +1,25 @@
-Caso práctico 10
+# Caso práctico 10
+
+## Contexto
 Tu equipo está trabajando en una plataforma de e-learning que necesita ser accesible en múltiples dispositivos.
 
-¿Cómo abordarías el prototipado para asegurar una experiencia uniforme y usable en desktops, tablets y smartphones?
+## Tareas
+- **¿Cómo abordarías el prototipado para asegurar una experiencia uniforme y usable** en desktops, tablets y smartphones?
+- **¿Cuáles son las herramientas y métodos que utilizarías** para crear un prototipo que responda bien a distintos tamaños de pantalla?
 
-¿Cuáles son las herramientas y métodos que utilizarías para crear un prototipo que responda bien a distintos tamaños de pantalla?
-
+## Solución Propuesta
 Para garantizar una experiencia de e-learning uniforme y usable en diferentes dispositivos:
 
-Herramientas de Diseño Responsivo: Utilizaría herramientas como Figma, que soporta el diseño responsivo, permitiendo crear una única maqueta que se adapta automáticamente a diferentes tamaños de pantalla. Esto me permitiría visualizar cómo se comporta el diseño en dispositivos desde desktops hasta smartphones.
-Prototipos Interactivos con Focalización en la Responsividad: Crearía prototipos interactivos con Adobe XD, que ofrece excelentes capacidades para diseñar y probar interacciones en diferentes resoluciones. Aquí, probaría cómo se adaptan elementos como los menús de navegación, las áreas de contenido y las áreas de interacción (como arrastrar y soltar para actividades interactivas) en cada dispositivo.
-Pruebas de Usuario con Emuladores: Realizaría pruebas de usabilidad utilizando emuladores de dispositivos dentro de las herramientas de diseño o plataformas como BrowserStack para simular la experiencia real en diferentes dispositivos. Esto aseguraría que no solo la apariencia sino también la funcionalidad y la interacción sean consistentes y efectivas.
-Iteración Basada en Feedback: Basándome en el feedback obtenido de las pruebas, ajustaría los diseños en las fases de wireframe y mockup para mejorar la adaptabilidad y usabilidad, asegurando que las transiciones entre vistas sean suaves y que todos los contenidos sean legibles y accesibles en cualquier dispositivo.
- 
+### 1. Herramientas de Diseño Responsivo
+Utilizaría herramientas como Figma, que soporta el diseño responsivo, permitiendo crear una única maqueta que se adapta automáticamente a diferentes tamaños de pantalla. Esto me permitiría visualizar cómo se comporta el diseño en dispositivos desde desktops hasta smartphones.
+
+### 2. Prototipos Interactivos con Focalización en la Responsividad
+Crearía prototipos interactivos con Adobe XD, que ofrece excelentes capacidades para diseñar y probar interacciones en diferentes resoluciones. Aquí, probaría cómo se adaptan elementos como los menús de navegación, las áreas de contenido y las áreas de interacción (como arrastrar y soltar para actividades interactivas) en cada dispositivo.
+
+### 3. Pruebas de Usuario con Emuladores
+Realizaría pruebas de usabilidad utilizando emuladores de dispositivos dentro de las herramientas de diseño o plataformas como BrowserStack para simular la experiencia real en diferentes dispositivos. Esto aseguraría que no solo la apariencia sino también la funcionalidad y la interacción sean consistentes y efectivas.
+
+### 4. Iteración Basada en Feedback
+Basándome en el feedback obtenido de las pruebas, ajustaría los diseños en las fases de wireframe y mockup para mejorar la adaptabilidad y usabilidad, asegurando que las transiciones entre vistas sean suaves y que todos los contenidos sean legibles y accesibles en cualquier dispositivo.
 
 Este enfoque metodológico y el uso de herramientas especializadas aseguran que el diseño sea inclusivo y funcional en el ecosistema multi-dispositivo.

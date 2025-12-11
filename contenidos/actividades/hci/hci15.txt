@@ -1,13 +1,30 @@
-Caso Práctico 15
+# Caso Práctico 15
+
+## Contexto
 Estás desarrollando un sitio web de noticias que debe ser accesible tanto en dispositivos móviles como en computadoras de escritorio. Describe cómo aplicarías principios de diseño responsivo para asegurar una experiencia consistente y agradable en todas las plataformas. ¿Cuáles son las prácticas clave del diseño responsivo que implementarías en este sitio de noticias?
 
-¿Cuáles son las prácticas clave del diseño responsivo que implementarías en este sitio de noticias?
+## Tareas
+- **¿Cuáles son las prácticas clave del diseño responsivo** que implementarías en este sitio de noticias?
+
+## Solución Propuesta
 Para asegurar una experiencia de usuario consistente y agradable en un sitio de noticias, aplicaría:
 
-Grillas Flexibles: Utilizaría CSS Grid y Flexbox para crear una disposición de contenido que se ajuste fluidamente a diferentes tamaños de pantalla. Esto permitiría que los artículos se realineen automáticamente.
-Imágenes Adaptativas: Implementaría imágenes responsivas con el atributo srcset en HTML5 para que el sitio cargue la imagen correcta basada en el tamaño del dispositivo, mejorando el rendimiento.
-Media Queries: Emplearía media queries para ajustar el diseño según el ancho de la pantalla. Por ejemplo, cambiaría la disposición de la barra lateral de noticias destacadas a una vista apilada en dispositivos móviles.
-Diseño Móvil Primero: Comenzaría el diseño con la experiencia móvil en mente, asegurando que la navegación y el contenido sean accesibles en pantallas pequeñas, y luego expandiendo para pantallas más grandes.
-Desempeño y Velocidad: Optimizaría el sitio para cargar rápidamente en conexiones móviles, reduciendo el uso de scripts pesados y comprimiendo recursos.
-Interfaz Táctil: Aseguraría que los elementos interactivos sean lo suficientemente grandes para ser fácilmente tocados en móviles, y que la navegación sea intuitiva para usuarios táctiles.
+### 1. Grillas Flexibles
+Utilizaría CSS Grid y Flexbox para crear una disposición de contenido que se ajuste fluidamente a diferentes tamaños de pantalla. Esto permitiría que los artículos se realineen automáticamente.
+
+### 2. Imágenes Adaptativas
+Implementaría imágenes responsivas con el atributo srcset en HTML5 para que el sitio cargue la imagen correcta basada en el tamaño del dispositivo, mejorando el rendimiento.
+
+### 3. Media Queries
+Emplearía media queries para ajustar el diseño según el ancho de la pantalla. Por ejemplo, cambiaría la disposición de la barra lateral de noticias destacadas a una vista apilada en dispositivos móviles.
+
+### 4. Diseño Móvil Primero
+Comenzaría el diseño con la experiencia móvil en mente, asegurando que la navegación y el contenido sean accesibles en pantallas pequeñas, y luego expandiendo para pantallas más grandes.
+
+### 5. Desempeño y Velocidad
+Optimizaría el sitio para cargar rápidamente en conexiones móviles, reduciendo el uso de scripts pesados y comprimiendo recursos.
+
+### 6. Interfaz Táctil
+Aseguraría que los elementos interactivos sean lo suficientemente grandes para ser fácilmente tocados en móviles, y que la navegación sea intuitiva para usuarios táctiles.
+
 Este enfoque proporcionaría a los lectores una experiencia de lectura cohesiva y eficiente, independientemente del dispositivo usado.

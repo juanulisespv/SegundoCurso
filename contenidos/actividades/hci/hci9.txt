@@ -1,14 +1,25 @@
-Caso práctico 9
+# Caso práctico 9
+
+## Contexto
 Estás encargado de diseñar una nueva aplicación de fitness que permita a los usuarios registrar sus ejercicios, seguir sus progresos y unirse a desafíos con amigos.
 
-Describe cómo utilizarías diferentes técnicas de prototipado para desarrollar esta aplicación.
+## Tareas
+- **Describe cómo utilizarías diferentes técnicas de prototipado** para desarrollar esta aplicación.
+- **¿Qué técnicas de prototipado (bocetos, wireframes, mockups, prototipos interactivos) usarías** y en qué etapa del proceso de diseño?
 
-¿Qué técnicas de prototipado (bocetos, wireframes, mockups, prototipos interactivos) usarías y en qué etapa del proceso de diseño?
-
+## Solución Propuesta
 Para el desarrollo de la aplicación de fitness, utilizaría las siguientes técnicas de prototipado:
 
-Bocetos (Sketching): En la fase inicial de ideación, haría bocetos a mano alzada para explorar posibles layouts y flujos de usuario. Estos bocetos me ayudarían a visualizar rápidamente varias ideas sin invertir mucho tiempo, permitiendo una lluvia de ideas amplia sobre cómo podría estructurarse la aplicación.
-Wireframes: Una vez identificada una dirección prometedora, crearía wireframes digitales en herramientas como Balsamiq o Figma para definir la estructura y la disposición de los elementos en cada pantalla. Esto proporcionaría una visión clara de la arquitectura de información y flujo de usuario, asegurando que la navegación sea intuitiva.
-Mockups: Con el esqueleto definido, avanzaría hacia mockups en alta fidelidad usando herramientas como Adobe XD o Sketch para añadir el diseño visual, colores, tipografías y elementos gráficos. Este paso es crucial para comunicar cómo se verá la aplicación, permitiendo feedback sobre la estética y la primera impresión del diseño.
-Prototipos Interactivos: Finalmente, desarrollaría un prototipo interactivo en Figma o InVision, donde los usuarios puedan navegar por la aplicación como si fuera real. Esto permitiría pruebas de usabilidad donde los usuarios podrían interactuar con las funcionalidades principales, como registrar ejercicios o unirse a desafíos, para validar la interacción y recoger feedback detallado sobre la experiencia de usuario.
+### 1. Bocetos (Sketching)
+En la fase inicial de ideación, haría bocetos a mano alzada para explorar posibles layouts y flujos de usuario. Estos bocetos me ayudarían a visualizar rápidamente varias ideas sin invertir mucho tiempo, permitiendo una lluvia de ideas amplia sobre cómo podría estructurarse la aplicación.
+
+### 2. Wireframes
+Una vez identificada una dirección prometedora, crearía wireframes digitales en herramientas como Balsamiq o Figma para definir la estructura y la disposición de los elementos en cada pantalla. Esto proporcionaría una visión clara de la arquitectura de información y flujo de usuario, asegurando que la navegación sea intuitiva.
+
+### 3. Mockups
+Con el esqueleto definido, avanzaría hacia mockups en alta fidelidad usando herramientas como Adobe XD o Sketch para añadir el diseño visual, colores, tipografías y elementos gráficos. Este paso es crucial para comunicar cómo se verá la aplicación, permitiendo feedback sobre la estética y la primera impresión del diseño.
+
+### 4. Prototipos Interactivos
+Finalmente, desarrollaría un prototipo interactivo en Figma o InVision, donde los usuarios puedan navegar por la aplicación como si fuera real. Esto permitiría pruebas de usabilidad donde los usuarios podrían interactuar con las funcionalidades principales, como registrar ejercicios o unirse a desafíos, para validar la interacción y recoger feedback detallado sobre la experiencia de usuario.
+
 Cada técnica se usa en un momento específico para abordar diferentes aspectos del diseño, desde la conceptualización hasta la validación de la experiencia de usuario.

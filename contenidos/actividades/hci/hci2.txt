@@ -1,13 +1,22 @@
-Caso práctico 2
+# Caso práctico 2
+
+## Contexto
 Una empresa quiere rediseñar su sitio web de comercio electrónico para mejorar la experiencia de compra de los clientes.
 
-¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural para mejorar la usabilidad?
+## Tareas
+- **¿Cómo utilizarías los conceptos de affordances, visibilidad y mapeo natural** para mejorar la usabilidad?
+- **¿Cómo podrías aplicar estos conceptos** para que la experiencia de compra sea más intuitiva?
 
-¿Cómo podrías aplicar estos conceptos para que la experiencia de compra sea más intuitiva?
-
+## Solución Propuesta
 Para mejorar la experiencia de compra en el sitio web de comercio electrónico, aplicaríamos:
 
-Affordances: Los botones de "Añadir al Carrito" deberían tener un diseño que claramente invite al clic, como resaltarse al pasar el cursor sobre ellos o tener un color contrastante. Las imágenes de los productos podrían ser interactivas, permitiendo al usuario ver más detalles o diferentes ángulos, sugiriendo que se puede interactuar con ellas.
-Visibilidad: Aseguraríamos que los elementos críticos como el carrito de compras, el menú de navegación, y las opciones de filtro por precio o categoría sean fácilmente visibles. Usaríamos indicadores claros de estado, como un contador en el icono del carrito que muestra el número de ítems añadidos, para guiar al usuario durante su viaje de compra.
-Mapeo Natural: El diseño del checkout debería reflejar el proceso de compra en el mundo real: ver el carrito, revisión de productos, dirección de envío, método de pago, y confirmación. Cada paso estaría claramente delineado para que el usuario entienda fácilmente cómo avanzar a través del proceso. Los campos de formulario seguirían un flujo lógico, con botones de "Siguiente" o "Anterior" que mapeen la secuencia de acciones.
+### 1. Affordances
+Los botones de "Añadir al Carrito" deberían tener un diseño que claramente invite al clic, como resaltarse al pasar el cursor sobre ellos o tener un color contrastante. Las imágenes de los productos podrían ser interactivas, permitiendo al usuario ver más detalles o diferentes ángulos, sugiriendo que se puede interactuar con ellas.
+
+### 2. Visibilidad
+Aseguraríamos que los elementos críticos como el carrito de compras, el menú de navegación, y las opciones de filtro por precio o categoría sean fácilmente visibles. Usaríamos indicadores claros de estado, como un contador en el icono del carrito que muestra el número de ítems añadidos, para guiar al usuario durante su viaje de compra.
+
+### 3. Mapeo Natural
+El diseño del checkout debería reflejar el proceso de compra en el mundo real: ver el carrito, revisión de productos, dirección de envío, método de pago, y confirmación. Cada paso estaría claramente delineado para que el usuario entienda fácilmente cómo avanzar a través del proceso. Los campos de formulario seguirían un flujo lógico, con botones de "Siguiente" o "Anterior" que mapeen la secuencia de acciones.
+
 Estos conceptos ayudarían a crear una experiencia de usuario más intuitiva, reduciendo la curva de aprendizaje y mejorando la satisfacción del cliente al hacer compras en línea.

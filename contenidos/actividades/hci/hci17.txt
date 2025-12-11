@@ -1,28 +1,24 @@
-Caso Práctico 17
-Estás desarrollando un sitio web para una pequeña empresa de productos orgánicos. Necesitas implementar una interfaz que sea intuitiva, accesible y visualmente atractiva. Describe cómo utilizarías HTML5, CSS3 y JavaScript para lograrlo. ¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz web efectiva para esta empresa?
+# Caso Práctico 17
 
-¿Qué características de HTML5, CSS3 y JavaScript usarías para crear una interfaz web efectiva para esta empresa?
+## Contexto
+Estás desarrollando un sitio web para una pequeña empresa de productos orgánicos. Necesitas implementar una interfaz que sea intuitiva, accesible y visualmente atractiva. Describe cómo utilizarías HTML5, CSS3 y JavaScript para lograrlo.
 
-HTML5:
+## Tareas
+- **¿Qué características de HTML5, CSS3 y JavaScript usarías** para crear una interfaz web efectiva para esta empresa?
 
-Utilizaría elementos semánticos como <header>, <nav>, <section>, <article>, y <footer> para mejorar la estructura y SEO, facilitando la navegación para usuarios y motores de búsqueda.
+## Solución Propuesta
 
-Implementaría formularios mejorados con tipos de input específicos (como email y tel) para una mejor validación y experiencia de usuario.
+### 1. HTML5
+- Utilizaría elementos semánticos como `<header>`, `<nav>`, `<section>`, `<article>`, y `<footer>` para mejorar la estructura y SEO, facilitando la navegación para usuarios y motores de búsqueda.
+- Implementaría formularios mejorados con tipos de input específicos (como `email` y `tel`) para una mejor validación y experiencia de usuario.
 
-CSS3:
+### 2. CSS3
+- Aplicaría estilos avanzados como sombras (`box-shadow`, `text-shadow`), gradientes y animaciones para hacer la interfaz más dinámica y atractiva, manteniendo un tema de diseño que respalde la identidad de productos orgánicos.
+- Usaría Flexbox y Grid para layouts responsivos que se adapten bien en dispositivos móviles y de escritorio, asegurando una distribución clara y accesible del contenido.
+- Emplearía media queries para ajustar el diseño según el dispositivo, garantizando la accesibilidad y usabilidad.
 
-Aplicaría estilos avanzados como sombras (box-shadow, text-shadow), gradientes y animaciones para hacer la interfaz más dinámica y atractiva, manteniendo un tema de diseño que respalde la identidad de productos orgánicos.
-
-Usaría Flexbox y Grid para layouts responsivos que se adapten bien en dispositivos móviles y de escritorio, asegurando una distribución clara y accesible del contenido.
-
-Emplearía media queries para ajustar el diseño según el dispositivo, garantizando la accesibilidad y usabilidad.
-
-JavaScript:
-
-Implementaría funcionalidades interactivas como carruseles de productos, filtros dinámicos para la tienda en línea, y validaciones de formulario en tiempo real para mejorar la experiencia del usuario.
-
-Usaría AJAX para cargar contenido adicional sin recargar la página, mejorando la velocidad y la interacción, especialmente útil en la navegación por catálogos de productos.
-
- 
+### 3. JavaScript
+- Implementaría funcionalidades interactivas como carruseles de productos, filtros dinámicos para la tienda en línea, y validaciones de formulario en tiempo real para mejorar la experiencia del usuario.
+- Usaría AJAX para cargar contenido adicional sin recargar la página, mejorando la velocidad y la interacción, especialmente útil en la navegación por catálogos de productos.
 
 Esta combinación aseguraría una interfaz que no solo sea estética sino también funcional, accesible y optimizada para una amplia variedad de usuarios.

@@ -1,17 +1,33 @@
-Caso Práctico 24
+# Caso Práctico 24
+
+## Contexto
 Una aplicación móvil de salud necesita ser accesible para todas las personas, incluyendo aquellas con discapacidades visuales y auditivas. Describe cómo diseñarías esta aplicación para cumplir con los estándares de accesibilidad.
 
+## Tareas
+- **¿Qué estrategias de diseño y desarrollo usarías** para asegurar que la aplicación de salud sea accesible?
 
-¿Qué estrategias de diseño y desarrollo usarías para asegurar que la aplicación de salud sea accesible?
-
-
+## Solución Propuesta
 Para diseñar una aplicación de salud accesible:
 
-Interfaz Visual: Aseguraría un alto contraste en todos los elementos de la UI, permitiendo al usuario ajustar el modo oscuro o claro según su preferencia. Utilizaría tipografías claras y escalables.
-Accesibilidad para Discapacidades Visuales: Implementaría VoiceOver (iOS) y TalkBack (Android) compatibilidad, con descripciones de pantalla para todos los elementos interactivos. Usaría etiquetas ARIA para mejorar la navegación con lectores de pantalla.
-Accesibilidad Auditiva: Proveería transcripciones para todos los contenidos de audio, incluidos los recordatorios de salud o las guías de ejercicios. Las notificaciones importantes podrían incluir vibraciones o alertas visuales.
-Interacción y Navegación: Garantizaría que toda la navegación pueda realizarse por teclado o gestos táctiles, incluyendo la capacidad de ajustar el tamaño de los botones y espaciar adecuadamente los elementos interactivos para facilitar el toque.
-Feedback Háptico y Auditivo: Incluiría retroalimentación háptica para confirmar acciones y proporcionar información sin necesidad de feedback visual, útil para usuarios con discapacidades visuales.
-Consistencia y Simplicidad: Mantendría la interfaz lo más simple y consistente posible, siguiendo las pautas de diseño de cada plataforma (Material Design para Android, Human Interface Guidelines para iOS) para que los patrones de interacción sean predecibles.
-Pruebas y Validación: Realizaría pruebas con usuarios con diferentes discapacidades para asegurar que la aplicación es usable y efectiva, ajustando el diseño según el feedback recibido.
+### 1. Interfaz Visual
+Aseguraría un alto contraste en todos los elementos de la UI, permitiendo al usuario ajustar el modo oscuro o claro según su preferencia. Utilizaría tipografías claras y escalables.
+
+### 2. Accesibilidad para Discapacidades Visuales
+Implementaría VoiceOver (iOS) y TalkBack (Android) compatibilidad, con descripciones de pantalla para todos los elementos interactivos. Usaría etiquetas ARIA para mejorar la navegación con lectores de pantalla.
+
+### 3. Accesibilidad Auditiva
+Proveería transcripciones para todos los contenidos de audio, incluidos los recordatorios de salud o las guías de ejercicios. Las notificaciones importantes podrían incluir vibraciones o alertas visuales.
+
+### 4. Interacción y Navegación
+Garantizaría que toda la navegación pueda realizarse por teclado o gestos táctiles, incluyendo la capacidad de ajustar el tamaño de los botones y espaciar adecuadamente los elementos interactivos para facilitar el toque.
+
+### 5. Feedback Háptico y Auditivo
+Incluiría retroalimentación háptica para confirmar acciones y proporcionar información sin necesidad de feedback visual, útil para usuarios con discapacidades visuales.
+
+### 6. Consistencia y Simplicidad
+Mantendría la interfaz lo más simple y consistente posible, siguiendo las pautas de diseño de cada plataforma (Material Design para Android, Human Interface Guidelines para iOS) para que los patrones de interacción sean predecibles.
+
+### 7. Pruebas y Validación
+Realizaría pruebas con usuarios con diferentes discapacidades para asegurar que la aplicación es usable y efectiva, ajustando el diseño según el feedback recibido.
+
 Estas estrategias harían que la aplicación de salud no solo fuera accesible sino también más inclusiva, asegurando que todos los usuarios puedan beneficiarse de sus funcionalidades.

@@ -1,18 +1,23 @@
-Caso práctico 1
+# Caso práctico 1
+
+## Contexto
 Imagina que estás diseñando una aplicación de gestión de tareas para estudiantes universitarios.
 
+## Tareas
+- **¿Cómo aplicarías los principios de diseño centrado en el usuario** para asegurarte de que la aplicación sea intuitiva y útil?
+- **¿Cuáles son tres principios de diseño centrado en el usuario** que utilizarías y cómo los aplicarías en este contexto?
 
-1. ¿Cómo aplicarías los principios de diseño centrado en el usuario para asegurarte de que la aplicación sea intuitiva y útil?
-
-¿Cuáles son tres principios de diseño centrado en el usuario que utilizarías y cómo los aplicarías en este contexto?
-
+## Solución Propuesta
 Para diseñar una aplicación de gestión de tareas para estudiantes universitarios utilizando principios de UCD, podríamos aplicar los siguientes:
 
-Empatía y Comprensión del Usuario: Realizaríamos entrevistas y observaciones con estudiantes para entender sus rutinas, cómo gestionan actualmente sus tareas, y qué frustraciones o necesidades tienen. Esto nos ayudaría a diseñar una interfaz que responda específicamente a sus hábitos y desafíos, como la integración con calendarios académicos o recordatorios específicos para fechas de exámenes.
+### 1. Empatía y Comprensión del Usuario
+Realizaríamos entrevistas y observaciones con estudiantes para entender sus rutinas, cómo gestionan actualmente sus tareas, y qué frustraciones o necesidades tienen. Esto nos ayudaría a diseñar una interfaz que responda específicamente a sus hábitos y desafíos, como la integración con calendarios académicos o recordatorios específicos para fechas de exámenes.
 
-Iteración y Prototipado: Desarrollaríamos prototipos iniciales que podrían ser simples wireframes hasta evolucionar a mockups interactivos. Estos se someterían a pruebas de usuario donde los estudiantes interactuarían con la aplicación, proporcionando feedback sobre la usabilidad. Este proceso iterativo nos permitiría ajustar la interfaz basándonos en cómo los usuarios realzan tareas comunes, como priorizar tareas o compartir listas de estudio.
+### 2. Iteración y Prototipado
+Desarrollaríamos prototipos iniciales que podrían ser simples wireframes hasta evolucionar a mockups interactivos. Estos se someterían a pruebas de usuario donde los estudiantes interactuarían con la aplicación, proporcionando feedback sobre la usabilidad. Este proceso iterativo nos permitiría ajustar la interfaz basándonos en cómo los usuarios realzan tareas comunes, como priorizar tareas o compartir listas de estudio.
 
-Evaluación y Feedback Continuo: Después de lanzar una versión beta de la aplicación, estableceríamos mecanismos para recibir feedback constante, como encuestas dentro de la app o análisis de uso. Este feedback sería crucial para hacer ajustes que mejorasen la eficiencia y la satisfacción del usuario, asegurando que la aplicación evolucione con las necesidades cambiantes de los estudiantes, como la gestión de proyectos grupales o la adaptación a diferentes semestres.
+### 3. Evaluación y Feedback Continuo
+Después de lanzar una versión beta de la aplicación, estableceríamos mecanismos para recibir feedback constante, como encuestas dentro de la app o análisis de uso. Este feedback sería crucial para hacer ajustes que mejorasen la eficiencia y la satisfacción del usuario, asegurando que la aplicación evolucione con las necesidades cambiantes de los estudiantes, como la gestión de proyectos grupales o la adaptación a diferentes semestres.
 
 Estos principios aseguran que la aplicación no solo sea funcional sino que también se ajuste a las necesidades únicas de los estudiantes universitarios, facilitando una gestión de tareas más efectiva y menos estresante.
 
