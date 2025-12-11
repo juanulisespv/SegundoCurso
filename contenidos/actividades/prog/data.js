@@ -3,61 +3,268 @@ const progData = [
         "id": "prog1",
         "tema": 1,
         "title": "Ejercicio 1. Aplicación de Metodologías Ágiles para un Proyecto de Comercio Electrónico",
-        "scenario": "Un equipo de desarrollo ha recibido la solicitud de crear una tienda en línea que permita a los usuarios navegar por productos, agregarlos al carrito y realizar compras seguras. El cliente requiere entregas frecuentes para evaluar el progreso y proponer mejoras. \n\nComo desarrollador: \n\n\nExplica por qué una metodología ágil es adecuada para este proyecto. \nIdentifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. \nEnumera los roles clave en el equipo y sus responsabilidades.",
+        "scenario": `## Contexto
+Un equipo de desarrollo ha recibido la solicitud de crear una tienda en línea que permita a los usuarios navegar por productos, agregarlos al carrito y realizar compras seguras. El cliente requiere entregas frecuentes para evaluar el progreso y proponer mejoras. 
+
+## Tareas
+Como desarrollador: 
+- Explica por qué una metodología ágil es adecuada para este proyecto. 
+- Identifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. 
+- Enumera los roles clave en el equipo y sus responsabilidades.`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "Propuesta de Solución: \n\n1. Metodología Ágil: Scrum es ideal para este proyecto porque facilita entregas frecuentes y retroalimentación continua, permitiendo ajustes rápidos según las necesidades del cliente. \n\n2. Ceremonias: \n\nSprint Planning: Planificar las tareas para el sprint, priorizando funcionalidades como el carrito de compras. \nDaily Stand-Up: Sincronizar al equipo sobre el progreso y bloqueos. \nSprint Review: Demostrar el incremento funcional al cliente para recibir retroalimentación. \nRetrospectiva: Analizar qué funcionó y qué mejorar en futuros sprints. \n3. Roles: \n\nProduct Owner: Priorizar el backlog y representar los intereses del cliente. \nScrum Master: Facilitar el proceso ágil y resolver bloqueos. \nEquipo de Desarrollo: Implementar funcionalidades como el catálogo de productos y la pasarela de pagos. \nEste enfoque asegura que el producto evolucione constantemente según las expectativas del cliente."
+        "answer": `### 1. Metodología Ágil
+Scrum es ideal para este proyecto porque facilita entregas frecuentes y retroalimentación continua, permitiendo ajustes rápidos según las necesidades del cliente. 
+
+### 2. Ceremonias
+- **Sprint Planning**: Planificar las tareas para el sprint, priorizando funcionalidades como el carrito de compras. 
+- **Daily Stand-Up**: Sincronizar al equipo sobre el progreso y bloqueos. 
+- **Sprint Review**: Demostrar el incremento funcional al cliente para recibir retroalimentación. 
+- **Retrospectiva**: Analizar qué funcionó y qué mejorar en futuros sprints. 
+
+### 3. Roles
+- **Product Owner**: Priorizar el backlog y representar los intereses del cliente. 
+- **Scrum Master**: Facilitar el proceso ágil y resolver bloqueos. 
+- **Equipo de Desarrollo**: Implementar funcionalidades como el catálogo de productos y la pasarela de pagos. 
+
+Este enfoque asegura que el producto evolucione constantemente según las expectativas del cliente.`
     },
     {
         "id": "prog2",
         "tema": 1,
         "title": "Ejercicio 2. Análisis de Modelos de Ciclo de Vida para un Proyecto de Gestión Escolar",
-        "scenario": "Una institución educativa desea desarrollar un sistema de gestión escolar que permita gestionar estudiantes, cursos y calificaciones. El sistema debe garantizar la seguridad de los datos, ser accesible en navegadores web y cumplir con regulaciones locales de protección de datos. \n\n\nComo parte del equipo de desarrollo, se te pide: \n\nDescribir las actividades principales de la fase de análisis y diseño en el modelo seleccionado. \nJustificar tu elección del modelo, destacando ventajas y posibles limitaciones para este caso. \nAnalizar las características del proyecto y seleccionar un modelo de ciclo de vida adecuado (cascada, espiral, incremental o ágil).",
+        "scenario": `## Contexto
+Una institución educativa desea desarrollar un sistema de gestión escolar que permita gestionar estudiantes, cursos y calificaciones. El sistema debe garantizar la seguridad de los datos, ser accesible en navegadores web y cumplir con regulaciones locales de protección de datos. 
+
+## Tareas
+Como parte del equipo de desarrollo, se te pide: 
+- Describir las actividades principales de la fase de análisis y diseño en el modelo seleccionado. 
+- Justificar tu elección del modelo, destacando ventajas y posibles limitaciones para este caso. 
+- Analizar las características del proyecto y seleccionar un modelo de ciclo de vida adecuado (cascada, espiral, incremental o ágil).`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "1. Modelo Seleccionado: El modelo en espiral es adecuado, ya que el sistema necesita alta seguridad y cumplimiento normativo. Este modelo permite identificar y gestionar riesgos en cada iteración. \n\n2. Justificación: Ventajas: \n\nGestión de riesgos en cada iteración. \nFlexibilidad para incorporar cambios durante el desarrollo. \nLimitaciones: \nCostos más altos debido al análisis continuo. \nRequiere personal con experiencia en gestión de riesgos. \n3. Actividades: \n\nAnálisis: Identificar requisitos funcionales como la gestión de estudiantes y cursos, y no funcionales como la seguridad y escalabilidad. Realizar entrevistas con los administradores escolares. \nDiseño: Crear diagramas de clases para las entidades principales (estudiantes, cursos). Diseñar un mockup de la interfaz para la gestión de calificaciones."
+        "answer": `### 1. Modelo Seleccionado
+El modelo en espiral es adecuado, ya que el sistema necesita alta seguridad y cumplimiento normativo. Este modelo permite identificar y gestionar riesgos en cada iteración. 
+
+### 2. Justificación
+**Ventajas:**
+- Gestión de riesgos en cada iteración. 
+- Flexibilidad para incorporar cambios durante el desarrollo. 
+
+**Limitaciones:**
+- Costos más altos debido al análisis continuo. 
+- Requiere personal con experiencia en gestión de riesgos. 
+
+### 3. Actividades
+- **Análisis**: Identificar requisitos funcionales como la gestión de estudiantes y cursos, y no funcionales como la seguridad y escalabilidad. Realizar entrevistas con los administradores escolares. 
+- **Diseño**: Crear diagramas de clases para las entidades principales (estudiantes, cursos). Diseñar un mockup de la interfaz para la gestión de calificaciones.`
     },
     {
         "id": "prog3",
         "tema": 2,
         "title": "Ejercicio 3. Aplicación de Metodologías Ágiles y Principios de Desarrollo para un Proyecto de Software Educativo",
-        "scenario": "Una institución educativa desea desarrollar una plataforma web que permita a los estudiantes acceder a recursos educativos, participar en foros de discusión y enviar tareas para revisión. Los requisitos iniciales incluyen: \n\nRegistro y autenticación de usuarios. \nGestión de contenido por parte de los profesores. \nInteracción entre estudiantes y profesores mediante foros y mensajería. \nFunción de subida y calificación de tareas. \nEl cliente ha pedido entregas frecuentes para evaluar el progreso y ajustar funcionalidades según el feedback recibido. También solicita que el equipo de desarrollo siga estándares de calidad y mantenga el código bien documentado. \n\n\nProponer una metodología de desarrollo adecuada para este proyecto, justificando su elección. \nIdentificar las buenas prácticas y herramientas que el equipo debería usar para garantizar la calidad del código y la validación temprana. \nDetallar cómo integrarías las ceremonias de Scrum en el flujo de trabajo del equipo.",
+        "scenario": `## Contexto
+Una institución educativa desea desarrollar una plataforma web que permita a los estudiantes acceder a recursos educativos, participar en foros de discusión y enviar tareas para revisión.
+
+**Requisitos iniciales:**
+- Registro y autenticación de usuarios. 
+- Gestión de contenido por parte de los profesores. 
+- Interacción entre estudiantes y profesores mediante foros y mensajería. 
+- Función de subida y calificación de tareas. 
+
+El cliente ha pedido entregas frecuentes para evaluar el progreso y ajustar funcionalidades según el feedback recibido. También solicita que el equipo de desarrollo siga estándares de calidad y mantenga el código bien documentado. 
+
+## Tareas
+- Proponer una metodología de desarrollo adecuada para este proyecto, justificando su elección. 
+- Identificar las buenas prácticas y herramientas que el equipo debería usar para garantizar la calidad del código y la validación temprana. 
+- Detallar cómo integrarías las ceremonias de Scrum en el flujo de trabajo del equipo.`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "Propuesta de Solución \n\n1. Metodología Propuesta: \n\n \nPara este proyecto, la metodología Scrum es ideal. Justificación: \n\nPermite trabajar en incrementos funcionales (por ejemplo, desarrollar primero el registro de usuarios). \nFacilita adaptarse a los cambios en los requisitos mediante sprints cortos. \nPromueve la colaboración constante entre el cliente y el equipo. \n2. Buenas Prácticas y Herramientas: \n\nBuenas Prácticas:  \nAplicar PEP8 para asegurar un código limpio y consistente. \nSeguir principios como DRY (evitar duplicar código) y KISS (mantener el diseño simple). \nHerramientas:  \nLinters como pylint y flake8 para detectar errores de estilo y problemas de lógica. \nPruebas unitarias con pytest para validar cada funcionalidad desarrollada. \nSistemas de integración continua (GitHub Actions) para ejecutar validaciones automáticas al subir cambios al repositorio. \n3. Integración de Ceremonias Scrum: \n\nSprint Planning: Antes de cada sprint, definir objetivos claros, como implementar el módulo de foros o la subida de tareas. \nReuniones Diarias: Breves encuentros para sincronizar al equipo, identificar bloqueos y planificar el día. \nSprint Review: Mostrar al cliente las funcionalidades completadas y recopilar feedback para priorizar ajustes. \nRetrospectiva: Reflexionar sobre qué funcionó bien y qué debe mejorarse para aumentar la eficiencia del equipo en el siguiente sprint. \nEsta solución garantiza un desarrollo ágil, enfocado en la calidad, con entregas frecuentes y alineado con las expectativas del cliente."
+        "answer": `### 1. Metodología Propuesta
+Para este proyecto, la metodología **Scrum** es ideal. 
+
+**Justificación:**
+- Permite trabajar en incrementos funcionales (por ejemplo, desarrollar primero el registro de usuarios). 
+- Facilita adaptarse a los cambios en los requisitos mediante sprints cortos. 
+- Promueve la colaboración constante entre el cliente y el equipo. 
+
+### 2. Buenas Prácticas y Herramientas
+**Buenas Prácticas:**
+- Aplicar PEP8 para asegurar un código limpio y consistente. 
+- Seguir principios como DRY (evitar duplicar código) y KISS (mantener el diseño simple). 
+
+**Herramientas:**
+- Linters como pylint y flake8 para detectar errores de estilo y problemas de lógica. 
+- Pruebas unitarias con pytest para validar cada funcionalidad desarrollada. 
+- Sistemas de integración continua (GitHub Actions) para ejecutar validaciones automáticas al subir cambios al repositorio. 
+
+### 3. Integración de Ceremonias Scrum
+- **Sprint Planning**: Antes de cada sprint, definir objetivos claros, como implementar el módulo de foros o la subida de tareas. 
+- **Reuniones Diarias**: Breves encuentros para sincronizar al equipo, identificar bloqueos y planificar el día. 
+- **Sprint Review**: Mostrar al cliente las funcionalidades completadas y recopilar feedback para priorizar ajustes. 
+- **Retrospectiva**: Reflexionar sobre qué funcionó bien y qué debe mejorarse para aumentar la eficiencia del equipo en el siguiente sprint. 
+
+Esta solución garantiza un desarrollo ágil, enfocado en la calidad, con entregas frecuentes y alineado con las expectativas del cliente.`
     },
     {
         "id": "prog4",
         "tema": 2,
         "title": "Ejercicio 4. Desarrollo de un Sistema de Información para la Gestión de Historias Clínicas Electrónicas",
-        "scenario": "Una institución sanitaria requiere un sistema de información para gestionar las historias clínicas electrónicas (HCE) de sus pacientes. El sistema debe cumplir con estrictas regulaciones legales de protección de datos y seguridad, como la Ley de Protección de Datos Personales. Los requisitos iniciales incluyen: \n\nRegistro y acceso seguro a las historias clínicas. \nGestión de permisos para diferentes roles médicos. \nGeneración de reportes y auditorías de acceso. \nIntegración con sistemas hospitalarios existentes. \nEl cliente exige una planificación detallada, documentación exhaustiva y un proceso riguroso de validación para garantizar que el sistema cumpla con todas las normativas. \n\n\nTarea: \n\nJustificar por qué el modelo Waterfall es adecuado para este proyecto. \nDescribir las etapas del modelo y cómo se aplicarían al caso. \nIdentificar los beneficios de este enfoque frente a metodologías ágiles.",
+        "scenario": `## Contexto
+Una institución sanitaria requiere un sistema de información para gestionar las historias clínicas electrónicas (HCE) de sus pacientes. El sistema debe cumplir con estrictas regulaciones legales de protección de datos y seguridad, como la Ley de Protección de Datos Personales.
+
+**Requisitos iniciales:**
+- Registro y acceso seguro a las historias clínicas. 
+- Gestión de permisos para diferentes roles médicos. 
+- Generación de reportes y auditorías de acceso. 
+- Integración con sistemas hospitalarios existentes. 
+
+El cliente exige una planificación detallada, documentación exhaustiva y un proceso riguroso de validación para garantizar que el sistema cumpla con todas las normativas. 
+
+## Tareas
+- Justificar por qué el modelo Waterfall es adecuado para este proyecto. 
+- Describir las etapas del modelo y cómo se aplicarían al caso. 
+- Identificar los beneficios de este enfoque frente a metodologías ágiles.`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "Propuesta de Solución \n\n1. Justificación del Modelo Waterfall: \nEl modelo Waterfall es ideal para este proyecto debido a la necesidad de cumplir con regulaciones estrictas de protección de datos en el sector sanitario. Su enfoque secuencial y estructurado garantiza que cada fase se complete y verifique antes de avanzar a la siguiente, minimizando riesgos y errores. Además, la generación de documentación exhaustiva es crucial para auditar el cumplimiento normativo y facilitar el mantenimiento del sistema. \n\n2. Aplicación de las Etapas del Modelo Waterfall: \n\nRecolección de requisitos: Se identifican y documentan exhaustivamente los requisitos funcionales y no funcionales, incluyendo regulaciones específicas como el control de accesos y la encriptación de datos. \nDiseño del sistema:  \nDiseño conceptual: Definir la arquitectura del sistema, como bases de datos seguras y módulos de gestión de permisos. \nDiseño detallado: Especificar estructuras de datos, flujos de trabajo y esquemas de auditoría. \nImplementación: Los desarrolladores traducen el diseño a código funcional utilizando lenguajes seguros como Python y frameworks orientados a sistemas sanitarios. \nPruebas: Se realizan pruebas exhaustivas, como pruebas de seguridad, para garantizar que el sistema cumpla con las normativas y funcione correctamente. \nDespliegue: El sistema se implementa en el entorno de producción, acompañado de manuales técnicos y capacitación para el personal médico. \nMantenimiento: Se gestionan actualizaciones para cumplir con nuevas regulaciones y se corrigen errores detectados en producción. \n3. Beneficios del Enfoque Waterfall: \n\nEstabilidad: Ideal para proyectos con requisitos definidos y poco propensos a cambios. \nCumplimiento normativo: La documentación detallada facilita auditorías y pruebas regulatorias. \nGestión del riesgo: El enfoque secuencial asegura un desarrollo controlado, reduciendo errores críticos. \nEste enfoque asegura un producto confiable, seguro y alineado con las necesidades del sector regulado."
+        "answer": `### 1. Justificación del Modelo Waterfall
+El modelo Waterfall es ideal para este proyecto debido a la necesidad de cumplir con regulaciones estrictas de protección de datos en el sector sanitario. Su enfoque secuencial y estructurado garantiza que cada fase se complete y verifique antes de avanzar a la siguiente, minimizando riesgos y errores. Además, la generación de documentación exhaustiva es crucial para auditar el cumplimiento normativo y facilitar el mantenimiento del sistema. 
+
+### 2. Aplicación de las Etapas del Modelo Waterfall
+- **Recolección de requisitos**: Se identifican y documentan exhaustivamente los requisitos funcionales y no funcionales, incluyendo regulaciones específicas como el control de accesos y la encriptación de datos. 
+- **Diseño del sistema**:  
+    - *Diseño conceptual*: Definir la arquitectura del sistema, como bases de datos seguras y módulos de gestión de permisos. 
+    - *Diseño detallado*: Especificar estructuras de datos, flujos de trabajo y esquemas de auditoría. 
+- **Implementación**: Los desarrolladores traducen el diseño a código funcional utilizando lenguajes seguros como Python y frameworks orientados a sistemas sanitarios. 
+- **Pruebas**: Se realizan pruebas exhaustivas, como pruebas de seguridad, para garantizar que el sistema cumpla con las normativas y funcione correctamente. 
+- **Despliegue**: El sistema se implementa en el entorno de producción, acompañado de manuales técnicos y capacitación para el personal médico. 
+- **Mantenimiento**: Se gestionan actualizaciones para cumplir con nuevas regulaciones y se corrigen errores detectados en producción. 
+
+### 3. Beneficios del Enfoque Waterfall
+- **Estabilidad**: Ideal para proyectos con requisitos definidos y poco propensos a cambios. 
+- **Cumplimiento normativo**: La documentación detallada facilita auditorías y pruebas regulatorias. 
+- **Gestión del riesgo**: El enfoque secuencial asegura un desarrollo controlado, reduciendo errores críticos. 
+
+Este enfoque asegura un producto confiable, seguro y alineado con las necesidades del sector regulado.`
     },
     {
         "id": "prog5",
         "tema": 3,
         "title": "Ejercicio 5. Gestión de Requisitos para el Desarrollo de un Sistema de Reservas de Consultas Médicas",
-        "scenario": "Una clínica desea desarrollar un sistema de reservas en línea que permita a los pacientes: \n\nRegistrar una cuenta y autenticarse. \nSeleccionar un médico y reservar una cita según la disponibilidad. \nRecibir notificaciones de confirmación y recordatorio por correo electrónico. \nConsultar su historial de citas. \nEl sistema debe cumplir con las siguientes condiciones: \n\nProteger los datos de los pacientes según el RGPD. \nProcesar hasta 500 solicitudes por segundo. \nSer accesible desde dispositivos móviles y cumplir con las normas WCAG 2.1. \n\nIdentifica y clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema.\nProporciona un caso de uso para una funcionalidad clave del sistema.\nPropuesta de validación: explica cómo validarías los requisitos para asegurar que cumplen con las expectativas del cliente.",
+        "scenario": `## Contexto
+Una clínica desea desarrollar un sistema de reservas en línea.
+
+**Funcionalidades requeridas:**
+- Registrar una cuenta y autenticarse. 
+- Seleccionar un médico y reservar una cita según la disponibilidad. 
+- Recibir notificaciones de confirmación y recordatorio por correo electrónico. 
+- Consultar su historial de citas. 
+
+**Condiciones del sistema:**
+- Proteger los datos de los pacientes según el RGPD. 
+- Procesar hasta 500 solicitudes por segundo. 
+- Ser accesible desde dispositivos móviles y cumplir con las normas WCAG 2.1. 
+
+## Tareas
+- Identifica y clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema.
+- Proporciona un caso de uso para una funcionalidad clave del sistema.
+- Propuesta de validación: explica cómo validarías los requisitos para asegurar que cumplen con las expectativas del cliente.`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "1. Clasificación de Requisitos: \n\nFuncionales:  \n\nRegistro y autenticación de usuarios. \n\nReservar citas con médicos disponibles. \n\nNotificar al paciente por correo electrónico. \n\nNo funcionales:  \n\nProcesar hasta 500 solicitudes por segundo. \n\nTiempo de respuesta inferior a 2 segundos en redes estándar. \n\nDiseño accesible para usuarios con discapacidades (cumplimiento WCAG 2.1). \n\nTécnicos:  \n\nDesarrollar el sistema en Python con Django. \n\nBase de datos PostgreSQL para gestionar citas. \n\nLegales:  \n\nCumplir con el RGPD, implementando anonimización y encriptación de datos. \n\n2. Caso de Uso: Reservar una Cita \n\nActor: Paciente. \n\nFlujo Principal:  \n\nEl paciente inicia sesión. \n\nSelecciona un médico y una fecha disponible. \n\nConfirma la cita y recibe un correo de confirmación. \n\nExcepciones: Fecha no disponible o médico seleccionado sin agenda activa. \n\n3. Validación: \n\nRevisión de requisitos: Realizar talleres con los stakeholders para confirmar que los requisitos cumplen sus necesidades. \n\nPrototipado: Crear un prototipo interactivo que permita a los usuarios visualizar el proceso de reserva. \n\nPruebas automatizadas: Validar requisitos no funcionales con pruebas de carga para asegurar el rendimiento bajo alta concurrencia."
+        "answer": `### 1. Clasificación de Requisitos
+**Funcionales:**
+- Registro y autenticación de usuarios. 
+- Reservar citas con médicos disponibles. 
+- Notificar al paciente por correo electrónico. 
+
+**No funcionales:**
+- Procesar hasta 500 solicitudes por segundo. 
+- Tiempo de respuesta inferior a 2 segundos en redes estándar. 
+- Diseño accesible para usuarios con discapacidades (cumplimiento WCAG 2.1). 
+
+**Técnicos:**
+- Desarrollar el sistema en Python con Django. 
+- Base de datos PostgreSQL para gestionar citas. 
+
+**Legales:**
+- Cumplir con el RGPD, implementando anonimización y encriptación de datos. 
+
+### 2. Caso de Uso: Reservar una Cita
+**Actor:** Paciente. 
+
+**Flujo Principal:**
+1. El paciente inicia sesión. 
+2. Selecciona un médico y una fecha disponible. 
+3. Confirma la cita y recibe un correo de confirmación. 
+
+**Excepciones:**
+- Fecha no disponible o médico seleccionado sin agenda activa. 
+
+### 3. Validación
+- **Revisión de requisitos**: Realizar talleres con los stakeholders para confirmar que los requisitos cumplen sus necesidades. 
+- **Prototipado**: Crear un prototipo interactivo que permita a los usuarios visualizar el proceso de reserva. 
+- **Pruebas automatizadas**: Validar requisitos no funcionales con pruebas de carga para asegurar el rendimiento bajo alta concurrencia.`
     },
     {
         "id": "prog6",
         "tema": 3,
         "title": "Ejercicio 6. Sistema de Gestión de Pedidos para una Tienda Online",
-        "scenario": "Una tienda online desea desarrollar un sistema que permita a los clientes: \n\nRegistrarse y acceder a su cuenta. \nNavegar por categorías de productos y añadirlos al carrito. \nRealizar pagos seguros mediante una pasarela de pago integrada. \nRecibir confirmación del pedido por correo electrónico. \nEl sistema debe cumplir con los siguientes requisitos: \n\nProcesar hasta 1000 pedidos simultáneos. \nCargar la página principal en menos de 2 segundos. \nCumplir con el RGPD para garantizar la seguridad de los datos de los clientes. \n\n\nClasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema. \nProporciona un caso de uso para la funcionalidad de realizar un pedido. \nExplica cómo validarías los requisitos para garantizar que se alineen con las necesidades del cliente. \nClasificación de Requisitos: \n\nFuncionales:  \n\nRegistro y autenticación de clientes. \n\nGestión de carritos de compra. \n\nProcesamiento de pagos seguros. \n\nNo funcionales:  \n\nTiempo de carga inferior a 2 segundos. \n\nProcesar 1000 pedidos simultáneos. \n\nTécnicos:  \n\nUso de Python con Django y una base de datos MySQL. \n\nLegales:  \n\nCumplir con el RGPD mediante encriptación de datos y consentimiento explícito. \n\nCaso de Uso: Realizar un Pedido \n\nActor: Cliente. \n\nFlujo Principal:  \n\nEl cliente añade productos al carrito. \n\nSelecciona una dirección de envío y el método de pago. \n\nRealiza el pago y recibe confirmación del pedido. \n\nExcepciones: Error en la pasarela de pago o dirección incompleta. \n\nValidación: \n\nPrototipado: Crear una simulación del flujo de compra para obtener retroalimentación de los stakeholders. \n\nPruebas de rendimiento: Evaluar el sistema con herramientas como Apache JMeter para validar la concurrencia.",
+        "scenario": `## Contexto
+Una tienda online desea desarrollar un sistema de gestión de pedidos.
+
+**Funcionalidades requeridas:**
+- Registrarse y acceder a su cuenta. 
+- Navegar por categorías de productos y añadirlos al carrito. 
+- Realizar pagos seguros mediante una pasarela de pago integrada. 
+- Recibir confirmación del pedido por correo electrónico. 
+
+**Requisitos del sistema:**
+- Procesar hasta 1000 pedidos simultáneos. 
+- Cargar la página principal en menos de 2 segundos. 
+- Cumplir con el RGPD para garantizar la seguridad de los datos de los clientes. 
+
+## Tareas
+- Clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema. 
+- Proporciona un caso de uso para la funcionalidad de realizar un pedido. 
+- Explica cómo validarías los requisitos para garantizar que se alineen con las necesidades del cliente.`,
         "questions": [
-            "Ver escenario completo."
+            "Ver solución completa."
         ],
-        "answer": "Ver detalles en el ejercicio."
+        "answer": `### 1. Clasificación de Requisitos
+**Funcionales:**
+- Registro y autenticación de clientes. 
+- Gestión de carritos de compra. 
+- Procesamiento de pagos seguros. 
+
+**No funcionales:**
+- Tiempo de carga inferior a 2 segundos. 
+- Procesar 1000 pedidos simultáneos. 
+
+**Técnicos:**
+- Uso de Python con Django y una base de datos MySQL. 
+
+**Legales:**
+- Cumplir con el RGPD mediante encriptación de datos y consentimiento explícito. 
+
+### 2. Caso de Uso: Realizar un Pedido
+**Actor:** Cliente. 
+
+**Flujo Principal:**
+1. El cliente añade productos al carrito. 
+2. Selecciona una dirección de envío y el método de pago. 
+3. Realiza el pago y recibe confirmación del pedido. 
+
+**Excepciones:**
+- Error en la pasarela de pago o dirección incompleta. 
+
+### 3. Validación
+- **Prototipado**: Crear una simulación del flujo de compra para obtener retroalimentación de los stakeholders. 
+- **Pruebas de rendimiento**: Evaluar el sistema con herramientas como Apache JMeter para validar la concurrencia.`
     },
     {
         "id": "prog7",

@@ -1,60 +1,53 @@
-Ejercicio 6. Sistema de Gestión de Pedidos para una Tienda Online
-Una tienda online desea desarrollar un sistema que permita a los clientes: 
+# Ejercicio 6. Sistema de Gestión de Pedidos para una Tienda Online
 
-Registrarse y acceder a su cuenta. 
-Navegar por categorías de productos y añadirlos al carrito. 
-Realizar pagos seguros mediante una pasarela de pago integrada. 
-Recibir confirmación del pedido por correo electrónico. 
-El sistema debe cumplir con los siguientes requisitos: 
+## Contexto
+Una tienda online desea desarrollar un sistema de gestión de pedidos.
 
-Procesar hasta 1000 pedidos simultáneos. 
-Cargar la página principal en menos de 2 segundos. 
-Cumplir con el RGPD para garantizar la seguridad de los datos de los clientes. 
+**Funcionalidades requeridas:**
+- Registrarse y acceder a su cuenta. 
+- Navegar por categorías de productos y añadirlos al carrito. 
+- Realizar pagos seguros mediante una pasarela de pago integrada. 
+- Recibir confirmación del pedido por correo electrónico. 
 
+**Requisitos del sistema:**
+- Procesar hasta 1000 pedidos simultáneos. 
+- Cargar la página principal en menos de 2 segundos. 
+- Cumplir con el RGPD para garantizar la seguridad de los datos de los clientes. 
 
-Clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema. 
-Proporciona un caso de uso para la funcionalidad de realizar un pedido. 
-Explica cómo validarías los requisitos para garantizar que se alineen con las necesidades del cliente. 
-Clasificación de Requisitos: 
+## Tareas
+- Clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema. 
+- Proporciona un caso de uso para la funcionalidad de realizar un pedido. 
+- Explica cómo validarías los requisitos para garantizar que se alineen con las necesidades del cliente. 
 
-Funcionales:  
+## Solución Propuesta
 
-Registro y autenticación de clientes. 
+### 1. Clasificación de Requisitos
+**Funcionales:**
+- Registro y autenticación de clientes. 
+- Gestión de carritos de compra. 
+- Procesamiento de pagos seguros. 
 
-Gestión de carritos de compra. 
+**No funcionales:**
+- Tiempo de carga inferior a 2 segundos. 
+- Procesar 1000 pedidos simultáneos. 
 
-Procesamiento de pagos seguros. 
+**Técnicos:**
+- Uso de Python con Django y una base de datos MySQL. 
 
-No funcionales:  
+**Legales:**
+- Cumplir con el RGPD mediante encriptación de datos y consentimiento explícito. 
 
-Tiempo de carga inferior a 2 segundos. 
+### 2. Caso de Uso: Realizar un Pedido
+**Actor:** Cliente. 
 
-Procesar 1000 pedidos simultáneos. 
+**Flujo Principal:**
+1. El cliente añade productos al carrito. 
+2. Selecciona una dirección de envío y el método de pago. 
+3. Realiza el pago y recibe confirmación del pedido. 
 
-Técnicos:  
+**Excepciones:**
+- Error en la pasarela de pago o dirección incompleta. 
 
-Uso de Python con Django y una base de datos MySQL. 
-
-Legales:  
-
-Cumplir con el RGPD mediante encriptación de datos y consentimiento explícito. 
-
-Caso de Uso: Realizar un Pedido 
-
-Actor: Cliente. 
-
-Flujo Principal:  
-
-El cliente añade productos al carrito. 
-
-Selecciona una dirección de envío y el método de pago. 
-
-Realiza el pago y recibe confirmación del pedido. 
-
-Excepciones: Error en la pasarela de pago o dirección incompleta. 
-
-Validación: 
-
-Prototipado: Crear una simulación del flujo de compra para obtener retroalimentación de los stakeholders. 
-
-Pruebas de rendimiento: Evaluar el sistema con herramientas como Apache JMeter para validar la concurrencia. 
+### 3. Validación
+- **Prototipado**: Crear una simulación del flujo de compra para obtener retroalimentación de los stakeholders. 
+- **Pruebas de rendimiento**: Evaluar el sistema con herramientas como Apache JMeter para validar la concurrencia. 

@@ -1,65 +1,56 @@
-Ejercicio 5. Gestión de Requisitos para el Desarrollo de un Sistema de Reservas de Consultas Médicas
-Una clínica desea desarrollar un sistema de reservas en línea que permita a los pacientes: 
+# Ejercicio 5. Gestión de Requisitos para el Desarrollo de un Sistema de Reservas de Consultas Médicas
 
-Registrar una cuenta y autenticarse. 
-Seleccionar un médico y reservar una cita según la disponibilidad. 
-Recibir notificaciones de confirmación y recordatorio por correo electrónico. 
-Consultar su historial de citas. 
-El sistema debe cumplir con las siguientes condiciones: 
+## Contexto
+Una clínica desea desarrollar un sistema de reservas en línea.
 
-Proteger los datos de los pacientes según el RGPD. 
-Procesar hasta 500 solicitudes por segundo. 
-Ser accesible desde dispositivos móviles y cumplir con las normas WCAG 2.1. 
+**Funcionalidades requeridas:**
+- Registrar una cuenta y autenticarse. 
+- Seleccionar un médico y reservar una cita según la disponibilidad. 
+- Recibir notificaciones de confirmación y recordatorio por correo electrónico. 
+- Consultar su historial de citas. 
 
-Identifica y clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema.
-Proporciona un caso de uso para una funcionalidad clave del sistema.
-Propuesta de validación: explica cómo validarías los requisitos para asegurar que cumplen con las expectativas del cliente.
-1. Clasificación de Requisitos: 
+**Condiciones del sistema:**
+- Proteger los datos de los pacientes según el RGPD. 
+- Procesar hasta 500 solicitudes por segundo. 
+- Ser accesible desde dispositivos móviles y cumplir con las normas WCAG 2.1. 
 
-Funcionales:  
+## Tareas
+- Identifica y clasifica los requisitos funcionales, no funcionales, técnicos y legales del sistema.
+- Proporciona un caso de uso para una funcionalidad clave del sistema.
+- Propuesta de validación: explica cómo validarías los requisitos para asegurar que cumplen con las expectativas del cliente.
 
-Registro y autenticación de usuarios. 
+## Solución Propuesta
 
-Reservar citas con médicos disponibles. 
+### 1. Clasificación de Requisitos
+**Funcionales:**
+- Registro y autenticación de usuarios. 
+- Reservar citas con médicos disponibles. 
+- Notificar al paciente por correo electrónico. 
 
-Notificar al paciente por correo electrónico. 
+**No funcionales:**
+- Procesar hasta 500 solicitudes por segundo. 
+- Tiempo de respuesta inferior a 2 segundos en redes estándar. 
+- Diseño accesible para usuarios con discapacidades (cumplimiento WCAG 2.1). 
 
-No funcionales:  
+**Técnicos:**
+- Desarrollar el sistema en Python con Django. 
+- Base de datos PostgreSQL para gestionar citas. 
 
-Procesar hasta 500 solicitudes por segundo. 
+**Legales:**
+- Cumplir con el RGPD, implementando anonimización y encriptación de datos. 
 
-Tiempo de respuesta inferior a 2 segundos en redes estándar. 
+### 2. Caso de Uso: Reservar una Cita
+**Actor:** Paciente. 
 
-Diseño accesible para usuarios con discapacidades (cumplimiento WCAG 2.1). 
+**Flujo Principal:**
+1. El paciente inicia sesión. 
+2. Selecciona un médico y una fecha disponible. 
+3. Confirma la cita y recibe un correo de confirmación. 
 
-Técnicos:  
+**Excepciones:**
+- Fecha no disponible o médico seleccionado sin agenda activa. 
 
-Desarrollar el sistema en Python con Django. 
-
-Base de datos PostgreSQL para gestionar citas. 
-
-Legales:  
-
-Cumplir con el RGPD, implementando anonimización y encriptación de datos. 
-
-2. Caso de Uso: Reservar una Cita 
-
-Actor: Paciente. 
-
-Flujo Principal:  
-
-El paciente inicia sesión. 
-
-Selecciona un médico y una fecha disponible. 
-
-Confirma la cita y recibe un correo de confirmación. 
-
-Excepciones: Fecha no disponible o médico seleccionado sin agenda activa. 
-
-3. Validación: 
-
-Revisión de requisitos: Realizar talleres con los stakeholders para confirmar que los requisitos cumplen sus necesidades. 
-
-Prototipado: Crear un prototipo interactivo que permita a los usuarios visualizar el proceso de reserva. 
-
-Pruebas automatizadas: Validar requisitos no funcionales con pruebas de carga para asegurar el rendimiento bajo alta concurrencia. 
+### 3. Validación
+- **Revisión de requisitos**: Realizar talleres con los stakeholders para confirmar que los requisitos cumplen sus necesidades. 
+- **Prototipado**: Crear un prototipo interactivo que permita a los usuarios visualizar el proceso de reserva. 
+- **Pruebas automatizadas**: Validar requisitos no funcionales con pruebas de carga para asegurar el rendimiento bajo alta concurrencia. 

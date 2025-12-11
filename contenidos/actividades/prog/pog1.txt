@@ -1,25 +1,28 @@
-Ejercicio 1. Aplicación de Metodologías Ágiles para un Proyecto de Comercio Electrónico
+# Ejercicio 1. Aplicación de Metodologías Ágiles para un Proyecto de Comercio Electrónico
+
+## Contexto
 Un equipo de desarrollo ha recibido la solicitud de crear una tienda en línea que permita a los usuarios navegar por productos, agregarlos al carrito y realizar compras seguras. El cliente requiere entregas frecuentes para evaluar el progreso y proponer mejoras. 
 
+## Tareas
 Como desarrollador: 
+- Explica por qué una metodología ágil es adecuada para este proyecto. 
+- Identifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. 
+- Enumera los roles clave en el equipo y sus responsabilidades. 
 
+## Solución Propuesta
 
-Explica por qué una metodología ágil es adecuada para este proyecto. 
-Identifica las ceremonias principales de Scrum que implementarías y describe sus objetivos. 
-Enumera los roles clave en el equipo y sus responsabilidades. 
-Propuesta de Solución: 
+### 1. Metodología Ágil
+Scrum es ideal para este proyecto porque facilita entregas frecuentes y retroalimentación continua, permitiendo ajustes rápidos según las necesidades del cliente. 
 
-1. Metodología Ágil: Scrum es ideal para este proyecto porque facilita entregas frecuentes y retroalimentación continua, permitiendo ajustes rápidos según las necesidades del cliente. 
+### 2. Ceremonias
+- **Sprint Planning**: Planificar las tareas para el sprint, priorizando funcionalidades como el carrito de compras. 
+- **Daily Stand-Up**: Sincronizar al equipo sobre el progreso y bloqueos. 
+- **Sprint Review**: Demostrar el incremento funcional al cliente para recibir retroalimentación. 
+- **Retrospectiva**: Analizar qué funcionó y qué mejorar en futuros sprints. 
 
-2. Ceremonias: 
+### 3. Roles
+- **Product Owner**: Priorizar el backlog y representar los intereses del cliente. 
+- **Scrum Master**: Facilitar el proceso ágil y resolver bloqueos. 
+- **Equipo de Desarrollo**: Implementar funcionalidades como el catálogo de productos y la pasarela de pagos. 
 
-Sprint Planning: Planificar las tareas para el sprint, priorizando funcionalidades como el carrito de compras. 
-Daily Stand-Up: Sincronizar al equipo sobre el progreso y bloqueos. 
-Sprint Review: Demostrar el incremento funcional al cliente para recibir retroalimentación. 
-Retrospectiva: Analizar qué funcionó y qué mejorar en futuros sprints. 
-3. Roles: 
-
-Product Owner: Priorizar el backlog y representar los intereses del cliente. 
-Scrum Master: Facilitar el proceso ágil y resolver bloqueos. 
-Equipo de Desarrollo: Implementar funcionalidades como el catálogo de productos y la pasarela de pagos. 
-Este enfoque asegura que el producto evolucione constantemente según las expectativas del cliente. 
+Este enfoque asegura que el producto evolucione constantemente según las expectativas del cliente.

@@ -1,36 +1,39 @@
-Ejercicio 4. Desarrollo de un Sistema de Información para la Gestión de Historias Clínicas Electrónicas
-Una institución sanitaria requiere un sistema de información para gestionar las historias clínicas electrónicas (HCE) de sus pacientes. El sistema debe cumplir con estrictas regulaciones legales de protección de datos y seguridad, como la Ley de Protección de Datos Personales. Los requisitos iniciales incluyen: 
+# Ejercicio 4. Desarrollo de un Sistema de Información para la Gestión de Historias Clínicas Electrónicas
 
-Registro y acceso seguro a las historias clínicas. 
-Gestión de permisos para diferentes roles médicos. 
-Generación de reportes y auditorías de acceso. 
-Integración con sistemas hospitalarios existentes. 
+## Contexto
+Una institución sanitaria requiere un sistema de información para gestionar las historias clínicas electrónicas (HCE) de sus pacientes. El sistema debe cumplir con estrictas regulaciones legales de protección de datos y seguridad, como la Ley de Protección de Datos Personales.
+
+**Requisitos iniciales:**
+- Registro y acceso seguro a las historias clínicas. 
+- Gestión de permisos para diferentes roles médicos. 
+- Generación de reportes y auditorías de acceso. 
+- Integración con sistemas hospitalarios existentes. 
+
 El cliente exige una planificación detallada, documentación exhaustiva y un proceso riguroso de validación para garantizar que el sistema cumpla con todas las normativas. 
 
+## Tareas
+- Justificar por qué el modelo Waterfall es adecuado para este proyecto. 
+- Describir las etapas del modelo y cómo se aplicarían al caso. 
+- Identificar los beneficios de este enfoque frente a metodologías ágiles. 
 
-Tarea: 
+## Solución Propuesta
 
-Justificar por qué el modelo Waterfall es adecuado para este proyecto. 
-Describir las etapas del modelo y cómo se aplicarían al caso. 
-Identificar los beneficios de este enfoque frente a metodologías ágiles. 
-Propuesta de Solución 
-
-1. Justificación del Modelo Waterfall: 
+### 1. Justificación del Modelo Waterfall
 El modelo Waterfall es ideal para este proyecto debido a la necesidad de cumplir con regulaciones estrictas de protección de datos en el sector sanitario. Su enfoque secuencial y estructurado garantiza que cada fase se complete y verifique antes de avanzar a la siguiente, minimizando riesgos y errores. Además, la generación de documentación exhaustiva es crucial para auditar el cumplimiento normativo y facilitar el mantenimiento del sistema. 
 
-2. Aplicación de las Etapas del Modelo Waterfall: 
+### 2. Aplicación de las Etapas del Modelo Waterfall
+- **Recolección de requisitos**: Se identifican y documentan exhaustivamente los requisitos funcionales y no funcionales, incluyendo regulaciones específicas como el control de accesos y la encriptación de datos. 
+- **Diseño del sistema**:  
+    - *Diseño conceptual*: Definir la arquitectura del sistema, como bases de datos seguras y módulos de gestión de permisos. 
+    - *Diseño detallado*: Especificar estructuras de datos, flujos de trabajo y esquemas de auditoría. 
+- **Implementación**: Los desarrolladores traducen el diseño a código funcional utilizando lenguajes seguros como Python y frameworks orientados a sistemas sanitarios. 
+- **Pruebas**: Se realizan pruebas exhaustivas, como pruebas de seguridad, para garantizar que el sistema cumpla con las normativas y funcione correctamente. 
+- **Despliegue**: El sistema se implementa en el entorno de producción, acompañado de manuales técnicos y capacitación para el personal médico. 
+- **Mantenimiento**: Se gestionan actualizaciones para cumplir con nuevas regulaciones y se corrigen errores detectados en producción. 
 
-Recolección de requisitos: Se identifican y documentan exhaustivamente los requisitos funcionales y no funcionales, incluyendo regulaciones específicas como el control de accesos y la encriptación de datos. 
-Diseño del sistema:  
-Diseño conceptual: Definir la arquitectura del sistema, como bases de datos seguras y módulos de gestión de permisos. 
-Diseño detallado: Especificar estructuras de datos, flujos de trabajo y esquemas de auditoría. 
-Implementación: Los desarrolladores traducen el diseño a código funcional utilizando lenguajes seguros como Python y frameworks orientados a sistemas sanitarios. 
-Pruebas: Se realizan pruebas exhaustivas, como pruebas de seguridad, para garantizar que el sistema cumpla con las normativas y funcione correctamente. 
-Despliegue: El sistema se implementa en el entorno de producción, acompañado de manuales técnicos y capacitación para el personal médico. 
-Mantenimiento: Se gestionan actualizaciones para cumplir con nuevas regulaciones y se corrigen errores detectados en producción. 
-3. Beneficios del Enfoque Waterfall: 
+### 3. Beneficios del Enfoque Waterfall
+- **Estabilidad**: Ideal para proyectos con requisitos definidos y poco propensos a cambios. 
+- **Cumplimiento normativo**: La documentación detallada facilita auditorías y pruebas regulatorias. 
+- **Gestión del riesgo**: El enfoque secuencial asegura un desarrollo controlado, reduciendo errores críticos. 
 
-Estabilidad: Ideal para proyectos con requisitos definidos y poco propensos a cambios. 
-Cumplimiento normativo: La documentación detallada facilita auditorías y pruebas regulatorias. 
-Gestión del riesgo: El enfoque secuencial asegura un desarrollo controlado, reduciendo errores críticos. 
 Este enfoque asegura un producto confiable, seguro y alineado con las necesidades del sector regulado.
