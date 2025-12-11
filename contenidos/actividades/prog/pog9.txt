@@ -1,25 +1,30 @@
-Ejercicio 9.
-Un gimnasio necesita implementar un sistema para gestionar las reservas de clases grupales. El analista propone una estrategia basada en prototipos y mockups para garantizar que la interfaz gráfica (GUI) cumpla con las necesidades de los usuarios. El sistema debe incluir: 
+# Ejercicio 9. Gestión de Reservas de Clases Grupales
 
-Una vista de calendario donde los usuarios puedan ver las clases disponibles. 
-Un formulario para registrarse en una clase con datos como nombre del usuario y horario seleccionado. 
-Un área donde los usuarios puedan consultar sus clases reservadas. 
+## Contexto
+Un gimnasio necesita implementar un sistema para gestionar las reservas de clases grupales. El analista propone una estrategia basada en prototipos y mockups para garantizar que la interfaz gráfica (GUI) cumpla con las necesidades de los usuarios. El sistema debe incluir:
+- Una vista de calendario donde los usuarios puedan ver las clases disponibles.
+- Un formulario para registrarse en una clase con datos como nombre del usuario y horario seleccionado.
+- Un área donde los usuarios puedan consultar sus clases reservadas.
 
-Tarea: 
+## Tareas
+- Describe cómo el analista utilizaría herramientas como Figma o Balsamiq para diseñar un mockup de la interfaz.
+- Propón cómo se implementarían los elementos de la GUI en Python utilizando Tkinter o PyQt.
+- Explica por qué el uso de mockups y prototipos es útil para este proyecto.
 
-Describe cómo el analista utilizaría herramientas como Figma o Balsamiq para diseñar un mockup de la interfaz. 
-Propón cómo se implementarían los elementos de la GUI en Python utilizando Tkinter o PyQt. 
-Explica por qué el uso de mockups y prototipos es útil para este proyecto. 
-Uso de herramientas para mockups: 
+## Solución Propuesta
 
-En Figma, el analista crea un diseño con tres secciones: el calendario en la parte superior, el formulario de registro en el centro y las reservas del usuario en la parte inferior. Utiliza un diseño limpio y colores que reflejen la identidad del gimnasio. 
+### 1. Uso de herramientas para mockups
+En Figma, el analista crea un diseño con tres secciones:
+- El calendario en la parte superior.
+- El formulario de registro en el centro.
+- Las reservas del usuario en la parte inferior.
+Utiliza un diseño limpio y colores que reflejen la identidad del gimnasio.
 
-Implementación en Python con Tkinter: 
+### 2. Implementación en Python con Tkinter
+- El calendario se representa mediante una tabla interactiva (puede usarse `ttk.Treeview`).
+- Los datos del formulario se capturan con widgets como `Entry` y `Button`.
+- La lista de reservas se muestra en un `Listbox`, donde los usuarios pueden ver o cancelar sus clases.
 
-El calendario se representa mediante una tabla interactiva (puede usarse ttk.Treeview). 
-Los datos del formulario se capturan con widgets como Entry y Button. 
-La lista de reservas se muestra en un Listbox, donde los usuarios pueden ver o cancelar sus clases. 
-Ventajas de prototipos y mockups: 
-
-Facilitan la validación del diseño con los administradores del gimnasio. 
-Permiten realizar ajustes tempranos basados en la retroalimentación antes de iniciar la implementación. 
+### 3. Ventajas de prototipos y mockups
+- Facilitan la validación del diseño con los administradores del gimnasio.
+- Permiten realizar ajustes tempranos basados en la retroalimentación antes de iniciar la implementación. 

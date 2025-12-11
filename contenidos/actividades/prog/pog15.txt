@@ -1,62 +1,62 @@
-Ejercicio 15. Diseño de una API REST para un Sistema de Reservas de Hoteles
+# Ejercicio 15. Diseño de una API REST para un Sistema de Reservas de Hoteles
+
+## Contexto
 Una cadena hotelera necesita desarrollar una API REST que permita a los clientes realizar reservas en sus hoteles de forma eficiente. El equipo de desarrollo ha decidido diseñar la API utilizando Flask o Django REST Framework (DRF) y gestionar los datos con una base de datos SQL. Además, la API deberá incluir funcionalidades para la exportación y análisis de datos mediante pandas.
 
-Mis respuestas
-Solución
-1.
-Tareas a Resolver:
+## Tareas
+- **Diseñar la estructura de la API**:
+    - Identificar los recursos principales que se gestionarán (habitaciones, reservas, clientes).
+    - Definir los endpoints y métodos HTTP necesarios.
+    - Determinar la base de datos a utilizar y si se aplicará un ORM.
+- **Definir el modelo de datos**:
+    - ¿Qué tablas y relaciones serán necesarias para almacenar reservas y disponibilidad de habitaciones?
+    - ¿Cómo se garantizará la consistencia y escalabilidad del sistema?
+- **Exportación y análisis de datos con pandas**:
+    - ¿Qué métricas podrían analizarse a partir de los datos de la API?
+    - ¿En qué formatos deberían exportarse los datos para su análisis (CSV, JSON, Excel)?
+- **Argumentar cómo se manejarán los siguientes aspectos**:
+    - Seguridad y autenticación de la API.
+    - Manejo de errores y validación de datos.
+    - Pruebas y documentación de la API.
 
-Diseñar la estructura de la API:
-Identificar los recursos principales que se gestionarán (habitaciones, reservas, clientes).
-Definir los endpoints y métodos HTTP necesarios.
-Determinar la base de datos a utilizar y si se aplicará un ORM.
-Definir el modelo de datos:
-¿Qué tablas y relaciones serán necesarias para almacenar reservas y disponibilidad de habitaciones?
-¿Cómo se garantizará la consistencia y escalabilidad del sistema?
-Exportación y análisis de datos con pandas:
-¿Qué métricas podrían analizarse a partir de los datos de la API?
-¿En qué formatos deberían exportarse los datos para su análisis (CSV, JSON, Excel)?
-Argumentar cómo se manejarán los siguientes aspectos:
-Seguridad y autenticación de la API.
-Manejo de errores y validación de datos.
-Pruebas y documentación de la API.
-1. Diseño de la API y Endpoints
+## Solución Propuesta
 
+### 1. Diseño de la API y Endpoints
 Para este sistema de reservas, se identifican los siguientes recursos y endpoints clave:
 
-Clientes:
-POST /clientes → Registrar un cliente.
-GET /clientes/{id} → Obtener información de un cliente.
-Habitaciones:
-GET /habitaciones → Listar habitaciones disponibles.
-PUT /habitaciones/{id} → Modificar disponibilidad de una habitación.
-Reservas:
-POST /reservas → Crear una reserva.
-GET /reservas/{id} → Consultar detalles de una reserva.
-DELETE /reservas/{id} → Cancelar una reserva.
-Se utilizará Flask con SQLAlchemy o Django ORM para gestionar la base de datos relacional.
+**Clientes:**
+- `POST /clientes` → Registrar un cliente.
+- `GET /clientes/{id}` → Obtener información de un cliente.
 
-2. Modelo de Datos
+**Habitaciones:**
+- `GET /habitaciones` → Listar habitaciones disponibles.
+- `PUT /habitaciones/{id}` → Modificar disponibilidad de una habitación.
 
-Tabla clientes (id, nombre, email, teléfono).
-Tabla habitaciones (id, tipo, precio, estado).
-Tabla reservas (id, cliente_id, habitacion_id, fecha_checkin, fecha_checkout).
+**Reservas:**
+- `POST /reservas` → Crear una reserva.
+- `GET /reservas/{id}` → Consultar detalles de una reserva.
+- `DELETE /reservas/{id}` → Cancelar una reserva.
+
+Se utilizará **Flask con SQLAlchemy** o **Django ORM** para gestionar la base de datos relacional.
+
+### 2. Modelo de Datos
+- **Tabla clientes**: `id`, `nombre`, `email`, `teléfono`.
+- **Tabla habitaciones**: `id`, `tipo`, `precio`, `estado`.
+- **Tabla reservas**: `id`, `cliente_id`, `habitacion_id`, `fecha_checkin`, `fecha_checkout`.
+
 Las relaciones uno a muchos entre clientes y reservas aseguran que cada cliente pueda realizar múltiples reservas.
 
-3. Análisis y Exportación de Datos con pandas
-
+### 3. Análisis y Exportación de Datos con pandas
 La API deberá incluir la opción de exportar datos en CSV y JSON para su análisis. Las métricas clave incluyen:
+- **Tasa de ocupación** → % de habitaciones reservadas en un período.
+- **Ingresos por habitación** → Promedio de ingresos generados por cada tipo de habitación.
+- **Reservas canceladas** → Análisis de cancelaciones por temporada.
 
-Tasa de ocupación → % de habitaciones reservadas en un período.
-Ingresos por habitación → Promedio de ingresos generados por cada tipo de habitación.
-Reservas canceladas → Análisis de cancelaciones por temporada.
 Estos datos podrán analizarse con pandas para generar reportes útiles en la toma de decisiones.
 
- 
+### 4. Seguridad y Documentación
+- **Autenticación**: Se implementará JWT (JSON Web Tokens) para restringir el acceso a usuarios autenticados.
+- **Validación de datos**: Se usarán esquemas de validación para evitar registros incorrectos.
+- **Documentación**: Se generará con Swagger para facilitar el uso de la API por parte de desarrolladores externos.
 
-4. Seguridad y Documentación
-
-Autenticación: Se implementará JWT (JSON Web Tokens) para restringir el acceso a usuarios autenticados.
-Validación de datos: Se usarán esquemas de validación para evitar registros incorrectos.
-Documentación: Se generará con Swagger para facilitar el uso de la API por parte de desarrolladores externos.
 El diseño propuesto permite una gestión eficiente de reservas hoteleras mediante una API REST estructurada, asegurando seguridad, escalabilidad y exportación de datos. Con esta arquitectura, la cadena hotelera podrá optimizar su servicio y tomar decisiones basadas en análisis de datos en tiempo real.

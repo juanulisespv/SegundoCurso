@@ -1,45 +1,42 @@
-Ejercicio 24. Empaquetado y Despliegue de una API REST en AWS
+## Contexto
 Un equipo de desarrollo ha creado una API REST en Flask que permite a los usuarios gestionar sus notas personales. La API incluye autenticación con JWT, almacenamiento en PostgreSQL y endpoints para crear, editar y eliminar notas.
 
 El equipo necesita empaquetar, desplegar y gestionar versiones de la API de manera eficiente, asegurando que sea escalable y fácil de mantener.
 
+## Tareas
+- **Empaquetar la API** como un paquete instalable en Python usando setuptools.
+- **Configurar un contenedor Docker** para facilitar su despliegue en diferentes entornos.
+- **Implementar el despliegue en AWS Elastic Beanstalk** con una base de datos PostgreSQL en RDS.
+- **Gestionar el versionado** con SemVer y GitFlow, publicando releases en GitHub.
 
-Empaquetar la API como un paquete instalable en Python usando setuptools.
-Configurar un contenedor Docker para facilitar su despliegue en diferentes entornos.
-Implementar el despliegue en AWS Elastic Beanstalk con una base de datos PostgreSQL en RDS.
-Gestionar el versionado con SemVer y GitFlow, publicando releases en GitHub.
-1. Empaquetado con setuptools
+## Solución Propuesta
+### 1. Empaquetado con setuptools
 
-Se crea un archivo setup.py para definir la instalación del paquete:
+Se crea un archivo `setup.py` para definir la instalación del paquete:
 
+```python
 from setuptools import setup, find_packages
 
- 
-
 setup(
-
     name="api_notas",
-
     version="1.0.0",
-
     packages=find_packages(),
-
     install_requires=["Flask", "Flask-JWT-Extended", "SQLAlchemy"],
-
     entry_points={"console_scripts": ["api_notas=app:main"]},
-
 )
+```
 
 Luego, se genera el paquete:
 
+```bash
 python setup.py sdist bdist_wheel
+```
 
- 
+### 2. Configuración de Docker
 
-2. Configuración de Docker
+Se crea un `Dockerfile`:
 
-Se crea un Dockerfile:
-
+```dockerfile
 FROM python:3.9
 
 WORKDIR /app
@@ -51,35 +48,33 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 CMD ["python", "app.py"]
+```
 
 Se construye y ejecuta la imagen Docker:
 
+```bash
 docker build -t api_notas .
-
 docker run -p 5000:5000 api_notas
+```
 
- 
+### 3. Despliegue en AWS Elastic Beanstalk
 
-3. Despliegue en AWS Elastic Beanstalk
-
+```bash
 eb init -p python-3.9 api-notas
-
 eb create api-notas-env
+```
 
-Para configurar la base de datos en AWS RDS, se establece la conexión en config.py con las credenciales del servicio.
+Para configurar la base de datos en AWS RDS, se establece la conexión en `config.py` con las credenciales del servicio.
 
- 
-
-4. Gestión de Versiones y Releases
+### 4. Gestión de Versiones y Releases
 
 Se utiliza GitFlow para administrar versiones:
 
+```bash
 git flow release start v1.0.0
-
 git flow release finish v1.0.0
+```
 
 Finalmente, se publica en GitHub Releases con un changelog documentado.
-
- 
 
 Esta estrategia garantiza que la API REST sea portátil, escalable y segura, facilitando su mantenimiento en AWS.

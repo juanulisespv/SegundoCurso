@@ -1,81 +1,65 @@
-Ejercicio 8. Modelo Conceptual para un Sistema de Gestión de Cursos Online
+# Ejercicio 8. Modelo Conceptual para un Sistema de Gestión de Cursos Online
+
+## Contexto
 Una plataforma de educación en línea necesita un sistema para gestionar cursos, instructores y estudiantes. El sistema debe permitir:
+- Registrar estudiantes con su nombre, correo y cursos en los que están inscritos.
+- Permitir a los instructores crear cursos especificando el título, descripción y duración.
+- Gestionar la relación entre estudiantes y cursos, incluyendo la fecha de inscripción y el estado (activo o completado).
 
-Registrar estudiantes con su nombre, correo y cursos en los que están inscritos.
-Permitir a los instructores crear cursos especificando el título, descripción y duración.
-Gestionar la relación entre estudiantes y cursos, incluyendo la fecha de inscripción y el estado (activo o completado).
+## Tareas
+- Identifica las clases principales, atributos y métodos necesarios.
+- Diseña un diagrama UML que represente el sistema.
+- Muestra cómo implementarías las clases y relaciones en Python.
 
-Identifica las clases principales, atributos y métodos necesarios.
-Diseña un diagrama UML que represente el sistema.
-Muestra cómo implementarías las clases y relaciones en Python.
-1. Clases, Atributos y Métodos:
+## Solución Propuesta
 
-Estudiante:
-Atributos: idEstudiante, nombre, correo.
-Métodos: registrarse(), consultarCursos().
-Curso:
-Atributos: idCurso, titulo, descripcion, duracion.
-Métodos: crearCurso(), actualizarCurso().
-Inscripcion:
-Atributos: idInscripcion, fecha, estado.
-Métodos: inscribirEstudiante(), actualizarEstado().
-Instructor:
-Atributos: idInstructor, nombre, email.
-Métodos: crearCurso().
-2. Diagrama UML:
+### 1. Clases, Atributos y Métodos
 
+**Estudiante**:
+- Atributos: `idEstudiante`, `nombre`, `correo`.
+- Métodos: `registrarse()`, `consultarCursos()`.
 
+**Curso**:
+- Atributos: `idCurso`, `titulo`, `descripcion`, `duracion`.
+- Métodos: `crearCurso()`, `actualizarCurso()`.
 
-3. Implementación en Python:
+**Inscripcion**:
+- Atributos: `idInscripcion`, `fecha`, `estado`.
+- Métodos: `inscribirEstudiante()`, `actualizarEstado()`.
 
+**Instructor**:
+- Atributos: `idInstructor`, `nombre`, `email`.
+- Métodos: `crearCurso()`.
+
+### 2. Diagrama UML
+*(Se recomienda usar una herramienta como Lucidchart o StarUML para visualizar las relaciones)*
+
+### 3. Implementación en Python
+```python
 class Estudiante:
-
     def __init__(self, idEstudiante, nombre, correo):
-
         self.idEstudiante = idEstudiante
-
         self.nombre = nombre
-
         self.correo = correo
 
- 
-
 class Curso:
-
     def __init__(self, idCurso, titulo, descripcion, duracion):
-
         self.idCurso = idCurso
-
         self.titulo = titulo
-
         self.descripcion = descripcion
-
         self.duracion = duracion
 
- 
-
 class Inscripcion:
-
     def __init__(self, idInscripcion, fecha, estado, estudiante, curso):
-
         self.idInscripcion = idInscripcion
-
         self.fecha = fecha
-
         self.estado = estado
-
         self.estudiante = estudiante
-
         self.curso = curso
 
- 
-
 class Instructor:
-
     def __init__(self, idInstructor, nombre, email):
-
         self.idInstructor = idInstructor
-
         self.nombre = nombre
-
         self.email = email
+```

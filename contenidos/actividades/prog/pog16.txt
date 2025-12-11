@@ -1,44 +1,51 @@
-Ejercicio 16. Diseño de una API REST para un Sistema de Gestión de Inventarios en un Almacén
+# Ejercicio 16. Diseño de una API REST para Gestion de Inventarios
+
+## Contexto
 Una empresa de logística necesita una API REST para gestionar su inventario de productos en múltiples almacenes. El equipo de desarrollo ha decidido diseñar la API utilizando Flask o Django REST Framework (DRF) con una base de datos SQL. Además, la API deberá ofrecer opciones de exportación de datos en CSV y JSON para su posterior análisis mediante pandas.
 
+## Tareas
+- **Diseñar la estructura de la API**:
+    - Identificar los recursos principales a gestionar (productos, almacenes, stock).
+    - Definir los endpoints y métodos HTTP.
+    - Seleccionar la base de datos y el ORM adecuado.
+- **Definir el modelo de datos**:
+    - Diseñar las tablas necesarias y sus relaciones.
+    - Asegurar que los datos sean consistentes y escalables.
+- **Exportación y análisis de datos con pandas**:
+    - ¿Qué métricas deberían analizarse (inventario disponible, productos más vendidos, etc.)?
+    - ¿En qué formatos deben exportarse los datos?
+- **Argumentar las estrategias de seguridad, validación de datos y documentación de la API.**
 
-Tareas a Resolver:
+## Solución Propuesta
 
-Diseñar la estructura de la API:
-Identificar los recursos principales a gestionar (productos, almacenes, stock).
-Definir los endpoints y métodos HTTP.
-Seleccionar la base de datos y el ORM adecuado.
-Definir el modelo de datos:
-Diseñar las tablas necesarias y sus relaciones.
-Asegurar que los datos sean consistentes y escalables.
-Exportación y análisis de datos con pandas:
-¿Qué métricas deberían analizarse (inventario disponible, productos más vendidos, etc.)?
-¿En qué formatos deben exportarse los datos?
-Argumentar las estrategias de seguridad, validación de datos y documentación de la API.
-Diseño de la API y Endpoints
-Productos:
-GET /productos → Listar productos.
-POST /productos → Agregar un nuevo producto.
-PUT /productos/{id} → Modificar información del producto.
-Almacenes:
-GET /almacenes → Listar almacenes.
-POST /almacenes → Agregar un nuevo almacén.
-Stock:
-GET /stock/{id_almacen} → Consultar el stock de un almacén.
-POST /stock → Agregar existencias de productos.
-Se utilizará Flask con SQLAlchemy o Django ORM para gestionar la base de datos relacional.
+### 1. Diseño de la API y Endpoints
+- **Productos**:
+    - `GET /productos` → Listar productos.
+    - `POST /productos` → Agregar un nuevo producto.
+    - `PUT /productos/{id}` → Modificar información del producto.
+- **Almacenes**:
+    - `GET /almacenes` → Listar almacenes.
+    - `POST /almacenes` → Agregar un nuevo almacén.
+- **Stock**:
+    - `GET /stock/{id_almacen}` → Consultar el stock de un almacén.
+    - `POST /stock` → Agregar existencias de productos.
 
-Modelo de Datos
-Tabla productos (id, nombre, categoria, precio).
-Tabla almacenes (id, ubicación, capacidad).
-Tabla stock (id, producto_id, almacen_id, cantidad).
-Exportación y Análisis de Datos con pandas
-Exportar stock en CSV y JSON.
-Métricas a analizar:
-Productos con mayor y menor rotación.
-Inventario promedio por almacén.
-Seguridad y Documentación
-Autenticación JWT.
-Validación de datos en endpoints.
-Swagger para documentar la API.
+Se utilizará **Flask con SQLAlchemy** o **Django ORM** para gestionar la base de datos relacional.
+
+### 2. Modelo de Datos
+- **Tabla productos**: `id`, `nombre`, `categoria`, `precio`.
+- **Tabla almacenes**: `id`, `ubicación`, `capacidad`.
+- **Tabla stock**: `id`, `producto_id`, `almacen_id`, `cantidad`.
+
+### 3. Exportación y Análisis de Datos con pandas
+- **Exportar stock** en CSV y JSON.
+- **Métricas a analizar**:
+    - Productos con mayor y menor rotación.
+    - Inventario promedio por almacén.
+
+### 4. Seguridad y Documentación
+- **Autenticación**: JWT.
+- **Validación de datos** en endpoints.
+- **Documentación**: Swagger para documentar la API.
+
 Este diseño permitirá gestionar inventarios eficientemente y optimizar el análisis de stock.

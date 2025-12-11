@@ -1,24 +1,26 @@
-Ejercicio 10.
-Una tienda de electrónica desea desarrollar un portal para gestionar las ventas en línea. El analista propone un enfoque iterativo basado en prototipos interactivos para diseñar la interfaz. El portal debe incluir: 
+# Ejercicio 10. Gestión de Ventas en Línea
 
-Una página de productos con filtros (categoría, precio). 
-Un carrito de compras donde los usuarios puedan gestionar sus pedidos. 
-Un formulario para completar la compra con datos de envío y pago. 
+## Contexto
+Una tienda de electrónica desea desarrollar un portal para gestionar las ventas en línea. El analista propone un enfoque iterativo basado en prototipos interactivos para diseñar la interfaz. El portal debe incluir:
+- Una página de productos con filtros (categoría, precio).
+- Un carrito de compras donde los usuarios puedan gestionar sus pedidos.
+- Un formulario para completar la compra con datos de envío y pago.
 
-Tarea: 
+## Tareas
+- Detalla cómo el analista desarrollaría un prototipo funcional para este proyecto.
+- Explica cómo integrar la interfaz con Python utilizando PyQt.
+- Justifica cómo los prototipos mejoran la comunicación con los stakeholders.
 
-Detalla cómo el analista desarrollaría un prototipo funcional para este proyecto. 
-Explica cómo integrar la interfaz con Python utilizando PyQt. 
-Justifica cómo los prototipos mejoran la comunicación con los stakeholders. 
-Prototipo funcional: 
+## Solución Propuesta
 
-En Figma, se crea un prototipo interactivo donde los usuarios puedan simular la selección de productos, añadirlos al carrito y completar la compra. Los filtros se simulan con botones interactivos. 
-Implementación en PyQt: 
+### 1. Prototipo funcional
+En Figma, se crea un prototipo interactivo donde los usuarios puedan simular la selección de productos, añadirlos al carrito y completar la compra. Los filtros se simulan con botones interactivos.
 
-La lista de productos se implementa con un QTableWidget, permitiendo añadir funcionalidades avanzadas como filtros dinámicos. 
-El carrito de compras es un QListWidget con opciones para actualizar la cantidad o eliminar productos. 
-El formulario utiliza widgets como QLineEdit y QComboBox para capturar información de envío y pago. 
-Impacto de los prototipos: 
+### 2. Implementación en PyQt
+- La lista de productos se implementa con un `QTableWidget`, permitiendo añadir funcionalidades avanzadas como filtros dinámicos.
+- El carrito de compras es un `QListWidget` con opciones para actualizar la cantidad o eliminar productos.
+- El formulario utiliza widgets como `QLineEdit` y `QComboBox` para capturar información de envío y pago.
 
-Permiten validar el flujo de navegación y la funcionalidad antes del desarrollo técnico. 
-Ayudan a alinear expectativas entre los stakeholders y el equipo técnico. 
+### 3. Impacto de los prototipos
+- Permiten validar el flujo de navegación y la funcionalidad antes del desarrollo técnico.
+- Ayudan a alinear expectativas entre los stakeholders y el equipo técnico. 

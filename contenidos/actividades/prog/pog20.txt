@@ -1,37 +1,40 @@
-Ejercicio 20. Estrategia de Testing para una Aplicación de Reservas de Hoteles
-Una empresa de turismo ha desarrollado una aplicación web y móvil para gestionar reservas de hoteles, donde los usuarios pueden:
+# Ejercicio 20. Estrategia de Testing para una Aplicación de Reservas de Hoteles
 
-Buscar hoteles según ubicación, disponibilidad y precio.
-Reservar habitaciones y pagar en línea con tarjetas de crédito y PayPal.
-Gestionar cancelaciones y modificaciones de reservas.
-Recibir confirmaciones y notificaciones de su reserva.
+## Contexto
+Una empresa de turismo ha desarrollado una aplicación web y móvil para gestionar reservas de hoteles, donde los usuarios pueden:
+- Buscar hoteles según ubicación, disponibilidad y precio.
+- Reservar habitaciones y pagar en línea con tarjetas de crédito y PayPal.
+- Gestionar cancelaciones y modificaciones de reservas.
+- Recibir confirmaciones y notificaciones de su reserva.
+
 El equipo de desarrollo necesita definir una estrategia de testing antes del lanzamiento para garantizar que el sistema sea estable, seguro y fácil de usar.
 
+## Tareas
+- **Definir los tipos de pruebas necesarias** (unitarias, integración, sistema, aceptación).
+- **Planificar pruebas no funcionales** (rendimiento, seguridad, compatibilidad).
+- **Seleccionar herramientas adecuadas** para la ejecución de pruebas automatizadas y manuales.
+- **Establecer un proceso de reporte y seguimiento de errores**.
 
-Tareas a Resolver:
+## Solución Propuesta
 
-Definir los tipos de pruebas necesarias (unitarias, integración, sistema, aceptación).
-Planificar pruebas no funcionales (rendimiento, seguridad, compatibilidad).
-Seleccionar herramientas adecuadas para la ejecución de pruebas automatizadas y manuales.
-Establecer un proceso de reporte y seguimiento de errores.
-1. Tipos de Pruebas Necesarias
+### 1. Tipos de Pruebas Necesarias
+- **Pruebas unitarias**: Evaluar funciones críticas como el cálculo de disponibilidad y el procesamiento de pagos.
+- **Pruebas de integración**: Asegurar la correcta conexión entre la API de reservas, el sistema de pagos y la base de datos.
+- **Pruebas de sistema**: Verificar el flujo de búsqueda, reserva y confirmación de habitaciones.
+- **Pruebas de aceptación**: Incluir usuarios reales para probar la experiencia de reserva antes del lanzamiento.
 
-Pruebas unitarias: Evaluar funciones críticas como el cálculo de disponibilidad y el procesamiento de pagos.
-Pruebas de integración: Asegurar la correcta conexión entre la API de reservas, el sistema de pagos y la base de datos.
-Pruebas de sistema: Verificar el flujo de búsqueda, reserva y confirmación de habitaciones.
-Pruebas de aceptación: Incluir usuarios reales para probar la experiencia de reserva antes del lanzamiento.
-2. Pruebas No Funcionales
+### 2. Pruebas No Funcionales
+- **Pruebas de rendimiento**: Medir tiempos de carga en horarios pico usando JMeter.
+- **Pruebas de seguridad**: Detectar vulnerabilidades con OWASP ZAP, asegurando que los pagos sean seguros.
+- **Pruebas de compatibilidad**: Verificar el funcionamiento en navegadores web (Chrome, Firefox, Safari) y dispositivos móviles (Android, iOS).
 
-Pruebas de rendimiento: Medir tiempos de carga en horarios pico usando JMeter.
-Pruebas de seguridad: Detectar vulnerabilidades con OWASP ZAP, asegurando que los pagos sean seguros.
-Pruebas de compatibilidad: Verificar el funcionamiento en navegadores web (Chrome, Firefox, Safari) y dispositivos móviles (Android, iOS).
-3. Herramientas Seleccionadas
+### 3. Herramientas Seleccionadas
+- **Selenium** para pruebas automatizadas en la interfaz web.
+- **Postman** para validar las API REST de búsqueda y reservas.
+- **GitLab CI/CD** para integrar pruebas automatizadas en el proceso de desarrollo.
 
-Selenium para pruebas automatizadas en la interfaz web.
-Postman para validar las API REST de búsqueda y reservas.
-GitLab CI/CD para integrar pruebas automatizadas en el proceso de desarrollo.
-4. Proceso de Reporte de Errores
+### 4. Proceso de Reporte de Errores
+- Uso de **JIRA** para registrar y clasificar errores según prioridad.
+- Asignación de responsables para corregir defectos y realizar nuevas pruebas antes del despliegue.
 
-Uso de JIRA para registrar y clasificar errores según prioridad.
-Asignación de responsables para corregir defectos y realizar nuevas pruebas antes del despliegue.
 Este enfoque de testing permitirá detectar fallos antes del lanzamiento y garantizar que la aplicación de reservas funcione correctamente en todos los dispositivos y condiciones.

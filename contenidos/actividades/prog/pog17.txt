@@ -1,42 +1,43 @@
-Ejercicio 17. Diseño de una Arquitectura para la Gestión de APIs con un API Manager
-Una empresa de comercio electrónico ha decidido modernizar su infraestructura tecnológica mediante la implementación de un API Manager. Actualmente, su plataforma cuenta con múltiples APIs que manejan operaciones clave, como:
+# Ejercicio 17. Diseño de una Arquitectura para la Gestión de APIs con un API Manager
 
-Gestión de productos (altas, bajas y modificaciones en el catálogo).
-Procesamiento de pagos (integración con pasarelas de pago como Stripe y PayPal).
-Gestión de pedidos (creación, seguimiento y cancelaciones).
+## Contexto
+Una empresa de comercio electrónico ha decidido modernizar su infraestructura tecnológica mediante la implementación de un API Manager. Actualmente, su plataforma cuenta con múltiples APIs que manejan operaciones clave, como:
+- Gestión de productos (altas, bajas y modificaciones en el catálogo).
+- Procesamiento de pagos (integración con pasarelas de pago como Stripe y PayPal).
+- Gestión de pedidos (creación, seguimiento y cancelaciones).
+
 El equipo de arquitectura necesita diseñar una solución que incluya un API Manager para mejorar la seguridad, escalabilidad y eficiencia del sistema.
 
-Tareas a Resolver:
+## Tareas
+- **Elección del API Manager**: ¿Qué solución recomendarías (AWS API Gateway, Kong, Apigee, Tyk) y por qué?
+- **Control de seguridad**: ¿Qué mecanismos de autenticación y autorización se implementarán para proteger las APIs?
+- **Gestión del tráfico y monitoreo**: ¿Cómo se asegurará la disponibilidad de la API ante una alta demanda?
+- **Integración con servicios externos**: ¿Cómo se gestionarán las conexiones con terceros (pasarelas de pago, servicios de notificación)?
 
-Elección del API Manager: ¿Qué solución recomendarías (AWS API Gateway, Kong, Apigee, Tyk) y por qué?
-Control de seguridad: ¿Qué mecanismos de autenticación y autorización se implementarán para proteger las APIs?
-Gestión del tráfico y monitoreo: ¿Cómo se asegurará la disponibilidad de la API ante una alta demanda?
-Integración con servicios externos: ¿Cómo se gestionarán las conexiones con terceros (pasarelas de pago, servicios de notificación)?
-1. Elección del API Manager
+## Solución Propuesta
 
-Se recomienda utilizar Kong API Gateway, ya que ofrece alta escalabilidad, soporte para contenedores en Kubernetes y flexibilidad con plugins. Alternativamente, AWS API Gateway podría ser una opción si la empresa ya opera en el ecosistema de AWS.
+### 1. Elección del API Manager
+Se recomienda utilizar **Kong API Gateway**, ya que ofrece alta escalabilidad, soporte para contenedores en Kubernetes y flexibilidad con plugins. Alternativamente, AWS API Gateway podría ser una opción si la empresa ya opera en el ecosistema de AWS.
 
-Razones para elegir Kong API Gateway:
+**Razones para elegir Kong API Gateway:**
+- Se integra fácilmente con Docker y Kubernetes, permitiendo despliegues dinámicos.
+- Soporta autenticación mediante OAuth2, JWT y API Keys.
+- Ofrece monitorización avanzada con Prometheus y Grafana.
 
-Se integra fácilmente con Docker y Kubernetes, permitiendo despliegues dinámicos.
-Soporta autenticación mediante OAuth2, JWT y API Keys.
-Ofrece monitorización avanzada con Prometheus y Grafana.
-2. Control de Seguridad
-
+### 2. Control de Seguridad
 Para proteger las APIs, se implementarán:
+- **Autenticación con OAuth2 y JWT**: Los clientes deberán obtener un token antes de acceder a los recursos.
+- **Autorización basada en roles (RBAC)**: Los administradores podrán modificar datos, mientras que los clientes solo podrán leer información.
+- **Rate Limiting**: Se establecerá un límite de 100 solicitudes por minuto para evitar abusos.
 
-Autenticación con OAuth2 y JWT: Los clientes deberán obtener un token antes de acceder a los recursos.
-Autorización basada en roles (RBAC): Los administradores podrán modificar datos, mientras que los clientes solo podrán leer información.
-Rate Limiting: Se establecerá un límite de 100 solicitudes por minuto para evitar abusos.
-3. Gestión del Tráfico y Monitoreo
-
+### 3. Gestión del Tráfico y Monitoreo
 Para garantizar la estabilidad de la API:
+- Se implementará caché de respuestas en el API Gateway para reducir la carga en la base de datos.
+- Se utilizarán balanceadores de carga para distribuir el tráfico entre múltiples servidores.
+- Se activarán métricas de rendimiento en Kong con Prometheus y Grafana.
 
-Se implementará caché de respuestas en el API Gateway para reducir la carga en la base de datos.
-Se utilizarán balanceadores de carga para distribuir el tráfico entre múltiples servidores.
-Se activarán métricas de rendimiento en Kong con Prometheus y Grafana.
-4. Integración con Servicios Externos
+### 4. Integración con Servicios Externos
+- **Pagos con Stripe y PayPal**: Se crearán conectores API dentro del API Manager para gestionar las transacciones de forma segura.
+- **Notificaciones con Twilio o Firebase**: Se implementarán webhooks para notificar a los clientes sobre el estado de sus pedidos en tiempo real.
 
-Pagos con Stripe y PayPal: Se crearán conectores API dentro del API Manager para gestionar las transacciones de forma segura.
-Notificaciones con Twilio o Firebase: Se implementarán webhooks para notificar a los clientes sobre el estado de sus pedidos en tiempo real.
 La implementación de Kong API Gateway mejorará la seguridad, escalabilidad y eficiencia del ecosistema de APIs de la empresa. Con medidas de autenticación, control de tráfico y conectores externos, se garantizará un servicio seguro y confiable para los clientes.

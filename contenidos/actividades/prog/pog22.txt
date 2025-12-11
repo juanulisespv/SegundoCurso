@@ -1,34 +1,38 @@
-Ejercicio 22. Validación Multiplataforma de una Aplicación de Comercio Electrónico
-Una empresa de comercio electrónico ha desarrollado una aplicación web y móvil para que los usuarios puedan:
+# Ejercicio 22. Validación Multiplataforma de una Aplicación de Comercio Electrónico
 
-Explorar y comprar productos desde cualquier dispositivo.
-Realizar pagos en línea con distintos métodos como PayPal, tarjetas de crédito y Google Pay.
-Acceder a su historial de compras y gestionar devoluciones.
-Recibir notificaciones sobre ofertas y promociones en tiempo real.
+## Contexto
+Una empresa de comercio electrónico ha desarrollado una aplicación web y móvil para que los usuarios puedan:
+- Explorar y comprar productos desde cualquier dispositivo.
+- Realizar pagos en línea con distintos métodos como PayPal, tarjetas de crédito y Google Pay.
+- Acceder a su historial de compras y gestionar devoluciones.
+- Recibir notificaciones sobre ofertas y promociones en tiempo real.
+
 El equipo de desarrollo necesita definir una estrategia de validación multiplataforma para garantizar que la aplicación funcione correctamente en distintos dispositivos y navegadores.
 
+## Tareas
+- **Definir pruebas de compatibilidad** en navegadores y sistemas operativos móviles.
+- **Establecer una estrategia para evaluar rendimiento y usabilidad** en distintos dispositivos.
+- **Seleccionar herramientas para pruebas automatizadas** en web y móvil.
+- **Garantizar la seguridad en las transacciones y almacenamiento de datos**.
 
-Definir pruebas de compatibilidad en navegadores y sistemas operativos móviles.
-Establecer una estrategia para evaluar rendimiento y usabilidad en distintos dispositivos.
-Seleccionar herramientas para pruebas automatizadas en web y móvil.
-Garantizar la seguridad en las transacciones y almacenamiento de datos
+## Solución Propuesta
 
-Pruebas de Compatibilidad en Diferentes Dispositivos
+### 1. Pruebas de Compatibilidad en Diferentes Dispositivos
+- **Web**: Validación en Chrome, Firefox, Safari y Edge para asegurar que la tienda online se visualice correctamente.
+- **Móvil**: Pruebas en dispositivos con Android e iOS para verificar la navegación y experiencia del usuario en pantallas táctiles.
+- **Pruebas de accesibilidad**: Uso de Google Lighthouse y WAVE para evaluar que la interfaz sea accesible para personas con discapacidades visuales.
 
-Web: Validación en Chrome, Firefox, Safari y Edge para asegurar que la tienda online se visualice correctamente.
-Móvil: Pruebas en dispositivos con Android e iOS para verificar la navegación y experiencia del usuario en pantallas táctiles.
-Pruebas de accesibilidad: Uso de Google Lighthouse y WAVE para evaluar que la interfaz sea accesible para personas con discapacidades visuales.
-2. Evaluación de Rendimiento y Usabilidad
+### 2. Evaluación de Rendimiento y Usabilidad
+- **Tiempo de carga**: Medición con JMeter y Google PageSpeed Insights.
+- **Optimización de recursos**: Minimización de imágenes y reducción de consultas a la base de datos para mejorar el rendimiento.
+- **Pruebas con usuarios reales**: Evaluación de usabilidad mediante encuestas y pruebas A/B.
 
-Tiempo de carga: Medición con JMeter y Google PageSpeed Insights.
-Optimización de recursos: Minimización de imágenes y reducción de consultas a la base de datos para mejorar el rendimiento.
-Pruebas con usuarios reales: Evaluación de usabilidad mediante encuestas y pruebas A/B.
-3. Pruebas Automatizadas en Web y Móvil
+### 3. Pruebas Automatizadas en Web y Móvil
+- **Selenium**: Para validar el flujo de compra en la tienda online en distintos navegadores.
+- **Appium**: Para simular interacciones de usuario en la aplicación móvil.
 
-Selenium: Para validar el flujo de compra en la tienda online en distintos navegadores.
-Appium: Para simular interacciones de usuario en la aplicación móvil.
-4. Seguridad en Transacciones
+### 4. Seguridad en Transacciones
+- **Encriptación de datos** con HTTPS y TLS para proteger pagos en línea.
+- **Pruebas de seguridad** con OWASP ZAP para detectar vulnerabilidades en autenticación y almacenamiento de información.
 
-Encriptación de datos con HTTPS y TLS para proteger pagos en línea.
-Pruebas de seguridad con OWASP ZAP para detectar vulnerabilidades en autenticación y almacenamiento de información.
 Implementar esta estrategia de validación permitirá garantizar la compatibilidad, rendimiento y seguridad de la tienda online, asegurando una experiencia de compra fluida y sin errores.

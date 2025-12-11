@@ -1,27 +1,36 @@
-Ejercicio 18. Diseño de una Arquitectura de API Manager para un Sistema de Salud
-Un hospital privado ha decidido modernizar su sistema de gestión médica mediante la implementación de un API Manager. Actualmente, el hospital maneja múltiples servicios en su plataforma digital, incluyendo:
+# Ejercicio 18. Diseño de una Arquitectura de API Manager para un Sistema de Salud
 
-Gestión de pacientes (registro, historial clínico, citas médicas).
-Conexión con laboratorios externos para compartir resultados de análisis.
-Sistema de facturación que integra pagos con aseguradoras y pasarelas de pago.
+## Contexto
+Un hospital privado ha decidido modernizar su sistema de gestión médica mediante la implementación de un API Manager. Actualmente, el hospital maneja múltiples servicios en su plataforma digital, incluyendo:
+- Gestión de pacientes (registro, historial clínico, citas médicas).
+- Conexión con laboratorios externos para compartir resultados de análisis.
+- Sistema de facturación que integra pagos con aseguradoras y pasarelas de pago.
+
 El equipo de TI debe diseñar una solución con un API Manager para garantizar la seguridad de los datos médicos, la integración con terceros y el monitoreo del sistema.
 
+## Tareas
+- **Elección del API Manager**: ¿Qué solución recomendarías (Apigee, AWS API Gateway, Kong, Tyk) y por qué?
+- **Control de seguridad**: ¿Cómo se garantizará la protección de datos médicos y el cumplimiento de normativas como HIPAA o GDPR?
+- **Gestión del tráfico y monitoreo**: ¿Cómo se asegurará la disponibilidad del sistema ante una alta demanda?
+- **Integración con laboratorios y aseguradoras**: ¿Cómo se gestionarán estas conexiones externas de manera segura y eficiente?
 
-Elección del API Manager: ¿Qué solución recomendarías (Apigee, AWS API Gateway, Kong, Tyk) y por qué?
-Control de seguridad: ¿Cómo se garantizará la protección de datos médicos y el cumplimiento de normativas como HIPAA o GDPR?
-Gestión del tráfico y monitoreo: ¿Cómo se asegurará la disponibilidad del sistema ante una alta demanda?
-Integración con laboratorios y aseguradoras: ¿Cómo se gestionarán estas conexiones externas de manera segura y eficiente?
-Elección del API Manager: Se recomienda Apigee (Google Cloud) debido a su enfoque en seguridad y cumplimiento normativo, con soporte para OAuth2, autenticación basada en roles (RBAC) y registros de auditoría.
-Control de Seguridad
-Autenticación con OAuth2 y JWT para garantizar que solo usuarios autorizados accedan a los datos.
-Cifrado de datos en tránsito con HTTPS y TLS 1.2+.
-Reglas de acceso RBAC para definir qué usuarios pueden acceder a información específica.
-Gestión del Tráfico y Monitoreo
-Rate Limiting: Se limita el acceso a 50 solicitudes por minuto por usuario para evitar abusos.
-Alta disponibilidad y balanceo de carga: Se distribuye el tráfico entre múltiples servidores.
-Monitoreo en tiempo real con Grafana y Prometheus.
-Integración con Terceros
-Interoperabilidad con laboratorios: Uso de FHIR (Fast Healthcare Interoperability Resources) para estandarizar el intercambio de datos médicos.
-Conexión con aseguradoras: Implementación de webhooks y API Gateway para validar pagos y seguros en tiempo real.
+## Solución Propuesta
+
+### 1. Elección del API Manager
+Se recomienda **Apigee (Google Cloud)** debido a su enfoque en seguridad y cumplimiento normativo, con soporte para OAuth2, autenticación basada en roles (RBAC) y registros de auditoría.
+
+### 2. Control de Seguridad
+- **Autenticación con OAuth2 y JWT** para garantizar que solo usuarios autorizados accedan a los datos.
+- **Cifrado de datos en tránsito** con HTTPS y TLS 1.2+.
+- **Reglas de acceso RBAC** para definir qué usuarios pueden acceder a información específica.
+
+### 3. Gestión del Tráfico y Monitoreo
+- **Rate Limiting**: Se limita el acceso a 50 solicitudes por minuto por usuario para evitar abusos.
+- **Alta disponibilidad y balanceo de carga**: Se distribuye el tráfico entre múltiples servidores.
+- **Monitoreo en tiempo real** con Grafana y Prometheus.
+
+### 4. Integración con Terceros
+- **Interoperabilidad con laboratorios**: Uso de FHIR (*Fast Healthcare Interoperability Resources*) para estandarizar el intercambio de datos médicos.
+- **Conexión con aseguradoras**: Implementación de webhooks y API Gateway para validar pagos y seguros en tiempo real.
+
 Con esta solución, el hospital garantiza un sistema seguro, escalable y compatible con regulaciones médicas, optimizando la experiencia de médicos y pacientes.
-

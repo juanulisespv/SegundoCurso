@@ -1,40 +1,42 @@
-Ejercicio 19. Estrategia de Testing para una Plataforma de Comercio Electrónico
-Una empresa de comercio electrónico está desarrollando una nueva versión de su plataforma web, que incluye las siguientes funcionalidades clave:
+# Ejercicio 19. Estrategia de Testing para una Plataforma de Comercio Electrónico
 
-Gestión de usuarios: Registro, inicio de sesión y recuperación de contraseñas.
-Catálogo de productos: Visualización, filtrado y búsqueda de productos.
-Carrito de compras y pagos: Agregar productos al carrito, procesar pagos con Stripe y PayPal.
-Sistema de pedidos: Seguimiento y notificación de envíos.
+## Contexto
+Una empresa de comercio electrónico está desarrollando una nueva versión de su plataforma web, que incluye las siguientes funcionalidades clave:
+- Gestión de usuarios: Registro, inicio de sesión y recuperación de contraseñas.
+- Catálogo de productos: Visualización, filtrado y búsqueda de productos.
+- Carrito de compras y pagos: Agregar productos al carrito, procesar pagos con Stripe y PayPal.
+- Sistema de pedidos: Seguimiento y notificación de envíos.
+
 El equipo de desarrollo ha solicitado definir una estrategia de pruebas para garantizar la calidad del software antes de su lanzamiento.
 
+## Tareas
+- **Definir los tipos de pruebas necesarias** (unitarias, integración, sistema, aceptación).
+- **Planificar pruebas no funcionales** (rendimiento, seguridad, usabilidad).
+- **Seleccionar herramientas adecuadas** para la ejecución de pruebas automatizadas y manuales.
+- **Establecer un proceso de reporte y seguimiento de errores**.
 
-Tareas a Resolver:
+## Solución Propuesta
 
-Definir los tipos de pruebas necesarias (unitarias, integración, sistema, aceptación).
-Planificar pruebas no funcionales (rendimiento, seguridad, usabilidad).
-Seleccionar herramientas adecuadas para la ejecución de pruebas automatizadas y manuales.
-Establecer un proceso de reporte y seguimiento de errores.
-1. Definir los Tipos de Pruebas Necesarias
-
+### 1. Definir los Tipos de Pruebas Necesarias
 Para asegurar la calidad del software, se implementarán las siguientes pruebas:
+- **Pruebas unitarias**: Validar que los módulos individuales funcionan correctamente (Ejemplo: función de validación de contraseñas).
+- **Pruebas de integración**: Verificar que los módulos interactúan sin errores (Ejemplo: integración entre carrito de compras y sistema de pago).
+- **Pruebas de sistema**: Evaluar la funcionalidad global de la plataforma (Ejemplo: flujo de compra completo).
+- **Pruebas de aceptación**: Realizar pruebas con usuarios finales para validar la experiencia del cliente.
 
-Pruebas unitarias: Validar que los módulos individuales funcionan correctamente (Ejemplo: función de validación de contraseñas).
-Pruebas de integración: Verificar que los módulos interactúan sin errores (Ejemplo: integración entre carrito de compras y sistema de pago).
-Pruebas de sistema: Evaluar la funcionalidad global de la plataforma (Ejemplo: flujo de compra completo).
-Pruebas de aceptación: Realizar pruebas con usuarios finales para validar la experiencia del cliente.
-2. Planificación de Pruebas No Funcionales
+### 2. Planificación de Pruebas No Funcionales
+- **Pruebas de rendimiento**: Simulación de múltiples usuarios concurrentes para medir tiempos de respuesta con JMeter.
+- **Pruebas de seguridad**: Uso de OWASP ZAP para detectar vulnerabilidades como inyección SQL o fallos en autenticación.
+- **Pruebas de usabilidad**: Evaluación con usuarios para optimizar la experiencia de compra y navegación.
 
-Pruebas de rendimiento: Simulación de múltiples usuarios concurrentes para medir tiempos de respuesta con JMeter.
-Pruebas de seguridad: Uso de OWASP ZAP para detectar vulnerabilidades como inyección SQL o fallos en autenticación.
-Pruebas de usabilidad: Evaluación con usuarios para optimizar la experiencia de compra y navegación.
-3. Selección de Herramientas
+### 3. Selección de Herramientas
+- **Selenium** para pruebas automatizadas en la interfaz gráfica.
+- **Postman** para pruebas en APIs REST.
+- **GitHub Actions** para integración de pruebas en CI/CD y ejecución automática en cada commit.
 
-Selenium para pruebas automatizadas en la interfaz gráfica.
-Postman para pruebas en APIs REST.
-GitHub Actions para integración de pruebas en CI/CD y ejecución automática en cada commit.
-4. Proceso de Reporte y Seguimiento de Errores
+### 4. Proceso de Reporte y Seguimiento de Errores
+- Uso de **JIRA** o **Trello** para registrar defectos detectados.
+- Clasificación de errores por severidad y prioridad.
+- Revisión periódica de métricas de calidad y tasa de resolución de errores.
 
-Uso de JIRA o Trello para registrar defectos detectados.
-Clasificación de errores por severidad y prioridad.
-Revisión periódica de métricas de calidad y tasa de resolución de errores.
 Implementar una estrategia de testing integral permitirá detectar errores antes del despliegue, optimizar el rendimiento y mejorar la seguridad de la plataforma. Con el uso de herramientas automatizadas y pruebas manuales, la empresa garantizará una experiencia de compra estable y segura para sus clientes.
